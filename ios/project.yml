@@ -1,0 +1,16 @@
+name: CanLII
+options:
+  bundleIdPrefix: com.joshua.canlii
+targets:
+  CanLII:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - CanLII
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.joshua.canlii
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        SWIFT_VERSION: 5.0
