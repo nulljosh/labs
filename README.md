@@ -1,6 +1,7 @@
 # Books
 
 A curated collection of book rankings based on Goodreads ratings and reviews.
+Live at [books.heyitsmejosh.com](https://books.heyitsmejosh.com).
 
 ## Files
 
