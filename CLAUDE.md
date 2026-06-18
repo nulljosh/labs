@@ -4,6 +4,8 @@
 
 Craigslist-style lost/found pet board: Next.js web app + SwiftUI iOS app sharing one Supabase backend. No auth — posts are public, editable only via a UUID `edit_token` link generated at post time.
 
+Deployed at pets.heyitsmejosh.com (Vercel). Backend lives on the shared `spark` Supabase project (ref `tjsxsqlxjmanwvmywwvw`), not a dedicated project — free-tier project limit is maxed, so this project's tables/bucket/RPC just sit alongside spark's own schema.
+
 ## Key files
 - `lib/supabase.ts` — web Supabase client + `Listing` type, shared by all pages
 - `supabase/migrations/0001_init.sql` — schema, RLS, storage bucket, `update_listing` RPC (the only way to mutate a listing's status, gated on `edit_token` matching)

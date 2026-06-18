@@ -2,6 +2,8 @@
 
 A Craigslist-style board for posting and finding lost/found pets — web app + native iOS app, shared Supabase backend.
 
+Live at [pets.heyitsmejosh.com](https://pets.heyitsmejosh.com).
+
 ## Stack
 - **Web**: Next.js 16 (App Router) + Tailwind, deployed to Vercel
 - **iOS**: SwiftUI, generated via XcodeGen, uses [supabase-swift](https://github.com/supabase/supabase-swift)
