@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="ui-monospace,monospace" font-size="13">
+  <style>
+    .box { fill: #fafafa; stroke: #27272a; stroke-width: 1.5; rx: 8; }
+    .label { fill: #18181b; text-anchor: middle; }
+    .sub { fill: #71717a; text-anchor: middle; font-size: 11; }
+    .line { stroke: #a1a1aa; stroke-width: 1.5; fill: none; }
+  </style>
+
+  <rect x="40" y="20" width="160" height="50" class="box"/>
+  <text x="120" y="50" class="label">Web (Next.js)</text>
+
+  <rect x="440" y="20" width="160" height="50" class="box"/>
+  <text x="520" y="50" class="label">iOS (SwiftUI)</text>
+
+  <path class="line" d="M120,70 V100 H520 V70"/>
+  <path class="line" d="M320,100 V130"/>
+
+  <rect x="230" y="130" width="180" height="46" class="box"/>
+  <text x="320" y="158" class="label">Supabase client</text>
+
+  <path class="line" d="M320,176 V200"/>
+  <path class="line" d="M120,200 H520"/>
+  <path class="line" d="M120,200 V230"/>
+  <path class="line" d="M320,200 V230"/>
+  <path class="line" d="M520,200 V230"/>
+
+  <rect x="30" y="230" width="180" height="56" class="box"/>
+  <text x="120" y="256" class="label">listings table</text>
+  <text x="120" y="272" class="sub">RLS + edit_token</text>
+
+  <rect x="230" y="230" width="180" height="56" class="box"/>
+  <text x="320" y="256" class="label">pet-photos bucket</text>
+  <text x="320" y="272" class="sub">public storage</text>
+
+  <rect x="430" y="230" width="180" height="56" class="box"/>
+  <text x="520" y="256" class="label">auth.users</text>
+  <text x="520" y="272" class="sub">login / register</text>
+</svg>

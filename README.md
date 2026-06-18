@@ -41,20 +41,9 @@ Set `SUPABASE_URL` / `SUPABASE_ANON_KEY` as scheme environment variables in Xcod
 - The web list view and iOS list view both read/write the same `listings` table directly via the Supabase client — no custom API server.
 
 ## Structure
-```
-                     ┌──────────────┐      ┌──────────────┐
-                     │   Web (Next) │      │  iOS (SwiftUI)│
-                     └──────┬───────┘      └──────┬───────┘
-                            │                      │
-                            └─────────┬────────────┘
-                                      │
-                              Supabase client
-                                      │
-                     ┌────────────────┼────────────────┐
-                     │                │                 │
-              listings table   pet-photos bucket   auth.users
-            (RLS + edit_token)                  (login/register)
+![architecture](docs/architecture.svg)
 
+```
 app/                    Next.js pages (list, post, detail, edit, login/register/reset)
 lib/supabase.ts         Supabase client + Listing type
 lib/AuthBar.tsx          Header auth status (log in / log out)
