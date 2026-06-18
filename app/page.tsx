@@ -1,65 +1,80 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { supabase, Listing } from "@/lib/supabase";
 
 export default function Home() {
+  const [listings, setListings] = useState<Listing[]>([]);
+  const [filter, setFilter] = useState<"all" | "lost" | "found">("all");
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    supabase
+      .from("listings")
+      .select("*")
+      .eq("status", "active")
+      .order("created_at", { ascending: false })
+      .then(({ data }) => setListings((data as Listing[]) ?? []));
+  }, []);
+
+  const filtered = listings.filter((l) => {
+    if (filter !== "all" && l.type !== filter) return false;
+    if (!query) return true;
+    const haystack = `${l.pet_name ?? ""} ${l.species} ${l.color ?? ""} ${l.last_seen_location}`.toLowerCase();
+    return haystack.includes(query.toLowerCase());
+  });
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="max-w-3xl mx-auto px-4 py-6 font-sans text-sm">
+      <header className="flex items-baseline justify-between border-b border-zinc-300 pb-2 mb-4">
+        <h1 className="text-xl font-bold">missing pets</h1>
+        <Link href="/post" className="text-blue-700 underline hover:text-blue-900">
+          post a listing
+        </Link>
+      </header>
+
+      <div className="flex gap-3 mb-4 items-center">
+        {(["all", "lost", "found"] as const).map((f) => (
+          <button
+            key={f}
+            onClick={() => setFilter(f)}
+            className={`px-2 py-1 border rounded ${
+              filter === f ? "bg-zinc-800 text-white" : "border-zinc-300"
+            }`}
+          >
+            {f}
+          </button>
+        ))}
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="search name, species, location..."
+          className="ml-auto border border-zinc-300 rounded px-2 py-1 flex-1 max-w-xs"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
+
+      <ul className="divide-y divide-zinc-200">
+        {filtered.map((l) => (
+          <li key={l.id} className="py-2">
+            <Link href={`/listing/${l.id}`} className="flex items-baseline gap-2 hover:underline">
+              <span
+                className={`uppercase text-xs font-bold px-1 rounded ${
+                  l.type === "lost" ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"
+                }`}
+              >
+                {l.type}
+              </span>
+              <span className="font-medium">{l.pet_name || l.species}</span>
+              <span className="text-zinc-500">— {l.species}, {l.color}</span>
+              <span className="text-zinc-400 ml-auto">{l.last_seen_location}</span>
+            </Link>
+          </li>
+        ))}
+        {filtered.length === 0 && (
+          <li className="py-8 text-center text-zinc-400">no listings yet</li>
+        )}
+      </ul>
     </div>
   );
 }

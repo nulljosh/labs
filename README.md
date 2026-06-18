@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Missing Pets
 
-## Getting Started
+A Craigslist-style board for posting and finding lost/found pets — web app + native iOS app, shared Supabase backend.
 
-First, run the development server:
+## Stack
+- **Web**: Next.js 16 (App Router) + Tailwind, deployed to Vercel
+- **iOS**: SwiftUI, generated via XcodeGen, uses [supabase-swift](https://github.com/supabase/supabase-swift)
+- **Backend**: Supabase (Postgres + Storage), no auth — open posting with a private edit-token link (like Craigslist's edit links)
 
-```bash
+## Setup
+
+### 1. Supabase
+Create a new Supabase project, then run the migration:
+```
+supabase link --project-ref <your-ref>
+supabase db push
+```
+This creates the `listings` table, the `pet-photos` storage bucket, and the `update_listing` RPC used for the resolve flow.
+
+### 2. Web
+```
+cd missing-pets
+cp .env.local.example .env.local   # fill in your Supabase URL + anon key
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. iOS
+```
+cd ios
+xcodegen generate
+open MissingPets.xcodeproj
+```
+Set `SUPABASE_URL` / `SUPABASE_ANON_KEY` as scheme environment variables in Xcode (Product > Scheme > Edit Scheme > Run > Arguments), then build & run.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How it works
+- Anyone can post a listing (lost or found pet) with a photo, last-seen location, color/description, and an optional tag/tattoo/chip number.
+- No accounts. Posting returns a one-time edit link containing a UUID `edit_token`, used to mark the listing resolved later.
+- The web list view and iOS list view both read/write the same `listings` table directly via the Supabase client — no custom API server.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Structure
+```
+app/                    Next.js pages (list, post, detail, edit)
+lib/supabase.ts         Supabase client + Listing type
+supabase/migrations/    SQL schema, RLS policies, storage bucket
+ios/project.yml         XcodeGen spec
+ios/MissingPets/        SwiftUI source
+```
