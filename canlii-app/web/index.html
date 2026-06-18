@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CanLII Search</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>CanLII Search</h1>
+    <p class="subtitle">A clean wrapper around Canadian case law search</p>
+  </header>
+
+  <main>
+    <form id="search-form">
+      <select id="database"></select>
+      <input id="query" type="search" placeholder="Search case law..." autofocus />
+      <button type="submit">Search</button>
+    </form>
+
+    <p id="status"></p>
+    <ul id="results"></ul>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
