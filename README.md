@@ -20,6 +20,10 @@ npm install && npm run dev
 - Undo / Redo (50 steps)
 - Zinc dark design (Inter, indigo accents)
 
+## Architecture
+
+![architecture](architecture.svg)
+
 ## Stack
 
 Vite 6 + React 19. No external UI libraries.
