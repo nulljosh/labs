@@ -1,0 +1,64 @@
+<svg viewBox="0 0 680 420" width="680" height="420" xmlns="http://www.w3.org/2000/svg" style="font-family:monospace;background:#f8fafc;border-radius:12px">
+  <text x="340" y="28" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">books  --  Goodreads Book Rankings</text>
+
+  <!-- Root node -->
+  <rect x="265" y="48" width="150" height="36" rx="8" fill="#0071e3"/>
+  <text x="340" y="70" text-anchor="middle" font-size="11" fill="white" font-weight="bold">books/</text>
+
+  <!-- Dashed lines from root -->
+  <line x1="305" y1="84" x2="100" y2="150" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="325" y1="84" x2="240" y2="150" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="345" y1="84" x2="360" y2="150" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="365" y1="84" x2="480" y2="150" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="375" y1="84" x2="590" y2="150" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- index.html -->
+  <rect x="20" y="150" width="160" height="36" rx="8" fill="#fbbf24"/>
+  <text x="100" y="168" text-anchor="middle" font-size="11" fill="#1e293b" font-weight="bold">index.html</text>
+  <text x="100" y="180" text-anchor="middle" font-size="9" fill="#64748b">interactive rankings UI</text>
+
+  <!-- reading-tracker.py -->
+  <rect x="185" y="150" width="110" height="36" rx="8" fill="#818cf8"/>
+  <text x="240" y="165" text-anchor="middle" font-size="10" fill="white">reading-tracker</text>
+  <text x="240" y="180" text-anchor="middle" font-size="9" fill="#e0e7ff">.py</text>
+
+  <!-- design-tokens.css -->
+  <rect x="300" y="150" width="120" height="36" rx="8" fill="#7dd3fc"/>
+  <text x="360" y="165" text-anchor="middle" font-size="10" fill="#0c4a6e">design-tokens</text>
+  <text x="360" y="180" text-anchor="middle" font-size="9" fill="#64748b">.css</text>
+
+  <!-- book_rankings -->
+  <rect x="425" y="150" width="110" height="36" rx="8" fill="#86efac"/>
+  <text x="480" y="165" text-anchor="middle" font-size="10" fill="#14532d">book_rankings</text>
+  <text x="480" y="180" text-anchor="middle" font-size="9" fill="#64748b">.md / .txt</text>
+
+  <!-- LICENSE + README -->
+  <rect x="540" y="150" width="130" height="36" rx="8" fill="#86efac"/>
+  <text x="605" y="168" text-anchor="middle" font-size="11" fill="#14532d">LICENSE / README</text>
+  <text x="605" y="180" text-anchor="middle" font-size="9" fill="#64748b">MIT 2026</text>
+
+  <!-- UI Features -->
+  <text x="100" y="240" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e293b">UI Features</text>
+  <line x1="100" y1="186" x2="100" y2="255" stroke="#fbbf24" stroke-width="1.5"/>
+
+  <rect x="20" y="255" width="160" height="32" rx="6" fill="#fef3c7"/>
+  <text x="100" y="275" text-anchor="middle" font-size="10" fill="#92400e">Apple Liquid Glass design</text>
+
+  <line x1="100" y1="287" x2="100" y2="303" stroke="#fbbf24" stroke-width="1.5"/>
+  <rect x="20" y="303" width="160" height="32" rx="6" fill="#fef3c7"/>
+  <text x="100" y="323" text-anchor="middle" font-size="10" fill="#92400e">Glassmorphic book cards</text>
+
+  <line x1="100" y1="335" x2="100" y2="351" stroke="#fbbf24" stroke-width="1.5"/>
+  <rect x="20" y="351" width="160" height="32" rx="6" fill="#fef3c7"/>
+  <text x="100" y="371" text-anchor="middle" font-size="10" fill="#92400e">Goodreads rating display</text>
+
+  <!-- Top books -->
+  <rect x="240" y="255" width="420" height="155" rx="8" fill="#f1f5f9"/>
+  <text x="450" y="278" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">Top Ranked Books</text>
+  <text x="450" y="300" text-anchor="middle" font-size="10" fill="#475569">1. The Battle of Midway (4.39)</text>
+  <text x="450" y="320" text-anchor="middle" font-size="10" fill="#475569">2. The Making of the Atomic Bomb (4.38)</text>
+  <text x="450" y="340" text-anchor="middle" font-size="10" fill="#475569">3. Killing the Rising Sun (4.35)</text>
+  <text x="450" y="360" text-anchor="middle" font-size="10" fill="#475569">4. Make It, Don't Fake It (4.34)</text>
+  <text x="450" y="385" text-anchor="middle" font-size="10" fill="#64748b">Source: Goodreads ratings</text>
+  <text x="450" y="402" text-anchor="middle" font-size="10" fill="#64748b">Exported: book_rankings.md</text>
+</svg>
