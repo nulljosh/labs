@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="ui-monospace,monospace" font-size="13">
+  <rect width="640" height="320" fill="#1c1917"/>
   <style>
-    .box { fill: #fafafa; stroke: #27272a; stroke-width: 1.5; rx: 8; }
-    .label { fill: #18181b; text-anchor: middle; }
-    .sub { fill: #71717a; text-anchor: middle; font-size: 11; }
-    .line { stroke: #a1a1aa; stroke-width: 1.5; fill: none; }
+    .box { fill: #27241f; stroke: #f59e0b; stroke-width: 1.5; rx: 8; }
+    .label { fill: #fafaf9; text-anchor: middle; }
+    .sub { fill: #d6a843; text-anchor: middle; font-size: 11; }
+    .line { stroke: #9c9a96; stroke-width: 1.5; fill: none; }
   </style>
 
   <rect x="40" y="20" width="160" height="50" class="box"/>
@@ -15,7 +16,7 @@
   <path class="line" d="M120,70 V100 H520 V70"/>
   <path class="line" d="M320,100 V130"/>
 
-  <rect x="230" y="130" width="180" height="46" class="box"/>
+  <rect x="230" y="130" width="180" height="46" style="fill:#3a2a10;stroke:#f59e0b;stroke-width:2;rx:8"/>
   <text x="320" y="158" class="label">Supabase client</text>
 
   <path class="line" d="M320,176 V200"/>
