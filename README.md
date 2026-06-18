@@ -51,8 +51,3 @@ supabase/migrations/    SQL schema, RLS policies, storage bucket, auth column
 ios/project.yml         XcodeGen spec
 ios/MissingPets/        SwiftUI source
 ```
-
-## Haiku
-> empty board, no name —
-> a stranger's cat finds a stranger
-> token, then a home
