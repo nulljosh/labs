@@ -1,3 +1,5 @@
+<img src="icon.svg" width="80">
+
 # Books
 
 A curated collection of book rankings based on Goodreads ratings and reviews.
