@@ -290,15 +290,11 @@ Books are scored using a weighted algorithm:
 **Rating:** 3.47/5 | **Reviews:** 129 ratings
 **Notes:** The war over TikTok. Tech, politics, and national security collide.
 
-### 70. [The Shopify Story](https://www.goodreads.com/book/show/214187610-the-shopify-story) by Larry MacDonald
-**Rating:** 3.55/5 | **Reviews:** 38 ratings (Limited sample)
-**Notes:** How a startup rocketed to e-commerce giant by empowering millions of entrepreneurs.
-
-### 71. [The Secret History of the World](https://www.goodreads.com/book/show/7815620-the-secret-history-of-the-world) by Mark Booth
+### 70. [The Secret History of the World](https://www.goodreads.com/book/show/7815620-the-secret-history-of-the-world) by Mark Booth
 **Rating:** 3.44/5 | **Reviews:** 617 ratings
 **Notes:** Occult/esoteric history.
 
-### 72. [Entrepreneurship for Dummies](https://www.goodreads.com/book/show/2085700.Entrepreneurship_for_Dummies) by Kathleen Allen
+### 71. [Entrepreneurship for Dummies](https://www.goodreads.com/book/show/2085700.Entrepreneurship_for_Dummies) by Kathleen Allen
 **Rating:** 3.65/5 | **Reviews:** 34 ratings (Limited sample)
 **Notes:** Basic business startup guide.
 
