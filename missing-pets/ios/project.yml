@@ -1,0 +1,21 @@
+name: MissingPets
+options:
+  bundleIdPrefix: com.nulljosh
+targets:
+  MissingPets:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - MissingPets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nulljosh.missingpets
+        INFOPLIST_KEY_NSCameraUsageDescription: "To attach a photo of the pet to your listing"
+        INFOPLIST_KEY_NSPhotoLibraryUsageDescription: "To attach a photo of the pet to your listing"
+    dependencies:
+      - package: Supabase
+packages:
+  Supabase:
+    url: https://github.com/supabase/supabase-swift
+    from: 2.0.0
