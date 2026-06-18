@@ -1,5 +1,3 @@
-@AGENTS.md
-
 # Missing Pets — project notes
 
 Craigslist-style lost/found pet board: Next.js web app + SwiftUI iOS app sharing one Supabase backend. No auth — posts are public, editable only via a UUID `edit_token` link generated at post time.
@@ -15,6 +13,7 @@ Deployed at pets.heyitsmejosh.com (Vercel). Backend lives on the shared `spark` 
 - `app/listing/edit/page.tsx` — token-gated resolve flow
 - `ios/project.yml` — XcodeGen spec; regenerate the `.xcodeproj` with `xcodegen generate` after changing this or adding new Swift files
 - `ios/MissingPets/SupabaseClient.swift` — reads `SUPABASE_URL`/`SUPABASE_ANON_KEY` from process environment (set via Xcode scheme, not a plist)
+- `lib/AuthBar.tsx` — header auth status widget; `app/login`, `app/register`, `app/forgot-password`, `app/reset-password` — Supabase Auth pages. Posting still works anonymously (user_id is null); logged-in posts get `user_id` set and can be edited without the edit_token.
 
 ## Conventions
 - No server-side API routes — both clients (web, iOS) talk to Supabase directly.

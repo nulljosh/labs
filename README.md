@@ -42,9 +42,28 @@ Set `SUPABASE_URL` / `SUPABASE_ANON_KEY` as scheme environment variables in Xcod
 
 ## Structure
 ```
-app/                    Next.js pages (list, post, detail, edit)
+                     ┌──────────────┐      ┌──────────────┐
+                     │   Web (Next) │      │  iOS (SwiftUI)│
+                     └──────┬───────┘      └──────┬───────┘
+                            │                      │
+                            └─────────┬────────────┘
+                                      │
+                              Supabase client
+                                      │
+                     ┌────────────────┼────────────────┐
+                     │                │                 │
+              listings table   pet-photos bucket   auth.users
+            (RLS + edit_token)                  (login/register)
+
+app/                    Next.js pages (list, post, detail, edit, login/register/reset)
 lib/supabase.ts         Supabase client + Listing type
-supabase/migrations/    SQL schema, RLS policies, storage bucket
+lib/AuthBar.tsx          Header auth status (log in / log out)
+supabase/migrations/    SQL schema, RLS policies, storage bucket, auth column
 ios/project.yml         XcodeGen spec
 ios/MissingPets/        SwiftUI source
 ```
+
+## Haiku
+> empty board, no name —
+> a stranger's cat finds a stranger
+> token, then a home

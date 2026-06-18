@@ -24,9 +24,12 @@ export default function PostListing() {
       }
     }
 
+    const { data: session } = await supabase.auth.getSession();
+
     const { data, error } = await supabase
       .from("listings")
       .insert({
+        user_id: session.session?.user.id ?? null,
         type: form.get("type"),
         pet_name: form.get("pet_name"),
         species: form.get("species"),

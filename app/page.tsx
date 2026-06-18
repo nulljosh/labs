@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase, Listing } from "@/lib/supabase";
+import AuthBar from "@/lib/AuthBar";
 
 export default function Home() {
   const [listings, setListings] = useState<Listing[]>([]);
@@ -29,9 +30,12 @@ export default function Home() {
     <div className="max-w-3xl mx-auto px-4 py-6 font-sans text-sm">
       <header className="flex items-baseline justify-between border-b border-zinc-300 pb-2 mb-4">
         <h1 className="text-xl font-bold">missing pets</h1>
-        <Link href="/post" className="text-blue-700 underline hover:text-blue-900">
-          post a listing
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link href="/post" className="text-blue-700 underline hover:text-blue-900">
+            post a listing
+          </Link>
+          <AuthBar />
+        </div>
       </header>
 
       <div className="flex gap-3 mb-4 items-center">
