@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.0.2] — 2026-06-21
+
+- feat: PNG export + component search (web/iOS/macOS)
+- feat: mobile inspector slide-up toggle + dark mode
+- feat: mobile-first layout, CFA palette, portfolio token unification
+- fix: mobile layout overhaul — bottom bar, full-height canvas, touch placement, dark mode canvas
+- chore: architecture diagram, test workflow, version sync
+
 ## [v1.0.1] — 2026-05-22
 
 - cab9f3a1 chore(tally): reset to v1.0.0, trim changelog
