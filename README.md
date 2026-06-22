@@ -1,5 +1,7 @@
 # labs
 
+![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Flabs-black?logo=github)](https://github.com/nulljosh/labs)
+
 Consolidated small/experimental projects, each in its own subfolder with full original git history.
 
 - [`canlii-app`](./canlii-app) — CanLII case lookup app

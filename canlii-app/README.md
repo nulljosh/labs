@@ -2,6 +2,8 @@
 
 # CanLII App
 
+![license](https://img.shields.io/badge/license-MIT-green)
+
 A native iOS app and lightweight web wrapper for searching CanLII (Canadian case law and legislation), backed by a serverless proxy that keeps the CanLII API key off the client.
 
 ## Why
