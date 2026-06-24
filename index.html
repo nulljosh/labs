@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>myCapU Quick Access</title>
+<style>
+  body { font-family: -apple-system, sans-serif; max-width: 640px; margin: 60px auto; padding: 0 20px; color: #1a1a1a; }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.05rem; margin-top: 40px; }
+  .id { color: #666; margin-bottom: 32px; }
+  a.link { display: block; padding: 14px 16px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; color: #1a1a1a; }
+  a.link:hover { background: #f5f5f5; }
+  a.link span { display: block; font-size: 0.85rem; color: #666; margin-top: 2px; }
+  #countdown { padding: 14px 16px; border-radius: 8px; background: #eef4ff; margin-bottom: 24px; font-size: 0.95rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 8px; border-bottom: 1px solid #eee; }
+  input, select { font: inherit; padding: 6px; border: 1px solid #ccc; border-radius: 6px; }
+  #courseForm { display: flex; gap: 8px; margin: 12px 0; flex-wrap: wrap; }
+  #courseForm input { flex: 1; min-width: 90px; }
+  button { padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; background: #fff; cursor: pointer; }
+  button:hover { background: #f5f5f5; }
+  .gpa { font-weight: 600; }
+  .del { color: #c33; border: none; background: none; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1>myCapU Quick Access</h1>
+<div class="id">Student ID: 100203109</div>
+
+<div id="countdown"></div>
+
+<a class="link" href="https://adminp2.capilanou.ca:8443/BannerExtensibility/customPage/page/HOMEPAGE" target="_blank">
+  myCapU Home
+  <span>Personal Information / Student Services landing page</span>
+</a>
+<a class="link" href="https://adminp2.capilanou.ca:8443/BannerExtensibility/customPage/page/HOMEPAGE" target="_blank">
+  Prepare for Registration
+  <span>Time ticket, registration status, holds, pre-registration</span>
+</a>
+<a class="link" href="https://adminp2.capilanou.ca:8443/BannerExtensibility/customPage/page/HOMEPAGE" target="_blank">
+  Student Profile
+  <span>Biographical info, curriculum, advisors</span>
+</a>
+
+<h2>Grade Tracker <span class="gpa" id="gpaDisplay"></span></h2>
+<div id="courseForm">
+  <input id="cName" placeholder="Course (e.g. MATH 100)">
+  <input id="cCredits" placeholder="Credits" type="number" step="0.5">
+  <select id="cGrade">
+    <option value="4.33">A+ (4.33)</option>
+    <option value="4.0">A (4.0)</option>
+    <option value="3.67">A- (3.67)</option>
+    <option value="3.33">B+ (3.33)</option>
+    <option value="3.0" selected>B (3.0)</option>
+    <option value="2.67">B- (2.67)</option>
+    <option value="2.33">C+ (2.33)</option>
+    <option value="2.0">C (2.0)</option>
+    <option value="1.0">D (1.0)</option>
+    <option value="0">F (0)</option>
+  </select>
+  <button onclick="addCourse()">Add</button>
+</div>
+<table id="courseTable">
+  <thead><tr><th>Course</th><th>Credits</th><th>Grade</th><th></th></tr></thead>
+  <tbody></tbody>
+</table>
+
+<script>
+// Set your next registration/important date here (YYYY-MM-DD).
+const targetDate = null; // e.g. "2026-07-15"
+
+if (targetDate) {
+  const days = Math.ceil((new Date(targetDate) - new Date()) / 86400000);
+  document.getElementById('countdown').textContent =
+    days >= 0 ? `${days} day(s) until ${targetDate}` : `${targetDate} has passed`;
+} else {
+  document.getElementById('countdown').textContent =
+    'No date set — edit targetDate in index.html to track a registration/term deadline.';
+}
+
+const STORAGE_KEY = 'capu-courses';
+const load = () => JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+const save = (courses) => localStorage.setItem(STORAGE_KEY, JSON.stringify(courses));
+
+function render() {
+  const courses = load();
+  const tbody = document.querySelector('#courseTable tbody');
+  tbody.innerHTML = '';
+  let totalPoints = 0, totalCredits = 0;
+  courses.forEach((c, i) => {
+    totalPoints += c.grade * c.credits;
+    totalCredits += c.credits;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${c.name}</td><td>${c.credits}</td><td>${c.grade}</td>
+      <td><button class="del" onclick="removeCourse(${i})">remove</button></td>`;
+    tbody.appendChild(tr);
+  });
+  const gpa = totalCredits ? (totalPoints / totalCredits).toFixed(2) : '—';
+  document.getElementById('gpaDisplay').textContent = `GPA: ${gpa}`;
+}
+
+function addCourse() {
+  const name = document.getElementById('cName').value.trim();
+  const credits = parseFloat(document.getElementById('cCredits').value);
+  const grade = parseFloat(document.getElementById('cGrade').value);
+  if (!name || isNaN(credits)) return;
+  const courses = load();
+  courses.push({ name, credits, grade });
+  save(courses);
+  document.getElementById('cName').value = '';
+  document.getElementById('cCredits').value = '';
+  render();
+}
+
+function removeCourse(i) {
+  const courses = load();
+  courses.splice(i, 1);
+  save(courses);
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
