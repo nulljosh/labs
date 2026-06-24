@@ -16,6 +16,17 @@ npm run build
 - Apple Liquid Glass UI, dark mode only
 - Mobile-first responsive
 
+## iOS
+
+Thin WKWebView shell in `ios/` (xcodegen, no Capacitor — app has no native API needs). Serves the build over a custom `app://` scheme (not `file://`) since ES module scripts are blocked cross-origin under `file://`.
+
+```bash
+npm run build:ios            # builds to ios/web with relative asset paths
+cd ios && xcodegen generate && open Grapher.xcodeproj
+```
+
+No AppIcon asset catalog yet — generate one from `icon.svg` before App Store submission.
+
 ## Key files
 
 - `src/components/Graph.jsx` — canvas renderer, pan/zoom via ref transforms

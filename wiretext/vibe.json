@@ -1,0 +1,19 @@
+{
+  "source": "https://heyitsmejosh.com/tokens.css [data-theme=\"dark\"]",
+  "colors": {
+    "background": "#1A1A1A",
+    "surface": "#2a2118",
+    "surface2": "#332920",
+    "text": "#FFF8F0",
+    "muted": "rgba(255,248,240,0.45)",
+    "subtle": "rgba(255,248,240,0.65)",
+    "accent": "#5B9BD5",
+    "border2": "rgba(255,248,240,0.18)"
+  },
+  "typography": {
+    "fontFamily": "'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+    "headingFontFamily": "'Fraunces', Georgia, serif",
+    "fontMono": "'Berkeley Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace"
+  },
+  "note": "App is dark-mode only (data-theme=\"dark\" set in index.html); values pulled from src/tokens.css and index.css, mirrored from nulljosh.github.io/tokens.css"
+}

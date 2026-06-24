@@ -1,6 +1,6 @@
 # wiretext web
 
-v1.0.1 — Unicode wireframe tool. Vite + React 19. Dark Editorial design.
+v1.0.2 — Unicode wireframe tool. Vite + React 19. Dark Editorial design.
 
 ## Run
 
@@ -20,7 +20,18 @@ npm run build                # production build
 
 ## Design
 
-Zinc dark: `#09090b` bg, `#6366f1` indigo accent, `#f4f4f5` text, `#71717a` muted. Inter + monospace. Matches portfolio aesthetic.
+Dark-mode only (`data-theme="dark"` set in `index.html`), using the exact tokens from `nulljosh.github.io/tokens.css`: `#1A1A1A` bg, `#5B9BD5` accent, `#FFF8F0` text. Fraunces + DM Sans. Matches portfolio aesthetic exactly (was previously a zinc-palette approximation).
+
+## iOS
+
+Thin WKWebView shell in `ios/` (xcodegen, no Capacitor — app has no native API needs). Serves the build over a custom `app://` scheme (not `file://`) since ES module scripts are blocked cross-origin under `file://`.
+
+```bash
+npm run build:ios            # builds to ios/web with relative asset paths
+cd ios && xcodegen generate && open Wiretext.xcodeproj
+```
+
+No AppIcon asset catalog yet — generate one from `icon.svg` before App Store submission.
 
 ## Architecture
 
