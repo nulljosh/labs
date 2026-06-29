@@ -43,6 +43,8 @@
 [data-theme="dark"] {
   --bg: var(--charcoal);
   --bg2: #232323;
+  --surface: #2a2118;
+  --surface2: #332920;
   --text: var(--cream);
   --text2: rgba(255,248,240,0.65);
   --text3: rgba(255,248,240,0.3);
