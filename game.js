@@ -10,6 +10,13 @@ const TIME_LIMIT = 10;
 const HIGH_KEY = 'quotable_high_score';
 
 const $ = (id) => document.getElementById(id);
+
+$('theme-toggle').addEventListener('click', () => {
+  const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('theme', next);
+});
+
 const modeSelect = $('mode-select');
 const gameEl = $('game');
 const endEl = $('end');
