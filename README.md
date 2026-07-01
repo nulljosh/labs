@@ -2,7 +2,7 @@
 
 # Quotable
 
-![version](https://img.shields.io/badge/version-1.1.0-blue)
+![version](https://img.shields.io/badge/version-1.1.1-blue)
 
 Guess the movie from its quote. Multiple choice, plus a 10-second speed round with a score multiplier for fast answers.
 
