@@ -13,3 +13,28 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.quotable.mac
         MARKETING_VERSION: "1.0.0"
         CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: YES
+  QuotableTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - QuotableTests
+      - path: Quotable/Resources
+        type: folder
+        buildPhase: resources
+    dependencies:
+      - target: Quotable
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.quotable.mac.tests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  Quotable:
+    build:
+      targets:
+        Quotable: all
+        QuotableTests: [test]
+    test:
+      targets:
+        - QuotableTests
