@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuoteGuess</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>QuoteGuess</h1>
+      <div class="stats">
+        <span id="score">Score: 0</span>
+        <span id="streak">Streak: 0</span>
+      </div>
+    </header>
+
+    <div id="mode-select" class="panel">
+      <p>Guess the movie from the quote.</p>
+      <button id="start-normal">Play</button>
+      <button id="start-speed">Speed Round (10s)</button>
+    </div>
+
+    <div id="game" class="panel hidden">
+      <div class="timer-ring hidden" id="timer-ring">
+        <svg viewBox="0 0 36 36">
+          <path class="ring-bg" d="M18 2 a16 16 0 0 1 0 32 a16 16 0 0 1 0 -32" />
+          <path class="ring-fg" id="ring-fg" d="M18 2 a16 16 0 0 1 0 32 a16 16 0 0 1 0 -32" />
+        </svg>
+        <span id="timer-num"></span>
+      </div>
+      <blockquote id="quote"></blockquote>
+      <div id="options" class="options"></div>
+      <p id="feedback"></p>
+    </div>
+
+    <div id="end" class="panel hidden">
+      <h2>Game Over</h2>
+      <p id="final-score"></p>
+      <button id="restart">Play Again</button>
+    </div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

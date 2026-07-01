@@ -21,6 +21,7 @@ Open `http://localhost:8000`.
 - `index.html` / `style.css` / `game.js` — game
 - `quotes.json` — quote bank
 - `ios/` — basic SwiftUI wrapper (WKWebView)
+- `macos/` — basic SwiftUI wrapper (WKWebView, AppKit)
 
 ## License
 
