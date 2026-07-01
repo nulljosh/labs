@@ -30,7 +30,8 @@ function startGame(speed) {
   speedMode = speed;
   score = 0;
   streak = 0;
-  pool = shuffle(quotes);
+  const genre = $('genre').value;
+  pool = shuffle(genre === 'all' ? quotes : quotes.filter(q => q.genre === genre));
   updateStats();
   modeSelect.classList.add('hidden');
   endEl.classList.add('hidden');
