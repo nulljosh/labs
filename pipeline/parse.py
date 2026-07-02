@@ -21,7 +21,9 @@ DB = Path(__file__).parent / "root.sqlite"
 API = "https://en.wiktionary.org/w/api.php?action=parse&prop=wikitext&format=json&page={}"
 
 # etymology templates: {{inh|en|enm|water}}, {{der|...}}, {{bor|...}}, {{cog|...}}
-LINK_RE = re.compile(r"\{\{(inh|der|bor|cog)\|[^|]*\|([^|}]+)\|([^|}]*)")
+LINK_RE = re.compile(r"\{\{(inh\+?|der\+?|bor\+?|cog)\|[^|]*\|([^|}]+)\|([^|}]*)")
+# {{root|en|ine-pro|*wed-}} — lang is param 2, root form param 3
+ROOT_RE = re.compile(r"\{\{root\|[^|]*\|([^|}]+)\|([^|}]+)")
 
 REL = {"inh": "inherited", "der": "derived", "bor": "borrowed", "cog": "cognate"}
 
@@ -56,8 +58,10 @@ def main():
             if ancestor:
                 con.execute(
                     "INSERT INTO edges VALUES (?,?,?,?,?)",
-                    (word, "en", ancestor.strip(), lang.strip(), REL[kind]),
+                    (word, "en", ancestor.strip(), lang.strip(), REL[kind.rstrip("+")]),
                 )
+        for lang, form in ROOT_RE.findall(ety):
+            con.execute("INSERT INTO edges VALUES (?,?,?,?,?)", (word, "en", form.strip(), lang.strip(), "root"))
         print(f"{word}: {con.execute('SELECT COUNT(*) FROM edges WHERE word=?', (word,)).fetchone()[0]} edges")
     con.commit()
     con.close()
