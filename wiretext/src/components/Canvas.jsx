@@ -48,7 +48,7 @@ export default function Canvas({
     ctx.fillStyle = darkMode ? '#0d0c0b' : '#faf7f4';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = darkMode ? 'rgba(242,237,232,0.1)' : 'rgba(26,22,18,0.1)';
+    ctx.fillStyle = darkMode ? 'rgba(232,232,240,0.1)' : 'rgba(37,42,73,0.1)';
     for (let r = 0; r <= rows; r++) {
       for (let c = 0; c <= cols; c++) {
         ctx.fillRect(Math.round(c * charW), r * charH, 1, 1);

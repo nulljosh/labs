@@ -19,11 +19,11 @@
 }
 
 [data-theme="dark"] {
-  --surface: #2a2118;
-  --surface2: #332920;
-  --border2: rgba(255,248,240,0.18);
-  --muted: rgba(255,248,240,0.45);
-  --subtle: rgba(255,248,240,0.65);
+  --surface: #1a1a1a;
+  --surface2: #242424;
+  --border2: rgba(232,232,240,0.18);
+  --muted: rgba(232,232,240,0.45);
+  --subtle: rgba(232,232,240,0.65);
 }
 
 html, body, #root {
@@ -53,5 +53,5 @@ body {
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(26,22,18,0.3);
+  background: rgba(37,42,73,0.3);
 }

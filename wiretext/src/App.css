@@ -224,3 +224,19 @@
     background: var(--surface2);
   }
 }
+
+/* First-run tour */
+.tour-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center;
+}
+.tour-card {
+  background: var(--bg, #1a1a1a); color: var(--text, #e8e8f0);
+  border: 1px solid var(--border, rgba(232,232,240,0.1));
+  border-radius: var(--radius-lg, 12px);
+  padding: 28px 32px; max-width: 420px; width: 90%;
+}
+.tour-card h2 { margin: 0 0 14px; font-size: 18px; }
+.tour-card ol { margin: 0 0 20px; padding-left: 20px; line-height: 1.8; font-size: 14px; color: var(--text2, rgba(232,232,240,0.6)); }
+.tour-card .btn { width: 100%; }

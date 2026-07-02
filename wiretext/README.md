@@ -1,7 +1,7 @@
-<img src="icon.svg" width="80">
+<img src="icon.svg" width="80" style="border-radius:18px">
 
 # wiretext
-![version](https://img.shields.io/badge/version-v1.0.1-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-v1.1.0-blue)
 
 Unicode wireframe design tool. Click components from the palette, place them on a monospace character canvas, export as plain text.
 
