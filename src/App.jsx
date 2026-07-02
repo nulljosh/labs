@@ -83,6 +83,11 @@ export default function App() {
     const saved = localStorage.getItem('wiretext-theme');
     return saved === 'dark';
   });
+  const [showTour, setShowTour] = useState(() => !localStorage.getItem('wiretext-tour-seen'));
+  const dismissTour = useCallback(() => {
+    localStorage.setItem('wiretext-tour-seen', '1');
+    setShowTour(false);
+  }, []);
 
   useEffect(() => {
     if (darkMode) {
@@ -166,6 +171,20 @@ export default function App() {
 
   return (
     <div className="app">
+      {showTour && (
+        <div className="tour-overlay" onClick={dismissTour}>
+          <div className="tour-card" onClick={(e) => e.stopPropagation()}>
+            <h2>Welcome to wiretext</h2>
+            <ol>
+              <li>Pick a component from the palette on the left.</li>
+              <li>Click anywhere on the canvas to stamp it — hover shows a preview.</li>
+              <li>Undo/Redo with Ctrl+Z / Ctrl+Y, Clear to start over.</li>
+              <li>Export your wireframe as plain text or PNG from the header.</li>
+            </ol>
+            <button className="btn btn-primary" onClick={dismissTour}>Start drawing</button>
+          </div>
+        </div>
+      )}
       <header className="app-header">
         <span className="app-title">wiretext</span>
 
