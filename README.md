@@ -6,8 +6,6 @@ Consolidated small/experimental projects, each in its own subfolder with full or
 
 - [`canlii-app`](./canlii-app) — CanLII case lookup app
 - [`missing-pets`](./missing-pets) — Craigslist-style board for posting and finding lost/found pets
-- [`wiretext`](./wiretext) — Unicode wireframe design tool — click, place, export as text
-- [`grapher`](./grapher) — Data visualization and charting utility
 - [`roost`](./roost) — BC real estate listings app with interactive map, search filters, and favorites
 - [`byo-bot`](./byo-bot) — Rule-based chat bot framework built from scratch in TypeScript
 - [`byo-kv-database`](./byo-kv-database) — Append-only log key-value database built from scratch in TypeScript
