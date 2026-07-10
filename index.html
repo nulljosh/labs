@@ -81,7 +81,7 @@ function tick(){
   }
   edges.forEach(([a,b])=>{let dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1;
     const f=(d-90)*.004;dx/=d;dy/=d;
-    a.vx+=dx*f*d;a.vy+=dy*f*d;b.vx-=dx*f*d;b.vy-=dy*f*d;});
+    a.vx+=dx*f*30;a.vy+=dy*f*30;b.vx-=dx*f*30;b.vy-=dy*f*30;});
   DATA.forEach(n=>{
     n.vx+=(W/2-n.x)*.0012;n.vy+=(H/2-n.y)*.0012;
     n.vx*=.86;n.vy*=.86;
