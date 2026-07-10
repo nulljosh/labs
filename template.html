@@ -2,25 +2,28 @@
 <meta charset="utf-8">
 <title>Memory Graph</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..500&display=swap" rel="stylesheet">
 <style>
+/* palette from heyitsmejosh.com tokens-sage.css, see design-tokens.css */
 :root{
-  --bg:#101512; --panel:#161d18; --line:#26302a; --text:#d6ddd6; --dim:#7e8a80;
-  --project:#8fa98f; --feedback:#c2a06b; --user:#7d97ad; --reference:#b08585;
-}
-@media (prefers-color-scheme: light){:root{
-  --bg:#f2f4f0; --panel:#ffffff; --line:#d8ded6; --text:#2a302b; --dim:#6d766e;
+  --bg:#fdfdfc; --panel:#ffffff; --line:#ededed; --text:#111; --dim:rgba(0,0,0,.4);
   --project:#5d7d5d; --feedback:#9a7a3f; --user:#4f6f8b; --reference:#96605f;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#111; --panel:#1a1a1a; --line:#2a2a2a; --text:#ededed; --dim:rgba(255,255,255,.45);
+  --project:#8fa98f; --feedback:#c2a06b; --user:#7d97ad; --reference:#b08585;
 }}
-:root[data-theme="dark"]{
-  --bg:#101512; --panel:#161d18; --line:#26302a; --text:#d6ddd6; --dim:#7e8a80;
-  --project:#8fa98f; --feedback:#c2a06b; --user:#7d97ad; --reference:#b08585;
-}
 :root[data-theme="light"]{
-  --bg:#f2f4f0; --panel:#ffffff; --line:#d8ded6; --text:#2a302b; --dim:#6d766e;
+  --bg:#fdfdfc; --panel:#ffffff; --line:#ededed; --text:#111; --dim:rgba(0,0,0,.4);
   --project:#5d7d5d; --feedback:#9a7a3f; --user:#4f6f8b; --reference:#96605f;
+}
+:root[data-theme="dark"]{
+  --bg:#111; --panel:#1a1a1a; --line:#2a2a2a; --text:#ededed; --dim:rgba(255,255,255,.45);
+  --project:#8fa98f; --feedback:#c2a06b; --user:#7d97ad; --reference:#b08585;
 }
 html,body{height:100%;margin:0;overflow:hidden}
-body{background:var(--bg);color:var(--text);font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+body{background:var(--bg);color:var(--text);font:460 13px/1.7 'Inter',-apple-system,system-ui,sans-serif;letter-spacing:-.006em}
 #c{position:fixed;inset:0;cursor:grab}
 #c.drag{cursor:grabbing}
 header{position:fixed;top:0;left:0;right:0;display:flex;align-items:baseline;gap:16px;
