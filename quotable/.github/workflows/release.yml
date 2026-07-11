@@ -1,0 +1,33 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+jobs:
+  release:
+    runs-on: macos-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install xcodegen
+        run: brew install xcodegen
+      - name: Generate project
+        run: cd macos && xcodegen generate
+      - name: Test
+        run: |
+          cd macos
+          xcodebuild test -project Quotable.xcodeproj -scheme Quotable -destination 'platform=macOS'
+      - name: Build
+        run: |
+          cd macos
+          xcodebuild build -project Quotable.xcodeproj -scheme Quotable -configuration Release \
+            -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO \
+            CONFIGURATION_BUILD_DIR=build
+      - name: Zip app
+        run: |
+          cd macos/build
+          zip -r ../../Quotable-macOS.zip Quotable.app
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: Quotable-macOS.zip
+          generate_release_notes: true

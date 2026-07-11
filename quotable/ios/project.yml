@@ -1,0 +1,19 @@
+name: QuoteGuess
+options:
+  bundleIdPrefix: com.heyitsmejosh
+targets:
+  QuoteGuess:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - QuoteGuess
+    info:
+      path: QuoteGuess/Info.plist
+      properties:
+        UILaunchScreen: {}
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.quoteguess
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
