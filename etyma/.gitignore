@@ -1,0 +1,9 @@
+*.sqlite
+*.sqlite-journal
+data/
+*.bz2
+*.xml
+__pycache__/
+xcuserdata/
+*.xcodeproj
+.DS_Store

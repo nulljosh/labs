@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="220" viewBox="0 0 720 220">
+  <rect width="720" height="220" style="fill:#ffffff"/>
+  <!-- nodes -->
+  <g style="font-family:-apple-system,Helvetica,sans-serif;font-size:14px">
+    <rect x="20" y="80" width="140" height="56" rx="12" style="fill:#f5f5f7;stroke:#d2d2d7"/>
+    <text x="90" y="104" text-anchor="middle" style="fill:#1d1d1f">Wiktionary</text>
+    <text x="90" y="122" text-anchor="middle" style="fill:#86868b;font-size:12px">dump / API</text>
+
+    <rect x="220" y="80" width="140" height="56" rx="12" style="fill:#f5f5f7;stroke:#d2d2d7"/>
+    <text x="290" y="104" text-anchor="middle" style="fill:#1d1d1f">parse.py</text>
+    <text x="290" y="122" text-anchor="middle" style="fill:#86868b;font-size:12px">etymology graph</text>
+
+    <rect x="420" y="80" width="140" height="56" rx="12" style="fill:#f5f5f7;stroke:#d2d2d7"/>
+    <text x="490" y="104" text-anchor="middle" style="fill:#1d1d1f">root.sqlite</text>
+    <text x="490" y="122" text-anchor="middle" style="fill:#86868b;font-size:12px">words + edges</text>
+
+    <rect x="620" y="16" width="80" height="44" rx="12" style="fill:#f5f5f7;stroke:#d2d2d7"/>
+    <text x="660" y="43" text-anchor="middle" style="fill:#1d1d1f">iOS</text>
+    <rect x="620" y="88" width="80" height="44" rx="12" style="fill:#f5f5f7;stroke:#d2d2d7"/>
+    <text x="660" y="115" text-anchor="middle" style="fill:#1d1d1f">Mac</text>
+    <rect x="620" y="160" width="80" height="44" rx="12" style="fill:#f5f5f7;stroke:#d2d2d7"/>
+    <text x="660" y="187" text-anchor="middle" style="fill:#1d1d1f">Web</text>
+  </g>
+  <!-- lines -->
+  <g style="stroke:#86868b;stroke-width:1.5;fill:none">
+    <path d="M160 108 L220 108"/>
+    <path d="M360 108 L420 108"/>
+    <path d="M560 108 L620 38"/>
+    <path d="M560 108 L620 110"/>
+    <path d="M560 108 L620 182"/>
+  </g>
+</svg>

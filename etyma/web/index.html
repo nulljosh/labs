@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Etyma — dictionary + etymology</title>
+<style>
+  body { font-family: -apple-system, sans-serif; max-width: 640px; margin: 10vh auto; padding: 0 1rem; }
+  input { width: 100%; font-size: 1.25rem; padding: .75rem 1rem; border: 1px solid #ccc; border-radius: 10px; box-sizing: border-box; }
+  p.hint { color: #666; }
+  ul { list-style: none; padding: 0; margin-top: 1.5rem; }
+  li { padding: .5rem 0; border-bottom: 1px solid #eee; }
+  .lang { color: #888; font-size: .9rem; }
+</style>
+</head>
+<body>
+<h1>Etyma</h1>
+<input type="search" id="q" placeholder="Look up a word (try: water, mother, star)" autofocus>
+<p class="hint" id="hint">Sample dataset — 18 words traced to Proto-Indo-European.</p>
+<ul id="results"></ul>
+<script>
+let data = {};
+fetch('data.json').then(r => r.json()).then(d => data = d);
+
+document.getElementById('q').addEventListener('input', e => {
+  const word = e.target.value.trim().toLowerCase();
+  const results = document.getElementById('results');
+  const hint = document.getElementById('hint');
+  results.innerHTML = '';
+  if (!word) { hint.style.display = 'block'; return; }
+  hint.style.display = 'none';
+  const edges = data[word];
+  if (!edges) {
+    results.innerHTML = '<li>No entry yet — only a sample of 18 words so far.</li>';
+    return;
+  }
+  for (const e of edges) {
+    const li = document.createElement('li');
+    li.innerHTML = `${e.relation} from <strong>${e.ancestor}</strong> <span class="lang">(${e.lang})</span>`;
+    results.appendChild(li);
+  }
+});
+</script>
+</body>
+</html>
