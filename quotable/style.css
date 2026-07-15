@@ -1,7 +1,7 @@
 :root[data-theme="dark"] {
-  --bg: #171226;
-  --panel: #1e1e1e;
-  --panel2: #252525;
+  --bg: #111111;
+  --panel: #1a1a1a;
+  --panel2: #222222;
   --accent: #5B9BD5;
   --accent2: #3d7bb8;
   --good: #34c759;
@@ -11,9 +11,9 @@
   --border: rgba(232,232,240,0.10);
 }
 :root[data-theme="light"] {
-  --bg: #e8ecfb;
-  --panel: #ffffff;
-  --panel2: #eeeef0;
+  --bg: #ffffff;
+  --panel: #f5f5f5;
+  --panel2: #ededed;
   --accent: #3d7bb8;
   --accent2: #2c5f8f;
   --good: #248a3d;
@@ -169,3 +169,14 @@ blockquote {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   font-size: 0.9rem; font-weight: 700;
 }
+
+#art-flash {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+#art-flash.show { opacity: 0.35; }

@@ -5,41 +5,123 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Etyma — dictionary + etymology</title>
 <style>
-  body { font-family: -apple-system, sans-serif; max-width: 640px; margin: 10vh auto; padding: 0 1rem; }
-  input { width: 100%; font-size: 1.25rem; padding: .75rem 1rem; border: 1px solid #ccc; border-radius: 10px; box-sizing: border-box; }
-  p.hint { color: #666; }
-  ul { list-style: none; padding: 0; margin-top: 1.5rem; }
-  li { padding: .5rem 0; border-bottom: 1px solid #eee; }
-  .lang { color: #888; font-size: .9rem; }
+  :root {
+    --bg: #ffffff; --bg2: #f5f5f5; --text: #252a49; --text2: #666;
+    --accent: #5B9BD5; --border: #e8e8e8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111111; --bg2: #1a1a1a; --text: #e8e8f0; --text2: rgba(232,232,240,.6); --border: rgba(232,232,240,.1); }
+  }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--text); max-width: 640px; margin: 0 auto; padding: 6vh 1rem 4rem; }
+  h1 { font-size: 1.4rem; letter-spacing: -.02em; }
+  input { width: 100%; font-size: 1.25rem; padding: .75rem 1rem; border: 1px solid var(--border); border-radius: 10px; background: var(--bg2); color: var(--text); outline: none; }
+  input:focus { border-color: var(--accent); }
+  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; margin-top: 1.5rem; }
+  .card h2 { margin: 0 0 .25rem; font-size: 1.2rem; }
+  .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text2); margin-bottom: .5rem; }
+  .pos { color: var(--accent); font-size: .85rem; font-weight: 600; margin-top: .75rem; }
+  ol.defs { margin: .25rem 0 0; padding-left: 1.25rem; }
+  ol.defs li { margin: .3rem 0; line-height: 1.45; }
+  .chain { list-style: none; padding: 0; margin: .25rem 0 0; }
+  .chain li { padding: .45rem 0; border-bottom: 1px solid var(--border); }
+  .chain li:last-child { border-bottom: none; }
+  .chain .rel { color: var(--text2); font-size: .85rem; }
+  .chain .lang { color: var(--accent); font-size: .85rem; }
+  .muted { color: var(--text2); }
+  .attr { font-size: .75rem; color: var(--text2); margin-top: 2rem; }
+  .attr a { color: var(--accent); }
 </style>
 </head>
 <body>
 <h1>Etyma</h1>
-<input type="search" id="q" placeholder="Look up a word (try: water, mother, star)" autofocus>
-<p class="hint" id="hint">Sample dataset — 18 words traced to Proto-Indo-European.</p>
-<ul id="results"></ul>
+<input type="search" id="q" placeholder="Look up a word" autofocus autocapitalize="none">
+<div id="wotd"></div>
+<div id="out"></div>
+<p class="attr">Definitions and etymologies from <a href="https://en.wiktionary.org">Wiktionary</a> (CC BY-SA 4.0).</p>
 <script>
-let data = {};
-fetch('data.json').then(r => r.json()).then(d => data = d);
+const WOTD = ['water','mother','star','night','heart','fire','wind','tooth','name','wolf','snow','honey','door','ear','foot','knee','sun','moon','salt','seed','yoke','new','red','three','brother'];
+const LINK_RE = /\{\{(inh\+?|der\+?|bor\+?)\|[^|]*\|([^|}]+)\|([^|}]*)/g;
+const REL = { inh: 'inherited', der: 'derived', bor: 'borrowed' };
+const LANGS = { enm: 'Middle English', ang: 'Old English', 'gmw-pro': 'Proto-West Germanic', 'gem-pro': 'Proto-Germanic', 'ine-pro': 'Proto-Indo-European', la: 'Latin', 'la-med': 'Medieval Latin', grc: 'Ancient Greek', fro: 'Old French', fr: 'French', frm: 'Middle French', non: 'Old Norse', nl: 'Dutch', de: 'German', es: 'Spanish', it: 'Italian', 'itc-pro': 'Proto-Italic', ar: 'Arabic', sa: 'Sanskrit', enl: 'Late Middle English', 'NL.': 'New Latin', 'gkm': 'Byzantine Greek' };
 
-document.getElementById('q').addEventListener('input', e => {
+const $ = id => document.getElementById(id);
+const strip = s => s.replace(/<[^>]+>/g, '');
+
+async function definitions(word) {
+  const r = await fetch(`https://en.wiktionary.org/api/rest_v1/page/definition/${encodeURIComponent(word)}`);
+  if (!r.ok) return null;
+  const d = await r.json();
+  return (d.en || []).map(e => ({
+    pos: e.partOfSpeech,
+    defs: e.definitions.map(x => strip(x.definition)).filter(Boolean).slice(0, 4),
+  }));
+}
+
+async function etymology(word) {
+  const api = `https://en.wiktionary.org/w/api.php?action=parse&page=${encodeURIComponent(word)}&prop=wikitext&format=json&origin=*`;
+  const r = await fetch(api);
+  if (!r.ok) return [];
+  const d = await r.json();
+  const text = d.parse?.wikitext?.['*'] || '';
+  const m = text.match(/===?Etymology[^=]*===?\n([\s\S]*?)(\n===?[^=]|$)/);
+  if (!m) return [];
+  const chain = [];
+  for (const t of m[1].matchAll(LINK_RE)) {
+    const rel = REL[t[1].replace('+', '')];
+    const lang = LANGS[t[2]] || t[2];
+    const ancestor = t[3];
+    if (rel && ancestor) chain.push({ rel, lang, ancestor });
+    if (chain.length >= 10) break;
+  }
+  return chain;
+}
+
+function render(el, word, defs, chain) {
+  let html = `<div class="card"><h2>${word}</h2>`;
+  if (defs && defs.length) {
+    for (const g of defs) {
+      html += `<div class="pos">${g.pos}</div><ol class="defs">` +
+        g.defs.map(d => `<li>${d}</li>`).join('') + '</ol>';
+    }
+  } else {
+    html += '<p class="muted">No definition found.</p>';
+  }
+  if (chain.length) {
+    html += '<div class="card" style="margin:1rem -0.25rem -0.25rem"><div class="label">Origin</div><ul class="chain">' +
+      chain.map(c => `<li><span class="rel">${c.rel} from</span> <strong>${c.ancestor}</strong> <span class="lang">${c.lang}</span></li>`).join('') +
+      '</ul></div>';
+  }
+  el.innerHTML = html + '</div>';
+}
+
+async function lookup(word, el) {
+  el.innerHTML = '<p class="muted">Looking up…</p>';
+  try {
+    const [defs, chain] = await Promise.all([definitions(word), etymology(word)]);
+    if (!defs && !chain.length) { el.innerHTML = `<p class="muted">Nothing found for “${word}”.</p>`; return; }
+    render(el, word, defs, chain);
+  } catch {
+    el.innerHTML = '<p class="muted">Network error — try again.</p>';
+  }
+}
+
+let t = null;
+$('q').addEventListener('input', e => {
   const word = e.target.value.trim().toLowerCase();
-  const results = document.getElementById('results');
-  const hint = document.getElementById('hint');
-  results.innerHTML = '';
-  if (!word) { hint.style.display = 'block'; return; }
-  hint.style.display = 'none';
-  const edges = data[word];
-  if (!edges) {
-    results.innerHTML = '<li>No entry yet — only a sample of 18 words so far.</li>';
-    return;
-  }
-  for (const e of edges) {
-    const li = document.createElement('li');
-    li.innerHTML = `${e.relation} from <strong>${e.ancestor}</strong> <span class="lang">(${e.lang})</span>`;
-    results.appendChild(li);
-  }
+  clearTimeout(t);
+  if (!word) { $('out').innerHTML = ''; $('wotd').style.display = 'block'; return; }
+  $('wotd').style.display = 'none';
+  t = setTimeout(() => lookup(word, $('out')), 350);
 });
+
+// word of the day: stable per calendar day
+const day = Math.floor(Date.now() / 864e5);
+const w = WOTD[day % WOTD.length];
+$('wotd').innerHTML = '<div class="label" style="margin-top:1.5rem">Word of the day</div>';
+const wotdCard = document.createElement('div');
+$('wotd').appendChild(wotdCard);
+lookup(w, wotdCard);
 </script>
 </body>
 </html>

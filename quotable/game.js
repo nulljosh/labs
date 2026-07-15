@@ -146,6 +146,7 @@ function choose(opt, btn) {
     b.disabled = true;
   });
   if (correct) {
+    flashArt();
     streak++;
     const bonus = speedMode ? Math.max(1, Math.ceil(timeLeft)) : 1;
     score += 10 * bonus;
@@ -158,6 +159,23 @@ function choose(opt, btn) {
   }
   updateStats();
   setTimeout(nextQuestion, 1100);
+}
+
+let artEl = null;
+function flashArt() {
+  if (!current.art) return;
+  if (!artEl) {
+    artEl = document.createElement('div');
+    artEl.id = 'art-flash';
+    document.body.appendChild(artEl);
+  }
+  const img = new Image();
+  img.onload = () => {
+    artEl.style.backgroundImage = `url("${current.art}")`;
+    artEl.classList.add('show');
+    setTimeout(() => artEl.classList.remove('show'), 950);
+  };
+  img.src = current.art;
 }
 
 function updateStats() {
