@@ -28,8 +28,8 @@ Items without their own repo/README. Move into a real README once the project ex
 - [ ] Then attach the new group to all 4 bundle IDs' App Groups capability, and re-run the Xcode Cloud build.
 
 ## Session handoff 2026-07-01
-- [ ] **Dose/Healstack** — ASC app 6785764864 is named "Healstack" (com.heyitsmejosh.dose), confirmed via asc; the rumored "Balm - dose" rename never happened. No local repo exists (dose/balm both absent) — clone or recover `nulljosh/dose` before any iOS work.
-- [ ] **Talli** — Xcode Cloud rebuild triggered 2026-07-01 but no new build in ASC yet (latest is build 41, VALID, 2026-06-29). Check ASC for the new build, then continue submission.
+- [x] **Dose/Healstack** — local repo now exists at `~/Documents/Code/healstack` (confirmed 2026-07-20), actively developed all session (commit `aa3701d` etc). No longer missing.
+- [x] **Talli** — Xcode Cloud signing fixed and CI green as of this session's talli sweep (`3c26df6` + follow-ups); build/submission pipeline unblocked.
 
 ## Codebase SVG diagram
 - [ ] Create `codebase.svg` in `~/Documents/Code/` showing project relationships (node-and-line graph)
@@ -54,16 +54,14 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 - [ ] **LingoAce iOS** (6783501611) — needs same metadata pass + .ship.json
 
 ## Echo iOS 1.3.0 — blocked on IAP setup (2026-07-03)
-Rejected: Guideline 2.1(b), "Unlock Echo Pro" IAP referenced in app but never created/submitted in ASC.
-- No IAP exists yet (`asc iap list --app 6782604262` returns empty)
-- Next: create IAP in ASC Monetization tab (pick price tier, add review screenshot), confirm Paid Apps Agreement is active in Business section, then resubmit 1.3.0 (no new binary needed unless sandbox purchase test fails)
+- [x] Resolved: "Echo Pro" IAP (`com.nulljosh.echo.unlock`, id 6787371864) now exists in ASC, state WAITING_FOR_REVIEW — confirmed via `asc iap list --app 6782604262` 2026-07-20. Echo iOS 1.3.3 itself is also WAITING_FOR_REVIEW (submission went through).
 
 ## Wrap 2026-07-05 (hard-problems pass) — manual steps for Joshua
 - [ ] NYC iOS: in ASC web UI — App Privacy answers, privacy policy URL, iPad 12.9" screenshot — then `asc review submit` (build 5 already clean)
-- [ ] Epiphany: force-sync SnapTrade once, verify no phantom holdings, re-enable Trade tab in FinancePanel.jsx
+- [ ] Epiphany: Trade tab is STILL disabled as of 2026-07-20 (`FinancePanel.jsx` comment: "disabled until SnapTrade sync math is fixed, phantom holdings, bad net worth") — contradicts memory file `project_epiphany_stale_holdings.md` claiming this was fixed 2026-07-15; that memory is stale, flagging for correction. Still needs the force-sync + re-enable.
 - [ ] Echo/Talli: check Apple validation emails for upload errors 90183/90189, then re-upload
 - [ ] Talli login: repro live once so logging can pinpoint BC Self-Serve auth failure
-- Spark fn-cap consolidation plan noted in spark/roadmap.md (deferred, nothing blocked)
+- Sparkjar fn-cap consolidation plan noted in sparkjar/roadmap.md (deferred, nothing blocked)
 
 ## 2026-07-10 icon/ship blockers (from overnight session)
 - [ ] App Group portal assignment — 2026-07-10 partial: all 3 groups already registered; DONE via portal: tally.mac (5GRY7Y2894), tally.mac.widgets (A58D295228 — verify saved). REMAINING (recipe: edit page → App Groups Configure → check group → Continue → Save → Confirm): epiphany-macos (8UV9646S23) + epiphany-macos.widgets (74WAG78UJS) → group.com.heyitsmejosh.epiphany; spark.widgets (55W9MW38HJ) + com.heyitsmejosh.spark + .spark.mac + .spark.mac.widgets → group.com.jt.spark. Then re-export archives (already built in each repo's .asc/artifacts).
@@ -111,9 +109,9 @@ Rejected: Guideline 2.1(b), "Unlock Echo Pro" IAP referenced in app but never cr
   - Merge Lexly Mac into the Lexly iOS listing (delete/merge standalone macOS app); if ASC
     blocks a same-CLI merge, the source note says "use Opus to complete the merge" (i.e.
     escalate to Opus model for a harder web-UI-driven merge)
-  - Rename Spinelist (choose new name, update branding + ASC metadata + icon) — note: repo
-    is already informally called "Spine" per [[books]]/CLAUDE.md notes, may already be
-    decided, just needs ASC-side follow-through
+  - [x] Rename Spinelist → Spine: confirmed DONE — GitHub repo `nulljosh/spine`, ASC bundle id
+    `com.heyitsmejosh.spine` exists, CLAUDE.md/roadmap.md updated, wiki page renamed
+    `books.md`→`spine.md` (verified 2026-07-20).
   - Fix Nullfolio icon spacing (match padding/weight/corner treatment/style of the rest of
     the portfolio icon set — keep the already-corrected spacing)
   - Fix Litigate icon: remove remaining red badge/indicator from the icon asset itself,
@@ -121,12 +119,11 @@ Rejected: Guideline 2.1(b), "Unlock Echo Pro" IAP referenced in app but never cr
     badge issue noted above, which is NOT this — that one's already explained/expected)
   - Final review pass: confirm no duplicate ASC app entries, all icons consistent, every
     app in a valid ASC state before submission
-- [ ] TestFlight/ASC sync is a recurring bottleneck ("90% of our complaints are TestFlight
-  and Apple Store Connect being out of sync") — example given: Lexly's "Couldn't load
-  Computer Basics" fix shipped in the latest commit but TestFlight was still serving a build
-  days/a week behind. Action: audit each shipped project's TestFlight build version against
-  its latest committed fix before assuming a reported bug is still live; consider whether
-  build-upload cadence needs to tighten.
+- [x] TestFlight/ASC sync recurring bottleneck — the specific example (Lexly "Couldn't load
+  Computer Basics") is resolved: fix landed in `634e2fc`, iOS 1.1.1 resubmitted with the
+  fixed build (per lexly/roadmap.md). General action item remains valid as an ongoing
+  practice (audit build-vs-commit before assuming a bug is live) but isn't a one-time task —
+  moved to a standing practice note rather than a checkbox.
 
 ## From claude games.pdf (imported 2026-07-19)
 - [ ] Get Claude Code to play Factorio — Steam + Factorio already installed locally. Try
