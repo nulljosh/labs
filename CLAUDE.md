@@ -32,7 +32,7 @@
 |------|-------------|
 | **dotfiles** | Shell configs, api-gateway, kv-store, search-engine, applescripts/, vibe ref |
 | **labs** (`nulljosh/labs`) | Monorepo: roost, missing-pets, canlii-app, byo-*, capu. wiretext/grapher moved to their own repos 2026-07-04 |
-| **journal** (app: **Inkpress**, GitHub repo `inkpress`) | Jekyll blog. `journal.heyitsmejosh.com`. iOS: rebuilt as multi-feed RSS reader after 4.2 rejection, resubmitted 2026-07-19 (ASC 6787759999) |
+| **journal** (app: **Inkpress**, GitHub repo `inkpress`) | Jekyll blog. `journal.heyitsmejosh.com`. iOS: rebuilt as multi-feed RSS reader after 4.2 rejection (code done, commit 0ab2592) — NOT yet resubmitted, ASC 6787759999 submission 409ce5a3 still REJECTED/UNRESOLVED_ISSUES on the old pre-RSS build; still needs build+upload+resubmit |
 | **nulljosh.github.io** | Portfolio. `heyitsmejosh.com` |
 
 ## GitHub Repos (verified via `gh repo list` 2026-07-19)
@@ -86,7 +86,7 @@ Local-folder ≠ repo-name mappings: `books`→spine, `journal`→inkpress, `roo
 - **Upstash Redis** (epiphany): rotation pending — email auth failed. Fix: `security add-generic-password -s rotate-upstash-email -a email -w YOUR_EMAIL -U` then `/rotate upstash epiphany`
 
 ## Ship Status (most → least shipped, refresh as state changes)
-epiphany (live) > talli (3.5.5 submitted 07-19), echo iOS (1.3.3 submitted 07-19), lexly (1.1.1 waiting), litigate (1.0.1 waiting) > journal/inkpress (rejected: availability, dashboard-only) > echo Mac (blocked: pricing dashboard), healstack (blocked: screenshots+availability+demo acct), sparkjar (upload in progress 07-19) > bcgd (no ASC registration)
+epiphany (live) > talli (3.5.5 submitted 07-19), echo iOS (1.3.3 submitted 07-19), lexly (1.1.1 waiting), litigate (1.0.1 waiting) > journal/inkpress (rejected 4.2 minimum-functionality; RSS-reader fix coded but not yet built/resubmitted; also needs availability, dashboard-only) > echo Mac (blocked: pricing dashboard), healstack (blocked: screenshots+availability+demo acct), sparkjar (upload in progress 07-19) > bcgd (no ASC registration)
 
 ## Roadmap
 - **Payments infra** (from Asc.pdf note, imported 2026-07-19): hook up an RBC bank account and get Stripe working across any/all apps — needs Stripe reauthorization (and possibly a CLI). Not started; requires interactive/credentialed setup, flag before executing.
