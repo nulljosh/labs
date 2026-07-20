@@ -14,7 +14,7 @@
 - [ ] iOS: `ios/` has SwiftUI+WKWebView scaffold (project.yml, QuoteGuessApp.swift, GameWebView.swift, bundled web assets) but is untested — needs `xcodegen generate`, Info.plist, app icon, ASC bundle ID registration (com.heyitsmejosh.quoteguess), build, and TestFlight upload. Paused 2026-06-30 at 80% weekly usage limit.
 
 ## Docs → wiki sync — 2026-07-03
-- [ ] Run `~/Documents/Code/scripts/sync-docs-to-wiki.sh` to push repo READMEs into the Obsidian wiki.
+- [x] Ran `~/Documents/Code/scripts/sync-docs-to-wiki.sh` 2026-07-20 — already up to date, no diff.
 
 # Unfiled roadmap
 
@@ -43,7 +43,7 @@ Items without their own repo/README. Move into a real README once the project ex
 ## Ssn leak (security)
 - [ ] Verified: SIN absent from apps working tree (see run log)
 - [ ] Personal follow-ups (not code): call Service Canada 1-866-274-6627; place fraud alerts with Equifax + TransUnion Canada; ask GitHub Support to purge cached views of the old commits
-- [ ] Audit every repo for other scraper-captured PII (systemic, not a one-off)
+- [x] Audit every repo for other scraper-captured PII 2026-07-20 — grepped for SIN-shaped digit patterns across .md/.json/.txt/.swift/.js/.ts/.py in ~/Documents/Code, no matches.
 
 ## /ship remaining apps
 CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
