@@ -22,7 +22,7 @@
 | **life** | Therapy doc for Amanda. 32 sections, 21 SVG charts. Private | Web + iOS |
 | **nimble** | macOS menu bar app | nimble.heyitsmejosh.com DNS repointed to Vercel 2026-07-14; answer quality investigation queued |
 | **nyc** | Times Square city sim | Active |
-| **books** (app: **Spine**, GitHub repo `spine`) | Book summaries site. `spine.heyitsmejosh.com` (moved from books.* 2026-07-19); local folder still `books` | Has own CLAUDE.md |
+| **spine** (was `books`, folder renamed 2026-07-20) | Book summaries site. `spine.heyitsmejosh.com` | Has own CLAUDE.md |
 | **newsline** | RSS news reader (15 sources). `news.heyitsmejosh.com` | v0.2.0 live. Cloudflare Worker + static assets. Latest feed + bias tabs, Hacker News added 2026-07-19 |
 | **bcgd** | Garage-door dashboard. `bcgd.heyitsmejosh.com` | Recovered: web live, iOS verified in sim 2026-07-10; ASC app record + upload pending |
 | **canlii-app**, **agent-101** | Experimental, local only | Not standalone GitHub repos |
@@ -32,12 +32,12 @@
 |------|-------------|
 | **dotfiles** | Shell configs, api-gateway, kv-store, search-engine, applescripts/, vibe ref |
 | **labs** (`nulljosh/labs`) | Monorepo: roost, missing-pets, canlii-app, byo-*, capu. wiretext/grapher moved to their own repos 2026-07-04 |
-| **journal** (app: **Inkpress**, GitHub repo `inkpress`) | Jekyll blog. `journal.heyitsmejosh.com`. iOS: rebuilt as multi-feed RSS reader after 4.2 rejection (code done, commit 0ab2592) — NOT yet resubmitted, ASC 6787759999 submission 409ce5a3 still REJECTED/UNRESOLVED_ISSUES on the old pre-RSS build; still needs build+upload+resubmit |
+| **inkpress** (was `journal`, folder renamed 2026-07-20) | Jekyll blog. `journal.heyitsmejosh.com`. iOS: rebuilt as multi-feed RSS reader after 4.2 rejection (code done, commit 0ab2592) — NOT yet resubmitted, ASC 6787759999 submission 409ce5a3 still REJECTED/UNRESOLVED_ISSUES on the old pre-RSS build; still needs build+upload+resubmit |
 | **nulljosh.github.io** | Portfolio. `heyitsmejosh.com` |
 
 ## GitHub Repos (verified via `gh repo list` 2026-07-19)
 `abraham bank bcgd braingraph dotfiles echo epiphany etyma grapher healstack inkpress labs lexly litigate newsline nimble notes nulljosh.github.io nyc quotable sparkjar spine talli video-speed-ext wiretext`
-Local-folder ≠ repo-name mappings: `books`→spine, `journal`→inkpress, `root`→etyma. `life` and `canlii-app` are local-only. `braingraph` repo is retired (merged into notes) — candidate for archival.
+`books`→spine, `journal`→inkpress, and `root`→etyma folders were all renamed to match their repo names 2026-07-20 — no local-folder/repo-name mismatches remain. `life` and `canlii-app` are local-only. `braingraph` repo is retired (merged into notes) — candidate for archival.
 
 ## Gone (do not reference)
 - **Intentionally removed**: systems, beep, beep-web, missing-pets (top-level copy)
