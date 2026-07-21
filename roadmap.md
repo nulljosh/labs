@@ -17,6 +17,25 @@
 - [ ] **Sparkjar (step 6, deliberately NOT started)**: this app's `api/auth.js` delegates to 7 sub-handlers (GitHub OAuth, Apple sign-in, login, register, password-reset, account-deletion) using JWT (`jsonwebtoken`) + bcrypt (`bcryptjs`) + Supabase REST calls. This is a live authentication system, not a lift-and-shift — needs real testing (does `jsonwebtoken`/`bcryptjs` even run under Workers `nodejs_compat`? verify before porting) and should get its own dedicated session, not be rushed through in the same pass as the static/simple apps. Also still needs: 8 API handlers ported, 1 cron → Workers Cron Trigger, `@vercel/blob` (avatar.js) → R2.
 - [ ] **Epiphany (step 7) and talli (step 8)**: unchanged from original plan — epiphany has live users + gateway function + 3 crons + blob; talli needs a Puppeteer/Browser-Rendering redesign, not a port. Do not rush these.
 
+## Vercel to Cloudflare migration 2026-07-21 (easy batch)
+Scope: every static/simple repo, explicitly excluding epiphany/sparkjar/healstack/talli (live serverless + KV/Blob + Stripe/OAuth, deferred to their own session). All below built, deployed to Cloudflare Pages, verified 200 on the custom domain, then DNS-cut. Vercel projects left in place (not deleted) as rollback fallback.
+- [x] nulljosh.github.io — apex `heyitsmejosh.com` moved off Vercel (A→76.76.21.21) to Pages project `nulljosh-portfolio`. Note: most subdomains (www/abraham/notes/pdf/politics/quotable/spine/vibe) already pointed straight at GitHub Pages (`nulljosh.github.io`), untouched — only the apex itself was still on Vercel.
+- [x] litigate (`litigate.heyitsmejosh.com`) — ported `build.sh`'s Supabase env injection (URL/anon key pulled from `ios/Sources/Models/Store.swift`/`Info.plist`, shared spark project) into the deploy step manually since `.env.vercel` had blank placeholders. Left stale `brief.heyitsmejosh.com` CNAME untouched (already flagged for removal elsewhere).
+- [x] bcgd + bcgd-dashboard — two separate deploys resolved from one repo: `src/web` → `bcgd.heyitsmejosh.com`, `src/dashboard` (vite) → `bcgd-dashboard.heyitsmejosh.com`. This answers the CLAUDE.md "bcgd vs bcgd-dashboard" ambiguity — both are real, both now migrated.
+- [x] echo (landing, `echo/web`) → `echo.heyitsmejosh.com`
+- [x] nyc (`nyc/web`) → `nyc.heyitsmejosh.com`
+- [x] etyma → `etyma.heyitsmejosh.com`
+- [x] grapher → `grapher.heyitsmejosh.com`
+- [x] wiretext → `wiretext.heyitsmejosh.com` (was an A record to Vercel's IP, not CNAME — same pattern as cadence/pets, just had a repo to migrate)
+- [x] life (repo at `~/Documents/_external/life`, not under `~/Documents/Code`) → `life.heyitsmejosh.com`
+- [x] roost (`labs/roost`) → `roost.heyitsmejosh.com` — ported `vercel.json`'s security headers + CSP to Pages `_headers`, and its SPA rewrite to `_redirects`.
+- [x] inkpress/journal — reused existing `journal-heyitsmejosh` Pages project + custom domain from the 2026-07-20 session (already registered, just needed a fresh Jekyll build + redeploy); DNS flip was the only remaining step.
+- [x] lexly/lingo — reused existing `lexly-heyitsmejosh` project + registered domain from 2026-07-20; excluded `ios/` (963MB SwiftLint SPM checkout blew the 25MB Pages file limit) from the deploy dir. `functions/school/_middleware.js` (ported from the old Vercel `middleware.js`) already in place from last session, untouched.
+- [ ] **Skipped — missing-pets** (`labs/missing-pets`, `pets.heyitsmejosh.com`): looked easy (no `/api` routes) but is Next.js with a dynamic route (`app/listing/[id]`) fetched client-side from Supabase. Static export requires `generateStaticParams()`, which isn't feasible for a live database-driven listing page without either (a) a real Cloudflare adapter (`@cloudflare/next-on-pages`, keeps SSR) or (b) refactoring the route to a client-side shell that fetches by ID — either is a real change, not a lift-and-shift. Left on Vercel.
+- [ ] **Skipped — cadence, charters**: no local source exists for either (per CLAUDE.md, both were part of the 2026-06-22 accidental deletion). Can't migrate what isn't there — needs recovery first. Still live on Vercel, both domains untouched.
+- [ ] **Skipped — "web" Vercel project**: no custom domain attached, no obvious matching local repo (checked top-level `~/Documents/Code` and `labs/`). Flagging rather than guessing; likely an orphaned preview-only project, safe to ignore.
+- [x] Not touched, per explicit scope: epiphany, sparkjar, healstack, talli — healstack/lexly/journal/epiphany DNS-proxy prep from 2026-07-20 for the *hard* apps (see entries above) is unaffected; healstack specifically is still mid-migration from last session (Pages project deployed, domain pending) but deliberately left alone here since it's in the hard/deferred batch, not part of this pass.
+
 ## From Asc.pdf (imported 2026-07-14)
 - [ ] Spark rename — decide new name and rename repo/ASC/domain (Spark currently still under consideration, per user note "still a fucking mess"); scope tbd
 
