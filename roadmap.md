@@ -1,3 +1,13 @@
+## ASC apps status — 2026-07-21 (from Joshua's grid review)
+- [ ] Spinelist: needs rename (to Spine or TBD) + needs an icon
+- [ ] Epiphany + Talli Mac need merging into their iOS listings — same for Lexly + Echo. Goal: no separate Mac/iOS App Store apps, one listing per product (needs investigation into whether ASC supports this via "Add Platform" on the existing iOS record vs. the Mac listings being separate app records entirely — see litigate's discovery this session that mismatched bundle IDs mean separate app records with no merge path)
+- [ ] Inkpress: submission rejected, but it's now an RSS reader (post-rework) — re-check rejection reason, should pass this time
+- [ ] Nullfolio: needs an icon
+- [ ] Lexly iOS: rejected — pull the rejection message via ASC Resolution Center (same pattern used for Litigate this session)
+- [x] Litigate icon: confirmed fixed, looks good
+- [x] Healstack: confirmed looks good (pricing/availability/privacy/screenshots done this session, only blocker is regulated-medical-device declaration)
+- [x] Sparkjar: confirmed looks good
+
 ## Vercel → Cloudflare migration — 2026-07-18
 - [ ] Goal: move hosting off Vercel to Cloudflare Pages/Workers for all 8 apps that use Vercel (canlii-app, epiphany, healstack, journal, lexly, nulljosh.github.io, sparkjar, talli), consolidating onto one platform since DNS is already on Cloudflare.
 - [x] Piloted with journal (Jekyll, static, lowest risk): built `_site`, created Cloudflare Pages project `journal-heyitsmejosh`, deployed successfully (verified 200 on `journal-heyitsmejosh.pages.dev`).
