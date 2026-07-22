@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Last updated: 2026-07-21 Tuesday evening*
+*Last updated: 2026-07-21 Tuesday night*
 
 ## Environment
 - macOS Darwin 25.5.0 (arm64), Mac Mini M4
@@ -14,11 +14,11 @@
 |------|-------------|--------|
 | **epiphany** | Finance dashboard. `epiphany.heyitsmejosh.com` | v2.6.1+ live + App Store (id6779522175). Commodity/crypto enrichment + Yelp reviews + Pro gating shipped |
 | **healstack** (was dose; folder + GitHub repo now `healstack`) | Health/supplement tracker. `dose.heyitsmejosh.com` | v2.3.4 build valid on ASC, metadata prepped via asc CLI 2026-07-19; blocked: screenshots, availability (dashboard), demo account |
-| **sparkjar** (was spark, renamed 2026-07-18) | Idea forum, JWT auth. `sparkjar.heyitsmejosh.com` | v2.2.0 live. Mac ASC app registered (6786482755); iOS provisioning FIXED 2026-07-18 (see sparkjar/CLAUDE.md), archive builds clean, export/upload + bundle-ID rename (com.heyitsmejosh.spark → sparkjar) still pending |
-| **talli** | DTC/RDSP/CDB admin tool (renamed from tally 2026-06-22) | v3.5.5 SUBMITTED 2026-07-19 (Xcode Cloud SwiftLint fix); v3.5.4 live |
+| **sparkjar** (was spark, renamed 2026-07-18) | Idea forum, JWT auth. `sparkjar.heyitsmejosh.com` | v2.2.0 live. Mac 1.0 SUBMITTED 2026-07-21 night (MAC_APP_ID corrected in workflow). iOS provisioning FIXED 2026-07-18, archive builds clean. Bundle-ID rename (com.heyitsmejosh.spark → sparkjar) still pending |
+| **talli** | DTC/RDSP/CDB admin tool (renamed from tally 2026-06-22) | iOS v3.5.7 SUBMITTED 2026-07-21 night (stale MARKETING_VERSION fix); v3.5.6 live. Mac widget-fix build re-uploaded to correct app ID, pending |
 | **lexly** (was lingo/parlay) | Gamified language learning. GitHub: nulljosh/lexly | iOS + macOS v1.1.1 in App Review 2026-07-19; Pro un-paywalled, courses free |
-| **echo** | On-device speech transcription (WhisperKit). No cloud | iOS 1.3.3 SUBMITTED 2026-07-19; Universal Purchase merge underway; Mac blocked on pricing (dashboard) |
-| **litigate** (folder renamed from brief 2026-07-19) | Litigation tool (Trommel v. AG Canada + Trommel v. Trommel). Private | ios/ macos/ web/ subdirs; CanLII case-law search merged in as a tab 2026-07-19 |
+| **echo** | On-device speech transcription (WhisperKit). No cloud | iOS 1.3.3 SUBMITTED 2026-07-19. Mac 1.3.3 SUBMITTED 2026-07-21 night (bundle ID merge to iOS app, Universal Purchase). Both in review |
+| **litigate** (folder renamed from brief 2026-07-19) | Litigation tool (Trommel v. AG Canada + Trommel v. Trommel). Private | iOS 1.0.1 build 4 SUBMITTED 2026-07-21 night (name fix, support URL, account deletion). macOS app record doesn't exist yet—needs creation. CanLII case-law search merged in iOS as a tab 2026-07-19 |
 | **life** | Therapy doc for Amanda. 32 sections, 21 SVG charts. Private | Web + iOS |
 | **nimble** | macOS menu bar app | nimble.heyitsmejosh.com DNS repointed to Vercel 2026-07-14; answer quality investigation queued |
 | **nyc** | Times Square city sim | Active |
@@ -88,7 +88,7 @@
 - **Upstash Redis** (epiphany): rotation pending — email auth failed. Fix: `security add-generic-password -s rotate-upstash-email -a email -w YOUR_EMAIL -U` then `/rotate upstash epiphany`
 
 ## Ship Status (most → least shipped, refresh as state changes)
-epiphany (live) > talli (3.5.6 submitted 07-19), echo iOS (1.3.3 submitted 07-19), lexly (1.1.1 waiting 07-19), litigate (1.0.1 submitted 07-21), inkpress (1.0.2 waiting 07-21), echo Mac (1.3.3 waiting 07-21), healstack (2.3.4 ready, availability step pending) > sparkjar (2.2.0, provisioning fixed, archive clean) > bcgd (no ASC registration). Journal: Jekyll blog, live 2026-07-21
+epiphany (live) > talli (iOS 3.5.7 submitted 07-21, 3.5.6 live), echo iOS (1.3.3 submitted 07-19), lexly (1.1.1 waiting 07-19), litigate (1.0.1 submitted 07-21), inkpress (1.0.2 waiting 07-21), echo Mac (1.3.3 waiting 07-21), healstack (2.3.4 ready, availability step pending) > sparkjar (2.2.0, provisioning fixed, archive clean) > bcgd (no ASC registration). Journal: Jekyll blog, live 2026-07-21
 
 ## Roadmap
 - **Payments infra** (from Asc.pdf note, imported 2026-07-19): hook up an RBC bank account and get Stripe working across any/all apps — needs Stripe reauthorization (and possibly a CLI). Not started; requires interactive/credentialed setup, flag before executing.
