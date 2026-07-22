@@ -1,14 +1,14 @@
-## README refresh sweep — 2026-07-22 (started, paused on usage)
-Fixed 4 repos so far: epiphany (consolidated conflicting/stale broker-decision
-sections into one current one — Alpaca is default execution path, RBC/WS
-confirmed dead ends), talli (version badge 3.5.6→3.5.7), echo (version badge
-1.3.2→1.3.3), litigate (README still said "Brief"/`brief.heyitsmejosh.com` from
-before the 2026-07-18 rename — fixed title, domain, status). All committed+pushed.
-- [ ] Remaining repos not yet swept for README staleness (version badges,
-  renamed domains, stale status lines): healstack, sparkjar, lexly, inkpress,
-  journal, spine, newsline, bcgd, nyc, nimble, life, canlii-app, agent-101,
-  dotfiles, labs, nulljosh.github.io. Paused at 80%+ weekly Claude usage —
-  resume with a repo-by-repo README diff-against-CLAUDE.md pass next session.
+## README refresh sweep — 2026-07-22 — DONE, all repos checked
+Fixed 6 repos: epiphany (consolidated conflicting/stale broker-decision
+sections — Alpaca is default execution path, RBC/WS confirmed dead ends),
+talli (badge 3.5.6→3.5.7), echo (badge 1.3.2→1.3.3), litigate (README still
+said "Brief"/`brief.heyitsmejosh.com` from before the 2026-07-18 rename —
+fixed title/domain/status), lexly (badge 1.1.0→1.1.1), healstack (badge
+2.1.1→2.3.4). All committed+pushed.
+Checked, no drift found: sparkjar, inkpress, journal (already documents the
+inkpress split correctly), spine, newsline, bcgd, nyc, nimble, dotfiles,
+labs, nulljosh.github.io. life/canlii-app/agent-101 have no README by design
+(local-only experimental, not standalone GitHub repos per CLAUDE.md) — skipped.
 
 ## ASC apps status — 2026-07-21 (from Joshua's grid review)
 - [ ] Spinelist ASC app-name field (still shows "Spinelist", not "Spine") — attempted rename to "Spine" 2026-07-21, **rejected by Apple: name already taken by another developer account.** Also found conflicting ASC app-ID info between memory (`6787499076`/`6787499349`) and this session's `asc apps list` lookup (`6792376485`) — needs reconciling before any further naming action. Needs a real decision (new candidate name via `asc-name-creator` skill), not a guess — not attempted further this pass.
