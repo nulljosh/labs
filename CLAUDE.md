@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Last updated: 2026-07-21 Tuesday night*
+*Last updated: 2026-07-22 Wednesday night*
 
 ## Environment
 - macOS Darwin 25.5.0 (arm64), Mac Mini M4
@@ -22,7 +22,7 @@
 | **life** | Therapy doc for Amanda. 32 sections, 21 SVG charts. Private | Web + iOS |
 | **nimble** | macOS menu bar app | nimble.heyitsmejosh.com DNS repointed to Vercel 2026-07-14; answer quality investigation queued |
 | **nyc** | Times Square city sim | Active |
-| **spine** (was `books`, folder renamed 2026-07-20) | Book summaries site. `spine.heyitsmejosh.com` | Has own CLAUDE.md |
+| **spine** (was `books`, folder renamed 2026-07-20; iOS app renamed **Bindwise** 2026-07-22) | Book summaries site. `spine.heyitsmejosh.com` | Has own CLAUDE.md |
 | **newsline** | RSS news reader (15 sources). `news.heyitsmejosh.com` | v0.2.0 live. Cloudflare Worker + static assets. Latest feed + bias tabs, Hacker News added 2026-07-19 |
 | **bcgd** | Garage-door dashboard. `bcgd.heyitsmejosh.com` | Recovered: web live, iOS verified in sim 2026-07-10; ASC app record + upload pending |
 | **canlii-app**, **agent-101** | Experimental, local only | Not standalone GitHub repos |
@@ -88,7 +88,7 @@
 - **Upstash Redis** (epiphany): rotation pending — email auth failed. Fix: `security add-generic-password -s rotate-upstash-email -a email -w YOUR_EMAIL -U` then `/rotate upstash epiphany`
 
 ## Ship Status (most → least shipped, refresh as state changes)
-epiphany (live) > talli (iOS 3.5.7 submitted 07-21, 3.5.6 live), echo Mac (1.3.3 waiting), echo iOS (1.3.3 fixed+uploaded 07-22, submit pending on Apple-side lock), lexly (1.1.1 waiting 07-19), litigate (1.0.1 submitted 07-21), inkpress (1.0.2 waiting 07-21), healstack (1.0 WAITING_FOR_REVIEW, submitted 07-21), sparkjar (iOS+Mac 1.0 WAITING_FOR_REVIEW) > bcgd (registered 6791106082, age-rating fixed 07-22, still needs availability + submit). Journal: Jekyll blog, live 2026-07-21
+epiphany (live) > talli (iOS 3.5.7 submitted 07-21, 3.5.6 live), echo Mac (1.3.3 waiting), echo iOS (1.3.3 fixed+uploaded 07-22, submit pending on Apple-side lock), lexly (1.1.1 waiting 07-19), litigate (1.0.1 submitted 07-21), inkpress (1.0.2 waiting 07-21), healstack (1.0 WAITING_FOR_REVIEW, submitted 07-21), sparkjar (iOS+Mac 1.0 WAITING_FOR_REVIEW), portfolio-nullfolio (1.0 resubmitted 07-22 icon fix) > bcgd (registered 6791106082, age-rating fixed 07-22, icon redesigned 07-22, ready to submit). Journal: Jekyll blog, live 2026-07-21
 
 ## Roadmap
 - **Payments infra** (from Asc.pdf note, imported 2026-07-19): hook up an RBC bank account and get Stripe working across any/all apps — needs Stripe reauthorization (and possibly a CLI). Not started; requires interactive/credentialed setup, flag before executing.
