@@ -186,3 +186,6 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 - Talli 3.5.5/104 invalid-version email — likely moot, 3.5.6 already submitted same night, just confirm
 - CI failure "Prepare Build for App Store Connect failed" on commit "Fix Mac app icon rebrand, close out stale roadmap items" — repo not yet identified, grep git log across ~/Documents/Code/* to locate, then pull Xcode Cloud build log
 - Plan file: /Users/joshua/.claude/plans/witty-wondering-pine.md
+
+## Cloudflare migration (2026-07-21)
+- [ ] Full Vercel → Cloudflare migration, 9 repos (journal, lexly, nulljosh.github.io, grapher, wiretext, epiphany, sparkjar, healstack, talli) + nimble check. Phased plan (13-17 sessions) approved and saved: /Users/joshua/.claude/plans/bright-baking-lake.md — start with Phase 0 (reference doc + Cloudflare access confirm) next session, no DNS/production changes until each repo's explicit confirm gate.
