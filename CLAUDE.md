@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Last updated: 2026-07-22 Wednesday night*
+*Last updated: 2026-07-22 Wednesday night — Calculus for Dummies summary complete, spine/books finalized*
 
 ## Environment
 - macOS Darwin 25.5.0 (arm64), Mac Mini M4
@@ -22,7 +22,7 @@
 | **life** | Therapy doc for Amanda. 32 sections, 21 SVG charts. Private | Web + iOS |
 | **nimble** | macOS menu bar app | nimble.heyitsmejosh.com DNS repointed to Vercel 2026-07-14; answer quality investigation queued |
 | **nyc** | Times Square city sim | Active |
-| **spine** (was `books`, folder renamed 2026-07-20; iOS app renamed **Bindwise** 2026-07-22) | Book summaries site. `spine.heyitsmejosh.com` | Has own CLAUDE.md |
+| **spine** (was `books`, folder renamed 2026-07-20; iOS app renamed **Spinework** 2026-07-22, formerly Bindwise) | Book summaries site. `spine.heyitsmejosh.com` | Has own CLAUDE.md |
 | **newsline** | RSS news reader (15 sources). `news.heyitsmejosh.com` | v0.2.0 live. Cloudflare Worker + static assets. Latest feed + bias tabs, Hacker News added 2026-07-19 |
 | **bcgd** | Garage-door dashboard. `bcgd.heyitsmejosh.com` | Recovered: web live, iOS verified in sim 2026-07-10; ASC app record + upload pending |
 | **canlii-app**, **agent-101** | Experimental, local only | Not standalone GitHub repos |
