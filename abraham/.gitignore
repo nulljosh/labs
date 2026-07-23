@@ -1,0 +1,7 @@
+__pycache__/
+.env
+*.pyc
+contract.pdf
+leads.csv
+OPERATING_GUIDE.local.md
+plan.pdf
