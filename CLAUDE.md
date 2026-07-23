@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Last updated: 2026-07-22 Wednesday night — Calculus for Dummies summary complete, spine/books finalized*
+*Last updated: 2026-07-22 Wednesday night — Talli 3.5.8 + Inkpress live, app status refresh, security-sweep clean*
 
 ## Environment
 - macOS Darwin 25.5.0 (arm64), Mac Mini M4
@@ -13,18 +13,18 @@
 | Repo | Description | Status |
 |------|-------------|--------|
 | **epiphany** | Finance dashboard. `epiphany.heyitsmejosh.com` | v2.6.1+ live + App Store (id6779522175). Commodity/crypto enrichment + Yelp reviews + Pro gating shipped |
-| **healstack** (was dose; folder + GitHub repo now `healstack`) | Health/supplement tracker. `dose.heyitsmejosh.com` | v2.3.4 build valid on ASC, metadata prepped via asc CLI 2026-07-19; blocked: screenshots, availability (dashboard), demo account |
-| **sparkjar** (was spark, renamed 2026-07-18) | Idea forum, JWT auth. `sparkjar.heyitsmejosh.com` | v2.2.0 live. Mac 1.0 SUBMITTED 2026-07-21 night (MAC_APP_ID corrected in workflow). iOS provisioning FIXED 2026-07-18, archive builds clean. Bundle-ID rename (com.heyitsmejosh.spark → sparkjar) still pending |
-| **talli** | DTC/RDSP/CDB admin tool (renamed from tally 2026-06-22) | iOS v3.5.7 SUBMITTED 2026-07-21 night (stale MARKETING_VERSION fix); v3.5.6 live. Mac widget-fix build VALID (8b29a831, on iOS app 6782366555) but not yet submitted, awaiting user confirmation |
+| **healstack** (was dose; folder + GitHub repo now `healstack`) | Health/supplement tracker. `dose.heyitsmejosh.com` | v2.3.4 WAITING_FOR_REVIEW (2026-07-21). Metadata/pricing/availability/privacy set via asc CLI. Mac universal setup + Release build verified. Medical device declaration cleared 2026-07-21 |
+| **sparkjar** (was spark, renamed 2026-07-18) | Idea forum, JWT auth. `sparkjar.heyitsmejosh.com` | v2.2.0 live. Mac 1.0 SUBMITTED 2026-07-21 night (MAC_APP_ID corrected in workflow). iOS build VALID on ASC. iOS provisioning FIXED 2026-07-18, archive builds clean. Bundle-ID rename (com.heyitsmejosh.spark → sparkjar) still pending |
+| **talli** | DTC/RDSP/CDB admin tool (renamed from tally 2026-06-22) | iOS v3.5.8 SUBMITTED 2026-07-22 night (What's New sheet fix + dynamic version); v3.5.7 live. Mac widget-fix build VALID (8b29a831, on iOS app 6782366555) pending iOS review clear before submission |
 | **lexly** (was lingo/parlay) | Gamified language learning. GitHub: nulljosh/lexly | iOS + macOS v1.1.1 in App Review 2026-07-19; Pro un-paywalled, courses free |
-| **echo** | On-device speech transcription (WhisperKit). No cloud | Confirmed one app (6782604262, Universal Purchase) already serves iOS+macOS — no separate Mac project needed. Mac 1.3.3 WAITING_FOR_REVIEW. iOS 1.3.3 fixed 2026-07-22: 2.1(b) rejection root cause was `loadProduct()` silently failing with no retry; also no Paid Apps Agreement/bank account yet so IAP hardcoded unlocked (`isPro = true`) for v1, re-enable for v2. Build 202607212237 uploaded/VALID, attached to version — submit blocked by a transient Apple API lock on the old rejected submission, retry in a few hours (see roadmap.md). Orphan "Echo Transcribe Mac" (6783015101) still needs manual dashboard deletion |
-| **litigate** (folder renamed from brief 2026-07-19) | Litigation tool (Trommel v. AG Canada + Trommel v. Trommel). Private | iOS 1.0.1 build 4 SUBMITTED 2026-07-21 night (name fix, support URL, account deletion). macOS app record doesn't exist yet—needs creation. CanLII case-law search merged in iOS as a tab 2026-07-19 |
+| **echo** | On-device speech transcription (WhisperKit). No cloud | Confirmed one app (6782604262, Universal Purchase) already serves iOS+macOS — no separate Mac project needed. Mac 1.3.3 WAITING_FOR_REVIEW. iOS 1.3.3 SUBMITTED 2026-07-22 (cleared Apple transient lock). Both builds verified passing. Orphan "Echo Transcribe Mac" (6783015101) needs manual dashboard deletion (support ticket filed 2026-07-22, case 102949488998). IAP hardcoded unlocked (`isPro = true`) for v1, re-enable for v2 after Paid Apps Agreement setup |
+| **litigate** (folder renamed from brief 2026-07-19) | Litigation tool (Trommel v. AG Canada + Trommel v. Trommel). Private | iOS 1.0.1 b4 RESUBMITTED 2026-07-22 (Sign-in-with-Apple button removed). Mac 1.0.1 uploaded to unified iOS+Mac record. Both builds verified passing. CanLII case-law search merged in iOS as a tab 2026-07-19. Bundle ID remains com.nulljosh.brief (Apple-locked) |
 | **life** | Therapy doc for Amanda. 32 sections, 21 SVG charts. Private | Web + iOS |
 | **nimble** | macOS menu bar app | nimble.heyitsmejosh.com DNS repointed to Vercel 2026-07-14; answer quality investigation queued |
 | **nyc** | Times Square city sim | Active |
-| **spine** (was `books`, folder renamed 2026-07-20; iOS app renamed **Spinework** 2026-07-22, formerly Bindwise) | Book summaries site. `spine.heyitsmejosh.com` | Has own CLAUDE.md |
-| **newsline** | RSS news reader (15 sources). `news.heyitsmejosh.com` | v0.2.0 live. Cloudflare Worker + static assets. Latest feed + bias tabs, Hacker News added 2026-07-19 |
-| **bcgd** | Garage-door dashboard. `bcgd.heyitsmejosh.com` | Recovered: web live, iOS verified in sim 2026-07-10; ASC app record + upload pending |
+| **spine** (was `books`, folder renamed 2026-07-20; iOS app: Spinework 2026-07-22, formerly Bindwise/Spine) | Book summaries site. `spine.heyitsmejosh.com` | Site live with ML + Pre-Calc + Steve Jobs + Calculus summaries. App renamed Spinework due to App Store availability (2026-07-22). Icon redesigned (bright safety-orange garage-door motif). iOS v1.0 build 2 uploaded 2026-07-22 |
+| **newsline** | RSS news reader (15 sources). `news.heyitsmejosh.com` | v0.2.0 live. Cloudflare Worker + static assets. Latest feed + bias tabs, Hacker News added 2026-07-19. Security-sweep clean 2026-07-22 (wildcard CORS on read-only endpoint acceptable) |
+| **bcgd** | Garage-door dashboard. `bcgd.heyitsmejosh.com` | Web live; iOS verified in sim. Icon redesigned 2026-07-22 (bright safety-orange garage-door motif). ASC app record + upload pending |
 | **canlii-app**, **agent-101** | Experimental, local only | Not standalone GitHub repos |
 
 ### Infrastructure & Config
@@ -32,7 +32,7 @@
 |------|-------------|
 | **dotfiles** | Shell configs, api-gateway, kv-store, search-engine, applescripts/, vibe ref |
 | **labs** (`nulljosh/labs`) | Monorepo: roost, missing-pets, canlii-app, byo-*, capu. wiretext/grapher moved to their own repos 2026-07-04 |
-| **inkpress** | Multi-feed RSS/Atom reader, iOS only (ASC 6787759999). Split from `journal` repo 2026-07-21 — no shared code, subscribes to journal's feed.xml as a regular feed by default. v1.0.2 approved + live (2026-07-22, splash screen fixed) |
+| **inkpress** | Multi-feed RSS/Atom reader, iOS only (ASC 6787759999). Split from `journal` repo 2026-07-21 — no shared code, subscribes to journal's feed.xml as a regular feed by default. v1.0.2 APPROVED + LIVE (2026-07-22, splash screen fixed, multi-feed reader verified) |
 | **journal** | Jekyll blog. `journal.heyitsmejosh.com`. Split out of `inkpress` repo 2026-07-21 (was combined 2026-07-20 to 2026-07-21) — this repo is blog-only now |
 | **nulljosh.github.io** | Portfolio. `heyitsmejosh.com` |
 
