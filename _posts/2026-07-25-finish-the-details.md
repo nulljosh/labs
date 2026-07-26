@@ -31,9 +31,11 @@ Finally fixed the creepy portfolio avatar bug that's been bugging me — the old
 
 Built and uploaded a fresh Healstack v2.3.3 TestFlight build (202607261112) to App Store Connect now that the Home Screen display name bug was fixed. The app had been stuck showing "Dose" as the icon label because Info.plist never had a CFBundleDisplayName entry — it only existed in project.yml, which doesn't override a missing key. Added it directly to the plist, built, archived, and pushed to TestFlight. App Store submission is still blocked on screenshots and dashboard-only availability settings.
 
+Got a rejection from App Store Connect mid-task on Talli — turned out 3.5.8 wasn't actually new, it was already the live version, so Apple bounced it for version-train closure. Bumped to 3.5.9, archived and uploaded the same build, submitted it fresh, and it's now under review.
+
 ## Apps Summary
 
-**In review:** Talli v3.5.8 (submitted 07-22), Echo v1.3.3 iOS (submitted 07-22), Echo v1.3.3 Mac (submitted 07-21), Lexly v1.1.1 iOS + Mac (submitted 07-19), Litigate v1.0.1 build 4 (resubmitted 07-22), Healstack v1.0 (submitted 07-21), Inkpress v1.0.2 (approved 07-22, live).
+**In review:** Talli v3.5.9 (submitted 07-26), Echo v1.3.3 iOS (submitted 07-22), Echo v1.3.3 Mac (submitted 07-21), Lexly v1.1.1 iOS + Mac (submitted 07-19), Litigate v1.0.1 build 4 (resubmitted 07-22), Healstack v1.0 (submitted 07-21), Inkpress v1.0.2 (approved 07-22, live).
 
 **Live:** Epiphany v2.6.1 (Pro tier, Yelp venues, Stripe fixes), Sparkjar v2.2.0 (Mac live), Newsline v0.2.0 (15-outlet RSS reader), Spine (Cloudflare Pages; book summaries live), Quotable (icon redesigned 07-25).
 
