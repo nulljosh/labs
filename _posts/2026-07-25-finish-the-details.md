@@ -29,6 +29,8 @@ Late night found a stray autoplay bug in the NYC web port — colonists were get
 
 Finally fixed the creepy portfolio avatar bug that's been bugging me — the old background-removal script had punched transparent holes straight through the memoji's eyes and glasses, leaving them hollow and staring into the void. Regenerated the image properly using edge-flood-fill instead, and killed the tongue-sticking-out animation that had gotten glitchy. Portfolio avatar is back to looking friendly again instead of like a haunted possessed figure.
 
+Built and uploaded a fresh Healstack v2.3.3 TestFlight build (202607261112) to App Store Connect now that the Home Screen display name bug was fixed. The app had been stuck showing "Dose" as the icon label because Info.plist never had a CFBundleDisplayName entry — it only existed in project.yml, which doesn't override a missing key. Added it directly to the plist, built, archived, and pushed to TestFlight. App Store submission is still blocked on screenshots and dashboard-only availability settings.
+
 ## Apps Summary
 
 **In review:** Talli v3.5.8 (submitted 07-22), Echo v1.3.3 iOS (submitted 07-22), Echo v1.3.3 Mac (submitted 07-21), Lexly v1.1.1 iOS + Mac (submitted 07-19), Litigate v1.0.1 build 4 (resubmitted 07-22), Healstack v1.0 (submitted 07-21), Inkpress v1.0.2 (approved 07-22, live).
