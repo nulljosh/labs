@@ -7,13 +7,13 @@ categories: journal weekly
 
 ![Week of July 25](/assets/2026-07-25-finish-the-details.svg)
 
-## Friday (July 25)
+## Saturday (July 25)
 
 Spent the evening polishing half a dozen apps: removed the "LIVE" badges and gradient shine from Epiphany's landing page (they felt like placeholder copy), fixed Healstack's navbar safe-area overlap and completed the Dose → Healstack rename by adding the missing display name in Info.plist, cleaned up Lexly's subject navigation to horizontal-scroll-only and fixed a 404 on the school dashboard link, moved Talli's personal info fields from Reports into Settings with keychain persistence for the phone number, redesigned Quotable's icon as a text-free geometric mark, and fixed footer contrast on BCGD to meet WCAG AA.
 
 Most time tonight went to the portfolio DNS and Animoji avatar issues that had been burning cycles over the past week. Turns out the apex CNAME for heyitsmejosh.com was pointing at a stale Cloudflare Pages project while GitHub Pages was actually hosting the real build — pushes were going through fine but the domain kept serving old builds. Repointed it via the Cloudflare API. The avatar's "white outline in dark mode" mystery resolved too: the white matte wasn't a rendering bug, but 41 near-white anti-aliased edge pixels that were baked into the old PNG (the current asset has zero). That fix landed back on July 22 in the commit history, just never got served due to the DNS issue. Closed those items out.
 
-Also ran a machine cleanup: DerivedData was taking up 18GB, cleared it out and freed about 27GB of disk space total.
+Also ran a machine cleanup: DerivedData was taking up 18GB, cleared it out and freed about 27GB of disk space total. Wrapped the night by simplifying the wiki index — trimmed it from 726 to ~300 words with a cleaner `title — description` format, collapsing the 30-entry Sources wall to a single line and updating the index rules to forbid status/versions/dates from showing there (all detail lives on the entity pages instead).
 
 ## Apps Summary
 
