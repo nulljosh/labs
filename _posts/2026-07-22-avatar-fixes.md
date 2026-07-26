@@ -45,6 +45,14 @@ Wrapped up the night with cleanup and a fresh start on the book summary pipeline
 
 After-hours push: finished the whole IBS For Dummies 1-10 folder (94 images, pages 1–160, Introduction through Chapter 10) and validated the summary. About 85 more photographed pages are waiting in the remainder folder, but we're paused there due to usage limits again.
 
+## Saturday
+
+Built a new skill tonight called `ingest` that sweeps through Notes.app, files whatever I'd written down earlier into the matching project's roadmap based on the note's content, then deletes the note to clear the backlog. Ran the first pass: found 22 notes scattered across ideas for Litigate, Healstack, Echo, Lexly, Talli, Epiphany, BCGD, Spine, Inkpress, Quotable, the portfolio, and Sparkjar. Also had general notes about education plans and wiki ideas that went into the Obsidian vault. Filed them all and cleared Notes.app.
+
+One thing went sideways mid-run—while fixing a self-inflicted bug, I accidentally discarded some uncommitted changes to one app's config file. It was a git-level mistake, not code logic, and there's not a way to recover it via git (Time Machine might have it, but that's outside version control). Patched the skill afterwards to guard against it happening again: now checks diffs before doing any git operations, and matches existing roadmap filename case exactly instead of assuming variants.
+
+That's 12 repos touched tonight, all with the same "file notes into roadmap" commit. The real value is clearing out the notes backlog and seeing what themes rose to the top—turned out a lot of polish ideas across the active apps, some architectural notes for future design passes, and a few education-plan items queued for later.
+
 ## Apps Summary
 
 **Active:** Epiphany (v2.6.1 live, Mac 2.5.2 unified), Talli (iOS 3.5.8 submitted 07-22, Mac build VALID), Echo (iOS 1.3.3 submitted 07-22, Mac 1.3.3 unified), Lexly (1.1.1 in review, Mac merged, paid-content reply sent to Apple), Litigate (iOS 1.0.1 resubmitted 07-22 with Sign-in-with-Apple removed, Mac 1.0.1 uploaded — universal iOS+Mac on one record), Inkpress (1.0.2 approved + live), Healstack (1.0 waiting, Mac universal setup + Release verified), Sparkjar (Mac 1.0 submitted), BCGD (icon redesigned 07-22, ready to submit), Nullfolio (1.0 resubmitted with icon fix), Spinework — formerly Spine/Bindwise, "Spine" itself unavailable on the App Store (icon fixed, build 2 uploaded 07-22). **Orphaned (Apple support tickets filed 07-22, dashboard deletion still blocked):** Echo Transcribe Mac (case 102949488998), Lexly Mac (case 102949489427).
