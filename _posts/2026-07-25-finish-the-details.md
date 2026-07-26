@@ -25,6 +25,8 @@ Late evening I extended the "Living Well in a Down Economy For Dummies" book sum
 
 Discovered tonight that journal posts had silently stopped auto-deploying — I'd write an entry, commit it, and it would just sit in git while the live site kept showing the old version. Turned out the deploy.sh script was only wired into my manual workflow, not the commit hook, so entries weren't actually going live unless I ran it manually. Fixed it permanently by adding a deploy trigger to the global git post-commit hook at ~/.git-hooks/post-commit that watches for changes to _posts/ in the journal repo specifically and auto-runs deploy.sh after the commit succeeds. Tested it end-to-end, confirmed working, cleaned up the test files and pushed. This way it's impossible for new entries to silently stall again.
 
+Late night found a stray autoplay bug in the NYC web port — colonists were getting stuck in a loop where they'd auto-reassign themselves new gather jobs immediately after finishing one. The directive engine got removed back in early July, but the web build still had an unguarded jobTick call that was reassigning targets unconditionally. Pulled that out, and now colonists properly go idle after finishing a job and wait for the player to give them something new.
+
 ## Apps Summary
 
 **In review:** Talli v3.5.8 (submitted 07-22), Echo v1.3.3 iOS (submitted 07-22), Echo v1.3.3 Mac (submitted 07-21), Lexly v1.1.1 iOS + Mac (submitted 07-19), Litigate v1.0.1 build 4 (resubmitted 07-22), Healstack v1.0 (submitted 07-21), Inkpress v1.0.2 (approved 07-22, live).
