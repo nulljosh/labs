@@ -13,7 +13,7 @@ Spent the evening polishing half a dozen apps: removed the "LIVE" badges and gra
 
 Most time tonight went to the portfolio DNS and Animoji avatar issues that had been burning cycles over the past week. Turns out the apex CNAME for heyitsmejosh.com was pointing at a stale Cloudflare Pages project while GitHub Pages was actually hosting the real build — pushes were going through fine but the domain kept serving old builds. Repointed it via the Cloudflare API. The avatar's "white outline in dark mode" mystery resolved too: the white matte wasn't a rendering bug, but 41 near-white anti-aliased edge pixels that were baked into the old PNG (the current asset has zero). That fix landed back on July 22 in the commit history, just never got served due to the DNS issue. Closed those items out.
 
-Also ran a machine cleanup: DerivedData was taking up 18GB, cleared it out and freed about 27GB of disk space total. Wrapped the night by simplifying the wiki index — trimmed it from 726 to ~300 words with a cleaner `title — description` format, collapsing the 30-entry Sources wall to a single line and updating the index rules to forbid status/versions/dates from showing there (all detail lives on the entity pages instead).
+Also ran a machine cleanup: DerivedData was taking up 18GB, cleared it out and freed about 27GB of disk space total. Wrapped the night by simplifying the wiki index — trimmed it from 726 to ~300 words with a cleaner `title — description` format, collapsing the 30-entry `*-readme` sources wall into a single `*-readme.md` line documenting that those are read-only per-repo README snapshots, and updated the index rules to forbid status/versions/dates from showing anywhere (all detail lives on the entity pages instead).
 
 ## Apps Summary
 
