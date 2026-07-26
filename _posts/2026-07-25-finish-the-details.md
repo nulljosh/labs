@@ -33,6 +33,8 @@ Built and uploaded a fresh Healstack v2.3.3 TestFlight build (202607261112) to A
 
 Got a rejection from App Store Connect mid-task on Talli — turned out 3.5.8 wasn't actually new, it was already the live version, so Apple bounced it for version-train closure. Bumped to 3.5.9, archived and uploaded the same build, submitted it fresh, and it's now under review.
 
+Late in the night, cleaned up the pre-submission backlogs across three apps. Removed a stale "login broken" item from Talli's roadmap (confirmed the credentials still work), generated a QR code sticker asset linking to talli.heyitsmejosh.com, and pruned old ship-notes from Healstack since v1.0 is already in review. On Lexly, tackled the Guideline 1.5 rejection — the Support URL was pointing to the marketing homepage with zero actual support content. Built out a real support.html page covering account, password reset, and privacy details, deployed it live, and updated the App Store Connect listing. Also verified that the demo login credentials Apple claimed failed actually work fine via direct API test, so that part of the rejection isn't bad credentials — it's either a live Mac-specific sign-in bug or a one-off fluke. Flagged the Mac sign-in as needing a real device test before resubmitting Lexly.
+
 ## Apps Summary
 
 **In review:** Talli v3.5.9 (submitted 07-26), Echo v1.3.3 iOS (submitted 07-22), Echo v1.3.3 Mac (submitted 07-21), Lexly v1.1.1 iOS + Mac (submitted 07-19), Litigate v1.0.1 build 4 (resubmitted 07-22), Healstack v1.0 (submitted 07-21), Inkpress v1.0.2 (approved 07-22, live).
