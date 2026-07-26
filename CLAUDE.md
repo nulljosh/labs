@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Last updated: 2026-07-22 Wednesday night — Talli 3.5.8 + Inkpress live, app status refresh, security-sweep clean*
+*Last updated: 2026-07-26 Sunday night — Healstack v2.3.3 TestFlight build uploaded with CFBundleDisplayName fix, portfolio avatar fixed, NYC autoplay leak patched*
 
 ## Environment
 - macOS Darwin 25.5.0 (arm64), Mac Mini M4
@@ -13,7 +13,7 @@
 | Repo | Description | Status |
 |------|-------------|--------|
 | **epiphany** | Finance dashboard. `epiphany.heyitsmejosh.com` | v2.6.1+ live + App Store (id6779522175). Commodity/crypto enrichment + Yelp reviews + Pro gating shipped |
-| **healstack** (was dose; folder + GitHub repo now `healstack`) | Health/supplement tracker. `dose.heyitsmejosh.com` | v2.3.4 WAITING_FOR_REVIEW (2026-07-21). Metadata/pricing/availability/privacy set via asc CLI. Mac universal setup + Release build verified. Medical device declaration cleared 2026-07-21 |
+| **healstack** (was dose; folder + GitHub repo now `healstack`) | Health/supplement tracker. `healstack.heyitsmejosh.com` | v1.0 WAITING_FOR_REVIEW (submitted 2026-07-21). TestFlight v2.3.3 build 202607261112 uploaded 2026-07-26 with CFBundleDisplayName fix (Home Screen now shows "Healstack"). Metadata/pricing/availability/privacy set via asc CLI. Mac universal setup + Release build verified. Medical device declaration cleared 2026-07-21 |
 | **sparkjar** (was spark, renamed 2026-07-18) | Idea forum, JWT auth. `sparkjar.heyitsmejosh.com` | v2.2.0 live. Mac 1.0 SUBMITTED 2026-07-21 night (MAC_APP_ID corrected in workflow). iOS build VALID on ASC. iOS provisioning FIXED 2026-07-18, archive builds clean. Bundle-ID rename (com.heyitsmejosh.spark → sparkjar) still pending |
 | **talli** | DTC/RDSP/CDB admin tool (renamed from tally 2026-06-22) | iOS v3.5.8 SUBMITTED 2026-07-22 night (What's New sheet fix + dynamic version); v3.5.7 live. Mac widget-fix build VALID (8b29a831, on iOS app 6782366555) pending iOS review clear before submission |
 | **lexly** (was lingo/parlay) | Gamified language learning. GitHub: nulljosh/lexly | iOS + macOS v1.1.1 in App Review 2026-07-19; Pro un-paywalled, courses free |
@@ -88,7 +88,7 @@
 - **Upstash Redis** (epiphany): rotation pending — email auth failed. Fix: `security add-generic-password -s rotate-upstash-email -a email -w YOUR_EMAIL -U` then `/rotate upstash epiphany`
 
 ## Ship Status (most → least shipped, refresh as state changes)
-epiphany (live) > inkpress (1.0.2 live 07-22), talli (iOS 3.5.7 submitted 07-21, 3.5.6 live), echo Mac (1.3.3 waiting), echo iOS (1.3.3 fixed+uploaded 07-22, submit pending on Apple-side lock), lexly (1.1.1 waiting 07-19), litigate (1.0.1 submitted 07-21), healstack (1.0 WAITING_FOR_REVIEW, submitted 07-21), sparkjar (iOS+Mac 1.0 WAITING_FOR_REVIEW), portfolio-nullfolio (1.0 resubmitted 07-22 icon fix) > bcgd (registered 6791106082, age-rating fixed 07-22, icon redesigned 07-22, ready to submit). Journal: Jekyll blog, live 2026-07-21
+epiphany (live) > inkpress (1.0.2 live 07-22), talli (iOS 3.5.8 submitted 07-22, 3.5.7 live), echo Mac (1.3.3 waiting), echo iOS (1.3.3 submitted 07-22), lexly (1.1.1 waiting 07-19), litigate (1.0.1 submitted 07-22), healstack (1.0 WAITING_FOR_REVIEW submitted 07-21, TestFlight v2.3.3 uploaded 07-26), sparkjar (iOS+Mac 1.0 WAITING_FOR_REVIEW), portfolio-nullfolio (1.0 resubmitted 07-22) > bcgd (registered 6791106082, ready to submit 07-22). Journal: Jekyll blog, live 2026-07-21
 
 ## Roadmap
 - **Payments infra** (from Asc.pdf note, imported 2026-07-19): hook up an RBC bank account and get Stripe working across any/all apps — needs Stripe reauthorization (and possibly a CLI). Not started; requires interactive/credentialed setup, flag before executing.
@@ -100,7 +100,7 @@ epiphany (live) > inkpress (1.0.2 live 07-22), talli (iOS 3.5.7 submitted 07-21,
 - **SwiftLint** (2026-07-18): Epiphany + Talli lint at build time via SPM build-tool plugin, build-verified (`-skipPackagePluginValidation` required on xcodebuild — see each app's ios/CLAUDE.md Run section). **sparkjar, lexly, healstack, litigate got the same `project.yml`/`.swiftlint.yml` wiring committed but NOT build-verified** (session ended before running `xcodegen generate` + a full xcodebuild pass on each) — verify each builds clean with `-skipPackagePluginValidation` before relying on it; if a build fails, the fallback is reverting `packages:`/`buildToolPlugins:` in that app's project.yml (same revert epiphany needed on the first attempt). journal/inkpress not touched at all — no packages: block exists there yet.
 - **Periphery** (2026-07-18): installed via brew (`periphery`, `swiftlint`), not yet configured per-app or wired into a skill. Run manually (`periphery scan`) when doing a cleanup pass — no CI wiring per no-background-automation rule.
 - **Progress snapshot 2026-07-02**: ~67 open items ≈ 155h ≈ 4–6 wks — full table in `PROGRESS.md`, refresh with `/progress`
-- **healstack**: v2.3.4 build valid + metadata prepped; left: screenshots, availability (dashboard), demo account, then submit
+- **healstack**: v1.0 WAITING_FOR_REVIEW (submitted 07-21), TestFlight v2.3.3 build 202607261112 uploaded 07-26; left: screenshots, availability (dashboard), demo account, then submit
 - **sparkjar**: provisioning FIXED 2026-07-18, v2.2.0 build uploaded 2026-07-19; left: bundle-ID rename (com.heyitsmejosh.spark → sparkjar) + screenshots/metadata
 - **echo**: Mac 1.0 blocked on pricing (dashboard); Universal Purchase merge in progress
 - **epiphany**: Verify force-sync after SnapTrade fix
