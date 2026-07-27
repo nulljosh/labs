@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Last updated: 2026-07-26 Sunday night — Talli v3.5.9 submitted for review (3.5.8 version-train rejection recovery), Healstack v2.3.3 TestFlight build uploaded with CFBundleDisplayName fix, portfolio avatar fixed, NYC autoplay leak patched*
+*Last updated: 2026-07-26 Sunday night — Talli v3.5.9 ACCEPTED (3.5.8 version-train rejection recovery, now live/eligible for distribution), Healstack v2.3.3 TestFlight build uploaded with CFBundleDisplayName fix + screenshot pipeline, What's New sheet fix across 5 apps, ASC registrations (Wordroot/Curvely/Wiretext), pre-submission cleanup, NYC autoplay leak patched*
 
 ## Environment
 - macOS Darwin 25.5.0 (arm64), Mac Mini M4
@@ -13,9 +13,9 @@
 | Repo | Description | Status |
 |------|-------------|--------|
 | **epiphany** | Finance dashboard. `epiphany.heyitsmejosh.com` | v2.6.1+ live + App Store (id6779522175). Commodity/crypto enrichment + Yelp reviews + Pro gating shipped |
-| **healstack** (was dose; folder + GitHub repo now `healstack`) | Health/supplement tracker. `healstack.heyitsmejosh.com` | v1.0 WAITING_FOR_REVIEW (submitted 2026-07-21). TestFlight v2.3.3 build 202607261112 uploaded 2026-07-26 with CFBundleDisplayName fix (Home Screen now shows "Healstack"). Metadata/pricing/availability/privacy set via asc CLI. Mac universal setup + Release build verified. Medical device declaration cleared 2026-07-21 |
+| **healstack** (was dose; folder + GitHub repo now `healstack`) | Health/supplement tracker. `healstack.heyitsmejosh.com` | v1.0 WAITING_FOR_REVIEW (submitted 2026-07-21). TestFlight v2.3.3 build 202607261112 uploaded 2026-07-26 with CFBundleDisplayName fix (Home Screen shows "Healstack"). Screenshot pipeline built and submitted 2026-07-26. Metadata/pricing/availability/privacy set via asc CLI. Mac universal setup + Release build verified. Medical device declaration cleared 2026-07-21 |
 | **sparkjar** (was spark, renamed 2026-07-18) | Idea forum, JWT auth. `sparkjar.heyitsmejosh.com` | v2.2.0 live. Mac 1.0 SUBMITTED 2026-07-21 night (MAC_APP_ID corrected in workflow). iOS build VALID on ASC. iOS provisioning FIXED 2026-07-18, archive builds clean. Bundle-ID rename (com.heyitsmejosh.spark → sparkjar) still pending |
-| **talli** | DTC/RDSP/CDB admin tool (renamed from tally 2026-06-22) | iOS v3.5.9 WAITING_FOR_REVIEW (submitted 2026-07-26; v3.5.8 was rejected as duplicate version train); v3.5.7 live. Mac widget-fix build VALID (8b29a831, on iOS app 6782366555) pending iOS review clear before submission |
+| **talli** | DTC/RDSP/CDB admin tool (renamed from tally 2026-06-22) | iOS v3.5.9 ACCEPTED 2026-07-26 (live/eligible for distribution; v3.5.8 was rejected as duplicate version train, recovered with v3.5.9). v3.5.7 was previous live. Mac widget-fix build VALID (8b29a831, on iOS app 6782366555) ready to attach after App Store distribution window completes |
 | **lexly** (was lingo/parlay) | Gamified language learning. GitHub: nulljosh/lexly | iOS + macOS v1.1.1 in App Review 2026-07-19; Pro un-paywalled, courses free |
 | **echo** | On-device speech transcription (WhisperKit). No cloud | Confirmed one app (6782604262, Universal Purchase) already serves iOS+macOS — no separate Mac project needed. Mac 1.3.3 WAITING_FOR_REVIEW. iOS 1.3.3 SUBMITTED 2026-07-22 (cleared Apple transient lock). Both builds verified passing. Orphan "Echo Transcribe Mac" (6783015101) needs manual dashboard deletion (support ticket filed 2026-07-22, case 102949488998). IAP hardcoded unlocked (`isPro = true`) for v1, re-enable for v2 after Paid Apps Agreement setup |
 | **litigate** (folder renamed from brief 2026-07-19) | Litigation tool (Trommel v. AG Canada + Trommel v. Trommel). Private | iOS 1.0.1 b4 RESUBMITTED 2026-07-22 (Sign-in-with-Apple button removed). Mac 1.0.1 uploaded to unified iOS+Mac record. Both builds verified passing. CanLII case-law search merged in iOS as a tab 2026-07-19. Bundle ID remains com.nulljosh.brief (Apple-locked) |
@@ -88,7 +88,7 @@
 - **Upstash Redis** (epiphany): rotation pending — email auth failed. Fix: `security add-generic-password -s rotate-upstash-email -a email -w YOUR_EMAIL -U` then `/rotate upstash epiphany`
 
 ## Ship Status (most → least shipped, refresh as state changes)
-epiphany (live) > inkpress (1.0.2 live 07-22), talli (iOS 3.5.9 submitted 07-26, 3.5.7 live), echo Mac (1.3.3 waiting), echo iOS (1.3.3 submitted 07-22), lexly (1.1.1 waiting 07-19), litigate (1.0.1 submitted 07-22), healstack (1.0 WAITING_FOR_REVIEW submitted 07-21, TestFlight v2.3.3 uploaded 07-26), sparkjar (iOS+Mac 1.0 WAITING_FOR_REVIEW), portfolio-nullfolio (1.0 resubmitted 07-22) > bcgd (registered 6791106082, ready to submit 07-22). Journal: Jekyll blog, live 2026-07-21
+epiphany (live) > inkpress (1.0.2 live 07-22), talli (iOS 3.5.9 ACCEPTED 07-26, live/eligible for distribution), echo Mac (1.3.3 waiting), echo iOS (1.3.3 submitted 07-22), lexly (1.1.1 waiting 07-19), litigate (1.0.1 submitted 07-22), healstack (1.0 WAITING_FOR_REVIEW submitted 07-21, TestFlight v2.3.3 uploaded 07-26), sparkjar (iOS+Mac 1.0 WAITING_FOR_REVIEW), portfolio-nullfolio (1.0 resubmitted 07-22) > bcgd (registered 6791106082, ready to submit 07-22). Journal: Jekyll blog, live 2026-07-21
 
 ## Roadmap
 - **Payments infra** (from Asc.pdf note, imported 2026-07-19): hook up an RBC bank account and get Stripe working across any/all apps — needs Stripe reauthorization (and possibly a CLI). Not started; requires interactive/credentialed setup, flag before executing.
