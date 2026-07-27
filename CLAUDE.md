@@ -11,7 +11,8 @@ v2.4.0
 - One post per month by default (changed 2026-07-04 from weekly). **Size/staleness exception (2026-07-21):** if the current post exceeds ~20KB or today is more than ~10 days past its frontmatter `date:`, start a new post instead of appending further, even mid-month — split at a clean `##` day-heading boundary. (2026-07-03-june-july.md hit 157KB/18 days stale before this rule existed and had to be split retroactively.)
 - Filename date and front matter date must match.
 - Write in natural English, not tool-name spam.
-- Post titles must be short and punchy — under 6 words. No changelog-style summaries, no feature lists. Write a label, not a sentence.
+- Post titles are ONE WORD. No commas, no ampersands, no "X and Y". Write a label, not a sentence.
+- Posts cap at ~350 words. Two or three day sections of 2-4 sentences each, plus a short Apps line. Say what a change means, not what the code does — no function names, regexes, commit hashes, or build numbers.
 - No em dashes.
 - No filler phrases.
 - No emojis.

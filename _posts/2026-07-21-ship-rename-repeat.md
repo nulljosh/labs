@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ship, Rename, Repeat"
+title: "Ship"
 date: 2026-07-21 09:00:00 -0700
 categories: journal monthly
 ---

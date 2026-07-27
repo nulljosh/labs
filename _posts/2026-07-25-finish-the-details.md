@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Finish the Details"
+title: "Details"
 date: 2026-07-25 12:00:00 -0700
 categories: journal weekly
 ---

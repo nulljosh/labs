@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Avatar & Polish"
+title: "Avatar"
 date: 2026-07-22 23:30:00 -0700
 categories: journal nightly
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Widget, OAuth, Rename"
+title: "Widget"
 date: 2026-07-21 23:30:00 -0700
 categories: journal nightly
 ---

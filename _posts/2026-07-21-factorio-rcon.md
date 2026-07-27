@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Factorio RCON dead end"
+title: "Factorio"
 date: 2026-07-21 22:30:00 -0700
 categories: journal nightly
 ---
