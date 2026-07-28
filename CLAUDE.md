@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Last updated: 2026-07-28 Monday night — life.heyitsmejosh.com taken offline (personal archive with sensitive content, was ranking on Google). Spine book summaries: IBS complete (all 23 ch.), Sobriety intro+ch1-11 complete. Privacy policy page added. Prior: Talli v3.5.11 SUBMITTED, Lexly icon/screenshots redesigned, Litigate P0 security audit (pre-auth case data), portfolio expanded, BCGD leads pipeline, web font audit completed.*
+*Last updated: 2026-07-28 Tuesday night — Spine book summaries: Sobriety complete (intro+ch.1-17), Statistics For Dummies started (intro+ch.1-2, 227 images / 20 chapters remaining). Litigate security leak sealed (Supabase RLS), CASE-0004 added. App Store audit complete (6 apps with store links). Epiphany iOS statement upload fixed. Talli message parser consolidated (4 root causes fixed). Prior: life.heyitsmejosh.com archived (sensitive content, was ranking on Google), BCGD leads pipeline, web font audit, Lexly icon/screenshots redesigned.*
 
 ## Environment
 - macOS Darwin 25.5.0 (arm64), Mac Mini M4
@@ -88,7 +88,7 @@
 - **Upstash Redis** (epiphany): rotation pending — email auth failed. Fix: `security add-generic-password -s rotate-upstash-email -a email -w YOUR_EMAIL -U` then `/rotate upstash epiphany`
 
 ## Ship Status (most → least shipped, refresh as state changes)
-epiphany (live) > inkpress (1.0.2 live 07-22), talli (iOS 3.5.11 SUBMITTED 07-27, v3.5.10 ACCEPTED/live 07-26, web live 07-27), spine (book summaries: IBS complete 07-28, Sobriety intro+ch1-11 complete 07-28, iOS synced 07-28), echo (1.3.4 submitted 07-26, 1.3.5 pending), lexly (iOS 1.1.3 PREPARE 07-27, macOS 1.1.1 screenshot fixed 07-27), litigate (1.0.1 submitted 07-22, P0 security FIXED 07-28: Supabase RLS), healstack (1.0 WAITING_FOR_REVIEW 07-21), sparkjar (iOS+Mac 1.0 WAITING_FOR_REVIEW 07-21), portfolio-nullfolio (work expanded 07-27) > bcgd (web+dashboard live 07-27, leads pipeline 07-27, iOS pending), journal (Jekyll blog, live 2026-07-21). life: ARCHIVED 07-28
+epiphany (live) > inkpress (1.0.2 live 07-22), talli (iOS 3.5.11 SUBMITTED 07-27, v3.5.10 ACCEPTED/live 07-26, web live 07-27), spine (book summaries: IBS complete 07-28, Sobriety complete 07-28, Statistics started 07-28, iOS synced 07-28), echo (1.3.4 submitted 07-26, 1.3.5 pending), lexly (iOS 1.1.3 PREPARE 07-27, macOS 1.1.1 screenshot fixed 07-27), litigate (1.0.1 submitted 07-22, P0 security FIXED 07-28: Supabase RLS), healstack (1.0 WAITING_FOR_REVIEW 07-21), sparkjar (iOS+Mac 1.0 WAITING_FOR_REVIEW 07-21), portfolio-nullfolio (work expanded 07-27) > bcgd (web+dashboard live 07-27, leads pipeline 07-27, iOS pending), journal (Jekyll blog, live 2026-07-21). life: ARCHIVED 07-28
 
 ## Roadmap
 - **Payments infra** (from Asc.pdf note, imported 2026-07-19): hook up an RBC bank account and get Stripe working across any/all apps — needs Stripe reauthorization (and possibly a CLI). Not started; requires interactive/credentialed setup, flag before executing.
