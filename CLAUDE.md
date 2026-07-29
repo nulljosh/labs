@@ -31,7 +31,7 @@
 | Repo | Description |
 |------|-------------|
 | **dotfiles** | Shell configs, api-gateway, kv-store, search-engine, applescripts/, vibe ref |
-| **labs** (`nulljosh/labs`) | Monorepo: roost, missing-pets, canlii-app, byo-*, capu. wiretext/grapher moved to their own repos 2026-07-04 |
+| **labs** (`nulljosh/labs`) | Monorepo: roost, missing-pets, canlii-app, byo-*, capu, code-meta. wiretext/grapher moved to their own repos 2026-07-04 |
 | **inkpress** | Multi-feed RSS/Atom reader, iOS only (ASC 6787759999). Split from `journal` repo 2026-07-21 — no shared code, subscribes to journal's feed.xml as a regular feed by default. v1.0.2 APPROVED + LIVE (2026-07-22, splash screen fixed, multi-feed reader verified) |
 | **journal** | Jekyll blog. `journal.heyitsmejosh.com`. Split out of `inkpress` repo 2026-07-21 (was combined 2026-07-20 to 2026-07-21) — this repo is blog-only now |
 | **nulljosh.github.io** | Portfolio. `heyitsmejosh.com` |
@@ -41,6 +41,7 @@
 `books`→spine and `root`→etyma folders were renamed to match their repo names 2026-07-20. `journal` (the folder) was briefly merged into `inkpress` 2026-07-20 then split back out into its own `journal` repo 2026-07-21 once Inkpress became a real RSS-reader product — `inkpress` and `journal` are now two unrelated repos again. `life` and `canlii-app` are local-only. `braingraph` repo is retired (merged into notes) — candidate for archival.
 
 ## Gone (do not reference)
+- **`nulljosh/code-meta`**: repo no longer exists standalone — folded into `nulljosh/labs` as a `code-meta/` subfolder (found 2026-07-29, this `~/Documents/Code` checkout's `origin` still points at the dead `code-meta.git` URL, ~19 commits unpushed since 2026-07-22). Reconciling needs a subtree merge into `labs`' `code-meta/` path, not a plain remote-URL swap (that would push this dir's contents to `labs`' repo root) — do deliberately, not blind.
 - **Intentionally removed**: systems, beep, beep-web, missing-pets (top-level copy)
 - **Accidentally deleted 2026-06-22** (Vercel still live, needs recovery): bcgd, cadence, charters, nimble-web
 - **Merged**: school → lingo → parlay → renamed lexly (2026-07-01)
