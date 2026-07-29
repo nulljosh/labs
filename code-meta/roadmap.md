@@ -144,3 +144,10 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 
 ## Cloudflare migration (2026-07-21)
 - [ ] Full Vercel → Cloudflare migration, 9 repos (journal, lexly, nulljosh.github.io, grapher, wiretext, epiphany, sparkjar, healstack, talli) + nimble check. Phased plan (13-17 sessions) approved and saved: /Users/joshua/.claude/plans/bright-baking-lake.md — start with Phase 0 (reference doc + Cloudflare access confirm) next session, no DNS/production changes until each repo's explicit confirm gate.
+
+## From App Store.pdf (imported 2026-07-28)
+- [ ] Icon color pass: rework all app icon colors using the [clrs.cc](https://clrs.cc) palette. Current palette + contrast is awful; keep the strong color differentiation between apps (that part works). Excludes the top few icons that already look good. Affects every app icon across ~/Documents/Code.
+- [ ] macOS versions needed for: BCGD, Nullfolio (nulljosh.github.io), Healstack, Wiretext, Litigate, InkPress.
+- [ ] ASC duplicate records to merge/delete: Lexly Mac (6783501927) and Echo Transcribe Mac (6783015101). Both are orphan Mac records superseded by Universal Purchase on the iOS record. Echo support ticket already filed (case 102949488998). Dashboard-only action.
+- [x] "What is Curvely?" — resolved: Curvely (ASC 6794988370, com.nulljosh.grapher) is the grapher app under its App Store name. Not live yet (no READY_FOR_SALE version).
+- [x] App Store links added to READMEs/landing pages for the 6 live apps (Talli, Lexly, Epiphany, Echo, Litigate, Inkpress).
