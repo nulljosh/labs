@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Last updated: 2026-07-28 Tuesday night — Spine book summaries: Sobriety complete (intro+ch.1-17), Statistics For Dummies started (intro+ch.1-2, 227 images / 20 chapters remaining). Litigate web secured (Supabase RLS), native app migration pending, CASE-0004 wired (iOS/macOS), anon bypass closed (scrape_token revoked). App Store audit complete (6 apps with store links). Epiphany iOS statement upload fixed (unpushed). Talli message parser consolidated (4 root causes, unpushed). Prior: life.heyitsmejosh.com archived (sensitive content, was ranking on Google), BCGD leads pipeline, web font audit, Lexly icon/screenshots redesigned.*
+*Last updated: 2026-07-28 Tuesday evening — Talli iOS 3.5.12 shipped (message parser consolidated from 4 root causes, date formatting, actionRequired badge). Lexly Computers tab merged into Programming (web+iOS). Etyma Wordroot icon wired, Wiretext icon designed + wired (teal viewfinder, clrs.cc). Nullfolio auto-refresh scoped M-effort/deferred, roadmap notes filed. Earlier: Spine Sobriety complete (intro+ch.1-17), Statistics started (intro+ch.1-2, 227/20 remaining). Litigate web secured (Supabase RLS), native migration pending, CASE-0004 wired (iOS/macOS), anon bypass closed. App Store audit complete (6 apps with store links). Epiphany statement upload fixed (unpushed). life.heyitsmejosh.com archived. All builds passing.*
 
 ## Environment
 - macOS Darwin 25.5.0 (arm64), Mac Mini M4
