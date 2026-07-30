@@ -37,9 +37,9 @@
 | **journal** | Jekyll blog. `journal.heyitsmejosh.com`. Split out of `inkpress` repo 2026-07-21 (was combined 2026-07-20 to 2026-07-21) — this repo is blog-only now |
 | **nulljosh.github.io** | Portfolio. `heyitsmejosh.com` |
 
-## GitHub Repos (verified via `gh repo list` 2026-07-19, pending echo→voxprint)
-`abraham bank bcgd braingraph dotfiles echo epiphany etyma curvely healstack inkpress journal labs lexly litigate newsline nimble notes nulljosh.github.io nyc quotable sparkjar uprighty talli video-speed-ext wiretext`
-`books`→spine→uprighty, `grapher`→curvely, `echo`→voxprint (pending 2026-07-29), and `root`→etyma folders were renamed to match their repo names (spine→uprighty and grapher→curvely on 2026-07-29, echo→voxprint rename queued). `journal` (the folder) was briefly merged into `inkpress` 2026-07-20 then split back out into its own `journal` repo 2026-07-21 once Inkpress became a real RSS-reader product — `inkpress` and `journal` are now two unrelated repos again. `life` and `canlii-app` are local-only. `braingraph` repo is retired (merged into notes) — candidate for archival.
+## GitHub Repos (verified via `gh repo list` 2026-07-19, echo→voxprint complete 2026-07-29)
+`abraham bank bcgd braingraph dotfiles voxprint epiphany etyma curvely healstack inkpress journal labs lexly litigate newsline nimble notes nulljosh.github.io nyc quotable sparkjar uprighty talli video-speed-ext wiretext`
+`books`→spine→uprighty, `grapher`→curvely, `echo`→voxprint (completed 2026-07-29), and `root`→etyma folders were renamed to match their repo names (spine→uprighty, grapher→curvely, and echo→voxprint all on 2026-07-29). `journal` (the folder) was briefly merged into `inkpress` 2026-07-20 then split back out into its own `journal` repo 2026-07-21 once Inkpress became a real RSS-reader product — `inkpress` and `journal` are now two unrelated repos again. `life` and `canlii-app` are local-only. `braingraph` repo is retired (merged into notes) — candidate for archival.
 
 ## Gone (do not reference)
 - **`nulljosh/code-meta`**: repo no longer exists standalone — folded into `nulljosh/labs` as a `code-meta/` subfolder. This `~/Documents/Code` checkout's `origin` still points at the dead `code-meta.git` URL (left as-is, not repointed — a plain remote swap would push this dir's contents to `labs`' repo root, not the `code-meta/` subpath). 2026-07-29: synced the 4 tracked files (CLAUDE.md/roadmap.md/PROGRESS.md/.gitignore) directly into `labs/code-meta/` via a throwaway clone + copy + push (history not merged, only current content). Repeat that same manual sync next time this file drifts far from `labs/code-meta/CLAUDE.md`, until/unless a real subtree relationship gets set up.
@@ -90,7 +90,7 @@
 - **Upstash Redis** (epiphany): rotation pending — email auth failed. Fix: `security add-generic-password -s rotate-upstash-email -a email -w YOUR_EMAIL -U` then `/rotate upstash epiphany`
 
 ## Ship Status (most → least shipped, refresh as state changes)
-epiphany (live) > inkpress (1.0.2 live 07-22), talli (iOS 3.5.12 SHIPPED 07-28), uprighty (iOS Uprighty v1.0 VALID 07-29: book summaries IBS/Sobriety/Statistics/Good Feng Shui all complete), wiretext (iOS v1.0 VALID 07-29), wordroot/etyma (iOS v1.0 VALID 07-29), echo (1.3.4 submitted 07-26, 1.3.5 pending), lexly (iOS 1.1.3 PREPARE 07-27, macOS 1.1.1 WAITING_FOR_REVIEW 07-29), litigate (1.0.1 submitted 07-22, P0 security FIXED 07-28), healstack (1.0 WAITING_FOR_REVIEW 07-21), sparkjar (iOS+Mac 1.0 WAITING_FOR_REVIEW 07-21), curvely (formerly grapher; iOS Release archive 07-29, export/upload pending), portfolio (work expanded 07-27) > bcgd (web+dashboard live 07-27, macOS v1.0 VALID 07-29, iOS pending), journal (Jekyll blog live 07-21). life: ARCHIVED 07-28
+epiphany (live) > inkpress (1.0.2 live 07-22), talli (iOS 3.5.12 SHIPPED 07-28), uprighty (iOS Uprighty v1.0 VALID 07-29: book summaries IBS/Sobriety/Statistics/Good Feng Shui all complete), wiretext (iOS v1.0 VALID 07-29), wordroot/etyma (iOS v1.0 VALID 07-29), voxprint (1.3.4 submitted 07-26, 1.3.6 drafted with rename 07-29), lexly (iOS 1.1.3 PREPARE 07-27, macOS 1.1.1 WAITING_FOR_REVIEW 07-29), litigate (1.0.1 submitted 07-22, P0 security FIXED 07-28), healstack (1.0 WAITING_FOR_REVIEW 07-21), sparkjar (iOS+Mac 1.0 WAITING_FOR_REVIEW 07-21), curvely (formerly grapher; iOS Release archive 07-29, export/upload pending), portfolio (work expanded 07-27) > bcgd (web+dashboard live 07-27, macOS v1.0 VALID 07-29, iOS pending), journal (Jekyll blog live 07-21). life: ARCHIVED 07-28
 
 ## Roadmap
 - **Payments infra** (from Asc.pdf note, imported 2026-07-19): hook up an RBC bank account and get Stripe working across any/all apps — needs Stripe reauthorization (and possibly a CLI). Not started; requires interactive/credentialed setup, flag before executing.
@@ -104,7 +104,7 @@ epiphany (live) > inkpress (1.0.2 live 07-22), talli (iOS 3.5.12 SHIPPED 07-28),
 - **Progress snapshot 2026-07-02**: ~67 open items ≈ 155h ≈ 4–6 wks — full table in `PROGRESS.md`, refresh with `/progress`
 - **healstack**: v1.0 WAITING_FOR_REVIEW (submitted 07-21), TestFlight v2.3.3 build 202607261112 uploaded 07-26; left: screenshots, availability (dashboard), demo account, then submit
 - **sparkjar**: provisioning FIXED 2026-07-18, v2.2.0 build uploaded 2026-07-19; left: bundle-ID rename (com.heyitsmejosh.spark → sparkjar) + screenshots/metadata
-- **echo**: Mac 1.0 blocked on pricing (dashboard); Universal Purchase merge in progress
+- **voxprint** (renamed from echo 2026-07-29): v1.3.6 drafted with app rename; folder + GitHub repo renamed; workflow needs re-run to complete archive/export/upload
 - **epiphany**: Verify force-sync after SnapTrade fix
 - **nyc**: Blocked on generating an iOS distribution signing cert with a local private key before IPA export/upload
 - **bcgd/cadence/charters**: Recover from Vercel deployment + any backup source
