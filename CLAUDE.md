@@ -110,6 +110,7 @@ epiphany (live) > inkpress (1.0.2 live 07-22), talli (iOS 3.5.12 SHIPPED 07-28, 
 - **nyc**: Blocked on generating an iOS distribution signing cert with a local private key before IPA export/upload
 - **bcgd/cadence/charters**: Recover from Vercel deployment + any backup source
 - **Supabase**: At 2/2 free-tier limit (spark + epiphany). Epiphany auto-pauses if inactive 7+ days. Reuse spark DB for new projects until Pro
+- **Trakt skill** (2026-08-01): stdlib-only Python client built (scripts/trakt_client.py, ~/.claude/skills/trakt/SKILL.md) with OAuth device code flow, covers search, watchlist, history, ratings. Blocked on user registering app at trakt.tv/oauth/applications and setting TRAKT_CLIENT_ID/TRAKT_CLIENT_SECRET env vars.
 
 ## Security Rotation Log
 | Date | Rotated |
