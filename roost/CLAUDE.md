@@ -1,6 +1,10 @@
 # roost
 v2.0.1
 
+## From Notes PDF (imported 2026-08-02)
+- [ ] Confirmed 2026-08-02: roost is still in the codebase (`labs/roost`), active, v2.0.1.
+- [ ] Integrate real Gastown listing picks into the mock listings data (from Zillow clone.pdf note): "The Garage" (202-36 Water Street, top pick, $625,000, 1bd/1ba, exposed concrete/Miele kitchen loft), "Koret Lofts" (506-55 E Cordova Street, runner-up, $824,900, 1bd/1.5ba, 20ft ceilings/exposed brick/timber), "Taylor Building" (310 Water Street, runner-up, 1911 heritage conversion, 22 suites, no active listing — reference only). Sources: Royal LePage MLS #R3149447, Vancity Lofts MLS #R3149767, Vancity Lofts Taylor Building gallery (as of 2026-07-29).
+
 ## Rules
 
 - Mobile-first layout, horizontal filter chips on small screens
