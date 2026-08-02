@@ -14,3 +14,5 @@ rsync -av _site/ .vercel/output/static/
 printf '{"version":3}\n' > .vercel/output/config.json
 
 npx vercel deploy --prebuilt --prod --yes
+
+./scripts/sync-portfolio.sh

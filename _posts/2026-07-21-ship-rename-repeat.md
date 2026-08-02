@@ -37,6 +37,12 @@ Also tried teaching a local model to code overnight on its own while I sleep. It
 
 Closed out account-deletion support across every app that needed it, a real App Store requirement I'd missed on three of them. Then kicked off the big one: moved twelve apps and their domains off Vercel onto Cloudflare Pages, since Vercel was redundant with DNS I already had there. Held back Epiphany, Sparkjar, Healstack, and Talli since those need real Stripe/KV rewrites, not a quick move. Also finally split the Journal and Inkpress repos apart into what they should always have been: a blog and an RSS reader, connected only in that one can subscribe to the other.
 
+Spent Tuesday night unifying a bunch of apps so their iOS and Mac versions live under a single App Store listing instead of two, fixed a shared widget bug on Talli and Epiphany that had been silently breaking uploads, got X sign-in working again on Epiphany, and pushed Healstack through review after clearing its medical-device declaration. Caught a cold-start bug on Talli where a synchronous image draw froze the first launch, and fixed a similar frozen-button bug on Echo where a network hiccup during Apple's review had left the purchase button stuck disabled.
+
+## Wednesday
+
+Looked into whether Epiphany could actually place trades instead of just tracking a portfolio, and found neither of my existing data sources support it, both are read-only feeds. Caught a README still branded with an old app name days after a rename, and finally wired Epiphany's paid tier to a real Stripe checkout instead of a placeholder button.
+
 ## Apps
 
-Shipped or in review this stretch: Lexly (streak freezes, free courses), Talli (icon rebrand, widget fix), Litigate (renamed, account deletion added), Healstack (metadata + medical device declaration cleared), Inkpress (rebuilt as a real multi-feed reader), Echo Mac, Journal split into its own repo. Twelve apps moved to Cloudflare Pages. Epiphany's SnapTrade phantom-holdings bug is still open.
+Shipped or in review this stretch: Lexly (streak freezes, free courses), Talli (icon rebrand, widget fix), Litigate (renamed, account deletion added), Healstack (metadata + medical device declaration cleared, submitted for review), Inkpress (rebuilt as a real multi-feed reader), Echo Mac. Four apps unified into single iOS+Mac App Store listings. Twelve apps moved to Cloudflare Pages. Epiphany's SnapTrade phantom-holdings bug is still open.
