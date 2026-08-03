@@ -50,7 +50,8 @@
 - **Vercel orphans deleted 2026-06-29**: fuse, pulse, _site, beep-web, school
 
 ## Automation
-- No background daemons. `~/.local/bin` has only: `claude sync uv uvx`
+- No background daemons. `~/.local/bin` has only: `claude sync uv uvx asc-login`
+- `asc-login` (built 2026-08-03): one-command daily App Store Connect web relogin. Checks `asc web auth status` first (session often still valid). Only prompts for 2FA code if actually expired. Apple ID + password read from Keychain (`asc-web-appleid`/`asc-web-password`).
 - **weekly-journal** routine: `trig_017xPBtriJVF1HkRCnx4dkTa` — verify path before relying on it
 
 ## Stack Conventions
@@ -62,7 +63,7 @@
 - **Lint**: SwiftLint as an SPM build-tool plugin where wired (see Roadmap) — requires `-skipPackagePluginValidation` on any CLI `xcodebuild` invocation, since headless builds can't grant the plugin's interactive trust prompt.
 - **App Store Connect**: `asc` CLI + skills, never the ASC web dashboard for anything scriptable.
 - **No emojis** in any UI, anywhere, across every app — standing rule, not per-repo.
-- **No background automation** — no crontab/daemons beyond the 4 binaries in `~/.local/bin`.
+- **No background automation** — no crontab/daemons beyond the 5 binaries in `~/.local/bin` (`claude`, `sync`, `uv`, `uvx`, `asc-login`).
 
 ## Repo Standards
 - Every repo needs: `icon.svg`, `architecture.svg`, `README.md` (icon + version badge at top), `CLAUDE.md`
