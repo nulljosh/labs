@@ -107,7 +107,7 @@ epiphany (live) > inkpress (1.0.2 live 07-22), talli (iOS 3.5.12 SHIPPED 07-28, 
 - **sparkjar**: provisioning FIXED 2026-07-18, v2.2.0 build uploaded 2026-07-19; left: bundle-ID rename (com.heyitsmejosh.spark → sparkjar) + screenshots/metadata
 - **voxprint** (renamed from echo 2026-07-29): v1.3.6 drafted with app rename; folder + GitHub repo renamed; workflow needs re-run to complete archive/export/upload
 - **epiphany**: Verify force-sync after SnapTrade fix
-- **nyc**: Blocked on generating an iOS distribution signing cert with a local private key before IPA export/upload
+- **nyc**: signing cert blocker was stale — valid "iPhone Distribution: Joshua Trommel (QMM486NPYC)" identity + private key already in local Keychain (cert expires 2027-07-03). Real remaining blocker per `nyc/CLAUDE.md`: 3 ASC-web-UI-only items (App Privacy answers, privacy policy URL, iPad 12.9" screenshot) before `asc review submit`
 - **bcgd/cadence/charters**: Recover from Vercel deployment + any backup source
 - **Supabase**: At 2/2 free-tier limit (spark + epiphany). Epiphany auto-pauses if inactive 7+ days. Reuse spark DB for new projects until Pro
 - **Trakt skill** (2026-08-01): stdlib-only Python client built (scripts/trakt_client.py, ~/.claude/skills/trakt/SKILL.md) with OAuth device code flow, covers search, watchlist, history, ratings. Blocked on user registering app at trakt.tv/oauth/applications and setting TRAKT_CLIENT_ID/TRAKT_CLIENT_SECRET env vars.
