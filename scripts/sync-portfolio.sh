@@ -1,16 +1,22 @@
 #!/usr/bin/env bash
-# Regenerate the portfolio's "Writing" list from the 4 latest journal posts.
-# ponytail: sed between HTML markers instead of a templating system, only 4 items.
+# Regenerate the portfolio's "Writing" list from every journal post, then ship it.
+# Fills two surfaces from one source (_posts): the website and the iOS app.
+# The portfolio is a separate repo: writing the file is not publishing it, so this
+# commits and pushes too. Without that the two sites silently drift apart.
+# ponytail: sed between markers instead of a templating system.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-PORTFOLIO=../nulljosh.github.io/index.html
+REPO=../nulljosh.github.io
+PORTFOLIO=$REPO/index.html
+IOSAPP=$REPO/ios/Sources/PortfolioApp.swift
 [ -f "$PORTFOLIO" ] || { echo "portfolio repo not found at $PORTFOLIO" >&2; exit 1; }
 
-items=""
+html=""
+swift=""
 count=0
+lastyear=""
 for f in $(ls -1 _posts/*.md | sort -r); do
-  [ "$count" -ge 4 ] && break
   date=$(basename "$f" | cut -c1-10)
   slug=$(basename "$f" .md | cut -c12-)
   title=$(grep -m1 '^title:' "$f" | sed -E 's/^title: *"?([^"]*)"?$/\1/')
@@ -18,20 +24,45 @@ for f in $(ls -1 _posts/*.md | sort -r); do
   month=${date:5:2}
   day=${date:8:2}
   monthname=$(date -j -f "%Y-%m-%d" "$date" "+%b %d" 2>/dev/null || echo "$date")
+  url="https://journal.heyitsmejosh.com/${year}/${month}/${day}/${slug}/"
+  # Label the first post of each year, not just the first post overall, so a list
+  # spanning years does not sit under one wrong heading.
   span=""
-  [ "$count" -eq 0 ] && span="<span class=\"year\">$year</span>"
-  items="${items}    <li><a href=\"https://journal.heyitsmejosh.com/${year}/${month}/${day}/${slug}/\">${span}<span class=\"name\">${title}</span><time class=\"meta\" datetime=\"${date}\">${monthname}</time></a></li>
+  ylabel=""
+  [ "$year" != "$lastyear" ] && { span="<span class=\"year\">$year</span>"; ylabel="$year"; }
+  lastyear="$year"
+  html="${html}    <li><a href=\"${url}\">${span}<span class=\"name\">${title}</span><time class=\"meta\" datetime=\"${date}\">${monthname}</time></a></li>
+"
+  swift="${swift}    Item(year: \"${ylabel}\", name: \"${title}\", meta: \"${monthname}\", url: \"${url}\"),
 "
   count=$((count + 1))
 done
 
-items_file=$(mktemp)
-printf "%s" "$items" > "$items_file"
-awk -v items_file="$items_file" '
-  /<!-- journal-sync:start -->/ { print; while ((getline line < items_file) > 0) print line; skip=1; next }
-  /<!-- journal-sync:end -->/ { skip=0 }
-  !skip
-' "$PORTFOLIO" > "$PORTFOLIO.tmp" && mv "$PORTFOLIO.tmp" "$PORTFOLIO"
-rm -f "$items_file"
+# Splice a generated block between two marker lines, leaving the markers in place.
+splice() {
+  local file=$1 start=$2 end=$3 body=$4
+  local tmp; tmp=$(mktemp)
+  printf "%s" "$body" > "$tmp"
+  awk -v body="$tmp" -v s="$start" -v e="$end" '
+    index($0, s) { print; while ((getline line < body) > 0) print line; skip=1; next }
+    index($0, e) { skip=0 }
+    !skip
+  ' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+  rm -f "$tmp"
+}
 
-echo "synced $count posts into $PORTFOLIO"
+splice "$PORTFOLIO" "<!-- journal-sync:start -->" "<!-- journal-sync:end -->" "$html"
+[ -f "$IOSAPP" ] && splice "$IOSAPP" "// journal-sync:start" "// journal-sync:end" "$swift"
+
+echo "synced $count posts into the portfolio site and iOS app"
+
+# Publish it. Pushing to main is what deploys the portfolio.
+changed=$(git -C "$REPO" status --porcelain index.html ios/Sources/PortfolioApp.swift)
+if [ -n "$changed" ]; then
+  git -C "$REPO" add index.html ios/Sources/PortfolioApp.swift
+  git -C "$REPO" commit -q -m "Sync latest journal posts"
+  git -C "$REPO" push -q origin main
+  echo "pushed portfolio"
+else
+  echo "portfolio already up to date"
+fi
