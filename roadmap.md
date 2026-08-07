@@ -151,3 +151,11 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 - [ ] ASC duplicate records to merge/delete: Lexly Mac (6783501927) and Echo Transcribe Mac (6783015101). Both are orphan Mac records superseded by Universal Purchase on the iOS record. Echo support ticket already filed (case 102949488998). Dashboard-only action.
 - [x] "What is Curvely?" — resolved: Curvely (ASC 6794988370, com.nulljosh.grapher) is the grapher app under its App Store name. Not live yet (no READY_FOR_SALE version).
 - [x] App Store links added to READMEs/landing pages for the 6 live apps (Talli, Lexly, Epiphany, Echo, Litigate, Inkpress).
+
+## mail-sweep skill (proposed 2026-08-06)
+Auto-scan email for dev warnings (ASC/Vercel/Sentry/GitHub Actions), replacing manual screenshot→Notes→paste workflow.
+- Pattern: mirror notes-inbox skill structure
+- Trigger: user-invoked (`/mail-sweep`), not cron — per no-background-automation rule
+- Use Gmail MCP or primitive-email to fetch/filter by sender+subject
+- File extracted errors into relevant project's roadmap.md, or hand straight to Claude to fix
+- First test case: verify stale Lexly Mac submission email vs confirm Epiphany binary delivery issue (see email screenshot 2026-08-06)
