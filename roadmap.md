@@ -79,16 +79,12 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 ## Wrap 2026-07-05 (hard-problems pass) — manual steps for Joshua
 - [ ] NYC iOS: in ASC web UI — App Privacy answers, privacy policy URL, iPad 12.9" screenshot — then `asc review submit` (build 5 already clean)
 - [ ] Epiphany: Trade tab still disabled — VERIFIED 2026-08-08, tracked accurately in `epiphany/roadmap.md` (Trading / brokerage section): the dedupe fix (`listAccounts()` filters duplicate account ids in `src/utils/brokers/snaptrade.js:110-118`) already shipped 2026-07-02 and is still in place. Re-enabling the tab in `FinancePanel.jsx` needs Joshua to eyeball a real force-sync against his live SnapTrade holdings first — not something to flip blind against real financial data. No code change needed here; duplicate this line no further, epiphany/roadmap.md is the live tracker.
-- [x] Echo/Talli: check Apple validation emails for upload errors 90183/90189, then re-upload — checked 2026-08-08: no 90183/90189 blocking either app now. Voxprint iOS 1.3.6 WAITING_FOR_REVIEW, macOS 1.3.6 READY_FOR_DISTRIBUTION (build VALID). Talli 3.5.13 build 153 VALID, 3.5.12 READY_FOR_DISTRIBUTION. Both already past this issue via later uploads; nothing to fix.
 - [ ] Talli login: repro live once so logging can pinpoint BC Self-Serve auth failure
 - Sparkjar fn-cap consolidation plan noted in sparkjar/roadmap.md (deferred, nothing blocked)
 
 ## 2026-07-10 icon/ship blockers (from overnight session)
 - [ ] App Group portal assignment — 2026-07-10 partial: all 3 groups already registered; DONE via portal: tally.mac (5GRY7Y2894), tally.mac.widgets (A58D295228 — verify saved). REMAINING (recipe: edit page → App Groups Configure → check group → Continue → Save → Confirm): epiphany-macos (8UV9646S23) + epiphany-macos.widgets (74WAG78UJS) → group.com.heyitsmejosh.epiphany; spark.widgets (55W9MW38HJ) + com.heyitsmejosh.spark + .spark.mac + .spark.mac.widgets → group.com.jt.spark. Then re-export archives (already built in each repo's .asc/artifacts).
-- [x] Books Mac: RESOLVED — repo is `uprighty` (books→spine→uprighty→bookrank), working manual export path documented in `uprighty/roadmap.md` line 8 (`xcodebuild -exportArchive` can't do MAS installer-cert export; manual codesign+productbuild path works). Bookrank macOS v1.0 already WAITING_FOR_REVIEW per CLAUDE.md. Nothing further needed.
 - [ ] Sparkjar iOS: same App Group blocker as Spark (documented earlier).
-- [x] All .asc/workflow.json ship-mac workflows broken: asc CLI removed `--pkg-path`; steps also fail on pre-existing archive paths (need --overwrite). Update workflow.json in echo/talli/epiphany/spark. FIXED 2026-08-09: `asc xcode export` now takes `--ipa-path` not `--pkg-path` (confirmed via `--help`), and `asc publish appstore` takes `--ipa` not `--pkg`. Updated all 4 repos (voxprint/talli/epiphany/sparkjar): `export_mac` step now uses `--overwrite --ipa-path`, `publish_mac` uses `--ipa`; added missing `--overwrite` to `archive_mac` in voxprint/talli/sparkjar (epiphany already had it). Not live-tested (no archive run this session), but syntax now matches current CLI.
-- [x] Echo iOS 1.3.3 (now Voxprint, app 6782604262): VERIFIED 2026-08-08 — resubmission went through, 1.3.3 iOS is READY_FOR_DISTRIBUTION (long since superseded by 1.3.4, 1.3.5 READY_FOR_DISTRIBUTION, 1.3.6 WAITING_FOR_REVIEW). Nothing stuck in PREPARE_FOR_SUBMISSION.
 - [ ] Uploaded tonight, icons appear after Apple processing: Echo Mac 1.3.3, books-ios 1.0, Healstack (uploading).
 - [ ] books: merge Books Mac + books-ios into one universal ASC app record
 - [ ] books-ios icon scaling bug — art renders small with margins (recurring across apps: talli v2.4.1, portfolio, now books; likely SVG rasterized at source size onto larger canvas). Root-cause the icon generation path once, fix everywhere.
@@ -149,8 +145,6 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 - [ ] Icon color pass: rework all app icon colors using the [clrs.cc](https://clrs.cc) palette. Current palette + contrast is awful; keep the strong color differentiation between apps (that part works). Excludes the top few icons that already look good. Affects every app icon across ~/Documents/Code.
 - [ ] macOS versions needed for: BCGD, Nullfolio (nulljosh.github.io), Healstack, Wiretext, Litigate, InkPress.
 - [ ] ASC duplicate records to merge/delete: Lexly Mac (6783501927) and Echo Transcribe Mac (6783015101). Both are orphan Mac records superseded by Universal Purchase on the iOS record. Echo support ticket already filed (case 102949488998). Dashboard-only action.
-- [x] "What is Curvely?" — resolved: Curvely (ASC 6794988370, com.nulljosh.grapher) is the grapher app under its App Store name. Not live yet (no READY_FOR_SALE version).
-- [x] App Store links added to READMEs/landing pages for the 6 live apps (Talli, Lexly, Epiphany, Echo, Litigate, Inkpress).
 
 ## mail-sweep skill (proposed 2026-08-06)
 Auto-scan email for dev warnings (ASC/Vercel/Sentry/GitHub Actions), replacing manual screenshot→Notes→paste workflow.
