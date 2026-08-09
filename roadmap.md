@@ -85,10 +85,10 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 
 ## 2026-07-10 icon/ship blockers (from overnight session)
 - [ ] App Group portal assignment — 2026-07-10 partial: all 3 groups already registered; DONE via portal: tally.mac (5GRY7Y2894), tally.mac.widgets (A58D295228 — verify saved). REMAINING (recipe: edit page → App Groups Configure → check group → Continue → Save → Confirm): epiphany-macos (8UV9646S23) + epiphany-macos.widgets (74WAG78UJS) → group.com.heyitsmejosh.epiphany; spark.widgets (55W9MW38HJ) + com.heyitsmejosh.spark + .spark.mac + .spark.mac.widgets → group.com.jt.spark. Then re-export archives (already built in each repo's .asc/artifacts).
-- [ ] Books Mac: export failed after archive — rerun `asc xcode export` with ExportOptionsMac.plist in books/ios and read the error.
+- [x] Books Mac: RESOLVED — repo is `uprighty` (books→spine→uprighty→bookrank), working manual export path documented in `uprighty/roadmap.md` line 8 (`xcodebuild -exportArchive` can't do MAS installer-cert export; manual codesign+productbuild path works). Bookrank macOS v1.0 already WAITING_FOR_REVIEW per CLAUDE.md. Nothing further needed.
 - [ ] Sparkjar iOS: same App Group blocker as Spark (documented earlier).
 - [ ] All .asc/workflow.json ship-mac workflows broken: asc CLI removed `--pkg-path`; steps also fail on pre-existing archive paths (need --overwrite). Update workflow.json in echo/talli/epiphany/spark.
-- [ ] Echo iOS 1.3.3: verify resubmission actually went through (poller: asc review submissions-submit --id 5d64a452-...; version must leave PREPARE_FOR_SUBMISSION).
+- [x] Echo iOS 1.3.3 (now Voxprint, app 6782604262): VERIFIED 2026-08-08 — resubmission went through, 1.3.3 iOS is READY_FOR_DISTRIBUTION (long since superseded by 1.3.4, 1.3.5 READY_FOR_DISTRIBUTION, 1.3.6 WAITING_FOR_REVIEW). Nothing stuck in PREPARE_FOR_SUBMISSION.
 - [ ] Uploaded tonight, icons appear after Apple processing: Echo Mac 1.3.3, books-ios 1.0, Healstack (uploading).
 - [ ] books: merge Books Mac + books-ios into one universal ASC app record
 - [ ] books-ios icon scaling bug — art renders small with margins (recurring across apps: talli v2.4.1, portfolio, now books; likely SVG rasterized at source size onto larger canvas). Root-cause the icon generation path once, fix everywhere.
