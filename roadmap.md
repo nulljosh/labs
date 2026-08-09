@@ -78,8 +78,8 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 
 ## Wrap 2026-07-05 (hard-problems pass) — manual steps for Joshua
 - [ ] NYC iOS: in ASC web UI — App Privacy answers, privacy policy URL, iPad 12.9" screenshot — then `asc review submit` (build 5 already clean)
-- [ ] Epiphany: Trade tab is STILL disabled as of 2026-07-20 (`FinancePanel.jsx` comment: "disabled until SnapTrade sync math is fixed, phantom holdings, bad net worth") — contradicts memory file `project_epiphany_stale_holdings.md` claiming this was fixed 2026-07-15; that memory is stale, flagging for correction. Still needs the force-sync + re-enable.
-- [ ] Echo/Talli: check Apple validation emails for upload errors 90183/90189, then re-upload
+- [ ] Epiphany: Trade tab still disabled — VERIFIED 2026-08-08, tracked accurately in `epiphany/roadmap.md` (Trading / brokerage section): the dedupe fix (`listAccounts()` filters duplicate account ids in `src/utils/brokers/snaptrade.js:110-118`) already shipped 2026-07-02 and is still in place. Re-enabling the tab in `FinancePanel.jsx` needs Joshua to eyeball a real force-sync against his live SnapTrade holdings first — not something to flip blind against real financial data. No code change needed here; duplicate this line no further, epiphany/roadmap.md is the live tracker.
+- [x] Echo/Talli: check Apple validation emails for upload errors 90183/90189, then re-upload — checked 2026-08-08: no 90183/90189 blocking either app now. Voxprint iOS 1.3.6 WAITING_FOR_REVIEW, macOS 1.3.6 READY_FOR_DISTRIBUTION (build VALID). Talli 3.5.13 build 153 VALID, 3.5.12 READY_FOR_DISTRIBUTION. Both already past this issue via later uploads; nothing to fix.
 - [ ] Talli login: repro live once so logging can pinpoint BC Self-Serve auth failure
 - Sparkjar fn-cap consolidation plan noted in sparkjar/roadmap.md (deferred, nothing blocked)
 
