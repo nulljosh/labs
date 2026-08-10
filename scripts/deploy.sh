@@ -1,18 +1,11 @@
 #!/usr/bin/env bash
-# Publish the journal to Vercel as prebuilt static output.
-# Jekyll builds locally, then we ship _site via the Build Output API with
-# `vercel deploy --prebuilt` so Vercel never runs Ruby/bundler.
+# Publish the journal to Cloudflare Pages.
+# Jekyll builds locally, then we ship _site via wrangler pages deploy.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 bundle exec jekyll build
 
-rm -rf .vercel/output
-mkdir -p .vercel/output/static
-# Use rsync to avoid cp -R issues on macOS
-rsync -av _site/ .vercel/output/static/
-printf '{"version":3}\n' > .vercel/output/config.json
-
-npx vercel deploy --prebuilt --prod --yes
+npx wrangler pages deploy _site --project-name journal
 
 ./scripts/sync-portfolio.sh
