@@ -2,6 +2,24 @@
 
 *Last updated: 2026-08-09 Sunday late night (night wrap) — Newsline v0.3.0 shipped (turned from website into API/MCP server dependency: query params filtering on /api/stories, stateless /mcp endpoint with get_news + get_blindspots, openapi.yaml + security.md docs; three production bugs fixed: CDN cache collisions on query-string variants, filter-before-cap reordering, Atom <entry> parsing + entity decoding; five dead feeds pruned, 17 outlets verified live). Cadence recovered from Vercel deployment backup and migrated to Cloudflare Pages Functions (stats + heatmap working). Lexly added forgot-password reset flow. Nimble web migrated to Cloudflare Pages, answer-proxy payload key bug fixed. Earlier evening (2026-08-09): Bookrank book summaries continued (The Optimist chapters 1-2, Data Science For Dummies chapter 20 completed with 175 photos processed, AI in Business + Accounting for Canadians + macOS Tahoe started and completed), photo backlog cleared. Inkpress v1.0.3 shipped (icon redesign + loading indicator + App Store screenshot refresh + icon alpha flatten + encryption compliance). ASC-login script bug found and fixed (backwards 2FA code prompting, rewrote to let Apple's prompt drive flow). Earlier 2026-08-08 Saturday night (night wrap) — Apple Notes cleared (11 items). Two stuck App Store submissions fixed: Voxprint iOS 1.3.6 and Bookrank iOS 1.0 resubmitted via ASC API. Earlier 2026-08-07 Friday night — Epiphany avatar 500 error fixed, iOS map search-suggestion dropdown readability improved, roadmap pruned 9 items, bank-statement upload fixed. Earlier 2026-08-06 Thursday night — Voxprint macOS 1.3.6 shipped live, Inkpress icon redesigned + landing page shipped, Healstack migrated to Cloudflare Pages, Lexly integrated 15 masterclass summaries, Litigate added light mode + gavel icon, 7 skills added to dotfiles, roadmap consolidations across 7 repos.*
 
+## 🛑 APP STORE SUBMISSION FREEZE — until 2026-08-18
+
+**Do not submit ANY app for App Store review until Aug 18, 2026.** No `asc review
+submissions-submit`, no `asc workflow run ship-ios`, no dashboard submits — on *any* app,
+including healthy ones. This overrides the standing auto-submit-on-version-bump rule.
+
+Reason: four apps are under a **Guideline 5.6 Developer Code of Conduct review suspension**
+(Curvely 6794988370, Transcriptly/Echo-Mac-orphan 6783015101, Wiretext 6794988951,
+NYC Survive 6782618198). Apple's letter states the apps are not eligible for resubmission
+before Aug 18, and that *"continued submissions of apps that violate the App Review
+Guidelines, including submitting new apps with the same or similar issues, will be treated
+as a violation of the Apple Developer Program License Agreement and may result in removal
+from the Apple Developer Program."* That is account-level risk across all 17 apps.
+
+Still allowed during the freeze: local fixes, commits, pushes, web deploys, and TestFlight
+builds (TestFlight is not App Store review). Full detail + all rejection reasons:
+`wiki/pages/ship-plan.md` § "Guideline 5.6 suspension (2026-08-10)".
+
 ## Environment
 - macOS Darwin 25.5.0 (arm64), Mac Mini M4
 - Python 3.14.3 · Node.js v24.13.1 · xcodegen `/opt/homebrew/bin/xcodegen`
