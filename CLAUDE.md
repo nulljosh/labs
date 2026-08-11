@@ -7,7 +7,7 @@ v2.4.0
 - Journal shares the portfolio's design tokens (`heyitsmejosh.com/tokens.css`, linked in `_layouts/default.html` before `main.css`). The blue `--accent` is used for link/hover states. `--text-secondary`/`--text-tertiary`/`--subtle` map to the shared `--text2`/`--text3`/`--border2`. Body font stays Geist (not the portfolio's mono) for reading comfort. SVG headers should use `var(--text)`/`var(--border)` with `prefers-color-scheme` media queries so they follow the same palette.
 - Live site is `journal.heyitsmejosh.com`.
 - Posts live in `_posts/`.
-- `./scripts/deploy.sh` is the only publish path. It builds Jekyll locally and ships `_site` to the Vercel `journal` project via the Build Output API (`vercel deploy --prebuilt`), so Vercel never runs Ruby/bundler. There is no GitHub Pages / gh-pages flow and no remote build; a plain `git push` does not deploy.
+- `./scripts/deploy.sh` is the only publish path. It builds Jekyll locally and ships `_site` to the **Cloudflare Pages project `journal-heyitsmejosh`** (`wrangler pages deploy _site --project-name journal-heyitsmejosh --branch=main`). There is a second Pages project named plain `journal` with no custom domain — deploying to it reports success and changes nothing live; that bug kept the site on an Aug 6 build until 2026-08-11. No GitHub Pages flow, no remote build; a plain `git push` does not deploy. Verify by curling the live post URL, not by trusting wrangler's success line.
 - One post per month by default (changed 2026-07-04 from weekly). **Size/staleness exception (2026-07-21):** if the current post exceeds ~20KB or today is more than ~10 days past its frontmatter `date:`, start a new post instead of appending further, even mid-month — split at a clean `##` day-heading boundary. (2026-07-03-june-july.md hit 157KB/18 days stale before this rule existed and had to be split retroactively.)
 - Filename date and front matter date must match.
 - Write in natural English, not tool-name spam.
@@ -37,7 +37,7 @@ categories: journal daily
 cd ~/Documents/Code/journal
 bundle install
 bundle exec jekyll serve   # local preview
-./scripts/deploy.sh        # build locally + ship prebuilt static to Vercel
+./scripts/deploy.sh        # build locally + ship _site to Cloudflare Pages
 ```
 
 ## /journal shortcut
@@ -46,13 +46,13 @@ Repo: `nulljosh/journal` on GitHub (split out of `nulljosh/inkpress` 2026-07-21,
 ```bash
 /journal              # create/update the current entry (interactive)
 /journal <date>       # create entry for specific date (YYYY-MM-DD)
-/journal push         # ./scripts/deploy.sh (build + ship to Vercel)
+/journal push         # ./scripts/deploy.sh (build + ship to Cloudflare Pages)
 /journal open         # open current entry in browser
 ```
 
 ## Key Files
 - `_posts/` - Published entries, one per date, with front matter.
-- `scripts/deploy.sh` - Only publish path; builds Jekyll locally and deploys `_site` to Vercel with `--prebuilt`.
+- `scripts/deploy.sh` - Only publish path; builds Jekyll locally and deploys `_site` to Cloudflare Pages project `journal-heyitsmejosh`.
 - `_config.yml` - Jekyll site configuration.
 - `index.html` - Site entry point.
 
