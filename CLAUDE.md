@@ -54,7 +54,7 @@ builds (TestFlight is not App Store review). Full detail + all rejection reasons
 | **dotfiles** | Shell configs, api-gateway, kv-store, search-engine, applescripts/, vibe ref |
 | **labs** (`nulljosh/labs`) | Monorepo: roost, missing-pets, canlii-app, byo-*, capu, code-meta. wiretext/curvely moved to their own repos 2026-07-04 |
 | **inkpress** | Multi-feed RSS/Atom reader, iOS only (ASC 6787759999). Split from `journal` repo 2026-07-21 — no shared code, subscribes to journal's feed.xml as a regular feed by default. v1.0.3 WAITING_FOR_REVIEW (submitted 2026-08-09, icon redesign + loading indicator + screenshot refresh + icon alpha flatten + encryption compliance). Landing page live at inkpress.heyitsmejosh.com via Cloudflare Pages (DNS CNAME verified live). |
-| **journal** | Jekyll blog. `journal.heyitsmejosh.com`. Split out of `inkpress` repo 2026-07-21 (was combined 2026-07-20 to 2026-07-21) — this repo is blog-only now. Migrated from Vercel to Cloudflare Pages 2026-08-09 (was returning 404 on Vercel; flip fixed the outage) |
+| **journal** | Jekyll blog. `journal.heyitsmejosh.com`. Split out of `inkpress` repo 2026-07-21 (was combined 2026-07-20 to 2026-07-21) — this repo is blog-only now. Migrated from Vercel to Cloudflare Pages 2026-08-09 (was returning 404 on Vercel; flip fixed the outage). Deploy target corrected 2026-08-11: the live domain is on the `journal-heyitsmejosh` Pages project, not the domain-less `journal` project deploy.sh had been targeting, so entries after Aug 6 were never actually publishing |
 | **nulljosh.github.io** | Portfolio. `heyitsmejosh.com` |
 
 ## GitHub Repos (verified via `gh repo list` 2026-07-19, echo→voxprint complete 2026-07-29)
