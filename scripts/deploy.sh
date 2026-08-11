@@ -6,6 +6,8 @@ cd "$(dirname "$0")/.."
 
 bundle exec jekyll build
 
-npx wrangler pages deploy _site --project-name journal
+# journal.heyitsmejosh.com is attached to the `journal-heyitsmejosh` project, NOT
+# `journal` -- deploying to `journal` succeeds and changes nothing live.
+npx wrangler pages deploy _site --project-name journal-heyitsmejosh --branch=main
 
 ./scripts/sync-portfolio.sh
