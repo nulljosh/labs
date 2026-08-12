@@ -29,4 +29,6 @@ Found the recorded state everywhere was wrong—I had four apps marked "waiting 
 
 Wired up Wiretext's missing entitlements configuration. The ios/Wiretext.entitlements file existed since August 3, but the build system never actually used it because project.yml was never told to load it. Fixed that in the config.
 
-**Apps.** Updated roadmap and wiki status across Curvely, NYC, Wiretext, Healstack, Sparkjar, Lexly, Talli, Litigate, and BCGD. Consolidated what was known into a real Ship Status that the live API now confirms. No new features shipped, but the plan is much clearer now.
+Later tonight: got healstack rebuilt. The fix for the corrupted demo account was verified working, so I built v2.3.4, exported it with the corrected ship-ios workflow (added --overwrite and -skipPackagePluginValidation to fix stale artifacts), and uploaded it to App Store Connect. It's VALID now and just waiting for the August 18 freeze to lift before resubmission. Sparkjar couldn't be built—found a version mismatch in ios/project.yml: it claims MARKETING_VERSION 2.2.0, but ASC only knows about version 1.0. That's the web app's version somehow bleeding into the iOS project. Documented the exact fix steps in sparkjar/roadmap.md for the next session.
+
+**Apps.** Updated roadmap and wiki status across Curvely, NYC, Wiretext, Healstack, Sparkjar, Lexly, Talli, Litigate, and BCGD. Consolidated what was known into a real Ship Status that the live API now confirms. Healstack build now VALID on ASC. No new features shipped, but the plan is much clearer now.
