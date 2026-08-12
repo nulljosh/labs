@@ -110,8 +110,28 @@ builds (TestFlight is not App Store review). Full detail + all rejection reasons
 - **Cloudflare DNS token**: `CLOUDFLARE_DNS_TOKEN` in `~/.config/fish/secrets.fish` (old `~/.openclaw/...cloudflare.env` path is gone)
 - **Upstash Redis** (epiphany): rotation pending — email auth failed. Fix: `security add-generic-password -s rotate-upstash-email -a email -w YOUR_EMAIL -U` then `/rotate upstash epiphany`
 
-## Ship Status (most → least shipped, refresh as state changes)
-epiphany (live) > voxprint (iOS 1.3.6 LIVE 08-10, macOS 1.3.6 live 08-06), inkpress (v1.0.3 WAITING_FOR_REVIEW 08-09), talli (iOS 3.5.12 SHIPPED 07-28), bookrank (iOS v1.0 + macOS v1.0 WAITING_FOR_REVIEW 08-03), wiretext (iOS v1.0 WAITING_FOR_REVIEW 08-03), wordroot (iOS v1.0 submission-ready 08-11, gated on 5.6 freeze; macOS 1 error left), curvely (iOS v1.1.0 WAITING_FOR_REVIEW 08-03), lexly (iOS 1.1.3 shipped, macOS 1.1.1 deployed Cloudflare), litigate (1.0+ live on Cloudflare), healstack (1.0 resubmit ready 08-11, gated on 5.6 freeze), sparkjar (provisioning ACTIVE 08-10, v2.2.0 live), portfolio (live) > bcgd (web+dashboard live 07-27, macOS v1.0 VALID 07-29, iOS pending), journal (Jekyll blog live on Cloudflare). life: ARCHIVED 07-28
+## Ship Status — VERIFIED against `asc versions list` 2026-08-12
+
+Do not edit this section from memory. Re-verify with `asc versions list --app <id>` (public
+API, no 2FA) before trusting or changing any line — on 2026-08-12 nearly every entry here was
+wrong, including four apps recorded as "waiting for review" that were actually REJECTED.
+
+**LIVE (READY_FOR_SALE)** — epiphany (iOS 2.5.4 + macOS 2.5.2), voxprint (iOS + macOS 1.3.6),
+talli (iOS 3.5.12 + macOS 3.5.6), inkpress (iOS 1.0.3), lexly (iOS 1.1.3), litigate (iOS 1.0.2),
+bookrank (macOS 1.0).
+
+**WAITING_FOR_REVIEW** — bookrank (iOS 1.0).
+
+**PREPARE_FOR_SUBMISSION** — wordroot (iOS + macOS 1.0), bcgd (iOS + macOS 1.0; the ASC record
+*does* exist, id 6791106082).
+
+**REJECTED — 8 apps, reasons unread** (Resolution Center only, needs `asc-login`): curvely
+(iOS 1.1.0), healstack (iOS 2.3.4), lexly Mac (1.1.1 — both records 6783501611 + 6783501927),
+nyc (iOS 1.0.0 + macOS 1.0), nullfolio (iOS 1.0 — track closed 08-11, Guideline 4.2), sparkjar
+(iOS + macOS 1.0), transcriptly (macOS 9.9.9), wiretext (iOS 1.0).
+
+**All submissions frozen until 2026-08-18** (Guideline 5.6 review). Build and stage only — no
+`asc review submit`. Web: portfolio, journal (Jekyll, Cloudflare) live. life: ARCHIVED 07-28.
 
 ## Roadmap
 - **Payments infra** (from Asc.pdf note, imported 2026-07-19): hook up an RBC bank account and get Stripe working across any/all apps — needs Stripe reauthorization (and possibly a CLI). Not started; requires interactive/credentialed setup, flag before executing.
