@@ -153,3 +153,50 @@ Auto-scan email for dev warnings (ASC/Vercel/Sentry/GitHub Actions), replacing m
 - Use Gmail MCP or primitive-email to fetch/filter by sender+subject
 - File extracted errors into relevant project's roadmap.md, or hand straight to Claude to fix
 - First test case: verify stale Lexly Mac submission email vs confirm Epiphany binary delivery issue (see email screenshot 2026-08-06)
+
+## Codebase consolidation (planned 2026-08-11, not started)
+Full plan approved + saved: `~/.claude/plans/lovely-churning-wolf.md`. Make the codebase
+smarter/more connected. Four phases, each independently shippable, stop anywhere:
+- [ ] **Phase 1 (zero risk, biggest win):** delete ~15 directories that exist twice — top-level
+      *and* in `labs/`. Top-level `roost`/`missing-pets` are stale stubs (400K vs 110MB/471MB);
+      `labs/wiretext` + `labs/grapher` are leftovers from the 2026-07-04 split-out. Invert for
+      `capu` (labs copy is the stub); diff `bank`/`abraham` first, both committed 08-11.
+- [ ] **Phase 2:** convert 6 hard-copied `tokens.css` (bookrank, fengshui, uprighty, nimble
+      web+docs, notes, roost) to the one-line `@import heyitsmejosh.com/tokens.css` stub that
+      curvely/litigate/sparkjar/wiretext already use. Then add `nulljosh.github.io/apps.json`
+      as the single app registry — portfolio cards, app footers, and `wiki-refresh` all read it
+      instead of hardcoded lists (this is why 8 renames each needed hand-editing everywhere).
+- [ ] **Phase 3 merges:** newsline `/api/stories` → inkpress default feeds (do first, smallest);
+      fengshui → bookrank chapter + domain redirect; etyma → nimble answer source + redirect
+      (drops an unsubmitted ASC record while 4 apps are under 5.6 review); publish
+      `bookrank.../summaries.json` so lexly fetches instead of holding copies.
+- [ ] **Phase 4 (last, only user-facing risk):** sparkjar hand-rolled OAuth+JWT
+      (`api/_lib/auth/github.js`) → `supabase.auth.signInWithOAuth()`; deletes code and
+      inherits every provider once the 3 console registrations land.
+- **Deliberately not doing:** unifying the 4 live Stripe impls (3 different runtimes, all
+  verified, no payoff). Revisit when a 5th app needs a $1 gate.
+- Freeze note: no `asc review submit` in any phase until 2026-08-18.
+
+## Deferred from /night wrap 2026-08-11 (ran out of session budget)
+Journal entry posted OK (journal.heyitsmejosh.com/2026/08/11/consolidation/). The wiki half
+did not run — do these at the start of the next wrap:
+- [ ] `notes/notes/master.md`: bump Updated date, refresh Roadmap / Active Projects / Ship Now
+- [ ] Obsidian vault (`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Code/wiki/`):
+      ingest 2026-08-11 per `wiki/CLAUDE.md`, update touched entity pages, then refresh
+      `index.md` + `pages/_overview.md`. This is the surface actually read — don't skip it.
+- [ ] Run the `wiki-refresh` skill across its 3 surfaces (vault, master.md, Code/CLAUDE.md)
+- [ ] `roadmap-prune` on the 12 repos touched 2026-08-11 — but do NOT prune the
+      "## Codebase consolidation" block above, all its items are still open
+- Done already, don't redo: `project_codebase_consolidation` memory written + MEMORY.md pointer
+
+## Nested-repo shadowing — noted 2026-08-12, deferred
+Phase 1 of the consolidation plan is DONE: `Code/labs/` (a stale second clone of
+labs.git nested inside its own checkout) deleted, ~1GB freed. Rescued
+`abraham/{contract.pdf,plan.pdf,OPERATING_GUIDE.local.md}` to top level first —
+they existed only in that clone.
+- [ ] Leftover cosmetic issue: labs.git still *tracks* stale files at `wiretext/`,
+  `quotable/`, `capu/`, `byo-*/`, shadowed on disk by nested repos with their own
+  remotes. No data at risk, git just reports paths it can't see into. Fix is
+  `git rm -r --cached <dir>` + a .gitignore entry per dir. Not urgent.
+- [ ] Phases 2-4 of ~/.claude/plans/lovely-churning-wolf.md still unstarted
+  (tokens @import, apps.json manifest, thin-app merges, sparkjar auth).
