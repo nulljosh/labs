@@ -26,6 +26,15 @@ targets:
         INFOPLIST_FILE: App/Info.plist
         GENERATE_INFOPLIST_FILE: NO
         TARGETED_DEVICE_FAMILY: "1,2"
+        DEVELOPMENT_TEAM: QMM486NPYC
+        CODE_SIGN_STYLE: Automatic
+        # Without an entitlements file the signed bundle carries no
+        # application-identifier while the embedded profile does — Apple rejects
+        # that combination for TestFlight with ITMS-90886. Hand-committed rather
+        # than generated via xcodegen `entitlements.properties` (drops keys).
+        # Wiretext.entitlements existed since 08-03 but was never referenced here,
+        # so xcodegen dropped it and every build shipped without it.
+        CODE_SIGN_ENTITLEMENTS: Wiretext.entitlements
         # ponytail: no AppIcon asset catalog yet — generate one from icon.svg before App Store submission
 
 schemes:

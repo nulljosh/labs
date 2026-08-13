@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		48CA84DCB2DA9AFD8B769520 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 903E774CD484FC726474E67E /* web */; };
+		56186D26E4D8A41F5895EC3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5729E4350A23B03D4063EF07 /* Assets.xcassets */; };
 		DC5ECC6E1AD7DA63E6798EBD /* WiretextApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1257F0D44E6CDF6F0A58C304 /* WiretextApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -15,6 +16,7 @@
 		0BC3941D7C977992A0AC8468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1257F0D44E6CDF6F0A58C304 /* WiretextApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiretextApp.swift; sourceTree = "<group>"; };
 		3468FC185341F61D3BE3A85D /* Wiretext-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Wiretext-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5729E4350A23B03D4063EF07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		903E774CD484FC726474E67E /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -22,6 +24,7 @@
 		2FCDD48F34A6DF8E8D378D15 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				5729E4350A23B03D4063EF07 /* Assets.xcassets */,
 				0BC3941D7C977992A0AC8468 /* Info.plist */,
 				1257F0D44E6CDF6F0A58C304 /* WiretextApp.swift */,
 			);
@@ -75,6 +78,10 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					9116CCDC32200121A2D9E75D = {
+						DevelopmentTeam = QMM486NPYC;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = B7456C2EE1BCB2392DA727A5 /* Build configuration list for PBXProject "Wiretext" */;
@@ -101,6 +108,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56186D26E4D8A41F5895EC3A /* Assets.xcassets in Resources */,
 				48CA84DCB2DA9AFD8B769520 /* web in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,7 +254,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Wiretext.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QMM486NPYC;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -263,7 +274,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Wiretext.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QMM486NPYC;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

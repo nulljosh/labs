@@ -151,3 +151,9 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 - [ ] ASC duplicate records to merge/delete: Lexly Mac (6783501927) and Echo Transcribe Mac (6783015101). Both are orphan Mac records superseded by Universal Purchase on the iOS record. Echo support ticket already filed (case 102949488998). Dashboard-only action.
 - [x] "What is Curvely?" — resolved: Curvely (ASC 6794988370, com.nulljosh.grapher) is the grapher app under its App Store name. Not live yet (no READY_FOR_SALE version).
 - [x] App Store links added to READMEs/landing pages for the 6 live apps (Talli, Lexly, Epiphany, Echo, Litigate, Inkpress).
+
+## From Apple Notes (imported 2026-08-11)
+- [ ] Landing pages still missing across half the codebase: nimble, curvely, wiretext, nyc, inkpress, bookrank, newsline, wordroot. This was believed handled a previous session — verify each one actually has a landing page before reporting done
+
+## Someday / Explore
+- [ ] Graph engineering: scan the codebase and research https://github.com/codejunkie99/graph-engineering — how to graph-engineer our projects (we already ship SVG architectures in many READMEs). Research graph flow + lane gen.
