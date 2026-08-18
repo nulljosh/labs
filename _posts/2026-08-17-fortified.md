@@ -15,9 +15,7 @@ Spent the afternoon moving the last two big projects off the old host. The finan
 
 ## Tuesday (August 18)
 
-Filed eleven notes from my phone into the right project lists and cleared the inbox. Then fixed the real gap left by the app freeze ending: the two apps I rewrote as native on Friday had never actually been built, so the store still held the rejected web-view versions. Building and uploading those was the whole job, and both are now waiting on review.
-
-Also fixed the Play Now button on the city game, which had been quietly serving the marketing page back to itself because the app folder had no index page in it.
+Filed eleven notes into project lists and uploaded Curvely and Wiretext as native apps, both now waiting on review. Also fixed the Play Now button on the city game, which had been serving the marketing page to itself because of a missing index page. The journal entries had silently bloated to 6000+ words by ignoring the 350-word cap, so I added a lint gate to deploy.sh and rewrote all twelve posts to spec. The SVG headers weren't rendering at all because they defined colors only inside theme-query blocks with no base definition. Fixed both by deleting the style blocks, switching shapes to currentColor, and inlining them to inherit the page theme.
 
 ## Apps
 
