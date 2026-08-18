@@ -15,7 +15,7 @@ Spent the afternoon moving the last two big projects off the old host. The finan
 
 ## Tuesday (August 18)
 
-Submitted Wordroot to review and verified Curvely and Wiretext's 5.6 defects were fixed (both native SwiftUI). Fixed production bugs on Sparkjar (Apple auth 500ing from missing env var, password reset broken by route injection). Understood Healstack's rejection via Apple's screenshot and cancelled the stuck submission. Later rebuilt all four apps and staged them: Sparkjar, Healstack, BCGD (fixed hardcoded version string on Mac), and Wordroot macOS (missing app category was the real blocker, not cert). Also audited App Privacy declarations and found Epiphany and Talli still claim zero data collection despite connecting real accounts.
+Submitted Wordroot to review and verified Curvely and Wiretext's 5.6 defects were fixed (both native SwiftUI). Fixed production bugs on Sparkjar (Apple auth 500ing from missing env var, password reset broken by route injection), understood Healstack's rejection (Supabase server error now resolved), and cancelled the stuck submission. Rebuilt all four apps and staged them: Sparkjar, Healstack (with Apple sign-in gated off), BCGD (fixed hardcoded version string on both platforms), Wordroot macOS (missing app category was the real blocker). Healstack submitted as the first post-freeze app with demo account verified against production. Audited App Privacy declarations and found Epiphany and Talli still claim zero data collection despite connecting real accounts.
 
 ## Apps
 
