@@ -286,3 +286,13 @@ footer {
   header { margin-bottom: 3rem; }
   .post-title { font-size: clamp(1.75rem, 7vw, 2.25rem); }
 }
+
+/* Post header art. Inlined (not <img>) so it inherits `color` and follows the
+   site theme toggle; every shape uses currentColor. */
+.post-header-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 2rem;
+  color: var(--text);
+}

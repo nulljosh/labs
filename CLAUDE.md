@@ -4,7 +4,7 @@ v2.4.0
 ## Rules
 - Project is a personal Jekyll blog. Split out of the `inkpress` repo 2026-07-21 — that repo now holds only the Inkpress iOS app (RSS reader). No shared code between the two; the only connection is that Inkpress can subscribe to this blog's `feed.xml` like any other feed.
 - URL slug comes from the filename, not the `title:` front matter. Filename format: `YYYY-MM-DD-slug.md` — the slug portion is what appears in the URL (e.g., `2026-04-13-week.md` ships at `/2026/04/13/week/`).
-- Journal shares the portfolio's design tokens (`heyitsmejosh.com/tokens.css`, linked in `_layouts/default.html` before `main.css`). The blue `--accent` is used for link/hover states. `--text-secondary`/`--text-tertiary`/`--subtle` map to the shared `--text2`/`--text3`/`--border2`. Body font stays Geist (not the portfolio's mono) for reading comfort. SVG headers should use `var(--text)`/`var(--border)` with `prefers-color-scheme` media queries so they follow the same palette.
+- Journal shares the portfolio's design tokens (`heyitsmejosh.com/tokens.css`, linked in `_layouts/default.html` before `main.css`). The blue `--accent` is used for link/hover states. `--text-secondary`/`--text-tertiary`/`--subtle` map to the shared `--text2`/`--text3`/`--border2`. Body font stays Geist (not the portfolio's mono) for reading comfort. SVG headers live in `_includes/headers/` and are inlined into posts with `{% include headers/<name>.svg %}`, never `<img>`. Every shape uses `currentColor` and carries no `<style>` block, so the art inherits the page's colour and follows the theme toggle. Do not give an SVG colour its only definition inside a `prefers-color-scheme` block: an `<img>`-loaded SVG cannot see the page's `data-theme`, and an undefined colour computes to `none`, which is why the old headers rendered invisible.
 - Live site is `journal.heyitsmejosh.com`.
 - Posts live in `_posts/`.
 - `./scripts/deploy.sh` is the only publish path. It builds Jekyll locally and ships `_site` to the **Cloudflare Pages project `journal-heyitsmejosh`** (`wrangler pages deploy _site --project-name journal-heyitsmejosh --branch=main`). There is a second Pages project named plain `journal` with no custom domain — deploying to it reports success and changes nothing live; that bug kept the site on an Aug 6 build until 2026-08-11. No GitHub Pages flow, no remote build; a plain `git push` does not deploy. Verify by curling the live post URL, not by trusting wrangler's success line.
@@ -12,7 +12,8 @@ v2.4.0
 - Filename date and front matter date must match.
 - Write in natural English, not tool-name spam.
 - Post titles are ONE WORD. No commas, no ampersands, no "X and Y". Write a label, not a sentence.
-- Posts cap at ~350 words. Two or three day sections of 2-4 sentences each, plus a short Apps line. Say what a change means, not what the code does — no function names, regexes, commit hashes, or build numbers.
+- Posts cap at ~350 words (500 for `categories: journal monthly`). Two or three day sections of 2-4 sentences each, plus a short Apps line. Say what a change means, not what the code does: no function names, regexes, commit hashes, or build numbers.
+- **`scripts/lint-posts.py` enforces all of the above and runs from `deploy.sh`, so a bloated post cannot publish.** Run it before committing. These rules were written here twice and ignored twice; the gate is why they hold now. `--selftest` checks the linter itself.
 - No em dashes.
 - No filler phrases.
 - No emojis.

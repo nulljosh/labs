@@ -1,0 +1,17 @@
+<svg class="post-header-svg" viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg">
+
+  <rect stroke="currentColor" fill="none" width="1200" height="200" class="bg"/>
+
+  <!-- Title text -->
+  <text fill="currentColor" x="80" y="130" font-size="72" font-weight="600" font-family="system-ui, -apple-system, sans-serif" class="text">
+    Releases
+  </text>
+
+  <!-- Decorative line -->
+  <line stroke="currentColor" fill="none" x1="80" y1="155" x2="320" y2="155" stroke-width="3" class="accent"/>
+
+  <!-- Date -->
+  <text fill="currentColor" x="80" y="185" font-size="16" font-family="system-ui, -apple-system, sans-serif" class="text" opacity="0.6">
+    Thursday, August 6
+  </text>
+</svg>
