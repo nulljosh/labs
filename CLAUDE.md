@@ -170,3 +170,9 @@ nyc (iOS 1.0.0 + macOS 1.0), nullfolio (iOS 1.0 — track closed 08-11, Guidelin
 | 2026-05-14 | Stripe sk (new), STRIPE_WEBHOOK_SECRET (`we_1TXF3e…`), FRED_API_KEY |
 | done | Trakt API key |
 | pending | Upstash Redis (see Credentials above) |
+
+## npm dependency moves
+`npm install <pkg> --save-dev` on an already-pinned dep **silently upgrades it**
+to the newest satisfying version. Moving `jsdom` between sections this way jumped
+27.4.0 -> 30.0.1 and broke CI (2026-08-17). Edit `package.json` and reinstall, or
+pin explicitly (`npm i jsdom@^27.4.0 -D`). Diff the lockfile before committing.
