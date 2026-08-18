@@ -159,3 +159,15 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 
 - [ ] **Apple banking/payout info rejected.** RBC + Wealthsimple details were not accepted for App Store paid/IAP agreements. Needed before any IAP or paid app can go live. Dashboard-only (Agreements/Tax/Banking), needs Joshua + 2FA. Ask Apple which account type they want — likely a chequing account with a routable transit/institution number, not a Wealthsimple cash account.
 - [ ] **Stripe status audit across all apps.** Only epiphany is known to have Stripe wired; user believes keys may already be set up. Check per-app: live vs test keys present, webhook endpoint registered, and whether reauthorization is actually needed (see line ~116 item). Confirm before assuming scope.
+
+## Vercel `etyma` project is an orphan spamming failed-deploy emails — 2026-08-17
+
+- [ ] **Needs Joshua's call: delete the Vercel project `etyma` (team nulljosh-9577), or disconnect its Git integration.** It is wired to the **labs** repo — i.e. `~/Documents/Code` itself — so it redeploys on *every single push to labs*, including pure CLAUDE.md/roadmap commits, and every one of those builds now fails and emails Joshua.
+- [ ] Cause, confirmed by walking its deployment history: the last READY build was commit `54649033` (2026-08-11). The very next commit, `3e65d942` "Drop stale pre-rename copies: braingraph, etyma, grapher", deleted the `etyma/` directory the project builds from. Every deploy since — 6 of them, including tonight's `0c4b5e1` — is ERROR. This is not a new breakage; it has been failing on every labs push for six days.
+- [ ] Nothing depends on it any more: `etyma.heyitsmejosh.com` and `wordroot.heyitsmejosh.com` both resolve to the same Cloudflare IPs (104.21.67.32 / 172.67.211.214) and both return 200, so the domain is served by Cloudflare, not by this Vercel project. Wordroot is its own repo now.
+- [ ] Left undone deliberately — deleting a hosting project is outward-facing and irreversible, so it wants an explicit yes rather than a drive-by cleanup. Disconnecting the Git integration is the reversible half if the project itself is worth keeping.
+
+## Pre-unfreeze build smoke test — 2026-08-17
+
+- [x] Every iOS app that could ship on Aug 18 was archived-equivalent build-tested tonight against `generic/platform=iOS Simulator` with `-skipPackagePluginValidation`. **All 12 succeeded:** wiretext, curvely, litigate, healstack (iOS + macOS), lexly, inkpress, voxprint, newsline, bookrank, wordroot, sparkjar, talli. Nothing in the tree is currently broken at compile time, so a failed archive tomorrow means signing/provisioning, not source.
+- [ ] Two gotchas for whoever scripts this next: `sparkjar` and `talli` have no scheme in the repo root and their *first* scheme alphabetically is the watchOS one (`SparkWatch`, `TalliWatch`), which fails against an iOS Simulator destination — pick `Spark` / `Talli` from `ios/` explicitly. And healstack's iOS scheme is still called `Dose`, not `Healstack`, so `-scheme Healstack` errors out.
