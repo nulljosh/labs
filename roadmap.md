@@ -200,3 +200,25 @@ they existed only in that clone.
   `git rm -r --cached <dir>` + a .gitignore entry per dir. Not urgent.
 - [ ] Phases 2-4 of ~/.claude/plans/lovely-churning-wolf.md still unstarted
   (tokens @import, apps.json manifest, thin-app merges, sparkjar auth).
+
+## Finish the Vercel exit (assessed 2026-08-17)
+
+Vercel is down to 3 projects. Each is still live and serving, so there is no
+outage pressure — but the account is not closable until these move.
+
+- **missing-pets** (`pets.heyitsmejosh.com`) — the easy one, ~20 min. 408K,
+  Next.js + Supabase, zero serverless functions, only 2 env vars. Deploy to
+  Pages, flip the A record (`76.76.21.21`) to a proxied CNAME, delete the
+  Vercel project. Do this one first.
+- **talli** (`talli.heyitsmejosh.com`) — blocked on architecture, not effort.
+  Depends on `puppeteer-core` + `@sparticuz/chromium`; headless Chrome does not
+  run on Workers. Needs the Cloudflare Browser Rendering API instead, plus
+  `@vercel/blob` -> R2 and dropping `express`. Real rearchitect, own session.
+- **epiphany** (`epiphany.heyitsmejosh.com`) — hardest. 91 functions, 1.3G,
+  `better-sqlite3` (native binary, no Workers support) and `@vercel/blob`.
+  Flagship app, highest blast radius. Plan it properly before touching it.
+
+Gotcha that will recur on any of these: with `compatibility_date` earlier than
+2025-04-01, `nodejs_compat` does NOT populate `process.env`, so bindings read as
+undefined and assigning to `process.env` silently no-ops. See `cadence`
+(`functions/_adapter.js`) for the globalThis workaround, or just bump the date.
