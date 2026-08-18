@@ -15,7 +15,7 @@ Spent the afternoon moving the last two big projects off the old host. The finan
 
 ## Tuesday (August 18)
 
-Filed eleven notes into project lists and uploaded Curvely and Wiretext as native apps, both now waiting on review. Also fixed the Play Now button on the city game, which had been serving the marketing page to itself because of a missing index page. The journal entries had silently bloated to 6000+ words by ignoring the 350-word cap, so I added a lint gate to deploy.sh and rewrote all twelve posts to spec. The SVG headers weren't rendering at all because they defined colors only inside theme-query blocks with no base definition. Fixed both by deleting the style blocks, switching shapes to currentColor, and inlining them to inherit the page theme.
+Filed eleven notes into project lists and uploaded Curvely and Wiretext as native apps, both now waiting on review. Also fixed the Play Now button on the city game, which had been serving the marketing page to itself because of a missing index page. The journal entries had silently bloated to 6000+ words by ignoring the 350-word cap, so I added a lint gate to deploy.sh and rewrote all twelve posts to spec. The SVG headers had two issues: invisible (colors only in theme-query blocks) and drifted into decorative clipart rather than information cards, so restyled all five to the house format (800×500 frame, one-word title, repos touched, what happened, held items, date).
 
 ## Apps
 
