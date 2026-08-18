@@ -18,3 +18,5 @@ Spent the afternoon migrating the last two big projects off Vercel. Missing-pets
 ## Apps Summary
 
 **Security fixes deployed (2026-08-17):** lexly (cookie-forgery closed), nimble (proxy rate-limited). **Infrastructure work:** Homeward (formerly missing-pets) migrated to Cloudflare Pages + renamed across web/iOS, Epiphany API ported to Cloudflare Workers (BLOCKED ON PROVIDER SECRET RECOVERY). **Live:** Epiphany, Voxprint, Talli, Inkpress, Lexly (iOS + macOS), Litigate (iOS), Bookrank (macOS), plus all Cloudflare Pages sites. Vercel now at 2 projects (down from 18).
+
+**CI Regression Fix (2026-08-17 night, commit c9121e1):** The Workers port broke Epiphany's test suite — jsdom `npm install --save-dev` silently upgraded 27.4.0 → 30.0.1, which bundles undici 8.10.0 requiring newer Node than CI runs. Suite hit 32 vitest startup errors. Pinned jsdom back to ^27.4.0. Also: four test files still mocked `@vercel/blob` after handlers moved to `_blob.js`, so mocks stopped intercepting (17 failures). Repointed all four, including one dynamic `await import` inside test body. Suite now green: **413 tests passing** across 32 files. CI verified on c9121e1.
