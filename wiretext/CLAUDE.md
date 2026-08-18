@@ -24,14 +24,30 @@ Dark-mode only (`data-theme="dark"` set in `index.html`), using the exact tokens
 
 ## iOS
 
-Thin WKWebView shell in `ios/` (xcodegen, no Capacitor — app has no native API needs). Serves the build over a custom `app://` scheme (not `file://`) since ES module scripts are blocked cross-origin under `file://`.
+Native SwiftUI app in `ios/` (xcodegen). Rewritten from a WKWebView shell 2026-08-17 — Apple's
+Guideline 5.6 notice cited quality/completeness, and the 72-line shell was the finding. No web
+assets are bundled any more; `npm run build:ios` is no longer part of the iOS build.
+
+- `App/Engine.swift` — grid + undo/redo, ported function-for-function from `src/lib/engine.js`
+- `App/Presets.swift` — the same 23 templates as `src/lib/presets.js`
+- `App/CanvasView.swift` — SwiftUI `Canvas`, one Text draw per row (not per cell)
+- `App/Store.swift` — canvas persists to Application Support, survives relaunch
+- `Checks/main.swift` — the JS test suite ported as plain asserts
 
 ```bash
-npm run build:ios            # builds to ios/web with relative asset paths
-cd ios && xcodegen generate && open Wiretext.xcodeproj
+cd ios && xcodegen generate
+xcodebuild build -scheme Wiretext-iOS -destination 'generic/platform=iOS Simulator' \
+  -derivedDataPath /tmp/dd-wiretext -skipPackagePluginValidation
+
+# engine self-check, no framework needed
+swiftc -o /tmp/wtcheck ios/App/Engine.swift ios/App/Presets.swift ios/Checks/main.swift && /tmp/wtcheck
 ```
 
-No AppIcon asset catalog yet — generate one from `icon.svg` before App Store submission.
+Native-only capabilities the web build cannot offer: on-device persistence, the system share
+sheet, and hardware-keyboard undo/redo (⌘Z / ⇧⌘Z).
+
+Keep `Engine.swift`/`Presets.swift` in sync with their `src/lib/` counterparts — the ports are
+deliberately line-comparable.
 
 ## Architecture
 

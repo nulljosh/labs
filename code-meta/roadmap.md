@@ -87,7 +87,6 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 - [ ] App Group portal assignment — 2026-07-10 partial: all 3 groups already registered; DONE via portal: tally.mac (5GRY7Y2894), tally.mac.widgets (A58D295228 — verify saved). REMAINING (recipe: edit page → App Groups Configure → check group → Continue → Save → Confirm): epiphany-macos (8UV9646S23) + epiphany-macos.widgets (74WAG78UJS) → group.com.heyitsmejosh.epiphany; spark.widgets (55W9MW38HJ) + com.heyitsmejosh.spark + .spark.mac + .spark.mac.widgets → group.com.jt.spark. Then re-export archives (already built in each repo's .asc/artifacts).
 - [ ] Books Mac: export failed after archive — rerun `asc xcode export` with ExportOptionsMac.plist in books/ios and read the error.
 - [ ] Sparkjar iOS: same App Group blocker as Spark (documented earlier).
-- [ ] All .asc/workflow.json ship-mac workflows broken: asc CLI removed `--pkg-path`; steps also fail on pre-existing archive paths (need --overwrite). Update workflow.json in echo/talli/epiphany/spark.
 - [ ] Echo iOS 1.3.3: verify resubmission actually went through (poller: asc review submissions-submit --id 5d64a452-...; version must leave PREPARE_FOR_SUBMISSION).
 - [ ] Uploaded tonight, icons appear after Apple processing: Echo Mac 1.3.3, books-ios 1.0, Healstack (uploading).
 - [ ] books: merge Books Mac + books-ios into one universal ASC app record
@@ -149,11 +148,14 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 - [ ] Icon color pass: rework all app icon colors using the [clrs.cc](https://clrs.cc) palette. Current palette + contrast is awful; keep the strong color differentiation between apps (that part works). Excludes the top few icons that already look good. Affects every app icon across ~/Documents/Code.
 - [ ] macOS versions needed for: BCGD, Nullfolio (nulljosh.github.io), Healstack, Wiretext, Litigate, InkPress.
 - [ ] ASC duplicate records to merge/delete: Lexly Mac (6783501927) and Echo Transcribe Mac (6783015101). Both are orphan Mac records superseded by Universal Purchase on the iOS record. Echo support ticket already filed (case 102949488998). Dashboard-only action.
-- [x] "What is Curvely?" — resolved: Curvely (ASC 6794988370, com.nulljosh.grapher) is the grapher app under its App Store name. Not live yet (no READY_FOR_SALE version).
-- [x] App Store links added to READMEs/landing pages for the 6 live apps (Talli, Lexly, Epiphany, Echo, Litigate, Inkpress).
 
 ## From Apple Notes (imported 2026-08-11)
 - [ ] Landing pages still missing across half the codebase: nimble, curvely, wiretext, nyc, inkpress, bookrank, newsline, wordroot. This was believed handled a previous session — verify each one actually has a landing page before reporting done
 
 ## Someday / Explore
 - [ ] Graph engineering: scan the codebase and research https://github.com/codejunkie99/graph-engineering — how to graph-engineer our projects (we already ship SVG architectures in many READMEs). Research graph flow + lane gen.
+
+## From session 2026-08-15
+
+- [ ] **Apple banking/payout info rejected.** RBC + Wealthsimple details were not accepted for App Store paid/IAP agreements. Needed before any IAP or paid app can go live. Dashboard-only (Agreements/Tax/Banking), needs Joshua + 2FA. Ask Apple which account type they want — likely a chequing account with a routable transit/institution number, not a Wealthsimple cash account.
+- [ ] **Stripe status audit across all apps.** Only epiphany is known to have Stripe wired; user believes keys may already be set up. Check per-app: live vs test keys present, webhook endpoint registered, and whether reauthorization is actually needed (see line ~116 item). Confirm before assuming scope.

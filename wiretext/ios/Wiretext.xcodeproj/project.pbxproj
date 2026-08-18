@@ -7,17 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		48CA84DCB2DA9AFD8B769520 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 903E774CD484FC726474E67E /* web */; };
+		03B48527CB15FC8A713D96E9 /* PaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA182D8E6ECD2358A262A07B /* PaletteView.swift */; };
+		3C5A279E07CECA792C72F94D /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C586223E9D301032B0F62 /* CanvasView.swift */; };
+		3FF1E9478A0DCABA49DCF1B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B7BF42ADEE28F737A3A332 /* ContentView.swift */; };
 		56186D26E4D8A41F5895EC3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5729E4350A23B03D4063EF07 /* Assets.xcassets */; };
+		5FEAFE3D9463E50DA529659B /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF423D652FFDD874F768D5 /* Engine.swift */; };
+		6A92A9ACC8B9C78AFEA8D3DA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7045EDA3F822C0986D906F /* Theme.swift */; };
+		86CB4C983741A8672B4D28BB /* Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F778C128B19B5CA17D52EB /* Presets.swift */; };
+		8CC68837816C63D8DEFBF075 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7DA9E41A487063A5066C7B /* Store.swift */; };
 		DC5ECC6E1AD7DA63E6798EBD /* WiretextApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1257F0D44E6CDF6F0A58C304 /* WiretextApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A7DA9E41A487063A5066C7B /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		0BC3941D7C977992A0AC8468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1257F0D44E6CDF6F0A58C304 /* WiretextApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiretextApp.swift; sourceTree = "<group>"; };
 		3468FC185341F61D3BE3A85D /* Wiretext-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Wiretext-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5729E4350A23B03D4063EF07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		903E774CD484FC726474E67E /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = SOURCE_ROOT; };
+		67DF423D652FFDD874F768D5 /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		772C586223E9D301032B0F62 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		9B7045EDA3F822C0986D906F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A0F778C128B19B5CA17D52EB /* Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presets.swift; sourceTree = "<group>"; };
+		A5B7BF42ADEE28F737A3A332 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EA182D8E6ECD2358A262A07B /* PaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -25,7 +37,14 @@
 			isa = PBXGroup;
 			children = (
 				5729E4350A23B03D4063EF07 /* Assets.xcassets */,
+				772C586223E9D301032B0F62 /* CanvasView.swift */,
+				A5B7BF42ADEE28F737A3A332 /* ContentView.swift */,
+				67DF423D652FFDD874F768D5 /* Engine.swift */,
 				0BC3941D7C977992A0AC8468 /* Info.plist */,
+				EA182D8E6ECD2358A262A07B /* PaletteView.swift */,
+				A0F778C128B19B5CA17D52EB /* Presets.swift */,
+				0A7DA9E41A487063A5066C7B /* Store.swift */,
+				9B7045EDA3F822C0986D906F /* Theme.swift */,
 				1257F0D44E6CDF6F0A58C304 /* WiretextApp.swift */,
 			);
 			path = App;
@@ -34,7 +53,6 @@
 		B5F9258C4B681D050A0A4BF9 = {
 			isa = PBXGroup;
 			children = (
-				903E774CD484FC726474E67E /* web */,
 				2FCDD48F34A6DF8E8D378D15 /* App */,
 				BD51CE094E805EA9CC303E36 /* Products */,
 			);
@@ -109,7 +127,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				56186D26E4D8A41F5895EC3A /* Assets.xcassets in Resources */,
-				48CA84DCB2DA9AFD8B769520 /* web in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +137,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C5A279E07CECA792C72F94D /* CanvasView.swift in Sources */,
+				3FF1E9478A0DCABA49DCF1B5 /* ContentView.swift in Sources */,
+				5FEAFE3D9463E50DA529659B /* Engine.swift in Sources */,
+				03B48527CB15FC8A713D96E9 /* PaletteView.swift in Sources */,
+				86CB4C983741A8672B4D28BB /* Presets.swift in Sources */,
+				8CC68837816C63D8DEFBF075 /* Store.swift in Sources */,
+				6A92A9ACC8B9C78AFEA8D3DA /* Theme.swift in Sources */,
 				DC5ECC6E1AD7DA63E6798EBD /* WiretextApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,7 +204,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -239,7 +263,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
