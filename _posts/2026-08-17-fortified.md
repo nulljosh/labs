@@ -15,8 +15,8 @@ Spent the afternoon moving the last two big projects off the old host. The finan
 
 ## Tuesday (August 18)
 
-Filed eleven notes into project lists and uploaded Curvely and Wiretext as native apps, both now waiting on review. Also fixed the Play Now button on the city game, which had been serving the marketing page to itself because of a missing index page. The journal entries had silently bloated to 6000+ words by ignoring the 350-word cap, so I added a lint gate to deploy.sh and rewrote all twelve posts to spec. The SVG headers had two issues: invisible (colors only in theme-query blocks) and drifted into decorative clipart rather than information cards, so restyled all five to the house format (800×500 frame, one-word title, repos touched, what happened, held items, date).
+Submitted Wordroot to review and verified Curvely and Wiretext's 5.6 defects were fixed (both native SwiftUI now), so held them in review. Fixed production bugs on Sparkjar: Apple auth was 500ing from a missing env var after the Cloudflare migration, and password reset was broken by route injection. Understood Healstack's rejection via Apple's screenshot (a Supabase error that isn't reproducing), cancelled the stuck submission. Set BCGD pricing and App Privacy, uploaded screenshots. Refined the journal: posts had bloated past the cap, so rewrote all twelve to spec and restyled the SVG headers to the house format (800×500 frame, one-word title, repos touched, what happened, held items, date).
 
 ## Apps
 
-Curvely and Wiretext are native now, uploaded and in review. Two security holes closed. Homeward and the finance API both moved to the new host, though the API is not cut over yet.
+Wordroot, Curvely, and Wiretext in review. Sparkjar's auth fixed and live. Healstack's stuck submission cleared. BCGD pricing set, screenshots live. Journal posts refined to spec.
