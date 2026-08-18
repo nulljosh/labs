@@ -2,23 +2,22 @@
 
 *Last updated: 2026-08-11 Tuesday night wrap — Newsline v1.0.0 iOS and macOS reader apps built (SwiftUI, xcodegen, shared source tree for iPhone/iPad + Mac, NavigationSplitView for Stories/Latest/Saved, offline JSON cache, no account/analytics/SDKs, 5 unit tests, bundle ID com.nulljosh.newsline Universal Purchase, landing page + privacy policy deployed, pre-submit checklist queued, deferred App Store to 2026-08-18 due to 5.6 freeze). Earlier: Cloudflare bot protection research: single zone architecture (heyitsmejosh.com), recommended WAF rate-limiting rule (blocked on Joshua applying it). Prior session: Epiphany marketing-site screenshots refreshed with real account data; fastlane pipeline fixed; two pipeline bugs fixed (Snapfile -skipPackagePluginValidation, PreviewScreenshot triple-launch). Prior 2026-08-10 Monday late night wrap — System/package updates only. Earlier session (2026-08-09 Sunday): Newsline v0.3.0 API + MCP shipped, Cadence recovered + Pages Functions, Lexly forgot-password, Nimble Pages, ASC-login keychain fix.*
 
-## 🛑 APP STORE SUBMISSION FREEZE — until 2026-08-18
+## ⚠️ APP STORE — 5.6 suspension date passed, quality bar NOT met
 
-**Do not submit ANY app for App Store review until Aug 18, 2026.** No `asc review
-submissions-submit`, no `asc workflow run ship-ios`, no dashboard submits — on *any* app,
-including healthy ones. This overrides the standing auto-submit-on-version-bump rule.
+**The date freeze expired 2026-08-18** (verified against Apple's letter via
+`asc web review show --app 6794988370`). The blanket "submit nothing" rule is lifted for
+**healthy apps that were never suspended** (e.g. Wordroot, Sparkjar).
 
-Reason: four apps are under a **Guideline 5.6 Developer Code of Conduct review suspension**
-(Curvely 6794988370, Transcriptly/Echo-Mac-orphan 6783015101, Wiretext 6794988951,
-NYC Survive 6782618198). Apple's letter states the apps are not eligible for resubmission
-before Aug 18, and that *"continued submissions of apps that violate the App Review
-Guidelines, including submitting new apps with the same or similar issues, will be treated
-as a violation of the Apple Developer Program License Agreement and may result in removal
-from the Apple Developer Program."* That is account-level risk across all 17 apps.
+**Still do NOT resubmit the four suspended apps** — Curvely 6794988370, Wiretext 6794988951,
+NYC Survive 6782618198, Transcriptly 6783015101. The suspension was for *quality*, not for a
+date, and Apple's letter warns that *"continued submissions of apps ... with the same or
+similar issues ... may result in removal from the Apple Developer Program"* — account-level
+risk across all 17 apps. The cited defects are still present and now independently confirmed
+by Joshua's own 2026-08-18 Notes review: NYC Survive's "Play Now" button does nothing,
+Wiretext and Curvely have no landing page. Fix and verify each before any resubmit.
 
-Still allowed during the freeze: local fixes, commits, pushes, web deploys, and TestFlight
-builds (TestFlight is not App Store review). Full detail + all rejection reasons:
-`wiki/pages/ship-plan.md` § "Guideline 5.6 suspension (2026-08-10)".
+Full detail + all rejection reasons: `wiki/pages/ship-plan.md` § "Guideline 5.6 suspension
+(2026-08-10)".
 
 ## Environment
 - macOS Darwin 25.5.0 (arm64), Mac Mini M4
@@ -130,8 +129,8 @@ bookrank (macOS 1.0).
 nyc (iOS 1.0.0 + macOS 1.0), nullfolio (iOS 1.0 — track closed 08-11, Guideline 4.2), sparkjar
 (iOS + macOS 1.0), transcriptly (macOS 9.9.9), wiretext (iOS 1.0).
 
-**All submissions frozen until 2026-08-18** (Guideline 5.6 review). Build and stage only — no
-`asc review submit`. Web: portfolio, journal (Jekyll, Cloudflare) live. life: ARCHIVED 07-28.
+**Date freeze expired 2026-08-18**; the four 5.6-suspended apps still must not be resubmitted
+until their quality defects are fixed (see the top-of-file note). Web: portfolio, journal (Jekyll, Cloudflare) live. life: ARCHIVED 07-28.
 
 ## Roadmap
 - **Payments infra** (from Asc.pdf note, imported 2026-07-19): hook up an RBC bank account and get Stripe working across any/all apps — needs Stripe reauthorization (and possibly a CLI). Not started; requires interactive/credentialed setup, flag before executing.
