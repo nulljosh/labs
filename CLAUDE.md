@@ -2,19 +2,35 @@
 
 *Last updated: 2026-08-11 Tuesday night wrap — Newsline v1.0.0 iOS and macOS reader apps built (SwiftUI, xcodegen, shared source tree for iPhone/iPad + Mac, NavigationSplitView for Stories/Latest/Saved, offline JSON cache, no account/analytics/SDKs, 5 unit tests, bundle ID com.nulljosh.newsline Universal Purchase, landing page + privacy policy deployed, pre-submit checklist queued, deferred App Store to 2026-08-18 due to 5.6 freeze). Earlier: Cloudflare bot protection research: single zone architecture (heyitsmejosh.com), recommended WAF rate-limiting rule (blocked on Joshua applying it). Prior session: Epiphany marketing-site screenshots refreshed with real account data; fastlane pipeline fixed; two pipeline bugs fixed (Snapfile -skipPackagePluginValidation, PreviewScreenshot triple-launch). Prior 2026-08-10 Monday late night wrap — System/package updates only. Earlier session (2026-08-09 Sunday): Newsline v0.3.0 API + MCP shipped, Cadence recovered + Pages Functions, Lexly forgot-password, Nimble Pages, ASC-login keychain fix.*
 
-## ⚠️ APP STORE — 5.6 suspension date passed, quality bar NOT met
+## ⚠️ APP STORE — 5.6 freeze expired; Curvely + Wiretext are IN REVIEW right now
 
 **The date freeze expired 2026-08-18** (verified against Apple's letter via
 `asc web review show --app 6794988370`). The blanket "submit nothing" rule is lifted for
 **healthy apps that were never suspended** (e.g. Wordroot, Sparkjar).
 
-**Still do NOT resubmit the four suspended apps** — Curvely 6794988370, Wiretext 6794988951,
-NYC Survive 6782618198, Transcriptly 6783015101. The suspension was for *quality*, not for a
-date, and Apple's letter warns that *"continued submissions of apps ... with the same or
-similar issues ... may result in removal from the Apple Developer Program"* — account-level
-risk across all 17 apps. The cited defects are still present and now independently confirmed
-by Joshua's own 2026-08-18 Notes review: NYC Survive's "Play Now" button does nothing,
-Wiretext and Curvely have no landing page. Fix and verify each before any resubmit.
+**Curvely iOS 1.2.0 and Wiretext iOS 1.1.0 were submitted 2026-08-18 ~04:06 and are
+`WAITING_FOR_REVIEW`** (confirmed via `asc versions list`). Both carry builds uploaded that
+same morning — Curvely `202608180347`, Wiretext `202608180348`, both VALID.
+
+**The cited 5.6 defects were remediated before those submissions** — verified 2026-08-18:
+- Apple's actual 5.6 complaint was *minimum functionality / thin WKWebView shells*
+  (`ship-plan.md`: "Wiretext is 1 Swift file / 72 lines and Curvely 4 files / 150 lines").
+  Both are now genuine native SwiftUI apps with **zero** WebKit in their sources — Wiretext
+  542 lines across 8 files, Curvely 911 across 9, plus check suites.
+- The 2026-08-18 Notes-review complaints are all fixed and live: NYC Survive's "Play Now"
+  (commit `d71b944`, `nyc.heyitsmejosh.com/app` → 200) and the Wiretext/Curvely landing pages
+  (`0a703b2` / `ae4dce4`, both hosts → 200 with the app moved to `/app`).
+- Registered support URLs both resolve: Curvely → `grapher.heyitsmejosh.com`, Wiretext →
+  `wiretext.heyitsmejosh.com`. The dead `curvely.heyitsmejosh.com` / `nycsurvive.heyitsmejosh.com`
+  hosts are **not** referenced by any ASC record.
+
+**Residual risk:** `ship-plan.md` § "Order of operations" step 5 says submit **one** app, confirm
+it passes, then the next — never a batch. Two went in together. Nothing to undo now; just do not
+add a third to the queue until one of these two clears.
+
+**Still do NOT submit** NYC Survive 6782618198 (iOS 1.0.0 + macOS 1.0, both REJECTED; also
+blocked on an iOS distribution signing cert with a local private key) or the Transcriptly orphan
+6783015101 (macOS 9.9.9 REJECTED — that record should be *deleted*, not resubmitted).
 
 Full detail + all rejection reasons: `wiki/pages/ship-plan.md` § "Guideline 5.6 suspension
 (2026-08-10)".
