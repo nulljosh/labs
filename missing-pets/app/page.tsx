@@ -61,7 +61,7 @@ export default function Home() {
       <ul className="divide-y divide-zinc-200">
         {filtered.map((l) => (
           <li key={l.id} className="py-2">
-            <Link href={`/listing/${l.id}`} className="flex items-baseline gap-2 hover:underline">
+            <Link href={`/listing?id=${l.id}`} className="flex items-baseline gap-2 hover:underline">
               <span
                 className={`uppercase text-xs font-bold px-1 rounded ${
                   l.type === "lost" ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"
