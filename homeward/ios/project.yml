@@ -1,13 +1,13 @@
-name: MissingPets
+name: Homeward
 options:
   bundleIdPrefix: com.nulljosh
 targets:
-  MissingPets:
+  Homeward:
     type: application
     platform: iOS
     deploymentTarget: "17.0"
     sources:
-      - MissingPets
+      - Homeward
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.nulljosh.missingpets

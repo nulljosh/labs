@@ -29,7 +29,7 @@ struct ListingsView: View {
                     }
                 }
             }
-            .navigationTitle("Missing Pets")
+            .navigationTitle("Homeward")
             .navigationDestination(for: Listing.self) { ListingDetailView(listing: $0) }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

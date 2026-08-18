@@ -36,7 +36,7 @@ labs, nulljosh.github.io. life/canlii-app/agent-101 have no README by design
 
 ## Vercel to Cloudflare migration 2026-07-21 (easy batch)
 Scope: every static/simple repo, explicitly excluding epiphany/sparkjar/healstack/talli (live serverless + KV/Blob + Stripe/OAuth, deferred to their own session). All below built, deployed to Cloudflare Pages, verified 200 on the custom domain, then DNS-cut. Vercel projects left in place (not deleted) as rollback fallback.
-- [ ] **Skipped — missing-pets** (`labs/missing-pets`, `pets.heyitsmejosh.com`): looked easy (no `/api` routes) but is Next.js with a dynamic route (`app/listing/[id]`) fetched client-side from Supabase. Static export requires `generateStaticParams()`, which isn't feasible for a live database-driven listing page without either (a) a real Cloudflare adapter (`@cloudflare/next-on-pages`, keeps SSR) or (b) refactoring the route to a client-side shell that fetches by ID — either is a real change, not a lift-and-shift. Left on Vercel.
+- [x] **missing-pets → Homeward** (`pets.heyitsmejosh.com` + `homeward.heyitsmejosh.com`): DONE 2026-08-17. Took option (b) — `/listing/[id]` became `/listing?id=` with a client-side fetch, so `output: "export"` works with no adapter. Migrated to Cloudflare Pages and renamed Homeward; Vercel project deleted.
 - [ ] **Skipped — cadence, charters**: no local source exists for either (per CLAUDE.md, both were part of the 2026-06-22 accidental deletion). Can't migrate what isn't there — needs recovery first. Still live on Vercel, both domains untouched.
 - [ ] **Skipped — "web" Vercel project**: no custom domain attached, no obvious matching local repo (checked top-level `~/Documents/Code` and `labs/`). Flagging rather than guessing; likely an orphaned preview-only project, safe to ignore.
 
@@ -203,13 +203,11 @@ they existed only in that clone.
 
 ## Finish the Vercel exit (assessed 2026-08-17)
 
-Vercel is down to 3 projects. Each is still live and serving, so there is no
+Vercel is down to 2 projects (tally, epiphany). Each is still live and serving, so there is no
 outage pressure — but the account is not closable until these move.
 
-- **missing-pets** (`pets.heyitsmejosh.com`) — the easy one, ~20 min. 408K,
-  Next.js + Supabase, zero serverless functions, only 2 env vars. Deploy to
-  Pages, flip the A record (`76.76.21.21`) to a proxied CNAME, delete the
-  Vercel project. Do this one first.
+- **missing-pets** — DONE 2026-08-17. Migrated to Pages and renamed **Homeward**;
+  serves homeward.heyitsmejosh.com + pets.heyitsmejosh.com. Vercel project deleted.
 - **talli** (`talli.heyitsmejosh.com`) — blocked on architecture, not effort.
   Depends on `puppeteer-core` + `@sparticuz/chromium`; headless Chrome does not
   run on Workers. Needs the Cloudflare Browser Rendering API instead, plus

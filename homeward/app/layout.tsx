@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Missing Pets",
+  title: "Homeward",
   description: "Post and find lost or found pets in your area",
 };
 

@@ -1,4 +1,4 @@
-# Missing Pets
+# Homeward
 
 A Craigslist-style board for posting and finding lost/found pets — web app + native iOS app, shared Supabase backend.
 
@@ -21,7 +21,7 @@ This creates the `listings` table, the `pet-photos` storage bucket, and the `upd
 
 ### 2. Web
 ```
-cd missing-pets
+cd homeward
 cp .env.local.example .env.local   # fill in your Supabase URL + anon key
 npm install
 npm run dev
@@ -31,7 +31,7 @@ npm run dev
 ```
 cd ios
 xcodegen generate
-open MissingPets.xcodeproj
+open Homeward.xcodeproj
 ```
 Set `SUPABASE_URL` / `SUPABASE_ANON_KEY` as scheme environment variables in Xcode (Product > Scheme > Edit Scheme > Run > Arguments), then build & run.
 
@@ -49,5 +49,5 @@ lib/supabase.ts         Supabase client + Listing type
 lib/AuthBar.tsx          Header auth status (log in / log out)
 supabase/migrations/    SQL schema, RLS policies, storage bucket, auth column
 ios/project.yml         XcodeGen spec
-ios/MissingPets/        SwiftUI source
+ios/Homeward/        SwiftUI source
 ```

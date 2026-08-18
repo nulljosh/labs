@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct MissingPetsApp: App {
+struct HomewardApp: App {
     var body: some Scene {
         WindowGroup {
             ListingsView()
