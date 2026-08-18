@@ -1,6 +1,6 @@
 <svg class="post-header-svg" viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg">
 
-  <rect stroke="currentColor" fill="none" width="1200" height="200" class="bg"/>
+  <rect fill="none" width="1200" height="200" class="bg"/>
 
   <!-- Title text -->
   <text fill="currentColor" x="80" y="130" font-size="72" font-weight="600" font-family="system-ui, -apple-system, sans-serif" class="text">

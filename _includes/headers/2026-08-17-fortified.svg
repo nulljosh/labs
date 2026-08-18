@@ -1,15 +1,21 @@
-<svg class="post-header-svg" width="800" height="120" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="120" fill="none"/>
-  <g stroke="currentColor" stroke-width="2" fill="none">
-    <!-- Shield shape symbolizing security -->
-    <path stroke="currentColor" fill="none" d="M 200 30 L 200 70 Q 200 100 250 110 Q 300 100 300 70 L 300 30 Z" stroke-linecap="round" stroke-linejoin="round"/>
-    <!-- Checkmark inside shield -->
-    <path stroke="currentColor" fill="none" d="M 235 70 L 250 85 L 275 60" stroke-linecap="round" stroke-linejoin="round"/>
-    
-    <!-- Lock symbolizing fixes -->
-    <circle stroke="currentColor" fill="none" cx="450" cy="70" r="30" stroke-width="2"/>
-    <path stroke="currentColor" fill="none" d="M 425 70 L 425 50 Q 425 35 450 35 Q 475 35 475 50 L 475 70" stroke-linecap="round"/>
-    <line stroke="currentColor" fill="none" x1="450" y1="80" x2="450" y2="95" stroke-linecap="round"/>
+<svg class="post-header-svg" viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Title -->
+  <text fill="currentColor" x="80" y="130" font-size="72" font-weight="600" font-family="system-ui, -apple-system, sans-serif">
+    Fortified
+  </text>
+
+  <!-- Decorative rule -->
+  <line stroke="currentColor" x1="80" y1="155" x2="320" y2="155" stroke-width="3"/>
+
+  <!-- Caption -->
+  <text fill="currentColor" x="80" y="185" font-size="16" font-family="system-ui, -apple-system, sans-serif" opacity="0.6">
+    Monday, August 17
+  </text>
+
+  <!-- Shield mark, right of the title so nothing overlaps -->
+  <g stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 1010 55 L 1010 105 Q 1010 140 1060 152 Q 1110 140 1110 105 L 1110 55 Z"/>
+    <path d="M 1035 100 L 1053 118 L 1085 78"/>
   </g>
-  <text x="150" y="115" font-family="system-ui, -apple-system" font-size="14" fill="currentColor" opacity="0.6">Security audit • Two critical fixes</text>
 </svg>
