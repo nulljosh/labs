@@ -15,9 +15,7 @@ Spent the afternoon moving the last two big projects off the old host. The finan
 
 ## Tuesday (August 18)
 
-Submitted Wordroot to review and verified Curvely and Wiretext's 5.6 defects were fixed (both native SwiftUI). Fixed production bugs on Sparkjar (Apple auth 500ing from missing env var, password reset broken by route injection), understood Healstack's rejection (Supabase server error now resolved), rebuilt all four apps and staged them (Sparkjar, Healstack with Apple sign-in gated off, BCGD, Wordroot macOS). Healstack submitted as the first post-freeze app with demo account verified against production. Audited App Privacy declarations and found Epiphany and Talli claiming zero data collection despite connecting real accounts, corrected both by deriving actual data from code, all three misdeclared apps now correct.
-
-Talli's privacy policy was updated to match the corrected label, naming the disability data the app actually stores (RDSP, child-disability benefits, PIN encryption).
+Submitted Wordroot to review and verified Curvely and Wiretext's 5.6 defects were fixed. Fixed production bugs on Sparkjar, understood Healstack's rejection, rebuilt all four apps and staged them. Healstack submitted as first post-freeze app with demo account verified. Audited App Privacy declarations and corrected Epiphany and Talli's misdeclared data, updated Talli's privacy policy to match the corrected label. Sign in with Apple enabled on shared Supabase project using Management API, clearing the blocker for both Healstack and Litigate.
 
 ## Apps
 
