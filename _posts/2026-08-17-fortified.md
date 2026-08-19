@@ -19,7 +19,7 @@ Submitted Wordroot and caught a missing encryption declaration on BCGD that woul
 
 ## Wednesday (August 19)
 
-Fixed Talli and resubmitted Lexly's macOS build. Bookrank went live on iOS. Stripe audit verified four apps work live, but Apple's bank account rejection blocks all IAP revenue. Moved Bookrank's summaries from public GitHub to private Supabase with per-user auth; the library now lets anyone register and share their own summaries.
+Fixed Talli and resubmitted Lexly's macOS build. Bookrank went live on iOS. Stripe audit verified four apps work live, but Apple's bank account rejection blocks all IAP revenue. Moved Bookrank's summaries from public GitHub to private Supabase with per-user auth; the library now lets anyone register and share their own summaries. Cleared the Notes app into roadmap sketches and confirmed App Store only needs the SIN for sole proprietors, ending a two-week CRA chase.
 
 ## Apps
 
