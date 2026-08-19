@@ -19,7 +19,7 @@ Submitted Wordroot and caught a missing encryption declaration on BCGD that woul
 
 ## Wednesday (August 19)
 
-Fixed a bigger bug in Talli where the web app was fetching real PWD and CDB data but discarding both for hardcoded constants, switched it to use actual values. Killed the NYC tutorial skip from an old commit nulling tutorial state on new games. Untangled Lexly's stuck macOS submission that the dashboard thought was resolved but the API found in UNRESOLVED_ISSUES; resolved and resubmitted it. Apple's SRP endpoint recovered from a 503 so I could finally read the NYC rejection text, which is the known 5.6 suspension, not a separate defect. Cancelled both orphan review submissions via CLI, clearing half the deletion blocker.
+Fixed Talli's hardcoded PWD/CDB amounts on web and extended the fix to native: removed the fallback ~$1,000/mo from the mobile API, wired iOS and macOS to display real personal income using server-derived rates (PWD 1450, CDB 200), and made deriveIncome() the single source of truth. Killed the NYC tutorial skip from an old commit nulling tutorial state on new games. Untangled Lexly's stuck macOS submission (dashboard said resolved, API found it in UNRESOLVED_ISSUES) and resubmitted. Apple's SRP endpoint recovered from a 503, so I read the NYC rejection text (it's the known 5.6 suspension). Cancelled both orphan review submissions via CLI.
 
 ## Apps
 
