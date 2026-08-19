@@ -19,7 +19,7 @@ Submitted Wordroot and caught a missing encryption declaration on BCGD that woul
 
 ## Wednesday (August 19)
 
-Fixed a bigger bug in Talli where the web app was fetching real PWD and CDB data, then discarding both for hardcoded constants, so I switched it to use actual values. Killed the NYC tutorial skip that an old commit had left nulling tutorial state on new games. Spent the evening untangling Lexly's stuck macOS submission: the dashboard thought a review from 2026-08-02 was resolved, but the API found it in UNRESOLVED_ISSUES. Resolved it properly and resubmitted with refreshed screenshots.
+Fixed a bigger bug in Talli where the web app was fetching real PWD and CDB data but discarding both for hardcoded constants, switched it to use actual values. Killed the NYC tutorial skip from an old commit nulling tutorial state on new games. Untangled Lexly's stuck macOS submission that the dashboard thought was resolved but the API found in UNRESOLVED_ISSUES; resolved and resubmitted it. Apple's SRP endpoint recovered from a 503 so I could finally read the NYC rejection text, which is the known 5.6 suspension, not a separate defect. Cancelled both orphan review submissions via CLI, clearing half the deletion blocker.
 
 ## Apps
 
