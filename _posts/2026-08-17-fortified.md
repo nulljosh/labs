@@ -19,8 +19,8 @@ Submitted Wordroot and caught a missing encryption declaration on BCGD that woul
 
 ## Wednesday (August 19)
 
-Fixed Talli's hardcoded PWD/CDB amounts on both platforms and untangled Lexly's macOS submission before resubmitting. Bookrank went live on iOS with macOS now in review. Audited Stripe: four apps (epiphany, healstack, sparkjar, talli) already live, so the roadmap's reauthorization claim was stale. Payments actually bottleneck on Apple rejecting the bank account; needs CRA involvement and a chartered account match. Voxprint's paywall is built at $7.99 but hardcoded unlocked pending that; Epiphany stays at $1.
+Fixed Talli's income calculations on both platforms and resubmitted Lexly's macOS build. Bookrank went live on iOS with macOS in review. Audited Stripe integration: four apps already live, but the real bottleneck is Apple rejecting the bank account, which needs a CRA match on a chartered account. Started LEC (student portal client for `lecss.registerbc.ca`): built the network layer, models, and SwiftUI scaffolds with passing tests, but can't wire the real endpoints without capturing logged-in traffic first.
 
 ## Apps
 
-Bookrank iOS live, macOS in review. Wordroot, Curvely, Wiretext, Healstack, and Lexly macOS in review. Sparkjar, BCGD, and Wordroot macOS staged. Epiphany and Talli's App Privacy flagged. Inkpress code-ready.
+Bookrank iOS live, macOS in review. Wordroot, Curvely, Wiretext, Healstack, and Lexly macOS in review. Sparkjar, BCGD, and Wordroot macOS staged. Epiphany and Talli's App Privacy flagged. Inkpress code-ready. LEC scaffolded (network layer + tests).
