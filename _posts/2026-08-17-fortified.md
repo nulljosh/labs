@@ -15,8 +15,8 @@ Spent the afternoon moving the last two big projects off the old host. The finan
 
 ## Tuesday (August 18)
 
-Submitted Wordroot to review and verified Curvely and Wiretext's 5.6 defects were fixed. Fixed production bugs on Sparkjar, understood Healstack's rejection, rebuilt all four apps and staged them. Healstack submitted as first post-freeze app with demo account verified. Audited App Privacy declarations and corrected Epiphany and Talli's misdeclared data, updated Talli's privacy policy to match the corrected label. Sign in with Apple enabled on shared Supabase project using Management API, clearing the blocker for both Healstack and Litigate.
+Submitted Wordroot, rebuilt Curvely, Wiretext, and Healstack post-defect verification, and fixed App Privacy issues on Epiphany and Talli. Caught a missing encryption declaration on BCGD's iOS and macOS builds that would have bounced at submission, and validated all six remaining staged versions clean. Held the submission line at one app per verdict rather than dumping the whole queue on day one off the suspension, then un-rotted thirteen roadmaps that had been marked blocked until today.
 
 ## Apps
 
-Wordroot, Curvely, and Wiretext in review. Sparkjar, Healstack, BCGD, and Wordroot macOS all rebuilt and staged (VALID, not submitted). Epiphany and Talli's App Privacy declarations flagged for review.
+Wordroot, Curvely, Wiretext, and Healstack in review. Sparkjar iOS and macOS, BCGD iOS and macOS, Wordroot macOS, and Lexly macOS all validated and held for staged submission. Epiphany and Talli's App Privacy declarations flagged for review. Inkpress is code-ready but needs an archive and upload.
