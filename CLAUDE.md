@@ -135,13 +135,14 @@ wrong, including four apps recorded as "waiting for review" that were actually R
 talli (iOS 3.5.12 + macOS 3.5.6), inkpress (iOS 1.0.3), lexly (iOS 1.1.3), litigate (iOS 1.0.2),
 bookrank (macOS 1.0).
 
-**WAITING_FOR_REVIEW** — bookrank (iOS 1.0).
+**WAITING_FOR_REVIEW** — bookrank (iOS 1.0), lexly macOS 1.1.3 (submitted 2026-08-19).
 
 **PREPARE_FOR_SUBMISSION** — wordroot (iOS + macOS 1.0), bcgd (iOS + macOS 1.0; the ASC record
 *does* exist, id 6791106082).
 
 **REJECTED — 8 apps, reasons unread** (Resolution Center only, needs `asc-login`): curvely
-(iOS 1.1.0), healstack (iOS 2.3.4), lexly Mac (1.1.1 — both records 6783501611 + 6783501927),
+(iOS 1.1.0), healstack (iOS 2.3.4), lexly Mac (1.1.1 on the stray record 6783501927 only
+— canonical 6783501611 macOS 1.1.3 resolved + submitted 2026-08-19),
 nyc (iOS 1.0.0 + macOS 1.0), nullfolio (iOS 1.0 — track closed 08-11, Guideline 4.2), sparkjar
 (iOS + macOS 1.0), transcriptly (macOS 9.9.9), wiretext (iOS 1.0).
 
