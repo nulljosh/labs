@@ -19,7 +19,7 @@ Submitted Wordroot and caught a missing encryption declaration on BCGD that woul
 
 ## Wednesday (August 19)
 
-Fixed Talli's income calculations on both platforms and resubmitted Lexly's macOS build. Bookrank went live on iOS with macOS in review. Audited Stripe integration: four apps already live, but the real bottleneck is Apple rejecting the bank account, which needs a CRA match on a chartered account. Started LEC (student portal client for `lecss.registerbc.ca`): built the network layer, models, and SwiftUI scaffolds with passing tests, but can't wire the real endpoints without capturing logged-in traffic first.
+Fixed Talli and resubmitted Lexly's macOS build. Bookrank went live on iOS. Stripe audit verified four apps work live, but Apple's bank account rejection blocks all IAP revenue. Moved Bookrank's summaries from public GitHub to private Supabase with per-user auth; the library now lets anyone register and share their own summaries.
 
 ## Apps
 
