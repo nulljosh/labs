@@ -28,8 +28,8 @@ same morning — Curvely `202608180347`, Wiretext `202608180348`, both VALID.
 it passes, then the next — never a batch. Two went in together. Nothing to undo now; just do not
 add a third to the queue until one of these two clears.
 
-**Still do NOT submit** NYC Survive 6782618198 (iOS 1.0.0 + macOS 1.0, both REJECTED; also
-blocked on an iOS distribution signing cert with a local private key) or the Transcriptly orphan
+**Still do NOT submit** NYC Survive 6782618198 (iOS 1.0.0 + macOS 1.0, both REJECTED — held
+only by the one-app-at-a-time rule; the signing cert is NOT a blocker, verified 2026-08-19) or the Transcriptly orphan
 6783015101 (macOS 9.9.9 REJECTED — that record should be *deleted*, not resubmitted).
 
 Full detail + all rejection reasons: `wiki/pages/ship-plan.md` § "Guideline 5.6 suspension
