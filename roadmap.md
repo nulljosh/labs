@@ -119,13 +119,15 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
   (400), talli `/api/stripe-status` (401, auth-gated). No other repo references Stripe, and that
   is correct — the rest have no backend or no account system to hang an entitlement on.
   The real payments blocker is the Paid Apps Agreement, below.
-- [ ] **BLOCKED ON JOSHUA — sign the Paid Apps Agreement + add a bank account** in App Store
-  Connect (Business → Agreements). Dashboard-only; `asc agreements` exposes just `territories`,
-  so there is no CLI path. This is the single upstream blocker for *all* Apple IAP revenue.
-  Concretely it gates voxprint: `Sources/Services/StoreManager.swift:19` hardcodes
-  `isPro = true` and `refreshEntitlement()` early-returns, both with `ponytail:` comments
-  naming this exact reason. Re-enabling is a two-line revert once the agreement is live.
-  Overlaps the RBC banking item above — same task.
+- [ ] **BLOCKED EXTERNALLY — Apple rejecting bank account; CRA involvement needed.** App Store
+  Connect payout setup gates *all* Apple IAP revenue. Apple is rejecting Joshua's bank account(s)
+  during enrollment. Next step: read Apple's exact rejection reason (currently unknown; check
+  ASC web UI → Agreements), then determine if CRA business number is actually required (may not be
+  for individual sole-proprietor Canadian developer, but worth confirming). Phone queue to CRA has
+  been ongoing for weeks with no resolution. Concretely this gates voxprint: `Sources/Services/
+  StoreManager.swift:19` hardcodes `isPro = true` and `refreshEntitlement()` early-returns,
+  both with `ponytail:` comments naming this exact reason. Re-enabling is a two-line revert once
+  the account is enrolled. Related to RBC banking item above — likely same underlying issue.
 - [ ] Multi-app ASC cleanup checklist (source: "Asc / Icons"):
   - Finish Inkpress App Store rejection → confirm it returns to a healthy submission state
   - Merge Echo iOS + macOS into one App Store record (Universal Purchase) — **an existing
