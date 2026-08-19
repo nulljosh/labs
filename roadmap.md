@@ -112,9 +112,20 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 ## From Asc.pdf / Asc - Icons.pdf / Asc - TestFlight.pdf (imported 2026-07-19)
 - [ ] Hook up RBC account (banking) with ASC — no further detail given, clarify what "hook
   up" means (payout routing? reconciliation?) before starting
-- [ ] Stripe reauthorization needed across any/all apps — user flagged "we need
-  reauthorization with stripe and maybe a cli" — check Stripe dashboard connection status
-  per-app (epiphany has Stripe wired, others may not) before assuming scope
+- [x] ~~Stripe reauthorization needed across any/all apps~~ — **not needed, verified 2026-08-19
+  by probing production** (not by reading notes). All four integrations answer live with real
+  keys: epiphany `server/api/stripe.js` (rejects a bogus price ID, so `STRIPE_PRICE_ID_STARTER`
+  is set), healstack `functions/api/stripe.js` (400), sparkjar `api/posts.js` + `users.is_pro`
+  (400), talli `/api/stripe-status` (401, auth-gated). No other repo references Stripe, and that
+  is correct — the rest have no backend or no account system to hang an entitlement on.
+  The real payments blocker is the Paid Apps Agreement, below.
+- [ ] **BLOCKED ON JOSHUA — sign the Paid Apps Agreement + add a bank account** in App Store
+  Connect (Business → Agreements). Dashboard-only; `asc agreements` exposes just `territories`,
+  so there is no CLI path. This is the single upstream blocker for *all* Apple IAP revenue.
+  Concretely it gates voxprint: `Sources/Services/StoreManager.swift:19` hardcodes
+  `isPro = true` and `refreshEntitlement()` early-returns, both with `ponytail:` comments
+  naming this exact reason. Re-enabling is a two-line revert once the agreement is live.
+  Overlaps the RBC banking item above — same task.
 - [ ] Multi-app ASC cleanup checklist (source: "Asc / Icons"):
   - Finish Inkpress App Store rejection → confirm it returns to a healthy submission state
   - Merge Echo iOS + macOS into one App Store record (Universal Purchase) — **an existing
