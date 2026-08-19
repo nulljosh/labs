@@ -15,7 +15,7 @@ Spent the afternoon moving the last two big projects off the old host. The finan
 
 ## Tuesday (August 18)
 
-Submitted Wordroot and rebuilt Curvely, Wiretext, and Healstack after defect verification. Caught a missing encryption declaration on BCGD that would've bounced, validated all staged versions clean, and held the submission line to one app per verdict. Spent the evening refactoring the landing pages for Sparkjar and Talli to use the full viewport width: moved Sparkjar's screenshot into a hero column and widened Talli's shell to put copy and a payment preview side by side. Also cleared two stray review submissions stuck in the API layer and fixed Bookrank's live listing.
+Submitted Wordroot, rebuilt Curvely, Wiretext, and Healstack after verifying their defects were fixed, and caught a missing encryption declaration on BCGD that would have bounced at submission. Validated all six staged versions clean and held the submission line at one app per verdict rather than dumping a batch on day one off the suspension. Cleared two stray review submissions stuck in the ASC API layer and fixed Bookrank's live listing metadata. Found the "Echo Pro" branding leak on Voxprint was stale Jul 3 screenshots plus a test with silent guards that skipped on failure instead of failing loudly; fixed both, and renamed the in-app purchase to "Voxprint Pro".
 
 ## Friday (August 18)
 
