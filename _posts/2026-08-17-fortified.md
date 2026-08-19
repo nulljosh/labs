@@ -15,11 +15,7 @@ Spent the afternoon moving the last two big projects off the old host. The finan
 
 ## Tuesday (August 18)
 
-Submitted Wordroot, rebuilt Curvely, Wiretext, and Healstack after verifying their defects were fixed, and caught a missing encryption declaration on BCGD that would have bounced at submission. Validated all six staged versions clean and held the submission line at one app per verdict rather than dumping a batch on day one off the suspension. Cleared two stray review submissions stuck in the ASC API layer and fixed Bookrank's live listing metadata. Found the "Echo Pro" branding leak on Voxprint was stale Jul 3 screenshots plus a test with silent guards that skipped on failure instead of failing loudly; fixed both, and renamed the in-app purchase to "Voxprint Pro".
-
-## Friday (August 18)
-
-Fixed Healstack's landing page dark mode - the Cloudflare Pages build was serving stale code with hardcoded white backgrounds, so I rebuilt and deployed the current source. Also fixed the CTA buttons that were invisible on cream, swapping the hardcoded white for a variable that follows the theme. Verified the live site now serves the right CSS.
+Submitted Wordroot, rebuilt Curvely, Wiretext, and Healstack after verifying their defects were fixed, and caught a missing encryption declaration on BCGD that would have bounced at submission. Validated all six staged versions clean and held the submission line at one app per verdict rather than dumping a batch on day one off the suspension. Cleared two stray review submissions stuck in the ASC API layer and fixed Bookrank's live listing metadata. Found the "Echo Pro" branding leak on Voxprint was stale screenshots plus a test with silent guards that skipped on failure instead of failing loudly; fixed both, and renamed the in-app purchase to "Voxprint Pro". Late on, Healstack's landing page was still white in dark mode, and the code was already right - Cloudflare was just serving a stale build, so I rebuilt and deployed, and swapped the invisible hardcoded white on the buttons for a theme variable while I was in there.
 
 ## Apps
 
