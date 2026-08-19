@@ -236,3 +236,9 @@ Gotcha that will recur on any of these: with `compatibility_date` earlier than
 2025-04-01, `nodejs_compat` does NOT populate `process.env`, so bindings read as
 undefined and assigning to `process.env` silently no-ops. See `cadence`
 (`functions/_adapter.js`) for the globalThis workaround, or just bump the date.
+
+## Braindump 2026-08-19
+- [ ] Splash screens: scan the whole codebase and confirm every iOS app has one; add where missing.
+- [ ] Landing pages: every project should have a web landing page as an intro to its web interface, including links to its apps.
+- [ ] Shipped-apps audit: scan the codebase for context on what is shipped vs what is missing.
+- [ ] Design system: scan the codebase, pick the project with the best design system as the source of truth, sync the rest to it.
