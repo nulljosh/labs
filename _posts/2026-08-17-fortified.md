@@ -17,6 +17,8 @@ Spent the afternoon moving the last two big projects off the old host. The finan
 
 Submitted Wordroot, rebuilt Curvely, Wiretext, and Healstack post-defect verification, and fixed App Privacy issues on Epiphany and Talli. Caught a missing encryption declaration on BCGD's iOS and macOS builds that would have bounced at submission, and validated all six remaining staged versions clean. Held the submission line at one app per verdict rather than dumping the whole queue on day one off the suspension, then un-rotted thirteen roadmaps that had been marked blocked until today.
 
+Cleared two stray review submissions stuck on Curvely and BCGD (turns out they were API-started drafts with zero items, not submissions, so the normal cancel command couldn't touch them but the dashboard delete action could). Fixed Bookrank's live listing (was showing Uprighty with dead domain links), created new version rows, updated description and support URL.
+
 ## Apps
 
 Wordroot, Curvely, Wiretext, and Healstack in review. Sparkjar iOS and macOS, BCGD iOS and macOS, Wordroot macOS, and Lexly macOS all validated and held for staged submission. Epiphany and Talli's App Privacy declarations flagged for review. Inkpress is code-ready but needs an archive and upload.
