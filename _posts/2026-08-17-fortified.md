@@ -19,7 +19,7 @@ Submitted Wordroot and caught a missing encryption declaration on BCGD that woul
 
 ## Wednesday (August 19)
 
-Fixed Talli's hardcoded PWD/CDB amounts on both platforms and resubmitted Lexly's macOS build. Bookrank went live on iOS, macOS in review. Audited Wordroot's codebase and found four defects with a stored XSS where user input went unescaped to innerHTML; fixed that, added Wiktionary attribution to the apps, and surfaced network errors. Stripe audit showed four apps (epiphany, healstack, sparkjar, talli) already working; the reauthorization claim was stale, but the bottleneck is Apple's unsigned Paid Apps Agreement and account-matching. Voxprint ($7.99) and Epiphany ($1) pricing set but gated on that agreement.
+Fixed Talli's hardcoded PWD/CDB amounts on both platforms and untangled Lexly's macOS submission before resubmitting. Bookrank went live on iOS with macOS now in review. Audited Stripe: four apps (epiphany, healstack, sparkjar, talli) already live, so the roadmap's reauthorization claim was stale. Payments actually bottleneck on Apple rejecting the bank account; needs CRA involvement and a chartered account match. Voxprint's paywall is built at $7.99 but hardcoded unlocked pending that; Epiphany stays at $1.
 
 ## Apps
 
