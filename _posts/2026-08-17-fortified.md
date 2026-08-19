@@ -19,12 +19,8 @@ Submitted Wordroot and caught a missing encryption declaration on BCGD that woul
 
 ## Wednesday (August 19)
 
-Fixed Talli's hardcoded PWD/CDB amounts on web and extended to native: removed the fallback ~$1,000/mo from the mobile API, wired iOS and macOS to display real personal income using server-derived rates (PWD 1450, CDB 200). Killed the NYC tutorial skip from an old commit nulling tutorial state on new games. Untangled Lexly's stuck macOS submission (dashboard said resolved, API found UNRESOLVED_ISSUES) and resubmitted. Apple's SRP endpoint recovered from a 503, so I read the NYC rejection text. Bookrank went live on the App Store; macOS build is now waiting for review (encryption declared false).
+Fixed Talli's hardcoded PWD/CDB amounts on both platforms and untangled Lexly's macOS submission before resubmitting. Bookrank went live on iOS with macOS now in review. Audited Stripe: four apps (epiphany, healstack, sparkjar, talli) already live, so the roadmap's reauthorization claim was stale. Payments bottleneck on Apple rejecting the bank account; needs CRA involvement and a chartered account match. Voxprint's paywall is built at $7.99 but hardcoded unlocked pending that; Epiphany stays at $1.
 
-
-Spent the evening auditing Stripe — the roadmap claimed reauthorization was needed across everything, but production showed all four apps (epiphany, healstack, sparkjar, talli) already live with working keys. The notes were just stale. The actual blocker is Apple's unsigned Paid Apps Agreement, which gates all in-app-purchase revenue and is dashboard-only. Voxprint's a perfect example: the paywall is completely built and priced at $7.99, but StoreManager hardcodes isPro = true because it can't work in review without the agreement signed. Confirmed pricing: Voxprint keeps the $7.99 one-time (fits the "own it once" product story), Epiphany stays at $1.
 ## Apps
 
 Bookrank iOS live, macOS in review. Wordroot, Curvely, Wiretext, Healstack, and Lexly macOS in review. Sparkjar, BCGD, and Wordroot macOS staged. Epiphany and Talli's App Privacy flagged. Inkpress code-ready.
-
----
