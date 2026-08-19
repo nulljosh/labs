@@ -17,6 +17,10 @@ Spent the afternoon moving the last two big projects off the old host. The finan
 
 Submitted Wordroot and rebuilt Curvely, Wiretext, and Healstack after defect verification. Caught a missing encryption declaration on BCGD that would've bounced, validated all staged versions clean, and held the submission line to one app per verdict. Spent the evening refactoring the landing pages for Sparkjar and Talli to use the full viewport width: moved Sparkjar's screenshot into a hero column and widened Talli's shell to put copy and a payment preview side by side. Also cleared two stray review submissions stuck in the API layer and fixed Bookrank's live listing.
 
+## Friday (August 18)
+
+Fixed Healstack's landing page dark mode - the Cloudflare Pages build was serving stale code with hardcoded white backgrounds, so I rebuilt and deployed the current source. Also fixed the CTA buttons that were invisible on cream, swapping the hardcoded white for a variable that follows the theme. Verified the live site now serves the right CSS.
+
 ## Apps
 
 Wordroot, Curvely, Wiretext, and Healstack in review. Sparkjar iOS and macOS, BCGD iOS and macOS, Wordroot macOS, and Lexly macOS all validated and held for staged submission. Epiphany and Talli's App Privacy declarations flagged for review. Inkpress is code-ready but needs an archive and upload.
