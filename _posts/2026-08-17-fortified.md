@@ -19,7 +19,7 @@ Submitted Wordroot and caught a missing encryption declaration on BCGD that woul
 
 ## Wednesday (August 19)
 
-Fixed Talli, resubmitted Lexly's macOS build, and got Bookrank live on iOS. Broke the bank form jam too: the Transit Number field wanted the full routing code, so the account finally submitted, and both tax forms are filed with the 0% treaty rate locked. The business number dead end was self-inflicted: I'd been checking the personal CRA portal, which never shows one. Ended by emptying Notes.app into the wiki, pulling a quarter gig of build junk out of nine repos, and fixing a Lexly bug where skipping every question still passed you.
+Fixed Talli, resubmitted Lexly macOS, and got Bookrank iOS live. Resolved the bank-account routing-number blocker so both tax forms filed. Pulled a quarter gig of junk builds out of nine repos and fixed Lexly's skip-all-questions exploit. Evening was documentation: updated Epiphany's whitepaper with current shipping status, wrote three new whitepapers (Cadence, Fengshui, Portfolio), and added whitepaper links to 21 README files. Diagnosed why the live Epiphany app still shows an old icon: shipped build predates the fix by six hours, so needs a new build and submission.
 
 ## Apps
 
