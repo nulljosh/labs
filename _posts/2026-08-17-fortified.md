@@ -19,7 +19,7 @@ Submitted Wordroot and caught a missing encryption declaration on BCGD that woul
 
 ## Wednesday (August 19)
 
-Fixed Talli, resubmitted Lexly's macOS build, and got Bookrank live on iOS with summaries moved to Supabase. Broke the bank form jam too: the Transit Number field wanted the full routing code, so the account finally submitted, and both U.S. tax forms are filed with the 0% treaty rate locked. The business number dead end was self-inflicted, since I'd been checking the personal CRA portal, which never shows one. Ended by emptying Notes.app into the wiki, then clearing ten small roadmap items that had been quietly wrong for weeks.
+Fixed Talli, resubmitted Lexly's macOS build, and got Bookrank live on iOS with summaries moved to Supabase. Broke the bank form jam too: the Transit Number field wanted the full routing code, so the account finally submitted, and both U.S. tax forms are filed with the 0% treaty rate locked. The business number dead end was self-inflicted, since I'd been checking the personal CRA portal, which never shows one. Ended by emptying Notes.app into the wiki, clearing ten roadmap items, and pulling a quarter gig of build junk out of nine repos.
 
 ## Apps
 
