@@ -160,11 +160,15 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 - [ ] **Apple banking/payout info rejected.** RBC + Wealthsimple details were not accepted for App Store paid/IAP agreements. Needed before any IAP or paid app can go live. Dashboard-only (Agreements/Tax/Banking), needs Joshua + 2FA. Ask Apple which account type they want — likely a chequing account with a routable transit/institution number, not a Wealthsimple cash account.
 - [ ] **Stripe status audit across all apps.** Only epiphany is known to have Stripe wired; user believes keys may already be set up. Check per-app: live vs test keys present, webhook endpoint registered, and whether reauthorization is actually needed (see line ~116 item). Confirm before assuming scope.
 
-## Vercel `etyma` project — RESOLVED 2026-08-17
-
-- [x] **DONE: Vercel project `etyma` (team nulljosh-9577) deleted.** It was wired to the **labs** repo — i.e. `~/Documents/Code` itself — and redeploys failed on every push to labs (including pure CLAUDE.md/roadmap commits). Cause: commit `3e65d942` (2026-08-11) deleted the `etyma/` directory the project built from; every subsequent deploy (6 in 6 days) was ERROR, including tonight's `0c4b5e1`. Deleted as part of the 2026-08-17 stale-Vercel-domain cleanup alongside 12 other unused projects. No dependencies: `etyma.heyitsmejosh.com` and `wordroot.heyitsmejosh.com` both served by Cloudflare, not Vercel.
-
 ## Pre-unfreeze build smoke test — 2026-08-17
 
-- [x] Every iOS app that could ship on Aug 18 was archived-equivalent build-tested tonight against `generic/platform=iOS Simulator` with `-skipPackagePluginValidation`. **All 12 succeeded:** wiretext, curvely, litigate, healstack (iOS + macOS), lexly, inkpress, voxprint, newsline, bookrank, wordroot, sparkjar, talli. Nothing in the tree is currently broken at compile time, so a failed archive tomorrow means signing/provisioning, not source.
 - [ ] Two gotchas for whoever scripts this next: `sparkjar` and `talli` have no scheme in the repo root and their *first* scheme alphabetically is the watchOS one (`SparkWatch`, `TalliWatch`), which fails against an iOS Simulator destination — pick `Spark` / `Talli` from `ios/` explicitly. And healstack's iOS scheme is still called `Dose`, not `Healstack`, so `-scheme Healstack` errors out.
+
+## Ingested 2026-08-19
+
+- [ ] **Reclaim ~224 MB of committed build artifacts from git history (9 repos).** Untracked and
+      gitignored 2026-08-19 (voxprint 144 MB, epiphany 52 MB, bcgd 14 MB, sparkjar 8.3 MB,
+      inkpress 4.0 MB, wiretext 1.7 MB, plus talli/healstack/litigate), so nothing new accumulates —
+      but the blobs are still in history, so clone size is unchanged. Reclaiming them needs
+      `git filter-repo` + force-push per repo, as was done once for bookrank. Risky, do one repo at
+      a time, back up first, and only when no other work is in flight on that repo.
