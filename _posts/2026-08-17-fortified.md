@@ -19,7 +19,7 @@ Submitted Wordroot and caught a missing encryption declaration on BCGD that woul
 
 ## Wednesday (August 19)
 
-Fixed Talli, resubmitted Lexly macOS, and got Bookrank iOS live. Resolved the bank-account routing-number blocker so both tax forms filed. Pulled a quarter gig of junk builds out of nine repos and fixed Lexly's skip-all-questions exploit. Evening was documentation: updated Epiphany's whitepaper with current shipping status, wrote three new whitepapers (Cadence, Fengshui, Portfolio), and added whitepaper links to 21 README files. Diagnosed why the live Epiphany app still shows an old icon: shipped build predates the fix by six hours, so needs a new build and submission.
+Fixed Talli, resubmitted Lexly macOS, and got Bookrank iOS live. Resolved the bank-account routing-number blocker. Evening was documentation: updated Epiphany's whitepaper, wrote three new whitepapers (Cadence, Fengshui, Portfolio), and added whitepaper links to 21 README files. Sketched Epiphany landing-page redesign: swap the static hero background for a live demo (mock data, pointer-events:none), then flip interactive after sign-up. Diagnosed why the live Epiphany app shows an old icon: shipped build is six hours older than the fix.
 
 ## Apps
 
