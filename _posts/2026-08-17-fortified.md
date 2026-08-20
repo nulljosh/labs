@@ -19,7 +19,7 @@ Submitted Wordroot and caught a missing encryption declaration on BCGD that woul
 
 ## Wednesday (August 19)
 
-Fixed Talli and resubmitted Lexly's macOS build; Bookrank went live on iOS. Moved Bookrank's summaries from GitHub to private Supabase with per-user auth. Broke through a months-long ASC bank form jam: the Transit Number field wanted the full 9-digit routing number, not just transit code. Entering transit-only validated with a green checkmark but suggested UBS branches; bank account finally submitted with correct routing and shows Processing. The CRA research turned out justified: SIN works for Developer Program, but GST/HST Form 506 requires a business number and RT code.
+Fixed Talli and resubmitted Lexly's macOS build; Bookrank went live on iOS. Moved summaries to Supabase; broke through the bank form jam: Transit Number field needed the full routing code, not just transit, so the account finally submitted (Processing). Both U.S. tax forms filed and locked the 0% treaty rate. The BN dead end was self-inflicted: he was checking CRA My Account (personal), which never shows a business number; it lives in My Business Account.
 
 ## Apps
 
