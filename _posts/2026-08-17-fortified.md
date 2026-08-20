@@ -7,7 +7,7 @@ categories: journal daily
 
 {% include headers/2026-08-17-fortified.svg %}
 
-## Sunday (August 17)
+## Monday (August 17)
 
 Ran a security sweep across the whole codebase and found two issues: a school page whose gate was forgeable via browser cookie, and a public AI proxy with no auth or rate limiting. Both fixed and deployed. Registered for Pre-Calculus 12 later, filling a scanned form with no actual fields by drawing text on top.
 
