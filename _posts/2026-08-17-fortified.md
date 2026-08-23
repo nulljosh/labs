@@ -21,7 +21,7 @@ Fixed Talli, resubmitted Lexly macOS, and got Bookrank iOS live. Resolved the ba
 
 ## Saturday (August 22)
 
-Chased a Claude Code banner issue. The running session had launched via an older binary through a cmux shim, so it reported an update was pending even though the latest was on disk. A full `/exit` and relaunch cleared it. Also shipped a UI fix to bookrank hiding the overdue badge when past due.
+Fixed a Claude Code banner issue with an older binary. Shipped bookrank fix hiding overdue badges. Landed fixes: Curvely's iPad graph now fits properly, Epiphany added MRNA/PFE/VIX to stocks and cleaned icon alphas, Healstack fixed source citations, Lexly's Mac session stores in keychain properly, and Sparkjar decodes posts with missing content.
 
 ## Apps
 
