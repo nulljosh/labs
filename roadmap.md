@@ -242,3 +242,58 @@ undefined and assigning to `process.env` silently no-ops. See `cadence`
 - [ ] Landing pages: every project should have a web landing page as an intro to its web interface, including links to its apps.
 - [ ] Shipped-apps audit: scan the codebase for context on what is shipped vs what is missing.
 - [ ] Design system: scan the codebase, pick the project with the best design system as the source of truth, sync the rest to it.
+
+<!-- merged from code-meta/roadmap.md 2026-08-23 -->
+
+## From Apple Notes (imported 2026-08-11)
+- [ ] Landing pages still missing across half the codebase: nimble, curvely, wiretext, nyc, inkpress, bookrank, newsline, wordroot. This was believed handled a previous session — verify each one actually has a landing page before reporting done
+
+## Someday / Explore
+- [ ] Graph engineering: scan the codebase and research https://github.com/codejunkie99/graph-engineering — how to graph-engineer our projects (we already ship SVG architectures in many READMEs). Research graph flow + lane gen.
+
+## From session 2026-08-15
+
+- [ ] **Apple banking/payout info rejected.** RBC + Wealthsimple details were not accepted for App Store paid/IAP agreements. Needed before any IAP or paid app can go live. Dashboard-only (Agreements/Tax/Banking), needs Joshua + 2FA. Ask Apple which account type they want — likely a chequing account with a routable transit/institution number, not a Wealthsimple cash account.
+- [ ] **Stripe status audit across all apps.** Only epiphany is known to have Stripe wired; user believes keys may already be set up. Check per-app: live vs test keys present, webhook endpoint registered, and whether reauthorization is actually needed (see line ~116 item). Confirm before assuming scope.
+
+## Pre-unfreeze build smoke test — 2026-08-17
+
+- [ ] Two gotchas for whoever scripts this next: `sparkjar` and `talli` have no scheme in the repo root and their *first* scheme alphabetically is the watchOS one (`SparkWatch`, `TalliWatch`), which fails against an iOS Simulator destination — pick `Spark` / `Talli` from `ios/` explicitly. And healstack's iOS scheme is still called `Dose`, not `Healstack`, so `-scheme Healstack` errors out.
+
+## Ingested 2026-08-19
+
+- [ ] **Reclaim ~224 MB of committed build artifacts from git history (9 repos).** Untracked and
+      gitignored 2026-08-19 (voxprint 144 MB, epiphany 52 MB, bcgd 14 MB, sparkjar 8.3 MB,
+      inkpress 4.0 MB, wiretext 1.7 MB, plus talli/healstack/litigate), so nothing new accumulates —
+      but the blobs are still in history, so clone size is unchanged. Reclaiming them needs
+      `git filter-repo` + force-push per repo, as was done once for bookrank. Risky, do one repo at
+      a time, back up first, and only when no other work is in flight on that repo.
+
+## Ingested 2026-08-22
+- [ ] **App Store dev website field**: make sure the App Store listing shows the portfolio as the developer website, not the individual app's landing page. Applies across all 17 app records.
+- [ ] **TestFlight staleness**: most apps are weeks stale on TestFlight. Work out a routine to keep builds current (per-app `asc workflow run ship-ios` on a cadence).
+- [ ] **Submission cadence question** (from Notes: "AppStore submissions getting stale: Is there a limit to how often we can push updates? Our main apps recently a month old."). Answer: Apple imposes no rate limit on version submissions — the staleness is caused by the outstanding rejections (Healstack 1.4.1, Sparkjar Mac 2.1(a), Lexly Mac 2.1(a), NYC 5.6, Nullfolio 2.3.8/4.2), not by a cap. Close this item once those are cleared.
+- [ ] **GitHub tidy**: scan the codebase, simplify the README for every project, and simplify their GitHub repo descriptions to match.
+- [ ] **Ontology**: scan the codebase and work out how to connect projects together with an ontology / shared entity index. Overlaps with Epiphany's ontology / people index feature.
+- [ ] **Disk cleanup**: update `mole` and run it — deep clean the hard drive / SSD.
+- [ ] **Supabase `logs.all` removal 2026-09-23**: Supabase emailed that `analytics/endpoints/logs.all` is removed on 2026-09-23 and says we call it directly from scripts/integrations; migrate to `analytics/endpoints/logs`. Investigated 2026-08-22: grep across ~/Documents/Code found **zero** in-repo references to `logs.all`, so the caller is likely an external script, a CI job, or the Supabase MCP/CLI itself. Find the real caller before the cutoff.
+
+## Developer website sweep — 2026-08-22
+Set `marketingUrl` (the App Store "Developer Website" link) to https://heyitsmejosh.com.
+- Done: Sparkjar, Lexly, Wordroot, NYC Survive. Epiphany already pointed at the portfolio.
+- Deliberately skipped: **BC Garage Doors** — client app, keeps https://bcgaragedoors.ca.
+- [ ] Locked by App Store Connect ("Attribute 'marketingUrl' cannot be edited at this time") — these versions are in a state Apple won't let the field change. Redo on each app's next editable version: **Wiretext, Talli, Voxprint, Litigate**.
+- [ ] No marketingUrl set at all, and their latest version is not editable either: **Healstack, Curvely, Bookrank, Inkpress, Nullfolio**. Set the portfolio URL when each next ships.
+
+## DECIDED 2026-08-22: new-app freeze
+The 5.6 suspension was **not** caused by updating apps too often — Apple imposes no
+submission rate limit, and the 5.6 letter never mentions frequency. It fires on new,
+thin app records submitted in bulk. So:
+- Updating an app that is already live (Healstack, Lexly, Talli, Epiphany, Litigate, Inkpress, Bookrank): unlimited, zero risk. Ship freely.
+**Revised 2026-08-22 after measuring both apps.** The rule is not "no new apps" — it is
+"do not submit a *batch* of thin ones". One finished app at a time was always fine.
+Neither Nimble nor Newsline has an App Store Connect record yet, so shipping either
+means *creating* a new app record, which is the highest-scrutiny action available.
+- [ ] **Nimble: approved to ship.** 1,677 lines of app code with real search, results and context-menu UI over the Workers AI backend — substantive enough to clear Guideline 4.2. Ship it *after* the 2026-08-22 resubmissions (Healstack 2.3.5, Lexly Mac 1.1.4, Sparkjar Mac 1.0.1) come back approved, so the account has a clean streak behind it. Needs a full session: ASC app record (browser-only, see asc-app-create-ui skill), bundle ID, signing, screenshots, metadata, App Privacy.
+- [ ] **Newsline: do NOT submit yet.** The iOS app is 398 lines excluding tests — one list view, one detail view, a bias bar and one service. That is a thin RSS reader and matches the exact Guideline 4.2 profile that killed Nullfolio. Add real functionality before it goes anywhere near review.
+- NYC Survive is the test case: its 5.6 hold expired 2026-08-18, but it needs a genuine quality pass plus detailed review notes before resubmitting, not a bare retry.
