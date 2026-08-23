@@ -9,9 +9,7 @@ categories: journal daily
 
 ## Monday (August 17)
 
-Ran a security sweep across the whole codebase and found two issues: a school page whose gate was forgeable via browser cookie, and a public AI proxy with no auth or rate limiting. Both fixed and deployed. Registered for Pre-Calculus 12 later, filling a scanned form with no actual fields by drawing text on top.
-
-Spent the afternoon moving the last two big projects off the old host. The finance API was the awkward one, since three upstream services quietly refuse traffic from the new platform, so it now falls back to other sources when needed.
+Ran a security sweep and found two issues: a forgeable school-page gate and an unprotected AI proxy. Fixed both. Moved the last two big projects off the old host, with the finance API falling back to other sources when upstream services refuse the new platform.
 
 ## Tuesday (August 18)
 
@@ -21,6 +19,10 @@ Submitted Wordroot and caught a missing encryption declaration on BCGD that woul
 
 Fixed Talli, resubmitted Lexly macOS, and got Bookrank iOS live. Resolved the bank-account routing-number blocker. Evening was documentation: updated Epiphany's whitepaper, wrote three new whitepapers, added whitepaper links to 21 READMEs, and sketched Epiphany's landing-page redesign (swap static hero for live demo, flip interactive after signup). Diagnosed why the live app shows an old icon: shipped build predates the fix. Verified ASC review state (Curvely, Wiretext, Wordroot iOS, Healstack waiting for verdicts; Lexly macOS in review) and resolved a stale claim that the developer agreement blocks submissions (it doesn't).
 
+## Saturday (August 22)
+
+Chased a Claude Code banner issue - it kept saying an update was installed and needed a restart, even though the latest was already on disk and symlinked. The running session had launched via an older binary through a cmux shim. A full `/exit` and relaunch cleared it; terminal restarts don't help.
+
 ## Apps
 
-Bookrank iOS live, macOS in review. Wordroot, Curvely, Wiretext, Healstack, and Lexly macOS in review. Sparkjar, BCGD, and Wordroot macOS staged. Epiphany and Talli's App Privacy flagged. Inkpress code-ready. LEC scaffolded (network layer + tests).
+Bookrank iOS live, macOS in review. Wordroot, Curvely, Wiretext, Healstack, Lexly macOS in review. Sparkjar, BCGD, Wordroot macOS staged. Epiphany and Talli flagged. Inkpress code-ready. LEC scaffolded.
