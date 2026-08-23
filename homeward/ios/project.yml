@@ -10,7 +10,10 @@ targets:
       - Homeward
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.nulljosh.missingpets
+        PRODUCT_BUNDLE_IDENTIFIER: com.nulljosh.homeward
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Homeward
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_NSCameraUsageDescription: "To attach a photo of the pet to your listing"
         INFOPLIST_KEY_NSPhotoLibraryUsageDescription: "To attach a photo of the pet to your listing"
     dependencies:

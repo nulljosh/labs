@@ -74,6 +74,53 @@ const photos = [
   'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&h=400&fit=crop'
 ]
 
+// Real Gastown listings, verified 2026-07-29. Everything else in this file is
+// generated. Taylor Building (310 Water St, 1911 heritage conversion) is
+// deliberately absent: no active listing, so there is nothing to price.
+// ponytail: hand-kept until there is an MLS feed to pull from.
+const realListings = [
+  {
+    id: 'listing-garage',
+    address: '202-36 Water St',
+    neighborhood: 'Gastown',
+    city: 'vancouver',
+    price: 625000,
+    beds: 1,
+    baths: 1,
+    sqft: 720,
+    type: 'condo',
+    lat: 49.2841,
+    lng: -123.1071,
+    year: 1910,
+    photo: photos[10],
+    photos: [photos[10], photos[2], photos[4]],
+    description: 'Loft conversion in The Garage, a 1910 Gastown warehouse. Exposed concrete, Miele kitchen, oversized windows onto Water Street.',
+    features: ['Exposed concrete', 'Miele kitchen', 'Heritage conversion', 'Steps to Waterfront Station'],
+    listedDaysAgo: 25,
+    mlsNumber: 'R3149447'
+  },
+  {
+    id: 'listing-koret',
+    address: '506-55 E Cordova St',
+    neighborhood: 'Gastown',
+    city: 'vancouver',
+    price: 824900,
+    beds: 1,
+    baths: 1.5,
+    sqft: 1050,
+    type: 'condo',
+    lat: 49.2827,
+    lng: -123.1014,
+    year: 1906,
+    photo: photos[11],
+    photos: [photos[11], photos[5], photos[2]],
+    description: 'Koret Lofts, a heritage timber warehouse conversion. 20-foot ceilings, exposed brick and original timber posts.',
+    features: ['20ft ceilings', 'Exposed brick', 'Original timber', 'Heritage conversion'],
+    listedDaysAgo: 25,
+    mlsNumber: 'R3149767'
+  }
+]
+
 function seededRandom(seed) {
   let s = seed
   return function() {
@@ -153,7 +200,7 @@ function generateListings() {
   return listings
 }
 
-export const listings = generateListings()
+export const listings = [...realListings, ...generateListings()]
 
 export function getListingById(id) {
   return listings.find(l => l.id === id)
