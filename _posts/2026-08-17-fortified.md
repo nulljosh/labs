@@ -21,7 +21,7 @@ Fixed Talli, resubmitted Lexly macOS, and got Bookrank iOS live. Resolved the ba
 
 ## Saturday (August 22)
 
-Fixed Claude Code banner and shipped app fixes: Curvely's iPad graph, Epiphany's stocks and icons, Healstack's citations, Lexly's sessions, and Sparkjar's posts. Swept 29 Apple Notes into roadmaps, resubmitted three apps with notes, and updated marketingUrl on four projects. Found 5.6 fires on bulk submissions, not updates. Dropped Nullfolio from roadmap.
+Shipped app fixes (Curvely, Epiphany, Healstack, Lexly, Sparkjar) and swept 29 Apple Notes into roadmaps. Took another pass at bookrank: redesigned the rankings page with a sticky header holding brand, nav, live search, and theme toggle; added 127 book covers and built a slow-drifting hero cover wall on the landing page.
 
 ## Apps
 
