@@ -21,7 +21,7 @@ Fixed Talli, resubmitted Lexly macOS, and got Bookrank iOS live. Resolved the ba
 
 ## Saturday (August 22)
 
-Chased a Claude Code banner issue - it kept saying an update was installed and needed a restart, even though the latest was already on disk and symlinked. The running session had launched via an older binary through a cmux shim. A full `/exit` and relaunch cleared it; terminal restarts don't help.
+Chased a Claude Code banner issue. The running session had launched via an older binary through a cmux shim, so it reported an update was pending even though the latest was on disk. A full `/exit` and relaunch cleared it. Also shipped a UI fix to bookrank hiding the overdue badge when past due.
 
 ## Apps
 
