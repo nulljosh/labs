@@ -34,12 +34,8 @@ labs, nulljosh.github.io. life/canlii-app/agent-101 have no README by design
 - [ ] **Sparkjar (step 6, deliberately NOT started)**: this app's `api/auth.js` delegates to 7 sub-handlers (GitHub OAuth, Apple sign-in, login, register, password-reset, account-deletion) using JWT (`jsonwebtoken`) + bcrypt (`bcryptjs`) + Supabase REST calls. This is a live authentication system, not a lift-and-shift — needs real testing (does `jsonwebtoken`/`bcryptjs` even run under Workers `nodejs_compat`? verify before porting) and should get its own dedicated session, not be rushed through in the same pass as the static/simple apps. Also still needs: 8 API handlers ported, 1 cron → Workers Cron Trigger, `@vercel/blob` (avatar.js) → R2.
 - [ ] **Epiphany (step 7) and talli (step 8)**: unchanged from original plan — epiphany has live users + gateway function + 3 crons + blob; talli needs a Puppeteer/Browser-Rendering redesign, not a port. Do not rush these.
 
-## Vercel to Cloudflare migration 2026-08-17 (Epiphany Workers port)
-- [x] **Epiphany API ported to Cloudflare Workers (2026-08-17)** — Deployed to `epiphany.trommatic.workers.dev` for verification; production DNS still on Vercel (not cut over yet). API is one serverless function dispatching routes, feasible to port. Swapped jsdom→linkedom for bundle size (95%→manageable), node:dns/net→Cloudflare DoH+regex, blob storage→Workers KV. Three upstream APIs block Workers IPs (CoinGecko, CNN), added fallbacks: Kraken/Coinbase/stale-cache. Crons deliberately disarmed (Vercel still runs real trades). Sampled 14 route pairs show parity with production. **Next step:** parallel-run diff before flipping production DNS.
-
 ## Vercel to Cloudflare migration 2026-07-21 (easy batch)
 Scope: every static/simple repo, explicitly excluding epiphany/sparkjar/healstack/talli (live serverless + KV/Blob + Stripe/OAuth, deferred to their own session). All below built, deployed to Cloudflare Pages, verified 200 on the custom domain, then DNS-cut. Vercel projects left in place (not deleted) as rollback fallback.
-- [x] **missing-pets → Homeward** (`pets.heyitsmejosh.com` + `homeward.heyitsmejosh.com`): DONE 2026-08-17. Took option (b) — `/listing/[id]` became `/listing?id=` with a client-side fetch, so `output: "export"` works with no adapter. Migrated to Cloudflare Pages and renamed Homeward; Vercel project deleted.
 - [ ] **Skipped — cadence, charters**: no local source exists for either (per CLAUDE.md, both were part of the 2026-06-22 accidental deletion). Can't migrate what isn't there — needs recovery first. Still live on Vercel, both domains untouched.
 - [ ] **Skipped — "web" Vercel project**: no custom domain attached, no obvious matching local repo (checked top-level `~/Documents/Code` and `labs/`). Flagging rather than guessing; likely an orphaned preview-only project, safe to ignore.
 
@@ -112,13 +108,6 @@ CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
 ## From Asc.pdf / Asc - Icons.pdf / Asc - TestFlight.pdf (imported 2026-07-19)
 - [ ] Hook up RBC account (banking) with ASC — no further detail given, clarify what "hook
   up" means (payout routing? reconciliation?) before starting
-- [x] ~~Stripe reauthorization needed across any/all apps~~ — **not needed, verified 2026-08-19
-  by probing production** (not by reading notes). All four integrations answer live with real
-  keys: epiphany `server/api/stripe.js` (rejects a bogus price ID, so `STRIPE_PRICE_ID_STARTER`
-  is set), healstack `functions/api/stripe.js` (400), sparkjar `api/posts.js` + `users.is_pro`
-  (400), talli `/api/stripe-status` (401, auth-gated). No other repo references Stripe, and that
-  is correct — the rest have no backend or no account system to hang an entitlement on.
-  The real payments blocker is the Paid Apps Agreement, below.
 - [ ] **BLOCKED EXTERNALLY — Apple rejecting bank account; CRA involvement needed.** App Store
   Connect payout setup gates *all* Apple IAP revenue. Apple is rejecting Joshua's bank account(s)
   during enrollment. Next step: read Apple's exact rejection reason (currently unknown; check
