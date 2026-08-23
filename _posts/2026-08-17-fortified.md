@@ -21,8 +21,8 @@ Fixed Talli, resubmitted Lexly macOS, and got Bookrank iOS live. Resolved the ba
 
 ## Saturday (August 22)
 
-Fixed a Claude Code banner issue with an older binary. Shipped bookrank fix hiding overdue badges. Landed fixes: Curvely's iPad graph now fits properly, Epiphany added MRNA/PFE/VIX to stocks and cleaned icon alphas, Healstack fixed source citations, Lexly's Mac session stores in keychain properly, and Sparkjar decodes posts with missing content.
+Fixed Claude Code banner and shipped app fixes: Curvely's iPad graph, Epiphany's stocks and icons, Healstack's citations, Lexly's sessions, and Sparkjar's posts. Swept 29 Apple Notes into roadmaps, resubmitted three apps with notes, and updated marketingUrl on four projects. Found 5.6 fires on bulk submissions, not updates. Dropped Nullfolio from roadmap.
 
 ## Apps
 
-Bookrank iOS live, macOS in review. Wordroot, Curvely, Wiretext, Healstack, Lexly macOS in review. Sparkjar, BCGD, Wordroot macOS staged. Epiphany and Talli flagged. Inkpress code-ready. LEC scaffolded.
+Bookrank iOS live, macOS in review. Wordroot, Curvely, Wiretext, Healstack iOS, Lexly macOS, Sparkjar macOS in review. BCGD, Wordroot macOS staged. Epiphany and Talli flagged. Inkpress code-ready. LEC scaffolded.
