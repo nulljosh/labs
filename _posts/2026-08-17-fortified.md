@@ -13,7 +13,7 @@ Ran a security sweep and found two issues: a forgeable school-page gate and an u
 
 ## Tuesday (August 18)
 
-Submitted Wordroot and caught a missing encryption declaration on BCGD that would have bounced at submission. Rebuilt Curvely, Wiretext, and Healstack after verifying their defects were fixed, then validated all six staged versions clean. Cleared two stray review submissions stuck in the ASC API layer and fixed Bookrank's live listing. Found Voxprint's "Echo Pro" branding leak was stale Jul 3 screenshots plus a silent test guard; fixed the test to fail loudly and renamed the IAP to "Voxprint Pro". Healstack's landing page was white in dark mode because Cloudflare was serving a stale build, so I rebuilt, deployed, and swapped hardcoded white on the buttons for a theme variable.
+Submitted Wordroot, caught missing encryption on BCGD. Rebuilt Curvely, Wiretext, Healstack after fixing defects, validated six versions. Cleared two stray submissions stuck in ASC, fixed Bookrank's live listing. Fixed Voxprint's stale "Echo Pro" branding (Jul 3 screenshots). Fixed Healstack's landing page (Cloudflare stale build with hardcoded white buttons invisible in dark mode).
 
 ## Wednesday (August 19)
 
@@ -21,7 +21,7 @@ Fixed Talli, resubmitted Lexly macOS, and got Bookrank iOS live. Resolved the ba
 
 ## Saturday (August 22)
 
-Shipped app fixes (Curvely, Epiphany, Healstack, Lexly, Sparkjar) and swept 29 Apple Notes into roadmaps. Took another pass at bookrank: redesigned rankings with a sticky header, live search, and 127 covers; added stars, sort options, cover hover lift, and "/" to focus search.
+Shipped app fixes (Curvely, Epiphany, Healstack, Lexly, Sparkjar), swept 29 Apple Notes, and redesigned bookrank: sticky header, live search, 127 covers, stars, sort, hover lift, "/" shortcut. Pruned App Store (nullfolio scrapped, newsline held, nimble approved), fixed sparkjar export, and cleaned up bookrank (removed checkout tracking, rewrote README, dropped 12MB covers).
 
 ## Apps
 
