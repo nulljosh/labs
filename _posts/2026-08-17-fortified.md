@@ -23,6 +23,8 @@ Fixed Talli, resubmitted Lexly macOS, and got Bookrank iOS live. Resolved the ba
 
 Shipped app fixes (Curvely, Epiphany, Healstack, Lexly, Sparkjar), swept 29 Apple Notes, and redesigned bookrank: sticky header, live search, 127 covers, stars, sort, hover lift, "/" shortcut. Pruned App Store (nullfolio scrapped, newsline held, nimble approved), fixed sparkjar export, and cleaned up bookrank (removed checkout tracking, rewrote README, dropped 12MB covers).
 
+Nimble built the complete ASC pipeline (.asc/workflow.json + ExportOptions.plist) and hit its first blocker: the ASC record must exist before `asc xcode export` can mint a distribution profile, gating the entire archive→export→upload flow. Session stopped at 84% usage before creating the record; next is Joshua creating via browser, filling IOS_APP_ID, screenshots, and upload. Submission still gated on three app approvals.
+
 ## Apps
 
 Bookrank iOS live, macOS in review. Wordroot, Curvely, Wiretext, Healstack iOS, Lexly macOS, Sparkjar macOS in review. BCGD, Wordroot macOS staged. Epiphany and Talli flagged. Inkpress code-ready. LEC scaffolded.
