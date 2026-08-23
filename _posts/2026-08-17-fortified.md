@@ -21,9 +21,9 @@ Fixed Talli, resubmitted Lexly macOS, and got Bookrank iOS live. Resolved the ba
 
 ## Saturday (August 22)
 
-Shipped app fixes (Curvely, Epiphany, Healstack, Lexly, Sparkjar), swept 29 Apple Notes, and redesigned bookrank: sticky header, live search, 127 covers, stars, sort, hover lift, "/" shortcut. Pruned App Store (nullfolio scrapped, newsline held, nimble approved), fixed sparkjar export, and cleaned up bookrank (removed checkout tracking, rewrote README, dropped 12MB covers).
+Shipped app fixes (Curvely, Epiphany, Healstack, Lexly, Sparkjar), swept 29 Apple Notes, redesigned bookrank with sticky header, live search, 127 covers, sort, hovers, search shortcut. Pruned App Store (nullfolio scrapped, newsline held, nimble approved), fixed sparkjar, cleaned bookrank.
 
-Nimble built the complete ASC pipeline (.asc/workflow.json + ExportOptions.plist) and hit its first blocker: the ASC record must exist before `asc xcode export` can mint a distribution profile, gating the entire archive→export→upload flow. Session stopped at 84% usage before creating the record; next is Joshua creating via browser, filling IOS_APP_ID, screenshots, and upload. Submission still gated on three app approvals.
+Nimble built the ASC pipeline (.asc/workflow.json + ExportOptions) but hit a blocker: the record must exist before `asc xcode export` can mint profiles. Session stopped at 84% usage; Joshua creates the record via browser next, fills IOS_APP_ID, screenshots, upload. Submission gated on three approvals; running apps caught rendering bugs (nimble letterboxing, Healstack indices).
 
 ## Apps
 
