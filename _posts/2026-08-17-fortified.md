@@ -21,7 +21,7 @@ Fixed Talli, resubmitted Lexly macOS, and got Bookrank iOS live. Resolved the ba
 
 ## Saturday (August 22)
 
-Shipped app fixes (Curvely, Epiphany, Healstack, Lexly, Sparkjar) and swept 29 Apple Notes into roadmaps. Took another pass at bookrank: redesigned the rankings page with a sticky header holding brand, nav, live search, and theme toggle; added 127 book covers and built a slow-drifting hero cover wall on the landing page.
+Shipped app fixes (Curvely, Epiphany, Healstack, Lexly, Sparkjar) and swept 29 Apple Notes into roadmaps. Took another pass at bookrank: redesigned rankings with a sticky header, live search, and 127 covers; added stars, sort options, cover hover lift, and "/" to focus search.
 
 ## Apps
 
