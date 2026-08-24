@@ -20,3 +20,5 @@ Two things worth recording as losses. Every API key on this machine is dead, bec
 I also learned to run fewer things at once. Nine parallel workers on the imported backlog made the machine crawl and burned most of the budget in minutes. Two or three from now on.
 
 By the end of the month the board finally matched reality: Talli and Lexly and Curvely shipped, Bookrank and Voxprint live, and Sparkjar, BCGD, Quotestreak, Wordroot and the Times Square game all sitting in review. No dramatic new features in there, but the picture is accurate for the first time in a while, which turned out to be the thing that was actually broken.
+
+One last piece this evening. The NYC landing page got the bookrank treatment: a seamless tile cropped from the real iPad gameplay, drifting behind a scrim that keeps the headline readable. Rebuilt the site and shipped it to Cloudflare Pages. I kept the live game out of an iframe because autoplay is banned in the project, so the hero stays as a static backdrop instead.
