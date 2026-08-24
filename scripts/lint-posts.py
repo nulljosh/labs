@@ -12,6 +12,8 @@ from pathlib import Path
 # Daily entries are a recap; a monthly wrap legitimately covers more ground.
 WORD_CAP = 350
 MONTHLY_CAP = 500
+# A quarterly wrap replaces ten short entries, so it gets ten short entries worth.
+QUARTERLY_CAP = 1200
 SENTENCE_CAP = 5
 
 WEEKDAYS = ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")
@@ -48,7 +50,12 @@ def check(path):
     body, offset = strip_frontmatter(raw)
     out = []
 
-    cap = MONTHLY_CAP if re.search(r"^categories:.*\bmonthly\b", raw, re.M) else WORD_CAP
+    if re.search(r"^categories:.*\bquarterly\b", raw, re.M):
+        cap = QUARTERLY_CAP
+    elif re.search(r"^categories:.*\bmonthly\b", raw, re.M):
+        cap = MONTHLY_CAP
+    else:
+        cap = WORD_CAP
     words = len(body.split())
     if words > cap:
         out.append(f"{path.name}: {words} words, cap is {cap} (cut {words - cap})")

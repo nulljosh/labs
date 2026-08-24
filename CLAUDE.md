@@ -9,13 +9,13 @@ v2.4.0
 - Live site is `journal.heyitsmejosh.com`.
 - Posts live in `_posts/`.
 - `./scripts/deploy.sh` is the only publish path. It builds Jekyll locally and ships `_site` to the **Cloudflare Pages project `journal-heyitsmejosh`** (`wrangler pages deploy _site --project-name journal-heyitsmejosh --branch=main`). There is a second Pages project named plain `journal` with no custom domain — deploying to it reports success and changes nothing live; that bug kept the site on an Aug 6 build until 2026-08-11. No GitHub Pages flow, no remote build; a plain `git push` does not deploy. Verify by curling the live post URL, not by trusting wrangler's success line.
-- One post per month by default (changed 2026-07-04 from weekly). **Size/staleness exception (2026-07-21):** if the current post exceeds ~20KB or today is more than ~10 days past its frontmatter `date:`, start a new post instead of appending further, even mid-month — split at a clean `##` day-heading boundary. (2026-07-03-june-july.md hit 157KB/18 days stale before this rule existed and had to be split retroactively.)
+- One post per few months (changed 2026-08-24 from monthly, which was itself changed 2026-07-04 from weekly). Default to appending to the current quarter's post rather than starting a new one; only start a new post when the period genuinely ends. If entries pile up again, merge them back down instead of leaving ten short ones.
 - Filename date and front matter date must match.
 - Write in natural English, not tool-name spam.
 - Post titles are ONE WORD. No commas, no ampersands, no "X and Y". Write a label, not a sentence.
-- Posts cap at ~350 words (500 for `categories: journal monthly`). Two or three day sections of 2-4 sentences each, plus a short Apps line. Say what a change means, not what the code does: no function names, regexes, commit hashes, or build numbers.
+- Posts cap at ~350 words (500 for `categories: journal monthly`, 1200 for `categories: journal quarterly`). A quarterly post is flowing prose in a handful of paragraphs, not day headings. Say what a change means, not what the code does: no function names, regexes, commit hashes, or build numbers.
 - **`scripts/lint-posts.py` enforces all of the above and runs from `deploy.sh`, so a bloated post cannot publish.** Run it before committing. These rules were written here twice and ignored twice; the gate is why they hold now. `--selftest` checks the linter itself.
-- No em dashes.
+- No em dashes, and no AI voice: no "delve", "leverage", "seamlessly", no "it's not just X, it's Y". Plain natural English, light on tech jargon.
 - No filler phrases.
 - No emojis.
 - Fix errors immediately when they appear; do not leave obvious breakages for a later prompt.
