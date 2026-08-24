@@ -20,6 +20,9 @@ How it got here:
   from the deployed JS. Not a leak: the anon key ships to every visitor and is
   guarded by RLS.
 
+## OAuth rollout (2026-08-24)
+- [ ] Add Apple/GitHub sign-in to both web and iOS. App is currently email-only signup (plus unauthenticated posting). Web pattern proven in litigate/web/auth.js; iOS needs native SDK flows. Google credentials already in Cloudflare secrets. This app is unshipped, so OAuth can ship as part of the initial iOS launch.
+
 ## Left
 
 - iOS target: FIXED 2026-08-23. It had never compiled since the rename — the
