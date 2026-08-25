@@ -53,9 +53,14 @@ no-ops. See `cadence/functions/_adapter.js` for the globalThis workaround, or bu
 - [ ] **Developer website sweep** — set `marketingUrl` to https://heyitsmejosh.com.
       Done: Sparkjar, Lexly, Wordroot, NYC Survive, Epiphany. Skipped on purpose: BC Garage
       Doors (client app, keeps bcgaragedoors.ca).
-      Locked by ASC ("cannot be edited at this time"), redo on the next editable version:
-      Wiretext, Talli, Voxprint, Litigate. Never set at all: Healstack, Curvely, Bookrank,
-      Inkpress, Nullfolio.
+      Also done 2026-08-24: **Healstack, Quotestreak (iOS + macOS)**.
+      **Rule learned:** the field is editable while a version is WAITING_FOR_REVIEW, and only
+      locks at READY_FOR_SALE — so catch each app *while it is in the review queue*.
+      Still locked (all currently live), redo on their next editable version: Wiretext, Talli,
+      Voxprint, Litigate, Curvely, Bookrank, Inkpress, Nullfolio.
+      **CLI gotcha:** `asc apps info edit --app <id> --marketing-url ...` without
+      `--platform`/`--version` fails with a misleading "The URL path is not valid"; pass both
+      and you get Apple's real answer.
 - [ ] **TestFlight staleness** — most apps are weeks stale. Establish a cadence of
       `asc workflow run ship-ios` per app.
 - [ ] **Icon color pass** — rework all app icon colors on the [clrs.cc](https://clrs.cc) palette.
@@ -90,9 +95,18 @@ Plan: `~/.claude/plans/lovely-churning-wolf.md`. Phase 1 DONE (nested `Code/labs
 deleted, ~1GB freed; `abraham/{contract.pdf,plan.pdf,OPERATING_GUIDE.local.md}` rescued to
 top level first — they existed only in that clone).
 
-- [ ] **Phase 2:** convert the 6 hard-copied `tokens.css` (bookrank, fengshui, uprighty, nimble
-      web+docs, notes, roost) to the one-line `@import` stub that curvely/litigate/sparkjar/
-      wiretext already use. Then add `nulljosh.github.io/apps.json` as the single app registry —
+- [ ] **Phase 2 — RE-SCOPED 2026-08-24, was mis-described.** This is not one mechanical
+      cleanup, it is three different things:
+      1. **A design decision for Joshua, not a refactor.** bookrank/fengshui/uprighty carry the
+         **fredrika** theme (66 lines, `--bg:#fcfcfc`, Geist, no serif). The canonical
+         `heyitsmejosh.com/tokens.css` is **Jaybulb** (85 lines, `--bulb:#ffca30`, black on
+         white, square corners) — `diff` is 147 lines. Swapping the stub in redesigns three
+         live sites. Ask before doing it.
+      2. **Safe mechanical dedupe:** nimble ships its own design system copied 4x *inside its
+         own repo* (`web/`, `docs/`, `dist/`, `dist/app/`). One source, the rest generated.
+      3. notes and roost have their own distinct token sets (roost even imports Fraunces) —
+         leave them alone unless the answer to (1) is "adopt Jaybulb everywhere".
+      Then add `nulljosh.github.io/apps.json` as the single app registry —
       portfolio cards, app footers and `wiki-refresh` all read it instead of hardcoded lists
       (this is why 8 renames each needed hand-editing everywhere).
 - [ ] **Phase 3 merges:** newsline `/api/stories` → inkpress default feeds (smallest, do first);
@@ -109,8 +123,6 @@ top level first — they existed only in that clone).
 
 ## Cross-repo sweeps
 
-- [ ] **Landing pages** — still missing for nimble, curvely, wiretext, nyc, inkpress, bookrank,
-      newsline, wordroot. Believed handled a previous session; verify each before reporting done.
 - [ ] **Splash screens** — confirm every iOS app has one, add where missing.
 - [ ] **Design system** — pick the project with the best one as source of truth, sync the rest.
 - [ ] **GitHub tidy** — simplify every project README and match the repo description to it.
