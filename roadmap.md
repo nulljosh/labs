@@ -1,286 +1,167 @@
-## README refresh sweep — 2026-07-22 — DONE, all repos checked
-Fixed 6 repos: epiphany (consolidated conflicting/stale broker-decision
-sections — Alpaca is default execution path, RBC/WS confirmed dead ends),
-talli (badge 3.5.6→3.5.7), echo (badge 1.3.2→1.3.3), litigate (README still
-said "Brief"/`brief.heyitsmejosh.com` from before the 2026-07-18 rename —
-fixed title/domain/status), lexly (badge 1.1.0→1.1.1), healstack (badge
-2.1.1→2.3.4). All committed+pushed.
-Checked, no drift found: sparkjar, inkpress, journal (already documents the
-inkpress split correctly), spine, newsline, bcgd, nyc, nimble, dotfiles,
-labs, nulljosh.github.io. life/canlii-app/agent-101 have no README by design
-(local-only experimental, not standalone GitHub repos per CLAUDE.md) — skipped.
+# Cross-repo roadmap
 
-## ASC apps status — 2026-07-21 (from Joshua's grid review)
-- [ ] Epiphany + Talli Mac + Lexly Mac + Echo Mac — INVESTIGATED 2026-07-21, Joshua decided: delete the 4 standalone Mac app records, make each iOS app multiplatform (same bundle ID, "Add Platform" macOS) going forward. Findings:
-  - Confirmed all 4 Mac app records have distinct bundle IDs from their iOS counterparts (`com.nulljosh.echo` vs `com.nulljosh.echo.mac`, `com.nulljosh.lingo` vs `.mac`, `com.heyitsmejosh.tally` vs `.mac`, `com.heyitsmejosh.epiphany` vs `epiphany-macos`) — genuinely separate app records, not a UI quirk.
-  - Confirmed **none of the 4 have ever shipped** (`asc versions list`): Echo Mac / Talli Mac / Epiphany Mac all PREPARE_FOR_SUBMISSION (never submitted), Lexly Mac REJECTED (never approved) — zero live users, reviews, or rankings at risk, so deletion is low-consequence.
-  - Confirmed via `asc schema "DELETE /v1/apps"` — **no public API endpoint exists to delete an app record.** Apple only exposes this in the ASC web dashboard (App Information → General → remove, only possible for apps that never had a build go to sale). Not attempted via browser automation — deleting an app record is Apple's most irreversible action; needs Joshua's own click, not automated.
-  - [ ] **Manual step (Joshua, ASC dashboard)**: delete the 4 unshipped Mac app records (Echo Transcribe Mac id 6783015101, Lexly Mac id 6783501927, Talli Mac id 6782661988, Epiphany Mac id 6782703473).
-  - [ ] **Follow-up code work (separate session, not started)**: convert each iOS Xcode project to a multiplatform target (add macOS platform under the existing iOS bundle ID via xcodegen `platform: [iOS, macOS]` or per-target macOS destination) so future Mac builds ship under the same app record as iOS. Nontrivial per-app surgery (entitlements/capabilities differences between platforms) — scope as its own task, not a quick loop item.
-- [~] Nullfolio icon: the "N" square shown in Joshua's grid screenshot was a **stale CDN render**, not the current asset — shipped a fresh build (202607211542) to force a re-render. Confirmed local asset is the correct polished icon. Should show correctly once Apple's CDN catches up (usually within the hour) — not independently re-verified before session end.
-- [ ] Talli / Epiphany (iOS): both "Ready for Distribution" — no action needed, these are fine as-is.
-- [ ] NYC Survive, BC Garage Doors: both still "Prepare for Submission" on iOS(+macOS for NYC) — not investigated this session, likely need the same metadata pass Echo Mac just got.
+Items without their own repo. Per-project work lives in each repo's `roadmap.md`.
+Last pruned 2026-08-24 against live ASC + HTTP state, not against notes.
 
-## Vercel → Cloudflare migration — 2026-07-18
-- [ ] Goal: move hosting off Vercel to Cloudflare Pages/Workers for all 8 apps that use Vercel (canlii-app, epiphany, healstack, journal, lexly, nulljosh.github.io, sparkjar, talli), consolidating onto one platform since DNS is already on Cloudflare.
-- [ ] **Blocker**: `CLOUDFLARE_DNS_TOKEN` (in `~/.config/fish/secrets.fish`) only has DNS:Edit scope — adding a custom domain to a Pages project needs Pages:Edit, which that token doesn't have. `wrangler`'s own OAuth session has `pages (write)` scope but its token isn't easily extractable for direct API calls. Try `CLOUDFLARE_API_TOKEN` at `~/.openclaw/.openclaw.bak/.secure/cloudflare.env` next session (per CLAUDE.md Credentials) — may already have broader scope — or use `wrangler pages deployment`/dashboard for the one-time domain attach.
-- [ ] I attempted cutting `journal.heyitsmejosh.com` DNS to the Pages project before the custom domain was registered on the Pages side — site 522'd. **Reverted DNS back to `cname.vercel-dns.com` (unproxied), confirmed matches original.** journal is back on Vercel, unaffected.
-- [ ] Correct order next time: (1) deploy to Pages, (2) add custom domain to the Pages project via API/dashboard *first*, confirm it resolves on the `.pages.dev` domain with the custom hostname attached, (3) only then flip DNS.
-- [ ] Remaining 7 apps not started. epiphany and talli have live users — treat as higher-risk, do last, one at a time, verify before DNS cutover each time.
-- [ ] **Next session**: just re-check status (`GET /accounts/14c849d102ecc38b5fae54d9b22deec4/pages/projects/<project>/domains/<domain>`) — should go `active` on its own now that proxy is enabled, no more digging needed. Once active: flip each DNS record's `content` from the Vercel target to the Pages project (`<project>.pages.dev` via CNAME), verify 200 immediately, done.
-- [ ] Session end 2026-07-20 decision: asked user whether to push into sparkjar/epiphany auth tonight; user deferred to my judgment, noting 55% usage already spent. Called it — stopping at the 4 verified apps rather than rushing live-auth/payments code with no way to test OAuth/login interactively. Sparkjar/epiphany/talli need their own dedicated session.
-- [ ] **Sparkjar (step 6, deliberately NOT started)**: this app's `api/auth.js` delegates to 7 sub-handlers (GitHub OAuth, Apple sign-in, login, register, password-reset, account-deletion) using JWT (`jsonwebtoken`) + bcrypt (`bcryptjs`) + Supabase REST calls. This is a live authentication system, not a lift-and-shift — needs real testing (does `jsonwebtoken`/`bcryptjs` even run under Workers `nodejs_compat`? verify before porting) and should get its own dedicated session, not be rushed through in the same pass as the static/simple apps. Also still needs: 8 API handlers ported, 1 cron → Workers Cron Trigger, `@vercel/blob` (avatar.js) → R2.
-- [ ] **Epiphany (step 7) and talli (step 8)**: unchanged from original plan — epiphany has live users + gateway function + 3 crons + blob; talli needs a Puppeteer/Browser-Rendering redesign, not a port. Do not rush these.
+## Blocked on Joshua (manual, dashboard or phone)
 
-## Vercel to Cloudflare migration 2026-07-21 (easy batch)
-Scope: every static/simple repo, explicitly excluding epiphany/sparkjar/healstack/talli (live serverless + KV/Blob + Stripe/OAuth, deferred to their own session). All below built, deployed to Cloudflare Pages, verified 200 on the custom domain, then DNS-cut. Vercel projects left in place (not deleted) as rollback fallback.
-- [ ] **Skipped — cadence, charters**: no local source exists for either (per CLAUDE.md, both were part of the 2026-06-22 accidental deletion). Can't migrate what isn't there — needs recovery first. Still live on Vercel, both domains untouched.
-- [ ] **Skipped — "web" Vercel project**: no custom domain attached, no obvious matching local repo (checked top-level `~/Documents/Code` and `labs/`). Flagging rather than guessing; likely an orphaned preview-only project, safe to ignore.
+- [ ] **Apple banking/payout rejected.** RBC + Wealthsimple details were not accepted for the
+      paid/IAP agreements, which gates *all* IAP revenue. Dashboard-only (Agreements/Tax/Banking),
+      needs Joshua + 2FA. Read Apple's exact rejection reason first, then ask which account type
+      they want — likely a chequing account with a routable transit/institution number, not a
+      Wealthsimple cash account. CRA phone queue has been ongoing for weeks. Concretely gates
+      voxprint: `Sources/Services/StoreManager.swift:19` hardcodes `isPro = true` and
+      `refreshEntitlement()` early-returns, both with `ponytail:` comments naming this reason.
+      Re-enabling is a two-line revert once enrolled.
+- [ ] **ASC orphan Mac records to delete**: Transcriptly (6783015101), Lexly Mac (6783501927),
+      Nullfolio (6788180394). All superseded by Universal Purchase on the iOS record. No public
+      DELETE endpoint exists — dashboard-only, and Apple only allows it for records that never
+      sold. Echo support ticket already filed (case 102949488998).
+      Talli Mac and Epiphany Mac are DONE — both now ship as the MAC_OS platform of their iOS record.
+- [ ] **App Group portal assignment** (developer.apple.com, web UI only). Done: tally.mac
+      (5GRY7Y2894), tally.mac.widgets (A58D295228 — verify saved). Remaining, recipe is
+      edit page → App Groups Configure → check group → Continue → Save → Confirm:
+      epiphany-macos (8UV9646S23) + epiphany-macos.widgets (74WAG78UJS) → `group.com.heyitsmejosh.epiphany`;
+      spark.widgets (55W9MW38HJ) + com.heyitsmejosh.spark + .spark.mac + .spark.mac.widgets →
+      `group.com.jt.spark`. Then re-export the archives already built in each repo's `.asc/artifacts`.
 
-## From Asc.pdf (imported 2026-07-14)
-- [ ] Spark rename — decide new name and rename repo/ASC/domain (Spark currently still under consideration, per user note "still a fucking mess"); scope tbd
+## Finish the Vercel exit
 
-## QuoteGuess
-- [ ] Replace hardcoded `quotes.json` (~25 basic quotes) with a real movie-quote API for a much larger bank — investigate options (no well-known free "movie quotes" API exists yet; may need to scrape/curate or pair TMDB metadata with a quotes dataset)
-- [ ] iOS: `ios/` has SwiftUI+WKWebView scaffold (project.yml, QuoteGuessApp.swift, GameWebView.swift, bundled web assets) but is untested — needs `xcodegen generate`, Info.plist, app icon, ASC bundle ID registration (com.heyitsmejosh.quoteguess), build, and TestFlight upload. Paused 2026-06-30 at 80% weekly usage limit.
+Down to 2 projects (talli, epiphany). Both live and serving — no outage pressure, but the
+account is not closable until they move. Everything else is on Cloudflare Pages and verified 200.
 
-# Unfiled roadmap
+- [ ] **talli** (`talli.heyitsmejosh.com`) — blocked on architecture, not effort. Depends on
+      `puppeteer-core` + `@sparticuz/chromium`; headless Chrome does not run on Workers. Needs
+      the Cloudflare Browser Rendering API, plus `@vercel/blob` → R2 and dropping `express`.
+- [ ] **epiphany** (`epiphany.heyitsmejosh.com`) — hardest. 91 functions, 1.3G,
+      `better-sqlite3` (native, no Workers support) and `@vercel/blob`. Flagship, highest blast
+      radius. Plan it properly before touching it.
 
-Items without their own repo/README. Move into a real README once the project exists.
+Gotcha that will recur: with `compatibility_date` earlier than 2025-04-01, `nodejs_compat` does
+NOT populate `process.env` — bindings read as undefined and assigning to `process.env` silently
+no-ops. See `cadence/functions/_adapter.js` for the globalThis workaround, or bump the date.
 
-## Talli Xcode Cloud signing fix — 2026-07-03
-- [ ] **Blocked on manual step**: register the App Group container `group.com.heyitsmejosh.talli` itself at developer.apple.com/account/resources/identifiers/list/application-group (not exposed via public ASC API — web UI only, needs Apple ID + 2FA login). Portal was loading/spinning indefinitely 2026-07-03, deferred to this weekend.
-- [ ] Then attach the new group to all 4 bundle IDs' App Groups capability, and re-run the Xcode Cloud build.
+## App Store hygiene
 
-## Codebase SVG diagram
-- [ ] Create `codebase.svg` in `~/Documents/Code/` showing project relationships (node-and-line graph)
-- [ ] Style: journal aesthetic (Geist font, #111 bg, #e8e8e8 text, `@media prefers-color-scheme`)
-- [ ] Show: Supabase shared by spark+epiphany+dose, labs monorepo (wiretext/grapher/roost/canlii-app), dotfiles infra, presence (journal+portfolio)
-- [ ] Reference it in CLAUDE.md as `![codebase](codebase.svg)`
+- [ ] **Developer website sweep** — set `marketingUrl` to https://heyitsmejosh.com.
+      Done: Sparkjar, Lexly, Wordroot, NYC Survive, Epiphany. Skipped on purpose: BC Garage
+      Doors (client app, keeps bcgaragedoors.ca).
+      Locked by ASC ("cannot be edited at this time"), redo on the next editable version:
+      Wiretext, Talli, Voxprint, Litigate. Never set at all: Healstack, Curvely, Bookrank,
+      Inkpress, Nullfolio.
+- [ ] **TestFlight staleness** — most apps are weeks stale. Establish a cadence of
+      `asc workflow run ship-ios` per app.
+- [ ] **Icon color pass** — rework all app icon colors on the [clrs.cc](https://clrs.cc) palette.
+      Current contrast is poor; keep the strong per-app color differentiation, that part works.
+      Skip the few icons that already look good.
+- [ ] **Icon scaling bug** — art renders small with margins (hit talli 2.4.1, portfolio, books).
+      Likely SVG rasterized at source size onto a larger canvas. Root-cause the generation path
+      once, fix everywhere.
+- [ ] **macOS versions still needed for**: BCGD, Nullfolio, Healstack, Wiretext, Litigate, Inkpress.
 
-## Stashed 2026-06-28
-- [ ] Add Apple/Google/Facebook/email auth buttons to all iOS/Mac apps (see Apps.pdf mockup — Apple+Google+Facebook+email layout)
+## New-app freeze (decided 2026-08-22, revised)
 
-## Ssn leak (security)
-- [ ] Verified: SIN absent from apps working tree (see run log)
-- [ ] Personal follow-ups (not code): call Service Canada 1-866-274-6627; place fraud alerts with Equifax + TransUnion Canada; ask GitHub Support to purge cached views of the old commits
+The 5.6 suspension was not caused by update frequency — Apple imposes no submission rate limit.
+It fires on new, thin app records submitted in bulk. Updating an app that is already live is
+unlimited and zero risk. The rule is "do not submit a *batch* of thin ones"; one finished app
+at a time was always fine.
 
-## /ship remaining apps
-CLI metadata done 2026-06-29. Manual blockers remaining for all 3:
-- [ ] **Availability** — ASC → Pricing & Availability → all territories (Echo 6782604262, Spark 6785162492, LingoAce Mac 6783501927)
-- [ ] **Screenshots** — iOS screenshots for Echo + Spark; Mac screenshots for LingoAce Mac
-- [ ] **App Privacy** — publish in ASC for all 3
-- [ ] **Spark build** — no build uploaded yet, needs archive + upload first
-- [ ] **LingoAce iOS** (6783501611) — needs same metadata pass + .ship.json
+- [ ] **Nimble: approved to ship** — 1,677 lines with real search, results and context-menu UI
+      over the Workers AI backend, substantive enough for Guideline 4.2. Ship after the current
+      resubmissions come back approved, so there is a clean streak behind it. Needs a full
+      session: ASC record (browser-only, see `asc-app-create-ui`), bundle ID, signing,
+      screenshots, metadata, App Privacy.
+- [ ] **Newsline: do NOT submit** — 398 lines excluding tests, one list view, one detail view,
+      a bias bar and one service. That is the exact thin-RSS-reader profile that killed
+      Nullfolio. Add real functionality first.
+- [ ] **NYC Survive** is the test case: its 5.6 hold expired 2026-08-18, but it needs a genuine
+      quality pass plus detailed review notes before resubmitting, not a bare retry.
 
-## Wrap 2026-07-05 (hard-problems pass) — manual steps for Joshua
-- [ ] NYC iOS: in ASC web UI — App Privacy answers, privacy policy URL, iPad 12.9" screenshot — then `asc review submit` (build 5 already clean)
-- [ ] Epiphany: Trade tab still disabled — VERIFIED 2026-08-08, tracked accurately in `epiphany/roadmap.md` (Trading / brokerage section): the dedupe fix (`listAccounts()` filters duplicate account ids in `src/utils/brokers/snaptrade.js:110-118`) already shipped 2026-07-02 and is still in place. Re-enabling the tab in `FinancePanel.jsx` needs Joshua to eyeball a real force-sync against his live SnapTrade holdings first — not something to flip blind against real financial data. No code change needed here; duplicate this line no further, epiphany/roadmap.md is the live tracker.
-- [ ] Talli login: repro live once so logging can pinpoint BC Self-Serve auth failure
-- Sparkjar fn-cap consolidation plan noted in sparkjar/roadmap.md (deferred, nothing blocked)
+## Codebase consolidation
 
-## 2026-07-10 icon/ship blockers (from overnight session)
-- [ ] App Group portal assignment — 2026-07-10 partial: all 3 groups already registered; DONE via portal: tally.mac (5GRY7Y2894), tally.mac.widgets (A58D295228 — verify saved). REMAINING (recipe: edit page → App Groups Configure → check group → Continue → Save → Confirm): epiphany-macos (8UV9646S23) + epiphany-macos.widgets (74WAG78UJS) → group.com.heyitsmejosh.epiphany; spark.widgets (55W9MW38HJ) + com.heyitsmejosh.spark + .spark.mac + .spark.mac.widgets → group.com.jt.spark. Then re-export archives (already built in each repo's .asc/artifacts).
-- [ ] Sparkjar iOS: same App Group blocker as Spark (documented earlier).
-- [ ] Uploaded tonight, icons appear after Apple processing: Echo Mac 1.3.3, books-ios 1.0, Healstack (uploading).
-- [ ] books: merge Books Mac + books-ios into one universal ASC app record
-- [ ] books-ios icon scaling bug — art renders small with margins (recurring across apps: talli v2.4.1, portfolio, now books; likely SVG rasterized at source size onto larger canvas). Root-cause the icon generation path once, fix everywhere.
-- [ ] spark: merge Spark Mac + Sparkjar into one universal ASC app record (same as books merge)
+Plan: `~/.claude/plans/lovely-churning-wolf.md`. Phase 1 DONE (nested `Code/labs/` clone
+deleted, ~1GB freed; `abraham/{contract.pdf,plan.pdf,OPERATING_GUIDE.local.md}` rescued to
+top level first — they existed only in that clone).
 
-## GitHub cleanup (2026-07-10) — DONE
-- labs pushed, 5 repos archived (15 active), Vercel projects grapher/wiretext/etyma repointed to labs subdirs via API. All sites verified 200.
+- [ ] **Phase 2:** convert the 6 hard-copied `tokens.css` (bookrank, fengshui, uprighty, nimble
+      web+docs, notes, roost) to the one-line `@import` stub that curvely/litigate/sparkjar/
+      wiretext already use. Then add `nulljosh.github.io/apps.json` as the single app registry —
+      portfolio cards, app footers and `wiki-refresh` all read it instead of hardcoded lists
+      (this is why 8 renames each needed hand-editing everywhere).
+- [ ] **Phase 3 merges:** newsline `/api/stories` → inkpress default feeds (smallest, do first);
+      fengshui → bookrank chapter + domain redirect; etyma → nimble answer source + redirect;
+      publish `bookrank.../summaries.json` so lexly fetches instead of holding copies.
+- [ ] **Phase 4 (only user-facing risk):** sparkjar hand-rolled OAuth+JWT
+      (`api/_lib/auth/github.js`) → `supabase.auth.signInWithOAuth()`. Deletes code and inherits
+      every provider once the 3 console registrations land.
+- [ ] Cosmetic leftover: labs.git still *tracks* stale paths at `wiretext/`, `quotable/`,
+      `capu/`, `byo-*/`, shadowed on disk by nested repos with their own remotes. No data at
+      risk. Fix is `git rm -r --cached <dir>` + a .gitignore entry per dir. Not urgent.
+- **Deliberately not doing:** unifying the 4 live Stripe impls (3 runtimes, all verified, no
+  payoff). Revisit when a 5th app needs a $1 gate.
 
-## Stashed 2026-07-10 (braindump session)
-- [ ] primitive.dev MCP: OAuth flow errors (server returns null client_uri/logo_uri, SDK rejects) — run /mcp to auth manually; then send/receive smoke test; tell Ben about the null-fields spec bug
-- [ ] Terminal: Abralo installed to /Applications — trial it vs cmux for a few days, then decide whether to drop Warp/cmux (verdict notes in wiki pages/terminal-tooling.md)
+## Cross-repo sweeps
 
-## 2026-07-14 dump (cross-repo)
-- [ ] /asc-update skill: detect apps changed since last release → build → TestFlight upload → release notes; investigate release automation (CI uploads, version bumps, changelog from git, release gates)
-- [ ] iOS+macOS codebase consolidation where apps have separate implementations
-- [ ] Xcodeless: run headless release audit/setup across all apps (scottwillsey.com/building-and-shipping-mac-and-ios-apps-without-ever-opening-xcode) — project.yml, Local.xcconfig, notarytool profiles, scripts/release.sh, CLAUDE.md docs
-- [ ] GitHub cleanup: standardize READMEs, prune completed roadmap items, move loose root files into folders
-- [ ] Obsidian/notes consolidation: evaluate merging Obsidian vault into notes repo (braingraph already merged 2026-07-11) — single source of truth
-- [ ] Add CLAUDE.md refresh step to /update skill (clean up + keep current)
-- [ ] Project-clone shortcut (/vibe for projects) — check if exists; use on namethatui.com
+- [ ] **Landing pages** — still missing for nimble, curvely, wiretext, nyc, inkpress, bookrank,
+      newsline, wordroot. Believed handled a previous session; verify each before reporting done.
+- [ ] **Splash screens** — confirm every iOS app has one, add where missing.
+- [ ] **Design system** — pick the project with the best one as source of truth, sync the rest.
+- [ ] **GitHub tidy** — simplify every project README and match the repo description to it.
+- [ ] **Auth buttons** — Apple/Google/Facebook/email on all iOS/Mac apps (Apps.pdf mockup).
+- [ ] **Stripe status audit** — only epiphany is known wired. Per app: live vs test keys present,
+      webhook registered, whether reauthorization is actually needed. Confirm before scoping.
+- [ ] **Reclaim ~224 MB of committed build artifacts from git history (9 repos)** — untracked and
+      gitignored 2026-08-19 (voxprint 144 MB, epiphany 52 MB, bcgd 14 MB, sparkjar 8.3 MB,
+      inkpress 4.0 MB, wiretext 1.7 MB, plus talli/healstack/litigate) so nothing new accumulates,
+      but the blobs remain in history and clone size is unchanged. Needs `git filter-repo` +
+      force-push per repo, as done once for bookrank. One repo at a time, back up first, only
+      when nothing else is in flight on that repo.
+- [ ] **Supabase `logs.all` removal 2026-09-23** — migrate to `analytics/endpoints/logs`. A
+      2026-08-22 grep across the codebase found zero in-repo references, so the caller is an
+      external script, a CI job, or the Supabase MCP/CLI itself. Find it before the cutoff.
+- [ ] **Disk cleanup** — update `mole` and run a deep clean.
+- [ ] **Codebase SVG** — `codebase.svg` in `~/Documents/Code`, node-and-line graph in the journal
+      aesthetic (Geist, #111 bg, #e8e8e8 text, `prefers-color-scheme`). Show the shared Supabase,
+      the labs monorepo, dotfiles infra, presence. Reference it from CLAUDE.md.
 
-## From Asc.pdf / Asc - Icons.pdf / Asc - TestFlight.pdf (imported 2026-07-19)
-- [ ] Hook up RBC account (banking) with ASC — no further detail given, clarify what "hook
-  up" means (payout routing? reconciliation?) before starting
-- [ ] **BLOCKED EXTERNALLY — Apple rejecting bank account; CRA involvement needed.** App Store
-  Connect payout setup gates *all* Apple IAP revenue. Apple is rejecting Joshua's bank account(s)
-  during enrollment. Next step: read Apple's exact rejection reason (currently unknown; check
-  ASC web UI → Agreements), then determine if CRA business number is actually required (may not be
-  for individual sole-proprietor Canadian developer, but worth confirming). Phone queue to CRA has
-  been ongoing for weeks with no resolution. Concretely this gates voxprint: `Sources/Services/
-  StoreManager.swift:19` hardcodes `isPro = true` and `refreshEntitlement()` early-returns,
-  both with `ponytail:` comments naming this exact reason. Re-enabling is a two-line revert once
-  the account is enrolled. Related to RBC banking item above — likely same underlying issue.
-- [ ] Multi-app ASC cleanup checklist (source: "Asc / Icons"):
-  - Finish Inkpress App Store rejection → confirm it returns to a healthy submission state
-  - Merge Echo iOS + macOS into one App Store record (Universal Purchase) — **an existing
-    plan already covers this in detail**: `~/.claude/plans/proud-popping-floyd.md` (Step 1
-    done: bundle id set to com.nulljosh.echo; Step 2 cheap ASC-side steps ready to run;
-    Step 3 heavy WhisperKit archive/upload deferred to a fresh-usage session). Follow that
-    plan, don't restart from scratch. It also notes the same merge pattern should roll to
-    Lexly, Talli, Epiphany next, and separately that Litigate's "red dot" is a real
-    unread-review-messages badge, not an icon bug (already proven, don't re-investigate).
-  - Merge Lexly Mac into the Lexly iOS listing (delete/merge standalone macOS app); if ASC
-    blocks a same-CLI merge, the source note says "use Opus to complete the merge" (i.e.
-    escalate to Opus model for a harder web-UI-driven merge)
+## Build gotchas (for whoever scripts a smoke test)
 
-## From claude games.pdf (imported 2026-07-19)
-- [ ] Get Claude Code to play Factorio — Steam + Factorio already installed locally. Try
-  https://github.com/JackHopkins/claude-code-plays-factorio first (purpose-built); fallback
-  https://github.com/MarkMcCaskey/factorioctl (lower-level) if the first doesn't fit. For-fun
-  project, no shipping-app tie, low priority.
+`sparkjar` and `talli` have no scheme in the repo root, and their first scheme alphabetically is
+the watchOS one (`SparkWatch`, `TalliWatch`), which fails against an iOS Simulator destination —
+pick `Spark` / `Talli` from `ios/` explicitly. Healstack's iOS scheme is still called `Dose`,
+not `Healstack`.
 
-## ASC follow-ups queued 2026-07-20
-- Litigate 1.0.1 REJECTED (confirmed via push) — run asc review doctor for real rejection reasons, fix, resubmit
-- Lexly 1.1.1 "unresolved issues" email — verify if real rejection or stale notice (no rejected push seen)
-- Talli 3.5.5/104 invalid-version email — likely moot, 3.5.6 already submitted same night, just confirm
-- CI failure "Prepare Build for App Store Connect failed" on commit "Fix Mac app icon rebrand, close out stale roadmap items" — repo not yet identified, grep git log across ~/Documents/Code/* to locate, then pull Xcode Cloud build log
-- Plan file: /Users/joshua/.claude/plans/witty-wondering-pine.md
+## Wiki backlog (deferred from the 2026-08-11 wrap)
 
-## Cloudflare migration (2026-07-21)
-- [ ] Full Vercel → Cloudflare migration, 9 repos (journal, lexly, nulljosh.github.io, grapher, wiretext, epiphany, sparkjar, healstack, talli) + nimble check. Phased plan (13-17 sessions) approved and saved: /Users/joshua/.claude/plans/bright-baking-lake.md — start with Phase 0 (reference doc + Cloudflare access confirm) next session, no DNS/production changes until each repo's explicit confirm gate.
-
-## From App Store.pdf (imported 2026-07-28)
-- [ ] Icon color pass: rework all app icon colors using the [clrs.cc](https://clrs.cc) palette. Current palette + contrast is awful; keep the strong color differentiation between apps (that part works). Excludes the top few icons that already look good. Affects every app icon across ~/Documents/Code.
-- [ ] macOS versions needed for: BCGD, Nullfolio (nulljosh.github.io), Healstack, Wiretext, Litigate, InkPress.
-- [ ] ASC duplicate records to merge/delete: Lexly Mac (6783501927) and Echo Transcribe Mac (6783015101). Both are orphan Mac records superseded by Universal Purchase on the iOS record. Echo support ticket already filed (case 102949488998). Dashboard-only action.
-
-## mail-sweep skill (proposed 2026-08-06)
-Auto-scan email for dev warnings (ASC/Vercel/Sentry/GitHub Actions), replacing manual screenshot→Notes→paste workflow.
-- Pattern: mirror notes-inbox skill structure
-- Trigger: user-invoked (`/mail-sweep`), not cron — per no-background-automation rule
-- Use Gmail MCP or primitive-email to fetch/filter by sender+subject
-- File extracted errors into relevant project's roadmap.md, or hand straight to Claude to fix
-- First test case: verify stale Lexly Mac submission email vs confirm Epiphany binary delivery issue (see email screenshot 2026-08-06)
-
-## Codebase consolidation (planned 2026-08-11, not started)
-Full plan approved + saved: `~/.claude/plans/lovely-churning-wolf.md`. Make the codebase
-smarter/more connected. Four phases, each independently shippable, stop anywhere:
-- [ ] **Phase 1 (zero risk, biggest win):** delete ~15 directories that exist twice — top-level
-      *and* in `labs/`. Top-level `roost`/`missing-pets` are stale stubs (400K vs 110MB/471MB);
-      `labs/wiretext` + `labs/grapher` are leftovers from the 2026-07-04 split-out. Invert for
-      `capu` (labs copy is the stub); diff `bank`/`abraham` first, both committed 08-11.
-- [ ] **Phase 2:** convert 6 hard-copied `tokens.css` (bookrank, fengshui, uprighty, nimble
-      web+docs, notes, roost) to the one-line `@import heyitsmejosh.com/tokens.css` stub that
-      curvely/litigate/sparkjar/wiretext already use. Then add `nulljosh.github.io/apps.json`
-      as the single app registry — portfolio cards, app footers, and `wiki-refresh` all read it
-      instead of hardcoded lists (this is why 8 renames each needed hand-editing everywhere).
-- [ ] **Phase 3 merges:** newsline `/api/stories` → inkpress default feeds (do first, smallest);
-      fengshui → bookrank chapter + domain redirect; etyma → nimble answer source + redirect
-      (drops an unsubmitted ASC record while 4 apps are under 5.6 review); publish
-      `bookrank.../summaries.json` so lexly fetches instead of holding copies.
-- [ ] **Phase 4 (last, only user-facing risk):** sparkjar hand-rolled OAuth+JWT
-      (`api/_lib/auth/github.js`) → `supabase.auth.signInWithOAuth()`; deletes code and
-      inherits every provider once the 3 console registrations land.
-- **Deliberately not doing:** unifying the 4 live Stripe impls (3 different runtimes, all
-  verified, no payoff). Revisit when a 5th app needs a $1 gate.
-- Freeze note: no `asc review submit` in any phase until 2026-08-18.
-
-## Deferred from /night wrap 2026-08-11 (ran out of session budget)
-Journal entry posted OK (journal.heyitsmejosh.com/2026/08/11/consolidation/). The wiki half
-did not run — do these at the start of the next wrap:
 - [ ] `notes/notes/master.md`: bump Updated date, refresh Roadmap / Active Projects / Ship Now
 - [ ] Obsidian vault (`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Code/wiki/`):
       ingest 2026-08-11 per `wiki/CLAUDE.md`, update touched entity pages, then refresh
       `index.md` + `pages/_overview.md`. This is the surface actually read — don't skip it.
-- [ ] Run the `wiki-refresh` skill across its 3 surfaces (vault, master.md, Code/CLAUDE.md)
-- [ ] `roadmap-prune` on the 12 repos touched 2026-08-11 — but do NOT prune the
-      "## Codebase consolidation" block above, all its items are still open
-- Done already, don't redo: `project_codebase_consolidation` memory written + MEMORY.md pointer
+- [ ] Run `wiki-refresh` across its 3 surfaces (vault, master.md, Code/CLAUDE.md)
 
-## Nested-repo shadowing — noted 2026-08-12, deferred
-Phase 1 of the consolidation plan is DONE: `Code/labs/` (a stale second clone of
-labs.git nested inside its own checkout) deleted, ~1GB freed. Rescued
-`abraham/{contract.pdf,plan.pdf,OPERATING_GUIDE.local.md}` to top level first —
-they existed only in that clone.
-- [ ] Leftover cosmetic issue: labs.git still *tracks* stale files at `wiretext/`,
-  `quotable/`, `capu/`, `byo-*/`, shadowed on disk by nested repos with their own
-  remotes. No data at risk, git just reports paths it can't see into. Fix is
-  `git rm -r --cached <dir>` + a .gitignore entry per dir. Not urgent.
-- [ ] Phases 2-4 of ~/.claude/plans/lovely-churning-wolf.md still unstarted
-  (tokens @import, apps.json manifest, thin-app merges, sparkjar auth).
+## Someday / explore
 
-## Finish the Vercel exit (assessed 2026-08-17)
-
-Vercel is down to 2 projects (tally, epiphany). Each is still live and serving, so there is no
-outage pressure — but the account is not closable until these move.
-
-- **missing-pets** — DONE 2026-08-17. Migrated to Pages and renamed **Homeward**;
-  serves homeward.heyitsmejosh.com + pets.heyitsmejosh.com. Vercel project deleted.
-- **talli** (`talli.heyitsmejosh.com`) — blocked on architecture, not effort.
-  Depends on `puppeteer-core` + `@sparticuz/chromium`; headless Chrome does not
-  run on Workers. Needs the Cloudflare Browser Rendering API instead, plus
-  `@vercel/blob` -> R2 and dropping `express`. Real rearchitect, own session.
-- **epiphany** (`epiphany.heyitsmejosh.com`) — hardest. 91 functions, 1.3G,
-  `better-sqlite3` (native binary, no Workers support) and `@vercel/blob`.
-  Flagship app, highest blast radius. Plan it properly before touching it.
-
-Gotcha that will recur on any of these: with `compatibility_date` earlier than
-2025-04-01, `nodejs_compat` does NOT populate `process.env`, so bindings read as
-undefined and assigning to `process.env` silently no-ops. See `cadence`
-(`functions/_adapter.js`) for the globalThis workaround, or just bump the date.
-
-## Braindump 2026-08-19
-- [ ] Splash screens: scan the whole codebase and confirm every iOS app has one; add where missing.
-- [ ] Landing pages: every project should have a web landing page as an intro to its web interface, including links to its apps.
-- [ ] Shipped-apps audit: scan the codebase for context on what is shipped vs what is missing.
-- [ ] Design system: scan the codebase, pick the project with the best design system as the source of truth, sync the rest to it.
-
-<!-- merged from code-meta/roadmap.md 2026-08-23 -->
-
-## From Apple Notes (imported 2026-08-11)
-- [ ] Landing pages still missing across half the codebase: nimble, curvely, wiretext, nyc, inkpress, bookrank, newsline, wordroot. This was believed handled a previous session — verify each one actually has a landing page before reporting done
-
-## Someday / Explore
-- [ ] Graph engineering: scan the codebase and research https://github.com/codejunkie99/graph-engineering — how to graph-engineer our projects (we already ship SVG architectures in many READMEs). Research graph flow + lane gen.
-
-## From session 2026-08-15
-
-- [ ] **Apple banking/payout info rejected.** RBC + Wealthsimple details were not accepted for App Store paid/IAP agreements. Needed before any IAP or paid app can go live. Dashboard-only (Agreements/Tax/Banking), needs Joshua + 2FA. Ask Apple which account type they want — likely a chequing account with a routable transit/institution number, not a Wealthsimple cash account.
-- [ ] **Stripe status audit across all apps.** Only epiphany is known to have Stripe wired; user believes keys may already be set up. Check per-app: live vs test keys present, webhook endpoint registered, and whether reauthorization is actually needed (see line ~116 item). Confirm before assuming scope.
-
-## Pre-unfreeze build smoke test — 2026-08-17
-
-- [ ] Two gotchas for whoever scripts this next: `sparkjar` and `talli` have no scheme in the repo root and their *first* scheme alphabetically is the watchOS one (`SparkWatch`, `TalliWatch`), which fails against an iOS Simulator destination — pick `Spark` / `Talli` from `ios/` explicitly. And healstack's iOS scheme is still called `Dose`, not `Healstack`, so `-scheme Healstack` errors out.
-
-## Ingested 2026-08-19
-
-- [ ] **Reclaim ~224 MB of committed build artifacts from git history (9 repos).** Untracked and
-      gitignored 2026-08-19 (voxprint 144 MB, epiphany 52 MB, bcgd 14 MB, sparkjar 8.3 MB,
-      inkpress 4.0 MB, wiretext 1.7 MB, plus talli/healstack/litigate), so nothing new accumulates —
-      but the blobs are still in history, so clone size is unchanged. Reclaiming them needs
-      `git filter-repo` + force-push per repo, as was done once for bookrank. Risky, do one repo at
-      a time, back up first, and only when no other work is in flight on that repo.
-
-## Ingested 2026-08-22
-- [ ] **App Store dev website field**: make sure the App Store listing shows the portfolio as the developer website, not the individual app's landing page. Applies across all 17 app records.
-- [ ] **TestFlight staleness**: most apps are weeks stale on TestFlight. Work out a routine to keep builds current (per-app `asc workflow run ship-ios` on a cadence).
-- [ ] **Submission cadence question** (from Notes: "AppStore submissions getting stale: Is there a limit to how often we can push updates? Our main apps recently a month old."). Answer: Apple imposes no rate limit on version submissions — the staleness is caused by the outstanding rejections (Healstack 1.4.1, Sparkjar Mac 2.1(a), Lexly Mac 2.1(a), NYC 5.6, Nullfolio 2.3.8/4.2), not by a cap. Close this item once those are cleared.
-- [ ] **GitHub tidy**: scan the codebase, simplify the README for every project, and simplify their GitHub repo descriptions to match.
-- [ ] **Ontology**: scan the codebase and work out how to connect projects together with an ontology / shared entity index. Overlaps with Epiphany's ontology / people index feature.
-- [ ] **Disk cleanup**: update `mole` and run it — deep clean the hard drive / SSD.
-- [ ] **Supabase `logs.all` removal 2026-09-23**: Supabase emailed that `analytics/endpoints/logs.all` is removed on 2026-09-23 and says we call it directly from scripts/integrations; migrate to `analytics/endpoints/logs`. Investigated 2026-08-22: grep across ~/Documents/Code found **zero** in-repo references to `logs.all`, so the caller is likely an external script, a CI job, or the Supabase MCP/CLI itself. Find the real caller before the cutoff.
-
-## Developer website sweep — 2026-08-22
-Set `marketingUrl` (the App Store "Developer Website" link) to https://heyitsmejosh.com.
-- Done: Sparkjar, Lexly, Wordroot, NYC Survive. Epiphany already pointed at the portfolio.
-- Deliberately skipped: **BC Garage Doors** — client app, keeps https://bcgaragedoors.ca.
-- [ ] Locked by App Store Connect ("Attribute 'marketingUrl' cannot be edited at this time") — these versions are in a state Apple won't let the field change. Redo on each app's next editable version: **Wiretext, Talli, Voxprint, Litigate**.
-- [ ] No marketingUrl set at all, and their latest version is not editable either: **Healstack, Curvely, Bookrank, Inkpress, Nullfolio**. Set the portfolio URL when each next ships.
-
-## DECIDED 2026-08-22: new-app freeze
-The 5.6 suspension was **not** caused by updating apps too often — Apple imposes no
-submission rate limit, and the 5.6 letter never mentions frequency. It fires on new,
-thin app records submitted in bulk. So:
-- Updating an app that is already live (Healstack, Lexly, Talli, Epiphany, Litigate, Inkpress, Bookrank): unlimited, zero risk. Ship freely.
-**Revised 2026-08-22 after measuring both apps.** The rule is not "no new apps" — it is
-"do not submit a *batch* of thin ones". One finished app at a time was always fine.
-Neither Nimble nor Newsline has an App Store Connect record yet, so shipping either
-means *creating* a new app record, which is the highest-scrutiny action available.
-- [ ] **Nimble: approved to ship.** 1,677 lines of app code with real search, results and context-menu UI over the Workers AI backend — substantive enough to clear Guideline 4.2. Ship it *after* the 2026-08-22 resubmissions (Healstack 2.3.5, Lexly Mac 1.1.4, Sparkjar Mac 1.0.1) come back approved, so the account has a clean streak behind it. Needs a full session: ASC app record (browser-only, see asc-app-create-ui skill), bundle ID, signing, screenshots, metadata, App Privacy.
-- [ ] **Newsline: do NOT submit yet.** The iOS app is 398 lines excluding tests — one list view, one detail view, a bias bar and one service. That is a thin RSS reader and matches the exact Guideline 4.2 profile that killed Nullfolio. Add real functionality before it goes anywhere near review.
-- NYC Survive is the test case: its 5.6 hold expired 2026-08-18, but it needs a genuine quality pass plus detailed review notes before resubmitting, not a bare retry.
+- [ ] **Sparkjar rename** — name still undecided.
+- [ ] **Quotestreak quote bank** — replace the hardcoded ~25-quote `quotes.json` with a real
+      source. No well-known free movie-quote API exists; may need to curate, or pair TMDB
+      metadata with a quotes dataset.
+- [ ] **RBC account + ASC** — clarify what "hook up" means (payout routing? reconciliation?)
+      before starting. Probably the same underlying issue as the payout item above.
+- [ ] **Ontology** — connect projects with a shared entity index. Overlaps with Epiphany's
+      ontology / people index feature.
+- [ ] **Graph engineering** — research github.com/codejunkie99/graph-engineering; we already
+      ship SVG architectures in many READMEs.
+- [ ] **Xcodeless** — headless release audit across all apps (project.yml, Local.xcconfig,
+      notarytool profiles, scripts/release.sh, CLAUDE.md docs).
+- [ ] **/asc-update skill** — detect apps changed since last release → build → TestFlight upload
+      → release notes.
+- [ ] **Obsidian/notes consolidation** — evaluate merging the vault into the notes repo
+      (braingraph already merged 2026-07-11) for one source of truth.
+- [ ] **Claude Code plays Factorio** — Steam + Factorio already installed. Try
+      github.com/JackHopkins/claude-code-plays-factorio first, fallback
+      github.com/MarkMcCaskey/factorioctl. For fun, low priority.
+- [ ] **Terminal** — Abralo is installed to /Applications; trial vs cmux, then decide whether to
+      drop Warp/cmux. Verdict notes in `wiki/pages/terminal-tooling.md`.
+- [ ] **Unidentified CI failure** — "Prepare Build for App Store Connect failed" on commit
+      "Fix Mac app icon rebrand, close out stale roadmap items". Repo unknown; grep git log across
+      `~/Documents/Code/*` to locate, then pull the Xcode Cloud build log.
