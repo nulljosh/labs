@@ -25,14 +25,18 @@ Last pruned 2026-08-24 against live ASC + HTTP state, not against notes.
       spark.widgets (55W9MW38HJ) + com.heyitsmejosh.spark + .spark.mac + .spark.mac.widgets →
       `group.com.jt.spark`. Then re-export the archives already built in each repo's `.asc/artifacts`.
 
-- [ ] **Lexly Mac 1.1.4 rejection reason** — **corrected 2026-08-25:** the open submission is
-      **`90f5d700-a454-4ec3-aa2b-ad67496a46f8`** (submitted 2026-08-24 22:34 PDT), not
-      `1a81dace` — that one is `COMPLETE`. So the window-size 2.1a fix was resubmitted as build
-      `202608242229` and **rejected again**. The API will not say why. Reading Resolution Center needs
-      `asc web review show --app 6783501611 --apple-id trommatic@icloud.com`, and
-      `asc web auth status` is `authenticated:false` — **needs Joshua's 2FA code**. Until the
-      submission is resolved every metadata field is locked too (the empty en-US What's New
-      cannot be set). 1.1.4 was the keychain fix for a 2.1(a) sign-in rejection.
+- **Lexly Mac 1.1.4 — SOLVED 2026-08-25, no longer blocked on Joshua.** He supplied a 2FA code,
+      the web session read Resolution Center, and the reason was **Guideline 2.1: book/magazine
+      content listed for China mainland without a Chinese Internet Publishing License
+      (网络出版服务许可证)** — a territory-licensing issue, never a code bug. Both prior theories
+      (the 2.1(a) sign-in fix, the collapsed-window fix) were chasing the wrong cause. Fixed by
+      dropping China rather than chasing an unobtainable permit:
+      `asc pricing availability edit --app 6783501611 --territory "CHN" --available false`,
+      then cancelling the stale `UNRESOLVED_ISSUES` submission and resubmitting. Now
+      `WAITING_FOR_REVIEW` as `c7a51dfe`. Full detail in `lexly/roadmap.md`.
+      **Watch for this on the other book/text apps** — bookrank, wordroot, quotestreak and
+      inkpress are all still listed in China mainland. bookrank is already *live* that way, so
+      the rule is reviewer-triggered, not automatic; none were pre-emptively changed.
 
 ## Finish the Vercel exit
 
