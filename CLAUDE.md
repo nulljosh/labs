@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Last updated: 2026-08-23 Saturday late night complete — Quotable (app store: Quotestreak, id 6804394619) iOS 1.0 + macOS 1.0 both WAITING_FOR_REVIEW on shared Universal Purchase record. iOS native SwiftUI rewrite from WKWebView wrapper, quote bank 193→272 with 32 duplicates removed, ~1553-assertion checks, UI bugs fixed. macOS also rewritten as native SwiftUI, sources shared via xcodegen. Blockers closed: ICNS icon full appiconset with 512@2x generated (Mac App Store requirement exceeds iOS), macOS screenshots captured via CGWindowListCopyWindowInfo window lookup (no AppleScript/axe equivalent on macOS). Known gotcha: asc validate reported 0 blockers while missing two real ones (iPad screenshots, pricing) that only surfaced during actual submit — blocking:0 is necessary but not sufficient.*
+*Last updated: 2026-08-25 Tuesday evening — Epiphany landing page hero redesign shipped (live map component in background, inert before login, camera eases on auth). Journal wrap posted. Inkpress 1.0.5 in review (date parser fix, 16 feeds). 9 apps WAITING_FOR_REVIEW, 0 rejected, 9 live.*
 
 ## App Store status — 2026-08-25
 
