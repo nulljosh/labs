@@ -25,6 +25,13 @@ Last pruned 2026-08-24 against live ASC + HTTP state, not against notes.
       spark.widgets (55W9MW38HJ) + com.heyitsmejosh.spark + .spark.mac + .spark.mac.widgets →
       `group.com.jt.spark`. Then re-export the archives already built in each repo's `.asc/artifacts`.
 
+- [ ] **Lexly Mac 1.1.4 rejection reason** — submission 1a81dace (2026-08-23) is in
+      UNRESOLVED_ISSUES and the API will not say why. Reading Resolution Center needs
+      `asc web review show --app 6783501611 --apple-id trommatic@icloud.com`, and
+      `asc web auth status` is `authenticated:false` — **needs Joshua's 2FA code**. Until the
+      submission is resolved every metadata field is locked too (the empty en-US What's New
+      cannot be set). 1.1.4 was the keychain fix for a 2.1(a) sign-in rejection.
+
 ## Finish the Vercel exit
 
 Down to 2 projects (talli, epiphany). Both live and serving — no outage pressure, but the
