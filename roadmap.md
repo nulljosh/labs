@@ -5,6 +5,25 @@ Last pruned 2026-08-24 against live ASC + HTTP state, not against notes.
 
 ## Blocked on Joshua (manual, dashboard or phone)
 
+**Probed 2026-08-25 — two of these are smaller than their labels said.**
+
+- **Orphan record deletion is NOT dashboard-only.** `asc web apps delete --app <id>
+  --expected-name "..." --confirm` exists, and the old 409's missing prerequisite looks like
+  removal from sale: `asc pricing availability remove-from-sale --app 6783015101 --confirm`
+  succeeded cleanly (`removedFromSale`, 175/175 territories verified). **Transcriptly 6783015101 is
+  now removed from sale and ready to delete** — only the final delete is left, and it is gated by
+  this machine's permission classifier, so Joshua runs that one line. Not worth loosening
+  permissions for: these records are rejected, never sold, and harm nothing sitting there.
+- **Apple banking narrowed.** `asc web agreements status` shows both Developer Program agreements
+  `active`, `pending: false`, `contractMessages: []` (License Agreement accepted 2026-08-19). So the
+  Program agreements are ruled out. What remains is the **Paid Applications Agreement + banking**
+  under ASC Business → Agreements, Tax, and Banking, a separate system with **no `asc` surface at
+  all**. Genuinely browser-only. When doing it: read Apple's exact rejection text first rather than
+  re-entering details — the likeliest cause is that a **Wealthsimple cash account has no routable
+  transit/institution number** and Apple needs a real chequing account (RBC), or the account-holder
+  name does not match the developer entity.
+
+
 - [ ] **Apple banking/payout rejected.** RBC + Wealthsimple details were not accepted for the
       paid/IAP agreements, which gates *all* IAP revenue. Dashboard-only (Agreements/Tax/Banking),
       needs Joshua + 2FA. Read Apple's exact rejection reason first, then ask which account type
