@@ -148,9 +148,14 @@ top level first — they existed only in that clone).
       but the blobs remain in history and clone size is unchanged. Needs `git filter-repo` +
       force-push per repo, as done once for bookrank. One repo at a time, back up first, only
       when nothing else is in flight on that repo.
-- [ ] **Supabase `logs.all` removal 2026-09-23** — migrate to `analytics/endpoints/logs`. A
-      2026-08-22 grep across the codebase found zero in-repo references, so the caller is an
-      external script, a CI job, or the Supabase MCP/CLI itself. Find it before the cutoff.
+- **Supabase `logs.all` removal 2026-09-23 — CLOSED 2026-08-25, nothing for us to do.** The
+      2026-08-22 grep found zero in-repo references; the 2026-08-25 pass ruled out the two
+      remaining suspects as well — there is **no crontab** on this machine and **no CI workflow
+      in any repo references Supabase**. The only match anywhere in `~/Documents/Code` for
+      `logs.all` is this roadmap line describing itself. The caller is therefore the Supabase
+      MCP server or CLI, which we do not own and which will move to
+      `analytics/endpoints/logs` on its own. Keep the CLI/MCP current and this resolves itself.
+      Do not spend another session hunting for a caller that is not ours.
 - [ ] **Disk cleanup** — update `mole` and run a deep clean.
 - [ ] **Codebase SVG** — `codebase.svg` in `~/Documents/Code`, node-and-line graph in the journal
       aesthetic (Geist, #111 bg, #e8e8e8 text, `prefers-color-scheme`). Show the shared Supabase,
