@@ -2,38 +2,26 @@
 
 *Last updated: 2026-08-23 Saturday late night complete — Quotable (app store: Quotestreak, id 6804394619) iOS 1.0 + macOS 1.0 both WAITING_FOR_REVIEW on shared Universal Purchase record. iOS native SwiftUI rewrite from WKWebView wrapper, quote bank 193→272 with 32 duplicates removed, ~1553-assertion checks, UI bugs fixed. macOS also rewritten as native SwiftUI, sources shared via xcodegen. Blockers closed: ICNS icon full appiconset with 512@2x generated (Mac App Store requirement exceeds iOS), macOS screenshots captured via CGWindowListCopyWindowInfo window lookup (no AppleScript/axe equivalent on macOS). Known gotcha: asc validate reported 0 blockers while missing two real ones (iPad screenshots, pricing) that only surfaced during actual submit — blocking:0 is necessary but not sufficient.*
 
-## ⚠️ APP STORE — 5.6 freeze expired; Curvely + Wiretext are IN REVIEW right now
+## App Store status — 2026-08-25
 
-**The date freeze expired 2026-08-18** (verified against Apple's letter via
-`asc web review show --app 6794988370`). The blanket "submit nothing" rule is lifted for
-**healthy apps that were never suspended** (e.g. Wordroot, Sparkjar).
+The 5.6 date freeze expired 2026-08-18 and **Curvely 1.2.1 and Wiretext 1.1.0 both cleared review
+and are live.** The blanket "submit nothing" rule is fully lifted; the apps it was written about
+shipped. See the Ship Status section below for the verified board — nine records are in the queue
+and no shipping app is rejected.
 
-**Curvely iOS 1.2.0 and Wiretext iOS 1.1.0 were submitted 2026-08-18 ~04:06 and are
-`WAITING_FOR_REVIEW`** (confirmed via `asc versions list`). Both carry builds uploaded that
-same morning — Curvely `202608180347`, Wiretext `202608180348`, both VALID.
+**Live gotcha worth knowing before any book/text app is submitted:** Apple rejects apps with book
+or magazine content that are listed for sale in **China mainland** unless you supply a Chinese
+Internet Publishing License (网络出版服务许可证). It arrives as a vague **Guideline 2.1 –
+Information Needed** and says nothing about territories. It cost Lexly macOS two wasted code-fix
+rounds before the reason was read. The fix is to drop the territory, not chase the permit:
+`asc pricing availability edit --app <id> --territory "CHN" --available false`. bookrank, wordroot,
+quotestreak and inkpress are all still listed in China; bookrank is already live that way, so the
+rule is reviewer-triggered rather than automatic. Full detail:
+[[reference_asc_china_publishing_permit]].
 
-**The cited 5.6 defects were remediated before those submissions** — verified 2026-08-18:
-- Apple's actual 5.6 complaint was *minimum functionality / thin WKWebView shells*
-  (`ship-plan.md`: "Wiretext is 1 Swift file / 72 lines and Curvely 4 files / 150 lines").
-  Both are now genuine native SwiftUI apps with **zero** WebKit in their sources — Wiretext
-  542 lines across 8 files, Curvely 911 across 9, plus check suites.
-- The 2026-08-18 Notes-review complaints are all fixed and live: NYC Survive's "Play Now"
-  (commit `d71b944`, `nyc.heyitsmejosh.com/app` → 200) and the Wiretext/Curvely landing pages
-  (`0a703b2` / `ae4dce4`, both hosts → 200 with the app moved to `/app`).
-- Registered support URLs both resolve: Curvely → `grapher.heyitsmejosh.com`, Wiretext →
-  `wiretext.heyitsmejosh.com`. The dead `curvely.heyitsmejosh.com` / `nycsurvive.heyitsmejosh.com`
-  hosts are **not** referenced by any ASC record.
-
-**Residual risk:** `ship-plan.md` § "Order of operations" step 5 says submit **one** app, confirm
-it passes, then the next — never a batch. Two went in together. Nothing to undo now; just do not
-add a third to the queue until one of these two clears.
-
-**Still do NOT submit** NYC Survive 6782618198 (iOS 1.0.0 + macOS 1.0, both REJECTED — held
-only by the one-app-at-a-time rule; the signing cert is NOT a blocker, verified 2026-08-19) or the Transcriptly orphan
-6783015101 (macOS 9.9.9 REJECTED — that record should be *deleted*, not resubmitted). Sparkjar and BCGD submitted 2026-08-23 (Sparkjar needed its stale rejected submission cancelled first; both awaiting review).
-
-Full detail + all rejection reasons: `wiki/pages/ship-plan.md` § "Guideline 5.6 suspension
-(2026-08-10)".
+Rejection reasons live only in Resolution Center and need a 2FA'd web session (`asc-login`, or
+`asc web auth login` with `ASC_WEB_2FA_CODE_COMMAND`). The public API never exposes them — so when
+an app is rejected, read the reason *before* theorising a code fix.
 
 ## Environment
 - macOS Darwin 25.5.0 (arm64), Mac Mini M4
