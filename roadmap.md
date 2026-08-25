@@ -125,7 +125,14 @@ top level first — they existed only in that clone).
       plus a Suggested list in Manage Feeds. Only the *list* moved: Inkpress keeps parsing RSS
       itself, so there is no runtime dependency on the newsline Worker. Shipped as 1.0.5.
       Remaining: fengshui → bookrank chapter + domain redirect; etyma → nimble answer source +
-      redirect; publish `bookrank.../summaries.json` so lexly fetches instead of holding copies.
+      redirect.
+      ~~publish `bookrank.../summaries.json` so lexly fetches instead of holding copies~~
+      **DROPPED 2026-08-25 — the premise was wrong, there is nothing to dedupe.** Checked:
+      `bookrank/summaries/` is empty and uncommitted (populated locally from iCloud by
+      `sync-summaries.sh`, so there is no `summaries.json` to publish in the first place), and
+      lexly's `content/notes/*.json` are 17 **masterclass course** files, a different artifact
+      from bookrank's markdown chapter summaries — not copies of them. lexly contains zero
+      references to bookrank. Do not re-open this without new evidence.
 - [ ] **Phase 4 (only user-facing risk):** sparkjar hand-rolled OAuth+JWT
       (`api/_lib/auth/github.js`) → `supabase.auth.signInWithOAuth()`. Deletes code and inherits
       every provider once the 3 console registrations land.
