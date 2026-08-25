@@ -83,11 +83,13 @@ at a time was always fine.
       resubmissions come back approved, so there is a clean streak behind it. Needs a full
       session: ASC record (browser-only, see `asc-app-create-ui`), bundle ID, signing,
       screenshots, metadata, App Privacy.
-- [ ] **Newsline: do NOT submit** — 398 lines excluding tests, one list view, one detail view,
-      a bias bar and one service. That is the exact thin-RSS-reader profile that killed
-      Nullfolio. Add real functionality first.
-- [ ] **NYC Survive** is the test case: its 5.6 hold expired 2026-08-18, but it needs a genuine
-      quality pass plus detailed review notes before resubmitting, not a bare retry.
+- **Newsline: do NOT submit — settled 2026-08-25.** 398 lines, one list view, one detail view,
+      a bias bar and one service: the exact thin-RSS-reader profile that killed Nullfolio. Rather
+      than fatten it, its curated feed list was folded into Inkpress 1.0.5 (Phase 3 below), which
+      is a shipping app. Newsline stays a Worker + MCP server, not an App Store submission.
+- [ ] **NYC Survive** — **already resubmitted**, contrary to the note this bullet used to carry.
+      Live state 2026-08-25: iOS 1.0.0 `WAITING_FOR_REVIEW`, macOS 1.0.0 `IN_REVIEW`. Nothing to
+      do but wait for the verdict; if it comes back rejected, *then* do the quality pass.
 
 ## Codebase consolidation
 
@@ -108,22 +110,28 @@ top level first — they existed only in that clone).
          `heyitsmejosh.com/tokens.css` is **Jaybulb** (85 lines, `--bulb:#ffca30`, black on
          white, square corners) — `diff` is 147 lines. Swapping the stub in redesigns three
          live sites. Ask before doing it.
-      2. **Safe mechanical dedupe:** nimble ships its own design system copied 4x *inside its
-         own repo* (`web/`, `docs/`, `dist/`, `dist/app/`). One source, the rest generated.
+      2. ~~**Safe mechanical dedupe:** nimble ships its own design system copied 4x.~~
+         **DONE 2026-08-25.** Only two copies were ever tracked (`web/` and `dist/` are
+         build output / gitignored); `web/tokens.css` and `web/icon.svg` were byte-identical
+         to the `docs/` originals and are now symlinks to them. `scripts/build-site.sh` uses
+         `cp`, which dereferences, so `dist/` still ships real files.
       3. notes and roost have their own distinct token sets (roost even imports Fraunces) —
          leave them alone unless the answer to (1) is "adopt Jaybulb everywhere".
       Then add `nulljosh.github.io/apps.json` as the single app registry —
       portfolio cards, app footers and `wiki-refresh` all read it instead of hardcoded lists
       (this is why 8 renames each needed hand-editing everywhere).
-- [ ] **Phase 3 merges:** newsline `/api/stories` → inkpress default feeds (smallest, do first);
-      fengshui → bookrank chapter + domain redirect; etyma → nimble answer source + redirect;
-      publish `bookrank.../summaries.json` so lexly fetches instead of holding copies.
+- [ ] **Phase 3 merges:** ~~newsline → inkpress default feeds~~ **DONE 2026-08-25** — the 16
+      curated outlets from `newsline/src/feeds.js` now seed `FeedStore.seedFeeds` in Inkpress,
+      plus a Suggested list in Manage Feeds. Only the *list* moved: Inkpress keeps parsing RSS
+      itself, so there is no runtime dependency on the newsline Worker. Shipped as 1.0.5.
+      Remaining: fengshui → bookrank chapter + domain redirect; etyma → nimble answer source +
+      redirect; publish `bookrank.../summaries.json` so lexly fetches instead of holding copies.
 - [ ] **Phase 4 (only user-facing risk):** sparkjar hand-rolled OAuth+JWT
       (`api/_lib/auth/github.js`) → `supabase.auth.signInWithOAuth()`. Deletes code and inherits
       every provider once the 3 console registrations land.
-- [ ] Cosmetic leftover: labs.git still *tracks* stale paths at `wiretext/`, `quotable/`,
-      `capu/`, `byo-*/`, shadowed on disk by nested repos with their own remotes. No data at
-      risk. Fix is `git rm -r --cached <dir>` + a .gitignore entry per dir. Not urgent.
+- **DONE 2026-08-25** — labs.git no longer tracks stale paths inside nested repos. `wiretext/`
+      and `quotable/` had already been cleaned; `capu/` and the four `byo-*/` repos were untracked
+      with `git rm -r --cached` + a .gitignore entry each. Nothing removed from disk.
 - **Deliberately not doing:** unifying the 4 live Stripe impls (3 runtimes, all verified, no
   payoff). Revisit when a 5th app needs a $1 gate.
 
