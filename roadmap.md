@@ -11,7 +11,12 @@ Last pruned 2026-08-24 against live ASC + HTTP state, not against notes.
   --expected-name "..." --confirm` exists, and the old 409's missing prerequisite looks like
   removal from sale: `asc pricing availability remove-from-sale --app 6783015101 --confirm`
   succeeded cleanly (`removedFromSale`, 175/175 territories verified). **Transcriptly 6783015101 is
-  now removed from sale and ready to delete** — only the final delete is left, and it is gated by
+  now removed from sale, but the delete still 409s with the exact code nobody had captured before:
+  `STATE_ERROR.CANNOT_REMOVE_WITH_APP_STORE_AVAILABILITY`. **Cause: the record still has
+  `availableInNewTerritories: true`**, so Apple counts it as still available. No CLI can clear that
+  flag (the API "cannot change it" per its own help; `asc web apps availability` only has `create`).
+  **Fix: ASC → app → Pricing and Availability → turn off "Available in new territories", then the
+  delete works.** That is the dashboard prerequisite the old note never named. Also gated by
   this machine's permission classifier, so Joshua runs that one line. Not worth loosening
   permissions for: these records are rejected, never sold, and harm nothing sitting there.
 - **Apple banking narrowed.** `asc web agreements status` shows both Developer Program agreements
