@@ -125,24 +125,37 @@ Full detail + all rejection reasons: `wiki/pages/ship-plan.md` § "Guideline 5.6
 - **Cloudflare DNS token**: `CLOUDFLARE_DNS_TOKEN` in `~/.config/fish/secrets.fish` (old `~/.openclaw/...cloudflare.env` path is gone)
 - **Upstash Redis** (epiphany): rotation pending — email auth failed. Fix: `security add-generic-password -s rotate-upstash-email -a email -w YOUR_EMAIL -U` then `/rotate upstash epiphany`
 
-## Ship Status — VERIFIED against `asc versions list` 2026-08-12
+## Ship Status — VERIFIED against `asc versions list` 2026-08-25
 
-Do not edit this section from memory. Re-verify with `asc versions list --app <id>` (public
-API, no 2FA) before trusting or changing any line — on 2026-08-12 nearly every entry here was
-wrong, including four apps recorded as "waiting for review" that were actually REJECTED.
+Do not edit this section from memory. Re-verify with `asc versions list --app <id>` (public API,
+no 2FA) before trusting or changing any line. Every prior version of this block was stale.
 
-**LIVE (READY_FOR_SALE)** — epiphany (iOS 2.5.4 + macOS 2.5.2), voxprint (iOS + macOS 1.3.6),
-talli (iOS 3.5.12 + macOS 3.5.6), inkpress (iOS 1.0.3), lexly (iOS 1.1.3), litigate (iOS 1.0.2),
-bookrank (iOS + macOS 1.0.1), curvely (iOS 1.2.0 shipped 2026-08-23).
+**LIVE (READY_FOR_SALE)** — epiphany (iOS 2.5.4 + macOS 2.5.2), voxprint (iOS **1.3.7** + macOS
+1.3.6), talli (iOS 3.5.12 + macOS 3.5.6), lexly (iOS 1.1.3), litigate (iOS 1.0.2), bookrank
+(iOS + macOS 1.0.1), curvely (iOS **1.2.1**), wiretext (iOS **1.1.0**), sparkjar (macOS 1.0.1).
 
-**WAITING_FOR_REVIEW** — lexly macOS 1.1.3 (submitted 2026-08-19), curvely (iOS 1.2.1 submitted 2026-08-23), sparkjar (iOS + macOS 1.0 submitted 2026-08-23), bcgd (iOS + macOS 1.0 submitted 2026-08-23), quotestreak (iOS + macOS 1.0 submitted 2026-08-23).
+**IN THE REVIEW QUEUE (9 records)** — inkpress iOS 1.0.5, lexly macOS 1.1.4, sparkjar iOS 1.0,
+bcgd iOS + macOS 1.0, quotestreak iOS + macOS 1.0, wordroot iOS + macOS 1.0, healstack iOS 2.3.5,
+nyc iOS 1.0.0 (`WAITING_FOR_REVIEW`) and nyc macOS 1.0.0 (`IN_REVIEW`).
 
-**PREPARE_FOR_SUBMISSION** — wordroot (iOS + macOS 1.0).
+**REJECTED — 3 records, and all three are orphans already marked for deletion**, not live
+products: nullfolio (iOS 1.0), transcriptly (macOS 9.9.9), and the stray Lexly Mac record
+6783501927 (macOS 1.1.1). The canonical Lexly record is 6783501611. **No shipping app is
+currently in a rejected state.**
 
-**REJECTED — 5 apps** (Resolution Center only, needs `asc-login`): healstack (iOS 2.3.4), lexly Mac (1.1.1 on the stray record 6783501927 only — canonical 6783501611 macOS 1.1.3 resolved + submitted 2026-08-19), nyc (iOS 1.0.0 + macOS 1.0), nullfolio (iOS 1.0 — track closed 08-11, Guideline 4.2), transcriptly (macOS 9.9.9), wiretext (iOS 1.0).
+**Corrections this refresh made** — the previous block was wrong about nearly every line again:
+- "Still do NOT submit NYC Survive … both REJECTED" — **false**, NYC is in the queue right now
+  (macOS actively `IN_REVIEW`). Nothing to hold back.
+- wiretext listed as "iOS 1.0 REJECTED" — it is **1.1.0 live**.
+- healstack listed as "iOS 2.3.4 REJECTED" — it is **2.3.5 in the queue**.
+- voxprint iOS listed as "1.3.6 WAITING_FOR_REVIEW" — it is **1.3.7 live**.
+- curvely listed as 1.2.0/1.2.1 pending — **1.2.1 is live**.
 
-**Date freeze expired 2026-08-18**; the four 5.6-suspended apps still must not be resubmitted
-until their quality defects are fixed (see the top-of-file note). Web: portfolio, journal (Jekyll, Cloudflare) live. life: ARCHIVED 07-28.
+**Caveat on the one-app-at-a-time rule** below: nine records are in the queue simultaneously. That
+rule was written after the 5.6 suspension and is not being followed. Per
+[[reference_asc_5_6_not_rate_limit]], 5.6 fires on *bulk thin new* apps, not on update frequency,
+and most of these are updates to live apps — but it is worth knowing the rule is dormant, not
+observed.
 
 ## Roadmap
 - **Payments infra** (from Asc.pdf note, imported 2026-07-19; **corrected 2026-08-19**): the Stripe half is DONE and needs no reauthorization — epiphany/healstack/sparkjar/talli all answer live in production with real keys (probed, not read from notes; see `roadmap.md`). What survives is the banking half: **sign the Paid Apps Agreement + add a bank account in App Store Connect**. Dashboard-only (`asc agreements` exposes only `territories`), blocked on Joshua, and it is the single upstream gate on *all* Apple IAP revenue — including voxprint, whose finished StoreKit paywall is hardcoded open at `Sources/Services/StoreManager.swift:19` for exactly this reason.
