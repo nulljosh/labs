@@ -97,7 +97,13 @@ top level first — they existed only in that clone).
 
 - [ ] **Phase 2 — RE-SCOPED 2026-08-24, was mis-described.** This is not one mechanical
       cleanup, it is three different things:
-      1. **A design decision for Joshua, not a refactor.** bookrank/fengshui/uprighty carry the
+      1. **DECIDED 2026-08-24: not doing the theme swap.** A naive stub swap also *breaks*
+         these sites — they use 4 tokens the canonical file does not define
+         (`--font-display` on all three, plus `--accent-soft` and `--cell2`/`--dur`), so the
+         fonts and accents would fall back to nothing. Converting properly means adopting the
+         Jaybulb look *and* hand-mapping the orphans: a repaint of three live sites, which is
+         a taste call, not a cleanup. Leave the local copies until Joshua wants the repaint.
+         bookrank/fengshui/uprighty carry the
          **fredrika** theme (66 lines, `--bg:#fcfcfc`, Geist, no serif). The canonical
          `heyitsmejosh.com/tokens.css` is **Jaybulb** (85 lines, `--bulb:#ffca30`, black on
          white, square corners) — `diff` is 147 lines. Swapping the stub in redesigns three
@@ -123,7 +129,6 @@ top level first — they existed only in that clone).
 
 ## Cross-repo sweeps
 
-- [ ] **Splash screens** — confirm every iOS app has one, add where missing.
 - [ ] **Design system** — pick the project with the best one as source of truth, sync the rest.
 - [ ] **GitHub tidy** — simplify every project README and match the repo description to it.
 - [ ] **Auth buttons** — Apple/Google/Facebook/email on all iOS/Mac apps (Apps.pdf mockup).
