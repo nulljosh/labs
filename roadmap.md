@@ -68,9 +68,17 @@ no-ops. See `cadence/functions/_adapter.js` for the globalThis workaround, or bu
 - [ ] **Icon color pass** — rework all app icon colors on the [clrs.cc](https://clrs.cc) palette.
       Current contrast is poor; keep the strong per-app color differentiation, that part works.
       Skip the few icons that already look good.
-- [ ] **Icon scaling bug** — art renders small with margins (hit talli 2.4.1, portfolio, books).
-      Likely SVG rasterized at source size onto a larger canvas. Root-cause the generation path
-      once, fix everywhere.
+- **Icon scaling bug — CLOSED 2026-08-25, already fixed; do not re-open without a live example.**
+      Root-caused: the cause was `rsvg-convert` using the SVG's *intrinsic* size, so art landed
+      small on a 1024 canvas. Every `scripts/make-appicon.sh` that exists (bookrank, lexly,
+      nulljosh.github.io, sparkjar, uprighty) already passes `-w 1024 -h 1024`, which forces full
+      size — bookrank's even carries a comment naming this exact glitch. Spot-checked the shipped
+      PNGs for talli (the version named above) and inkpress: both are 1024x1024, `hasAlpha: no`,
+      and the art fills the canvas. `talli 2.4.1` predates the fix; it ships 3.5.12 now.
+      **Residual risk, deliberately not acted on (YAGNI):** 19 repos have an `icon.svg` but no
+      `make-appicon.sh`, so they have no guardrail against a hand export reintroducing this.
+      Nothing is currently broken, so no script was copied into 19 repos. If it recurs, the fix
+      is one shared parameterized script (dest + bg differ per repo), not 19 copies.
 - [ ] **macOS versions still needed for**: BCGD, Nullfolio, Healstack, Wiretext, Litigate, Inkpress.
 
 ## New-app freeze (decided 2026-08-22, revised)
