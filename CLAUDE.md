@@ -146,6 +146,7 @@ and most of these are updates to live apps — but it is worth knowing the rule 
 observed.
 
 ## Roadmap
+- **Go-to-market / revenue: see `GTM.md`** (2026-08-26) — per-app ledger of price, payment rail, live status and blocker, plus the funnel and ASO state. Update that file rather than re-deriving revenue state from ASC.
 - **Payments infra** (from Asc.pdf note, imported 2026-07-19; **corrected 2026-08-19**): the Stripe half is DONE and needs no reauthorization — epiphany/healstack/sparkjar/talli all answer live in production with real keys (probed, not read from notes; see `roadmap.md`). What survives is the banking half: **sign the Paid Apps Agreement + add a bank account in App Store Connect**. Dashboard-only (`asc agreements` exposes only `territories`), blocked on Joshua, and it is the single upstream gate on *all* Apple IAP revenue — including voxprint, whose finished StoreKit paywall is hardcoded open at `Sources/Services/StoreManager.swift:19` for exactly this reason.
 - **Stripe + social-auth rollout across all shipped apps** (2026-08-03): epiphany done ($1 one-time, gates Autopilot/Daily Brief/People graph). Gap audit: only epiphany+lexly have any GitHub/Google/Facebook auth wiring, none have Apple/Google/Facebook fully live. Two separate blockers found:
   1. **Stripe**: mechanically easy (same live Stripe account, same $1 one-time pattern) but most apps have **no defined premium feature to gate**. Decided per-app gates and shipped 2 of 3 planned:
