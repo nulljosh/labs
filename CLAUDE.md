@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Last updated: 2026-08-25 Tuesday evening — Epiphany landing page hero redesign shipped (live map component in background, inert before login, camera eases on auth). Journal wrap posted. Inkpress 1.0.5 in review (date parser fix, 16 feeds). 9 apps WAITING_FOR_REVIEW, 0 rejected, 9 live.*
+*Last updated: 2026-08-25 Tuesday evening — Epiphany landing page hero redesign shipped (live map component in background, inert before login, camera eases on auth). Journal wrap posted with usage.sh enhancement (human-readable reset times in local timezone). Inkpress 1.0.5 in review (date parser fix, 16 feeds). 9 apps WAITING_FOR_REVIEW, 0 rejected, 9 live.*
 
 ## App Store status — 2026-08-25
 
