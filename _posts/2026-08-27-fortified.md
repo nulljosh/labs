@@ -11,8 +11,8 @@ Security sweep across three apps. Epiphany's broker webhook was accepting unauth
 
 **Still on Joshua:** rotate Stripe and Supabase keys in epiphany/.env.tui.local.
 
-**Apps:** Epiphany (token fix), Talli, Litigate (removed), Curvely, NYC, Lexly updated; security fixes and submissions.
+**Apps:** Epiphany (token fix), Talli, Litigate (removed from sale), Curvely, NYC, Lexly (macOS submitted), Sidewise (iOS/macOS ready, 4 blockers).
 
 ## Thursday
 
-Ran a full security sweep: Epiphany's broker webhook was trading real Alpaca orders for anyone (fixed to require auth), positions endpoint leaked account balances (same fix), and two autopilot cron handlers ran unprotected when CRON_SECRET wasn't set (hardened both). Talli got security headers, npm audit fix for DoS bugs, and a dead brute folder deleted. Litigate added the same security headers and regenerated secrets. Pushed five app submissions (Epiphany's Apple token fix, Curvely's graph layout, NYC macOS with real screenshots, Lexly's final pass), discovered Litigate's live version exposed case data and removed it from sale, then ingested 25 Apple Notes into roadmaps and wiki. Built four new science courses for Lexly already live on the web (iOS/macOS app's content directory symlinked to repo root, so they came along with rebuild), submitted the macOS build to review; iOS archived and uploaded but blocked by an earlier version still in flight.
+Security sweep across Epiphany (fixed broker webhook trading unauth orders and leaked account balances), Talli (added security headers, patched DoS bugs), and Litigate (added headers). Pushed five app submissions including Lexly's final macOS pass, found and removed Litigate's live case data exposure, and ingested 25 Apple Notes into the wiki. Finished Newsline, which had been sitting complete since August 11: the 5.6 freeze I'd blamed for the delay had already lifted nine days ago. The name was taken (Blindspot, Newsprism, Crosswire, Newsarc too), so shipped it as Sidewise instead with both iOS and macOS binaries clean; four blockers remain before submission (screenshots, age rating, territories).
