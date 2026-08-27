@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import ForgotPassword from './pages/ForgotPassword'
 import Settings from './pages/Settings'
+import { WebMCP } from './lib/webmcp'
 
 function ProtectedRoute({ children }) {
   const { user } = useAuth()
@@ -21,6 +22,7 @@ export default function App() {
     <div className="app">
       <div className="noise-overlay" />
       {user && <Nav />}
+      {user && <WebMCP />}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

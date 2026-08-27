@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { listings } from '../data/listings'
+import { filterListings } from '../lib/filterListings'
 import { useFilters } from '../context/FiltersContext'
 import { useFavorites } from '../context/FavoritesContext'
 import FilterBar from '../components/FilterBar'
@@ -11,32 +12,10 @@ export default function Listings() {
   const { filters } = useFilters()
   const { favorites, favoriteSet } = useFavorites()
 
-  const filtered = useMemo(() => {
-    let result = listings.filter(l => {
-      if (l.price < filters.priceMin || l.price > filters.priceMax) return false
-      if (filters.beds > 0 && l.beds < filters.beds) return false
-      if (filters.propertyType !== 'all' && l.type !== filters.propertyType) return false
-      if (filters.favoritesOnly && !favoriteSet.has(l.id)) return false
-      return true
-    })
-
-    switch (filters.sort) {
-      case 'price-asc':
-        result.sort((a, b) => a.price - b.price)
-        break
-      case 'price-desc':
-        result.sort((a, b) => b.price - a.price)
-        break
-      case 'newest':
-        result.sort((a, b) => a.listedDaysAgo - b.listedDaysAgo)
-        break
-      case 'sqft-desc':
-        result.sort((a, b) => b.sqft - a.sqft)
-        break
-    }
-
-    return result
-  }, [filters, favoriteSet])
+  const filtered = useMemo(
+    () => filterListings(listings, filters, favoriteSet),
+    [filters, favoriteSet]
+  )
 
   return (
     <div className="page">

@@ -1,6 +1,6 @@
 # Bank Technical Whitepaper
 
-**v0.1.0 prototype** | July 2026
+**v0.1.0 prototype** | August 2026
 
 Bank is a Wealthsimple-style neobank prototype: accounts, a ledger, and stock
 trading — sandbox only. No real money moves, ever, until a BaaS partner
