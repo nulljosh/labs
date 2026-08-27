@@ -30,3 +30,5 @@ canlii.org's own site is dated and blocks scraping (403 on direct fetch). This p
 ## Status
 
 MVP scaffold — search + browse + bookmark works once `CANLII_API_KEY` is set. Build verified locally (`xcodebuild` succeeded for iOS Simulator).
+
+[Technical whitepaper](WHITEPAPER.md)

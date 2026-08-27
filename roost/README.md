@@ -25,3 +25,5 @@ npm run build
 ## License
 
 MIT 2026 Joshua Trommel
+
+[Technical whitepaper](WHITEPAPER.md)

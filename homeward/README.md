@@ -51,3 +51,5 @@ supabase/migrations/    SQL schema, RLS policies, storage bucket, auth column
 ios/project.yml         XcodeGen spec
 ios/Homeward/        SwiftUI source
 ```
+
+[Technical whitepaper](WHITEPAPER.md)
