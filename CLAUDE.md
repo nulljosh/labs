@@ -120,10 +120,10 @@ no 2FA) before trusting or changing any line. Every prior version of this block 
 
 **LIVE (READY_FOR_SALE)** — epiphany (iOS 2.5.4 + macOS 2.5.2), voxprint (iOS **1.3.7** + macOS
 1.3.6), talli (iOS 3.5.12 + macOS 3.5.6), lexly (iOS 1.1.3 + macOS 1.1.4), litigate (iOS 1.0.2), bookrank
-(iOS + macOS 1.0.1), curvely (iOS **1.2.1**), wiretext (iOS **1.1.0**), sparkjar (macOS 1.0.1).
+(iOS + macOS 1.0.1), curvely (iOS **1.2.1**), wiretext (iOS **1.1.0**), sparkjar (macOS 1.0.1), wordroot (iOS + macOS 1.0).
 
 **IN THE REVIEW QUEUE (9 records)** — inkpress iOS 1.0.5, sparkjar iOS 1.0, nyc iOS 1.0.0, nyc macOS 1.0.0,
-bcgd iOS + macOS 1.0, quotestreak iOS + macOS 1.0, wordroot iOS + macOS 1.0, healstack iOS 2.3.5,
+bcgd iOS + macOS 1.0, quotestreak iOS + macOS 1.0, wordroot iOS + macOS 1.0.1, healstack iOS 2.3.5,
 
 **REJECTED — 3 records, and all three are orphans already marked for deletion**, not live
 products: nullfolio (iOS 1.0), transcriptly (macOS 9.9.9), and the stray Lexly Mac record
