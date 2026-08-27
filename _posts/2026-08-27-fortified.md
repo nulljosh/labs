@@ -11,8 +11,8 @@ Security sweep across three apps. Epiphany's broker webhook was accepting unauth
 
 **Still on Joshua:** rotate Stripe and Supabase keys in epiphany/.env.tui.local.
 
-**Apps:** Epiphany, Talli, Litigate ship with security fixes.
+**Apps:** Epiphany (token fix), Talli, Litigate (removed), Curvely, NYC, Lexly updated; security fixes and submissions.
 
 ## Thursday
 
-Ran a full security sweep across three repos. Epiphany's broker webhook was placing real Alpaca trade orders for anyone hitting the endpoint, and positions endpoint leaked account balances - fixed both to require a session or secret, then hardened two autopilot cron handlers (impact-test, morning-run) that ran unprotected when CRON_SECRET wasn't set. Talli got security headers, npm audit fix for DoS bugs (body-parser, qs), and I deleted a dead "brute" folder with a login tool and password lists. Litigate added the same security headers, tested everything locally, and pushed all changes; later regenerated WEBHOOK_SECRET and CRON_SECRET into .env.tui.local and committed a roadmap note on pending Stripe and Supabase key rotation.
+Ran a full security sweep across three repos: Epiphany's broker webhook was placing real Alpaca trades for anyone (fixed to require auth), positions endpoint leaked account balances (same fix), and two autopilot cron handlers ran unprotected when CRON_SECRET wasn't set (hardened both). Talli got security headers, npm audit fix for DoS bugs (body-parser, qs), and I deleted a dead brute folder. Litigate added the same security headers and regenerated WEBHOOK_SECRET/CRON_SECRET. Also pushed five app submissions: Epiphany's critical Apple token verification fix, Curvely's graph layout, NYC macOS with real screenshots, and Lexly's final pass, then discovered Litigate's live version exposed case data in the store and removed it from sale pending the patched build. Ingested 25 Apple Notes into roadmaps and wiki.
