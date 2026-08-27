@@ -5,7 +5,7 @@ A Craigslist-style board for posting and finding lost/found pets — web app + n
 Live at [pets.heyitsmejosh.com](https://pets.heyitsmejosh.com).
 
 ## Stack
-- **Web**: Next.js 16 (App Router) + Tailwind, deployed to Vercel
+- **Web**: Next.js 16 (App Router) + Tailwind, statically exported and deployed to Cloudflare Pages
 - **iOS**: SwiftUI, generated via XcodeGen, uses [supabase-swift](https://github.com/supabase/supabase-swift)
 - **Backend**: Supabase (Postgres + Storage), no auth — open posting with a private edit-token link (like Craigslist's edit links)
 
@@ -53,3 +53,7 @@ ios/Homeward/        SwiftUI source
 ```
 
 [Technical whitepaper](WHITEPAPER.md)
+
+## API and agent tools
+
+Homeward has no HTTP API of its own — it's a static export talking directly to Supabase. It does register a set of WebMCP tools for agents (search/get listings, whoami, post a listing, mark one resolved). See [docs/API.md](docs/API.md).
