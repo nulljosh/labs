@@ -1,6 +1,6 @@
 # Journal Technical Whitepaper
 
-**v2.3.0** | July 2026
+**v2.3.0** | August 2026
 
 Journal is a personal Jekyll blog, one post per month, shipped as a prebuilt
 static site rather than a server-rendered Ruby app. Live at
@@ -10,12 +10,15 @@ iOS app (Inkpress).
 ## Build and Deploy Path
 
 The only publish path is `./scripts/deploy.sh`: it runs Jekyll locally, then
-ships the resulting `_site` directory to the Vercel `journal` project via the
-Build Output API (`vercel deploy --prebuilt`). Vercel itself never runs Ruby
-or Bundler — it only serves the static output handed to it. A plain
-`git push` does not deploy; the script is required.
+ships the resulting `_site` directory to the Cloudflare Pages project
+`journal-heyitsmejosh`. The host never runs Ruby or Bundler — it only serves
+the static output handed to it. A plain `git push` does not deploy; the script
+is required.
 
 ## Content Model
+
+The remote is `inkpress.git`, shared with the iOS reader that publishes from
+the same history.
 
 Posts live in `_posts/` as `YYYY-MM-DD-slug.md`. The URL is derived from the
 filename's slug portion, not the `title:` front matter — `2026-04-13-week.md`
