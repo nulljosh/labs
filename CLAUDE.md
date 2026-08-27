@@ -79,7 +79,7 @@ an app is rejected, read the reason *before* theorising a code fix.
 ## Stack Conventions
 - **Screenshots/UI automation**: never create throwaway/demo accounts for App Store screenshots or UI testing — check that app's `.env`/`.env.local` (gitignored) for real credentials first and sign in with those.
 - **Auth**: Supabase email+password (not magic link unless a repo says otherwise). Most apps share the `spark` Supabase project (see Shared Supabase backend below) — check `SUPABASE_URL`/anon key in that app's project.yml/Info.plist before assuming a dedicated project. iOS/macOS: Supabase Swift SDK via SPM package, sign-in state in an `@Observable` Store. Sign in with Apple needs both an Apple Developer Services key AND the provider enabled in Supabase's dashboard (Auth → Providers) — app-side code alone is not enough (see litigate's unresolved Apple sign-in item).
-- **Web hosting/deploy**: Cloudflare Pages primary (migrated: litigate, lexly, bcgd, healstack, wiretext, curvely, voxprint, fengshui, nimble, journal, inkpress). Direct-upload via `wrangler pages deploy` (not git-connected, to avoid staleness). Remaining 5 on Vercel (epiphany, sparkjar, talli, missing-pets, cadence) need serverless function ports (Node handlers → Pages Functions). Env vars on Cloudflare via `wrangler pages secret put` + `[vars]` section in wrangler.toml.
+- **Web hosting/deploy**: Cloudflare Pages primary (migrated: litigate, lexly, bcgd, healstack, wiretext, curvely, voxprint, fengshui, nimble, journal, inkpress, epiphany/Workers with wrangler). Cloudflare Pages also hosts homeward/pets. Direct-upload via `wrangler pages deploy` (not git-connected, to avoid staleness). Only talli remains on Vercel; it is a 2,197-line Express 5 server with headless Chrome and Python shells that cannot run on Workers (migration deferred pending usage reset). Env vars on Cloudflare via `wrangler pages secret put` + `[vars]` section in wrangler.toml.
 - **Domains/DNS**: Cloudflare. Use the `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish` as the bearer for direct API/curl DNS changes (`curl -H "Authorization: Bearer $CLOUDFLARE_DNS_TOKEN" ...`) — don't make Joshua click through the dashboard. (Note: it's deliberately NOT named `CLOUDFLARE_API_TOKEN` — that name makes wrangler skip OAuth and fail for lacking Workers scope.)
 - **iOS/macOS build system**: xcodegen (`project.yml`), no checked-in `.xcodeproj`. SwiftUI, iOS 17+/macOS 14+, `@Observable`/`@Bindable`. Build via `asc xcode archive`/`export` (see `asc-xcode-build` skill) over raw xcodebuild recipes when possible.
 - **Lint**: SwiftLint as an SPM build-tool plugin where wired (see Roadmap) — requires `-skipPackagePluginValidation` on any CLI `xcodebuild` invocation, since headless builds can't grant the plugin's interactive trust prompt.
@@ -113,16 +113,16 @@ an app is rejected, read the reason *before* theorising a code fix.
 - **Cloudflare DNS token**: `CLOUDFLARE_DNS_TOKEN` in `~/.config/fish/secrets.fish` (old `~/.openclaw/...cloudflare.env` path is gone)
 - **Upstash Redis** (epiphany): rotation pending — email auth failed. Fix: `security add-generic-password -s rotate-upstash-email -a email -w YOUR_EMAIL -U` then `/rotate upstash epiphany`
 
-## Ship Status — VERIFIED against `asc versions list` 2026-08-25
+## Ship Status — VERIFIED against `asc versions list` 2026-08-27
 
 Do not edit this section from memory. Re-verify with `asc versions list --app <id>` (public API,
 no 2FA) before trusting or changing any line. Every prior version of this block was stale.
 
 **LIVE (READY_FOR_SALE)** — epiphany (iOS 2.5.4 + macOS 2.5.2), voxprint (iOS **1.3.7** + macOS
-1.3.6), talli (iOS 3.5.12 + macOS 3.5.6), lexly (iOS 1.1.3), litigate (iOS 1.0.2), bookrank
+1.3.6), talli (iOS 3.5.12 + macOS 3.5.6), lexly (iOS 1.1.3 + macOS 1.1.4), litigate (iOS 1.0.2), bookrank
 (iOS + macOS 1.0.1), curvely (iOS **1.2.1**), wiretext (iOS **1.1.0**), sparkjar (macOS 1.0.1).
 
-**IN THE REVIEW QUEUE (10 records)** — inkpress iOS 1.0.5, lexly macOS 1.1.4, sparkjar iOS 1.0, nyc iOS 1.0.0, nyc macOS 1.0.0,
+**IN THE REVIEW QUEUE (9 records)** — inkpress iOS 1.0.5, sparkjar iOS 1.0, nyc iOS 1.0.0, nyc macOS 1.0.0,
 bcgd iOS + macOS 1.0, quotestreak iOS + macOS 1.0, wordroot iOS + macOS 1.0, healstack iOS 2.3.5,
 
 **REJECTED — 3 records, and all three are orphans already marked for deletion**, not live
