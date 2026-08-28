@@ -53,4 +53,6 @@ Registered the Google OAuth client and got sign-in buttons onto healstack, litig
 
 ## Friday (2026-08-28)
 
-Cleared the Notes inbox by filing everything into roadmaps. Most of it was App Store rejection screenshots; the five rejections last week turned out to be one thing in five places: Guideline 4.3(a) spam pattern in the listings. Fixed overflow bugs on inkpress and voxprint, tracked a naming collision on Newsline, corrected stale memory about which Epiphany version shipped, and swept a few projects for undefined font tokens that had drifted to serif. Roost got a new property-browser landing page and icon.
+Cleared the Notes inbox; rejections proved the five were one 4.3(a) pattern. Fixed overflow on inkpress/voxprint, corrected stale Epiphany memory, swept projects for serif tokens, added Roost's landing page.
+
+Fixed Litigate's privacy.html (no stylesheet, still "Brief", false auth claim) on tokens; Talli's portfolio-tokens.css now imports canonical with contrast fixes. Wiretext renamed to Charwork (ASC record stays "Wiretext"). BCGD's support page rebuilt from serif branding to client palette.
