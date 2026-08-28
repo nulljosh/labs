@@ -1,0 +1,28 @@
+// Shared listing filter+sort. Used by the Listings page and the WebMCP tools so
+// an agent searching listings gets exactly what the UI would show.
+export function filterListings(listings, filters, favoriteSet = new Set()) {
+  const result = listings.filter(l => {
+    if (l.price < filters.priceMin || l.price > filters.priceMax) return false
+    if (filters.beds > 0 && l.beds < filters.beds) return false
+    if (filters.propertyType !== 'all' && l.type !== filters.propertyType) return false
+    if (filters.favoritesOnly && !favoriteSet.has(l.id)) return false
+    return true
+  })
+
+  switch (filters.sort) {
+    case 'price-asc':
+      result.sort((a, b) => a.price - b.price)
+      break
+    case 'price-desc':
+      result.sort((a, b) => b.price - a.price)
+      break
+    case 'newest':
+      result.sort((a, b) => a.listedDaysAgo - b.listedDaysAgo)
+      break
+    case 'sqft-desc':
+      result.sort((a, b) => b.sqft - a.sqft)
+      break
+  }
+
+  return result
+}
