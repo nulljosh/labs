@@ -41,13 +41,10 @@ Registered the Google OAuth client and got sign-in buttons onto healstack, litig
 
 ## Friday (2026-08-28)
 
-Most of what was sitting in my Notes inbox turned out to be screenshots of App Store
-rejection emails. The useful realisation was that the five separate rejections are one
-problem wearing five hats, an account level spam flag from putting five apps up in a day,
-so I wrote back on the three strongest and held the two that are still half finished.
-Finally read why Epiphany got knocked back, which nobody had actually done before, and
-there were two things: signing in with Apple fails inside Apple's own window, and paying
-on the website was unlocking things inside the app, which is not allowed. Fixed the second
-one and picked Charwork as the new name for Wiretext. The best part of the day was finding
-out Epiphany would not deploy because the project had quietly been switched off since
-Tuesday, not because of anything I wrote.
+Notes inbox was all App Store rejection emails: five apps hit at once with an account-level
+spam flag from batch-submitting them the same day, so I appealed the three strongest ones and
+held the other two. Healstack arrived as the sixth app in the wave and got added to the appeal
+draft. Finally read why Epiphany got knocked back, which nobody had done before: Apple sign-in
+fails in Apple's own window, and the website was unlocking features inside the app. Fixed the
+second one and renamed Wiretext to Charwork. The best part: Epiphany wasn't broken, the project
+had just been paused since Tuesday.
