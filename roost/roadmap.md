@@ -25,3 +25,6 @@ modes, and UI strings in 26 languages with RTL.
       feed swap is one function (`generateListings`).
 - [ ] Rename check before any App Store record — run asc-name-creator.
 - [ ] Landing pitch is translated into 10 of the 26 languages; the rest fall back to English.
+- [ ] Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY on the Cloudflare Pages
+      project `roost`. Without them the client is null and sign-in is disabled in
+      production, so nothing behind /browse is reachable.
