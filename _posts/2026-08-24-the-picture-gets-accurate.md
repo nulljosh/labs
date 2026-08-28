@@ -13,7 +13,7 @@ Then I read the actual App Store rejection reasons instead of guessing at them, 
 
 The same pattern showed everywhere. Production bugs across eleven repos never made it onto any list: Litigate's light mode broken, Sparkjar's account deletion errored, Talli's sync wedged for months. This journal wasn't publishing because two Pages projects shared nearly the same name and the deploy script hit the wrong one. Even system updates broke silently.
 
-Plenty did actually ship. Apple flagged two apps for quality, so I rewrote both from web-view shells into real native ones, which meant writing my own expression parser to replace the maths library and checking it against several thousand results from the original. Quotable got the same treatment and went out as Quotestreak on phone and desktop under one purchase, with the quote bank grown from a hundred and ninety three entries to two hundred and seventy two. Bookrank went live and got a proper redesign with a sticky header, live search, sorting and a hundred and twenty seven covers. Newsline turned from a website into something other people's code can call. A security sweep found a forgeable school-page gate and an unprotected AI proxy, both fixed, and the last two big projects moved off the old host.
+Plenty did ship. Apple flagged two apps for quality, so I rewrote both from webview shells into native code. Quotestreak went out on phone and desktop under one purchase, with the quote bank grown from 193 to 272 entries. Bookrank launched with 127 covers and a redesigned interface. Newsline turned from a website into something code can call. A security sweep fixed a forgeable school gate and an unprotected AI proxy, and the last two big projects moved off the old host.
 
 All the API keys on disk are dead now, rotated months ago but never copied over. The backlog taught me to run two or three workers instead of nine.
 
@@ -21,7 +21,7 @@ By the end of the month the board finally matched reality: Talli and Lexly and C
 
 The last thing I did was consolidate the journal itself. Fourteen scattered entries got merged into this quarterly post, each rewritten into plain prose instead of tool-spam. Codified the rules: natural English only, no AI voice, no commit hashes or build numbers. A linting gate now enforces it, so a bloated post cannot publish.
 
-The rest of the month was landing things properly. Two landing pages got real hero art: the Times Square game drifting behind a scrim, and Nimble's questions scrolling in opposite directions like an editorial ticker. Epiphany's landing page went further and now runs the actual live map behind the copy, with real flights and incidents refreshing while you read, inert until you sign in so it never asks for your location. The portfolio's project list had grown to nineteen and looked bloated on a phone, so eleven of them fold away behind a toggle and eight stay visible. Plain markup, no scripting.
+The rest of the month was landing things properly. Two landing pages got real hero art: the Times Square game drifting behind a scrim, and Nimble's questions scrolling like an editorial ticker. Epiphany's landing page runs the live map behind the copy, with real flights refreshing while you read. The portfolio project list folded away overflow behind a toggle, eight always visible.
 
 I audited sign-in across everything and added GitHub as an option on three apps, with checks that probe endpoints to prevent dead buttons. Inkpress went out with sixteen curated feeds, and testing exposed a date bug that had been invisible with one: feeds with named time zones failed to parse and pinned to the top.
 
@@ -29,7 +29,7 @@ Two long-running mysteries closed by reading rather than coding. Lexly's Mac ver
 
 The last week was security. Epiphany's broker webhook and account endpoint were accepting requests from anyone. Both now require authentication, along with two scheduled jobs that had been skipping checks. Talli and Litigate got response headers, dependencies patched, and Litigate came off sale until its data is properly gated. Tests still pass.
 
-Small domestic win: Telus will knock ten dollars a month off the bill for paying from a bank account instead of a card. Hundred and twenty dollars a year for reading messages properly, roughly the theme of the whole month.
+Telus will knock ten dollars a month off by switching payment to bank account. One twenty a year for reading things right.
 
 On Wednesday I verified the global language support work on Wordroot that had never been built. Twelve interface locales and thirty word languages now compile, with Arabic mirroring right-to-left and French showing full etymology chains. I cut dead code probing extra Wiktionary editions, removing obsolete actors and races, minus forty-six lines with all tests still green.
 
@@ -41,4 +41,6 @@ Thursday evening I swapped out the NYC Survive icon. The old skyline bars were f
 
 Late Thursday I noticed Sparkjar's landing page rendering in serif. The font stack was falling back because the webfont reference went dead. Fixed it to use the shared system font token, then swept through six projects standardizing everything else. Removed stray serif definitions from old stylesheets and updated the shared font token. The stylesheet fix needed a second pass: the landing page shows generated images, so I had to re-screenshot both themes and redeploy. Everything's Helvetica now.
 
-Wednesday consolidated the month. Moved voxprint's App Store download button from the hero to the header, matching other project sites. Verified the shipping queue against live ASC records and updated memory files with app status changes.
+Early Wednesday found five iOS apps rejected for Guideline 4.3(a) Design: Spam (Sparkjar, NYC, Talli, Curvely, Doorstock). Apple flagged an account-level pattern - the apps looked like repackaged templates. macOS builds of NYC and Sparkjar were unaffected and either approved or in review. The rejections aren't revertible by resubmitting the same build; appeals only path forward. Wrote the appeal and added status lines to each roadmap. One app's old rejection turned out stale, superseded by a rebuild in review that was mismatched on both platforms until a version-rename-in-place fixed it Thursday.
+
+Thursday evening fixed Inkpress's landing page. Screenshots were stretching vertically because the height attribute locked the aspect ratio while CSS width constrained it; adding `height: auto` fixed that. Added an animated hero matching Bookrank's style with drifting feed-headline cards and a scrim, plus a prefers-reduced-motion guard. Deployed to Cloudflare Pages.
