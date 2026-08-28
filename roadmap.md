@@ -300,3 +300,49 @@ Runbook (blocked only on Apple Developer login — session expired, Claude canno
 Also open: healstack/src/pages/Auth.jsx has apple AND facebook buttons that are both dead
 today -- fix apple via the above, and strip the facebook one (Facebook skipped: Meta needs
 business verification + app review for the email permission).
+
+## From Notes (imported 2026-08-27)
+- [ ] **App Store staleness sweep** — "some of our apps are stale, can we do a full sweep?" Run `asc` across every live app to find version/build drift between what is shipped and what is in the repo, and list what needs a bump.
+
+### App Store staleness sweep — run 2026-08-27
+
+Every app's live App Store version compared against its repo `MARKETING_VERSION`.
+Reported only; nothing bulk-submitted (a bulk wave is what triggered the 5.6 suspension).
+
+**Rejected right now — all five are the SAME Guideline 4.3(a) Design: Spam account-level wave**, not five separate content problems. Do not fix code and do not resubmit any of them; the appeal draft is at `notes/appeal-4-3-spam.md` (repo root) and is DRAFTED, NOT FILED — filing is Resolution Center, browser-only, blocked on Joshua. Doorstock carries a second, earlier Guideline 3.2 rejection as well.
+
+| App | repo | iOS live | iOS pending | macOS live |
+|---|---|---|---|---|
+| Talli | 3.5.13 | 3.5.12 | 3.5.13 REJECTED | 3.5.6 |
+| Curvely | 1.2.2 | 1.2.1 | 1.2.2 REJECTED | — |
+| Sparkjar | 1.0.1 | **never shipped** | 1.0 REJECTED | 1.0.1 |
+| NYC Survive | 1.0.1 | **never shipped** | 1.0.0 REJECTED | 1.0.0 (1.0.1 IN_REVIEW) |
+| Doorstock | 1.0 | **never shipped** | 1.0 REJECTED | 1.0 |
+
+**Corrections to notes that were wrong:**
+- [ ] **Epiphany iOS live is 2.5.4, not 2.6.x.** 2.5.5 is REJECTED and the repo is already at 2.5.6. Notes claiming "v2.6.1+ live on the App Store" are wrong — the store is three versions behind the repo.
+- [ ] **Healstack has nothing live on either platform.** Both iOS and macOS show no READY_FOR_SALE version; 2.3.5 is WAITING_FOR_REVIEW on both. Notes saying 2.3.4 shipped are wrong.
+- [ ] **Sparkjar / NYC Survive / Doorstock have never shipped on iOS** — one iOS version record each, none ever READY_FOR_SALE. Only their macOS builds are live.
+
+**Genuine version drift (repo ahead of store, nothing in flight):**
+- [ ] Epiphany macOS live 2.5.2 vs repo 2.5.6 — four versions behind, no Mac submission pending.
+- [ ] Talli macOS live 3.5.6 vs iOS 3.5.12 — the Mac app is seven minor versions behind its own iOS twin.
+- [ ] Voxprint macOS live 1.3.6 vs iOS 1.3.7 — one behind.
+
+**In flight, no action needed:** Lexly 1.1.5 (both platforms WAITING_FOR_REVIEW), Wordroot macOS 1.0.1 IN_REVIEW, NYC macOS 1.0.1 IN_REVIEW, Healstack 2.3.5 (both WAITING).
+
+**Aligned, nothing to do:** Litigate 1.0.3, Wordroot iOS 1.0.1, Quotestreak 1.0, Inkpress 1.0.5, Wiretext 1.1.0, Bookrank 1.0.1, Voxprint iOS 1.3.7.
+
+**Never submitted:** Sidewise 1.0 sits in PREPARE_FOR_SUBMISSION on both platforms — blocked on the ITMS-90345 CFBundleVersion mismatch already filed in `newsline/roadmap.md`.
+
+**Orphan records still cluttering the account:**
+- [ ] `Headwire` (6783501927, com.nulljosh.lingo.mac) — macOS 1.1.1 REJECTED, nothing ever live. This is the duplicate Lexly Mac record; Lexly's real record is 6783501611.
+- [ ] `Transcriptly` (6783015101) — macOS 9.9.9 REJECTED, junk version number, nothing live.
+- [ ] `Nullfolio` (6788180394) — iOS 1.0 REJECTED, project closed 2026-08-11.
+
+**Appeal-path correction (found 2026-08-27):** every one of the five repos' roadmaps points at
+`<repo>/notes/appeal-4-3-spam.md` for the appeal draft. **That file does not exist in any of them.**
+The only copy is `~/Documents/Code/notes/appeal-4-3-spam.md` at the codebase root. The per-repo
+roadmap notes also disagree about whether the appeals were filed (Sparkjar and Doorstock say
+"filed", Curvely and NYC Survive say "DRAFTED, NOT FILED"); the draft's own header says
+**DRAFTED, NOT FILED**, so treat all of them as unfiled until Joshua confirms otherwise.
