@@ -41,10 +41,4 @@ Registered the Google OAuth client and got sign-in buttons onto healstack, litig
 
 ## Friday (2026-08-28)
 
-Notes inbox was all App Store rejection emails: five apps hit at once with an account-level
-spam flag from batch-submitting them the same day, so I appealed the three strongest ones and
-held the other two. Healstack arrived as the sixth app in the wave and got added to the appeal
-draft. Finally read why Epiphany got knocked back, which nobody had done before: Apple sign-in
-fails in Apple's own window, and the website was unlocking features inside the app. Fixed the
-second one and renamed Wiretext to Charwork. The best part: Epiphany wasn't broken, the project
-had just been paused since Tuesday.
+Notes inbox showed five apps hit by an account-level spam flag from batch-submitting them the same day; appealed the three strongest ones, held the other two. Healstack arrived as a sixth and joined the appeal. Finally read why Epiphany was rejected: Apple's native sign-in sheet was throwing an error, and we'd been gating premium features based on account state. Pulled the Sign in with Apple button (optional after Google and Facebook were already gone), leaving email/password as the only path. Build passed and tests stayed green.
