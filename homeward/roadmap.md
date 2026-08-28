@@ -40,5 +40,31 @@ Done. 5 tools through the existing `lib/supabase.ts` client: `search_listings`, 
 
 See `docs/API.md` for the full tool table, linked from the README.
 
-## From Apple Notes (imported 2026-08-27)
-- [ ] Homeward needs a landing page and iOS/Mac apps.
+## iOS + Mac apps — 2026-08-28
+
+One XcodeGen target with `supportedDestinations: [iOS, macOS]`, so both platforms
+ship from the same SwiftUI sources. Both build clean; iOS verified running in the
+simulator against live Supabase (posted a test row via REST, saw it render, resolved
+it through `update_listing`).
+
+What changed:
+- Supabase URL + anon key baked into `SupabaseClient.swift` (env override kept).
+  They only existed as scheme env vars before, so an installed build talked to a
+  placeholder host. The anon key is public by design and already ships in the web bundle.
+- New `ListingStore` (@Observable): load, search, post, resolve, photo upload, error surface.
+  Edit tokens from your own inserts are kept in UserDefaults, which is what enables the
+  "Mark as resolved" button on your own listings — same model as the web edit link.
+- `NavigationSplitView` so macOS gets a real two-pane window; free on iPhone.
+- Search over name/species/color/notes/tag/location, lost-found search scopes, a filter
+  menu with "show resolved", relative timestamps, photo thumbnails, tel:/mailto: contact links.
+- Sandbox entitlements, `LSApplicationCategoryType`, `DEVELOPMENT_TEAM`, version 1.0 (1).
+
+## Left
+- [ ] Landing page (from Apple Notes 2026-08-27).
+- [ ] No ASC record yet for `com.nulljosh.homeward`; nothing submitted.
+- [ ] App icon: neither platform has one.
+- [ ] Security, pre-existing and shared with web: the `select` policy on `listings` is
+  `using (true)`, so anyone can read every row's `edit_token` and resolve or edit someone
+  else's listing. Real fix is column grants plus a `create_listing` RPC that returns the
+  token — touches web, iOS, and a migration.
+- [ ] OAuth rollout below is still open; the native apps post anonymously.

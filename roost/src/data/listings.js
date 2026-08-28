@@ -1,63 +1,9 @@
-const neighborhoods = {
-  vancouver: [
-    { area: 'Kitsilano', lat: 49.2665, lng: -123.1648 },
-    { area: 'Mount Pleasant', lat: 49.2620, lng: -123.1005 },
-    { area: 'Yaletown', lat: 49.2730, lng: -123.1215 },
-    { area: 'Gastown', lat: 49.2838, lng: -123.1089 },
-    { area: 'West End', lat: 49.2849, lng: -123.1356 },
-    { area: 'Fairview', lat: 49.2635, lng: -123.1295 },
-    { area: 'Kerrisdale', lat: 49.2335, lng: -123.1560 },
-    { area: 'Dunbar', lat: 49.2505, lng: -123.1870 },
-    { area: 'Commercial Drive', lat: 49.2685, lng: -123.0698 },
-    { area: 'Coal Harbour', lat: 49.2895, lng: -123.1241 },
-    { area: 'South Granville', lat: 49.2525, lng: -123.1385 },
-    { area: 'Cambie', lat: 49.2465, lng: -123.1160 },
-    { area: 'Riley Park', lat: 49.2440, lng: -123.1020 },
-    { area: 'Hastings-Sunrise', lat: 49.2815, lng: -123.0445 },
-    { area: 'Marpole', lat: 49.2115, lng: -123.1300 }
-  ],
-  burnaby: [
-    { area: 'Metrotown', lat: 49.2270, lng: -123.0015 },
-    { area: 'Brentwood', lat: 49.2665, lng: -123.0015 },
-    { area: 'Burnaby Heights', lat: 49.2815, lng: -123.0135 },
-    { area: 'Edmonds', lat: 49.2125, lng: -122.9590 }
-  ],
-  newWest: [
-    { area: 'Downtown New West', lat: 49.2015, lng: -122.9128 },
-    { area: 'Sapperton', lat: 49.2235, lng: -122.8890 }
-  ],
-  richmond: [
-    { area: 'Richmond Centre', lat: 49.1665, lng: -123.1365 },
-    { area: 'Steveston', lat: 49.1280, lng: -123.1870 }
-  ],
-  northVan: [
-    { area: 'Lower Lonsdale', lat: 49.3100, lng: -123.0810 },
-    { area: 'Lynn Valley', lat: 49.3385, lng: -123.0215 }
-  ],
-  victoria: [
-    { area: 'James Bay', lat: 48.4115, lng: -123.3675 },
-    { area: 'Fernwood', lat: 48.4305, lng: -123.3480 },
-    { area: 'Oak Bay', lat: 48.4265, lng: -123.3175 },
-    { area: 'Fairfield', lat: 48.4165, lng: -123.3410 }
-  ],
-  kelowna: [
-    { area: 'Downtown Kelowna', lat: 49.8863, lng: -119.4966 },
-    { area: 'Mission', lat: 49.8590, lng: -119.4830 },
-    { area: 'Rutland', lat: 49.8855, lng: -119.4175 }
-  ]
-}
+import { marketFor } from '../lib/market.js'
 
-const streets = [
-  'Oak St', 'Granville St', 'Main St', 'Broadway', 'Cambie St', '4th Ave',
-  'Robson St', 'Davie St', 'Hastings St', 'Kingsway', 'Commercial Dr',
-  'Fraser St', 'Knight St', 'Victoria Dr', 'Dunbar St', 'Arbutus St',
-  'Burrard St', 'Denman St', 'Pacific Blvd', 'Marine Dr', 'King Edward Ave',
-  'West 10th Ave', 'West 16th Ave', 'East 1st Ave', 'Clark Dr',
-  'Lonsdale Ave', 'Government St', 'Fort St', 'Pandora Ave', 'Douglas St',
-  'Bernard Ave', 'Ellis St', 'Harvey Ave', 'Pandosy St', 'Abbott St'
-]
-
-const propertyTypes = ['house', 'condo', 'townhouse']
+// Listings are generated for whatever place the user is browsing, seeded by
+// that place's coordinates, so the same city always yields the same homes.
+// ponytail: generated inventory. The shape matches what an MLS/IDX feed would
+// return, so swapping in a real feed is a change to one function.
 
 const photos = [
   'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop',
@@ -74,149 +20,106 @@ const photos = [
   'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&h=400&fit=crop'
 ]
 
-// Real Gastown listings, verified 2026-07-29. Everything else in this file is
-// generated. Taylor Building (310 Water St, 1911 heritage conversion) is
-// deliberately absent: no active listing, so there is nothing to price.
-// ponytail: hand-kept until there is an MLS feed to pull from.
-const realListings = [
-  {
-    id: 'listing-garage',
-    address: '202-36 Water St',
-    neighborhood: 'Gastown',
-    city: 'vancouver',
-    price: 625000,
-    beds: 1,
-    baths: 1,
-    sqft: 720,
-    type: 'condo',
-    lat: 49.2841,
-    lng: -123.1071,
-    year: 1910,
-    photo: photos[10],
-    photos: [photos[10], photos[2], photos[4]],
-    description: 'Loft conversion in The Garage, a 1910 Gastown warehouse. Exposed concrete, Miele kitchen, oversized windows onto Water Street.',
-    features: ['Exposed concrete', 'Miele kitchen', 'Heritage conversion', 'Steps to Waterfront Station'],
-    listedDaysAgo: 25,
-    mlsNumber: 'R3149447'
-  },
-  {
-    id: 'listing-koret',
-    address: '506-55 E Cordova St',
-    neighborhood: 'Gastown',
-    city: 'vancouver',
-    price: 824900,
-    beds: 1,
-    baths: 1.5,
-    sqft: 1050,
-    type: 'condo',
-    lat: 49.2827,
-    lng: -123.1014,
-    year: 1906,
-    photo: photos[11],
-    photos: [photos[11], photos[5], photos[2]],
-    description: 'Koret Lofts, a heritage timber warehouse conversion. 20-foot ceilings, exposed brick and original timber posts.',
-    features: ['20ft ceilings', 'Exposed brick', 'Original timber', 'Heritage conversion'],
-    listedDaysAgo: 25,
-    mlsNumber: 'R3149767'
-  }
-]
+export const propertyTypes = ['house', 'condo', 'townhouse']
+
+// Where the house number goes. Most of continental Europe and much of Asia put
+// it after the street name; the anglosphere puts it first.
+const numberAfterStreet = new Set([
+  'DE', 'AT', 'CH', 'NL', 'BE', 'LU', 'SE', 'NO', 'DK', 'FI', 'IS', 'PL', 'CZ', 'SK',
+  'HU', 'RO', 'BG', 'RS', 'HR', 'SI', 'GR', 'IT', 'ES', 'PT', 'TR', 'RU', 'UA', 'EE',
+  'LV', 'LT', 'BR', 'AR', 'CL', 'CO', 'PE', 'MX', 'ID', 'VN', 'NP', 'JP', 'CN', 'TW', 'KR'
+])
+
+function formatAddress(number, street, countryCode) {
+  return numberAfterStreet.has(countryCode) ? `${street} ${number}` : `${number} ${street}`
+}
 
 function seededRandom(seed) {
-  let s = seed
-  return function() {
-    s = (s * 16807 + 0) % 2147483647
+  let s = Math.abs(Math.trunc(seed)) % 2147483646 || 1
+  return function () {
+    s = (s * 16807) % 2147483647
     return (s - 1) / 2147483646
   }
 }
 
-function generateListings() {
-  const allNeighborhoods = Object.values(neighborhoods).flat()
-  const rand = seededRandom(42)
+// Two places 100m apart should not produce identical inventory.
+function seedFor(place) {
+  return Math.round((place.lat + 90) * 1e4) * 100003 + Math.round((place.lng + 180) * 1e4)
+}
+
+const pick = (rand, arr) => arr[Math.floor(rand() * arr.length)]
+
+/**
+ * @param place  from geo.js — needs lat/lng/name/countryCode
+ * @param streets optional real streets from Overpass; falls back to the place name
+ * @param mode   'sale' | 'rent'
+ */
+export function generateListings(place, streets = [], mode = 'sale', count = 60) {
+  const market = marketFor(place.countryCode)
+  const rand = seededRandom(seedFor(place) + (mode === 'rent' ? 7919 : 0))
   const listings = []
+  // Base value of a mid-market home in this country, before size/type.
+  const base = 400000 * market.level
 
-  for (let i = 0; i < 50; i++) {
-    const hood = allNeighborhoods[Math.floor(rand() * allNeighborhoods.length)]
-    const type = propertyTypes[Math.floor(rand() * propertyTypes.length)]
-    const streetNum = Math.floor(rand() * 9000) + 100
-    const street = streets[Math.floor(rand() * streets.length)]
+  for (let i = 0; i < count; i++) {
+    const type = pick(rand, propertyTypes)
+    const anchor = streets.length ? pick(rand, streets) : place
+    const street = streets.length ? anchor.name : place.name
 
-    let beds, baths, sqft, price
+    let beds, baths, sqft, sizeFactor
     if (type === 'house') {
       beds = Math.floor(rand() * 4) + 2
       baths = Math.floor(rand() * 3) + 1
       sqft = Math.floor(rand() * 2000) + 1200
-      price = Math.floor((rand() * 3000000 + 800000) / 1000) * 1000
+      sizeFactor = 1.6
     } else if (type === 'condo') {
       beds = Math.floor(rand() * 3) + 1
-      baths = 1
+      baths = Math.max(1, Math.round(beds / 2))
       sqft = Math.floor(rand() * 800) + 450
-      price = Math.floor((rand() * 1200000 + 350000) / 1000) * 1000
+      sizeFactor = 0.8
     } else {
       beds = Math.floor(rand() * 3) + 2
       baths = Math.floor(rand() * 2) + 1
       sqft = Math.floor(rand() * 1200) + 800
-      price = Math.floor((rand() * 1500000 + 500000) / 1000) * 1000
+      sizeFactor = 1.15
     }
 
-    const lat = hood.lat + (rand() - 0.5) * 0.01
-    const lng = hood.lng + (rand() - 0.5) * 0.01
-    const year = Math.floor(rand() * 60) + 1965
-    const daysAgo = Math.floor(rand() * 30) + 1
+    const spread = 0.6 + rand() * 0.9
+    const value = base * sizeFactor * spread
+    // Rent is the same asset priced by yield, so a market's rents track its
+    // sale prices instead of being invented separately.
+    const price = mode === 'rent'
+      ? roundTo(value * market.grossYield / 12, 10)
+      : roundTo(value, 1000)
 
+    const jitter = 0.012
     listings.push({
-      id: `listing-${i + 1}`,
-      address: `${streetNum} ${street}`,
-      neighborhood: hood.area,
-      city: Object.entries(neighborhoods).find(([_, hoods]) =>
-        hoods.some(h => h.area === hood.area)
-      )?.[0].replace(/([A-Z])/g, ' $1').trim() || 'Vancouver',
+      id: `${place.id}-${mode}-${i}`,
+      address: formatAddress(Math.floor(rand() * 220) + 1, street, market.countryCode),
+      neighborhood: streets.length ? street : place.name,
+      city: place.name,
+      countryCode: market.countryCode,
+      currency: market.currency,
+      imperial: market.imperial,
+      mode,
       price,
       beds,
       baths,
       sqft,
       type,
-      lat,
-      lng,
-      year,
+      lat: anchor.lat + (rand() - 0.5) * jitter,
+      lng: anchor.lng + (rand() - 0.5) * jitter,
+      year: Math.floor(rand() * 60) + 1965,
       photo: photos[i % photos.length],
-      photos: [
-        photos[i % photos.length],
-        photos[(i + 3) % photos.length],
-        photos[(i + 7) % photos.length]
-      ],
-      description: `${type === 'house' ? 'Beautiful' : type === 'condo' ? 'Modern' : 'Spacious'} ${beds}-bedroom ${type} in the heart of ${hood.area}. Built in ${year}, featuring ${sqft} sq ft of living space with ${baths} bathroom${baths > 1 ? 's' : ''}. Walking distance to shops, restaurants, and transit.`,
-      features: [
-        type === 'house' ? 'Detached garage' : 'Underground parking',
-        year > 2010 ? 'Modern finishes' : 'Character home',
-        'In-suite laundry',
-        sqft > 1500 ? 'Open concept' : 'Efficient layout',
-        beds >= 3 ? 'Family-friendly' : 'Low maintenance'
-      ],
-      listedDaysAgo: daysAgo,
-      mlsNumber: `R${2800000 + i}`
+      photos: [photos[i % photos.length], photos[(i + 3) % photos.length], photos[(i + 7) % photos.length]],
+      listedDaysAgo: Math.floor(rand() * 30) + 1,
+      refNumber: `R${100000 + Math.floor(rand() * 899999)}`
     })
   }
 
   return listings
 }
 
-export const listings = [...realListings, ...generateListings()]
-
-export function getListingById(id) {
-  return listings.find(l => l.id === id)
-}
-
-export function formatPrice(price) {
-  if (price >= 1000000) {
-    return `$${(price / 1000000).toFixed(price % 1000000 === 0 ? 0 : 1)}M`
-  }
-  return `$${(price / 1000).toFixed(0)}K`
-}
-
-export function formatPriceFull(price) {
-  return new Intl.NumberFormat('en-CA', {
-    style: 'currency',
-    currency: 'CAD',
-    maximumFractionDigits: 0
-  }).format(price)
+function roundTo(n, step) {
+  return Math.max(step, Math.round(n / step) * step)
 }

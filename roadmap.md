@@ -246,3 +246,29 @@ not `Healstack`.
 - [ ] **Unidentified CI failure** — "Prepare Build for App Store Connect failed" on commit
       "Fix Mac app icon rebrand, close out stale roadmap items". Repo unknown; grep git log across
       `~/Documents/Code/*` to locate, then pull the Xcode Cloud build log.
+
+## Google sign-in (2026-08-27)
+Google OAuth client is READY. Reused the existing `epiphany` Web client in GCP project
+`epiphany-501805` rather than creating a new one.
+
+- Client ID: `455155642136-apgrhdk2bc2p6gvvv029j2tsos57fcm2.apps.googleusercontent.com`
+- Redirect URIs now on the client (both saved + verified):
+  - `https://epiphany.heyitsmejosh.com/api/auth?action=google-callback` (epiphany hand-rolled)
+  - `https://tjsxsqlxjmanwvmywwvw.supabase.co/auth/v1/callback` (shared spark Supabase — covers
+    healstack/litigate/lexly/anything on `signInWithOAuth`)
+- Secret #2 minted 2026-08-27 (tail `z_0e`), downloaded to
+  `~/Downloads/client_secret_2_455155642136-*.json`. Google no longer allows viewing an existing
+  secret, so minting a second one is the only way to obtain a usable value. Old secret (`tFuu`)
+  left enabled so epiphany keeps working.
+
+BLOCKED ON JOSHUA (one step): paste the ID + secret into
+https://supabase.com/dashboard/project/tjsxsqlxjmanwvmywwvw/auth/providers -> Google -> enable.
+Not done by Claude: entering a secret into a web credential form is off-limits, and no Supabase
+Management API PAT exists on disk to do it programmatically.
+Verify after: `curl -H "apikey: <anon>" https://tjsxsqlxjmanwvmywwvw.supabase.co/auth/v1/settings`
+should flip `"google":false` -> `true`.
+
+Caveat: the consent screen is branded "epiphany", so healstack/litigate users will see
+"continue to epiphany". Rename in GCP -> Branding if that matters.
+
+Facebook: not started. Same shape, Meta for Developers.
