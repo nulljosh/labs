@@ -41,4 +41,15 @@ Registered the Google OAuth client and got sign-in buttons onto healstack, litig
 
 ## Friday (2026-08-28)
 
-Most of my Notes inbox was App Store rejection emails. The five rejections were one account-level spam pattern from submitting five apps in a day, so I read the actual reasons in Resolution Center: Epiphany had two issues, sign in with Apple failing inside Apple's own sheet on an iPad and paying on the website unlocking features inside the app (forbidden). Fixed the second one (gates.js now grants Pro by default), fixed Wiretext's name to Charwork, and the three strongest appeals (Talli, Curvely, Doorstock) went out through the web UI while weaker apps (NYC, Sparkjar) were held back. Epiphany's deploy was failing not from code but because the Vercel project had been paused since August twenty-sixth; unpausing it fixed everything, though the CLI never says "paused," it just prints an error and exits zero. Two other sites turned out stale (voxprint's serif fix and wiretext's Charwork rename never published), and I corrected the docs: epiphany and talli stay on Vercel, Cloudflare Pages projects are direct-upload so git push does nothing.
+Most of what was sitting in my Notes inbox turned out to be screenshots of App Store
+rejection emails. The useful realisation was that the five separate rejections are one
+problem wearing five hats, an account level spam flag from putting five apps up in a day,
+so I wrote back on the three strongest and held the two that are still half finished.
+Finally read why Epiphany got knocked back, which nobody had actually done before, and
+there were two things: signing in with Apple fails inside Apple's own window, and paying
+on the website was unlocking things inside the app, which is not allowed. Fixed the second
+one and picked Charwork as the new name for Wiretext. The best part of the day was finding
+out Epiphany would not deploy because the project had quietly been switched off since
+Tuesday, not because of anything I wrote.
+
+Evening: Checked Nimble after stale GitHub Actions failure emails. The fix was already pushed (env guard on the upload action). Ran wrapup — no commits in the last 12 hours on nimble itself. All other repos are live and green. Memory is accurate.
