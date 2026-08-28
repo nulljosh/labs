@@ -8,7 +8,11 @@ v3.0.0
 ## Rules
 
 - Mobile-first layout, horizontal filter chips on small screens
-- Dark Editorial design (BC gov blue variant): navy `#0c1220`, blue `#1a5a96`/`#2472b2`/`#4e9cd7`, Fraunces + DM Sans
+- Palette and type come from `src/tokens.css` (charcoal `#1A1A1A`, cream `#FFF8F0`,
+  red `#E4002B`, amber `#F9C31F`). Edit that file; do not add a second theme.
+  The old navy/blue "Dark Editorial" palette was dropped 2026-08-27.
+- Sans-serif only — DM Sans via `var(--font)` / `var(--font-display)`. No serif
+  faces (the retired palette used Fraunces; it is gone).
 - Map markers stay as price pill SVGs
 - No emojis
 

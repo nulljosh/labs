@@ -50,6 +50,12 @@ const imperialArea = new Set(['US', 'CA', 'GB', 'IN', 'HK', 'SG', 'PK', 'BD', 'M
 
 const DEFAULT = { currency: 'USD', level: 0.5, yield: 0.06 }
 
+// Landing-page stats, counted off the tables above so they cannot go stale.
+export const coverage = {
+  countries: Object.keys(currencies).length,
+  currencies: new Set(Object.values(currencies)).size
+}
+
 export function marketFor(countryCode = '') {
   const cc = countryCode.toUpperCase()
   return {

@@ -10,12 +10,14 @@ export default defineConfig({
       manifest: {
         name: 'Roost',
         short_name: 'Roost',
-        description: 'BC real estate listings',
-        theme_color: '#0c1220',
-        background_color: '#0c1220',
+        description: 'Homes for sale and for rent, anywhere on earth',
+        theme_color: '#1A1A1A',
+        background_color: '#1A1A1A',
         display: 'standalone',
         icons: [
-          { src: '/icon.svg', sizes: 'any', type: 'image/svg+xml' }
+          { src: '/icon.svg', sizes: 'any', type: 'image/svg+xml' },
+          { src: '/icon-1024.png', sizes: '1024x1024', type: 'image/png', purpose: 'any' },
+          { src: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
         ]
       }
     })

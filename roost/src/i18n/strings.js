@@ -47,7 +47,35 @@ export const en = {
   forgot_password: 'Forgot password?',
   save: 'Save',
   saved: 'Saved',
-  landing_pitch: 'Homes for sale and for rent, anywhere on earth. Search any city and read every price in the local currency, in your own language.'
+  landing_pitch: 'Homes for sale and for rent, anywhere on earth. Search any city and read every price in the local currency, in your own language.',
+
+  // Landing page. Untranslated locales fall back to English, which is safe.
+  stat_countries: 'countries mapped',
+  stat_currencies: 'currencies',
+  stat_languages: 'languages',
+  stat_rtl: 'right-to-left scripts',
+
+  how_label: 'How it works',
+  how_title: 'One search box, the whole map',
+  feat_search_title: 'Search anywhere',
+  feat_search_body: 'Type a city, a region or a country. Places come from OpenStreetMap, so somewhere small is as searchable as somewhere famous.',
+  feat_streets_title: 'Real local streets',
+  feat_streets_body: 'Addresses are built from the street names that actually surround the place you searched, not a generic list.',
+  feat_money_title: 'Local money, local units',
+  feat_money_body: 'Every price is shown in the local currency at a plausible local price level, in square feet or square metres depending on where you are looking.',
+  feat_rent_title: 'Buying or renting',
+  feat_rent_body: 'Rent is derived from the yield in that market rather than one global ratio, so cheap-to-buy places rent proportionally higher, as they do in life.',
+
+  lang_label: 'Language',
+  lang_title: 'Read it in your own words',
+  lang_body: 'The interface ships in {n} languages. Arabic, Hebrew, Persian and Urdu lay the whole page out right-to-left, not just the text.',
+
+  honest_label: 'Worth knowing',
+  honest_title: 'The inventory is generated',
+  honest_body: 'Roost has no listing feed yet. Homes are generated per place from real market tables, in the shape an MLS or IDX response would arrive in, so swapping in a live feed is one function. Everything else here is real.',
+
+  cta_title: 'Start anywhere',
+  cta_body: 'Pick a city and see what a home there costs.'
 }
 
 // Locale code -> partial overrides of `en`.

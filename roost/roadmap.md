@@ -28,3 +28,7 @@ modes, and UI strings in 26 languages with RTL.
 - [ ] Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY on the Cloudflare Pages
       project `roost`. Without them the client is null and sign-in is disabled in
       production, so nothing behind /browse is reachable.
+
+## From Notes (imported 2026-08-27)
+- [x] Bump the app icon. New mark (charcoal square, cream house, red door) in `public/icon.svg`; added `icon-1024.png` + `apple-touch-icon.png` (both flattened, no alpha) and an `og.png` social card. No Xcode target exists yet, so this is the web/PWA icon. Also fixed `/icon.svg` 404ing in production — the file was at the repo root, not `public/`.
+- [x] Add more to the landing page. Hero now leads into a coverage strip (counts derived from `market.js`, not hardcoded), a four-card how-it-works section, the language list rendered from `supportedLanguages`, and an upfront note that inventory is generated. Verified in headless Chrome at 390px and 1280px and on the live deploy.
