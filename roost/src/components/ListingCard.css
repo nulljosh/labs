@@ -82,7 +82,7 @@
 }
 
 .listing-price {
-  font-family: 'Fraunces', serif;
+  font-family: {S};
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--cream);

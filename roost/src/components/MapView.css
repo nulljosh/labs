@@ -53,7 +53,7 @@
 }
 
 .popup-info strong {
-  font-family: 'Fraunces', serif;
+  font-family: {S};
   font-size: 0.9375rem;
   color: var(--cream);
 }

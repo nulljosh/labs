@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,900&family=DM+Sans:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
 
 :root {
   --red: #E4002B;
@@ -17,7 +17,7 @@
   --border: rgba(26,26,26,0.1);
   --border2: rgba(26,26,26,0.06);
 
-  --font-display: 'Fraunces', Georgia, serif;
+  --font-display: {S};
   --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --font: var(--font-body);
 

@@ -78,7 +78,7 @@
 }
 
 .detail-price {
-  font-family: 'Fraunces', serif;
+  font-family: -apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   font-weight: 800;
   color: var(--cream);
@@ -113,7 +113,7 @@
 }
 
 .detail-stat-value {
-  font-family: 'Fraunces', serif;
+  font-family: -apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--cream);
