@@ -1,5 +1,5 @@
 # roost
-v2.0.1
+v3.0.0
 
 ## From Notes PDF (imported 2026-08-02)
 - [ ] Confirmed 2026-08-02: roost is still in the codebase (`labs/roost`), active, v2.0.1.
