@@ -4,3 +4,5 @@ _site/
 vendor/
 .sass-cache/
 .jekyll-cache/
+.wrangler/
+.DS_Store
