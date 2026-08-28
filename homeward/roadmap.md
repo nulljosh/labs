@@ -40,14 +40,14 @@ Done. 5 tools through the existing `lib/supabase.ts` client: `search_listings`, 
 
 See `docs/API.md` for the full tool table, linked from the README.
 
-## iOS + Mac apps — 2026-08-28
+## iOS + Mac apps — DONE 2026-08-27
 
 One XcodeGen target with `supportedDestinations: [iOS, macOS]`, so both platforms
 ship from the same SwiftUI sources. Both build clean; iOS verified running in the
 simulator against live Supabase (posted a test row via REST, saw it render, resolved
 it through `update_listing`).
 
-What changed:
+What was built:
 - Supabase URL + anon key baked into `SupabaseClient.swift` (env override kept).
   They only existed as scheme env vars before, so an installed build talked to a
   placeholder host. The anon key is public by design and already ships in the web bundle.
