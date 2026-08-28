@@ -29,17 +29,7 @@ Two mysteries closed by reading rather than coding. Lexly Mac bounced twice unti
 
 The last week was security. Epiphany's broker webhook and account endpoint were accepting requests from anyone. Both now require authentication, along with two scheduled jobs that had been skipping checks. Talli and Litigate got response headers, dependencies patched, and Litigate came off sale until its data is properly gated. Tests still pass.
 
-On Wednesday I verified the global language support work on Wordroot that had never been built. Twelve interface locales and thirty word languages now compile, with Arabic mirroring right-to-left and French showing full etymology chains. I cut dead code probing extra Wiktionary editions, removing obsolete actors and races, minus forty-six lines with all tests still green.
-
-Thursday found a subtle build timing issue in Lexly. The app was in review with a thirteen-minute-old build, but four new science courses got added thirteen minutes after that build archived. iOS shipped without them while macOS had the newer build with all four. Fixed without rebuilding: renamed the version in place (screenshots stayed), attached the correct uploaded build, rewrote the changelog, and resubmitted. Also cleaned up the landing page: removed a duplicate App Store button fighting the Smart App Banner.
-
-Also Thursday evening, Curvely's hero animation was invisible: the curve paths were drawn at sub-pixel width, so the whole drifting wall vanished behind the text. Thicker strokes, a lighter scrim and a faster drift brought it back.
-
-Thursday evening I swapped NYC Survive's icon for a solid industrial gear in amber on dark. The old skyline bars never felt like the game, and the new one reads at a distance.
-
-Late Thursday I noticed Sparkjar's landing page rendering in serif. The font stack was falling back because the webfont reference went dead. Fixed it to use the shared system font token, then swept through six projects standardizing everything else. Removed stray serif definitions from old stylesheets and updated the shared font token. The stylesheet fix needed a second pass: the landing page shows generated images, so I had to re-screenshot both themes and redeploy. Everything's Helvetica now.
-
-Thursday evening fixed Inkpress's landing page. Screenshots were stretching vertically because the height attribute locked the aspect ratio while CSS width constrained it; adding `height: auto` fixed that. Added an animated hero matching Bookrank's style with drifting feed-headline cards and a scrim, plus a prefers-reduced-motion guard. Deployed to Cloudflare Pages.
+On Wednesday I verified the global language support work on Wordroot (twelve locales, thirty word languages, all tests green). Thursday found a subtle timing issue in Lexly where iOS shipped without four new courses that arrived after the build archived; fixed by renaming the version in place and resubmitting without rebuilding. Late Thursday I noticed Sparkjar's landing page rendering in serif, fixed it to shared system fonts, then swept through six projects standardizing everything. Also fixed Curvely's hero animation (sub-pixel paths) and swapped NYC Survive's icon.
 
 ## Wednesday (2026-08-26)
 
@@ -51,11 +41,4 @@ Registered the Google OAuth client and got sign-in buttons onto healstack, litig
 
 ## Friday (2026-08-28)
 
-Pointed the thing at my Notes inbox and most of what was in there turned out to be
-screenshots of App Store rejection emails. The useful part was realising the five separate
-rejections are one problem wearing five hats, an account level spam flag from submitting
-five apps in a day, so there is nothing to fix in the code and one appeal to write instead.
-Finally got into Resolution Center and read why Epiphany got knocked back, which nobody had
-done before. Two things: sign in with Apple failing inside Apple's own sheet on an iPad, and
-paying on the website unlocking features inside the app, which Apple does not allow. Fixed
-the second one properly and picked Charwork as the new name for Wiretext.
+Most of my Notes inbox was App Store rejection emails. The five rejections were one account-level spam pattern from submitting five apps in a day, so I read the actual reasons in Resolution Center: Epiphany had two issues, sign in with Apple failing inside Apple's own sheet on an iPad and paying on the website unlocking features inside the app (forbidden). Fixed the second one (gates.js now grants Pro by default), fixed Wiretext's name to Charwork, and the three strongest appeals (Talli, Curvely, Doorstock) went out through the web UI while weaker apps (NYC, Sparkjar) were held back. Epiphany's deploy was failing not from code but because the Vercel project had been paused since August twenty-sixth; unpausing it fixed everything, though the CLI never says "paused," it just prints an error and exits zero. Two other sites turned out stale (voxprint's serif fix and wiretext's Charwork rename never published), and I corrected the docs: epiphany and talli stay on Vercel, Cloudflare Pages projects are direct-upload so git push does nothing.
