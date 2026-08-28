@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { supabase } from '../lib/supabase.js'
+import { supabase, authConfigured } from '../lib/supabase.js'
 
 function generatePixelArtSVG() {
   const palettes = [['#e63946','#457b9d','#1d3557'],['#7b2d8b','#c77dff','#e0aaff'],['#0077b6','#00b4d8','#90e0ef'],['#d62828','#f77f00','#fcbf49'],['#2d6a4f','#52b788','#b7e4c7']]
@@ -46,6 +46,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
+    if (!authConfigured) return
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(mapUser(session?.user ?? null))
     })
@@ -58,12 +59,14 @@ export function AuthProvider({ children }) {
   }, [])
 
   async function login(email, password) {
+    if (!authConfigured) return { error: 'Sign-in is not configured on this deployment.' }
     const { error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) return { error: error.message }
     return { success: true }
   }
 
   async function register(name, email, password) {
+    if (!authConfigured) return { error: 'Sign-in is not configured on this deployment.' }
     const { error } = await supabase.auth.signUp({
       email,
       password,
@@ -95,11 +98,13 @@ export function AuthProvider({ children }) {
     const params = { data }
     if (email !== undefined) params.email = email
 
+    if (!authConfigured) return { error: 'Sign-in is not configured on this deployment.' }
     const { data: result, error } = await supabase.auth.updateUser(params)
     if (!error && result.user) setUser(mapUser(result.user))
   }
 
   async function logout() {
+    if (!authConfigured) return { error: 'Sign-in is not configured on this deployment.' }
     await supabase.auth.signOut()
   }
 

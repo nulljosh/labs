@@ -2,8 +2,8 @@
 
 /* === CFA Palette === */
 :root {
-  --bg: #FFF8F0;
-  --bg2: #f0e6d8;
+  --bg: #FFFFFF;
+  --bg2: #F2F2F3;
   --text2: rgba(26,26,26,0.5);
   --text3: rgba(26,26,26,0.3);
   --border: rgba(26,26,26,0.09);
@@ -22,8 +22,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1A1A1A;
-    --bg2: #2a2118;
+    --bg: #121212;
+    --bg2: #1C1C1E;
     --text: #FFF8F0;
     --text2: rgba(255,248,240,0.5);
     --text3: rgba(255,248,240,0.3);
