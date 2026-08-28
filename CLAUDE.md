@@ -24,7 +24,7 @@
 | **wordroot** | Etymology lookup (was root/etyma) | — |
 | **quotestreak** | Quote guessing game, no backend | id6804394619, Universal Purchase |
 | **inkpress** | Multi-feed RSS reader, iOS | inkpress.heyitsmejosh.com · 6787759999 |
-| **newsline** | RSS API + reader; ships as **Sidewise** | news.heyitsmejosh.com · 6806028670 |
+| **sidewise** | RSS API + reader (renamed from newsline 2026-08-28) | news.heyitsmejosh.com · 6806028670 |
 | **nyc** | Times Square city sim | — |
 | **bcgd** | Garage-door site + dashboard; ships as **Doorstock** | bcgd.heyitsmejosh.com |
 | **fengshui** | Fengshui reader, web + iOS | fengshui.heyitsmejosh.com |
