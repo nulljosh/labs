@@ -271,3 +271,32 @@ Caveat: the consent screen is branded "epiphany", so healstack/litigate users wi
 "continue to epiphany". Rename in GCP -> Branding if that matters.
 
 Facebook: not started. Same shape, Meta for Developers.
+
+### Apple sign-in on WEB — next session, ~15 min (2026-08-27)
+Joshua wants Apple buttons everywhere, not just native. Currently web Apple 400s:
+`{"error_code":"validation_failed","msg":"Unsupported provider: missing OAuth secret"}`
+because `external_apple_client_id` holds native bundle IDs and `external_apple_secret` is null.
+Apple web buttons were REMOVED from litigate/lexly this session so nothing ships broken.
+Re-add them as the last step, after the provider actually works.
+
+Runbook (blocked only on Apple Developer login — session expired, Claude cannot sign in):
+1. developer.apple.com -> Identifiers -> new **Services ID** (e.g. `com.heyitsmejosh.websignin`).
+   Enable Sign In with Apple. Domain: `tjsxsqlxjmanwvmywwvw.supabase.co`
+   Return URL: `https://tjsxsqlxjmanwvmywwvw.supabase.co/auth/v1/callback`
+2. Keys -> new key, enable Sign In with Apple, download the .p8 (ONE download only).
+   NOTE: the two existing keys in ~/.appstoreconnect/private_keys (F44GR466T7, MUJM3PFMT4)
+   are App Store Connect API keys, NOT Sign in with Apple keys. Different type, not reusable.
+3. Team ID is **QMM486NPYC** (confirmed from cert + provisioning profile).
+4. Generate the client secret JWT: ES256, iss=QMM486NPYC, sub=<ServicesID>,
+   aud=https://appleid.apple.com, exp <= 6 months. Save the generator as a script --
+   this secret EXPIRES every 6 months and web Apple sign-in dies silently when it does.
+5. PATCH config/auth: append the Services ID to external_apple_client_id (comma-separated,
+   keep the existing bundle IDs -- they serve native signInWithIdToken) and set
+   external_apple_secret to the JWT. Use curl; urllib gets 403 on this endpoint.
+6. Verify `/auth/v1/authorize?provider=apple` returns 302 (not 400), THEN re-add
+   `data-provider="apple"` buttons to litigate/web/index.html, lexly/app/index.html,
+   bookrank/library.html. Handlers are already generic; markup only.
+
+Also open: healstack/src/pages/Auth.jsx has apple AND facebook buttons that are both dead
+today -- fix apple via the above, and strip the facebook one (Facebook skipped: Meta needs
+business verification + app review for the email permission).
