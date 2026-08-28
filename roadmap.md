@@ -28,7 +28,6 @@ Last pruned 2026-08-24 against live ASC + HTTP state, not against notes.
   transit/institution number** and Apple needs a real chequing account (RBC), or the account-holder
   name does not match the developer entity.
 
-
 - [ ] **Apple banking/payout rejected.** RBC + Wealthsimple details were not accepted for the
       paid/IAP agreements, which gates *all* IAP revenue. Dashboard-only (Agreements/Tax/Banking),
       needs Joshua + 2FA. Read Apple's exact rejection reason first, then ask which account type
