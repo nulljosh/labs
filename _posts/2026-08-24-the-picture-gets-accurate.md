@@ -47,4 +47,4 @@ Thursday evening fixed Inkpress's landing page. Screenshots were stretching vert
 
 ## Wednesday (2026-08-27)
 
-Built a dream journal at Cloudflare Workers surfacing recurrence patterns. Testing found it was matching dates instead of content, so added deterministic checks before model calls. Lexly CI deployed: push to main publishes automatically.
+Built a dream journal at dream.heyitsmejosh.com surfacing recurrence patterns. Testing found it was matching dates instead of content, so added deterministic checks before model calls. Lexly CI deployed: push to main publishes automatically.
