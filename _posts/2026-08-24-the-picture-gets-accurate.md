@@ -13,7 +13,7 @@ Then I read the actual App Store rejection reasons, and eight rejections collaps
 
 That pattern was everywhere: untracked production bugs across eleven repos, this journal not publishing because of duplicate Pages projects, even system updates breaking silently.
 
-Plenty did ship. Apple flagged two apps for quality, so I rewrote both from webview shells into native code. Quotestreak went out on phone and desktop under one purchase, with the quote bank grown from 193 to 272 entries. Bookrank launched with 127 covers and a redesigned interface. Newsline turned from a website into something code can call. A security sweep fixed a forgeable school gate and an unprotected AI proxy, and the last two big projects moved off the old host.
+Plenty did ship. Apple flagged two apps for quality, so I rewrote both from webview shells into native code. Quotestreak and Bookrank shipped with redesigned interfaces. Newsline turned from a website into something code can call. A security sweep fixed a forgeable school gate and an unprotected AI proxy, and moved two big projects off the old host.
 
 Every API key on disk is dead, rotated months ago and never copied over. The backlog taught me to run two or three workers, not nine.
 
@@ -21,11 +21,11 @@ By the end of the month the board finally matched reality: Talli and Lexly and C
 
 The last thing I did was consolidate the journal itself. Fourteen scattered entries got merged into this quarterly post, each rewritten into plain prose instead of tool-spam. Codified the rules: natural English only, no AI voice, no commit hashes or build numbers. A linting gate now enforces it, so a bloated post cannot publish.
 
-The rest of the month was landing things properly. Two landing pages got real hero art: the Times Square game drifting behind a scrim, and Nimble's questions scrolling like an editorial ticker. Epiphany's landing page runs the live map behind the copy, with real flights refreshing while you read. The portfolio project list folded away overflow behind a toggle, eight always visible.
+The rest of the month was landing things properly. Landing pages got hero art: Times Square game drifting behind a scrim, Nimble's questions in a ticker, Epiphany's live map refreshing flights. The portfolio list toggled overflow, showing eight always.
 
 I audited sign-in and added GitHub to three apps. Inkpress shipped with sixteen curated feeds; testing exposed a date-parsing bug in the feeds themselves.
 
-Two long-running mysteries closed by reading rather than coding. Lexly's Mac version had bounced twice with no explanation until I got into the resolution centre, and the blocker was never the code: selling book content in China needs a Chinese publishing licence. Removing that one country sent it straight into review. Healstack's rejection was similar, a health section that never said plainly it was using Apple's health data. An icon and a connect button fixed it, and I ported it to the Mac the same night after realising the reason I had held that back was a rule I invented.
+Two mysteries closed by reading rather than coding. Lexly Mac bounced twice until I found it: selling book content in China needs a license. Removing that territory sent it to review. Healstack's was similar, a health section that never said it was using Apple's data. A button fixed it, and I ported it to Mac the same night.
 
 The last week was security. Epiphany's broker webhook and account endpoint were accepting requests from anyone. Both now require authentication, along with two scheduled jobs that had been skipping checks. Talli and Litigate got response headers, dependencies patched, and Litigate came off sale until its data is properly gated. Tests still pass.
 
@@ -50,3 +50,7 @@ Built a dream journal at dream.heyitsmejosh.com with deterministic recurrence de
 ## Thursday (2026-08-27)
 
 Registered the Google OAuth client and got sign-in buttons onto healstack, litigate, lexly and bookrank, and the Chrome blocker I had been stuck on turned out to be nothing more than an unpaired browser session. Apple's version wants a Services ID and a hand signed token where Google needs one client ID, so that is still waiting, and Facebook is out until Meta verifies the business. Later I put a proper front door on Roost, a landing page with a slow wall of property photos drifting behind the pitch the way Bookrank does it, live now at roost.heyitsmejosh.com. Before that the site was rendering completely blank because the Supabase client refuses to start without its keys and took the whole page down with it, so a missing config just disables sign-in now. I also got rid of the cream background, which looked like sand.
+
+## Friday (2026-08-28)
+
+Cleared the Notes inbox by filing everything into roadmaps. Most of it was App Store rejection screenshots; the five rejections last week turned out to be one thing in five places: Guideline 4.3(a) spam pattern in the listings. Fixed overflow bugs on inkpress and voxprint, tracked a naming collision on Newsline, corrected stale memory about which Epiphany version shipped, and swept a few projects for undefined font tokens that had drifted to serif. Roost got a new property-browser landing page and icon.
