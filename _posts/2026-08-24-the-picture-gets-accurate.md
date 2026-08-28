@@ -40,3 +40,5 @@ Also Thursday evening, Curvely's landing page had an invisible hero animation. T
 Thursday evening I swapped out the NYC Survive icon. The old skyline bars were fine as a sketch but didn't feel like the game. Replaced it with a solid industrial gear in amber on dark, regenerated all PNG sizes, and pushed to landing, web, and distribution. The icon now reads at a distance.
 
 Late Thursday I noticed Sparkjar's landing page rendering in serif. The font stack was falling back because the webfont reference went dead. Fixed it to use the shared system font token, then swept through six projects standardizing everything else. Removed stray serif definitions from old stylesheets and updated the shared font token. The stylesheet fix needed a second pass: the landing page shows generated images, so I had to re-screenshot both themes and redeploy. Everything's Helvetica now.
+
+Wednesday consolidated the month. Moved voxprint's App Store download button from the hero to the header, matching other project sites. Verified the shipping queue against live ASC records and updated memory files with app status changes.
