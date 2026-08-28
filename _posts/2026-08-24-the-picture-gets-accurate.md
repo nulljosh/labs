@@ -11,11 +11,11 @@ August was the month I stopped trusting my own notes. It started with a full inv
 
 Then I read the actual App Store rejection reasons, and eight rejections collapsed into three causes: suspension, sign-in failures, and naming. Four marked as waiting had been rejected weeks earlier. The three sign-in failures weren't related: corrupted test data, a dead domain, one required debugging. Lesson: check rejections against shipped code before trusting existing theory.
 
-That pattern was everywhere: production bugs across eleven repos never tracked (Litigate's light mode, Sparkjar's account deletion, Talli's sync), this journal wasn't publishing due to duplicate Pages projects, even system updates broke silently.
+That pattern was everywhere: untracked production bugs across eleven repos, this journal not publishing because of duplicate Pages projects, even system updates breaking silently.
 
 Plenty did ship. Apple flagged two apps for quality, so I rewrote both from webview shells into native code. Quotestreak went out on phone and desktop under one purchase, with the quote bank grown from 193 to 272 entries. Bookrank launched with 127 covers and a redesigned interface. Newsline turned from a website into something code can call. A security sweep fixed a forgeable school gate and an unprotected AI proxy, and the last two big projects moved off the old host.
 
-All the API keys on disk are dead now, rotated months ago but never copied over. The backlog taught me to run two or three workers instead of nine.
+Every API key on disk is dead, rotated months ago and never copied over. The backlog taught me to run two or three workers, not nine.
 
 By the end of the month the board finally matched reality: Talli and Lexly and Curvely shipped, Bookrank and Voxprint live, and Sparkjar, BCGD, Quotestreak, Wordroot and the Times Square game in review. No dramatic features, but the picture is accurate for the first time.
 
@@ -33,9 +33,9 @@ On Wednesday I verified the global language support work on Wordroot that had ne
 
 Thursday found a subtle build timing issue in Lexly. The app was in review with a thirteen-minute-old build, but four new science courses got added thirteen minutes after that build archived. iOS shipped without them while macOS had the newer build with all four. Fixed without rebuilding: renamed the version in place (screenshots stayed), attached the correct uploaded build, rewrote the changelog, and resubmitted. Also cleaned up the landing page: removed a duplicate App Store button fighting the Smart App Banner.
 
-Also Thursday evening, Curvely's landing page had an invisible hero animation. The generated SVG curve paths used a hairline stroke at sub-pixel width, so the whole drifting wall of curves was effectively invisible behind the text. Bumped the stroke width up, lightened the scrim overlay, raised the wall opacity, and sped up the drift. The backdrop now reads and doesn't fight the copy.
+Also Thursday evening, Curvely's hero animation was invisible: the curve paths were drawn at sub-pixel width, so the whole drifting wall vanished behind the text. Thicker strokes, a lighter scrim and a faster drift brought it back.
 
-Thursday evening I swapped out the NYC Survive icon. The old skyline bars were fine as a sketch but didn't feel like the game. Replaced it with a solid industrial gear in amber on dark, regenerated all PNG sizes, and pushed to landing, web, and distribution. The icon now reads at a distance.
+Thursday evening I swapped NYC Survive's icon for a solid industrial gear in amber on dark. The old skyline bars never felt like the game, and the new one reads at a distance.
 
 Late Thursday I noticed Sparkjar's landing page rendering in serif. The font stack was falling back because the webfont reference went dead. Fixed it to use the shared system font token, then swept through six projects standardizing everything else. Removed stray serif definitions from old stylesheets and updated the shared font token. The stylesheet fix needed a second pass: the landing page shows generated images, so I had to re-screenshot both themes and redeploy. Everything's Helvetica now.
 
@@ -43,10 +43,10 @@ Early Wednesday found five iOS apps rejected for Guideline 4.3(a) Design: Spam (
 
 Thursday evening fixed Inkpress's landing page. Screenshots were stretching vertically because the height attribute locked the aspect ratio while CSS width constrained it; adding `height: auto` fixed that. Added an animated hero matching Bookrank's style with drifting feed-headline cards and a scrim, plus a prefers-reduced-motion guard. Deployed to Cloudflare Pages.
 
-## Wednesday (2026-08-27)
+## Wednesday (2026-08-26)
 
 Built a dream journal at dream.heyitsmejosh.com with deterministic recurrence detection. Lexly's CI workflow deployed; push to main now publishes automatically. Built Homeward into native iOS and macOS apps from one SwiftUI target with live Supabase and search across name/species/color/location. Tested end to end; blockers are landing page, ASC record, icons, OAuth, and a shared read-policy security issue.
 
 ## Thursday (2026-08-27)
 
-Registered the Google OAuth client and shipped sign-in buttons to healstack, litigate, lexly, and bookrank. Discovered a long-standing Chrome blocker was just an unpaired browser session. Attempted Apple web OAuth but the session expired and Chrome disconnected partway; Apple's flow requires a Services ID plus hand-signed JWT versus Google's single client ID. Facebook skipped (Meta requires business verification).
+Registered the Google OAuth client and got sign-in buttons onto healstack, litigate, lexly and bookrank, and the Chrome blocker I had been stuck on turned out to be nothing more than an unpaired browser session. Apple's version wants a Services ID and a hand signed token where Google needs one client ID, so that is still waiting, and Facebook is out until Meta verifies the business. Later I put a proper front door on Roost, a landing page with a slow wall of property photos drifting behind the pitch the way Bookrank does it, live now at roost.heyitsmejosh.com. Before that the site was rendering completely blank because the Supabase client refuses to start without its keys and took the whole page down with it, so a missing config just disables sign-in now. I also got rid of the cream background, which looked like sand.
