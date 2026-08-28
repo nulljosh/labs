@@ -43,3 +43,5 @@ Registered the Google OAuth client and got sign-in buttons onto healstack, litig
 ## Friday (2026-08-28)
 
 Spam wave hit: six apps flagged, appeals filed for three plus Healstack, and fixed Epiphany's sign-in error, Lexly's listing fingerprinting, Curvely's overlay, renamed Wiretext to Charwork and restyled the iOS app. Sidewise: availability set (174 territories minus China), test suite shipped (95 checks, JSON-RPC fix), macOS screenshot captured/scaled/uploaded (968x708 to 1440x900), both iOS and macOS 0 errors/0 blocking and submit-ready, held pending 4.3(a) responses, pre-submission rebuild needed for CFBundleName fix to ship.
+
+Spent the afternoon on codebase hygiene: fourteen repos had accumulated cache files that never should have been tracked, including 11,000 node_modules files and gigabytes of build output scattered across six directories. Deleting them freed 4.9 GB and got disk back from 14 to 9.4, while trimming Epiphany itself dropped four unused npm packages and two obsolete modules. Half the "bloat" had been sitting right there in .gitignore the whole time.
