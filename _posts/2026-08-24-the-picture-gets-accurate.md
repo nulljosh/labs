@@ -49,4 +49,4 @@ Built a dream journal at dream.heyitsmejosh.com with deterministic recurrence de
 
 ## Thursday (2026-08-27)
 
-Audited sign-in across all apps; the long-standing Chrome blocker was just a dead browser session. Fixed it and registered the Google OAuth client (client ID ready, new secret minted). Three apps already have sign-in buttons wired; Google went live in Supabase, though the consent screen still says "epiphany". Rebuilt Roost from BC-only real estate into worldwide property browser: place search, per-country market tables with currency and bands, for-sale/for-rent toggle, and 26-language UI mirrored right-to-left. Price filters auto-scale off local comps instead of fixed CAD; tests pass.
+Registered the Google OAuth client and shipped sign-in buttons to healstack, litigate, lexly, and bookrank. Discovered a long-standing Chrome blocker was just an unpaired browser session. Attempted Apple web OAuth but the session expired and Chrome disconnected partway; Apple's flow requires a Services ID plus hand-signed JWT versus Google's single client ID. Facebook skipped (Meta requires business verification).
