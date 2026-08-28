@@ -39,8 +39,6 @@ Thursday evening I swapped NYC Survive's icon for a solid industrial gear in amb
 
 Late Thursday I noticed Sparkjar's landing page rendering in serif. The font stack was falling back because the webfont reference went dead. Fixed it to use the shared system font token, then swept through six projects standardizing everything else. Removed stray serif definitions from old stylesheets and updated the shared font token. The stylesheet fix needed a second pass: the landing page shows generated images, so I had to re-screenshot both themes and redeploy. Everything's Helvetica now.
 
-Early Wednesday found five iOS apps rejected for Guideline 4.3(a) Design: Spam (Sparkjar, NYC, Talli, Curvely, Doorstock). Apple flagged an account-level pattern in the listings, not the code. Wrote an appeal draft verifying each app's actual purpose and rewrote Doorstock's listing copy to eliminate shared phrases. Decided to appeal all five; macOS builds of NYC and Sparkjar were unaffected.
-
 Thursday evening fixed Inkpress's landing page. Screenshots were stretching vertically because the height attribute locked the aspect ratio while CSS width constrained it; adding `height: auto` fixed that. Added an animated hero matching Bookrank's style with drifting feed-headline cards and a scrim, plus a prefers-reduced-motion guard. Deployed to Cloudflare Pages.
 
 ## Wednesday (2026-08-26)
@@ -53,4 +51,11 @@ Registered the Google OAuth client and got sign-in buttons onto healstack, litig
 
 ## Friday (2026-08-28)
 
-Cleared the Notes inbox; rejections proved the five were one 4.3(a) pattern. Fixed overflow on inkpress/voxprint, corrected stale Epiphany memory (read the rejection: Apple Sign-in failed on iPad, Pro features gated behind Stripe without IAP; fixed the server to grant Pro by default, removed dead code), swept projects for serif tokens, added Roost's landing page. Fixed Litigate's privacy.html (no stylesheet, still "Brief", false auth claim) on tokens; Talli's portfolio-tokens.css now imports canonical with contrast fixes. Wiretext renamed to Charwork (ASC record stays "Wiretext"). BCGD's support page rebuilt from serif branding to client palette; deploy still confirming, and three appeals remain unfiled.
+Pointed the thing at my Notes inbox and most of what was in there turned out to be
+screenshots of App Store rejection emails. The useful part was realising the five separate
+rejections are one problem wearing five hats, an account level spam flag from submitting
+five apps in a day, so there is nothing to fix in the code and one appeal to write instead.
+Finally got into Resolution Center and read why Epiphany got knocked back, which nobody had
+done before. Two things: sign in with Apple failing inside Apple's own sheet on an iPad, and
+paying on the website unlocking features inside the app, which Apple does not allow. Fixed
+the second one properly and picked Charwork as the new name for Wiretext.
