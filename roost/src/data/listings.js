@@ -5,7 +5,7 @@ import { marketFor } from '../lib/market.js'
 // ponytail: generated inventory. The shape matches what an MLS/IDX feed would
 // return, so swapping in a real feed is a change to one function.
 
-const photos = [
+export const photos = [
   'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop',
   'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop',
   'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop',

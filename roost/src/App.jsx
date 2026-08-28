@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from './context/AuthContext'
 import Nav from './components/Nav'
+import Landing from './pages/Landing'
 import Listings from './pages/Listings'
 import ListingDetail from './pages/ListingDetail'
 import Login from './pages/Login'
@@ -27,7 +28,8 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/" element={<ProtectedRoute><Listings /></ProtectedRoute>} />
+        <Route path="/" element={user ? <Navigate to="/browse" replace /> : <Landing />} />
+        <Route path="/browse" element={<ProtectedRoute><Listings /></ProtectedRoute>} />
         <Route path="/listing/:id" element={<ProtectedRoute><ListingDetail /></ProtectedRoute>} />
         <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
       </Routes>

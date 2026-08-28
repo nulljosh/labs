@@ -21,7 +21,7 @@ export default function Nav() {
         </Link>
         <PlaceSearch />
         <div className="nav-links">
-          <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>
+          <Link to="/browse" className={`nav-link ${location.pathname === '/browse' ? 'active' : ''}`}>
             {t('listings')}
           </Link>
           <select

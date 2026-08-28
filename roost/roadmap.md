@@ -24,6 +24,4 @@ modes, and UI strings in 26 languages with RTL.
 - [ ] Inventory is generated, not real. Shape matches an MLS/IDX response so a
       feed swap is one function (`generateListings`).
 - [ ] Rename check before any App Store record — run asc-name-creator.
-- [ ] No landing page and no deploy. Add a public `/` hero route (match the
-      bookrank landing animation) and a Cloudflare Pages project; `/` is
-      currently the auth-gated listings page, so there is no shareable URL.
+- [ ] Landing pitch is translated into 10 of the 26 languages; the rest fall back to English.
