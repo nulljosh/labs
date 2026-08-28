@@ -19,7 +19,7 @@
 | **healstack** | Health/supplement tracker (was dose) | healstack.heyitsmejosh.com |
 | **sparkjar** | Idea forum, JWT auth (was spark) | sparkjar.heyitsmejosh.com |
 | **curvely** | Equation grapher (was grapher) | id6794988370 |
-| **charwork** | Unicode wireframe tool (was wiretext; ASC record still "Wiretext") | — |
+| **charwork** | Unicode wireframe tool (was wiretext; ASC record still "Wiretext"). Deliberately NOT shared-design-system: warm paper theme with terracotta accent (overrides Jaybulb tokens in src/index.css without editing the shared file; iOS + web restyle complete 2026-08-28) | — |
 | **bookrank** | Book summaries (was books→spine→uprighty) | bookrank.heyitsmejosh.com |
 | **wordroot** | Etymology lookup (was root/etyma) | — |
 | **quotestreak** | Quote guessing game, no backend | id6804394619, Universal Purchase |
