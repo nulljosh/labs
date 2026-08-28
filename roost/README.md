@@ -2,25 +2,35 @@
 
 # Roost
 
-![version](https://img.shields.io/badge/version-v2.0.1-blue)
+![version](https://img.shields.io/badge/version-v3.0.0-blue)
 
-BC real estate listings app with interactive map, search filters, and favorites. Mobile-first PWA with Dark Editorial design.
+Worldwide real estate browsing. Search any city on earth, switch between homes
+for sale and rentals, and read every price in the local currency and the
+local language.
 
 ## Features
 
-- Interactive Leaflet map with Zillow-style price pill markers
-- Filter by price, beds, property type, sort order
-- Favorites system with localStorage
+- Place search anywhere on earth via Nominatim, no API key
+- Real local street names pulled from OpenStreetMap for the place you browse
+- Per-country currency, price levels, rental yields, and ft² vs m²
+- Sale and rent modes, with price filters cut from the local market's own scale
+- 26 UI languages with right-to-left support, auto-detected from the browser
+- Interactive map with price pill markers, filters, favorites
 - Supabase Auth (email + password, forgot password, session persistence)
-- Profile settings with search preferences
-- 50 mock BC listings (Vancouver, Victoria, Kelowna)
 
 ## Run
 
 ```bash
 npm install && npm run dev
 npm run build
+node src/data/listings.test.mjs
 ```
+
+## Data
+
+Listings are generated per place and seeded by its coordinates, so a city always
+shows the same homes. The shape matches an MLS/IDX response, so swapping in a
+real feed is a change to one function in `src/data/listings.js`.
 
 ## License
 

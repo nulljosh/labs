@@ -61,3 +61,19 @@
   background: var(--blue-dark);
   color: #fff;
 }
+
+.nav-language {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-dim);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  max-width: 9rem;
+}
+
+.nav-language option {
+  color: initial;
+}

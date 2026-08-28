@@ -4,7 +4,7 @@ const FiltersContext = createContext(null)
 
 const defaultFilters = {
   priceMin: 0,
-  priceMax: 10000000,
+  priceMax: Infinity,
   beds: 0,
   propertyType: 'all',
   sort: 'price-asc',

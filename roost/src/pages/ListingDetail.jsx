@@ -1,26 +1,31 @@
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useState } from 'react'
-import { getListingById, formatPriceFull } from '../data/listings'
+import { usePlace } from '../context/PlaceContext'
+import { listingFormatters } from '../lib/format'
+import { useI18n } from '../i18n'
 import { useFavorites } from '../context/FavoritesContext'
 import './ListingDetail.css'
 
 export default function ListingDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
-  const listing = getListingById(id)
+  const { listings } = usePlace()
+  const { language, t } = useI18n()
+  const listing = listings.find(l => l.id === id)
   const { toggle, isFavorite } = useFavorites()
   const [photoIdx, setPhotoIdx] = useState(0)
 
   if (!listing) {
     return (
       <div className="page" style={{ textAlign: 'center', paddingTop: '120px' }}>
-        <h2>Listing not found</h2>
-        <Link to="/" className="btn btn-primary" style={{ marginTop: '1rem' }}>Back to listings</Link>
+        <h2>{t('no_results')}</h2>
+        <Link to="/" className="btn btn-primary" style={{ marginTop: '1rem' }}>{t('back')}</Link>
       </div>
     )
   }
 
   const fav = isFavorite(listing.id)
+  const fmt = listingFormatters(listing, language, t)
 
   return (
     <div className="page">
@@ -57,49 +62,36 @@ export default function ListingDetail() {
         </div>
 
         <div className="detail-info">
-          <div className="detail-price">{formatPriceFull(listing.price)}</div>
+          <div className="detail-price">{fmt.price}</div>
           <div className="detail-address">{listing.address}</div>
           <div className="detail-neighborhood">{listing.neighborhood}, {listing.city}</div>
 
           <div className="detail-stats">
             <div className="detail-stat">
               <span className="detail-stat-value">{listing.beds}</span>
-              <span className="detail-stat-label">Beds</span>
+              <span className="detail-stat-label">{t('beds')}</span>
             </div>
             <div className="detail-stat">
               <span className="detail-stat-value">{listing.baths}</span>
-              <span className="detail-stat-label">Baths</span>
+              <span className="detail-stat-label">{t('ba')}</span>
             </div>
             <div className="detail-stat">
-              <span className="detail-stat-value">{listing.sqft.toLocaleString()}</span>
-              <span className="detail-stat-label">Sq Ft</span>
+              <span className="detail-stat-value">{fmt.area}</span>
+              <span className="detail-stat-label">{t('about')}</span>
             </div>
             <div className="detail-stat">
               <span className="detail-stat-value">{listing.year}</span>
-              <span className="detail-stat-label">Built</span>
+              <span className="detail-stat-label">{listing.year}</span>
             </div>
           </div>
 
-          <div className="detail-section">
-            <h3 className="section-label">About</h3>
-            <p className="detail-description">{listing.description}</p>
-          </div>
 
           <div className="detail-section">
-            <h3 className="section-label">Features</h3>
-            <ul className="detail-features">
-              {listing.features.map(f => (
-                <li key={f}>{f}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="detail-section">
-            <h3 className="section-label">Details</h3>
+            <h3 className="section-label">{t('features')}</h3>
             <div className="detail-meta-grid">
-              <div><span className="detail-meta-label">Type</span><span className="detail-meta-value">{listing.type}</span></div>
-              <div><span className="detail-meta-label">MLS #</span><span className="detail-meta-value">{listing.mlsNumber}</span></div>
-              <div><span className="detail-meta-label">Listed</span><span className="detail-meta-value">{listing.listedDaysAgo} day{listing.listedDaysAgo !== 1 ? 's' : ''} ago</span></div>
+              <div><span className="detail-meta-label">{t('type')}</span><span className="detail-meta-value">{t(listing.type)}</span></div>
+              <div><span className="detail-meta-label">#</span><span className="detail-meta-value">{listing.refNumber}</span></div>
+              <div><span className="detail-meta-label">{t('sort_newest')}</span><span className="detail-meta-value">{t('listed_ago', { n: listing.listedDaysAgo })}</span></div>
             </div>
           </div>
         </div>
