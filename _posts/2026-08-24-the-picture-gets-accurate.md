@@ -46,4 +46,4 @@ Spam wave hit: six apps flagged, appeals filed, and I fixed bugs across Epiphany
 
 Sign in with Apple finally worked on Healstack macOS after months of failing - it just needed a sign-out button that was missing - and I added Google sign-in to healstack, litigate, and lexly using OAuth with the shared Supabase credentials.
 
-Refreshed architecture diagrams across thirty repos (twenty-eight stale, five missing) with a new render script that generates house-style SVGs from simple specs, added Architecture sections to seventeen READMEs, and standardized diagram paths so every repo stores it at the root.
+Refreshed architecture diagrams across thirty repos (twenty-eight stale, five missing) with a new render script that generates house-style SVGs from simple specs, added Architecture sections to seventeen READMEs, and standardized diagram paths so every repo stores it at the root. Epiphany's latest version progressed through the upload-not-ipa trap (manually finished the ASC steps), build validated, retitled in place from a prior rejection, and now awaits Apple's final approval after attaching a build to a previously-rejected version.
