@@ -9,9 +9,9 @@ categories: journal quarterly
 
 August was the month I stopped trusting my own notes. It started with a full inventory of the codebase that found directories existing in two places, six repos with private copies of design tokens, and apps that were just chapters of other apps. A nested clone had been inside itself; deleting it freed a gigabyte. I sketched cleanup phases and left them rather than starting a full rewrite.
 
-Then I read the actual App Store rejection reasons instead of guessing at them, and eight rejections collapsed into three causes: account suspension, sign-in failures, and an app using "Mac" in its name. Four apps marked as waiting had in fact been rejected weeks earlier. The three sign-in failures weren't related: one had corrupted test data, one pointed at a dead domain, the third took debugging. The lesson: check rejections against shipped code before trusting existing theory.
+Then I read the actual App Store rejection reasons, and eight rejections collapsed into three causes: suspension, sign-in failures, and naming. Four marked as waiting had been rejected weeks earlier. The three sign-in failures weren't related: corrupted test data, a dead domain, one required debugging. Lesson: check rejections against shipped code before trusting existing theory.
 
-The same pattern showed everywhere. Production bugs across eleven repos never made it onto any list: Litigate's light mode broken, Sparkjar's account deletion errored, Talli's sync wedged for months. This journal wasn't publishing because two Pages projects shared nearly the same name and the deploy script hit the wrong one. Even system updates broke silently.
+That pattern was everywhere: production bugs across eleven repos never tracked (Litigate's light mode, Sparkjar's account deletion, Talli's sync), this journal wasn't publishing due to duplicate Pages projects, even system updates broke silently.
 
 Plenty did ship. Apple flagged two apps for quality, so I rewrote both from webview shells into native code. Quotestreak went out on phone and desktop under one purchase, with the quote bank grown from 193 to 272 entries. Bookrank launched with 127 covers and a redesigned interface. Newsline turned from a website into something code can call. A security sweep fixed a forgeable school gate and an unprotected AI proxy, and the last two big projects moved off the old host.
 
@@ -44,3 +44,7 @@ Late Thursday I noticed Sparkjar's landing page rendering in serif. The font sta
 Early Wednesday found five iOS apps rejected for Guideline 4.3(a) Design: Spam (Sparkjar, NYC, Talli, Curvely, Doorstock). Apple flagged an account-level pattern - the apps looked like repackaged templates. macOS builds of NYC and Sparkjar were unaffected and either approved or in review. The rejections aren't revertible by resubmitting the same build; appeals only path forward. Wrote the appeal and added status lines to each roadmap. One app's old rejection turned out stale, superseded by a rebuild in review that was mismatched on both platforms until a version-rename-in-place fixed it Thursday.
 
 Thursday evening fixed Inkpress's landing page. Screenshots were stretching vertically because the height attribute locked the aspect ratio while CSS width constrained it; adding `height: auto` fixed that. Added an animated hero matching Bookrank's style with drifting feed-headline cards and a scrim, plus a prefers-reduced-motion guard. Deployed to Cloudflare Pages.
+
+## Wednesday (2026-08-27)
+
+Built a dream journal that interprets entries against previous ones, deployed to Cloudflare Workers with a landing page hero of animated lights. Safety testing found the model needed deterministic checks before calling it rather than just prompts, since it ignored those and fabricated recurrences by matching dates instead of content.
