@@ -47,4 +47,4 @@ Thursday evening fixed Inkpress's landing page. Screenshots were stretching vert
 
 ## Wednesday (2026-08-27)
 
-Built a dream journal that interprets entries against previous ones, deployed to Cloudflare Workers with a landing page hero of animated lights. Safety testing found the model needed deterministic checks before calling it rather than just prompts, since it ignored those and fabricated recurrences by matching dates instead of content.
+Built a dream journal that interprets entries against previous ones, deployed to Cloudflare Workers with a landing page hero of animated lights. Safety testing found the model needed deterministic checks before calling it rather than just prompts, since it ignored those and fabricated recurrences by matching dates instead of content. Also added a GitHub Actions workflow to Lexly that runs the deploy script on push to main; the workflow is green but no-ops until a Cloudflare API token with Accounts/Pages/Edit scope is set as a repo secret.
