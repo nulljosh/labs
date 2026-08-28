@@ -42,10 +42,8 @@ Registered the Google OAuth client and got sign-in buttons onto healstack, litig
 
 ## Friday (2026-08-28)
 
-Spam wave hit: six apps flagged, appeals filed, and I fixed bugs across Epiphany, Lexly, Curvely, renamed Wiretext to Charwork with a full iOS restyle, and got Sidewise test-ready with macOS screenshots for review.
+Spam wave hit: six apps flagged, appeals filed, and I fixed bugs across Epiphany, Lexly, Curvely, renamed Wiretext to Charwork with a full iOS restyle, and got Sidewise test-ready with macOS screenshots for review. Cleaned fourteen repos of tracked node_modules and build artifacts (11,000 files, 4.9 GB), freeing disk from 14 to 9.4 while dropping unused packages from Epiphany.
 
-Cleaned fourteen repos of tracked node_modules and build artifacts (11,000 files, 4.9 GB), freeing disk from 14 to 9.4 while dropping unused packages from Epiphany.
+Sign in with Apple finally worked on Healstack macOS after months of failing - it just needed a sign-out button that was missing - and I added Google sign-in to healstack, litigate, and lexly using OAuth with the shared Supabase credentials.
 
-Evening breakthrough: Sign in with Apple finally worked on Healstack macOS, a first across months of trying. It had failed because MacSettingsView had no sign-out button, leaving no path back to login - the Supabase config and auth code were correct all along, just never tested outside App Store review. Added Google sign-in to healstack, litigate, and lexly using OAuth with the shared Supabase credentials.
-
-Refreshed the architecture diagrams across thirty repos — twenty-eight had stale ones (some two hundred commits behind, several months old), five had none at all. Created a new render script that takes a hand-written row specification and emits a house-style SVG in seconds rather than minutes in Figma. Added Architecture sections to seventeen READMEs that had never linked one, and standardized the diagram paths so every repo stores it at the root.
+Refreshed architecture diagrams across thirty repos (twenty-eight stale, five missing) with a new render script that generates house-style SVGs from simple specs, added Architecture sections to seventeen READMEs, and standardized diagram paths so every repo stores it at the root.
