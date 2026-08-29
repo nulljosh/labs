@@ -48,4 +48,4 @@ Also fixed Charwork's build system (which was wiping dist on each rebuild) and s
 
 ## Saturday (2026-08-29)
 
-Apple's web session was still down this morning, so I couldn't read Lexly's rejection details. Checked the status through the API instead: iOS rejected, macOS in review, blocker noted in the roadmap.
+Shipped Inkpress' first-ever Mac release alongside the iOS submission, added entry thumbnails across all platforms, and built a headless screenshot capture tool for App Store reviews using SwiftUI's ImageRenderer. Re-shot Healstack's iOS screenshots, which turned out to have only two broken frames, not the whole set; fixed the tab-bar overlap by launching directly to each screen and found a new clipping bug on device. Pushed NYC's App Store listing from four screenshots to ten, plus promotional text. Re-verified the GTM ledger against live data and found six stale rows. The flights map issue is a Cloudflare egress block that affects every free ADS-B source, so the Vercel escape hatch is dead; built and reverted a fallback.
