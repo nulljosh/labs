@@ -49,3 +49,5 @@ Also fixed Charwork's build system (which was wiping dist on each rebuild) and s
 ## Saturday (2026-08-29)
 
 Shipped Inkpress' first-ever Mac release alongside iOS submission with entry thumbnails and headless screenshot tooling. Re-shot Healstack screenshots and filled NYC's listing to ten with promo text, audited GTM (found CRA tax form is the real revenue blocker), and diagnosed the flights map as Cloudflare IP geofencing. Rejected Lexly's 4.3(a) appeal, so I repositioned it around BC Grade 12 curriculum instead of generic languages (rewrote listings, deployed live, iOS stays on previous version, macOS in review). Fixed Toroid's availability via CLI by adding a `--limit 200` flag - the 12-week blocker was a pagination default, not a missing feature.
+
+Built a /mobbin skill to pull live app designs from Mobbin via Chrome automation (no public API), searching for flows like onboarding or paywalls, screenshotting 3-5 examples, and reporting concrete patterns instead of just image dumps.
