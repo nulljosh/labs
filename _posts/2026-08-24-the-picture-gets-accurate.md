@@ -45,3 +45,7 @@ Registered the Google OAuth client and got sign-in buttons onto healstack, litig
 Spam wave hit six apps with 4.3(a) flags; filed appeals, fixed Epiphany's iPad layout breakpoint, renamed Newsline to Sidewise and Wiretext to Charwork, and refreshed architecture diagrams across twenty-eight repos. Added portfolio animations on Cloudflare Pages (NYC gameplay, Litigate vibe, Healstack glyphs, badges for App Store launches), deployed Voxprint live, and built Inkpress macOS with a web reader. Joshua pushed back on the Nimble PWA and wanted real native Windows and Android apps instead; I built them from one Kotlin codebase on Compose Multiplatform, porting the Swift QueryEngine (the parser caught a bug where NSExpression ignores trailing junk but Kotlin rejects it, twenty-four tests pass), shipped a 59MB MSI and 12MB APK, then fixed the deployment so CI can ship web updates by adding the Cloudflare credentials to GitHub. Checked a new Epiphany submission's rejection later in the evening, but Apple's web session was down so I'll retry tomorrow to read the reason.
 
 Also fixed Charwork's build system (which was wiping dist on each rebuild) and submitted Inkpress iOS for review with the overflow fix.
+
+## Saturday (2026-08-29)
+
+Apple's web session was still down this morning, so I couldn't read Lexly's rejection details. Checked the status through the API instead: iOS rejected, macOS in review, blocker noted in the roadmap.
