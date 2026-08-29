@@ -1,7 +1,7 @@
 # GTM — revenue state of every app
 
 Single source of truth for what earns money, what can't yet, and why. Verified against ASC and
-production on 2026-08-26. Don't re-derive this from 18 ASC records; update this table instead.
+production on 2026-08-29. Don't re-derive this from 18 ASC records; update this table instead.
 
 ## The one-line summary
 
@@ -12,20 +12,20 @@ until the Paid Apps Agreement activates (blocked on a CRA Business Number, see b
 
 | App | ASC ID | Live | Price | Rail | Blocker / next action |
 |---|---|---|---|---|---|
-| Epiphany | 6779522175 | iOS 2.5.4 · Mac 2.5.2 | $1 one-time (planned) | Stripe live + StoreKit | **Focus.** Verify checkout round-trip; add one upgrade CTA at the free limit |
-| Talli | 6782366555 | iOS 3.5.12 · Mac 3.5.6 | free | Stripe live | **Focus.** One upgrade CTA (`src/api.js` → `/api/stripe-checkout`) |
-| Voxprint | 6782604262 | Mac 1.3.6 | $7.99 one-time | StoreKit, **disabled** | **Focus.** Cheapest unlock in the portfolio — 2-line revert, see Track C |
-| Lexly | 6783501611 | iOS 1.1.3 · Mac 1.1.4 | free | Stripe (unused) | none planned |
-| Litigate | 6787857503 | iOS 1.0.2 | free | none | none planned |
-| Bookrank | 6792376485 | Mac 1.0.1 | free | none | none planned |
-| Sparkjar | 6785162492 | Mac 1.0.1 | free | Stripe live | email/OAuth unconfigured — leave alone |
-| Inkpress | 6787759999 | iOS 1.0.5 | free | none | none planned |
-| Wordroot | 6794988021 | Mac 1.0 | free | none | none planned |
-| Curvely | 6794988370 | iOS 1.2.1 | free | none | none planned |
-| Wiretext | 6794988951 | iOS 1.1.0 | free | none | none planned |
+| Epiphany | 6779522175 | Mac 2.5.2 · **iOS 2.5.6 REJECTED** | $1 one-time (planned) | Stripe live + StoreKit | **Focus.** iOS is out of the store on 4.3(a); fix that before any paywall work |
+| Talli | 6782366555 | iOS 3.5.13 · Mac 3.5.6 | free | Stripe live | **Focus.** One upgrade CTA (`src/api.js` → `/api/stripe-checkout`) |
+| Voxprint | 6782604262 | Mac 1.3.6 · iOS 1.3.8 staged | $7.99 one-time | StoreKit, **disabled** | **Focus.** Cheapest unlock in the portfolio — 2-line revert, see Track C |
+| Lexly | 6783501611 | **iOS 1.1.5 REJECTED** · Mac 1.1.5 IN_REVIEW | free | Stripe (unused) | none planned |
+| Litigate | 6787857503 | iOS 1.0.3 | free | none | none planned |
+| Bookrank | 6792376485 | iOS 1.0.1 · Mac 1.0.1 | free | none | personal shelf, not a product |
+| Sparkjar | 6785162492 | Mac 1.0.1 · **iOS 1.0 REJECTED** | free | Stripe live | iOS never shipped; email/OAuth unconfigured — leave alone |
+| Inkpress | 6787759999 | **iOS 1.0.6 + Mac 1.0.7 WAITING_FOR_REVIEW** | free | none | Mac 1.0.7 is its first ever Mac release |
+| Wordroot | 6794988021 | iOS 1.0.1 · Mac 1.0.1 IN_REVIEW | free | none | none planned |
+| Curvely | 6794988370 | **iOS 1.2.2 REJECTED** | free | none | 4.3(a) wave, reply filed |
+| Charwork | 6794988951 | iOS 1.1.0 | free | none | repo renamed from wiretext; ASC record still "Wiretext" |
 | Quotestreak | 6804394619 | iOS 1.0 · Mac 1.0 | free | none | none planned |
-| Healstack | 6785764864 | **IN_REVIEW** 2.3.5 | $1 CSV export | Stripe live | wait for review |
-| NYC Survive | 6782618198 | **REJECTED** iOS | free | none | read rejection reason |
+| Healstack | 6785764864 | **iOS 2.3.5 REJECTED** · Mac 2.3.5 IN_REVIEW | $1 CSV export | Stripe live | 4.3(a) wave, reply filed |
+| NYC Survive | 6782618198 | **iOS 1.0.0 REJECTED** · Mac 1.0.1 IN_REVIEW | free | none | listing filled to 10 screenshots 2026-08-29 |
 
 Focus is **Epiphany, Talli, Voxprint**. The other nine stay free and serve as ASO surface —
 twelve paywalls with no users each earn $0 and triple the review surface.
