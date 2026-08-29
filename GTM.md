@@ -32,11 +32,15 @@ twelve paywalls with no users each earn $0 and triple the review surface.
 
 ## What's blocked on Joshua (no agent path)
 
-1. **CRA Business Registration Online → Business Number + RT**, then GST/HST Form 506 in ASC.
-   This gates *all* iOS revenue across *all* apps. US tax forms (W-8BEN + Certificate of Foreign
-   Status) are already Active; bank `rbc (8640)` is submitted.
-   **Test first:** Apple lists only Banking + US Tax as activation requirements and never names
-   the Canadian form — the agreement may flip Active without the BN. Check before registering.
+1. **Canadian GST/HST Form 506 — status `Missing Tax Info`.** Read off ASC > Business >
+   Agreements on 2026-08-29. This is the *only* outstanding item and it gates all iOS revenue
+   across all apps. Paid Apps Agreement is `Pending User Info`; both US tax forms are Active;
+   bank `rbc (8640)` is `Processing`, **not rejected** — the "no further updates for 24 hours"
+   banner is what previously read as a rejection.
+   **The old "test first" note is resolved and wrong:** Apple names the Canadian form explicitly,
+   so it is not skippable. Still unknown, and the one question worth asking Apple: whether Form
+   506 accepts a *not-registered* declaration, which would skip CRA registration entirely (the
+   portfolio is far below the $30k small-supplier threshold). Full detail: `wiki/pages/paid-apps-agreement.md`.
 2. **Cloudflare Web Analytics beacon token.** Dashboard-only: the stored token is DNS-scoped and
    the wrangler OAuth token has no `rum` scope, so no CLI path exists. Create the site token in
    the CF dashboard and drop it in; the script tag is one line per site.
