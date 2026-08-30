@@ -30,7 +30,7 @@
 | **fengshui** | Fengshui reader, web + iOS | fengshui.heyitsmejosh.com |
 | **nimble** | macOS menu bar + web instant answers | — |
 | **cadence** | Time tracking, web + SwiftUI | cadence.heyitsmejosh.com |
-| **dream** | Dream journal + interpretation (Workers AI) | dream.trommatic.workers.dev |
+| **dream** | Dream journal + interpretation (Workers AI) | dream.heyitsmejosh.com |
 | **conway** | Game of Life, web/iOS/macOS. No accounts or network | — |
 
 ### Sites & infrastructure
