@@ -38,8 +38,8 @@
 |---|---|
 | **nulljosh.github.io** | Portfolio, heyitsmejosh.com (rename to jaybulb.com pending domain purchase) |
 | **journal** | Jekyll blog, journal.heyitsmejosh.com (Pages project `journal-heyitsmejosh`) |
-| **notes** | Personal notes + reference, notes.heyitsmejosh.com (braingraph merged in) |
-| **plan** | School/career plan site |
+| **notes** | Personal notes + reference (private, braingraph merged in) |
+| **nulljosh.github.io/plan** | School/career plan site, folded into portfolio 2026-08-30 |
 | **dotfiles** | Shell configs, api-gateway, kv-store, search-engine, applescripts, vibe ref |
 | **scripts/** | Loose helper scripts (letterboxd, trakt, tf-health, wiki sync) |
 | **_feature_audit/** | `/feature-audit` CSVs, one per app |
