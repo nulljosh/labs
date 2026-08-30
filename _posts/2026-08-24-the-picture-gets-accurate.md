@@ -54,3 +54,4 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 Fixed Lexly's iOS catalog, repriced Voxprint to $9.99, swept App Store URLs across apps, and finished Bookrank's README with headless screenshots. Swept security headers across eight web projects and rebuilt Doorstock and Feng Shui landing pages to house style. Standardized App Store call-to-action templates across four landing pages with Apple's Smart App Banner meta tag. Checked conway: web's live, iOS staged but held from the 4.3(a) wave, added macOS to the same ASC record.
 
+ Found the privacy site serving the wrong index (unredacted transcript grades and funding detail), so I deleted the public repo and cleaned up the duplicate directory.
