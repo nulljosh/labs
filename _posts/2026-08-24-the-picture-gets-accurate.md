@@ -52,5 +52,5 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Fixed Lexly's iOS catalog and audited the portfolio (Form 506 licensing, missing analytics and canonical URLs). Repriced Voxprint to $9.99 and swept App Store URLs across apps. Finished Bookrank's README with headless screenshots and swept security headers across eight web projects. Rebuilt Doorstock's landing page into house style and finished Feng Shui with share metadata and source attribution, deployed both to Cloudflare Pages. Standardized the App Store call-to-action template across four landing pages by adding Apple's Smart App Banner meta tag to Wordroot, Curvely, Charwork, and Doorstock, paired with a consistent text button for other platforms, and replaced Wordroot's remote badge image with the same button style.
+Fixed Lexly's iOS catalog, repriced Voxprint to $9.99, swept App Store URLs across apps, and finished Bookrank's README with headless screenshots. Swept security headers across eight web projects and rebuilt Doorstock and Feng Shui landing pages to house style. Standardized App Store call-to-action templates across four landing pages with Apple's Smart App Banner meta tag. Checked conway: web's live, iOS staged but held from the 4.3(a) wave, added macOS to the same ASC record.
 
