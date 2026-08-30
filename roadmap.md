@@ -109,7 +109,43 @@ no-ops. See `cadence/functions/_adapter.js` for the globalThis workaround, or bu
       `make-appicon.sh`, so they have no guardrail against a hand export reintroducing this.
       Nothing is currently broken, so no script was copied into 19 repos. If it recurs, the fix
       is one shared parameterized script (dest + bg differ per repo), not 19 copies.
-- [ ] **macOS versions still needed for**: BCGD, Nullfolio, Healstack, Wiretext, Litigate, Inkpress.
+- **macOS coverage — DONE 2026-08-30. Do not re-open.** That old list was stale: bcgd, healstack,
+      litigate and inkpress all already had macOS targets. charwork and curvely were the only two
+      genuinely missing one and both now build, sign and run. **Every app in the estate has a Mac
+      target.** Recipe if it ever comes up again: `supportedDestinations: [iOS, macOS]`, the ten
+      `mac_*.png` icon idioms, `LSApplicationCategoryType` in the *plist* (INFOPLIST_KEY_* is
+      ignored under `GENERATE_INFOPLIST_FILE: NO`), and **two entitlements files split by
+      `[sdk=macosx*]`** — a shared one compiles but cannot sign, because `application-identifier`
+      is not a valid macOS entitlement.
+- **Icon "missing" scare — investigated 2026-08-30, NOT a real estate-wide bug.** A missing
+      `ASSETCATALOG_COMPILER_APPICON_NAME` breaks only *macOS* builds; iOS auto-detects an
+      appiconset named AppIcon. Verified against talli's and healstack's built apps, which both
+      carry `CFBundleIconName` despite lacking the setting. talli and healstack need no fix.
+      The one real hole is **cadence, which has no asset catalog at all** — both its targets build
+      iconless. `cadence/icon.svg` exists; generate one.
+- [ ] **MCP endpoints, next three** (charwork and curvely both shipped one 2026-08-30 —
+      `functions/mcp.js` + a shared `src/lib/tools.js`, ~75 lines of JSON-RPC, no SDK, no Durable
+      Object, copy either). Ranked by cost:
+      1. **cadence** — cheapest by far. Pages already, 3 routes, zero auth, handlers already
+         callable behind `functions/_adapter.js`, and `web/webmcp.js` already names the tools
+         (`get_commit_stats`, `get_projects`, `get_heatmap`). **The work is not the JSON-RPC —
+         it is a rate limit**, since every call spends the `GITHUB_TOKEN` GraphQL quota. Copy the
+         `unsafe.bindings` ratelimit block from `nimble/worker/wrangler.jsonc`.
+      2. **healstack** — `src/data/substances.js` is a 3663-line public reference corpus (no auth
+         question at all). Tools: search_substances / get_substance / check_interactions. Cost is
+         pulling that logic out of `src/components/InteractionChecker.jsx` and
+         `src/hooks/useSubstances.js` into a shared module. The 14 personal tools in
+         `src/lib/webmcp.jsx` stay browser-side — that is the user's health log.
+      3. **epiphany** — richest public data (~20 unauth market/weather/civic routes in
+         `server/api/`). More expensive: it is a Worker not Pages, handlers are `(req,res)`-shaped
+         with no adapter, and the tool list must be an explicit **allowlist** so portfolio /
+         watchlist / broker / stripe can never be reached through it. Rate-limit it.
+      **Not worth it, decided 2026-08-30:** litigate (no server, and it is someone's legal case
+      file), bookrank (static on GH Pages, books.json is already a public URL), lexly (zero API
+      routes), talli (45 of 46 routes are session-gated CRA data), inkpress (one tool over an open
+      proxy), dream + nimble (a model asking a weaker model a question).
+- **Android / Windows / Linux — decided against 2026-08-30.** nimble is the only app with them and
+      it cost a full KMP rewrite (`nimble/kmp/`). Revisit only if an app gets real users there.
 
 ## New-app freeze (decided 2026-08-22, revised)
 
