@@ -41,9 +41,12 @@ twelve paywalls with no users each earn $0 and triple the review surface.
    so it is not skippable. Still unknown, and the one question worth asking Apple: whether Form
    506 accepts a *not-registered* declaration, which would skip CRA registration entirely (the
    portfolio is far below the $30k small-supplier threshold). Full detail: `wiki/pages/paid-apps-agreement.md`.
-2. **Cloudflare Web Analytics beacon token.** Dashboard-only: the stored token is DNS-scoped and
-   the wrangler OAuth token has no `rum` scope, so no CLI path exists. Create the site token in
-   the CF dashboard and drop it in; the script tag is one line per site.
+2. ~~**Cloudflare Web Analytics beacon token.**~~ **NOT BLOCKED — resolved 2026-08-30, this item
+   was never real.** Web Analytics was already enabled with automatic edge injection and had been
+   collecting for ~6 months. No token to create, no script tag to install. (It remains true that
+   the CLI cannot read this: the stored CF token is DNS-scoped with zero account access and the
+   wrangler OAuth token has no `rum` scope, so `/rum/site_info/list` returns an auth error. That is
+   a *read* limitation only — it is what made this look blocked. Check the dashboard, not the API.)
 3. Buy `jaybulb.com` if the portfolio rename should land before any launch posts.
 
 ## Funnel
@@ -54,8 +57,14 @@ curl reports a false zero. **Grep the source, never curl, when auditing these.**
 
 - **Done:** `nulljosh.github.io/index.html` now carries a direct App Store link on all 12 live
   apps, alongside the landing-page link, so returning visitors skip the second hop.
-- **Blocked:** analytics. Zero scripts across every site — not one hop of this funnel is
-  measured, which makes every other claim here unfalsifiable. See blocker 2.
+- **Done — and the old "blocked" note here was wrong.** Cloudflare Web Analytics has been live
+  on `heyitsmejosh.com` for ~6 months, set to **"Enable, excluding visitor data in the EU"**,
+  which means Cloudflare injects the beacon at the edge. That is exactly why grepping the repos
+  for `cloudflareinsights` / `beacon.min.js` finds nothing — **there is no script tag to find, and
+  its absence is not evidence of no analytics.** Verified in the dashboard 2026-08-30: 37 visits /
+  38 page views in 24h, and the per-URL breakdown covers the app subdomains, not just the apex
+  (heyitsmejosh.com, doorstock., bookrank., voxprint., nyc. all reporting). Site tag
+  `b4cf73902e484158b50172410b0ca54d`. Both funnel hops are measured. Nothing to install.
 - **Done 2026-08-30:** ASO metadata. **The old claim here — "No app has canonical `metadata/`
   checked in" — was wrong.** 14 apps already had it; the remaining 5 were pulled from live on
   2026-08-30 (epiphany, curvely, wordroot, nyc, bcgd/Doorstock). All 19 now carry canonical
