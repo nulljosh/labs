@@ -53,3 +53,5 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 ## Sunday (2026-08-30)
 
 Gap scan found XSS in Sidewise: feed titles entity-decoded before innerHTML, reconstructing markup from hostile feeds. Fixed via stripTags with tests verifying eighty live titles clean. Rolled security headers (CSP/HSTS/XFO/nosniff) to nine sites, fixed Talli's package-lock drift, deleted orphaned Vercel code, and merged vercel-to-cloudflare into main. Pointed Curvely's metadata URLs at custom domain, unpublished the notes site, cleaned dotfiles, and merged career plan into portfolio.
+
+App Store delivery error on Talli was a bounce (version already approved), not a rejection. Bumped the version and cleaned up stale roadmap notes. Spam wave now only affects Curvely and Doorstock.
