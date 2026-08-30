@@ -52,4 +52,4 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Gap scan found XSS in Sidewise: feed titles entity-decoded before innerHTML assignment, reconstructing markup from hostile feeds. Fixed by routing through stripTags and added a test; verified eighty live titles clean. Rolled security headers (CSP/HSTS/XFO/nosniff) to nine sites. Talli had orphaned Vercel api/ code trusting client headers; deleted it and merged vercel-to-cloudflare branch into main for the first time.
+Gap scan found XSS in Sidewise: feed titles entity-decoded before innerHTML assignment, reconstructing markup from hostile feeds. Fixed by routing through stripTags and added a test; verified eighty live titles clean. Rolled security headers (CSP/HSTS/XFO/nosniff) to nine sites. Talli's CI was failing because package-lock drifted from package.json; resync fixed it and tests passed, then deleted orphaned Vercel api/ code and merged vercel-to-cloudflare into main for the first time.
