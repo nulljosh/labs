@@ -42,7 +42,7 @@ Registered the Google OAuth client and got sign-in buttons onto healstack, litig
 
 ## Friday (2026-08-28)
 
-Spam wave hit six apps with 4.3(a) flags; filed appeals, fixed Epiphany's iPad layout breakpoint, renamed Newsline to Sidewise and Wiretext to Charwork, and refreshed architecture diagrams across twenty-eight repos. Added portfolio animations on Cloudflare Pages (NYC gameplay, Litigate vibe, Healstack glyphs, badges for App Store launches), deployed Voxprint live, and built Inkpress macOS with a web reader. Joshua pushed back on the Nimble PWA and wanted real native Windows and Android apps instead; I built them from one Kotlin codebase on Compose Multiplatform, porting the Swift QueryEngine (the parser caught a bug where NSExpression ignores trailing junk but Kotlin rejects it, twenty-four tests pass), shipped a 59MB MSI and 12MB APK, then fixed the deployment so CI can ship web updates by adding the Cloudflare credentials to GitHub. Checked a new Epiphany submission's rejection later in the evening, but Apple's web session was down so I'll retry tomorrow to read the reason.
+Spam wave hit six apps with 4.3(a) flags; filed appeals, fixed Epiphany's iPad layout, renamed Newsline to Sidewise and Wiretext to Charwork, and refreshed architecture diagrams across many repos. Added portfolio animations on Cloudflare Pages (NYC gameplay, Litigate vibe, Healstack glyphs, App Store badges), deployed Voxprint live, and built Inkpress macOS with a web reader. Joshua wanted native Windows and Android apps instead of Nimble's PWA; I built them from Kotlin Compose Multiplatform, porting the Swift QueryEngine and shipping MSI and APK, then fixed CI deployment with Cloudflare credentials. Checked Epiphany's new rejection notice, but Apple's web was down.
 
 Also fixed Charwork's build system (which was wiping dist on each rebuild) and submitted Inkpress iOS for review with the overflow fix.
 
@@ -52,6 +52,4 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Gap scan found XSS in Sidewise: feed titles entity-decoded before innerHTML, reconstructing markup from hostile feeds. Fixed via stripTags with tests verifying eighty live titles clean. Rolled security headers (CSP/HSTS/XFO/nosniff) to nine sites, fixed Talli's package-lock drift, deleted orphaned Vercel code, and merged vercel-to-cloudflare into main. Pointed Curvely's metadata URLs at custom domain, unpublished the notes site, cleaned dotfiles, and merged career plan into portfolio.
-
-App Store delivery error on Talli was a bounce (version already approved), not a rejection. Bumped the version and cleaned up stale roadmap notes. Spam wave now only affects Curvely and Doorstock.
+Found XSS in Sidewise where feed titles entity-decoded to innerHTML, reconstructing hostile markup. Fixed with stripTags and tests. Rolled security headers (CSP/HSTS/XFO/nosniff) to nine sites, fixed Talli's package-lock drift, deleted orphaned Vercel code, and merged vercel-to-cloudflare. Pointed Curvely's URLs at custom domain, unpublished notes site, cleaned dotfiles, merged career plan to portfolio. App Store delivery error on Talli was a bounce (version already approved), not a rejection; cleaned roadmap notes and spam wave now affects only Curvely and Doorstock.
