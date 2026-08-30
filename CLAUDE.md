@@ -95,6 +95,7 @@ Apps with book/magazine content get a vague Guideline 2.1 unless China mainland 
 - `npm i <pkg> --save-dev` on an already-pinned dep silently upgrades it (jsdom 27→30 broke CI 2026-08-17). Edit package.json and reinstall, or pin explicitly. Diff the lockfile
 - Stripe is live on epiphany/healstack/sparkjar/talli. Stripe cannot unlock in-app features under App Review rules — that needs IAP (RevenueCat is the evaluated-but-unintegrated option)
 - Social sign-in is blocked on one-time console registrations (Google/Meta/Apple), not on code. Epiphany already has working Google + Facebook server flows waiting on real credentials
+- `mole clean` cannot do the "Xcode runtime volumes" category headlessly — it needs sudo via `/dev/tty`. When Claude runs it, that category gets skipped silently. Output is ANSI-heavy and looks empty when captured headlessly; pipe through `LC_ALL=C /bin/cat -v` to read it. Run `mole clean` manually in a terminal for the sudo step
 
 ## Open work
 `roadmap.md` is the queue, `GTM.md` the revenue ledger, `PROGRESS.md` a stale 2026-07-02 sizing snapshot (refresh with `/progress`).
