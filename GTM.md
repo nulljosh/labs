@@ -14,7 +14,7 @@ until the Paid Apps Agreement activates (blocked on a CRA Business Number, see b
 |---|---|---|---|---|---|
 | Epiphany | 6779522175 | Mac 2.5.2 · **iOS 2.5.6 REJECTED** | $1 one-time (planned) | Stripe live + StoreKit | **Focus.** iOS is out of the store on 4.3(a); fix that before any paywall work |
 | Talli | 6782366555 | iOS 3.5.13 · Mac 3.5.6 | free | Stripe live | **Focus.** One upgrade CTA (`src/api.js` → `/api/stripe-checkout`) |
-| Voxprint | 6782604262 | Mac 1.3.6 · iOS 1.3.8 staged | $12.99 one-time | StoreKit, **disabled** | **Focus.** 2-line revert, but BLOCKED until Form 506 clears |
+| Voxprint | 6782604262 | Mac 1.3.6 · iOS 1.3.8 staged | $9.99 one-time | StoreKit, **disabled** | **Focus.** 2-line revert, but BLOCKED until Form 506 clears |
 | Lexly | 6783501611 | **iOS 1.1.5 REJECTED** · Mac 1.1.5 IN_REVIEW | free | none | none planned |
 | Litigate | 6787857503 | iOS 1.0.3 | free | none | none planned |
 | Bookrank | 6792376485 | iOS 1.0.1 · Mac 1.0.1 | free | none | personal shelf, not a product |
@@ -69,14 +69,16 @@ A live IAP under an inactive agreement fails review, so this is staged, not appl
 
 - **Voxprint** `Sources/Services/StoreManager.swift`: flip `isPro = true` → `false`, un-early-return
   `refreshEntitlement()`, delete the `ponytail:` comment explaining the workaround. Product
-  `com.nulljosh.echo.unlock`, $12.99 non-consumable, 3-free-file gate, `PaywallView.swift` already
+  `com.nulljosh.echo.unlock`, $9.99 non-consumable, 3-free-file gate, `PaywallView.swift` already
   built. It is **live right now, shipping fully unlocked**.
-- Pricing as decided: Voxprint $12.99 one-time (a subscription contradicts the "own it once,
+- Pricing as decided: Voxprint $9.99 one-time (a subscription contradicts the "own it once,
   nothing leaves your device" pitch); Epiphany $1 one-time.
   Benchmark: **Aiko** is the direct comparable — same on-device Whisper, iOS + Mac, one-time
   **$19.99**. MacWhisper Pro is $59 one-time. Otter/Rev/Descript are $8-30 **per month**, so
-  one-time is the differentiator, not a discount. $12.99 sits under Aiko because Voxprint has
-  no reviews yet; raise toward $19.99 once it does. Set in ASC 2026-08-30 (was $3.99).
+  one-time is the differentiator, not a discount. $9.99 sits well under Aiko because Voxprint has no reviews and Pro unlocks
+  only unlimited file imports plus the `whisper-small` model — live mic is free forever. For a
+  no-review app a low price buys reviews, which are the scarcer asset; raise toward $19.99 once
+  they exist. Set in ASC 2026-08-30 (was $3.99). None of this matters until Form 506 clears.
 - Before declaring a submit blocked, run **one** `asc review submit` and read the real error.
   `asc validate` cannot see agreement state, and a past session was lost to assuming otherwise.
 
