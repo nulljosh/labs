@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Last refreshed 2026-08-28. Per-repo detail lives in each repo's own `CLAUDE.md`/`roadmap.md`; revenue state lives in `GTM.md`. Keep this file a map, not a changelog.*
+*Last refreshed 2026-08-30. Per-repo detail lives in each repo's own `CLAUDE.md`/`roadmap.md`; revenue state lives in `GTM.md`. Keep this file a map, not a changelog.*
 
 ## Environment
 - macOS Darwin 25.x (arm64), Mac Mini M4 · Python 3.14 · Node 24 · xcodegen at `/opt/homebrew/bin/xcodegen`
