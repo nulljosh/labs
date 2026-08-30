@@ -52,6 +52,8 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Pulled canonical App Store metadata, dropped China from four apps, and shipped macOS versions of Charwork and Curvely using the shared APIs and MCP servers ported from Sidewise. Reverse engineered Craigslist's sapi endpoint into a classifieds browser that shipped on web, iOS and macOS at once, tested Curvely's PNG export properly instead of assuming it worked, and gave Cadence the icon it never had.
+Pulled metadata for four apps where I dropped China, shipped macOS versions of Charwork and Curvely using APIs ported from Sidewise, reverse engineered Craigslist's sapi endpoint into a browser for web, iOS and macOS, and gave Cadence the icon it never had.
 
-Then built a site for a French bulldog breeder my parents know. His homepage is 20 MB and the link to his own puppy listings is broken, so I made him four pages with a real application form and got first paint down to 157 KB. The form works end to end but I could not get the notification email going, every key I tried was dead.
+Then built a site for a French bulldog breeder. His page is 20 MB with broken listings, so I made four pages with a real form and got first paint to 157 KB. The form works but I couldn't get notification email working; every key I tried was dead.
+
+Disk hit critical; cleanup freed up to twenty-six gigs by flushing Xcode's build cache.
