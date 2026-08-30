@@ -15,6 +15,11 @@ plugins:
 
 words_per_minute: 200
 
+# Jekyll skips underscore-prefixed files by default, and Cloudflare Pages needs
+# _headers at the site root to apply the security headers.
+include:
+  - _headers
+
 exclude:
   - Gemfile
   - Gemfile.lock
