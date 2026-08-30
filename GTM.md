@@ -56,11 +56,17 @@ curl reports a false zero. **Grep the source, never curl, when auditing these.**
   apps, alongside the landing-page link, so returning visitors skip the second hop.
 - **Blocked:** analytics. Zero scripts across every site — not one hop of this funnel is
   measured, which makes every other claim here unfalsifiable. See blocker 2.
-- **Todo:** ASO. No app has canonical `metadata/` checked in. Subtitle + 100-char keywords are
-  the two highest-weight fields and are doing nothing. Bootstrap with
-  `asc metadata init --dir ./metadata` → `pull` → `plan` → `approve` → `apply --confirm`
-  (use the `asc-metadata-sync` skill). Push metadata **before** a submit — `ship-ios` never
-  pushes `whatsNew`.
+- **Done 2026-08-30:** ASO metadata. **The old claim here — "No app has canonical `metadata/`
+  checked in" — was wrong.** 14 apps already had it; the remaining 5 were pulled from live on
+  2026-08-30 (epiphany, curvely, wordroot, nyc, bcgd/Doorstock). All 19 now carry canonical
+  JSON under `metadata/app-info/` + `metadata/version/<v>/`, with subtitle and keywords set.
+  `bcgd` was the last legacy fastlane `.txt` layout and is now JSON like the rest.
+- **Todo:** ASO copy quality, not ASO plumbing. `promotionalText` is empty on 12 of 19 — it is
+  the only above-the-fold field editable without a review, so it is the cheapest lever left.
+  Workflow: `asc metadata pull` → `plan` → `approve` → `apply --confirm` (use the
+  `asc-metadata-sync` skill). Push metadata **before** a submit — `ship-ios` never pushes
+  `whatsNew`. Two gotchas: apps with multiple app-infos need an explicit `--app-info` on pull
+  (nyc, bcgd), and `app-info` fields are silently discarded while a review is open.
 - For iOS, ASC App Analytics is the free feedback loop — already collecting, nothing to install.
 
 ## Track C — the IAP flip (execute the day the agreement activates, not before)

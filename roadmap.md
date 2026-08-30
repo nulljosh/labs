@@ -57,9 +57,12 @@ Last pruned 2026-08-24 against live ASC + HTTP state, not against notes.
       `asc pricing availability edit --app 6783501611 --territory "CHN" --available false`,
       then cancelling the stale `UNRESOLVED_ISSUES` submission and resubmitting. Now
       `WAITING_FOR_REVIEW` as `c7a51dfe`. Full detail in `lexly/roadmap.md`.
-      **Watch for this on the other book/text apps** — bookrank, wordroot, quotestreak and
-      inkpress are all still listed in China mainland. bookrank is already *live* that way, so
-      the rule is reviewer-triggered, not automatic; none were pre-emptively changed.
+      **RESOLVED 2026-08-30 for the other book/text apps.** bookrank, wordroot, quotestreak and
+      inkpress were all still available in China mainland (verified: 175 territories each, CHN
+      available). All four had CHN dropped pre-emptively rather than waiting to be rejected:
+      `asc pricing availability edit --app <id> --territory "CHN" --available false`, verified
+      1 updated territory each. bookrank was *live* that way, so the rule is reviewer-triggered
+      and this was a latent trap, not an active one.
 
 ## Finish the Vercel exit
 
