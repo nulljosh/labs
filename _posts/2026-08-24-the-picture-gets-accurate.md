@@ -52,4 +52,4 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Scanned the full codebase for the biggest gap: nothing is measured. Every landing page and app ships without analytics, and the Cloudflare beacon is dashboard-only. Pulled canonical App Store metadata from live for five apps and checked it into git, making all 19 consistent. Also dropped China from bookrank, wordroot, quotestreak, and inkpress to avoid the 2.1 rejection trap that caught Lexly.
+Scanned the full codebase for the biggest gap: nothing is measured. Pulled canonical App Store metadata from live and checked it into git, making all 19 consistent, then dropped China from four apps to avoid the 2.1 rejection trap. Hardened security across ten apps with response headers and standardized landing page CTAs. Charwork got macOS, HTTP API, and MCP entry; audited roadmaps for privacy URL gaps and cleaned up stale mirrors in dotfiles and plan. Built and deployed logans-frenchies.
