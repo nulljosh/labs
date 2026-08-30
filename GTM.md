@@ -15,7 +15,7 @@ until the Paid Apps Agreement activates (blocked on a CRA Business Number, see b
 | Epiphany | 6779522175 | Mac 2.5.2 · **iOS 2.5.6 REJECTED** | $1 one-time (planned) | Stripe live + StoreKit | **Focus.** iOS is out of the store on 4.3(a); fix that before any paywall work |
 | Talli | 6782366555 | iOS 3.5.13 · Mac 3.5.6 | free | Stripe live | **Focus.** One upgrade CTA (`src/api.js` → `/api/stripe-checkout`) |
 | Voxprint | 6782604262 | Mac 1.3.6 · iOS 1.3.8 staged | $7.99 one-time | StoreKit, **disabled** | **Focus.** Cheapest unlock in the portfolio — 2-line revert, see Track C |
-| Lexly | 6783501611 | **iOS 1.1.5 REJECTED** · Mac 1.1.5 IN_REVIEW | free | Stripe (unused) | none planned |
+| Lexly | 6783501611 | **iOS 1.1.5 REJECTED** · Mac 1.1.5 IN_REVIEW | free | none | none planned |
 | Litigate | 6787857503 | iOS 1.0.3 | free | none | none planned |
 | Bookrank | 6792376485 | iOS 1.0.1 · Mac 1.0.1 | free | none | personal shelf, not a product |
 | Sparkjar | 6785162492 | Mac 1.0.1 · **iOS 1.0 REJECTED** | free | Stripe live | iOS never shipped; email/OAuth unconfigured — leave alone |
