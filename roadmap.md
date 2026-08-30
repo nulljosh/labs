@@ -121,8 +121,7 @@ no-ops. See `cadence/functions/_adapter.js` for the globalThis workaround, or bu
       `ASSETCATALOG_COMPILER_APPICON_NAME` breaks only *macOS* builds; iOS auto-detects an
       appiconset named AppIcon. Verified against talli's and healstack's built apps, which both
       carry `CFBundleIconName` despite lacking the setting. talli and healstack need no fix.
-      The one real hole is **cadence, which has no asset catalog at all** — both its targets build
-      iconless. `cadence/icon.svg` exists; generate one.
+      **Cadence icon — DONE 2026-08-30.** Generated universal 1024 from icon.svg for iOS and ten mac idiom sizes for macOS; set the compiler flag on both targets. Verified Mac app now carries AppIcon.icns.
 - [ ] **MCP endpoints, next three** (charwork and curvely both shipped one 2026-08-30 —
       `functions/mcp.js` + a shared `src/lib/tools.js`, ~75 lines of JSON-RPC, no SDK, no Durable
       Object, copy either). Ranked by cost:
