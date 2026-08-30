@@ -346,3 +346,36 @@ The only copy is `~/Documents/Code/notes/appeal-4-3-spam.md` at the codebase roo
 roadmap notes also disagree about whether the appeals were filed (Sparkjar and Doorstock say
 "filed", Curvely and NYC Survive say "DRAFTED, NOT FILED"); the draft's own header says
 **DRAFTED, NOT FILED**, so treat all of them as unfiled until Joshua confirms otherwise.
+
+## Portfolio gaps (audit 2026-08-30)
+
+Competitive scan of all ~32 projects. 12 in a store, 6 in the 4.3(a) wave, ~14 never submitted.
+
+**Four apps face thin competition — these are the portfolio:**
+Talli (benefits eligibility; only rivals are Prosper Canada's Benefits Wayfinder web form and
+211.ca — BC Services Card does identity, not eligibility), Litigate (self-represented litigants;
+Clio/MyCase are firm-priced, CanLII is research only), Epiphany (Kubera charges $150/yr),
+LEC (nobody else clients that portal).
+
+**Eight compete with a free giant** — Bookrank/Goodreads, Wordroot/Etymonline, Curvely/Desmos,
+Sparkjar/Apple Notes, Inkpress/Substack, Lexly/Duolingo, Quotestreak/everything, Charwork/TextEdit.
+- [ ] Freeze all eight: no new versions, no metadata, no icons. They are ASO surface and review-queue
+      risk, nothing more. Every hour here is an hour off the four above.
+
+**Gap 1 — nothing can charge.** Form 506 gates all iOS revenue portfolio-wide. Blocked on Joshua.
+See `wiki/pages/paid-apps-agreement.md`. Worth asking Apple whether it accepts a *not-registered*
+declaration; the portfolio is far under the $30k small-supplier threshold.
+
+**Gap 2 — nothing is measured.** Zero analytics scripts across every site, so every claim about
+which app matters is a guess. Needs a Cloudflare Web Analytics beacon token (dashboard-only; the
+stored token is DNS-scoped, the wrangler OAuth token has no `rum` scope). One line per site after.
+
+**Gap 3 — ASO does nothing.** No app has canonical `metadata/` checked in. Subtitle and the
+100-char keyword field are the two highest-weight fields and are empty.
+- [ ] Bootstrap `metadata/` for Talli, Litigate, Epiphany only. Agent-doable, not blocked.
+
+**Done 2026-08-30:** Voxprint IAP renamed Echo Pro -> Voxprint Pro (stale since the rename) and
+repriced $3.99 -> $12.99 (proceeds $11.04). Benchmark: Aiko is the same product at $19.99 one-time,
+MacWhisper Pro $59; Otter/Rev/Descript are $8-30/month, so one-time is the pitch, not a discount.
+The `StoreManager.swift` `isPro` flip stays blocked on Form 506 — flipping it early ships a
+purchase button that dies in review.
