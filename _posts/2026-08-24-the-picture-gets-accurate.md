@@ -52,6 +52,4 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Fixed Lexly's iOS catalog, repriced Voxprint to $9.99, swept App Store URLs across apps, and finished Bookrank's README with headless screenshots. Swept security headers across eight web projects and rebuilt Doorstock and Feng Shui landing pages to house style. Standardized App Store call-to-action templates across four landing pages with Apple's Smart App Banner meta tag. Checked conway: web's live, iOS staged but held from the 4.3(a) wave, added macOS to the same ASC record.
-
- Found the privacy site serving the wrong index (unredacted transcript grades and funding detail), so I deleted the public repo and cleaned up the duplicate directory.
+Fixed Lexly's iOS catalog, repriced Voxprint, swept App Store URLs, and finished Bookrank's README with headless screenshots. Swept security headers across eight web projects and rebuilt Doorstock and Feng Shui landing pages to house style. Found the privacy site serving the wrong index, so deleted it. Fixed Talli's empty-dashboard bug: the URLSession timeout was 15 seconds but the server takes 45, so requests timed out silently, leaving the cached empty dashboard showing. Raised timeouts to 60/90 seconds and surfaced the error when no cache exists.
