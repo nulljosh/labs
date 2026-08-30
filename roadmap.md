@@ -379,3 +379,33 @@ repriced $3.99 -> $12.99 (proceeds $11.04). Benchmark: Aiko is the same product 
 MacWhisper Pro $59; Otter/Rev/Descript are $8-30/month, so one-time is the pitch, not a discount.
 The `StoreManager.swift` `isPro` flip stays blocked on Form 506 — flipping it early ships a
 purchase button that dies in review.
+
+## Broken privacy policy URLs (found 2026-08-30) — COMPLIANCE, not cosmetics
+
+Apple requires a working privacy policy URL. Four apps point at dead or 404 pages. Swept every
+app's `privacyPolicyUrl` and curled each one:
+
+- [ ] **Litigate** — `brief.heyitsmejosh.com/privacy.html` (dead host, stale from the Brief rename).
+      App is **LIVE** with a dead privacy policy. `litigate.heyitsmejosh.com/privacy.html` works.
+- [ ] **Bookrank** — `spine.heyitsmejosh.com/privacy.html` (dead host, stale from the Spine rename).
+      App is **LIVE**. `bookrank.heyitsmejosh.com/privacy.html` works.
+- [ ] **Lexly** — `heyitsmejosh.com/privacy` returns **404**, and it is the generic portfolio root.
+      Lexly iOS is REJECTED right now. `lexly.heyitsmejosh.com/privacy.html` works.
+- [ ] **Voxprint** — the LIVE app-info still has `echo.heyitsmejosh.com/privacy.html` (dead). The
+      staged 1.3.8 app-info is already correct, so shipping 1.3.8 fixes this automatically.
+
+**Why none of these could be fixed today:** an app-info record is only editable while a version is
+staged. Litigate and Bookrank have exactly one app-info each, READY_FOR_SALE, so `privacyPolicyUrl`
+returns "can not be modified in the current state". Lexly's second app-info is IN_REVIEW and equally
+locked. **Creating the next version record is what unlocks the fix** — do it as part of the next
+release, not as a standalone draft (stray ASC drafts can only be deleted from the dashboard).
+
+**Hypothesis for the 4.3(a) wave, now with evidence.** The listings share a template fingerprint:
+several apps pointed support/marketing/privacy at the bare `heyitsmejosh.com` root, and several
+more at hosts abandoned in a rename. To a reviewer that reads as one generator emitting many thin
+apps. De-genericizing every listing is unblocked by Form 506 and worth doing before any resubmit.
+Already fixed live: Healstack iOS and Voxprint iOS support/marketing URLs.
+
+**Web Stripe is NOT broken** (checked 2026-08-30). `/api/stripe` returns 400 to an empty POST on
+epiphany, healstack and sparkjar — the endpoint is live and validating. Talli's returns 401, i.e.
+auth-gated. The rail works; what is missing is CTAs and products, not infrastructure.
