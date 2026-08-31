@@ -54,6 +54,6 @@ Shipped macOS Charwork and Curvely, gave Cadence an icon, built Numen's math wal
 
 ## Monday (2026-08-31)
 
-Fixed Talli's redirect loop, shipped PWA across twenty apps, and built Swing; closed a critical Homeward security hole by moving edit tokens to a create-listing RPC with landing page, icon, and OAuth sign-in; fixed the journal's CSP style-src, patched sidewise, repaletted homeward and fixed found-chip visibility. Ran a contrast audit and found the accent doing double duty as link text, so I created --link tokens for each palette and pushed everywhere. Caught a bash-version trap in a late-night deploy that deployed bookrank over homeward's live domain; rebuilt and verified both hosts.
+Fixed Talli's redirect loop, shipped PWA across twenty apps, and built Swing; closed a critical Homeward security hole by adding an RPC gate to edit tokens. Ran a contrast audit, created new --link tokens for the palette across all projects, and recovered from a bash-version trap that briefly routed traffic to the wrong domain. Late night caught Voxprint's landing page with stale code, moved the App Store link to a top banner, and dropped the separate iOS and Mac buttons.
 
 **Apps:** Numen, Charwork, Curvely, Cadence native iOS/macOS; Inkpress, Voxprint, Lexly, Litigate, Sparkjar, Wordroot live or review. Month: 42 repos, 15+ shipped, cross-platform PWA complete, Swing launched.
