@@ -67,6 +67,7 @@
   background:
     radial-gradient(ellipse 55% 60% at 50% 45%, var(--bg) 20%, transparent 80%),
     linear-gradient(var(--bg), transparent 30%, transparent 62%, var(--bg) 96%),
+    linear-gradient(90deg, var(--bg), transparent 20%, transparent 80%, var(--bg)),
     color-mix(in srgb, var(--bg) 50%, transparent);
 }
 .lp .hero-icon { width: 88px; height: 88px; border-radius: 20px; }
