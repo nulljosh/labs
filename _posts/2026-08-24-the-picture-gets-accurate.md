@@ -54,6 +54,6 @@ Shipped macOS Charwork and Curvely, gave Cadence an icon, built Numen's math wal
 
 ## Monday (2026-08-31)
 
-Deduplicated labs by extracting homeward to its own repo, cleaned up roost and numen with roadmap fixes, and fixed Talli's login loop and Curvely's landing while catching four silent bugs. Shipped Numen's landing page with native iOS/macOS and added Compose Multiplatform targets for three apps to ship real installers. Finished Sparkjar's feed revival: replaced the manual daemon with Cloudflare Workers AI backend and a sidecar cron Worker, going from stale to 50 fully enriched posts authored daily. Charwork resubmitted after the App Store name changed from Wiretext.
+Deduplicated labs by extracting homeward, fixed Talli's login and Curvely's landing, shipped Numen's landing with native iOS/macOS and Compose targets. Finished Sparkjar's feed with Cloudflare Workers AI (replaced daemon, now 50 enriched posts daily). Late wrap found Sparkjar's email blocker: Resend domain was never added to account, so wired new key, added domain, created DNS records; password reset now returns real results. App Privacy verified published, and Cloudflare Email is inaccessible gated beta but Pages couldn't use it anyway without migrating to Workers.
 
 **Apps:** Numen, Talli, Curvely, Charwork, Cadence, Sparkjar, Wordroot.
