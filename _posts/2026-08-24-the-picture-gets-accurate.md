@@ -54,6 +54,6 @@ Shipped macOS Charwork and Curvely, gave Cadence an icon, built Numen's math wal
 
 ## Monday (2026-08-31)
 
-Deduplicated labs by extracting homeward to its own repo, cleaned up roost and numen with roadmap fixes, and fixed Talli's login loop and Curvely's landing while catching four silent bugs: API balance errors, message malformation, type mismatches, and stylesheet blocking. Shipped Numen's landing page with native iOS/macOS; added Compose Multiplatform targets for Charwork, Curvely, and Talli so they offer real downloadable installers for Android and desktop. Analyzed sparkjar's stale feed and redesigned it for Cloudflare Cron automation with a drifting hero. Late evening shipped Charwork with the App Store name changed from Wiretext; bumped the version and resubmitted since the old app-info couldn't be edited mid-review.
+Deduplicated labs by extracting homeward to its own repo, cleaned up roost and numen with roadmap fixes, and fixed Talli's login loop and Curvely's landing while catching four silent bugs. Shipped Numen's landing page with native iOS/macOS and added Compose Multiplatform targets for three apps to ship real installers. Finished Sparkjar's feed revival: replaced the manual daemon with Cloudflare Workers AI backend and a sidecar cron Worker, going from stale to 50 fully enriched posts authored daily. Charwork resubmitted after the App Store name changed from Wiretext.
 
 **Apps:** Numen, Talli, Curvely, Charwork, Cadence, Sparkjar, Wordroot.
