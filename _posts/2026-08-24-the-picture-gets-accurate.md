@@ -50,7 +50,7 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Shipped macOS versions of Charwork and Curvely, gave Cadence its icon, and built an animated math wall for Numen. Reshaped Feng Shui into an assessment, fixed Epiphany's landing map and reskinned the journal site. Joshua found and fixed six bugs in Roost's demo; also added native iOS and macOS builds of Numen, porting the parser and sheet to Swift with 23 tests. Caught a landing page bug (the hero wall was showing unparseable operators), fixed it with 25 real expressions, and deployed with platform screenshots. Two approvals arrived and Curvely macOS went to review; audited the portfolio and corrected platform badges.
+Shipped macOS versions of Charwork and Curvely, gave Cadence its icon, and built an animated math wall for Numen. Reshaped Feng Shui into an assessment, fixed Epiphany's landing map and reskinned the journal site. Joshua found and fixed six bugs in Roost's demo; added native iOS and macOS builds of Numen porting the parser to Swift, fixed operator precedence (-3^2 now = -9), added math functions and constants, and deployed with platform screenshots. Two approvals arrived and Curvely macOS went to review; audited the portfolio and corrected platform badges.
 
 ## Monday (2026-08-31)
 
