@@ -21,7 +21,7 @@ export default function AuthBar() {
     return (
       <span className="text-zinc-500">
         {email} ·{" "}
-        <button onClick={() => supabase.auth.signOut()} className="text-blue-700 underline">
+        <button onClick={() => supabase.auth.signOut()} className="text-[#0074D9] underline">
           log out
         </button>
       </span>
@@ -29,7 +29,7 @@ export default function AuthBar() {
   }
 
   return (
-    <Link href="/login" className="text-blue-700 underline hover:text-blue-900">
+    <Link href="/login" className="text-[#0074D9] underline hover:text-[#001F3F]">
       log in
     </Link>
   );

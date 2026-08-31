@@ -25,7 +25,7 @@ function ListingDetailInner() {
 
   return (
     <div className="max-w-xl mx-auto px-4 py-6 font-sans text-sm">
-      <Link href="/board" className="text-blue-700 underline">
+      <Link href="/board" className="text-[#0074D9] underline">
         &larr; back
       </Link>
       <h1 className="text-xl font-bold mt-3 mb-1">

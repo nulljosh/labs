@@ -41,11 +41,11 @@ export default function Register() {
         <input name="email" type="email" required placeholder="email" className="border border-zinc-300 rounded px-2 py-1" />
         <input name="password" type="password" required minLength={6} placeholder="password" className="border border-zinc-300 rounded px-2 py-1" />
         {error && <p className="text-red-600">{error}</p>}
-        <button disabled={submitting} className="bg-zinc-800 text-white rounded px-4 py-2 disabled:opacity-50">
+        <button disabled={submitting} className="bg-[#FF851B] text-[#111111] font-semibold rounded px-4 py-2 disabled:opacity-50">
           {submitting ? "creating account..." : "register"}
         </button>
       </form>
-      <Link href="/login" className="block mt-4 text-blue-700 underline">already have an account? log in</Link>
+      <Link href="/login" className="block mt-4 text-[#0074D9] underline">already have an account? log in</Link>
     </div>
   );
 }

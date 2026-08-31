@@ -47,7 +47,7 @@ function EditListingForm() {
       <h1 className="text-lg font-bold mb-2">{listing.pet_name || listing.species}</h1>
       <p className="mb-4">status: {done ? "resolved" : listing.status}</p>
       {!done && listing.status === "active" && (
-        <button onClick={markResolved} className="bg-zinc-800 text-white rounded px-4 py-2">
+        <button onClick={markResolved} className="bg-[#FF851B] text-[#111111] font-semibold rounded px-4 py-2">
           mark as resolved
         </button>
       )}

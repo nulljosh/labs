@@ -55,7 +55,7 @@ export default function PostListing() {
         <code className="block bg-zinc-100 p-2 rounded break-all mb-4">
           {typeof window !== "undefined" ? window.location.origin : ""}/listing/edit?token={editToken}
         </code>
-        <button onClick={() => router.push("/board")} className="text-blue-700 underline">
+        <button onClick={() => router.push("/board")} className="text-[#0074D9] underline">
           back to listings
         </button>
       </div>
@@ -116,7 +116,7 @@ export default function PostListing() {
         </label>
         <button
           disabled={submitting}
-          className="mt-2 bg-zinc-800 text-white rounded px-4 py-2 disabled:opacity-50"
+          className="mt-2 bg-[#FF851B] text-[#111111] font-semibold rounded px-4 py-2 disabled:opacity-50"
         >
           {submitting ? "posting..." : "post listing"}
         </button>

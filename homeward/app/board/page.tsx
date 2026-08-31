@@ -31,7 +31,7 @@ export default function Home() {
       <header className="flex items-baseline justify-between border-b border-zinc-300 pb-2 mb-4">
         <Link href="/" className="text-xl font-bold">homeward</Link>
         <div className="flex items-center gap-3">
-          <Link href="/post" className="text-blue-700 underline hover:text-blue-900">
+          <Link href="/post" className="text-[#0074D9] underline hover:text-[#001F3F]">
             post a listing
           </Link>
           <AuthBar />
@@ -44,7 +44,7 @@ export default function Home() {
             key={f}
             onClick={() => setFilter(f)}
             className={`px-2 py-1 border rounded ${
-              filter === f ? "bg-zinc-800 text-white" : "border-zinc-300"
+              filter === f ? "bg-[#FF851B] text-[#111111] font-semibold" : "border-zinc-300"
             }`}
           >
             {f}
@@ -64,7 +64,7 @@ export default function Home() {
             <Link href={`/listing?id=${l.id}`} className="flex items-baseline gap-2 hover:underline">
               <span
                 className={`uppercase text-xs font-bold px-1 rounded ${
-                  l.type === "lost" ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"
+                  l.type === "lost" ? "bg-[#FF4136]/15 text-[#FF4136]" : "bg-[#2ECC40]/20 text-[#1E9E2E]"
                 }`}
               >
                 {l.type}
