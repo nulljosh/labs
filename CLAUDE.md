@@ -51,7 +51,11 @@
 | **_external/** | Read-only third-party checkouts — do not push |
 
 ### Experiments (tracked by labs itself — see README.md)
-bank, canlii-app, credis, video-speed-ext. Also local-only: agent-101, lec (LEC portal client), logans-frenchies (research only).
+| Repo | What it is |
+|---|---|
+| **os** | Freestanding i386 kernel (VGA text, PS/2 keyboard, CMOS RTC, basic shell). Builds with Apple clang+lld, boots on QEMU, tests via screendump. 2500 lines of C. |
+
+Also: bank, canlii-app, credis, video-speed-ext. Also local-only: agent-101, lec (LEC portal client), logans-frenchies (research only).
 
 ## Gone (do not reference)
 systems, beep, beep-web, missing-pets, abraham, code-meta, charters, nimble-web, uprighty (removed 2026-08-25; unique work preserved on `origin/books-wip`), life (archived offline 2026-07-28, backup in `_external/life-site-backup.html`), school→lingo→parlay (now lexly), Vercel orphans fuse/pulse/_site.
