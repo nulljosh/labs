@@ -54,6 +54,6 @@ Shipped macOS Charwork and Curvely, gave Cadence an icon, built Numen's math wal
 
 ## Monday (2026-08-31)
 
-Deduplicated labs by extracting homeward, fixed Talli's login and Curvely's landing, shipped Numen's landing with native iOS/macOS and Compose, and finished Sparkjar's feed with Cloudflare Workers AI (replaced daemon, 50 enriched posts in single-column infinite scroll) and logo mark. Restructured landing hero to copy and buttons, removed the "new idea every morning" badge, moved phone screenshot between features, captured fresh screenshot, fixed window bugs (windowResizability, detail column min-width, auto-select), renamed navigation to Sparkjar. Late wrap found email blocker (Resend domain never added), wired key, added domain, created DNS; password reset fixed waiting on verification. Fixed macOS detail pane bug (API returned entire feed instead of post): added single-post GET so PostDetailView fetches it and body, spec and plan render; App Privacy published.
+Extracted homeward from labs, fixed Talli and Curvely, shipped Numen with native apps and Sparkjar's feed via Workers AI. Fixed Sparkjar's landing, Resend email integration, and a macOS detail pane bug where the API returned the whole feed instead of one post. Evening audit found the fleet missing tests, CI, and API surfaces. Fixed it across four apps (found bookrank ranking a book twice), wired CI to twelve repos, and gave Conway an /api and /mcp surface.
 
-**Apps:** Numen, Talli, Curvely, Charwork, Cadence, Sparkjar, Wordroot.
+**Apps:** Numen, Talli, Curvely, Charwork, Cadence, Sparkjar, Wordroot, Conway, Quotestreak, Bookrank, Dream, BCGD, Sidewise, Roost, Nyc.
