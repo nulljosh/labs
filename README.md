@@ -7,8 +7,6 @@
 - [`bank`](./bank) — neobank prototype (accounts + stock trading, sandbox only)
 - [`canlii-app`](./canlii-app) — CanLII case lookup app (frozen; merged into litigate as a Case Law tab)
 - [`credis`](./credis) — Redis-protocol (RESP) server in C
-- [`homeward`](./homeward) — Craigslist-style board for lost/found pets
-- [`roost`](./roost) — BC real estate listings with map, filters, favorites
 - [`video-speed-ext`](./video-speed-ext) — browser extension for video playback speed
 
 Plus the shared docs: `CLAUDE.md` (codebase notes), `roadmap.md`, `GTM.md` (revenue ledger), `PROGRESS.md`.
