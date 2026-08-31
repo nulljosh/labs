@@ -447,3 +447,21 @@ Already fixed live: Healstack iOS and Voxprint iOS support/marketing URLs.
 **Web Stripe is NOT broken** (checked 2026-08-30). `/api/stripe` returns 400 to an empty POST on
 epiphany, healstack and sparkjar — the endpoint is live and validating. Talli's returns 401, i.e.
 auth-gated. The rail works; what is missing is CTAs and products, not infrastructure.
+
+## Service worker stale-HTML fix — 2026-08-31
+
+`scripts/pwa-add.sh` generated a cache-first service worker that also served
+navigations from cache. Because the HTML names the hashed bundles, one cached
+page pinned an entire stale build: anyone who had visited a site before stopped
+receiving updates from it. Caught on homeward, whose new landing page was
+invisible in the browser while curl showed it fine.
+
+Generator fixed, and the worker patched in all 17 apps that had it, with each
+cache version bumped so existing clients drop what the old worker stored.
+
+- [ ] The fix only takes effect once each app redeploys. `nulljosh.github.io`
+  went out automatically (GitHub Pages on push). The other 16 are committed but
+  still serving the old worker until their next Pages deploy: journal, fengshui,
+  conway, quotestreak, bookrank, numen, curvely, dream, wordroot, nimble,
+  cadence, charwork, sidewise, inkpress, voxprint, bcgd. Redeploy each, or just
+  let their next normal deploy carry it.
