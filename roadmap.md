@@ -1,7 +1,7 @@
 # Cross-repo roadmap
 
 Items without their own repo. Per-project work lives in each repo's `roadmap.md`.
-Last pruned 2026-08-24 against live ASC + HTTP state, not against notes.
+Last pruned 2026-08-31 against live ASC + HTTP state, not against notes.
 
 ## Blocked on Joshua (manual, dashboard or phone)
 
