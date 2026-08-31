@@ -18,13 +18,13 @@ until the Paid Apps Agreement activates (blocked on a CRA Business Number, see b
 | Lexly | 6783501611 | **iOS 1.1.5 REJECTED** · Mac 1.1.5 IN_REVIEW | free | none | none planned |
 | Litigate | 6787857503 | iOS 1.0.3 | free | none | none planned |
 | Bookrank | 6792376485 | iOS 1.0.1 · Mac 1.0.1 | free | none | personal shelf, not a product |
-| Sparkjar | 6785162492 | Mac 1.0.1 · **iOS 1.0 REJECTED** | free | Stripe live | iOS never shipped; email/OAuth unconfigured — leave alone |
+| Sparkjar | 6785162492 | Mac 1.0.1 · **iOS 1.0 REJECTED** | free | **Stripe NOT live** | iOS never shipped; email/OAuth unconfigured — leave alone |
 | Inkpress | 6787759999 | **iOS 1.0.6 + Mac 1.0.7 WAITING_FOR_REVIEW** | free | none | Mac 1.0.7 is its first ever Mac release |
 | Wordroot | 6794988021 | iOS 1.0.1 · Mac 1.0.1 IN_REVIEW | free | none | none planned |
 | Curvely | 6794988370 | **iOS 1.2.2 REJECTED** | free | none | 4.3(a) wave, reply filed |
 | Charwork | 6794988951 | iOS 1.1.0 | free | none | repo renamed from wiretext; ASC record still "Wiretext" |
 | Quotestreak | 6804394619 | iOS 1.0 · Mac 1.0 | free | none | none planned |
-| Healstack | 6785764864 | **iOS 2.3.5 REJECTED** · Mac 2.3.5 IN_REVIEW | $1 CSV export | Stripe live | 4.3(a) wave, reply filed |
+| Healstack | 6785764864 | **iOS 2.3.5 REJECTED** · Mac 2.3.5 IN_REVIEW | $1 CSV export | **Stripe NOT live** | 4.3(a) wave, reply filed |
 | NYC Survive | 6782618198 | **iOS 1.0.0 REJECTED** · Mac 1.0.1 IN_REVIEW | free | none | listing filled to 10 screenshots 2026-08-29 |
 
 ## Web-only by decision (not a gap)
@@ -115,6 +115,25 @@ A live IAP under an inactive agreement fails review, so this is staged, not appl
   they exist. Set in ASC 2026-08-30 (was $3.99). None of this matters until Form 506 clears.
 - Before declaring a submit blocked, run **one** `asc review submit` and read the real error.
   `asc validate` cannot see agreement state, and a past session was lost to assuming otherwise.
+
+## Verified 2026-08-31 — the "Stripe live on 4 apps" claim was half wrong
+
+Checked production secrets, not the repo. Only **two** rails can actually take money today:
+
+| App | Prod Stripe secret | Frontend paywall | Verdict |
+|---|---|---|---|
+| Talli | all 4 set (Worker) | `web/unified.html:442` upgrade CTA | **works** |
+| Epiphany | all 7 set (Worker) | PricingPage + isPro gates on People/DailyBrief | **works** |
+| Healstack | **none** — and `wrangler.toml` ships `STRIPE_PRICE_ID = "price_1234567890abcdef"` | `usePro` + Journal gate exist | **checkout would fail** |
+| Sparkjar | **none** | no CTA in `app.html` | dead code |
+
+The frontend and Functions code is complete in all four. Healstack and Sparkjar are missing only
+a `STRIPE_SECRET_KEY` (+ a real price id) in Cloudflare Pages. That is a paste, not a build —
+but it needs the key from the Stripe dashboard, which no CLI here can read back out of Talli's
+or Epiphany's encrypted secrets.
+
+**The CRA Business Number is mailed and faxed and still pending**, so Form 506, the Paid Apps
+Agreement and every StoreKit price stay blocked. Nothing in the code can move that.
 
 ## Deliberately not doing
 
