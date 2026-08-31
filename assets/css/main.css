@@ -54,19 +54,22 @@ body {
 .hero::before {
   content: '';
   position: absolute;
-  inset: -60% 0;
+  inset: -50% -10%;
   z-index: 0;
   pointer-events: none;
+  /* Two sets of ruled lines at different spacings and speeds, so the band
+     reads as pages moving past rather than a static texture. Amber, because
+     cream-on-cream was invisible at any opacity that stayed tasteful. */
   background:
-    repeating-linear-gradient(to bottom, var(--text) 0 1px, transparent 1px 34px),
-    repeating-linear-gradient(to bottom, var(--text) 0 1px, transparent 1px 97px);
-  background-size: 100% 34px, 100% 97px;
-  opacity: 0.16;
-  animation: drift 14s linear infinite;
+    repeating-linear-gradient(to bottom, var(--accent) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(to bottom, var(--accent) 0 1px, transparent 1px 91px);
+  opacity: 0.3;
+  animation: drift 9s linear infinite;
 }
+
 @keyframes drift {
   from { transform: translateY(0); }
-  to   { transform: translateY(-97px); }
+  to   { transform: translateY(-26px); }
 }
 @media (prefers-reduced-motion: reduce) { .hero::before { animation: none; } }
 
@@ -78,8 +81,8 @@ body {
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 46% 52% at 50% 45%, var(--bg2) 30%, transparent 85%),
-    linear-gradient(var(--bg2), transparent 22%, transparent 78%, var(--bg2) 99%);
+    radial-gradient(ellipse 40% 44% at 50% 52%, var(--bg2) 45%, transparent 100%),
+    linear-gradient(var(--bg2), transparent 14%, transparent 86%, var(--bg2) 100%);
 }
 .hero h1 {
   font-size: clamp(2.1rem, 5vw, 3.1rem);
