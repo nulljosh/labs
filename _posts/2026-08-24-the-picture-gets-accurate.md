@@ -50,7 +50,7 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Pulled metadata for four apps where I dropped China, shipped macOS versions of Charwork and Curvely using APIs ported from Sidewise, reverse engineered Craigslist into a browser, and gave Cadence the icon it never had. Took Roost from labs into its own repo, fixing the auth config that had broken the live site (the Supabase keys weren't baked into the build, so sign-in was dead). Audited landing pages to verify they matched the apps' cross-platform targets, updated three with gaps, and reskinned the journal site to match the family: full-bleed hero, bordered card grid, square corners, and system fonts instead of bundled Geist. Fixed Epiphany's landing map (CSP needed blob: for MapLibre and frame-src for Stripe), built a breeder site, and freed twenty-six gigs of Xcode cache.
+Pulled metadata for four apps where I dropped China, shipped macOS versions of Charwork and Curvely using APIs ported from Sidewise, and gave Cadence the icon it never had. Took Roost from labs into its own repo, fixing the auth config that had broken sign-in. Reshaped Feng Shui into an assessment tool with twenty-four yes/no questions across four energy layers, each answer expanding with book reasoning and highlighting siting problems that interior work can't fix. Fixed Epiphany's landing map (CSP needed blob: for MapLibre), reskinned the journal site to match the family, and freed twenty-six gigs of Xcode cache.
 
 ## Monday (2026-08-31)
 
