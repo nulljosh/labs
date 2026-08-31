@@ -2,7 +2,7 @@
 
 A Craigslist-style board for posting and finding lost/found pets — web app + native iOS app, shared Supabase backend.
 
-Live at [pets.heyitsmejosh.com](https://pets.heyitsmejosh.com).
+Live at [homeward.heyitsmejosh.com](https://homeward.heyitsmejosh.com). The old `pets.heyitsmejosh.com` still resolves so existing links keep working.
 
 ## Stack
 - **Web**: Next.js 16 (App Router) + Tailwind, statically exported and deployed to Cloudflare Pages
