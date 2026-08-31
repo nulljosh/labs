@@ -1,7 +1,7 @@
 // ponytail: network-first, cache as the offline fallback. Cache-first was
 // serving stale HTML and CSS after every deploy, which is worse than a slow
 // first paint on a site that redeploys constantly.
-const CACHE = "journal-v3";
+const CACHE = "journal-v4";
 const FILES = ["/", "/index.html", "/manifest.webmanifest"];
 
 self.addEventListener("install", e => {
@@ -17,21 +17,34 @@ self.addEventListener("activate", e => {
     .then(() => self.clients.claim()));
 });
 
+const save = (req, res) => {
+  if (res.ok && res.type === "basic") {
+    const copy = res.clone();
+    caches.open(CACHE).then(c => c.put(req, copy));
+  }
+  return res;
+};
+
 self.addEventListener("fetch", e => {
   // Same-origin GETs only; APIs are cross-origin and stay network-only.
   if (e.request.method !== "GET" || new URL(e.request.url).origin !== location.origin) return;
+
+  // HTML must never come from cache first: it names the hashed bundles, so one
+  // stale page pins a whole stale build and the site stops shipping updates to
+  // anyone who has already visited. Network first, cache only as an offline fallback.
+  if (e.request.mode === "navigate") {
+    e.respondWith(
+      fetch(e.request)
+        .then(res => save(e.request, res))
+        .catch(() => caches.match(e.request, { ignoreSearch: true })
+          .then(hit => hit || caches.match(FILES[0])))
+    );
+    return;
+  }
+
+  // Everything else is content-hashed, so a cache hit is always the right file.
   e.respondWith(
-    fetch(e.request).then(res => {
-      // Keep a copy for offline. Opaque/error responses are not worth storing.
-      if (res.ok && res.type === "basic") {
-        const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, copy));
-      }
-      return res;
-    }).catch(() =>
-      // Offline: serve what we have, and still give a navigation the app shell.
-      caches.match(e.request, { ignoreSearch: true }).then(hit =>
-        hit || (e.request.mode === "navigate" ? caches.match(FILES[0]) : Promise.reject(new Error("offline"))))
-    )
+    caches.match(e.request, { ignoreSearch: true }).then(hit => hit ||
+      fetch(e.request).then(res => save(e.request, res)))
   );
 });
