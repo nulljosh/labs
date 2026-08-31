@@ -9,9 +9,7 @@ categories: journal quarterly
 
 August was the month I stopped trusting my own notes. It started with a full inventory of the codebase that found directories existing in two places, six repos with private copies of design tokens, and apps that were just chapters of other apps. A nested clone had been inside itself; deleting it freed a gigabyte. I sketched cleanup phases and left them rather than starting a full rewrite.
 
-Then I read the actual App Store rejection reasons, and eight rejections collapsed into three causes: suspension, sign-in failures, and naming. Four marked as waiting had been rejected weeks earlier. The three sign-in failures weren't related: corrupted test data, a dead domain, one required debugging. Lesson: check rejections against shipped code before trusting existing theory.
-
-That pattern was everywhere: untracked production bugs across eleven repos, this journal not publishing because of duplicate Pages projects, even system updates breaking silently.
+Then I read the actual App Store rejection reasons, and eight rejections collapsed into three causes: suspension, sign-in failures, and naming. Lesson: check rejections against shipped code before trusting existing theory.
 
 Plenty did ship. Apple flagged two apps for quality, so I rewrote both from webview shells into native code. Quotestreak and Bookrank shipped with redesigned interfaces. Newsline turned from a website into something code can call. A security sweep fixed a forgeable school gate and an unprotected AI proxy, and moved two big projects off the old host.
 
@@ -19,13 +17,13 @@ Every API key on disk is dead, rotated months ago and never copied over. The bac
 
 By the end of the month the board finally matched reality: Talli and Lexly and Curvely shipped, Bookrank and Voxprint live, and Sparkjar, BCGD, Quotestreak, Wordroot and the Times Square game in review. No dramatic features, but the picture is accurate for the first time.
 
-The last thing I did was consolidate the journal itself. Fourteen scattered entries got merged into this quarterly post, each rewritten into plain prose instead of tool-spam. Codified the rules: natural English only, no AI voice, no commit hashes or build numbers. A linting gate now enforces it, so a bloated post cannot publish.
+The last thing I did was consolidate the journal itself. Fourteen scattered entries got merged into this quarterly post, each rewritten into plain prose instead of tool-spam. A linting gate enforces it now, so a bloated post cannot publish.
 
 The rest of the month was landing things properly. Landing pages got hero art: Times Square game drifting behind a scrim, Nimble's questions in a ticker, Epiphany's live map refreshing flights. The portfolio list toggled overflow, showing eight always.
 
-I audited sign-in and added GitHub to three apps. Inkpress shipped with sixteen curated feeds; testing exposed a date-parsing bug in the feeds themselves.
+I audited sign-in and added GitHub to three apps. Inkpress shipped with sixteen curated feeds.
 
-Two mysteries closed by reading rather than coding. Lexly Mac bounced twice until I found it: selling book content in China needs a license. Removing that territory sent it to review. Healstack's was similar, a health section that never said it was using Apple's data. A button fixed it, and I ported it to Mac the same night.
+Two mysteries closed by reading rather than coding. Lexly Mac bounced until I found it: selling book content in China needs a license. Removing that territory sent it to review. Healstack's was similar, a health section that never said it was using Apple's data. A button fixed it and I ported it to Mac the same night.
 
 The last week was security. Epiphany's broker webhook and account endpoint were accepting requests from anyone. Both now require authentication, along with two scheduled jobs that had been skipping checks. Talli and Litigate got response headers, dependencies patched, and Litigate came off sale until its data is properly gated. Tests still pass.
 
@@ -33,7 +31,7 @@ On Wednesday I verified the global language support work on Wordroot (twelve loc
 
 ## Wednesday (2026-08-26)
 
-Built a dream journal at dream.heyitsmejosh.com with deterministic recurrence detection. Lexly's CI workflow deployed; push to main now publishes automatically. Built Homeward into native iOS and macOS apps from one SwiftUI target with live Supabase and search across name/species/color/location. Tested end to end; blockers are landing page, ASC record, icons, OAuth, and a shared read-policy security issue.
+Built a dream journal at dream.heyitsmejosh.com with deterministic recurrence detection. Lexly's CI workflow deployed; push to main now publishes automatically. Built Homeward as native iOS and macOS apps with live Supabase; blockers are landing page, ASC record, OAuth, and a shared read-policy security issue.
 
 ## Thursday (2026-08-27)
 
@@ -53,3 +51,7 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 ## Sunday (2026-08-30)
 
 Pulled metadata for four apps where I dropped China, shipped macOS versions of Charwork and Curvely using APIs ported from Sidewise, reverse engineered Craigslist into a browser, and gave Cadence the icon it never had. Took Roost from labs into its own repo, fixing the auth config that had broken the live site (the Supabase keys weren't baked into the build, so sign-in was dead). Audited landing pages to verify they matched the apps' cross-platform targets, updated three with gaps, and reskinned the journal site to match the family: full-bleed hero, bordered card grid, square corners, and system fonts instead of bundled Geist. Fixed Epiphany's landing map (CSP needed blob: for MapLibre and frame-src for Stripe), built a breeder site, and freed twenty-six gigs of Xcode cache.
+
+## Monday (2026-08-31)
+
+Fixed Talli's production infinite redirect loop between /app and /login. The bug happened when /app failed to load, bounced to login, which saw the session was still valid and redirected back to /app, creating an unbreakable cycle. The fix gates bounces on actual 401 errors only, with a sessionStorage flag to prevent re-bouncing, plus a test to catch the pattern. Discovered two deeper issues around dev-path environment checks and public access to the /unified shell, recorded them in the roadmap since the core auth logic is sound.
