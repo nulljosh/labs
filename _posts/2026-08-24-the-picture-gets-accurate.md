@@ -54,4 +54,4 @@ Pulled metadata for four apps where I dropped China, shipped macOS versions of C
 
 ## Monday (2026-08-31)
 
-Fixed Talli's production infinite redirect loop between /app and /login. The bug happened when /app failed to load, bounced to login, which saw the session was still valid and redirected back to /app, creating an unbreakable cycle. The fix gates bounces on actual 401 errors only, with a sessionStorage flag to prevent re-bouncing, plus a test to catch the pattern. Discovered two deeper issues around dev-path environment checks and public access to the /unified shell, recorded them in the roadmap since the core auth logic is sound.
+Fixed Talli's production infinite redirect loop between /app and /login (session stayed valid, bounced back to /app indefinitely). The fix gates bounces on 401 errors only, plus a sessionStorage flag to prevent re-bouncing. Discovered two deeper issues around environment checks and public access to the unified shell, recorded in roadmap since auth logic is sound. Cleaned up the Vercel account: deleted two orphan projects (`tally`, `epiphany` from early-August migrations), and the account now returns "No projects found".
