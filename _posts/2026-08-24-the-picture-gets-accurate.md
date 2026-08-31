@@ -52,6 +52,8 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 Pulled metadata for four apps where I dropped China, shipped macOS versions of Charwork and Curvely using APIs ported from Sidewise, and gave Cadence the icon it never had. Took Roost from labs into its own repo, fixing the auth config that had broken sign-in. Reshaped Feng Shui into an assessment tool with twenty-four yes/no questions across four energy layers, each answer expanding with book reasoning and highlighting siting problems that interior work can't fix. Fixed Epiphany's landing map (CSP needed blob: for MapLibre), reskinned the journal site to match the family, and freed twenty-six gigs of Xcode cache.
 
+Joshua signed in, finding six bugs: Overpass 504s, watermarked tiles, unreadable pins, missing sync, bouncing routes, duplicates, fixed by adding mirrors with cache, swapping to Esri, thinning pins, syncing favorites to Supabase, gating routes, wiring Settings, and screenshots.
+
 ## Monday (2026-08-31)
 
 Fixed Talli's production infinite redirect loop between /app and /login (session stayed valid, bounced back to /app indefinitely). The fix gates bounces on 401 errors only, plus a sessionStorage flag to prevent re-bouncing. Discovered two deeper issues around environment checks and public access to the unified shell, recorded in roadmap since auth logic is sound. Cleaned up the Vercel account: deleted two orphan projects (`tally`, `epiphany` from early-August migrations), and the account now returns "No projects found".
