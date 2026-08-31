@@ -23,9 +23,9 @@ The rest of the month was landing things properly. Landing pages got hero art: T
 
 I audited sign-in and added GitHub to three apps. Inkpress shipped with sixteen curated feeds.
 
-Two mysteries closed by reading rather than coding. Lexly Mac bounced until I found it: selling book content in China needs a license. Removing that territory sent it to review. Healstack's was similar, a health section that never said it was using Apple's data. A button fixed it and I ported it to Mac the same night.
+Two mysteries closed by reading rather than coding. Lexly Mac bounced: selling book content in China needs a license. Healstack had the same problem, an unlabeled health section using Apple's data. A button fixed both and I ported Healstack to Mac that night.
 
-The last week was security. Epiphany's broker webhook and account endpoint were accepting requests from anyone. Both now require authentication, along with two scheduled jobs that had been skipping checks. Talli and Litigate got response headers, dependencies patched, and Litigate came off sale until its data is properly gated. Tests still pass.
+Security took the last week. Epiphany's webhook and account endpoint were open to anyone; both now require auth along with two jobs that had skipped checks. Talli and Litigate got response headers and dependency patches; Litigate came off sale until its data is properly gated. Tests still pass.
 
 On Wednesday I verified the global language support work on Wordroot (twelve locales, thirty word languages, all tests green). Thursday found a subtle timing issue in Lexly where iOS shipped without four new courses that arrived after the build archived; fixed by renaming the version in place and resubmitting without rebuilding. Late Thursday I noticed Sparkjar's landing page rendering in serif, fixed it to shared system fonts, then swept through six projects standardizing everything. Also fixed Curvely's hero animation (sub-pixel paths) and swapped NYC Survive's icon.
 
@@ -50,7 +50,7 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Shipped macOS versions of Charwork and Curvely, gave Cadence its icon, and built an animated math wall for Numen. Reshaped Feng Shui into an assessment, fixed Epiphany's landing map and reskinned the journal site. Joshua found and fixed six bugs in Roost's demo; added native iOS and macOS builds of Numen porting the parser to Swift, fixed operator precedence (-3^2 now = -9), added math functions and constants, and deployed with platform screenshots. Two approvals arrived and Curvely macOS went to review; audited the portfolio and corrected platform badges. Late evening fixed Inkpress's CI link checker, which was treating root-relative URLs as missing files.
+Shipped macOS versions of Charwork and Curvely, gave Cadence its icon, and built an animated math wall for Numen. Reshaped Feng Shui into an assessment, fixed Epiphany's landing map, reskinned the journal site, and expanded Healstack's facemaxxing to twenty-two protocols with automatic category derivation and iPad support. Joshua found and fixed six bugs in Roost's demo; added native iOS and macOS builds of Numen porting the parser to Swift, fixed operator precedence (-3^2 now = -9), added math functions and constants, and deployed with platform screenshots. Two approvals arrived and Curvely macOS went to review; audited portfolio badges. Fixed the PWA service workers, which had been caching only the app shell they now fill the cache as real requests load, so offline users get the full app instead of a blank page.
 
 ## Monday (2026-08-31)
 
