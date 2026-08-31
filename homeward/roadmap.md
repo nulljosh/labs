@@ -112,3 +112,14 @@ instead of the board. Both fixed.
 - [ ] Native Sign in with Apple in the iOS/Mac app (web OAuth is done).
 - [ ] The Mac icon is the same dark rounded-square art as iOS; a Mac-shaped
   icon would be better but is cosmetic.
+
+## Native Windows/Linux/Android (started 2026-08-30)
+- [x] `kmp/` module — Kotlin Multiplatform + Compose, mirroring `nimble/kmp`.
+      Shared ktor client reads the public `listings` table; 4 tests on the
+      search/filter logic. Verified: `Homeward-1.0.0.dmg` + a debug APK both build.
+- [ ] CI release workflow (windows + ubuntu runners) to produce the `.msi` and
+      `.deb` — they cannot be built on the Mac.
+- [ ] Signed release APK + a keystore, then a Play listing.
+- [ ] Wire the real download URLs into the landing page's install cards.
+- [ ] Posting from the native apps (photo upload + edit-token round trip); it
+      currently deep-links to the web form.

@@ -177,8 +177,8 @@ export default function Landing() {
             <div className="feature">
               <h3>Android, Windows, Linux</h3>
               <p>
-                Add it to your home screen or install it from your browser and it runs in
-                its own window, offline shell and all.
+                A real installable app, not a bookmark — one Kotlin/Compose codebase built
+                into an APK, an MSI and a DEB. Downloads land with the first release.
               </p>
             </div>
           </div>
