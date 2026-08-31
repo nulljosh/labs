@@ -50,8 +50,10 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Shipped macOS versions of Charwork and Curvely, gave Cadence its icon, and built an animated math wall for Numen. Reshaped Feng Shui into a 24-question assessment, fixed Epiphany's landing map (blob: CSP), reskinned the journal site, and freed twenty-six gigs of Xcode. Joshua found six bugs in Roost's demo and fixed them. Two approvals arrived (Inkpress macOS, Curvely's appeal overturning 4.3a), then submitted Curvely macOS for review. Audited the portfolio and corrected four platform badges, decided not to create thin App Store records (that triggered the suspension), and noted Numen's domain was live.
+Shipped macOS versions of Charwork and Curvely, gave Cadence its icon, and built an animated math wall for Numen. Reshaped Feng Shui into an assessment, fixed Epiphany's landing map and reskinned the journal site. Joshua found and fixed six bugs in Roost's demo; also added native iOS and macOS builds of Numen, porting the parser and sheet to Swift with 23 tests. Caught a landing page bug (the hero wall was showing unparseable operators), fixed it with 25 real expressions, and deployed with platform screenshots. Two approvals arrived and Curvely macOS went to review; audited the portfolio and corrected platform badges.
 
 ## Monday (2026-08-31)
 
-Fixed Talli's production infinite redirect loop between /app and /login (session stayed valid, bounced back to /app indefinitely). The fix gates bounces on 401 errors only, plus a sessionStorage flag to prevent re-bouncing. Discovered two deeper issues around environment checks and public access to the unified shell, recorded in roadmap since auth logic is sound. Cleaned up the Vercel account: deleted two orphan projects (`tally`, `epiphany` from early-August migrations), and the account now returns "No projects found".
+Fixed Talli's infinite redirect loop between /app and /login (session stayed valid, bounced to /app indefinitely) by gating on 401 errors and adding sessionStorage flag. Cleaned up the Vercel account, deleting two orphan projects.
+
+**Apps:** Numen, Charwork, Curvely, Cadence native iOS/macOS; Inkpress, Voxprint, Lexly, Litigate, Sparkjar, Wordroot live or review. Month: 42 repos, 13 shipped, 2 approvals, 2 new Mac launches.

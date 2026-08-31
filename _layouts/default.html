@@ -17,11 +17,15 @@
   <link rel="stylesheet" href="https://heyitsmejosh.com/tokens.css" />
   <link rel="stylesheet" href="/assets/css/main.css" />
   {% include theme-script.html %}
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 <body>
   <main class="page-content" aria-label="Content">
     {{ content }}
     {% include theme-toggle.html %}
   </main>
+  <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>
 </body>
 </html>
