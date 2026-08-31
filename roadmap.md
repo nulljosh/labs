@@ -459,9 +459,10 @@ invisible in the browser while curl showed it fine.
 Generator fixed, and the worker patched in all 17 apps that had it, with each
 cache version bumped so existing clients drop what the old worker stored.
 
-- [ ] The fix only takes effect once each app redeploys. `nulljosh.github.io`
-  went out automatically (GitHub Pages on push). The other 16 are committed but
-  still serving the old worker until their next Pages deploy: journal, fengshui,
-  conway, quotestreak, bookrank, numen, curvely, dream, wordroot, nimble,
-  cadence, charwork, sidewise, inkpress, voxprint, bcgd. Redeploy each, or just
-  let their next normal deploy carry it.
+- [x] Deployed with the fix: nulljosh.github.io (auto, GitHub Pages), homeward,
+  cadence, inkpress, journal, conway, sidewise.
+- [ ] Still serving the old worker until their next deploy: fengshui,
+  quotestreak, bookrank, numen, curvely, dream, wordroot, nimble, charwork,
+  voxprint, bcgd. Each needs a build before deploy and none declares both a
+  Pages project name and an output dir, so they were left rather than guessed.
+  Their next normal deploy carries the fix anyway.
