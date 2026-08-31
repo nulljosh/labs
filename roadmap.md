@@ -466,3 +466,27 @@ cache version bumped so existing clients drop what the old worker stored.
   voxprint, bcgd. Each needs a build before deploy and none declares both a
   Pages project name and an output dir, so they were left rather than guessed.
   Their next normal deploy carries the fix anyway.
+
+## WCAG contrast audit — 2026-08-31
+
+`scripts/wcag-audit.py` reads the house `--bg`/`--text`/`--accent` tokens out of
+every stylesheet and checks the pairs the landing templates actually render, in
+light and dark. 64 text failures across ~15 projects, and nearly all of them are
+one bug repeated: **the accent colour is used both as a fill and as link text,
+but it is tuned for fill.**
+
+- `#5B9BD5`, the shared house blue, is 2.96:1 as link text on white. It is used
+  that way in bookrank, conway, curvely, numen, quotestreak, wordroot, healthstack.
+- Same shape elsewhere: charwork `#D97757` 2.96, homeward `#FF851B` 2.44,
+  swing `#ff851b` 2.44, sidewise `#1f4e79` 2.14 on dark, inkpress `#b8730a` 3.82,
+  the portfolio's `#d9442c` 3.53, plus bcgd, wordroot, nyc on hero backgrounds.
+- A handful of separate `--text2` greys also fail: bookrank/fengshui `#8f8f8f`,
+  roost `#868686`, sparkjar `#8c8c8c`.
+
+- [ ] Fix: give each palette a `--link` token distinct from `--accent`, dark
+  enough to pass 4.5:1 on `--bg`, and keep `--accent` for fills with dark ink on
+  top. Homeward already does this (`--link` blue in light, orange in dark, black
+  ink on orange buttons) and can be the model. This is a tokens.css change plus
+  one line per landing, not a redesign.
+- The 60 border findings the script also reports are advisory. WCAG 1.4.11 covers
+  UI components and meaningful graphics, not decorative 1px dividers.
