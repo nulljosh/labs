@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Last refreshed 2026-08-30. Per-repo detail lives in each repo's own `CLAUDE.md`/`roadmap.md`; revenue state lives in `GTM.md`. Keep this file a map, not a changelog.*
+*Last refreshed 2026-08-31. Per-repo detail lives in each repo's own `CLAUDE.md`/`roadmap.md`; revenue state lives in `GTM.md`. Keep this file a map, not a changelog.*
 
 ## Environment
 - macOS Darwin 25.x (arm64), Mac Mini M4 · Python 3.14 · Node 24 · xcodegen at `/opt/homebrew/bin/xcodegen`
@@ -32,6 +32,11 @@
 | **cadence** | Time tracking, web + SwiftUI | cadence.heyitsmejosh.com |
 | **dream** | Dream journal + interpretation (Workers AI) | dream.heyitsmejosh.com |
 | **conway** | Game of Life, web/iOS/macOS. No accounts or network | — |
+| **homeward** | Lost/found pet board, web + iOS + KMP native (was pets) | homeward.heyitsmejosh.com |
+| **roost** | Worldwide real estate browsing, 26-language UI. Own repo since 2026-08-30 | roost.heyitsmejosh.com |
+| **numen** | Free-form calculator on an infinite canvas | numen.heyitsmejosh.com |
+| **swing** | Random 1:1 video chat, Workers + one Durable Object lobby | swing.heyitsmejosh.com |
+| **curbside** | Craigslist classifieds browser, web/iOS/macOS. **No git remote yet — local only** | curbside.heyitsmejosh.com |
 
 ### Sites & infrastructure
 | Repo | What it is |
@@ -41,7 +46,7 @@
 | **notes** | Personal notes + reference (private, braingraph merged in) |
 | **nulljosh.github.io/plan** | School/career plan site, folded into portfolio 2026-08-30 |
 | **dotfiles** | Shell configs, api-gateway, kv-store, search-engine, applescripts, vibe ref |
-| **scripts/** | Loose helper scripts (letterboxd, trakt, tf-health, wiki sync) |
+| **scripts/** | Loose helper scripts (letterboxd, trakt, tf-health, wiki sync, `wcag-audit.py`, the PWA/xplat generators) |
 | **_feature_audit/** | `/feature-audit` CSVs, one per app |
 | **_external/** | Read-only third-party checkouts — do not push |
 
@@ -72,6 +77,7 @@ Apps with book/magazine content get a vague Guideline 2.1 unless China mainland 
 - **iOS/macOS**: xcodegen `project.yml`, no checked-in `.xcodeproj`. SwiftUI, iOS 17+/macOS 14+. Build through `asc xcode archive`/`export`
 - **Lint**: SwiftLint as an SPM build-tool plugin where wired — CLI builds need `-skipPackagePluginValidation`
 - **Screenshots/UI tests**: never create demo accounts; use the real credentials in that app's gitignored `.env`
+- **`/api` + `/mcp`**: house Cloudflare Functions pattern — a JSON API and an MCP endpoint per app. quotestreak, bookrank, wordroot, curvely and charwork have it
 - **No emojis in any UI**, anywhere, every app
 
 ## Repo standards
@@ -102,30 +108,30 @@ Apps with book/magazine content get a vague Guideline 2.1 unless China mainland 
 
 ## Cross-platform coverage
 
-Every app is reachable on web, iOS, macOS, Windows, Linux and Android. Apple
-platforms are native (SwiftUI, one Xcode project per repo). Windows, Linux and
-Android are the installed web app: a manifest, a cache-first service worker and
-192/512/maskable icons make the browser install it as a real windowed app. That
-is the deliberate answer — no Electron, no Tauri, no second UI codebase. Nimble
-is the one exception, with a Kotlin Multiplatform Compose target under `kmp/`
-that also produces MSI and DEB; its landing page still points Windows and Linux
-users at the PWA.
+Apple platforms are native (SwiftUI, one xcodegen project per repo). Windows,
+Linux and Android are moving to **native binaries too** — Kotlin Multiplatform
+Compose under `<repo>/kmp/`. As of 2026-08-31 that exists in `homeward/kmp`,
+`nimble/kmp` and `talli/kmp`; everything else is still PWA-only and counts as
+*not covered*. A PWA is a fallback, not platform coverage.
+
+`.github/workflows/native-release.yml` builds the real `.msi`, `.deb` and `.apk`
+for any app with a `kmp/` module — MSI and DEB have to build on their own OS,
+which is why the workflow exists. Trigger it with `workflow_dispatch` (input =
+app dir) or a `<app>-native-v*` tag.
 
 Generators (do not hand-write these files):
 - `scripts/pwa-add.sh --dir <web root> --name X --scope /` — manifest, service
-  worker, icons, and the tags in every HTML page. Idempotent.
+  worker, icons, tags. Idempotent. Service workers are network-first for pages;
+  the older cache-first ones served stale HTML.
 - `scripts/xplat-section.py --file <landing> --name X --app <url> --asc <id>` —
-  the "Install it anywhere" landing section. Styles are `color-mix` off
-  `currentColor`, so it reads correctly on a light or a dark page.
-
-Deploying needs wrangler's OAuth login, NOT an env token:
-`env -u CLOUDFLARE_API_TOKEN npx wrangler pages deploy` (or `wrangler deploy`
-for the Workers-with-assets repos). `CLOUDFLARE_DNS_TOKEN` is DNS-scoped and
-fails Pages with error 10000.
+  the "Install it anywhere" landing section. Still writes the old PWA copy, so
+  edit the result for any app that now has real installers.
+- `scripts/wcag-audit.py` — contrast audit across the shared palette.
 
 Still open:
+- ~18 apps are PWA-only and need a `kmp/` module to actually be covered.
 - **roost** — no landing section. Its landing is React and localized into 26
   languages; English copy would be a regression. Needs i18n keys first.
-- **curbside** — manifest has no icons, so it is not installable. The repo has
-  no icon asset at all, not even an app icon.
+- **curbside** — manifest has no icons, so it is not installable, and the repo
+  has no icon asset at all. Also has no git remote.
 - **litigate** — deliberately skipped. Private tool, its landing is a login.
