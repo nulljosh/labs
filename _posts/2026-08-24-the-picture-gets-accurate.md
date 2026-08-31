@@ -54,6 +54,6 @@ Shipped macOS Charwork and Curvely, gave Cadence an icon, built Numen's math wal
 
 ## Monday (2026-08-31)
 
-Fixed Talli's login loop: express-session was splitting responses with Content-Length, and workerd's node:http bridge dropped the trailing byte, leaving authenticated API responses truncated. Suppressing Content-Length on Express responses fixed it. Shipped PWA across twenty apps, built Swing, and closed a Homeward security hole.
+Fixed Talli's login loop: express-session was splitting responses with Content-Length, and workerd's node:http bridge dropped the trailing byte, leaving authenticated API responses truncated. Curvely's landing page had never shipped either - the site root was dropping visitors into the app, so I wired up vite to serve landing at root and app at /app, then deployed. Shipped PWA across twenty apps, built Swing, and closed a Homeward security hole.
 
 **Apps:** Numen, Charwork, Curvely, Cadence native iOS/macOS; Inkpress, Voxprint, Lexly, Litigate, Sparkjar, Wordroot live or review. Month: 42 repos, 15+ shipped, cross-platform PWA complete, Swing launched.
