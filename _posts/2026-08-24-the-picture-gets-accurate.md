@@ -54,6 +54,6 @@ Shipped macOS Charwork and Curvely, gave Cadence an icon, built Numen's math wal
 
 ## Monday (2026-08-31)
 
-Deduplicated labs by extracting homeward, fixed Talli's login and Curvely's landing, shipped Numen's landing with native iOS/macOS and Compose targets. Finished Sparkjar's feed with Cloudflare Workers AI (replaced daemon, now 50 enriched posts daily). Late wrap found Sparkjar's email blocker: Resend domain was never added to account, so wired new key, added domain, created DNS records; password reset now returns real results. App Privacy verified published, and Cloudflare Email is inaccessible gated beta but Pages couldn't use it anyway without migrating to Workers.
+Deduplicated labs by extracting homeward, fixed Talli's login and Curvely's landing, shipped Numen's landing with native iOS/macOS and Compose targets. Finished Sparkjar's feed with Cloudflare Workers AI (replaced daemon, 50 enriched posts daily in single-column infinite scroll instead of grid) and added logo mark to header. Late wrap found Sparkjar's email blocker: Resend domain was never added to account, so wired new key, added domain, created DNS records; password reset endpoint fixed and waiting on Resend's async verification. App Privacy verified published and Cloudflare Email is inaccessible gated beta anyway.
 
 **Apps:** Numen, Talli, Curvely, Charwork, Cadence, Sparkjar, Wordroot.
