@@ -27,6 +27,24 @@ until the Paid Apps Agreement activates (blocked on a CRA Business Number, see b
 | Healstack | 6785764864 | **iOS 2.3.5 REJECTED** · Mac 2.3.5 IN_REVIEW | $1 CSV export | Stripe live | 4.3(a) wave, reply filed |
 | NYC Survive | 6782618198 | **iOS 1.0.0 REJECTED** · Mac 1.0.1 IN_REVIEW | free | none | listing filled to 10 screenshots 2026-08-29 |
 
+## Web-only by decision (not a gap)
+
+These ship as web only and are **deliberately not going to the App Store**. Recorded 2026-08-30 so
+the question stops resurfacing as a portfolio "gap":
+
+| App | Why not |
+|---|---|
+| Numen | Free-form calculator. Thin by Apple's 4.3(a) definition; live at numen.heyitsmejosh.com |
+| Journal | Personal weekly writing site, not a product. Inkpress is the shipped writing app |
+| Nimble | Instant-answer search box. Thin; no ASC record and none planned |
+| Feng Shui | Web app is a 24-question assessment; the iOS reader target is PARKED and diverged |
+
+The portfolio badges were corrected on 2026-08-30 to say Web for these plus Healstack and NYC,
+which had been claiming iOS/macOS while their store builds were rejected or in review.
+
+**Do not batch-create ASC records for these.** Bulk new thin apps are what triggered the 5.6
+suspension and the 4.3(a) wave that took out 7 apps on 2026-08-28 — two are still rejected today.
+
 Focus is **Epiphany, Talli, Voxprint**. The other nine stay free and serve as ASO surface —
 twelve paywalls with no users each earn $0 and triple the review surface.
 
