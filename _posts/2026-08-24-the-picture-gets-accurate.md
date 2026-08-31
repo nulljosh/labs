@@ -15,7 +15,7 @@ Plenty did ship. Apple flagged two apps for quality, so I rewrote both from webv
 
 Every API key on disk is dead, rotated months ago and never copied over. The backlog taught me to run two or three workers, not nine.
 
-By the end of the month the board finally matched reality: Talli and Lexly and Curvely shipped, Bookrank and Voxprint live, and Sparkjar, BCGD, Quotestreak, Wordroot and the Times Square game in review. No dramatic features, but the picture is accurate for the first time.
+By month's end the board matched reality: Talli, Lexly and Curvely shipped; Bookrank and Voxprint live; Sparkjar, BCGD, Quotestreak, Wordroot and the Times Square game in review. No dramatic features, but the picture is accurate for the first time.
 
 The last thing I did was consolidate the journal itself. Fourteen scattered entries got merged into this quarterly post, each rewritten into plain prose instead of tool-spam. A linting gate enforces it now, so a bloated post cannot publish.
 
@@ -50,10 +50,10 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Shipped macOS versions of Charwork and Curvely, gave Cadence its icon, and built an animated math wall for Numen. Reshaped Feng Shui into an assessment, fixed Epiphany's landing map, reskinned the journal site, and expanded Healstack's facemaxxing to twenty-two protocols with automatic category derivation and iPad support. Joshua found and fixed six bugs in Roost's demo; added native iOS and macOS builds of Numen porting the parser to Swift, fixed operator precedence (-3^2 now = -9), added math functions and constants, and deployed with platform screenshots. Two approvals arrived and Curvely macOS went to review; audited portfolio badges. Fixed the PWA service workers, which had been caching only the app shell they now fill the cache as real requests load, so offline users get the full app instead of a blank page.
+Shipped macOS versions of Charwork and Curvely, gave Cadence its icon, and built an animated math wall for Numen. Reshaped Feng Shui into an assessment, fixed Epiphany's landing map, reskinned the journal site, and expanded Healstack's facemaxxing to twenty-two protocols with automatic category derivation across iOS, watchOS, macOS and web. Joshua found and fixed six bugs in Roost's demo; added native iOS and macOS builds of Numen porting the parser to Swift, fixed operator precedence (-3^2 = -9), added math functions and constants, and deployed with platform screenshots. Two approvals arrived and Curvely macOS went to review; audited portfolio badges. Fixed the PWA service workers to fill the cache as real requests load, so offline users get the full app instead of just the shell.
 
 ## Monday (2026-08-31)
 
-Fixed Talli's infinite redirect loop between /app and /login by gating on 401 errors. Late evening shipped PWA support across twenty apps with manifests, cache-first workers, and maskable icons so browsers install them on Windows, Linux and Android; the workers had only cached the app shell, so offline loads came up blank, and I fixed that to cache same-origin requests as they load. Updated landing pages with "Install it anywhere" sections and deployed.
+Fixed Talli's redirect loop, shipped PWA across twenty apps, and built Swing (random video chat with Durable Object pairing). Closed a critical Homeward security hole where edit tokens leaked from the read policy, fixed by moving them to a create-listing RPC with landing page, icon, and OAuth sign-in.
 
-**Apps:** Numen, Charwork, Curvely, Cadence native iOS/macOS; Inkpress, Voxprint, Lexly, Litigate, Sparkjar, Wordroot live or review. Month: 42 repos, 15+ shipped, cross-platform PWA complete.
+**Apps:** Numen, Charwork, Curvely, Cadence native iOS/macOS; Inkpress, Voxprint, Lexly, Litigate, Sparkjar, Wordroot live or review. Month: 42 repos, 15+ shipped, cross-platform PWA complete, Swing launched.
