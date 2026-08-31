@@ -64,7 +64,7 @@ export default function Home() {
             <Link href={`/listing?id=${l.id}`} className="flex items-baseline gap-2 hover:underline">
               <span
                 className={`uppercase text-xs font-bold px-1 rounded ${
-                  l.type === "lost" ? "bg-[#FF4136]/15 text-[#FF4136]" : "bg-[#2ECC40]/20 text-[#1E9E2E]"
+                  l.type === "lost" ? "bg-[#FF4136] text-[#111111]" : "bg-[#2ECC40] text-[#111111]"
                 }`}
               >
                 {l.type}

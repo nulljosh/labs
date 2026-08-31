@@ -13,10 +13,10 @@
   --text: #111111;
   --text2: #5B5B5B;
   --border: #DDDDDD;
-  --lost: #FF4136;
-  --lost-bg: rgba(255, 65, 54, 0.14);
-  --found: #2ECC40;
-  --found-bg: rgba(46, 204, 64, 0.16);
+  --lost: #111111;
+  --lost-bg: #FF4136;
+  --found: #111111;
+  --found-bg: #2ECC40;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-geist-sans), -apple-system, system-ui, "Inter", "Segoe UI", sans-serif;
@@ -30,8 +30,8 @@
     --accent-soft: #1A1206;
     --bg: #111111; --bg2: #1B1B1B;
     --text: #FFFFFF; --text2: #AAAAAA; --border: #333333;
-    --lost: #FF4136; --lost-bg: rgba(255, 65, 54, 0.20);
-    --found: #2ECC40; --found-bg: rgba(46, 204, 64, 0.20);
+    --lost: #111111; --lost-bg: #FF4136;
+    --found: #111111; --found-bg: #2ECC40;
   }
 }
 .lp .container { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
