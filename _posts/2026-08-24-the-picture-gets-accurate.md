@@ -54,6 +54,4 @@ Shipped macOS Charwork and Curvely, gave Cadence an icon, built Numen's math wal
 
 ## Monday (2026-08-31)
 
-Fixed Talli's login loop (express-session truncating responses) and Curvely's landing (serving app instead of landing at root). Retesting found four silent bugs: API returning half the balance, macOS messages with wrong structure (all decoded empty), read-receipts type mismatches, and CSP blocking the design stylesheet. Fixed all with no resubmission since the apps shipped already, then restored the blue accent, improved button contrast, added an App Store link, updated screenshots to show light mode, and gave Talli's landing an animated drifting wall of benefit lines behind the hero (payments, reporting window, PWD/DTC status), matching Bookrank and Numen.
-
-**Apps:** Numen, Charwork, Curvely, Cadence native iOS/macOS; Inkpress, Voxprint, Lexly, Litigate, Sparkjar, Wordroot live or review. Month: 42 repos, 15+ shipped, cross-platform PWA complete, Swing launched.
+Deduplicated the labs codebase by extracting homeward to its own repo with git subtree split history, cleaned up roost references (it already had its own repo), and updated both labs and numen with roadmap, service worker, and palette improvements. Fixed Talli's login loop and Curvely's landing while catching four silent bugs in shipped apps: API balance errors, malformed messages, type mismatches, and CSP stylesheet blocks. Numen shipped its landing page with native iOS/macOS; Charwork, Curvely, and Cadence gained native targets.
