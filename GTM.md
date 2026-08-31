@@ -149,6 +149,24 @@ or Epiphany's encrypted secrets.
 **The CRA Business Number is mailed and faxed and still pending**, so Form 506, the Paid Apps
 Agreement and every StoreKit price stay blocked. Nothing in the code can move that.
 
+## Open — needs Joshua's Stripe login (deferred to 2026-09-01)
+
+1. **Check Epiphany's failed webhook deliveries and replay the real ones.** The webhook 500'd on
+   every delivery from the Cloudflare migration until the fix on 2026-08-31. Stripe retries for
+   ~3 days and then gives up, so anything older is only visible in the dashboard's event log.
+   Stripe > Developers > Webhooks > the epiphany endpoint > failed deliveries. Any
+   `checkout.session.completed` there is someone who **paid and got nothing** — replay it (the
+   handler is idempotent, it just writes `sub:<customerId>`) and confirm their tier flips.
+   If the endpoint is missing entirely, that is the finding: create it against
+   `https://epiphany.heyitsmejosh.com/api/stripe-webhook` and update `STRIPE_WEBHOOK_SECRET`.
+2. Cross-check that Talli's webhook endpoint exists too — its code is fine and it runs on the
+   same Worker adapter, but it was never probed. Forged-signature probe: 400 healthy, 500 broken.
+
+**Decided 2026-08-31: Healstack's paywall stays unwired.** The code is now complete and correct,
+but a $1 CSV-export paywall on an app with no iOS release and no traffic earns $0 and adds a live
+payments surface to maintain. It follows the "no paywalls on the nine non-focus apps" rule below.
+Wire it only if Healstack ever gets users.
+
 ## Deliberately not doing
 
 No paid ads until a paywall converts. No new landing pages — they all exist. No unifying the four
