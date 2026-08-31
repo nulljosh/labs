@@ -99,3 +99,33 @@ Apps with book/magazine content get a vague Guideline 2.1 unless China mainland 
 
 ## Open work
 `roadmap.md` is the queue, `GTM.md` the revenue ledger, `PROGRESS.md` a stale 2026-07-02 sizing snapshot (refresh with `/progress`).
+
+## Cross-platform coverage
+
+Every app is reachable on web, iOS, macOS, Windows, Linux and Android. Apple
+platforms are native (SwiftUI, one Xcode project per repo). Windows, Linux and
+Android are the installed web app: a manifest, a cache-first service worker and
+192/512/maskable icons make the browser install it as a real windowed app. That
+is the deliberate answer — no Electron, no Tauri, no second UI codebase. Nimble
+is the one exception, with a Kotlin Multiplatform Compose target under `kmp/`
+that also produces MSI and DEB; its landing page still points Windows and Linux
+users at the PWA.
+
+Generators (do not hand-write these files):
+- `scripts/pwa-add.sh --dir <web root> --name X --scope /` — manifest, service
+  worker, icons, and the tags in every HTML page. Idempotent.
+- `scripts/xplat-section.py --file <landing> --name X --app <url> --asc <id>` —
+  the "Install it anywhere" landing section. Styles are `color-mix` off
+  `currentColor`, so it reads correctly on a light or a dark page.
+
+Deploying needs wrangler's OAuth login, NOT an env token:
+`env -u CLOUDFLARE_API_TOKEN npx wrangler pages deploy` (or `wrangler deploy`
+for the Workers-with-assets repos). `CLOUDFLARE_DNS_TOKEN` is DNS-scoped and
+fails Pages with error 10000.
+
+Still open:
+- **roost** — no landing section. Its landing is React and localized into 26
+  languages; English copy would be a regression. Needs i18n keys first.
+- **curbside** — manifest has no icons, so it is not installable. The repo has
+  no icon asset at all, not even an app icon.
+- **litigate** — deliberately skipped. Private tool, its landing is a login.
