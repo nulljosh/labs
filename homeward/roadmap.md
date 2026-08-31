@@ -123,3 +123,8 @@ instead of the board. Both fixed.
 - [ ] Wire the real download URLs into the landing page's install cards.
 - [ ] Posting from the native apps (photo upload + edit-token round trip); it
       currently deep-links to the web form.
+- [ ] CI run 33364105059 was still building the MSI/DEB/APK when the session
+      ended (cold runners, first Gradle download). Check it, and note the
+      workflow only uploads Actions artifacts, which need a login to download.
+      For public download links it needs a release step and a
+      `homeward-native-v*` tag.
