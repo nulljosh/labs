@@ -1,0 +1,58 @@
+# Builds the real Windows/Linux/Android binaries for any app that has a kmp/ module.
+# The .msi and .deb can only be produced on their own OS, which is the whole reason
+# this exists -- the Mac can only make the .dmg.
+name: native release
+
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: "app directory containing kmp/ (e.g. homeward)"
+        default: homeward
+  push:
+    tags: ["*-native-v*"]   # e.g. homeward-native-v1.0.0
+
+jobs:
+  desktop:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: windows-latest, task: packageMsi, glob: "**/*.msi" }
+          - { os: ubuntu-latest,  task: packageDeb, glob: "**/*.deb" }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: app
+        shell: bash
+        run: echo "dir=${APP:-${GITHUB_REF_NAME%%-native-v*}}" >> "$GITHUB_OUTPUT"
+        env:
+          APP: ${{ inputs.app }}
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "17" }   # not Homebrew's, so no vendor check
+      - run: ./gradlew :composeApp:${{ matrix.task }} --no-daemon
+        working-directory: ${{ steps.app.outputs.dir }}/kmp
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.app.outputs.dir }}-${{ matrix.task }}
+          path: ${{ steps.app.outputs.dir }}/kmp/composeApp/build/compose/binaries/**/${{ matrix.glob }}
+
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: app
+        run: echo "dir=${APP:-${GITHUB_REF_NAME%%-native-v*}}" >> "$GITHUB_OUTPUT"
+        env:
+          APP: ${{ inputs.app }}
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "17" }
+      - uses: android-actions/setup-android@v3
+      # ponytail: debug APK -- sideloadable today. Swap to assembleRelease once there is
+      # a keystore in secrets and somewhere to publish it.
+      - run: ./gradlew :composeApp:assembleDebug --no-daemon
+        working-directory: ${{ steps.app.outputs.dir }}/kmp
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.app.outputs.dir }}-apk
+          path: ${{ steps.app.outputs.dir }}/kmp/composeApp/build/outputs/apk/debug/*.apk
