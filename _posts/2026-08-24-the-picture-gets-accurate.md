@@ -52,8 +52,6 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Pulled metadata for four apps where I dropped China, shipped macOS versions of Charwork and Curvely using APIs ported from Sidewise, reverse engineered Craigslist's sapi endpoint into a browser for web, iOS and macOS, and gave Cadence the icon it never had.
+Pulled metadata for four apps where I dropped China, shipped macOS versions of Charwork and Curvely using APIs ported from Sidewise, reverse engineered Craigslist's sapi endpoint into a browser for web, iOS and macOS, and gave Cadence the icon it never had. Built a French bulldog breeder's site with responsive design, and cleaned up Xcode's cache to free twenty-six gigs of disk space.
 
-Built a site for a French bulldog breeder: got first paint to 157 KB from a 20 MB page with broken listings, though email notifications never worked. Disk hit critical; cleanup freed up to twenty-six gigs by flushing Xcode's build cache.
-
-Later reorganized the portfolio list to highlight the thirteen App Store apps and tucked the experiments behind a collapsible section, updating the bio and meta descriptions to emphasize cross-platform work.
+Fixed Epiphany's landing map, which had gone blank after adding security headers. The Content Security Policy needed blob: for MapLibre's worker and frame-src for Stripe; deployed and verified live.
