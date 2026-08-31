@@ -43,6 +43,7 @@
 |---|---|
 | **nulljosh.github.io** | Portfolio, heyitsmejosh.com (rename to jaybulb.com pending domain purchase) |
 | **journal** | Jekyll blog, journal.heyitsmejosh.com (Pages project `journal-heyitsmejosh`) |
+| **brain** | RAG system over personal notes (Workers AI + Vectorize), brain.heyitsmejosh.com · /api and /mcp endpoints |
 | **notes** | Personal notes + reference (private, braingraph merged in) |
 | **nulljosh.github.io/plan** | School/career plan site, folded into portfolio 2026-08-30 |
 | **dotfiles** | Shell configs, api-gateway, kv-store, search-engine, applescripts, vibe ref |
