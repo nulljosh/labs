@@ -21,4 +21,6 @@ export type Listing = {
   contact_phone: string | null;
   contact_email: string | null;
   status: "active" | "resolved";
+  /// only ever returned by create_listing / listing_by_token, never by a plain read
+  edit_token?: string;
 };

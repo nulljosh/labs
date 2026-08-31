@@ -146,11 +146,8 @@ export default function WebMCP() {
         },
         execute: async (args) => {
           try {
-            const { data: session } = await supabase.auth.getSession();
             const { data, error } = await supabase
-              .from("listings")
-              .insert({
-                user_id: session.session?.user.id ?? null,
+              .rpc("create_listing", {
                 type: args.type,
                 pet_name: args.pet_name ?? null,
                 species: args.species,
@@ -162,12 +159,11 @@ export default function WebMCP() {
                 contact_email: args.contact_email ?? null,
                 photo_url: null,
               })
-              .select()
               .single();
             if (error) return { error: error.message };
             return {
               listing: data as Listing,
-              edit_url: `${window.location.origin}/listing/edit?token=${data.edit_token}`,
+              edit_url: `${window.location.origin}/listing/edit?token=${(data as Listing).edit_token}`,
             };
           } catch (e) {
             return { error: e instanceof Error ? e.message : "post failed" };

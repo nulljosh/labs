@@ -20,9 +20,7 @@ function EditListingForm() {
   useEffect(() => {
     if (!token) return;
     supabase
-      .from("listings")
-      .select("*")
-      .eq("edit_token", token)
+      .rpc("listing_by_token", { p_token: token })
       .single()
       .then(({ data }) => setListing(data as Listing));
   }, [token]);

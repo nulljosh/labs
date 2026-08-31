@@ -59,12 +59,33 @@ What was built:
   menu with "show resolved", relative timestamps, photo thumbnails, tel:/mailto: contact links.
 - Sandbox entitlements, `LSApplicationCategoryType`, `DEVELOPMENT_TEAM`, version 1.0 (1).
 
+## Landing page, icon, OAuth, edit_token lockdown — 2026-08-31
+
+- Landing page at `/`; the board moved to `/board`. Hero + three points + a
+  recent-listings strip. `scripts/xplat-section.py` targets a static
+  `landing/index.html`, so it does not apply to this Next app; the install
+  points are written inline instead.
+- App icon: `ios/Homeward/Assets.xcassets/AppIcon.appiconset`, rendered from
+  `public/icon.svg` with rsvg-convert. iOS gets a square, alpha-free 1024
+  (the SVG's own `rx="40"` is stripped so iOS doesn't double-mask the corners);
+  macOS gets the full 16-1024 ladder. `ASSETCATALOG_COMPILER_APPICON_NAME` set
+  in `project.yml` — without it macOS ships iconless. Both platforms build clean.
+- OAuth: Apple / Google / GitHub buttons on login and register via
+  `lib/OAuthButtons.tsx` (`signInWithOAuth`). All three providers were already
+  enabled on the shared Supabase project; only the redirect allow-list needed
+  homeward/pets/localhost added. iOS is still email + anonymous — native SIWA
+  is the remaining piece.
+- edit_token leak closed. `listings` is now a read-only definer view without
+  the column; the table is `listings_data` with all grants revoked from anon
+  and authenticated. Posting goes through `create_listing()`, which is the only
+  thing that returns a token, and `listing_by_token()` backs the edit link.
+  `update_listing()` now also accepts a signed-in owner instead of a token.
+  Verified over REST: reads work, `edit_token` does not exist on the view, the
+  base table is permission-denied, and direct insert/update/delete on the view
+  are refused.
+
 ## Left
-- [ ] Landing page (from Apple Notes 2026-08-27).
 - [ ] No ASC record yet for `com.nulljosh.homeward`; nothing submitted.
-- [ ] App icon: neither platform has one.
-- [ ] Security, pre-existing and shared with web: the `select` policy on `listings` is
-  `using (true)`, so anyone can read every row's `edit_token` and resolve or edit someone
-  else's listing. Real fix is column grants plus a `create_listing` RPC that returns the
-  token — touches web, iOS, and a migration.
-- [ ] OAuth rollout below is still open; the native apps post anonymously.
+- [ ] Native Sign in with Apple in the iOS/Mac app (web OAuth is done).
+- [ ] The Mac icon is the same dark rounded-square art as iOS; a Mac-shaped
+  icon would be better but is cosmetic.

@@ -1,14 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { supabase, Listing } from "@/lib/supabase";
 import AuthBar from "@/lib/AuthBar";
 
-export default function Home() {
-  const [listings, setListings] = useState<Listing[]>([]);
-  const [filter, setFilter] = useState<"all" | "lost" | "found">("all");
-  const [query, setQuery] = useState("");
+export default function Landing() {
+  const [recent, setRecent] = useState<Listing[]>([]);
 
   useEffect(() => {
     supabase
@@ -16,69 +14,84 @@ export default function Home() {
       .select("*")
       .eq("status", "active")
       .order("created_at", { ascending: false })
-      .then(({ data }) => setListings((data as Listing[]) ?? []));
+      .limit(6)
+      .then(({ data }) => setRecent((data as Listing[]) ?? []));
   }, []);
 
-  const filtered = listings.filter((l) => {
-    if (filter !== "all" && l.type !== filter) return false;
-    if (!query) return true;
-    const haystack = `${l.pet_name ?? ""} ${l.species} ${l.color ?? ""} ${l.last_seen_location}`.toLowerCase();
-    return haystack.includes(query.toLowerCase());
-  });
-
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6 font-sans text-sm">
-      <header className="flex items-baseline justify-between border-b border-zinc-300 pb-2 mb-4">
-        <h1 className="text-xl font-bold">homeward</h1>
+    <div className="font-sans text-sm">
+      <header className="max-w-3xl mx-auto px-4 py-4 flex items-baseline justify-between">
+        <span className="text-xl font-bold">homeward</span>
         <div className="flex items-center gap-3">
-          <Link href="/post" className="text-blue-700 underline hover:text-blue-900">
-            post a listing
+          <Link href="/board" className="text-blue-700 underline hover:text-blue-900">
+            browse the board
           </Link>
           <AuthBar />
         </div>
       </header>
 
-      <div className="flex gap-3 mb-4 items-center">
-        {(["all", "lost", "found"] as const).map((f) => (
-          <button
-            key={f}
-            onClick={() => setFilter(f)}
-            className={`px-2 py-1 border rounded ${
-              filter === f ? "bg-zinc-800 text-white" : "border-zinc-300"
-            }`}
-          >
-            {f}
-          </button>
-        ))}
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="search name, species, location..."
-          className="ml-auto border border-zinc-300 rounded px-2 py-1 flex-1 max-w-xs"
-        />
-      </div>
+      <section className="max-w-3xl mx-auto px-4 pt-10 pb-14 border-b border-zinc-200">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">
+          A lost pet doesn&apos;t have time for a signup form.
+        </h1>
+        <p className="text-zinc-600 max-w-prose mb-6 leading-relaxed">
+          Homeward is a plain board for lost and found pets. Post in under a minute, with
+          no account — you get a private link to edit or close your listing later. Everything
+          posted is public so neighbours, shelters and vets can actually find it.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/post" className="bg-zinc-800 text-white rounded px-4 py-2">
+            post a lost or found pet
+          </Link>
+          <Link href="/board" className="border border-zinc-300 rounded px-4 py-2 hover:bg-zinc-50">
+            browse the board
+          </Link>
+        </div>
+      </section>
 
-      <ul className="divide-y divide-zinc-200">
-        {filtered.map((l) => (
-          <li key={l.id} className="py-2">
-            <Link href={`/listing?id=${l.id}`} className="flex items-baseline gap-2 hover:underline">
-              <span
-                className={`uppercase text-xs font-bold px-1 rounded ${
-                  l.type === "lost" ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"
-                }`}
-              >
-                {l.type}
-              </span>
-              <span className="font-medium">{l.pet_name || l.species}</span>
-              <span className="text-zinc-500">— {l.species}, {l.color}</span>
-              <span className="text-zinc-400 ml-auto">{l.last_seen_location}</span>
-            </Link>
-          </li>
+      <section className="max-w-3xl mx-auto px-4 py-10 grid gap-6 sm:grid-cols-3 border-b border-zinc-200">
+        {[
+          ["No account needed", "Post anonymously. A private edit link is yours to keep — nobody else can close or change your listing."],
+          ["Searchable, not a feed", "Filter lost from found and search by name, species, colour, tag number or where the pet was last seen."],
+          ["Everywhere you are", "The web app, native iOS and Mac apps, and an installable home-screen app on Android and Windows."],
+        ].map(([h, p]) => (
+          <div key={h}>
+            <h2 className="font-bold mb-1">{h}</h2>
+            <p className="text-zinc-600 leading-relaxed">{p}</p>
+          </div>
         ))}
-        {filtered.length === 0 && (
-          <li className="py-8 text-center text-zinc-400">no listings yet</li>
-        )}
-      </ul>
+      </section>
+
+      {recent.length > 0 && (
+        <section className="max-w-3xl mx-auto px-4 py-10">
+          <div className="flex items-baseline justify-between mb-3">
+            <h2 className="font-bold">recently posted</h2>
+            <Link href="/board" className="text-blue-700 underline">see all</Link>
+          </div>
+          <ul className="divide-y divide-zinc-200">
+            {recent.map((l) => (
+              <li key={l.id} className="py-2">
+                <Link href={`/listing?id=${l.id}`} className="flex items-baseline gap-2 hover:underline">
+                  <span
+                    className={`uppercase text-xs font-bold px-1 rounded ${
+                      l.type === "lost" ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"
+                    }`}
+                  >
+                    {l.type}
+                  </span>
+                  <span className="font-medium">{l.pet_name || l.species}</span>
+                  <span className="text-zinc-500">— {l.species}{l.color ? `, ${l.color}` : ""}</span>
+                  <span className="text-zinc-400 ml-auto">{l.last_seen_location}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <footer className="max-w-3xl mx-auto px-4 py-8 text-zinc-400 border-t border-zinc-200">
+        homeward · a free board for lost and found pets
+      </footer>
     </div>
   );
 }

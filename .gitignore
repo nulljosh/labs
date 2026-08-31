@@ -14,3 +14,7 @@ homeward/.next/
 homeward/.env.local
 credis/credis
 roost/
+
+node_modules/
+.next/
+.env.local

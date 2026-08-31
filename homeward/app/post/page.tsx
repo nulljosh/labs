@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabase";
+import { supabase, Listing } from "@/lib/supabase";
 
 export default function PostListing() {
   const router = useRouter();
@@ -24,29 +24,24 @@ export default function PostListing() {
       }
     }
 
-    const { data: session } = await supabase.auth.getSession();
-
     const { data, error } = await supabase
-      .from("listings")
-      .insert({
-        user_id: session.session?.user.id ?? null,
+      .rpc("create_listing", {
         type: form.get("type"),
-        pet_name: form.get("pet_name"),
         species: form.get("species"),
+        last_seen_location: form.get("last_seen_location"),
+        pet_name: form.get("pet_name"),
         color: form.get("color"),
         description: form.get("description"),
         tag_number: form.get("tag_number"),
-        last_seen_location: form.get("last_seen_location"),
         contact_phone: form.get("contact_phone"),
         contact_email: form.get("contact_email"),
         photo_url,
       })
-      .select()
       .single();
 
     setSubmitting(false);
     if (!error && data) {
-      setEditToken(data.edit_token);
+      setEditToken((data as Listing).edit_token ?? null);
     }
   }
 
@@ -60,7 +55,7 @@ export default function PostListing() {
         <code className="block bg-zinc-100 p-2 rounded break-all mb-4">
           {typeof window !== "undefined" ? window.location.origin : ""}/listing/edit?token={editToken}
         </code>
-        <button onClick={() => router.push("/")} className="text-blue-700 underline">
+        <button onClick={() => router.push("/board")} className="text-blue-700 underline">
           back to listings
         </button>
       </div>

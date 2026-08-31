@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import OAuthButtons from "@/lib/OAuthButtons";
 
 export default function Register() {
   const [error, setError] = useState<string | null>(null);
@@ -35,6 +36,7 @@ export default function Register() {
   return (
     <div className="max-w-sm mx-auto px-4 py-10 font-sans text-sm">
       <h1 className="text-lg font-bold mb-4">register</h1>
+      <OAuthButtons />
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <input name="email" type="email" required placeholder="email" className="border border-zinc-300 rounded px-2 py-1" />
         <input name="password" type="password" required minLength={6} placeholder="password" className="border border-zinc-300 rounded px-2 py-1" />
