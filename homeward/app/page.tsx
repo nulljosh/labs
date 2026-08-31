@@ -6,10 +6,12 @@ import { supabase, Listing } from "@/lib/supabase";
 import AuthBar from "@/lib/AuthBar";
 import "./landing.css";
 
-// Decorative wallpaper only — generic notices, not real listings. Real ones are
-// in the "recently posted" strip below, straight from the board.
+// Modelled on the real posters seeded on the board — the first three are the
+// actual neighbourhood cases, the rest is generic filler so the wall stays full.
 const SAMPLES: [string, string, string][] = [
-  ["lost", "tabby cat", "Commercial Drive"],
+  ["lost", "Oakley, siamese", "203 St & 54A Ave, Langley"],
+  ["lost", "Cali, calico", "Portage Park, Langley"],
+  ["lost", "grey cat", "Langley"],
   ["found", "black lab", "Trout Lake"],
   ["lost", "grey whippet", "Kits Beach"],
   ["found", "orange tabby", "Mount Pleasant"],
@@ -21,7 +23,7 @@ const SAMPLES: [string, string, string][] = [
   ["found", "white rabbit", "Jericho"],
   ["lost", "ginger kitten", "Fraser & King Ed"],
   ["found", "beagle", "New Westminster Quay"],
-  ["lost", "siamese cat", "West End"],
+  ["lost", "tabby cat", "Commercial Drive"],
   ["found", "corgi", "Olympic Village"],
   ["lost", "grey parrot", "Gastown"],
   ["found", "tuxedo cat", "Renfrew"],
@@ -31,8 +33,6 @@ const SAMPLES: [string, string, string][] = [
   ["found", "cockatiel", "Kerrisdale"],
   ["lost", "dachshund", "Coal Harbour"],
   ["found", "calico cat", "Hastings-Sunrise"],
-  ["lost", "golden retriever", "Pacific Spirit Park"],
-  ["found", "grey tabby", "Marpole"],
 ];
 
 function HeroWall() {
