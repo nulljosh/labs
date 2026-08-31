@@ -38,7 +38,7 @@ def resolve(val, bg):
         return blend('#%02x%02x%02x' % (r, g, b), a, bg)
     return None
 
-TOKENS = ("--bg", "--bg2", "--text", "--text2", "--accent", "--border", "--accent-soft")
+TOKENS = ("--bg", "--bg2", "--text", "--text2", "--accent", "--border", "--accent-soft", "--link")
 
 def tokens_in(block):
     out = {}
@@ -72,8 +72,9 @@ def audit(path):
             ("body text",        t.get("--text"),   bg,   4.5),
             ("secondary text",   t.get("--text2"),  bg,   4.5),
             ("secondary on card",t.get("--text2"),  bg2,  4.5),
-            ("accent as link",   t.get("--accent"), bg,   4.5),
-            ("accent on hero",   t.get("--accent"), soft, 4.5),
+            # links use --link where a palette defines one; --accent is fill-only there
+            ("link text",        t.get("--link") or t.get("--accent"), bg,   4.5),
+            ("link on hero",     t.get("--link") or t.get("--accent"), soft, 4.5),
             ("border",           t.get("--border"), bg,   3.0),
         ]
         for label, raw, on, need in checks:
