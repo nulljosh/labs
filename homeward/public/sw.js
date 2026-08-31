@@ -1,6 +1,7 @@
-// ponytail: cache-first over a fixed file list. Bump CACHE to ship an update.
-const CACHE = "homeward-v2";
-const FILES = ["/",  "/manifest.webmanifest"];
+// ponytail: network-first for pages, cache-first for the hashed assets they name.
+// Bump CACHE to evict everything a previous version stored.
+const CACHE = "homeward-v3";
+const FILES = ["/", "/manifest.webmanifest"];
 
 self.addEventListener("install", e => {
   // A single missing file fails the whole addAll, so tolerate misses.
@@ -15,24 +16,34 @@ self.addEventListener("activate", e => {
     .then(() => self.clients.claim()));
 });
 
+const save = (req, res) => {
+  if (res.ok && res.type === "basic") {
+    const copy = res.clone();
+    caches.open(CACHE).then(c => c.put(req, copy));
+  }
+  return res;
+};
+
 self.addEventListener("fetch", e => {
   // Same-origin GETs only; APIs are cross-origin and stay network-only.
   if (e.request.method !== "GET" || new URL(e.request.url).origin !== location.origin) return;
+
+  // HTML must never come from cache first: it names the hashed bundles, so a
+  // stale page pins a whole stale build. v2 served the old landing page for
+  // days this way. Go to the network, fall back to cache only when offline.
+  if (e.request.mode === "navigate") {
+    e.respondWith(
+      fetch(e.request)
+        .then(res => save(e.request, res))
+        .catch(() => caches.match(e.request, { ignoreSearch: true })
+          .then(hit => hit || caches.match(FILES[0])))
+    );
+    return;
+  }
+
+  // Everything else is content-hashed, so a cache hit is always the right file.
   e.respondWith(
     caches.match(e.request, { ignoreSearch: true }).then(hit => hit ||
-      fetch(e.request).then(res => {
-        // Fill the cache as the app loads, so the hashed bundles the shell needs
-        // are there the next time the network is not. Opaque/error responses are
-        // not worth storing.
-        if (res.ok && res.type === "basic") {
-          const copy = res.clone();
-          caches.open(CACHE).then(c => c.put(e.request, copy));
-        }
-        return res;
-      }).catch(() =>
-        // A navigation offline with nothing cached still gets the app shell.
-        e.request.mode === "navigate" ? caches.match(FILES[0]) : Promise.reject()
-      )
-    )
+      fetch(e.request).then(res => save(e.request, res)))
   );
 });
