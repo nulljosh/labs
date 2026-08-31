@@ -53,7 +53,7 @@
 ### Experiments (tracked by labs itself — see README.md)
 | Repo | What it is |
 |---|---|
-| **os** | Freestanding i386 kernel (VGA text, PS/2 keyboard, CMOS RTC, basic shell). Builds with Apple clang+lld, boots on QEMU, tests via screendump. 2500 lines of C. |
+| **os** | Freestanding i386 kernel (VGA text, PS/2 keyboard, CMOS RTC, basic shell). Builds with Apple clang+lld, boots on QEMU, tests via screendump. |
 
 Also: bank, canlii-app, credis, video-speed-ext. Also local-only: agent-101, lec (LEC portal client), logans-frenchies (research only).
 
