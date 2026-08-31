@@ -81,6 +81,32 @@ What was built:
   base table is permission-denied, and direct insert/update/delete on the view
   are refused.
 
+## Landing page + domain — 2026-08-31 (later)
+
+The first landing page was the app's own chrome with a paragraph on top. Rebuilt
+it in the house style the other landings use (numen, bookrank): a `hero-wall` of
+notices drifting up and down behind a radial scrim, icon over a clamped headline,
+feature grid, install-anywhere, closing. Styles in `app/landing.css` scoped under
+`.lp` so they don't fight Tailwind; the wall is decorative sample text, while the
+"on the board right now" strip under it is live data. Honours
+`prefers-reduced-motion` and both colour schemes.
+
+It stayed inside the Next app rather than becoming a static `landing/index.html`
+at `/` with the app under `/app` like the other projects — that would mean a
+`basePath` change and a two-directory deploy, and the app already owns `/`.
+
+Domain: `homeward.heyitsmejosh.com` is canonical, `pets.` is the legacy alias.
+Both were serving identical copies with nothing marking which is real. Pages
+`_redirects` only matches on path, not host, so the 301 there does nothing (kept
+as documentation); the actual consolidation is per-route `rel=canonical` from
+`metadataBase` plus a one-line host check in the layout that sends `pets.` on to
+`homeward.` A real edge 301 needs a Cloudflare Bulk Redirect, which the DNS-only
+token can't create.
+
+Also: the manifest advertised a green `#2f7d64` theme with the amber-on-dark
+icon, and `start_url` pointed at `/`, so an installed app opened the pitch
+instead of the board. Both fixed.
+
 ## Left
 - [ ] No ASC record yet for `com.nulljosh.homeward`; nothing submitted.
 - [ ] Native Sign in with Apple in the iOS/Mac app (web OAuth is done).
