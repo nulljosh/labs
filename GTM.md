@@ -88,12 +88,13 @@ curl reports a false zero. **Grep the source, never curl, when auditing these.**
   2026-08-30 (epiphany, curvely, wordroot, nyc, bcgd/Doorstock). All 19 now carry canonical
   JSON under `metadata/app-info/` + `metadata/version/<v>/`, with subtitle and keywords set.
   `bcgd` was the last legacy fastlane `.txt` layout and is now JSON like the rest.
-- **Todo:** ASO copy quality, not ASO plumbing. `promotionalText` is empty on 12 of 19 — it is
-  the only above-the-fold field editable without a review, so it is the cheapest lever left.
-  Workflow: `asc metadata pull` → `plan` → `approve` → `apply --confirm` (use the
-  `asc-metadata-sync` skill). Push metadata **before** a submit — `ship-ios` never pushes
-  `whatsNew`. Two gotchas: apps with multiple app-infos need an explicit `--app-info` on pull
-  (nyc, bcgd), and `app-info` fields are silently discarded while a review is open.
+- **Done 2026-08-31:** `promotionalText` written and applied live on all 17 remaining
+  localizations (bcgd/Doorstock, bookrank, charwork, curvely, healstack, inkpress, lexly,
+  sparkjar, voxprint, wordroot, both platforms each). conway, litigate, nyc and quotestreak
+  already had it. **Do not use `asc metadata plan/apply` for this on a live version** — it
+  PATCHes the whole localization and Apple rejects it with "Attribute 'description' cannot be
+  edited at this time". Use `asc localizations update --id <localizationId> --promotional-text
+  "..."`, which sends the one field and works in READY_FOR_SALE, IN_REVIEW and REJECTED alike.
 - For iOS, ASC App Analytics is the free feedback loop — already collecting, nothing to install.
 
 ## Track C — the IAP flip (execute the day the agreement activates, not before)
