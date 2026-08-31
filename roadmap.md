@@ -490,3 +490,18 @@ but it is tuned for fill.**
   one line per landing, not a redesign.
 - The 60 border findings the script also reports are advisory. WCAG 1.4.11 covers
   UI components and meaningful graphics, not decorative 1px dividers.
+
+## Bulk deploy: bash 3.2 trap — 2026-08-31
+
+A script to redeploy every app used `declare -A` for the repo-to-Pages-project
+map. macOS /bin/bash is 3.2, which has no associative arrays and fails silently:
+the assignment became an indexed array, every string subscript evaluated to 0,
+so every repo mapped to the same project. bookrank was deployed over the
+`homeward` project before it was caught on the first log line. Homeward was
+rebuilt and redeployed immediately and verified on both hosts; nothing else ran.
+
+- [ ] If a bulk deploy is wanted, use `#!/opt/homebrew/bin/bash` (bash 5) or a
+  plain case statement, and echo the resolved project name per repo before
+  deploying anything.
+- [ ] The contrast fix is committed everywhere but only deployed to homeward.
+  Each app picks it up on its next normal deploy; there is no urgency.
