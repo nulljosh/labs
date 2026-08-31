@@ -27,7 +27,7 @@
 | **sidewise** | RSS API + reader (renamed from newsline 2026-08-28) | news.heyitsmejosh.com · 6806028670 |
 | **nyc** | Times Square city sim | — |
 | **bcgd** | Garage-door site + dashboard; ships as **Doorstock** | bcgd.heyitsmejosh.com |
-| **fengshui** | Fengshui reader, web + iOS | fengshui.heyitsmejosh.com |
+| **fengshui** | Fengshui home-assessment tool + reader (web); iOS still reader-only | fengshui.heyitsmejosh.com |
 | **nimble** | macOS menu bar + web instant answers | — |
 | **cadence** | Time tracking, web + SwiftUI | cadence.heyitsmejosh.com |
 | **dream** | Dream journal + interpretation (Workers AI) | dream.heyitsmejosh.com |
