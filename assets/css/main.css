@@ -61,8 +61,8 @@ body {
     repeating-linear-gradient(to bottom, var(--text) 0 1px, transparent 1px 34px),
     repeating-linear-gradient(to bottom, var(--text) 0 1px, transparent 1px 97px);
   background-size: 100% 34px, 100% 97px;
-  opacity: 0.055;
-  animation: drift 26s linear infinite;
+  opacity: 0.16;
+  animation: drift 14s linear infinite;
 }
 @keyframes drift {
   from { transform: translateY(0); }
@@ -78,8 +78,8 @@ body {
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 65% at 50% 45%, var(--bg2) 25%, transparent 80%),
-    linear-gradient(var(--bg2), transparent 35%, transparent 65%, var(--bg2) 97%);
+    radial-gradient(ellipse 46% 52% at 50% 45%, var(--bg2) 30%, transparent 85%),
+    linear-gradient(var(--bg2), transparent 22%, transparent 78%, var(--bg2) 99%);
 }
 .hero h1 {
   font-size: clamp(2.1rem, 5vw, 3.1rem);
