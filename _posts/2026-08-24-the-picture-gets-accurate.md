@@ -50,7 +50,7 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Pulled metadata for four apps where I dropped China, shipped macOS versions of Charwork and Curvely using APIs ported from Sidewise (fixed Charwork's build script), gave Cadence its icon, and built an animated math wall for Numen's hero. Reshaped Feng Shui into an assessment tool with twenty-four yes/no questions across four energy layers, each answer expanding with book reasoning. Fixed Epiphany's landing map (CSP needed blob: for MapLibre), reskinned the journal site to match the family, and freed twenty-six gigs of Xcode cache. Joshua signed in, finding six bugs in Roost and fixed them with cache mirrors, Esri tiles, thinner pins, Supabase favorites sync, and route gating. Late evening, two approvals landed: Inkpress macOS and Curvely's appeal overturning the 4.3(a) flag; then submitted Curvely macOS for review, fixing the app name, window size, header, and button targets.
+Shipped macOS versions of Charwork and Curvely, gave Cadence its icon, and built an animated math wall for Numen. Reshaped Feng Shui into a 24-question assessment, fixed Epiphany's landing map (blob: CSP), reskinned the journal site, and freed twenty-six gigs of Xcode. Joshua found six bugs in Roost's demo and fixed them. Two approvals arrived (Inkpress macOS, Curvely's appeal overturning 4.3a), then submitted Curvely macOS for review. Audited the portfolio and corrected four platform badges, decided not to create thin App Store records (that triggered the suspension), and noted Numen's domain was live.
 
 ## Monday (2026-08-31)
 
