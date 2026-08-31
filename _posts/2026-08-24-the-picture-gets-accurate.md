@@ -50,9 +50,7 @@ Shipped Inkpress Mac release with iOS submission, re-shot Healstack, filled NYC 
 
 ## Sunday (2026-08-30)
 
-Pulled metadata for four apps where I dropped China, shipped macOS versions of Charwork and Curvely using APIs ported from Sidewise, and gave Cadence the icon it never had. Took Roost from labs into its own repo, fixing the auth config that had broken sign-in. Reshaped Feng Shui into an assessment tool with twenty-four yes/no questions across four energy layers, each answer expanding with book reasoning and highlighting siting problems that interior work can't fix. Fixed Epiphany's landing map (CSP needed blob: for MapLibre), reskinned the journal site to match the family, and freed twenty-six gigs of Xcode cache.
-
-Joshua signed in, finding six bugs: Overpass 504s, watermarked tiles, unreadable pins, missing sync, bouncing routes, duplicates, fixed by adding mirrors with cache, swapping to Esri, thinning pins, syncing favorites to Supabase, gating routes, wiring Settings, and screenshots.
+Pulled metadata for four apps where I dropped China, shipped macOS versions of Charwork and Curvely using APIs ported from Sidewise, and gave Cadence the icon it never had. Reshaped Feng Shui into an assessment tool with twenty-four yes/no questions across four energy layers, each answer expanding with book reasoning. Fixed Epiphany's landing map (CSP needed blob: for MapLibre), reskinned the journal site to match the family, and freed twenty-six gigs of Xcode cache. Joshua signed in, finding six bugs in Roost and fixed them by adding mirrors with cache, swapping to Esri, thinning pins, syncing favorites to Supabase, and gating routes. Late evening, two approvals landed - Inkpress macOS shipped (first release for Mac), and Curvely's appeal reversed the 4.3(a) spam flag, signaling that other filed replies are worth pursuing rather than resubmitting.
 
 ## Monday (2026-08-31)
 
