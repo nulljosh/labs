@@ -54,6 +54,6 @@ Shipped macOS versions of Charwork and Curvely, gave Cadence its icon, and built
 
 ## Monday (2026-08-31)
 
-Fixed Talli's infinite redirect loop between /app and /login (session stayed valid, bounced to /app indefinitely) by gating on 401 errors and adding sessionStorage flag. Cleaned up the Vercel account, deleting two orphan projects.
+Fixed Talli's infinite redirect loop between /app and /login by gating on 401 errors. Late evening shipped PWA support across twenty apps with manifests, cache-first workers, and maskable icons so browsers install them on Windows, Linux and Android; the workers had only cached the app shell, so offline loads came up blank, and I fixed that to cache same-origin requests as they load. Updated landing pages with "Install it anywhere" sections and deployed.
 
-**Apps:** Numen, Charwork, Curvely, Cadence native iOS/macOS; Inkpress, Voxprint, Lexly, Litigate, Sparkjar, Wordroot live or review. Month: 42 repos, 13 shipped, 2 approvals, 2 new Mac launches.
+**Apps:** Numen, Charwork, Curvely, Cadence native iOS/macOS; Inkpress, Voxprint, Lexly, Litigate, Sparkjar, Wordroot live or review. Month: 42 repos, 15+ shipped, cross-platform PWA complete.
