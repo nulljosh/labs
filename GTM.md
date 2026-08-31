@@ -123,11 +123,25 @@ Checked production secrets, not the repo. Only **two** rails can actually take m
 | App | Prod Stripe secret | Frontend paywall | Verdict |
 |---|---|---|---|
 | Talli | all 4 set (Worker) | `web/unified.html:442` upgrade CTA | **works** |
-| Epiphany | all 7 set (Worker) | PricingPage + isPro gates on People/DailyBrief | **works** |
-| Healstack | **none** — and `wrangler.toml` ships `STRIPE_PRICE_ID = "price_1234567890abcdef"` | `usePro` + Journal gate exist | **checkout would fail** |
+| Epiphany | all 7 set (Worker) | PricingPage + isPro gates on People/DailyBrief | **works — webhook fixed 2026-08-31** |
+| Healstack | **none** — placeholder price id removed 2026-08-31 | `usePro` + Journal gate, webhook added 2026-08-31 | **code done, needs keys** |
 | Sparkjar | **none** | no CTA in `app.html` | dead code |
 
-The frontend and Functions code is complete in all four. Healstack and Sparkjar are missing only
+**Two real bugs found and fixed 2026-08-31, both silent:**
+
+1. **Epiphany's webhook had been dead since the Cloudflare migration.** `worker/index.js` hands
+   handlers a plain object, not a Node stream, so `stripe-webhook.js` iterating `req` with
+   `for await` threw *before* its try block. Stripe got a 500 on every delivery and
+   `sub:<customerId>` was never written: a completed $1 purchase charged the card and left the
+   buyer on the free tier. Fixed by carrying the exact signed bytes as `req.rawBody` and
+   verifying with `constructEventAsync` (Workers has no synchronous crypto). Live probe with a
+   forged signature went 500 → 400. **Check Stripe's dashboard for past failed deliveries and
+   replay any real ones.**
+2. **Healstack had no webhook at all.** Nothing ever wrote `pro:<userId>`, so even with a working
+   key a payment would unlock nothing. Handler added, plus a 503 guard so an unconfigured
+   checkout says so instead of dying inside the SDK.
+
+The frontend and Functions code is now complete in all four. Healstack and Sparkjar are missing only
 a `STRIPE_SECRET_KEY` (+ a real price id) in Cloudflare Pages. That is a paste, not a build —
 but it needs the key from the Stripe dashboard, which no CLI here can read back out of Talli's
 or Epiphany's encrypted secrets.
