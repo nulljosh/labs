@@ -30,7 +30,7 @@ bundle exec jekyll serve
 
 ## Changelog
 v2.4.0
-- Split out of the `inkpress` repo into its own repo (2026-07-21) — see Inkpress's own README for the RSS reader app side.
+- Split out of the `inkpress` repo into its own repo (2026-07-21), see Inkpress's own README for the RSS reader app side.
 
 v2.3.0
 - Journal now shares the portfolio's design tokens (`heyitsmejosh.com/tokens.css`); blue accent used for links, hover states, and theme toggle.
