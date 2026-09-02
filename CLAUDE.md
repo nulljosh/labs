@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-09-01. This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
+*Refreshed 2026-09-02. This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
 
 ## Environment
 - Mac Mini M4, macOS 25.x · Python 3.14 · Node 24 · xcodegen at `/opt/homebrew/bin/xcodegen`
@@ -31,7 +31,7 @@
 | **nimble** | Instant answers, menu bar + web. **The reference repo** | nimble.heyitsmejosh.com |
 | **cadence** | Commit-history tracker | cadence.heyitsmejosh.com |
 | **dream** | Dream journal, Workers AI | dream.heyitsmejosh.com |
-| **conway** | Game of Life, no network | conway.heyitsmejosh.com |
+| **toroid** | Game of Life on a toroidal grid | toroid.heyitsmejosh.com |
 | **homeward** | Lost/found pets, web + iOS + KMP | homeward.heyitsmejosh.com |
 | **roost** | Real estate browsing, 26 languages | roost.heyitsmejosh.com |
 | **numen** | Free-form calculator canvas | numen.heyitsmejosh.com |
