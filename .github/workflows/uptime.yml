@@ -1,0 +1,18 @@
+name: uptime
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          # ponytail: plain curl loop; GitHub emails on failure, that is the whole alerting system
+          fail=0
+          for h in "" bcgd bcgd-dashboard bookrank cadence charwork conway curbside curvely doorstock fengshui frenchies grapher healstack homeward inkpress journal lexly litigate news nimble nyc pets quotable quotestreak roost seamark sextant sidewise sparkjar voxprint wiretext wordroot brain dream epiphany numen swing talli tripwire; do
+            u="https://${h:+$h.}heyitsmejosh.com/"
+            c=$(curl -s -o /dev/null -m 15 -w '%{http_code}' "$u")
+            case "$c" in 200|301|401) ;; *) echo "DOWN $u -> $c"; fail=1;; esac
+          done
+          exit $fail
