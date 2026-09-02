@@ -46,6 +46,7 @@
 | **nulljosh.github.io** | Portfolio, heyitsmejosh.com (jaybulb.com rename pending domain). `/plan` folded in |
 | **journal** | Jekyll blog (Pages project `journal-heyitsmejosh`) |
 | **brain** | RAG over notes, bearer-gated /api + /mcp |
+| **authmail** | Supabase auth email branding + Resend delivery (Cloudflare Worker) |
 | **notes** | Private notes |
 | **dotfiles** | Shell configs, skills, vibe ref |
 | **os** | i386 kernel, boots on QEMU |
@@ -59,7 +60,7 @@ Never write versions here. They go stale in a day. `asc versions list --app <id>
 Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28. Replies are filed. Never resubmit into it. Book apps get a vague 2.1 unless you drop CHN.
 
 ## Stack
-- **Auth**: Supabase email+password, most apps share the `spark` project. Swift SDK via SPM, `@Observable` store
+- **Auth**: Supabase email+password, most apps share the `spark` project. Auth emails are intercepted by the authmail Cloudflare Worker, branded per app, and sent via Resend. Swift SDK via SPM, `@Observable` store
 - **Hosting**: Cloudflare Pages and Workers. Deploys are `wrangler pages deploy`, not git. **A push deploys nothing.**
 - **DNS**: curl with `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish`. It is not named `CLOUDFLARE_API_TOKEN` on purpose. That name breaks wrangler's OAuth
 - **Apple**: xcodegen `project.yml`, no checked-in xcodeproj. SwiftUI, iOS 17+/macOS 14+. `asc xcode archive`/`export`
