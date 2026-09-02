@@ -2,15 +2,15 @@
 
 **v0.1** | August 2026
 
-A minimal Redis-protocol server in C: `PING`, `SET`, `GET`, `DEL` over RESP,
-backed by a raw hash table. Real `redis-cli` talks to it.
+Redis, the small version. `PING`, `SET`, `GET`, `DEL` over RESP in C, on a raw
+hash table. Real `redis-cli` talks to it and can't tell the difference.
 
 ## Why RESP
 
 The point of the exercise is that Redis's wire protocol is small enough to
 implement by hand, and implementing it means the server is immediately usable
 with every existing Redis client. RESP arrays of bulk strings in, simple
-strings / bulk strings / integers out — that is the whole surface needed for
+strings / bulk strings / integers out, that is the whole surface needed for
 four commands.
 
 ## Concurrency Model
@@ -23,7 +23,7 @@ in the table code has to change to get there.
 
 ## Storage
 
-Open-addressed hash table in memory. No persistence — no RDB snapshot, no AOF
+Open-addressed hash table in memory. No persistence, no RDB snapshot, no AOF
 log. Restarting drops the keyspace.
 
 ## Build and Test

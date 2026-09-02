@@ -2,9 +2,10 @@
 
 **v0.1** | August 2026
 
-A search client for CanLII — Canadian case law and legislation — as a native
-iOS app plus a lightweight web wrapper, backed by a serverless proxy that keeps
-the API key off the client.
+Canadian case law, searchable from your phone.
+
+A native iOS client for CanLII plus a small web wrapper, behind a serverless proxy
+whose only job is to keep the API key off the client.
 
 ## Problem
 
@@ -16,7 +17,7 @@ browser bundle is a published key.
 ## The Proxy
 
 `api/` holds Vercel Edge Functions that mirror the two endpoints the clients
-need — `/api/databases` and `/api/search` — and forward to `api.canlii.org`
+need, `/api/databases` and `/api/search`, and forward to `api.canlii.org`
 with `CANLII_API_KEY` read from the server environment. Both clients call the
 proxy; neither ever holds the key. It is the whole reason a backend exists here
 at all.
@@ -33,7 +34,7 @@ in-app: the source is authoritative, paginated, and citation-stable, and
 reproducing it would only introduce a way to be wrong about what a judgment
 says.
 
-Bookmarks are local SwiftData — there are no accounts, so a bookmark never
+Bookmarks are local SwiftData, there are no accounts, so a bookmark never
 leaves the device.
 
 ## Relationship to Litigate

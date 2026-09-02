@@ -16,9 +16,9 @@ canlii.org's own site is dated and blocks scraping (403 on direct fetch). This p
 
 ## Structure
 
-- `api/` — Vercel Edge Functions proxying `api.canlii.org` (`/api/databases`, `/api/search`). Reads `CANLII_API_KEY` from env.
-- `web/` — static HTML/CSS/JS wrapper, calls the same `/api` routes.
-- `ios/` — SwiftUI iOS app (generated via XcodeGen, see `ios/project.yml`). Search, browse, open full decisions via Safari view, bookmark with SwiftData.
+- `api/`: Vercel Edge Functions proxying `api.canlii.org` (`/api/databases`, `/api/search`). Reads `CANLII_API_KEY` from env.
+- `web/`: static HTML/CSS/JS wrapper, calls the same `/api` routes.
+- `ios/`: SwiftUI iOS app (generated via XcodeGen, see `ios/project.yml`). Search, browse, open full decisions via Safari view, bookmark with SwiftData.
 
 ## Setup
 
@@ -29,6 +29,6 @@ canlii.org's own site is dated and blocks scraping (403 on direct fetch). This p
 
 ## Status
 
-MVP scaffold — search + browse + bookmark works once `CANLII_API_KEY` is set. Build verified locally (`xcodebuild` succeeded for iOS Simulator).
+MVP scaffold, search + browse + bookmark works once `CANLII_API_KEY` is set. Build verified locally (`xcodebuild` succeeded for iOS Simulator).
 
 [Technical whitepaper](WHITEPAPER.md)

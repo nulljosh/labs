@@ -14,7 +14,7 @@ Neobank prototype (Wealthsimple-style): accounts + stock trading, sandbox-only.
 3. [ ] Supabase auth + persistent ledger
 4. [ ] iOS app (SwiftUI, same API)
 5. [ ] KYC stub (Persona sandbox)
-6. — everything past here needs FINTRAC MSB + BaaS partner (Peoples Group / DC Bank), not code
+6., everything past here needs FINTRAC MSB + BaaS partner (Peoples Group / DC Bank), not code
 
 ## Run
 ```

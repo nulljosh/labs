@@ -2,12 +2,10 @@
 
 **v0.1.0 prototype** | August 2026
 
-Bank is a Wealthsimple-style neobank prototype: accounts, a ledger, and stock
-trading — sandbox only. No real money moves, ever, until a BaaS partner
-contract exists.
+A bank, as a prototype. Accounts, a ledger, stock trading. Sandbox only.
 
-This paper leads with the ledger and trading design. Everything else is
-supporting detail.
+No real money moves. None, ever, until a BaaS partner signs a contract. This paper
+is about the ledger and the trading design. The rest is detail.
 
 ## Ledger
 
