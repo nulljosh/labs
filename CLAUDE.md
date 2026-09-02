@@ -1,10 +1,10 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-09-01. Per-repo detail lives in each repo's `CLAUDE.md`/`roadmap.md`; revenue in `GTM.md`. This file is a map, not a changelog.*
+*Refreshed 2026-09-01. This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
 
 ## Environment
 - Mac Mini M4, macOS 25.x · Python 3.14 · Node 24 · xcodegen at `/opt/homebrew/bin/xcodegen`
-- `asc` CLI + skills installed. Use it, not the App Store Connect dashboard
+- `asc` CLI and its skills are installed. Use them. Stay out of the App Store Connect dashboard
 
 ## Repos
 
@@ -52,20 +52,20 @@
 | **lec** / **logans-frenchies** | LEC portal client / client site pitch (private) |
 | `scripts/`, `_feature_audit/`, `_external/` | helpers / audit CSVs / read-only checkouts, never push |
 
-Gone, do not reference: systems, beep, missing-pets, abraham, code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay, plan (archived).
+Gone. Don't mention them: systems, beep, missing-pets, abraham, code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay, plan (archived).
 
 ## Ship status
-Never record versions here. `asc versions list --app <id>` is truth. Rejection reasons are in Resolution Center only (`asc-login` for 2FA).
-Standing: 4.3(a) spam wave hit 7 apps 2026-08-28, replies filed, never resubmit into it. Book apps get vague 2.1 unless CHN is dropped.
+Never write versions here. They go stale in a day. `asc versions list --app <id>` is the truth. Rejection reasons live in Resolution Center only (`asc-login` for 2FA).
+Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28. Replies are filed. Never resubmit into it. Book apps get a vague 2.1 unless you drop CHN.
 
 ## Stack
 - **Auth**: Supabase email+password, most apps share the `spark` project. Swift SDK via SPM, `@Observable` store
-- **Hosting**: Cloudflare Pages/Workers. `wrangler pages deploy`, not git-connected: **a push deploys nothing**
-- **DNS**: curl with `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish`. Not named `CLOUDFLARE_API_TOKEN` on purpose (breaks wrangler OAuth)
+- **Hosting**: Cloudflare Pages and Workers. Deploys are `wrangler pages deploy`, not git. **A push deploys nothing.**
+- **DNS**: curl with `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish`. It is not named `CLOUDFLARE_API_TOKEN` on purpose. That name breaks wrangler's OAuth
 - **Apple**: xcodegen `project.yml`, no checked-in xcodeproj. SwiftUI, iOS 17+/macOS 14+. `asc xcode archive`/`export`
-- **Other platforms**: Kotlin Multiplatform under `<repo>/kmp/` (homeward, nimble, talli so far). PWA is a fallback, not coverage. `native-release.yml` builds msi/deb/apk
+- **Other platforms**: Kotlin Multiplatform under `<repo>/kmp/` (homeward, nimble, talli so far). A PWA is a fallback. It does not count as coverage. `native-release.yml` builds msi, deb and apk
 - **/api + /mcp**: house Cloudflare Functions pattern (quotestreak, bookrank, wordroot, curvely, charwork)
-- No emojis in any UI. No demo accounts for screenshots, use the gitignored `.env`
+- No emojis in any UI. No demo accounts for screenshots. Use the gitignored `.env`
 
 ## Repo standard (nimble is the reference, synced across all repos 2026-09-01)
 - `README.md`: `icon.svg` at 80px, H1, then version / MIT / GitHub shields badges, live link, Features
@@ -74,16 +74,19 @@ Standing: 4.3(a) spam wave hit 7 apps 2026-08-28, replies filed, never resubmit 
 - `.github/workflows/test.yml` where tests exist. GitHub: description (few words), homepage, topics set
 - Icons 200×200 dark terminal aesthetic. Architecture SVGs Apple node-and-line, white bg
 
+## Writing (READMEs, whitepapers, CLAUDE.md, roadmaps, journal, landing copy)
+tripwire's README is the reference. Short sentences. Plain words. Say the problem, then the thing, then stop. One idea per line. Fragments are fine when they land ("That's the gap."). Talk to one person. Cut hedges, jargon, "leverage", "seamlessly", "robust". No em dashes, no emojis, no bullet walls where a sentence works. If a paragraph could be a Steve Jobs keynote line, good. If it reads like a product brochure or an AI wrote it, rewrite it. Prose only: this rule never touches code.
+
 ## Credentials
 - Cloudflare DNS token: `secrets.fish`. Supabase Management PAT: macOS Keychain
 - Upstash Redis (epiphany) rotation pending: `/rotate upstash epiphany`
 - Stripe/Resend/Supabase keys rotated 2026-05; on-disk copies may be stale, probe the platform
 
 ## Gotchas
-- `npm i <pkg> --save-dev` on a pinned dep silently upgrades it. Edit package.json, diff the lockfile
-- Stripe is live on epiphany/healstack/sparkjar/talli but cannot unlock in-app features under App Review; that needs IAP
-- Social sign-in is blocked on console registrations, not code
-- `mole clean` needs a real TTY for the sudo step; run it yourself
+- `npm i <pkg> --save-dev` on a pinned dep upgrades it without telling you. Edit package.json by hand and diff the lockfile
+- Stripe is live on epiphany, healstack, sparkjar and talli. It cannot unlock in-app features under App Review. That needs IAP
+- Social sign-in is blocked on console registrations. The code is done
+- `mole clean` needs a real TTY for sudo. Run it yourself
 
 ## Open work
-`roadmap.md` is the queue, `GTM.md` the revenue ledger. ~18 apps still need a `kmp/` module; roost needs i18n keys before a landing section; litigate deliberately has no landing.
+`roadmap.md` is the queue. `GTM.md` is the ledger. About 18 apps still need a `kmp/` module. roost needs i18n keys before it gets a landing section. litigate has no landing on purpose.

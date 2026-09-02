@@ -1,7 +1,7 @@
 # scripts
 
-Loose helpers used across the repos here. Each one is standalone — no shared
-package, no install step. Run them directly.
+Loose helpers shared across the repos here. Each one stands alone. No shared
+package, no install step. Run it.
 
 | Script | What it does |
 |---|---|
@@ -14,4 +14,4 @@ package, no install step. Run them directly.
 | `sync-docs-to-wiki.sh` | Copy each repo's `README.md` into the Obsidian wiki as `pages/<repo>-readme.md`. Run manually after doc updates. |
 | `tf-health.sh` | TestFlight build/health check across all apps via `asc`. |
 
-Python scripts assume `requests` + `beautifulsoup4` where they scrape.
+The Python scrapers expect `requests` and `beautifulsoup4`.

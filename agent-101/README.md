@@ -1,10 +1,10 @@
 # agent-101
 
-Smallest possible Claude agent: one tool, one loop, one file.
+The smallest Claude agent that works. One tool. One loop. One file.
 
-`agent.py` defines a `list_files` tool with `@beta_tool` and hands it to
-`client.beta.messages.tool_runner(...).until_done()`, which runs the whole
-tool-use loop for you. No framework, no orchestration layer.
+`agent.py` marks a `list_files` function with `@beta_tool` and hands it to
+`client.beta.messages.tool_runner(...).until_done()`. That call runs the whole
+tool loop. No framework. No orchestration layer. Nothing to learn.
 
 ## Run
 
@@ -14,6 +14,6 @@ export ANTHROPIC_API_KEY=...
 python3 agent.py
 ```
 
-It prompts for a question and can list any directory you point it at.
+Ask it a question. It can list any directory you point it at.
 
-Reference for the API used here: https://docs.claude.com/en/api/messages
+The API it uses: https://docs.claude.com/en/api/messages
