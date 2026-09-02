@@ -1,0 +1,7 @@
+name = "authmail"
+main = "src/index.js"
+compatibility_date = "2025-08-01"
+routes = [{ pattern = "authmail.heyitsmejosh.com", custom_domain = true }]
+
+[observability]
+enabled = true
