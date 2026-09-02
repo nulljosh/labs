@@ -1,7 +1,7 @@
 # Cross-repo roadmap
 
 Items without their own repo. Per-project work lives in each repo's `roadmap.md`.
-Last pruned 2026-08-31 against live ASC + HTTP state, not against notes.
+Last pruned 2026-09-01 against live ASC + HTTP state, not against notes.
 
 ## Fable queue (ingested from ~/Downloads/FABLE.md 2026-09-01)
 
