@@ -163,8 +163,8 @@ at a time was always fine.
       than fatten it, its curated feed list was folded into Inkpress 1.0.5 (Phase 3 below), which
       is a shipping app. Newsline stays a Worker + MCP server, not an App Store submission.
 - [ ] **NYC Survive** — **already resubmitted**, contrary to the note this bullet used to carry.
-      Live state 2026-08-25: iOS 1.0.0 `WAITING_FOR_REVIEW`, macOS 1.0.0 `IN_REVIEW`. Nothing to
-      do but wait for the verdict; if it comes back rejected, *then* do the quality pass.
+      Live state 2026-09-01: iOS 1.0.0 `REJECTED`, macOS 1.0.1 `REJECTED` (4.3(a) wave), macOS
+      1.0.0 live. Reply filed; do not resubmit. Quality pass only after a verdict.
 
 ## Codebase consolidation
 
@@ -351,15 +351,15 @@ Reported only; nothing bulk-submitted (a bulk wave is what triggered the 5.6 sus
 
 | App | repo | iOS live | iOS pending | macOS live |
 |---|---|---|---|---|
-| Talli | 3.5.13 | 3.5.12 | 3.5.13 REJECTED | 3.5.6 |
-| Curvely | 1.2.2 | 1.2.1 | 1.2.2 REJECTED | — |
+| Talli | 3.5.14 | 3.5.14 | — (2026-09-01: live) | 3.5.6 |
+| Curvely | 1.2.2 | 1.2.2 | — (appeal won 2026-08-30) | 1.2.2 |
 | Sparkjar | 1.0.1 | **never shipped** | 1.0 REJECTED | 1.0.1 |
-| NYC Survive | 1.0.1 | **never shipped** | 1.0.0 REJECTED | 1.0.0 (1.0.1 IN_REVIEW) |
+| NYC Survive | 1.0.1 | **never shipped** | 1.0.0 REJECTED | 1.0.0 (1.0.1 REJECTED 2026-09-01) |
 | Doorstock | 1.0 | **never shipped** | 1.0 REJECTED | 1.0 |
 
 **Corrections to notes that were wrong:**
 - [ ] **Epiphany iOS live is 2.5.4, not 2.6.x.** 2.5.5 is REJECTED and the repo is already at 2.5.6. Notes claiming "v2.6.1+ live on the App Store" are wrong — the store is three versions behind the repo.
-- [ ] **Healstack has nothing live on either platform.** Both iOS and macOS show no READY_FOR_SALE version; 2.3.5 is WAITING_FOR_REVIEW on both. Notes saying 2.3.4 shipped are wrong.
+- [ ] **Healstack has nothing live on either platform.** Both iOS and macOS show no READY_FOR_SALE version; 2.3.5 is REJECTED on both (verified 2026-09-01). Notes saying 2.3.4 shipped are wrong.
 - [ ] **Sparkjar / NYC Survive / Doorstock have never shipped on iOS** — one iOS version record each, none ever READY_FOR_SALE. Only their macOS builds are live.
 
 **Genuine version drift (repo ahead of store, nothing in flight):**
@@ -367,11 +367,11 @@ Reported only; nothing bulk-submitted (a bulk wave is what triggered the 5.6 sus
 - [ ] Talli macOS live 3.5.6 vs iOS 3.5.12 — the Mac app is seven minor versions behind its own iOS twin.
 - [ ] Voxprint macOS live 1.3.6 vs iOS 1.3.7 — one behind.
 
-**In flight, no action needed:** Lexly 1.1.5 (both platforms WAITING_FOR_REVIEW), Wordroot macOS 1.0.1 IN_REVIEW, NYC macOS 1.0.1 IN_REVIEW, Healstack 2.3.5 (both WAITING).
+**In flight (re-verified 2026-09-01):** nothing is in review except Sidewise 1.0 (both platforms WAITING_FOR_REVIEW). Lexly 1.1.5 (both), Wordroot macOS 1.0.1, NYC macOS 1.0.1 and Healstack 2.3.5 (both) all came back REJECTED in the 4.3(a) wave. Voxprint iOS 1.3.8 and Toroid 1.0 sit in PREPARE_FOR_SUBMISSION.
 
-**Aligned, nothing to do:** Litigate 1.0.3, Wordroot iOS 1.0.1, Quotestreak 1.0, Inkpress 1.0.5, Wiretext 1.1.0, Bookrank 1.0.1, Voxprint iOS 1.3.7.
+**Aligned, nothing to do (2026-09-01):** Litigate 1.0.3, Wordroot iOS 1.0.1, Quotestreak 1.1, Inkpress iOS 1.0.6 / Mac 1.0.7, Charwork 1.1.1, Bookrank 1.0.1, Voxprint iOS 1.3.7, Curvely 1.2.2.
 
-**Never submitted:** Sidewise 1.0 sits in PREPARE_FOR_SUBMISSION on both platforms — blocked on the ITMS-90345 CFBundleVersion mismatch already filed in `newsline/roadmap.md`.
+**Never submitted:** Toroid 1.0 sits in PREPARE_FOR_SUBMISSION on both platforms, held for the 4.3(a) wave. (Sidewise was submitted 2026-08-28 and is WAITING_FOR_REVIEW.)
 
 **Orphan records still cluttering the account:**
 - [ ] `Headwire` (6783501927, com.nulljosh.lingo.mac) — macOS 1.1.1 REJECTED, nothing ever live. This is the duplicate Lexly Mac record; Lexly's real record is 6783501611.

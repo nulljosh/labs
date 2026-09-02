@@ -10,22 +10,25 @@ until the Paid Apps Agreement activates (blocked on a CRA Business Number, see b
 
 ## Ledger
 
-| App | ASC ID | Live | Price | Rail | Blocker / next action |
+| App | ASC ID | Live (verified against ASC 2026-09-01) | Price | Rail | Blocker / next action |
 |---|---|---|---|---|---|
 | Epiphany | 6779522175 | Mac 2.5.2 · **iOS 2.5.6 REJECTED** | $1 one-time (planned) | Stripe live + StoreKit | **Focus.** iOS is out of the store on 4.3(a); fix that before any paywall work |
-| Talli | 6782366555 | iOS 3.5.13 · Mac 3.5.6 | free | Stripe live | **Focus.** One upgrade CTA (`src/api.js` → `/api/stripe-checkout`) |
+| Talli | 6782366555 | iOS 3.5.14 · Mac 3.5.6 | free | Stripe live | **Focus.** One upgrade CTA (`src/api.js` → `/api/stripe-checkout`) |
 | Voxprint | 6782604262 | Mac 1.3.6 · iOS 1.3.8 staged | $9.99 one-time | StoreKit, **disabled** | **Focus.** 2-line revert, but BLOCKED until Form 506 clears |
-| Lexly | 6783501611 | **iOS 1.1.5 REJECTED** · Mac 1.1.5 IN_REVIEW | free | none | none planned |
+| Lexly | 6783501611 | iOS 1.1.3 · Mac 1.1.4 · **1.1.5 REJECTED both platforms** | free | none | none planned |
 | Litigate | 6787857503 | iOS 1.0.3 | free | none | none planned |
 | Bookrank | 6792376485 | iOS 1.0.1 · Mac 1.0.1 | free | none | personal shelf, not a product |
 | Sparkjar | 6785162492 | Mac 1.0.1 · **iOS 1.0 REJECTED** | free | **Stripe NOT live** | iOS never shipped; email/OAuth unconfigured — leave alone |
-| Inkpress | 6787759999 | **iOS 1.0.6 + Mac 1.0.7 WAITING_FOR_REVIEW** | free | none | Mac 1.0.7 is its first ever Mac release |
-| Wordroot | 6794988021 | iOS 1.0.1 · Mac 1.0.1 IN_REVIEW | free | none | none planned |
-| Curvely | 6794988370 | **iOS 1.2.2 REJECTED** | free | none | 4.3(a) wave, reply filed |
-| Charwork | 6794988951 | iOS 1.1.0 | free | none | repo renamed from wiretext; ASC record still "Wiretext" |
-| Quotestreak | 6804394619 | iOS 1.0 · Mac 1.0 | free | none | none planned |
-| Healstack | 6785764864 | **iOS 2.3.5 REJECTED** · Mac 2.3.5 IN_REVIEW | $1 CSV export | **Stripe NOT live** | 4.3(a) wave, reply filed |
-| NYC Survive | 6782618198 | **iOS 1.0.0 REJECTED** · Mac 1.0.1 IN_REVIEW | free | none | listing filled to 10 screenshots 2026-08-29 |
+| Inkpress | 6787759999 | iOS 1.0.6 · Mac 1.0.7 | free | none | Mac 1.0.7 approved 2026-08-30, first Mac release |
+| Wordroot | 6794988021 | iOS 1.0.1 · Mac 1.0 · **Mac 1.0.1 REJECTED** | free | none | none planned |
+| Curvely | 6794988370 | iOS 1.2.2 · Mac 1.2.2 | free | none | 4.3(a) appeal WON, 1.2.2 approved 2026-08-30 |
+| Charwork | 6794988951 | iOS 1.1.1 | free | none | repo renamed from wiretext; ASC record still "Wiretext" |
+| Quotestreak | 6804394619 | iOS 1.1 · Mac 1.1 | free | none | none planned |
+| Healstack | 6785764864 | **nothing live; iOS + Mac 2.3.5 both REJECTED** | $1 CSV export | **Stripe NOT live** | 4.3(a) wave, reply filed |
+| NYC Survive | 6782618198 | Mac 1.0.0 · **iOS 1.0.0 + Mac 1.0.1 REJECTED** | free | none | listing filled to 10 screenshots 2026-08-29 |
+| Doorstock | 6791106082 | Mac 1.0 · **iOS 1.0 REJECTED** | free | none | 4.3(a) + 3.2, appeals filed; keyword regression fix waits on verdict |
+| Sidewise | 6806028670 | iOS 1.0 + Mac 1.0 WAITING_FOR_REVIEW | free | none | submitted 2026-08-28 |
+| Toroid | 6806324937 | iOS 1.0 + Mac 1.0 PREPARE_FOR_SUBMISSION | free | none | held for the 4.3(a) wave |
 
 ## Web-only by decision (not a gap)
 
