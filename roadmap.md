@@ -3,6 +3,20 @@
 Items without their own repo. Per-project work lives in each repo's `roadmap.md`.
 Last pruned 2026-08-31 against live ASC + HTTP state, not against notes.
 
+## Fable queue (ingested from ~/Downloads/FABLE.md 2026-09-01)
+
+- [ ] **Doorstock keyword regression.** Live keywords are single words
+      (`garage door,inventory,jobs,contractor,field service,trade,stock`); the deleted legacy set
+      used phrases (`garage door inventory,contractor job tracker,trade parts,field service,small
+      business stock`) and ranks better. Push it back only after iOS 1.0's 4.3(a) verdict lands;
+      a review is open until then. Old text is in `bcgd` git history.
+- Done 2026-09-01: promotionalText on all live localizations (Epiphany and Talli live in
+  **en-CA**, not en-US, which is why they kept showing empty). GTM ledger and this file's
+  staleness section re-verified against ASC.
+- Not for a fast pass: epiphany + talli Vercel migrations (native deps, Browser Rendering, blob
+  to R2). Architecture work, needs a plan.
+
+
 ## Blocked on Joshua (manual, dashboard or phone)
 
 **Probed 2026-08-25 — two of these are smaller than their labels said.**
