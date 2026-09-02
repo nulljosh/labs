@@ -69,7 +69,8 @@ Standing: 4.3(a) spam wave hit 7 apps 2026-08-28, replies filed, never resubmit 
 
 ## Repo standard (nimble is the reference, synced across all repos 2026-09-01)
 - `README.md`: `icon.svg` at 80px, H1, then version / MIT / GitHub shields badges, live link, Features
-- `LICENSE` (MIT 2026 Joshua Trommel), `SECURITY.md`, `CLAUDE.md`, `architecture.svg`, `icon.svg`. No `AGENTS.md`
+- `LICENSE` (MIT 2026 Joshua Trommel), `SECURITY.md`, `CLAUDE.md`, `WHITEPAPER.md`, `architecture.svg`, `icon.svg`. No `AGENTS.md`
+- `WHITEPAPER.md` in every repo, no exceptions: H1 `<Name> Technical Whitepaper`, `**vX** | Month Year`, one-paragraph summary, then the core mechanic first and supporting detail after, MIT footer. ~40-60 lines. New repo = write it before the first push
 - `.github/workflows/test.yml` where tests exist. GitHub: description (few words), homepage, topics set
 - Icons 200×200 dark terminal aesthetic. Architecture SVGs Apple node-and-line, white bg
 
