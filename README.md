@@ -4,19 +4,18 @@
 
 ![version](https://img.shields.io/badge/version-v2.4.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fjournal-black?logo=github)](https://github.com/nulljosh/journal)
 
-Personal Jekyll blog.
+My journal. A Jekyll blog, a few big entries a year.
 Live at [journal.heyitsmejosh.com](https://journal.heyitsmejosh.com).
 
-Split out of the `inkpress` repo 2026-07-21: this is the blog only. The Inkpress
-iOS app (a general-purpose multi-feed RSS reader) lives at
-[github.com/nulljosh/inkpress](https://github.com/nulljosh/inkpress) and can
-subscribe to this blog's own `feed.xml` as one of its feeds — that's the whole
-connection between the two, nothing shared beyond that.
+Split out of `inkpress` on 2026-07-21. This is the blog only. The Inkpress iOS app,
+a general RSS reader, lives at [github.com/nulljosh/inkpress](https://github.com/nulljosh/inkpress)
+and can subscribe to this blog's `feed.xml` like any other feed. That is the whole
+connection.
 
 ## Features
-- Local Jekyll dev server via `bundle exec jekyll serve` at `http://localhost:4000/`.
-- Posts live in `_posts/` named `YYYY-MM-DD-title.md` with front matter template and guidance to write like a normal person with no jargon pileup.
-- `./scripts/deploy.sh` is the only publish path. Builds Jekyll locally, outputs to `_site/`, then deploys prebuilt static to Vercel via `vercel deploy --prebuilt`. No GitHub Pages, no remote build — a plain `git push` does not deploy.
+- `bundle exec jekyll serve` runs it at `http://localhost:4000/`.
+- Posts live in `_posts/` as `YYYY-MM-DD-title.md`. Front matter template included. Write like a person.
+- `./scripts/deploy.sh` is the only way to publish. It builds locally into `_site/` and deploys the prebuilt output. No GitHub Pages. No remote build. A plain `git push` deploys nothing.
 
 ## Run
 ```bash
