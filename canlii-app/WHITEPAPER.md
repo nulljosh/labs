@@ -27,6 +27,7 @@ at all.
 | Platform | Stack | Notes |
 |----------|-------|-------|
 | iOS | SwiftUI, xcodegen (`ios/project.yml`) | Search, browse, bookmarks via SwiftData, decisions open in a Safari view |
+| watchOS | SwiftUI, standalone (WKWatchOnly), xcodegen (`watchos/project.yml`) | Search by court, title/citation only (search API returns no more), full decision link hands off to canlii.org |
 | Web | Static HTML/CSS/JS | Same `/api` routes, no framework |
 
 Full decisions open in Safari against canlii.org rather than being re-rendered

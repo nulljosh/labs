@@ -19,6 +19,7 @@ canlii.org's own site is dated and blocks scraping (403 on direct fetch). This p
 - `api/`: Vercel Edge Functions proxying `api.canlii.org` (`/api/databases`, `/api/search`). Reads `CANLII_API_KEY` from env.
 - `web/`: static HTML/CSS/JS wrapper, calls the same `/api` routes.
 - `ios/`: SwiftUI iOS app (generated via XcodeGen, see `ios/project.yml`). Search, browse, open full decisions via Safari view, bookmark with SwiftData.
+- `watchos/`: standalone SwiftUI watchOS companion (generated via XcodeGen, see `watchos/project.yml`). Search cases by court, view title/citation, open the full decision on iPhone.
 
 ## Setup
 
@@ -26,9 +27,10 @@ canlii.org's own site is dated and blocks scraping (403 on direct fetch). This p
 2. Set `CANLII_API_KEY` in Vercel project env vars (and `.env.local` for local dev).
 3. Deploy: `vercel --prod` from the repo root.
 4. iOS: open `ios/CanLII.xcodeproj` in Xcode and run. If you edit `ios/project.yml`, regenerate with `xcodegen generate` (run from `ios/`).
+5. watchOS: open `watchos/CanLIIWatch.xcodeproj` in Xcode and run. If you edit `watchos/project.yml`, regenerate with `xcodegen generate` (run from `watchos/`).
 
 ## Status
 
-MVP scaffold, search + browse + bookmark works once `CANLII_API_KEY` is set. Build verified locally (`xcodebuild` succeeded for iOS Simulator).
+MVP scaffold, search + browse + bookmark works once `CANLII_API_KEY` is set. Build verified locally (`xcodebuild` succeeded for iOS Simulator and watchOS Simulator).
 
 [Technical whitepaper](WHITEPAPER.md)

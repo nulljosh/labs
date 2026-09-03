@@ -519,6 +519,3 @@ rebuilt and redeployed immediately and verified on both hosts; nothing else ran.
   deploying anything.
 - [ ] The contrast fix is committed everywhere but only deployed to homeward.
   Each app picks it up on its next normal deploy; there is no urgency.
-
-## Open
-- [ ] canlii-app: Apple Watch companion app -- standalone watchOS target (XcodeGen), same pattern as talli/watchos, sparkjar/watchos, epiphany/watchos, and the new companions added 2026-09-02 to bookrank/charwork/curvely/fengshui/inkpress/lexly/quotestreak. Deferred to keep the sweep scoped.
