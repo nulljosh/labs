@@ -39,6 +39,7 @@
 | **curbside** | Craigslist browser, web/iOS/macOS | curbside.heyitsmejosh.com |
 | **seamark** | Read values off rendered charts (npm lib) | seamark.heyitsmejosh.com |
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
+| **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
 
 ### Sites & infra
 | Repo | What |

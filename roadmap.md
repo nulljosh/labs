@@ -16,7 +16,6 @@ Last pruned 2026-09-01 against live ASC + HTTP state, not against notes.
 - Not for a fast pass: epiphany + talli Vercel migrations (native deps, Browser Rendering, blob
   to R2). Architecture work, needs a plan.
 
-
 ## Blocked on Joshua (manual, dashboard or phone)
 
 **Probed 2026-08-25, two of these are smaller than their labels said.**
@@ -473,8 +472,6 @@ invisible in the browser while curl showed it fine.
 Generator fixed, and the worker patched in all 17 apps that had it, with each
 cache version bumped so existing clients drop what the old worker stored.
 
-- [x] Deployed with the fix: nulljosh.github.io (auto, GitHub Pages), homeward,
-  cadence, inkpress, journal, conway, sidewise.
 - [ ] Still serving the old worker until their next deploy: fengshui,
   quotestreak, bookrank, numen, curvely, dream, wordroot, nimble, charwork,
   voxprint, bcgd. Each needs a build before deploy and none declares both a
