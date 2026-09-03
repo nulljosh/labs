@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-09-02. This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
+*Refreshed 2026-09-03 (fleet-wide auto light/dark mode). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
 
 ## Environment
 - Mac Mini M4, macOS 25.x · Python 3.14 · Node 24 · xcodegen at `/opt/homebrew/bin/xcodegen`
@@ -27,7 +27,7 @@
 | **sidewise** | RSS bias API + reader | sidewise.heyitsmejosh.com · 6806028670 |
 | **nyc** | Times Square city sim | nyc.heyitsmejosh.com |
 | **bcgd** | Garage-door site; ships as **Doorstock** | bcgd.heyitsmejosh.com |
-| **fengshui** | Home-assessment tool (web); iOS reader-only | fengshui.heyitsmejosh.com |
+| **homeqi** | Feng shui home-assessment tool (web, ex-fengshui); iOS reader-only | homeqi.heyitsmejosh.com |
 | **nimble** | Instant answers, menu bar + web. **The reference repo** | nimble.heyitsmejosh.com |
 | **cadence** | Commit-history tracker | cadence.heyitsmejosh.com |
 | **dream** | Dream journal, Workers AI | dream.heyitsmejosh.com |
