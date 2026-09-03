@@ -40,6 +40,7 @@
 | **seamark** | Read values off rendered charts (npm lib) | seamark.heyitsmejosh.com |
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
 | **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
+| **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | github.com/nulljosh/plain |
 
 ### Sites & infra
 | Repo | What |
