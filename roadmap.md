@@ -558,11 +558,17 @@ server-side on that endpoint already, so no client-side duplication needed.
 Real journal: write, save, list, request a reading per entry.
 
 Stopped chasing more for now — the remaining pool splits into two shapes:
-- **Needs real design work, not a mechanical port**: epiphany, sparkjar,
-  litigate are auth-gated with personal Supabase data end to end (no
-  public-data half, and no documented "don't gate content" precedent like
-  lexly had). Wiring a native login flow and deciding what data surface to
-  expose is a real product decision per app, not something to rush blind.
+**sparkjar** got a fourteenth port: `SparkjarClient` reads the public
+`GET /api/posts` browse + detail endpoints (no auth needed for reading,
+`api/posts.js`'s GET routes are public by design). Posting/commenting/
+voting are session-cookie gated and deliberately not attempted here.
+
+- **Still needs real design work, not a mechanical port**: epiphany and
+  litigate are auth-gated with personal Supabase data end to end (financial
+  data, legal case files respectively) — no public-data half like sparkjar
+  had. Wiring a native login flow and deciding what data surface to expose
+  is a real product decision per app, not something to rush blind on data
+  this sensitive.
 - **Genuinely more parsing work**: wordroot (wikitext regex per Wiktionary
   edition).
 
@@ -586,10 +592,11 @@ always takes it) and without the 26-language i18n.
   login UX (Supabase email+password token exchange is the same on Android/
   desktop as iOS, so this isn't blocked technically, just needs a chosen
   scope per app) before doing all four the same way.
-- [ ] 13 of 17 apps now have a real port (numen, cadence, bookrank,
+- [ ] 15 of 17 apps now have a real port (numen, cadence, bookrank,
   quotestreak, curvely, conway, charwork, sidewise, healstack, lexly,
-  dream, roost, inkpress). 4 remain scaffold-only: epiphany, sparkjar,
-  litigate, wordroot.
+  dream, roost, inkpress, wordroot, sparkjar). 2 remain scaffold-only:
+  epiphany, litigate — both need a real native-auth design decision
+  against sensitive personal data, not a quick pass.
 
 ## Native fleet rollout, `kmp/` scaffolding (2026-09-03, DONE — bare scaffolds only)
 
