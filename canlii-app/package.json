@@ -1,5 +1,6 @@
 {
   "name": "canlii-app-api",
+  "description": "A native iOS app and web wrapper for searching CanLII, backed by a serverless proxy.",
   "version": "0.1.0",
   "private": true,
   "scripts": {
