@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-09-03 (fleet-wide auto light/dark mode). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
+*Refreshed 2026-09-03 (Plain shipped, fleet-wide auto light/dark mode). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
 
 ## Environment
 - Mac Mini M4, macOS 25.x · Python 3.14 · Node 24 · xcodegen at `/opt/homebrew/bin/xcodegen`
@@ -40,7 +40,7 @@
 | **seamark** | Read values off rendered charts (npm lib) | seamark.heyitsmejosh.com |
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
 | **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
-| **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | github.com/nulljosh/plain |
+| **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.heyitsmejosh.com |
 
 ### Sites & infra
 | Repo | What |
