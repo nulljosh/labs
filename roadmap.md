@@ -494,11 +494,13 @@ but it is tuned for fill.**
 - A handful of separate `--text2` greys also fail: bookrank/fengshui `#8f8f8f`,
   roost `#868686`, sparkjar `#8c8c8c`.
 
-- [ ] Fix: give each palette a `--link` token distinct from `--accent`, dark
-  enough to pass 4.5:1 on `--bg`, and keep `--accent` for fills with dark ink on
-  top. Homeward already does this (`--link` blue in light, orange in dark, black
-  ink on orange buttons) and can be the model. This is a tokens.css change plus
-  one line per landing, not a redesign.
+- [x] **DONE 2026-09-04.** Re-ran `wcag-audit.py`: 62 of the 64 original
+  failures were already fixed (unclear when, presumably each app's normal
+  churn). The last two were roost's `--text2` sitting just under 4.5:1
+  (bumped opacity 0.66 -> 0.72) and a stray internal tool, the skill-creator
+  eval-viewer, whose `--accent` was used as link text (added a distinct
+  `--link` token, same pattern as homeward). `wcag-audit.py` now reports
+  0 text contrast failures across the whole codebase.
 - The 60 border findings the script also reports are advisory. WCAG 1.4.11 covers
   UI components and meaningful graphics, not decorative 1px dividers.
 
