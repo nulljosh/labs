@@ -516,3 +516,25 @@ rebuilt and redeployed immediately and verified on both hosts; nothing else ran.
   deploying anything.
 - [ ] The contrast fix is committed everywhere but only deployed to homeward.
   Each app picks it up on its next normal deploy; there is no urgency.
+
+## Native fleet rollout, `kmp/` scaffolding queue (2026-09-03)
+
+[[project-native-fleet-rollout]]. **numen** got a bare `kmp/` scaffold (gradle
+wrapper, package `com.nulljosh.numen`, empty Compose screen) copied from
+`homeward/kmp` and stripped of homeward's listings code. It compiles as a
+shell only — the recursive-descent parser and draggable-card canvas are not
+ported yet, `Sheet.kt` and `SheetScreen.kt` both carry `ponytail:` markers to
+that effect.
+
+- [ ] Port numen's expression parser (currently JS/TS in `numen/src`) into
+  `kmp/shared/src/commonMain/kotlin/com/nulljosh/numen/Sheet.kt`, then build
+  the real canvas in `SheetScreen.kt`.
+- [ ] Same `homeward/kmp` copy-and-strip approach, still pending for: curvely,
+  charwork, epiphany, inkpress, lexly, sparkjar, healstack, wordroot,
+  quotestreak, cadence, roost, dream, sidewise, litigate, bookrank,
+  conway/toroid. Pick apps whose data is either static/local (dream, cadence)
+  or a public read like homeward's Supabase table before ones needing new
+  auth plumbing (litigate, sparkjar).
+- [ ] No CI release workflow yet for any of them — `.msi`/`.deb`/`.apk` are
+  built locally only. Needs a GitHub Actions matrix (windows + ubuntu
+  runners) on a tag once more than one or two apps have real KMP code.
