@@ -1,0 +1,30 @@
+<svg class="post-header-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect fill="none" class="bg" width="800" height="500"/>
+  <rect class="brd" x="20" y="20" width="760" height="460" rx="12" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+
+  <text fill="currentColor" x="48" y="90" font-size="42" font-weight="300" letter-spacing="-1">Plain</text>
+  <text fill="currentColor" x="48" y="126" font-size="16" opacity="0.6">text editor . ios and macos . documentgroup + cli</text>
+
+  <line stroke="currentColor" x1="48" y1="152" x2="752" y2="152" stroke-width="1" opacity="0.25"/>
+
+  <text fill="currentColor" x="48" y="188" font-size="14">plain</text>
+
+  <text fill="currentColor" x="48" y="258" font-size="14">swiftui documentgroup spans ios and macos from one target</text>
+  <text fill="currentColor" x="48" y="280" font-size="14">cli shares stats.swift with native app for line/word counts</text>
+  <text fill="currentColor" x="48" y="302" font-size="14">ios document access: uifilesharingenabled + lsupports</text>
+  <text fill="currentColor" x="48" y="324" font-size="14">landing live at plain.heyitsmejosh.com via wrangler</text>
+  <text fill="currentColor" x="48" y="346" font-size="14">github private nulljosh/plain, asc pending, name check</text>
+
+  <rect class="brd" x="560" y="176" width="200" height="280" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+  <text fill="currentColor" x="584" y="206" font-size="12" opacity="0.6">repos shipped</text>
+  <text fill="currentColor" x="584" y="238" font-size="28" font-weight="500">1</text>
+  <text fill="currentColor" x="584" y="272" font-size="12" opacity="0.6">platforms</text>
+  <text fill="currentColor" x="584" y="296" font-size="14">ios + macos</text>
+  <text fill="currentColor" x="584" y="324" font-size="12" opacity="0.6">live</text>
+  <text fill="currentColor" x="584" y="348" font-size="14">plain.heyitsmejosh.com</text>
+  <text fill="currentColor" x="584" y="376" font-size="12" opacity="0.6">pending asc</text>
+  <text fill="currentColor" x="584" y="400" font-size="14">app record + name</text>
+  <text fill="currentColor" x="584" y="452" font-size="13">2026-09-03</text>
+
+  <text fill="currentColor" x="48" y="462" font-size="13" opacity="0.6">2026-09-03</text>
+</svg>
