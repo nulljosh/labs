@@ -517,6 +517,30 @@ rebuilt and redeployed immediately and verified on both hosts; nothing else ran.
 - [ ] The contrast fix is committed everywhere but only deployed to homeward.
   Each app picks it up on its next normal deploy; there is no urgency.
 
+## Native fleet rollout, real ports (2026-09-03)
+
+Three apps got a real port past the bare scaffold, each pushed and building:
+**numen** (full expression parser + evaluator ported to Kotlin, tested,
+wired to a working single-expression calculator screen — the multi-card
+draggable canvas is still not ported), **cadence** (Ktor client reading the
+live `/api/projects` + `/api/stats` endpoints, no GITHUB_TOKEN embedded —
+that stays server-side), **bookrank** (Ktor client reading the deployed
+`books.json` directly, app has no backend so there's nothing else to port).
+
+Stopped before wordroot: its etymology logic is real complexity (wikitext
+regex parsing per Wiktionary edition, multi-language section scoping,
+inh/der/bor template parsing), not a quick port, and doing it fast risked
+shipping it wrong.
+
+- [ ] Next easiest, similar shape to cadence/bookrank (static JSON or a
+  simple public read, no auth): quotestreak (`quotes.json`), wordroot (real
+  work, budget it separately), dream (localStorage only — needs a
+  cross-platform local-storage layer, not a network client, more setup than
+  the others).
+- [ ] Everyone else (curvely, charwork, epiphany, inkpress, lexly, sparkjar,
+  healstack, sidewise, litigate, roost, conway) still bare-scaffold only,
+  ranked roughly by auth complexity in the section below.
+
 ## Native fleet rollout, `kmp/` scaffolding (2026-09-03, DONE — bare scaffolds only)
 
 [[project-native-fleet-rollout]]. All 17 apps in the queue now have a `kmp/`
