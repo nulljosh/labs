@@ -33,7 +33,7 @@
 | **dream** | Dream journal, Workers AI | dream.heyitsmejosh.com |
 | **toroid** | Game of Life on a toroidal grid | toroid.heyitsmejosh.com |
 | **homeward** | Lost/found pets, web + iOS + KMP | homeward.heyitsmejosh.com |
-| **roost** | Real estate browsing, 26 languages | roost.heyitsmejosh.com |
+| **roost** | Real estate browsing, 25 languages | roost.heyitsmejosh.com |
 | **numen** | Free-form calculator canvas | numen.heyitsmejosh.com |
 | **swing** | Random 1:1 video chat, Durable Object lobby | swing.heyitsmejosh.com |
 | **curbside** | Craigslist browser, web/iOS/macOS | curbside.heyitsmejosh.com |
