@@ -517,24 +517,24 @@ rebuilt and redeployed immediately and verified on both hosts; nothing else ran.
 - [ ] The contrast fix is committed everywhere but only deployed to homeward.
   Each app picks it up on its next normal deploy; there is no urgency.
 
-## Native fleet rollout, `kmp/` scaffolding queue (2026-09-03)
+## Native fleet rollout, `kmp/` scaffolding (2026-09-03, DONE — bare scaffolds only)
 
-[[project-native-fleet-rollout]]. **numen** got a bare `kmp/` scaffold (gradle
-wrapper, package `com.nulljosh.numen`, empty Compose screen) copied from
-`homeward/kmp` and stripped of homeward's listings code. It compiles as a
-shell only — the recursive-descent parser and draggable-card canvas are not
-ported yet, `Sheet.kt` and `SheetScreen.kt` both carry `ponytail:` markers to
-that effect.
+[[project-native-fleet-rollout]]. All 17 apps in the queue now have a `kmp/`
+Android+desktop Compose scaffold (gradle wrapper, package `com.nulljosh.<app>`,
+one placeholder screen), copied from `homeward/kmp` and stripped of its
+listings code. Each compiles clean (spot-verified on numen and curvely with
+`gradlew :shared:compileKotlinJvm :composeApp:compileKotlinDesktop`), and each
+is committed + pushed to its own repo. **None of them have real UI or a data
+port yet** — every `Placeholder.kt`/`AppScreen.kt` carries a `ponytail:`
+marker naming the gap. Apps done this pass: numen, curvely, charwork,
+epiphany, inkpress, lexly, sparkjar, healstack, wordroot, quotestreak,
+cadence, roost, dream, sidewise, litigate, bookrank, conway (toroid shares
+conway's repo, no separate scaffold needed).
 
-- [ ] Port numen's expression parser (currently JS/TS in `numen/src`) into
-  `kmp/shared/src/commonMain/kotlin/com/nulljosh/numen/Sheet.kt`, then build
-  the real canvas in `SheetScreen.kt`.
-- [ ] Same `homeward/kmp` copy-and-strip approach, still pending for: curvely,
-  charwork, epiphany, inkpress, lexly, sparkjar, healstack, wordroot,
-  quotestreak, cadence, roost, dream, sidewise, litigate, bookrank,
-  conway/toroid. Pick apps whose data is either static/local (dream, cadence)
-  or a public read like homeward's Supabase table before ones needing new
-  auth plumbing (litigate, sparkjar).
+- [ ] Port each app's real read path and UI into `commonMain`, one app at a
+  time. Easiest first: apps whose data is static/local (dream, cadence,
+  numen's parser) or a public read like homeward's Supabase table, before
+  ones needing new auth plumbing (litigate, sparkjar).
 - [ ] No CI release workflow yet for any of them — `.msi`/`.deb`/`.apk` are
   built locally only. Needs a GitHub Actions matrix (windows + ubuntu
   runners) on a tag once more than one or two apps have real KMP code.
