@@ -536,11 +536,20 @@ to Kotlin, tested, wired to a real tap-to-place wireframe canvas with
 undo/redo), **sidewise** (Ktor client reading the public `/api/stories`
 endpoint — no RSS parsing client-side, the Worker already does that).
 
+**healstack** got a ninth port: `substances.js`'s full 200-entry reference
+corpus embedded verbatim (generated, not hand-typed) plus a faithful port of
+`InteractionChecker.jsx`'s real logic (severity keywords, A-mentions-B /
+B-mentions-A with dedup, shared-target cross-reference), wired to a real
+search + interaction-check screen. Scoped deliberately to the public,
+no-auth half of the app — the 14 personal/session tools (dose log, active
+stack, reminders) are Supabase auth-gated and stay out.
+
 Stopped chasing more for now — the remaining pool splits into two shapes:
 - **Needs real design work, not a mechanical port**: epiphany, lexly,
-  sparkjar, healstack, litigate are all auth-gated with personal Supabase
-  data. Wiring a native login flow and deciding what data surface to expose
-  is a real product decision per app, not something to rush blind.
+  sparkjar, litigate are all auth-gated with personal Supabase data end to
+  end (no public-data half like healstack had). Wiring a native login flow
+  and deciding what data surface to expose is a real product decision per
+  app, not something to rush blind.
 - **Genuinely more parsing/storage work**: wordroot (wikitext regex per
   Wiktionary edition), inkpress (RSS/Atom XML parsing, no public API to
   proxy through like sidewise has), roost (seeded per-country listing
@@ -551,6 +560,10 @@ Stopped chasing more for now — the remaining pool splits into two shapes:
   login UX (Supabase email+password token exchange is the same on Android/
   desktop as iOS, so this isn't blocked technically, just needs a chosen
   scope per app) before doing all four the same way.
+- [ ] 9 of 17 apps now have a real port (numen, cadence, bookrank,
+  quotestreak, curvely, conway, charwork, sidewise, healstack). 8 remain
+  scaffold-only: epiphany, lexly, sparkjar, litigate, wordroot, inkpress,
+  roost, dream.
 
 ## Native fleet rollout, `kmp/` scaffolding (2026-09-03, DONE — bare scaffolds only)
 
