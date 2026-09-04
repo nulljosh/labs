@@ -7,11 +7,10 @@
 - [`bank`](./bank) — neobank prototype (accounts + stock trading, sandbox only)
 - [`canlii-app`](./canlii-app) — CanLII case lookup app (frozen; merged into litigate as a Case Law tab)
 - [`credis`](./credis) — Redis-protocol (RESP) server in C
-- [`swing`](./swing) — random 1:1 video chat (Workers + one Durable Object lobby), live at swing.heyitsmejosh.com
 - [`agent-101`](./agent-101) — agent scratch work
 - [`video-speed-ext`](./video-speed-ext) — browser extension for video playback speed
 
-`homeward` and `roost` used to live here too; both were extracted to their own repos on 2026-08-30 and are now nested + gitignored like the other products.
+`homeward`, `roost`, and `swing` used to live here too; all were extracted to their own repos (2026-08-30, 2026-08-30, 2026-09-03) and are now nested + gitignored like the other products.
 
 Plus the shared docs: `CLAUDE.md` (codebase notes), `roadmap.md`, `GTM.md` (revenue ledger), `PROGRESS.md`. CI lives in `.github/workflows/native-release.yml`, which builds `.msi`/`.deb`/`.apk` for any app with a `kmp/` module.
 
