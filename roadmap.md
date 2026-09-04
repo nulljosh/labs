@@ -564,8 +564,16 @@ Stopped chasing more for now — the remaining pool splits into two shapes:
   lexly had). Wiring a native login flow and deciding what data surface to
   expose is a real product decision per app, not something to rush blind.
 - **Genuinely more parsing work**: wordroot (wikitext regex per Wiktionary
-  edition), inkpress (RSS/Atom XML parsing, no public API to proxy through
-  like sidewise has).
+  edition).
+
+**inkpress** got a thirteenth port: a hand-rolled minimal streaming XML
+tokenizer (no library — start/end elements, attributes, CDATA, entities)
+driving a field-for-field port of `JournalFeedService.swift`'s FeedParser.
+Handles both the offset (`-0400`) and named-timezone (`EDT`, `GMT`) RFC822
+date forms the Swift version was specifically fixed to handle, and the same
+media:thumbnail > enclosure > first-\<img\> image-priority logic. 5/5 tests
+passing against real RSS+Atom shapes. Scope: seed feed list only (no
+add/remove UI), no on-disk cache.
 
 **roost** got a twelfth port: the Park-Miller LCG seeded listing generator
 and the market tables (79/63/35 country entries) ported faithfully — same
@@ -578,10 +586,10 @@ always takes it) and without the 26-language i18n.
   login UX (Supabase email+password token exchange is the same on Android/
   desktop as iOS, so this isn't blocked technically, just needs a chosen
   scope per app) before doing all four the same way.
-- [ ] 12 of 17 apps now have a real port (numen, cadence, bookrank,
+- [ ] 13 of 17 apps now have a real port (numen, cadence, bookrank,
   quotestreak, curvely, conway, charwork, sidewise, healstack, lexly,
-  dream, roost). 5 remain scaffold-only: epiphany, sparkjar, litigate,
-  wordroot, inkpress.
+  dream, roost, inkpress). 4 remain scaffold-only: epiphany, sparkjar,
+  litigate, wordroot.
 
 ## Native fleet rollout, `kmp/` scaffolding (2026-09-03, DONE — bare scaffolds only)
 
