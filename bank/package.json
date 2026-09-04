@@ -1,5 +1,6 @@
 {
   "name": "bank",
+  "description": "A neobank prototype for sandbox testing of virtual accounts and stock trading.",
   "private": true,
   "type": "module",
   "scripts": {
