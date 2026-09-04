@@ -572,11 +572,23 @@ literal case content anywhere in the module, matching
 `tools/check-no-case-content.sh` was extended to scan `kmp/` too (it only
 covered ios/macos/web before) and passes clean.
 
-- **Still needs real design work, not a mechanical port**: epiphany is
-  auth-gated with real financial data end to end (bank statement uploads
-  with strict private-blob-storage requirements) — deciding what data
-  surface to expose natively is a real product decision, not something to
-  rush blind.
+**epiphany** got the seventeenth and final port: public market data only
+(`/api/fear-greed`, `/api/sp500`), no login. `portfolio.js`, `statements*.js`,
+`broker/`, `stripe*.js` (real bank/brokerage data) deliberately untouched —
+that split was already the house policy from 2026-08-30's MCP-endpoint
+ranking, reused here rather than re-litigated.
+
+**All 17 apps in the queue now have a real port past the bare scaffold.**
+Every one builds, every one with a commonTest carries a passing suite. What's
+still explicitly out of scope, by app, tracked as its own decision rather
+than debt: numen's draggable multi-card canvas, curvely's pan/zoom, dream's
+Android storage path unverified on-device, lexly's sentence/listening/match
+exercise types + progress sync, roost's real street anchors + i18n,
+inkpress's feed management UI + on-disk cache, wordroot's UI-language picker,
+sparkjar's posting/commenting (needs its own login decision), litigate's case
+data rendering is generic (no per-case UI), epiphany's personal-finance half
+entirely. No CI release workflow yet for `.msi`/`.deb`/`.apk` — still local
+builds only.
 - **Genuinely more parsing work**: wordroot (wikitext regex per Wiktionary
   edition).
 
@@ -600,9 +612,9 @@ always takes it) and without the 26-language i18n.
   login UX (Supabase email+password token exchange is the same on Android/
   desktop as iOS, so this isn't blocked technically, just needs a chosen
   scope per app) before doing all four the same way.
-- [ ] 16 of 17 apps now have a real port. Only epiphany remains
-  scaffold-only — real financial data (bank statement uploads), decide
-  scope deliberately before wiring a login.
+- [x] 17 of 17 apps now have a real port. Queue closed 2026-09-04. Next
+  work here is per-app polish (see the out-of-scope list above), not more
+  scaffolding.
 
 ## Native fleet rollout, `kmp/` scaffolding (2026-09-03, DONE — bare scaffolds only)
 
