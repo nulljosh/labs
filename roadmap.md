@@ -544,12 +544,18 @@ search + interaction-check screen. Scoped deliberately to the public,
 no-auth half of the app — the 14 personal/session tools (dose log, active
 stack, reminders) are Supabase auth-gated and stay out.
 
+**lexly** got a tenth port: catalog + course JSON read live, a real
+translation/mathChoice/cloze quiz flow. Login flow decided by matching the
+policy already documented in lexly's own CLAUDE.md ("Auth differs by
+platform, on purpose": iOS/macOS never gate content, sign-in buys progress
+sync only) — so no auth was added, same as those platforms.
+
 Stopped chasing more for now — the remaining pool splits into two shapes:
-- **Needs real design work, not a mechanical port**: epiphany, lexly,
-  sparkjar, litigate are all auth-gated with personal Supabase data end to
-  end (no public-data half like healstack had). Wiring a native login flow
-  and deciding what data surface to expose is a real product decision per
-  app, not something to rush blind.
+- **Needs real design work, not a mechanical port**: epiphany, sparkjar,
+  litigate are auth-gated with personal Supabase data end to end (no
+  public-data half, and no documented "don't gate content" precedent like
+  lexly had). Wiring a native login flow and deciding what data surface to
+  expose is a real product decision per app, not something to rush blind.
 - **Genuinely more parsing/storage work**: wordroot (wikitext regex per
   Wiktionary edition), inkpress (RSS/Atom XML parsing, no public API to
   proxy through like sidewise has), roost (seeded per-country listing
@@ -560,9 +566,9 @@ Stopped chasing more for now — the remaining pool splits into two shapes:
   login UX (Supabase email+password token exchange is the same on Android/
   desktop as iOS, so this isn't blocked technically, just needs a chosen
   scope per app) before doing all four the same way.
-- [ ] 9 of 17 apps now have a real port (numen, cadence, bookrank,
-  quotestreak, curvely, conway, charwork, sidewise, healstack). 8 remain
-  scaffold-only: epiphany, lexly, sparkjar, litigate, wordroot, inkpress,
+- [ ] 10 of 17 apps now have a real port (numen, cadence, bookrank,
+  quotestreak, curvely, conway, charwork, sidewise, healstack, lexly). 7
+  remain scaffold-only: epiphany, sparkjar, litigate, wordroot, inkpress,
   roost, dream.
 
 ## Native fleet rollout, `kmp/` scaffolding (2026-09-03, DONE — bare scaffolds only)
