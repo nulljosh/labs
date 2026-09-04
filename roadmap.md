@@ -519,7 +519,7 @@ rebuilt and redeployed immediately and verified on both hosts; nothing else ran.
 
 ## Native fleet rollout, real ports (2026-09-03)
 
-Five apps got a real port past the bare scaffold, each pushed and building:
+Eight apps got a real port past the bare scaffold, each pushed and building:
 **numen** (full expression parser + evaluator ported to Kotlin, tested,
 wired to a working single-expression calculator screen — the multi-card
 draggable canvas is still not ported), **cadence** (Ktor client reading the
@@ -528,19 +528,29 @@ that stays server-side), **bookrank** (Ktor client reading the deployed
 `books.json` directly), **quotestreak** (same shape, `quotes.json`, wired to
 a real playable multiple-choice streak game, not just a list), **curvely**
 (ported `ios/App/Expression.swift`'s grapher parser to Kotlin, tested, wired
-to a real Compose Canvas graph — fixed domain, no pan/zoom yet).
+to a real Compose Canvas graph — fixed domain, no pan/zoom yet), **conway**
+(ported `life.js`'s toroidal-grid simulation to Kotlin, wired to a real
+playable Canvas grid with play/pause/step/randomize/tap-to-toggle),
+**charwork** (ported `engine.js` + all 23 `presets.js` component templates
+to Kotlin, tested, wired to a real tap-to-place wireframe canvas with
+undo/redo), **sidewise** (Ktor client reading the public `/api/stories`
+endpoint — no RSS parsing client-side, the Worker already does that).
 
-Stopped before wordroot: its etymology logic is real complexity (wikitext
-regex parsing per Wiktionary edition, multi-language section scoping,
-inh/der/bor template parsing), not a quick port, and doing it fast risked
-shipping it wrong.
+Stopped chasing more for now — the remaining pool splits into two shapes:
+- **Needs real design work, not a mechanical port**: epiphany, lexly,
+  sparkjar, healstack, litigate are all auth-gated with personal Supabase
+  data. Wiring a native login flow and deciding what data surface to expose
+  is a real product decision per app, not something to rush blind.
+- **Genuinely more parsing/storage work**: wordroot (wikitext regex per
+  Wiktionary edition), inkpress (RSS/Atom XML parsing, no public API to
+  proxy through like sidewise has), roost (seeded per-country listing
+  generation + Nominatim search + 26-language i18n), dream (localStorage
+  only, needs a cross-platform local-storage layer, not a network client).
 
-- [ ] wordroot: budget it separately, real work.
-- [ ] dream: localStorage only — needs a cross-platform local-storage layer,
-  not a network client, more setup than the others.
-- [ ] Everyone else (charwork, epiphany, inkpress, lexly, sparkjar,
-  healstack, sidewise, litigate, roost, conway) still bare-scaffold only,
-  ranked roughly by auth complexity in the section below.
+- [ ] Next session: pick one auth-gated app and actually decide the native
+  login UX (Supabase email+password token exchange is the same on Android/
+  desktop as iOS, so this isn't blocked technically, just needs a chosen
+  scope per app) before doing all four the same way.
 
 ## Native fleet rollout, `kmp/` scaffolding (2026-09-03, DONE — bare scaffolds only)
 
