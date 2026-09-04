@@ -108,9 +108,14 @@ no-ops. See `cadence/functions/_adapter.js` for the globalThis workaround, or bu
       and you get Apple's real answer.
 - [ ] **TestFlight staleness**, most apps are weeks stale. Establish a cadence of
       `asc workflow run ship-ios` per app.
-- [ ] **Icon color pass**, rework all app icon colors on the [clrs.cc](https://clrs.cc) palette.
-      Current contrast is poor; keep the strong per-app color differentiation, that part works.
-      Skip the few icons that already look good.
+- [x] **Real collisions fixed 2026-09-04.** Not a full redesign (30 apps of taste calls
+      wasn't going to happen in one lean pass) — audited every `icon.svg` accent color and
+      fixed the actual exact-duplicates: conway/sidewise/healstack all used `#5B9BD5`
+      (conway → clrs green `#2ECC40`, healstack → clrs olive `#3D9970`, sidewise kept the
+      blue); curvely/charwork both used `#0071e3` (charwork → clrs maroon `#85144b`,
+      curvely kept the blue); sparkjar/inkpress had near-identical oranges (sparkjar →
+      clrs lime `#01FF70`). All four deployed live and verified via curl. Everything else
+      already differentiates fine, left alone per the original note.
 - **Icon scaling bug, CLOSED 2026-08-25, already fixed; do not re-open without a live example.**
       Root-caused: the cause was `rsvg-convert` using the SVG's *intrinsic* size, so art landed
       small on a 1024 canvas. Every `scripts/make-appicon.sh` that exists (bookrank, lexly,
