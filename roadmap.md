@@ -563,12 +563,20 @@ Stopped chasing more for now — the remaining pool splits into two shapes:
 `api/posts.js`'s GET routes are public by design). Posting/commenting/
 voting are session-cookie gated and deliberately not attempted here.
 
-- **Still needs real design work, not a mechanical port**: epiphany and
-  litigate are auth-gated with personal Supabase data end to end (financial
-  data, legal case files respectively) — no public-data half like sparkjar
-  had. Wiring a native login flow and deciding what data surface to expose
-  is a real product decision per app, not something to rush blind on data
-  this sensitive.
+**litigate** got a sixteenth port, decided deliberately rather than skipped:
+single-user Supabase email+password sign-in (matching the existing iOS/
+macOS policy, no signup form), fetching the account's own `brief_data` row
+as a raw JsonElement rendered generically — no case-shaped struct, no
+literal case content anywhere in the module, matching
+`NativeFragments.swift`'s "types and empty containers only" rule exactly.
+`tools/check-no-case-content.sh` was extended to scan `kmp/` too (it only
+covered ios/macos/web before) and passes clean.
+
+- **Still needs real design work, not a mechanical port**: epiphany is
+  auth-gated with real financial data end to end (bank statement uploads
+  with strict private-blob-storage requirements) — deciding what data
+  surface to expose natively is a real product decision, not something to
+  rush blind.
 - **Genuinely more parsing work**: wordroot (wikitext regex per Wiktionary
   edition).
 
@@ -592,11 +600,9 @@ always takes it) and without the 26-language i18n.
   login UX (Supabase email+password token exchange is the same on Android/
   desktop as iOS, so this isn't blocked technically, just needs a chosen
   scope per app) before doing all four the same way.
-- [ ] 15 of 17 apps now have a real port (numen, cadence, bookrank,
-  quotestreak, curvely, conway, charwork, sidewise, healstack, lexly,
-  dream, roost, inkpress, wordroot, sparkjar). 2 remain scaffold-only:
-  epiphany, litigate — both need a real native-auth design decision
-  against sensitive personal data, not a quick pass.
+- [ ] 16 of 17 apps now have a real port. Only epiphany remains
+  scaffold-only — real financial data (bank statement uploads), decide
+  scope deliberately before wiring a login.
 
 ## Native fleet rollout, `kmp/` scaffolding (2026-09-03, DONE — bare scaffolds only)
 
