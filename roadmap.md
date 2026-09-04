@@ -572,11 +572,16 @@ literal case content anywhere in the module, matching
 `tools/check-no-case-content.sh` was extended to scan `kmp/` too (it only
 covered ios/macos/web before) and passes clean.
 
-**epiphany** got the seventeenth and final port: public market data only
-(`/api/fear-greed`, `/api/sp500`), no login. `portfolio.js`, `statements*.js`,
-`broker/`, `stripe*.js` (real bank/brokerage data) deliberately untouched —
-that split was already the house policy from 2026-08-30's MCP-endpoint
-ranking, reused here rather than re-litigated.
+**epiphany** got the seventeenth port: public market data only
+(`/api/fear-greed`, `/api/sp500`), no login initially — `portfolio.js`,
+`statements*.js`, `broker/`, `stripe*.js` (real bank/brokerage data)
+deliberately untouched, reusing the house policy from 2026-08-30's
+MCP-endpoint ranking. **Login added in a follow-up pass** (2026-09-04):
+`Auth.kt` ports the app's own cookie-session scheme (`POST /api/auth
+?action=login`, reads `epiphany_session` from `Set-Cookie` — this app rolls
+its own auth, not Supabase), and `PortfolioClient` reads the authenticated
+`GET /api/portfolio?action=get` read-only (no save/edit path). Statement
+upload and broker connect are still untouched.
 
 **All 17 apps in the queue now have a real port past the bare scaffold.**
 Every one builds, every one with a commonTest carries a passing suite. What's
@@ -586,9 +591,9 @@ Android storage path unverified on-device, lexly's sentence/listening/match
 exercise types + progress sync, roost's real street anchors + i18n,
 inkpress's feed management UI + on-disk cache, wordroot's UI-language picker,
 sparkjar's posting/commenting (needs its own login decision), litigate's case
-data rendering is generic (no per-case UI), epiphany's personal-finance half
-entirely. No CI release workflow yet for `.msi`/`.deb`/`.apk` — still local
-builds only.
+data rendering is generic (no per-case UI), epiphany's portfolio view is
+read-only and statement/broker access is untouched. No CI release workflow
+yet for `.msi`/`.deb`/`.apk` — still local builds only.
 - **Genuinely more parsing work**: wordroot (wikitext regex per Wiktionary
   edition).
 
