@@ -519,25 +519,26 @@ rebuilt and redeployed immediately and verified on both hosts; nothing else ran.
 
 ## Native fleet rollout, real ports (2026-09-03)
 
-Three apps got a real port past the bare scaffold, each pushed and building:
+Five apps got a real port past the bare scaffold, each pushed and building:
 **numen** (full expression parser + evaluator ported to Kotlin, tested,
 wired to a working single-expression calculator screen — the multi-card
 draggable canvas is still not ported), **cadence** (Ktor client reading the
 live `/api/projects` + `/api/stats` endpoints, no GITHUB_TOKEN embedded —
 that stays server-side), **bookrank** (Ktor client reading the deployed
-`books.json` directly, app has no backend so there's nothing else to port).
+`books.json` directly), **quotestreak** (same shape, `quotes.json`, wired to
+a real playable multiple-choice streak game, not just a list), **curvely**
+(ported `ios/App/Expression.swift`'s grapher parser to Kotlin, tested, wired
+to a real Compose Canvas graph — fixed domain, no pan/zoom yet).
 
 Stopped before wordroot: its etymology logic is real complexity (wikitext
 regex parsing per Wiktionary edition, multi-language section scoping,
 inh/der/bor template parsing), not a quick port, and doing it fast risked
 shipping it wrong.
 
-- [ ] Next easiest, similar shape to cadence/bookrank (static JSON or a
-  simple public read, no auth): quotestreak (`quotes.json`), wordroot (real
-  work, budget it separately), dream (localStorage only — needs a
-  cross-platform local-storage layer, not a network client, more setup than
-  the others).
-- [ ] Everyone else (curvely, charwork, epiphany, inkpress, lexly, sparkjar,
+- [ ] wordroot: budget it separately, real work.
+- [ ] dream: localStorage only — needs a cross-platform local-storage layer,
+  not a network client, more setup than the others.
+- [ ] Everyone else (charwork, epiphany, inkpress, lexly, sparkjar,
   healstack, sidewise, litigate, roost, conway) still bare-scaffold only,
   ranked roughly by auth complexity in the section below.
 
