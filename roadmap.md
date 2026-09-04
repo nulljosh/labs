@@ -385,6 +385,13 @@ Reported only; nothing bulk-submitted (a bulk wave is what triggered the 5.6 sus
 
 **In flight (re-verified 2026-09-01):** nothing is in review except Sidewise 1.0 (both platforms WAITING_FOR_REVIEW). Lexly 1.1.5 (both), Wordroot macOS 1.0.1, NYC macOS 1.0.1 and Healstack 2.3.5 (both) all came back REJECTED in the 4.3(a) wave. Voxprint iOS 1.3.8 and Toroid 1.0 sit in PREPARE_FOR_SUBMISSION.
 
+**Re-verified again 2026-09-04, real movement since the above:**
+- [x] **Nimble shipped on macOS** — 1.0.0 READY_FOR_SALE. iOS 1.0.0 now WAITING_FOR_REVIEW (was blocked on the ASC-record-creation issue, since resolved). This closes most of the "Nimble: approved to ship" item further down — only the iOS verdict is still pending.
+- [x] **Toroid shipped on macOS** — 1.0 READY_FOR_SALE (was PREPARE_FOR_SUBMISSION). iOS 1.0 now WAITING_FOR_REVIEW.
+- [ ] **Sidewise macOS now REJECTED** (was WAITING_FOR_REVIEW) — iOS 1.0 still WAITING_FOR_REVIEW. Read the actual rejection reason via Resolution Center before doing anything; not investigated this pass.
+- Voxprint iOS 1.3.8 still sits in PREPARE_FOR_SUBMISSION, unsubmitted (macOS 1.3.6 and iOS 1.3.7 both live, one version behind).
+- Everything else (Bookrank, Curvely, Charwork, Litigate, Talli, Quotestreak, Doorstock, Sparkjar, Epiphany, Healstack, Wordroot, Lexly, NYC) unchanged from the 2026-09-01 read.
+
 **Aligned, nothing to do (2026-09-01):** Litigate 1.0.3, Wordroot iOS 1.0.1, Quotestreak 1.1, Inkpress iOS 1.0.6 / Mac 1.0.7, Charwork 1.1.1, Bookrank 1.0.1, Voxprint iOS 1.3.7, Curvely 1.2.2.
 
 **Never submitted:** Toroid 1.0 sits in PREPARE_FOR_SUBMISSION on both platforms, held for the 4.3(a) wave. (Sidewise was submitted 2026-08-28 and is WAITING_FOR_REVIEW.)
