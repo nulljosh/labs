@@ -265,11 +265,14 @@ not `Healstack`.
 
 ## Wiki backlog (deferred from the 2026-08-11 wrap)
 
-- [ ] `notes/notes/master.md`: bump Updated date, refresh Roadmap / Active Projects / Ship Now
-- [ ] Obsidian vault (`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Code/wiki/`):
-      ingest 2026-08-11 per `wiki/CLAUDE.md`, update touched entity pages, then refresh
-      `index.md` + `pages/_overview.md`. This is the surface actually read, don't skip it.
-- [ ] Run `wiki-refresh` across its 3 surfaces (vault, master.md, Code/CLAUDE.md)
+- [x] **DONE 2026-09-04.** This whole section was stale — both `notes/notes/master.md`
+  and the Obsidian vault have been kept current continuously since 2026-08-11 by
+  every session's own wrap step, not by this backlog item. Ran `wiki-refresh` fresh
+  to confirm: found and fixed one real issue, an orphaned `echo.md` page duplicating
+  `voxprint.md` (the Echo→Voxprint rename) with one unique section not yet merged.
+  Merged it in, deleted the orphan, fixed two stray `[[echo]]` links. Everything else
+  across all three surfaces (vault index/_overview, master.md, Code/CLAUDE.md) was
+  already correct — no other stale renames found. See `wiki/log.md`'s 2026-09-04 entry.
 
 ## Someday / explore
 
