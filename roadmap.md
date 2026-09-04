@@ -565,17 +565,23 @@ Stopped chasing more for now — the remaining pool splits into two shapes:
   expose is a real product decision per app, not something to rush blind.
 - **Genuinely more parsing work**: wordroot (wikitext regex per Wiktionary
   edition), inkpress (RSS/Atom XML parsing, no public API to proxy through
-  like sidewise has), roost (seeded per-country listing generation +
-  Nominatim search + 26-language i18n).
+  like sidewise has).
+
+**roost** got a twelfth port: the Park-Miller LCG seeded listing generator
+and the market tables (79/63/35 country entries) ported faithfully — same
+constants as the web app's math, so a place+mode produces the same listing
+shape. Real Nominatim search wired in. Scoped without Overpass real-street
+anchors (the generator already had a centroid-jitter fallback and this
+always takes it) and without the 26-language i18n.
 
 - [ ] Next session: pick one auth-gated app and actually decide the native
   login UX (Supabase email+password token exchange is the same on Android/
   desktop as iOS, so this isn't blocked technically, just needs a chosen
   scope per app) before doing all four the same way.
-- [ ] 11 of 17 apps now have a real port (numen, cadence, bookrank,
+- [ ] 12 of 17 apps now have a real port (numen, cadence, bookrank,
   quotestreak, curvely, conway, charwork, sidewise, healstack, lexly,
-  dream). 6 remain scaffold-only: epiphany, sparkjar, litigate, wordroot,
-  inkpress, roost.
+  dream, roost). 5 remain scaffold-only: epiphany, sparkjar, litigate,
+  wordroot, inkpress.
 
 ## Native fleet rollout, `kmp/` scaffolding (2026-09-03, DONE — bare scaffolds only)
 
