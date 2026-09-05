@@ -36,7 +36,7 @@
 | **roost** | Real estate browsing, 25 languages | roost.heyitsmejosh.com |
 | **numen** | Free-form calculator canvas | numen.heyitsmejosh.com |
 | **swing** | Random 1:1 video chat, Durable Object lobby | swing.heyitsmejosh.com |
-| **curbside** | Craigslist browser, web/iOS/macOS | curbside.heyitsmejosh.com |
+| **curbfind** | Craigslist browser, web/iOS/macOS (renamed from curbside 2026-09-05, ASC 6809031662) | curbfind.heyitsmejosh.com |
 | **seamark** | Read values off rendered charts (npm lib) | seamark.heyitsmejosh.com |
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
 | **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
