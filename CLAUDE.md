@@ -93,3 +93,6 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 
 ## Open work
 `roadmap.md` is the queue. `GTM.md` is the ledger. About 18 apps still need a `kmp/` module. roost needs i18n keys before it gets a landing section. litigate has no landing on purpose.
+
+## TUI rollout queue (2026-09-05)
+Pilot done: nimble has `tui/` (SwiftTUI SPM target, terminal answer card). Pattern: extract SwiftUI-free model file, new SPM target depending on rensbreur/SwiftTUI. Remaining apps with a clean model layer to port next: curvely, numen, wordroot, cadence, keyrate. Do one at a time, verify `swift build` + real-TTY run before moving to the next.
