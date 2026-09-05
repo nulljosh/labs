@@ -94,5 +94,6 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 ## Open work
 `roadmap.md` is the queue. `GTM.md` is the ledger. About 18 apps still need a `kmp/` module. roost needs i18n keys before it gets a landing section. litigate has no landing on purpose.
 
-## TUI rollout queue (2026-09-05)
-Pilot done: nimble has `tui/` (SwiftTUI SPM target, terminal answer card). Pattern: extract SwiftUI-free model file, new SPM target depending on rensbreur/SwiftTUI. Remaining apps with a clean model layer to port next: curvely, numen, wordroot, cadence, keyrate. Do one at a time, verify `swift build` + real-TTY run before moving to the next.
+## TUI rollout (2026-09-05)
+Shipped 5: nimble, cadence, numen, wordroot, keyrate each have a `tui/` + root `Package.swift` (SwiftPM target depending on rensbreur/SwiftTUI, static one-shot render, needs a real TTY). Two patterns: reuse an existing Foundation-only model file as-is (nimble/QueryEngine, numen/Parser), or a thin fetch against the live API/Function (cadence, wordroot) when the logic lives server-side. keyrate ported score.js to Swift line-for-line since it had no Swift target at all before this.
+Not done: curvely (web+mathjs, no headless Swift logic yet) and the rest of the fleet. Native-Swift apps with a clean model layer (voxprint, healstack, litigate, etc.) are the next candidates if this continues.
