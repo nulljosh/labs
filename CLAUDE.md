@@ -60,3 +60,6 @@ Repo: `nulljosh/journal` on GitHub (split out of `nulljosh/inkpress` 2026-07-21,
 
 ## Related
 [[inkpress]], the RSS reader iOS app this repo used to share a folder with. Can subscribe to journal.heyitsmejosh.com/feed.xml.
+
+## Graphs
+- Every post carries `{% include graphs/<post>.svg %}` right after its header. `scripts/graphs.py` writes them from git history across `~/Documents/Code` for the days since the previous post (commits per project, commits per day, totals), same framed currentColor card as the headers. It runs from `deploy.sh`; never hand-edit a graph SVG, rerun the script.

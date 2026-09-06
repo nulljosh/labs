@@ -7,6 +7,8 @@ categories: journal quarterly
 
 {% include headers/2026-02-20-week.svg %}
 
+{% include graphs/2026-05-29-winter-into-spring.svg %}
+
 February started with the operating system. Phase one had been the boot sequence, and phase two was everything that turns that into something you can actually use: a timer ticking a hundred times a second, a keyboard driver that turns key presses into characters, text output built up from nothing, and a small command line with help, clear, echo, time and reboot. All of it written from scratch, no libraries. It boots in a virtual machine and drops you at a prompt, backspace works, and reboot really does reboot.
 
 The financial terminal drifted into being more of a situation monitor. I wrote a paper documenting every algorithm in the trading simulator, went from fifty-eight tradeable assets to a hundred, added the ability to send signals to real brokers, and moved to a map-first layout with new pins. Dose, a personal substance tracker and reference guide, got built from scratch in one sitting, then absorbed the health tracker and the AI doctor. Three fewer repos to think about. One Wednesday turned into an eighteen-hour session that finally cleared a week-long bug where a missing config value was blocking login before anything else could run.

@@ -56,7 +56,7 @@ def check(path):
         cap = MONTHLY_CAP
     else:
         cap = WORD_CAP
-    words = len(body.split())
+    words = len(re.sub(r"\{%.*?%\}", "", body).split())
     if words > cap:
         out.append(f"{path.name}: {words} words, cap is {cap} (cut {words - cap})")
 

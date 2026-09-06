@@ -5,6 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Gate: post rules are checked mechanically, not just written in CLAUDE.md.
+python3 scripts/graphs.py
 python3 scripts/lint-posts.py
 
 bundle exec jekyll build

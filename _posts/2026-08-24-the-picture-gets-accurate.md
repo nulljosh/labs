@@ -7,6 +7,8 @@ categories: journal quarterly
 
 {% include headers/2026-08-17-fortified.svg %}
 
+{% include graphs/2026-08-24-the-picture-gets-accurate.svg %}
+
 August was the month I stopped trusting my own notes. It started with a full inventory of the codebase that found fifteen directories existing in two places at once, six repos keeping private copies of design tokens that four others correctly share, and a few apps that are really just one chapter of another app. A nested clone of the entire codebase had been sitting inside itself and gave back a gigabyte when I deleted it. I sketched a four phase cleanup and left it there rather than starting a rewrite I did not have room for.
 
 Then I read the actual App Store rejection reasons instead of guessing at them, and eight rejections collapsed into three causes. Four were a blanket account-level suspension with no defect in the app at all, three were sign-in failing at review time, and one was the word Mac in an app name. Four apps I had marked as waiting for review had in fact been rejected weeks earlier. I had also been carrying a tidy theory that the three sign-in failures shared one root cause, and they did not: one had a corrupted demo account row, one shipped pointing at a domain that no longer resolves, and the third took longer still. The lesson I want to keep is to check a rejection against the shipped code and its history before trusting whatever theory is already written down.

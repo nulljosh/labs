@@ -7,6 +7,8 @@ categories: journal quarterly
 
 {% include headers/2026-07-03-week.svg %}
 
+{% include graphs/2026-07-31-a-summer-of-renames.svg %}
+
 Epiphany finally shipped to the App Store, which closed out a long stretch of revisions, and then half the portfolio got renamed behind it. Dose became Healstack, Lingo became Lexly, Books became Spine and then Bookrank once Spine turned out to be taken, Brief became Casewright and then Litigate, Grapher became Curvely, and Echo became Voxprint after Apple decided the name was too generic. Every rename dragged a branding and icon pass along with it, and one of them took twelve alternates before anything cleared.
 
 Most of the real work was bugs that had been quietly wrong for a long time. Epiphany's autopilot did nothing in testing because it was rounding share counts down to whole numbers, so any order under about a hundred and fifty dollars silently became an order for zero shares. Its net worth number ignored uninvested cash sitting in investment accounts, so it showed two hundred and twenty nine dollars when the accounts actually held four hundred and fifteen. Inkpress loaded blank entries because the feed parser choked on wrapped text. Talli's messages tab was empty because the parser dropped any message that did not put its date on its own line. None of these announced themselves. They all just looked like the app being a bit off.
