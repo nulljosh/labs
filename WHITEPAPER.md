@@ -1,6 +1,6 @@
 # Journal Technical Whitepaper
 
-**v2.3.0** | August 2026
+**v2.4.0** | August 2026
 
 My journal. A Jekyll blog, a few big entries a year, shipped as prebuilt static
 files. The host never runs Ruby. Live at
