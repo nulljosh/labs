@@ -5,7 +5,7 @@ Last pruned 2026-09-01 against live ASC + HTTP state, not against notes.
 
 ## Fable queue (ingested from ~/Downloads/FABLE.md 2026-09-01)
 
-- [ ] **Doorstock keyword regression.** Live keywords are single words
+- [x] **Doorstock keyword regression.** DONE 2026-09-05, legacy phrases applied + verified live. Live keywords are single words
       (`garage door,inventory,jobs,contractor,field service,trade,stock`); the deleted legacy set
       used phrases (`garage door inventory,contractor job tracker,trade parts,field service,small
       business stock`) and ranks better. Push it back only after iOS 1.0's 4.3(a) verdict lands;
