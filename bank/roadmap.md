@@ -11,3 +11,4 @@ coverage, and it makes the honest tools in the other repos harder to find.
 Shipped instead in: epiphany, healstack, roost, curvely, wiretext, litigate,
 cadence, sparkjar, lexly, talli, quotable, wordroot, newsline, nyc, notes,
 bookrank, homeward.
+- [ ] native (kmp) port — sibling apps have one, this doesn't (project-sync 2026-09-05)
