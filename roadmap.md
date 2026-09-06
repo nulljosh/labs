@@ -9,7 +9,7 @@ Last pruned 2026-09-01 against live ASC + HTTP state, not against notes.
       (`garage door,inventory,jobs,contractor,field service,trade,stock`); the deleted legacy set
       used phrases (`garage door inventory,contractor job tracker,trade parts,field service,small
       business stock`) and ranks better. Push it back only after iOS 1.0's 4.3(a) verdict lands;
-      a review is open until then. Old text is in `bcgd` git history.
+      a review is open until then. Legacy string staged in `bcgd/metadata/version/1.0/en-US.json` 2026-09-05.
 - Done 2026-09-01: promotionalText on all live localizations (Epiphany and Talli live in
   **en-CA**, not en-US, which is why they kept showing empty). GTM ledger and this file's
   staleness section re-verified against ASC.
