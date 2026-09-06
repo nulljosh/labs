@@ -213,3 +213,8 @@ footer .nav { justify-content: center; }
 /* Post header art. Inlined (not <img>) so it inherits `color` and follows the
    site theme toggle; every shape uses currentColor. */
 .post-header-svg { display: block; width: 100%; height: auto; margin: 0 0 2rem; color: var(--text); }
+
+.post-year { list-style: none; margin: 1.5rem 0 0.5rem; font-size: 0.85rem; color: var(--text-tertiary); }
+.post-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--subtle); font-size: 0.95rem; }
+.post-nav a { color: var(--text-secondary); text-decoration: none; }
+.post-nav a:hover { color: var(--link, var(--accent)); }

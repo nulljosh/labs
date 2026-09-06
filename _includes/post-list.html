@@ -1,8 +1,10 @@
 <ul class="post-list">
   {% for post in site.posts %}
+    {% assign y = post.date | date: "%Y" %}
+    {% if y != prev_year %}<li class="post-year">{{ y }}</li>{% assign prev_year = y %}{% endif %}
     <li class="post-list-item">
       <a href="{{ post.url }}">
-        <span class="home-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <span class="home-date">{{ post.date | date: "%m-%d" }}</span>
         {{ post.title }}
       </a>
     </li>
