@@ -1,0 +1,27 @@
+<svg class="post-header-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect fill="none" class="bg" width="800" height="500"/>
+  <rect class="brd" x="20" y="20" width="760" height="460" rx="12" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+
+  <text fill="currentColor" x="48" y="90" font-size="42" font-weight="300" letter-spacing="-1">Waiting</text>
+  <text fill="currentColor" x="48" y="126" font-size="16" opacity="0.6">wordroot macOS rejected . iOS approved . reply filed . no resubmit</text>
+
+  <line stroke="currentColor" x1="48" y1="152" x2="752" y2="152" stroke-width="1" opacity="0.25"/>
+
+  <text fill="currentColor" x="48" y="188" font-size="14">wordroot</text>
+  <text fill="currentColor" x="48" y="236" font-size="14">macOS 1.0.1 hit 4.3(a) spam</text>
+  <text fill="currentColor" x="48" y="258" font-size="14">iOS 1.0.1 approved same day</text>
+  <text fill="currentColor" x="48" y="280" font-size="14">filed reply pointing out the contradiction</text>
+  <text fill="currentColor" x="48" y="302" font-size="14">asked Apple to name the duplicate</text>
+  <text fill="currentColor" x="48" y="324" font-size="14">waiting on response . never resubmit</text>
+
+  <rect class="brd" x="560" y="176" width="200" height="280" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+  <text fill="currentColor" x="584" y="206" font-size="12" opacity="0.6">status</text>
+  <text fill="currentColor" x="584" y="238" font-size="28" font-weight="500">1</text>
+  <text fill="currentColor" x="584" y="272" font-size="12" opacity="0.6">waiting on Apple</text>
+  <text fill="currentColor" x="584" y="296" font-size="14">Wordroot macOS</text>
+  <text fill="currentColor" x="584" y="318" font-size="14">1.0.1 review</text>
+  <text fill="currentColor" x="584" y="344" font-size="12" opacity="0.6">apps approved</text>
+  <text fill="currentColor" x="584" y="368" font-size="28" font-weight="500">30</text>
+
+  <text fill="currentColor" x="48" y="462" font-size="13" opacity="0.6">2026-09-06</text>
+</svg>
