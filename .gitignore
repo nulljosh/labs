@@ -6,3 +6,8 @@ vendor/
 .jekyll-cache/
 .wrangler/
 .DS_Store
+kmp/.gradle/
+kmp/.kotlin/
+kmp/build/
+kmp/*/build/
+kmp/local.properties
