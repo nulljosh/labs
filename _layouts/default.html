@@ -9,6 +9,7 @@
   </title>
 
   {%- seo -%}
+  {% if page.layout == "post" %}<meta property="og:image" content="{{ site.url }}/assets/og/{{ page.path | split: "/" | last | replace: ".md", ".png" }}"><meta name="twitter:card" content="summary_large_image">{% endif %}
   {%- feed_meta -%}
 
   <link rel="icon" href="/icon.svg" type="image/svg+xml">

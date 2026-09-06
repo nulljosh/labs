@@ -63,3 +63,4 @@ Repo: `nulljosh/journal` on GitHub (split out of `nulljosh/inkpress` 2026-07-21,
 
 ## Graphs
 - Every post carries `{% include graphs/<post>.svg %}` right after its header. `scripts/graphs.py` writes them from git history across `~/Documents/Code` for the days since the previous post (commits per project, commits per day, totals), same framed currentColor card as the headers. It runs from `deploy.sh`; never hand-edit a graph SVG, rerun the script.
+- `graphs.py` also writes `graphs/year.svg` (commits per week, post markers, shown at `/year/`), `graphs/streak.html` (consecutive commit days, shown under the hero), and `assets/og/<post>.png` (the header card rasterized with rsvg-convert for link unfurls; `default.html` points og:image at it).
