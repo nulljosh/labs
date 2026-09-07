@@ -41,7 +41,7 @@
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
 | **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
 | **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.heyitsmejosh.com |
-| **nook** | WebKit browser, iOS + macOS, one SwiftUI file, tabs | nook.heyitsmejosh.com |
+| **lucarne** | WebKit browser, iOS + macOS, one SwiftUI file, tabs | lucarne.heyitsmejosh.com |
 | **weather** | Forecast page, Open-Meteo, one file | weather.heyitsmejosh.com |
 
 ### Sites & infra
