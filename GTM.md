@@ -18,13 +18,13 @@ until the Paid Apps Agreement activates (blocked on a CRA Business Number, see b
 | Lexly | 6783501611 | iOS 1.1.3 · Mac 1.1.4 · **1.1.5 REJECTED both platforms** | free | none | none planned |
 | Litigate | 6787857503 | iOS 1.0.3 | free | none | none planned |
 | Bookrank | 6792376485 | iOS 1.0.1 · Mac 1.0.1 | free | none | personal shelf, not a product |
-| Sparkjar | 6785162492 | Mac 1.0.1 · **iOS 1.0 REJECTED** | free | **Stripe NOT live** | iOS never shipped; email/OAuth unconfigured: leave alone |
+| Sparkjar | 6785162492 | Mac 1.0.1 · **iOS 1.0 REJECTED** | $1 Spark Pro | Stripe live (wired 2026-09-06) | iOS never shipped; email/OAuth unconfigured: leave alone |
 | Inkpress | 6787759999 | iOS 1.0.6 · Mac 1.0.7 | free | none | Mac 1.0.7 approved 2026-08-30, first Mac release |
 | Wordroot | 6794988021 | iOS 1.0.1 · Mac 1.0 · **Mac 1.0.1 REJECTED** | free | none | none planned |
 | Curvely | 6794988370 | iOS 1.2.2 · Mac 1.2.2 | free | none | 4.3(a) appeal WON, 1.2.2 approved 2026-08-30 |
 | Charwork | 6794988951 | iOS 1.1.1 | free | none | repo renamed from wiretext; ASC record still "Wiretext" |
 | Quotestreak | 6804394619 | iOS 1.1 · Mac 1.1 | free | none | none planned |
-| Healstack | 6785764864 | **nothing live; iOS + Mac 2.3.5 both REJECTED** | $1 CSV export | **Stripe NOT live** | 4.3(a) wave, reply filed |
+| Healstack | 6785764864 | **nothing live; iOS + Mac 2.3.5 both REJECTED** | $1 CSV export | Stripe live (wired 2026-09-06) | 4.3(a) wave, reply filed |
 | NYC Survive | 6782618198 | Mac 1.0.0 · **iOS 1.0.0 + Mac 1.0.1 REJECTED** | free | none | listing filled to 10 screenshots 2026-08-29 |
 | Doorstock | 6791106082 | Mac 1.0 · **iOS 1.0 REJECTED** | free | none | 4.3(a) + 3.2, appeals filed; keyword regression fix waits on verdict |
 | Sidewise | 6806028670 | iOS 1.0 + Mac 1.0 WAITING_FOR_REVIEW | free | none | submitted 2026-08-28 |
@@ -151,6 +151,10 @@ or Epiphany's encrypted secrets.
 
 **The CRA Business Number is mailed and faxed and still pending**, so Form 506, the Paid Apps
 Agreement and every StoreKit price stay blocked. Nothing in the code can move that.
+
+## Wired 2026-09-06: Healstack + Sparkjar Stripe
+
+Set `STRIPE_SECRET_KEY`, `STRIPE_PRICE_ID`, `STRIPE_WEBHOOK_SECRET` on both Pages projects (webhook endpoints recreated via API to obtain signing secrets), redeployed. Probes: forged-signature webhook 400 on both, checkout 401 unauthenticated on both. Sparkjar already had the `proBanner` + `unlockPro()` CTA in `app.html`; the earlier "no CTA" claim was stale. Authenticated checkout not probed (test-account login failed); handler code is identical to Talli's working one. All four Stripe rails now take money on the web. Stripe account itself: charges + payouts enabled, zero requirements.
 
 ## Resolved 2026-09-06 via Stripe API (live key in `epiphany/.env.tui.local`)
 
