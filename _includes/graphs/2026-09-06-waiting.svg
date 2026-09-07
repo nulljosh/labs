@@ -9,16 +9,16 @@
 <a href="https://github.com/nulljosh/epiphany"><text fill="currentColor" x="48" y="183" font-size="13">epiphany</text></a>
 <rect x="150" y="172" width="170" height="14" rx="2" fill="currentColor" opacity="0.8"/>
 <text fill="currentColor" x="328" y="183" font-size="12" opacity="0.6">6</text>
-<a href="https://github.com/nulljosh/seamark"><text fill="currentColor" x="48" y="209" font-size="13">seamark</text></a>
+<a href="https://github.com/nulljosh/homeward"><text fill="currentColor" x="48" y="209" font-size="13">homeward</text></a>
 <rect x="150" y="198" width="170" height="14" rx="2" fill="currentColor" opacity="0.8"/>
 <text fill="currentColor" x="328" y="209" font-size="12" opacity="0.6">6</text>
-<a href="https://github.com/nulljosh/sparkjar"><text fill="currentColor" x="48" y="235" font-size="13">sparkjar</text></a>
+<a href="https://github.com/nulljosh/seamark"><text fill="currentColor" x="48" y="235" font-size="13">seamark</text></a>
 <rect x="150" y="224" width="170" height="14" rx="2" fill="currentColor" opacity="0.8"/>
 <text fill="currentColor" x="328" y="235" font-size="12" opacity="0.6">6</text>
-<a href="https://github.com/nulljosh/curbfind"><text fill="currentColor" x="48" y="261" font-size="13">curbfind</text></a>
-<rect x="150" y="250" width="142" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="300" y="261" font-size="12" opacity="0.6">5</text>
-<a href="https://github.com/nulljosh/homeward"><text fill="currentColor" x="48" y="287" font-size="13">homeward</text></a>
+<a href="https://github.com/nulljosh/sparkjar"><text fill="currentColor" x="48" y="261" font-size="13">sparkjar</text></a>
+<rect x="150" y="250" width="170" height="14" rx="2" fill="currentColor" opacity="0.8"/>
+<text fill="currentColor" x="328" y="261" font-size="12" opacity="0.6">6</text>
+<a href="https://github.com/nulljosh/curbfind"><text fill="currentColor" x="48" y="287" font-size="13">curbfind</text></a>
 <rect x="150" y="276" width="142" height="14" rx="2" fill="currentColor" opacity="0.8"/>
 <text fill="currentColor" x="300" y="287" font-size="12" opacity="0.6">5</text>
 <a href="https://github.com/nulljosh/lexly"><text fill="currentColor" x="48" y="313" font-size="13">lexly</text></a>
@@ -29,8 +29,8 @@
 <text fill="currentColor" x="271" y="339" font-size="12" opacity="0.6">4</text>
 <rect x="560" y="136" width="200" height="180" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
 <text fill="currentColor" x="584" y="166" font-size="12" opacity="0.6">commits</text>
-<text fill="currentColor" x="584" y="198" font-size="28" font-weight="500">104</text>
+<text fill="currentColor" x="584" y="198" font-size="28" font-weight="500">110</text>
 <text fill="currentColor" x="584" y="232" font-size="12" opacity="0.6">projects touched</text>
-<text fill="currentColor" x="584" y="264" font-size="28" font-weight="500">35</text>
+<text fill="currentColor" x="584" y="264" font-size="28" font-weight="500">36</text>
 <text fill="currentColor" x="584" y="298" font-size="11" opacity="0.6">2026-09-06</text>
 </svg>
