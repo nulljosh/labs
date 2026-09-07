@@ -163,7 +163,7 @@ Agreement and every StoreKit price stay blocked. Nothing in the code can move th
    If the endpoint is missing entirely, that is the finding: create it against
    `https://epiphany.heyitsmejosh.com/api/stripe-webhook` and update `STRIPE_WEBHOOK_SECRET`.
 2. Cross-check that Talli's webhook endpoint exists too, its code is fine and it runs on the
-   same Worker adapter, but it was never probed. Forged-signature probe: 400 healthy, 500 broken.
+   same Worker adapter, but it was never probed. Forged-signature probe: 400 healthy, 500 broken. Send `content-type: application/json`; a form body skips rawBody and 500s by design. Talli probed 2026-09-06: 400, healthy. Epiphany re-probed 2026-09-06: 400, healthy.
 
 **Decided 2026-08-31: Healstack's paywall stays unwired.** The code is now complete and correct,
 but a $1 CSV-export paywall on an app with no iOS release and no traffic earns $0 and adds a live
