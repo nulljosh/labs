@@ -41,6 +41,8 @@
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
 | **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
 | **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.heyitsmejosh.com |
+| **nook** | WebKit browser, iOS + macOS, one SwiftUI file, tabs | nook.heyitsmejosh.com |
+| **weather** | Forecast page, Open-Meteo, one file | weather.heyitsmejosh.com |
 
 ### Sites & infra
 | Repo | What |
@@ -76,6 +78,9 @@ Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28. Replies are filed. Never 
 - `WHITEPAPER.md` in every repo, no exceptions: H1 `<Name> Technical Whitepaper`, `**vX** | Month Year`, one-paragraph summary, then the core mechanic first and supporting detail after, MIT footer. ~40-60 lines. New repo = write it before the first push
 - `.github/workflows/test.yml` where tests exist. GitHub: description (few words), homepage, topics set
 - Icons 200×200 dark terminal aesthetic. Architecture SVGs Apple node-and-line, white bg
+
+## Landing pages (2026-09-06)
+Every landing page gets the nimble treatment: the real app, live and interactive, inside a device frame matched to the visitor's user agent (iPhone, Android, Mac window, Windows window), right under the hero tagline, with a caption naming the device. Reference: `nimble/docs/index.html`. `/landing-demo` applies it; the skill's `inject.py` holds the drop-in. Never a screenshot where the app itself can run. New app = landing gets this before its first deploy.
 
 ## Writing (READMEs, whitepapers, CLAUDE.md, roadmaps, journal, landing copy)
 tripwire's README is the reference. Short sentences. Plain words. Say the problem, then the thing, then stop. One idea per line. Fragments are fine when they land ("That's the gap."). Talk to one person. Cut hedges, jargon, "leverage", "seamlessly", "robust". No em dashes, no emojis, no bullet walls where a sentence works. If a paragraph could be a Steve Jobs keynote line, good. If it reads like a product brochure or an AI wrote it, rewrite it. Prose only: this rule never touches code.
