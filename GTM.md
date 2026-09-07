@@ -152,7 +152,11 @@ or Epiphany's encrypted secrets.
 **The CRA Business Number is mailed and faxed and still pending**, so Form 506, the Paid Apps
 Agreement and every StoreKit price stay blocked. Nothing in the code can move that.
 
-## Open, needs Joshua's Stripe login (deferred to 2026-09-01)
+## Resolved 2026-09-06 via Stripe API (live key in `epiphany/.env.tui.local`)
+
+Checked the whole account: **zero charges ever, zero checkout sessions.** Nothing to replay. All five webhook endpoints exist and are enabled (talli, sparkjar, healstack, epiphany, opticon). The section below is kept for the procedure only.
+
+## Was open, needed Joshua's Stripe login (deferred to 2026-09-01)
 
 1. **Check Epiphany's failed webhook deliveries and replay the real ones.** The webhook 500'd on
    every delivery from the Cloudflare migration until the fix on 2026-08-31. Stripe retries for
