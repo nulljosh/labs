@@ -2,6 +2,9 @@
 
 *Refreshed 2026-09-08 (Seamark 0.2.0, Lucarne/Plain shipped, Epiphany quota fixed). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
 
+![Commits per month since Claude Code inception](progress.svg)
+
+
 ## Environment
 - Mac Mini M4, macOS 25.x · Python 3.14 · Node 24 · xcodegen at `/opt/homebrew/bin/xcodegen`
 - `asc` CLI and its skills are installed. Use them. Stay out of the App Store Connect dashboard
