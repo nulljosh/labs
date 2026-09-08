@@ -24,16 +24,16 @@
 <a href="https://github.com/nulljosh/dotfiles"><text fill="currentColor" x="48" y="313" font-size="13">dotfiles</text></a>
 <rect x="150" y="302" width="26" height="14" rx="2" fill="currentColor" opacity="0.8"/>
 <text fill="currentColor" x="184" y="313" font-size="12" opacity="0.6">1</text>
-<a href="https://github.com/nulljosh/weather"><text fill="currentColor" x="48" y="339" font-size="13">weather</text></a>
+<a href="https://github.com/nulljosh/nulljosh.github.io"><text fill="currentColor" x="48" y="339" font-size="13">nulljosh.github.io</text></a>
 <rect x="150" y="328" width="26" height="14" rx="2" fill="currentColor" opacity="0.8"/>
 <text fill="currentColor" x="184" y="339" font-size="12" opacity="0.6">1</text>
 <rect x="48.0" y="340" width="11.0" height="44" fill="currentColor" opacity="0.5"/>
-<rect x="60.0" y="361" width="11.0" height="23" fill="currentColor" opacity="0.5"/>
+<rect x="60.0" y="359" width="11.0" height="25" fill="currentColor" opacity="0.5"/>
 <text fill="currentColor" x="48" y="332" font-size="11" opacity="0.6">commits per day, 2 days</text>
 <rect x="560" y="136" width="200" height="180" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
 <text fill="currentColor" x="584" y="166" font-size="12" opacity="0.6">commits</text>
-<text fill="currentColor" x="584" y="198" font-size="28" font-weight="500">46</text>
+<text fill="currentColor" x="584" y="198" font-size="28" font-weight="500">47</text>
 <text fill="currentColor" x="584" y="232" font-size="12" opacity="0.6">projects touched</text>
-<text fill="currentColor" x="584" y="264" font-size="28" font-weight="500">8</text>
+<text fill="currentColor" x="584" y="264" font-size="28" font-weight="500">9</text>
 <text fill="currentColor" x="584" y="298" font-size="11" opacity="0.6">2026-09-07 to 2026-09-08</text>
 </svg>
