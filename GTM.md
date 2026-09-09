@@ -5,18 +5,18 @@ production on 2026-08-29. Don't re-derive this from 18 ASC records; update this 
 
 ## The one-line summary
 
-Paid Apps Agreement is **ACTIVE** (2026-09-08, BN 795776756 RT0001). iOS can charge. Nine
-utility/game apps flipped to **$0.99 paid-upfront** on 2026-09-09 (zero code, `asc pricing
-schedule create --price 0.99`). Voxprint 1.3.9 ships the real $1 IAP. Distribution and
+Paid Apps Agreement is **ACTIVE** (2026-09-08, BN 795776756 RT0001). iOS can charge. Voxprint 1.3.9 ships the real $1 IAP
+(in review 2026-09-09). The other nine stay free as ASO surface, per the focus rule below. Distribution and
 measurement are still the gap.
 
 ## Strategy (decided 2026-09-09)
 
 Three rails, picked per app by what the app already has:
 
-1. **Paid-upfront $0.99** for self-contained apps with no backend and no account: Inkpress,
-   Plaintxt, Curvely, Lexly, Wordroot, Charwork, Quotestreak, Toroid, NYC Survive. Zero code, no
-   3.1.1 exposure, price covers iOS + Mac on the same record. LIVE 2026-09-09.
+1. **Free, on purpose**, for the nine small apps (Inkpress, Plaintxt, Curvely, Lexly, Wordroot,
+   Charwork, Quotestreak, Toroid, NYC Survive). Tried $0.99 upfront for an hour on 2026-09-09 and
+   reverted: it kills the trial funnel a Product Hunt launch needs and earns nothing at zero users.
+   Revisit as free + $1 IAP only for an app that shows real installs.
 2. **Free + $1 one-time IAP** where a free tier is the funnel: Voxprint (3 free files then $1,
    1.3.9 submitted 2026-09-09). Epiphany next: `asc iap setup` a $1 non-consumable, verify the
    JWS transaction server-side and set the same `isPro` the Stripe webhook sets, so web and iOS
@@ -28,7 +28,7 @@ Stays free on purpose: Litigate (public-good tool), Bookrank and Sidewise (need 
 a price), Doorstock (client), Curbfind and Lucarne (browsers are free by convention).
 
 Launch order for Product Hunt: Voxprint (clean one-line pitch, own-it-once), then Epiphany once
-the IAP ships, then a "nine $1 apps" roundup. Each needs: tagline, first comment, 3 screenshots,
+the IAP ships, then the free apps as a roundup. Each needs: tagline, first comment, 3 screenshots,
 landing page (done fleet-wide). No analytics yet; App Store Connect sales reports are the only
 revenue signal until PostHog or similar is added.
 
@@ -39,20 +39,20 @@ revenue signal until PostHog or similar is added.
 | Epiphany | 6779522175 | Mac 2.5.2 · **iOS 2.5.6 REJECTED** | $1 one-time (planned) | Stripe live + StoreKit | **Focus.** iOS is out of the store on 4.3(a); fix that before any paywall work |
 | Talli | 6782366555 | iOS 3.5.14 · Mac 3.5.6 | free | Stripe live | **Focus.** One upgrade CTA (`src/api.js` → `/api/stripe-checkout`) |
 | Voxprint | 6782604262 | Mac 1.3.6 · iOS 1.3.8 staged | $1 one-time | StoreKit LIVE in 1.3.9 (iOS submitted 2026-09-09, Mac following) | watch review |
-| Lexly | 6783501611 | iOS 1.1.3 · Mac 1.1.4 · **1.1.5 REJECTED both platforms** | $0.99 upfront | ASC price | none planned |
+| Lexly | 6783501611 | iOS 1.1.3 · Mac 1.1.4 · **1.1.5 REJECTED both platforms** | free | none | none planned |
 | Litigate | 6787857503 | iOS 1.0.3 | free | none | none planned |
 | Bookrank | 6792376485 | iOS 1.0.1 · Mac 1.0.1 | free | none | personal shelf, not a product |
 | Sparkjar | 6785162492 | Mac 1.0.1 · **iOS 1.0 REJECTED** | $1 Spark Pro | Stripe live (wired 2026-09-06) | iOS never shipped; email/OAuth unconfigured: leave alone |
-| Inkpress | 6787759999 | iOS 1.0.6 · Mac 1.0.7 | $0.99 upfront | ASC price | Mac 1.0.7 approved 2026-08-30, first Mac release |
-| Wordroot | 6794988021 | iOS 1.0.1 · Mac 1.0 · **Mac 1.0.1 REJECTED** | $0.99 upfront | ASC price | none planned |
-| Curvely | 6794988370 | iOS 1.2.2 · Mac 1.2.2 | $0.99 upfront | ASC price | 4.3(a) appeal WON, 1.2.2 approved 2026-08-30 |
-| Charwork | 6794988951 | iOS 1.1.1 | $0.99 upfront | ASC price | repo renamed from wiretext; ASC record still "Wiretext" |
-| Quotestreak | 6804394619 | iOS 1.1 · Mac 1.1 | $0.99 upfront | ASC price | none planned |
+| Inkpress | 6787759999 | iOS 1.0.6 · Mac 1.0.7 | free | none | Mac 1.0.7 approved 2026-08-30, first Mac release |
+| Wordroot | 6794988021 | iOS 1.0.1 · Mac 1.0 · **Mac 1.0.1 REJECTED** | free | none | none planned |
+| Curvely | 6794988370 | iOS 1.2.2 · Mac 1.2.2 | free | none | 4.3(a) appeal WON, 1.2.2 approved 2026-08-30 |
+| Charwork | 6794988951 | iOS 1.1.1 | free | none | repo renamed from wiretext; ASC record still "Wiretext" |
+| Quotestreak | 6804394619 | iOS 1.1 · Mac 1.1 | free | none | none planned |
 | Healstack | 6785764864 | **nothing live; iOS + Mac 2.3.5 both REJECTED** | $1 CSV export | Stripe live (wired 2026-09-06) | 4.3(a) wave, reply filed |
-| NYC Survive | 6782618198 | Mac 1.0.0 · **iOS 1.0.0 + Mac 1.0.1 REJECTED** | $0.99 upfront | ASC price | listing filled to 10 screenshots 2026-08-29 |
+| NYC Survive | 6782618198 | Mac 1.0.0 · **iOS 1.0.0 + Mac 1.0.1 REJECTED** | free | none | listing filled to 10 screenshots 2026-08-29 |
 | Doorstock | 6791106082 | Mac 1.0 · **iOS 1.0 REJECTED** | free | none | 4.3(a) + 3.2, appeals filed; keyword regression fix waits on verdict |
 | Sidewise | 6806028670 | iOS 1.0 + Mac 1.0 WAITING_FOR_REVIEW | free | none | submitted 2026-08-28 |
-| Toroid | 6806324937 | iOS 1.0 + Mac 1.0 PREPARE_FOR_SUBMISSION | $0.99 upfront | ASC price | held for the 4.3(a) wave |
+| Toroid | 6806324937 | iOS 1.0 + Mac 1.0 PREPARE_FOR_SUBMISSION | free | none | held for the 4.3(a) wave |
 
 ## Web-only by decision (not a gap)
 
