@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-09-08 (Seamark 0.2.0, Lucarne/Plain shipped, Epiphany quota fixed). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
+*Refreshed 2026-09-09 (Epiphany iOS 2.5.8 approved with paid tier live, Healstack supplement tracker shipped). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
 
 ![Commits per month since Claude Code inception](progress.svg)
 
@@ -47,6 +47,7 @@
 | **lucarne** | WebKit browser, iOS + macOS, one SwiftUI file, tabs | lucarne.heyitsmejosh.com |
 | **weather** | Forecast page, Open-Meteo, one file | weather.heyitsmejosh.com |
 | **fieldbook** | Every field of science + math explained plainly, one file | fieldbook.heyitsmejosh.com |
+| **stanza** | Poetry network, svbtle-shaped; web + iOS/macOS + kmp, shared spark table `stanza_poems` | stanza.heyitsmejosh.com |
 
 ### Sites & infra
 | Repo | What |
