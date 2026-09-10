@@ -22,7 +22,7 @@
 | **healstack** | Health/supplement tracker | healstack.heyitsmejosh.com |
 | **sparkjar** | Idea forum | sparkjar.heyitsmejosh.com |
 | **curvely** | Equation grapher | 6794988370 |
-| **charwork** | Unicode wireframe tool (ASC record still "Wiretext"; own warm-paper theme, not the shared tokens) | wiretext.heyitsmejosh.com |
+| **formwork** (ex-charwork) | Unicode wireframe tool → canvas editor (ASC record still "Charwork"; own warm-paper theme, not the shared tokens) | wiretext.heyitsmejosh.com |
 | **bookrank** | Book summaries | bookrank.heyitsmejosh.com |
 | **wordroot** | Etymology lookup | wordroot.heyitsmejosh.com |
 | **quotestreak** | Quote guessing game, no backend | 6804394619 |
