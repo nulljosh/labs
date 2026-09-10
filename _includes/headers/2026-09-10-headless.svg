@@ -7,21 +7,21 @@
 
   <line stroke="currentColor" x1="48" y1="152" x2="752" y2="152" stroke-width="1" opacity="0.25"/>
 
-  <text fill="currentColor" x="48" y="188" font-size="14">pwnlingo</text>
+  <text fill="currentColor" x="48" y="188" font-size="14">epiphany · voxprint · pwnlingo · wordroot · homeqi · dotfiles</text>
 
-  <text fill="currentColor" x="48" y="246" font-size="14">flipped headless: false to headless: true</text>
-  <text fill="currentColor" x="48" y="268" font-size="14">scripts/run.mjs line 57, Playwright Chromium</text>
-  <text fill="currentColor" x="48" y="290" font-size="14">solver runs background, no window on screen</text>
-  <text fill="currentColor" x="48" y="312" font-size="14">smoke test hit port collision, gaps remain</text>
+  <text fill="currentColor" x="48" y="246" font-size="14">epiphany: portfolio balance, multi-brokerage connect (all platforms)</text>
+  <text fill="currentColor" x="48" y="268" font-size="14">voxprint: background URLSession, transcription animation</text>
+  <text fill="currentColor" x="48" y="290" font-size="14">wordroot/pwnlingo: Wikipedia photos, chess solver, board UI</text>
+  <text fill="currentColor" x="48" y="312" font-size="14">dotfiles: eza alias fix (--icons swallowing path args)</text>
 
   <rect class="brd" x="560" y="176" width="200" height="280" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
   <text fill="currentColor" x="584" y="206" font-size="12" opacity="0.6">touched</text>
-  <text fill="currentColor" x="584" y="238" font-size="28" font-weight="500">1</text>
-  <text fill="currentColor" x="584" y="272" font-size="12" opacity="0.6">repo</text>
-  <text fill="currentColor" x="584" y="296" font-size="14">pwnlingo</text>
-  <text fill="currentColor" x="584" y="322" font-size="12" opacity="0.6">commit</text>
-  <text fill="currentColor" x="584" y="346" font-size="13">enable</text>
-  <text fill="currentColor" x="584" y="366" font-size="13">headless mode</text>
+  <text fill="currentColor" x="584" y="238" font-size="28" font-weight="500">6</text>
+  <text fill="currentColor" x="584" y="272" font-size="12" opacity="0.6">repos</text>
+  <text fill="currentColor" x="584" y="296" font-size="14">epiphany</text>
+  <text fill="currentColor" x="584" y="322" font-size="12" opacity="0.6">commits</text>
+  <text fill="currentColor" x="584" y="346" font-size="13">11 across</text>
+  <text fill="currentColor" x="584" y="366" font-size="13">all 6 repos</text>
 
   <text fill="currentColor" x="48" y="462" font-size="13" opacity="0.6">2026-09-10</text>
 </svg>
