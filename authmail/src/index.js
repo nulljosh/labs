@@ -54,6 +54,10 @@ function html(t, type, link, token) {
 </table></td></tr></table></body>`;
 }
 
+// Svix webhook verification (what Supabase auth hooks use): secret is base64
+// after the "whsec_" prefix, the signed payload is "id.timestamp.body", and
+// the header can carry multiple "v1,<sig>" pairs (key rotation) so we accept
+// any match rather than just the first.
 async function verify(req, body, secret) {
   const id = req.headers.get("webhook-id"), ts = req.headers.get("webhook-timestamp"), sigs = req.headers.get("webhook-signature") || "";
   if (!id || !ts || !sigs) return false;
