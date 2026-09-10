@@ -5,31 +5,31 @@
 <line stroke="currentColor" x1="48" y1="118" x2="752" y2="118" stroke-width="1" opacity="0.25"/>
 <a href="https://github.com/nulljosh/notes"><text fill="currentColor" x="48" y="157" font-size="13">notes</text></a>
 <rect x="150" y="146" width="340" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="498" y="157" font-size="12" opacity="0.6">28</text>
+<text fill="currentColor" x="498" y="157" font-size="12" opacity="0.6">32</text>
 <a href="https://github.com/nulljosh/nyc"><text fill="currentColor" x="48" y="183" font-size="13">nyc</text></a>
-<rect x="150" y="172" width="109" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="267" y="183" font-size="12" opacity="0.6">9</text>
+<rect x="150" y="172" width="96" height="14" rx="2" fill="currentColor" opacity="0.8"/>
+<text fill="currentColor" x="254" y="183" font-size="12" opacity="0.6">9</text>
 <a href="https://github.com/nulljosh/epiphany"><text fill="currentColor" x="48" y="209" font-size="13">epiphany</text></a>
-<rect x="150" y="198" width="97" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="255" y="209" font-size="12" opacity="0.6">8</text>
+<rect x="150" y="198" width="85" height="14" rx="2" fill="currentColor" opacity="0.8"/>
+<text fill="currentColor" x="243" y="209" font-size="12" opacity="0.6">8</text>
 <a href="https://github.com/nulljosh/voxprint"><text fill="currentColor" x="48" y="235" font-size="13">voxprint</text></a>
-<rect x="150" y="224" width="97" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="255" y="235" font-size="12" opacity="0.6">8</text>
+<rect x="150" y="224" width="85" height="14" rx="2" fill="currentColor" opacity="0.8"/>
+<text fill="currentColor" x="243" y="235" font-size="12" opacity="0.6">8</text>
 <a href="https://github.com/nulljosh/co-stanza"><text fill="currentColor" x="48" y="261" font-size="13">co-stanza</text></a>
-<rect x="150" y="250" width="49" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="207" y="261" font-size="12" opacity="0.6">4</text>
+<rect x="150" y="250" width="42" height="14" rx="2" fill="currentColor" opacity="0.8"/>
+<text fill="currentColor" x="200" y="261" font-size="12" opacity="0.6">4</text>
 <a href="https://github.com/nulljosh/sparkjar"><text fill="currentColor" x="48" y="287" font-size="13">sparkjar</text></a>
-<rect x="150" y="276" width="49" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="207" y="287" font-size="12" opacity="0.6">4</text>
+<rect x="150" y="276" width="42" height="14" rx="2" fill="currentColor" opacity="0.8"/>
+<text fill="currentColor" x="200" y="287" font-size="12" opacity="0.6">4</text>
 <a href="https://github.com/nulljosh/logans-frenchies"><text fill="currentColor" x="48" y="313" font-size="13">logans-frenchies</text></a>
-<rect x="150" y="302" width="36" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="194" y="313" font-size="12" opacity="0.6">3</text>
+<rect x="150" y="302" width="32" height="14" rx="2" fill="currentColor" opacity="0.8"/>
+<text fill="currentColor" x="190" y="313" font-size="12" opacity="0.6">3</text>
 <a href="https://github.com/nulljosh/wordroot"><text fill="currentColor" x="48" y="339" font-size="13">wordroot</text></a>
-<rect x="150" y="328" width="36" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="194" y="339" font-size="12" opacity="0.6">3</text>
+<rect x="150" y="328" width="32" height="14" rx="2" fill="currentColor" opacity="0.8"/>
+<text fill="currentColor" x="190" y="339" font-size="12" opacity="0.6">3</text>
 <rect x="560" y="136" width="200" height="180" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
 <text fill="currentColor" x="584" y="166" font-size="12" opacity="0.6">commits</text>
-<text fill="currentColor" x="584" y="198" font-size="28" font-weight="500">85</text>
+<text fill="currentColor" x="584" y="198" font-size="28" font-weight="500">89</text>
 <text fill="currentColor" x="584" y="232" font-size="12" opacity="0.6">projects touched</text>
 <text fill="currentColor" x="584" y="264" font-size="28" font-weight="500">23</text>
 <text fill="currentColor" x="584" y="298" font-size="11" opacity="0.6">2026-09-09</text>
