@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-09-09 (Epiphany iOS 2.5.8 approved with paid tier live, Healstack supplement tracker shipped). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
+*Refreshed 2026-09-10 (Blockframe canvas element selection + rename to Blockframe, Pwnlingo seven-platform rollout). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
 
 ![Commits per month since Claude Code inception](progress.svg)
 
@@ -48,6 +48,7 @@
 | **weather** | Forecast page, Open-Meteo, one file | weather.heyitsmejosh.com |
 | **fieldbook** | Every field of science + math explained plainly, one file | fieldbook.heyitsmejosh.com |
 | **co-stanza** | Poetry network, svbtle-shaped, Costanza riff; web + iOS/macOS + kmp, shared spark table `stanza_poems` | co-stanza.heyitsmejosh.com |
+| **windgate** | Guided breathing, four presets; web + iOS/macOS (repo folder still `breathe`, renamed 2026-09-10) | windgate.heyitsmejosh.com · 6810806058 |
 
 ### Sites & infra
 | Repo | What |
@@ -74,7 +75,7 @@ Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28. Replies are filed. Never 
 - **DNS**: curl with `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish`. It is not named `CLOUDFLARE_API_TOKEN` on purpose. That name breaks wrangler's OAuth
 - **Apple**: xcodegen `project.yml`, no checked-in xcodeproj. SwiftUI, iOS 17+/macOS 14+. `asc xcode archive`/`export`
 - **Other platforms**: Kotlin Multiplatform under `<repo>/kmp/` (homeward, nimble, talli so far). A PWA is a fallback. It does not count as coverage. `native-release.yml` builds msi, deb and apk
-- **/api + /mcp**: house Cloudflare Functions pattern (quotestreak, bookrank, wordroot, curvely, charwork)
+- **/api + /mcp**: house Cloudflare Functions pattern (quotestreak, bookrank, wordroot, curvely, blockframe)
 - No emojis in any UI. No demo accounts for screenshots. Use the gitignored `.env`
 
 ## Repo standard (nimble is the reference, synced across all repos 2026-09-01)
