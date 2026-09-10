@@ -174,6 +174,10 @@ int main(void) {
             if (consumed > 0) {
                 handle_command(client_fd, argv, argc);
                 free_argv(argv, argc);
+                // Shift any bytes after this command to the front of buf so a second
+                // pipelined command (or the tail of a split one) parses correctly on
+                // the next read/loop iteration. consumed == -1 means "not enough
+                // bytes yet" and just falls through to read() again without shifting.
                 memmove(buf, buf + consumed, len - consumed);
                 len -= consumed;
             }
