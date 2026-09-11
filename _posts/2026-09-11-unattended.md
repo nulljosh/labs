@@ -15,4 +15,4 @@ Runner ran unattended overnight, earned zero XP because two invisible bugs thriv
 
 ## Apps
 
-Pwnlingo: aria-disabled and skip-heuristic bugs fixed, zero XP recovery, per-cycle detector tally logging, docs synced. Seamark: grid clustering engine ported. Epiphany: landing page screenshot deploy fixed + skill patched. All runners live and unattended.
+Pwnlingo: aria-disabled and skip-heuristic bugs fixed, zero XP recovery, per-cycle detector tally logging, docs synced. Seamark: grid clustering engine ported. Epiphany: landing page screenshot deploy fixed + skill patched. Homeward: native email/password auth landed on iOS via Swift SDK, Android/macOS/Windows via KMP Ktor client. All runners live and unattended.
