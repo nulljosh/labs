@@ -39,7 +39,7 @@
 | **roost** | Real estate browsing, 25 languages | roost.heyitsmejosh.com |
 | **numen** | Free-form calculator canvas | numen.heyitsmejosh.com |
 | **swing** | Random 1:1 video chat, Durable Object lobby | swing.heyitsmejosh.com |
-| **curbfind** | Craigslist browser, web/iOS/macOS/Android/desktop (renamed from curbside 2026-09-05, ASC 6809031662, submission-ready pending availability). Landing hero is the live app itself (blurred iframe), one click zooms in seamlessly, no reload | curbfind.heyitsmejosh.com |
+| **curbfind** | Craigslist browser, web/iOS/macOS/Android/desktop (renamed from curbside 2026-09-05, ASC 6809031662, approved and live on App Store 2026-09-10). Landing hero is the live app itself (blurred iframe), one click zooms in seamlessly, no reload | curbfind.heyitsmejosh.com |
 | **seamark** | Read values off rendered charts (npm lib) | seamark.heyitsmejosh.com |
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
 | **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
