@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-09-11 (Litigate docs refresh — stale Brief-era naming corrected, ship-status docs updated for app restoration). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
+*Refreshed 2026-09-11 (Litigate docs refresh, stale Brief-era naming corrected, ship-status docs updated for app restoration). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
 
 ![Commits per month since Claude Code inception](progress.svg)
 
@@ -41,6 +41,7 @@
 | **swing** | Random 1:1 video chat, Durable Object lobby | swing.heyitsmejosh.com |
 | **curbfind** | Craigslist browser, web/iOS/macOS/Android/desktop (renamed from curbside 2026-09-05, ASC 6809031662, approved and live on App Store 2026-09-10). Landing hero is the live app itself (blurred iframe), one click zooms in seamlessly, no reload | curbfind.heyitsmejosh.com |
 | **seamark** | Read values off rendered charts (npm lib) | seamark.heyitsmejosh.com |
+| **sieve** | Inbox triage tool, spam scoring, RFC 8058 unsubscribe; web + native iOS/macOS, API + MCP, KV-backed run history | sieve.heyitsmejosh.com |
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
 | **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
 | **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.heyitsmejosh.com |
@@ -109,4 +110,4 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 ## TUI rollout (2026-09-05)
 Shipped 16, each with a `tui/` + root `Package.swift` (SwiftPM target depending on rensbreur/SwiftTUI, static one-shot render, needs a real TTY): nimble, cadence, numen, wordroot, keyrate, curvely, charwork, bookrank, quotestreak, inkpress, tripwire, sidewise, nyc, curbfind, homeward, roost.
 Three patterns used: reuse an existing Foundation-only model file as-is (nimble/QueryEngine, numen/Parser, curbfind/CraigslistAPI); a thin fetch against the live API/Function when logic lives server-side (cadence, wordroot, curvely, charwork, bookrank, quotestreak, sidewise, tripwire); or a thin fetch against a third-party/public API when there's no backend of its own to wrap (roost→Nominatim, homeward→Supabase PostgREST directly, inkpress→its CORS proxy + Foundation's XMLParser). keyrate and nyc ported/reused static logic (score.js line-for-line; nyc's building-cost table, matching its watchOS app's own "quick-reference, not a live mirror" scope decision).
-Deliberately not done, with reasons: epiphany, talli, litigate, sparkjar, healstack, lexly (auth-gated personal/financial/health/legal data, nothing to show a stateless CLI without building a login flow); voxprint (on-device WhisperKit transcription needs mic input, different shape entirely); seamark, homeqi (watchOS wrapper only, real logic is JS, would need a fresh port not a reuse); bcgd (local-only business data, nothing to fetch); dream (interpretation endpoint is safety-sensitive — distress detection — and bills Workers AI per call, not something to wrap casually); swing (repo empty on disk); plain (explicit prior decision against a terminal editor, see its own CLAUDE.md).
+Deliberately not done, with reasons: epiphany, talli, litigate, sparkjar, healstack, lexly (auth-gated personal/financial/health/legal data, nothing to show a stateless CLI without building a login flow); voxprint (on-device WhisperKit transcription needs mic input, different shape entirely); seamark, homeqi (watchOS wrapper only, real logic is JS, would need a fresh port not a reuse); bcgd (local-only business data, nothing to fetch); dream (interpretation endpoint is safety-sensitive, distress detection, and bills Workers AI per call, not something to wrap casually); swing (repo empty on disk); plain (explicit prior decision against a terminal editor, see its own CLAUDE.md).
