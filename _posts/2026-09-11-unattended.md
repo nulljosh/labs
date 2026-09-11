@@ -11,7 +11,7 @@ categories: journal daily
 
 ## Friday
 
-Runner ran unattended overnight, earned zero XP because two invisible bugs thrived in silent success paths. The detector tested only n.disabled but Duolingo sets aria-disabled="true", so every challenge read as answered; the solver then answered all 12 questions before the skip heuristic matched the lesson-complete screen and discarded everything. Fixed both bugs and verified +15 XP on the next lesson, plus deleted shadowed definitions, ported grid clustering into seamark, and fixed stalled tracks. Jekyll build broke because the post referenced a missing header SVG, so added it matching house style and verified the build passes.
+Runner ran unattended overnight, earned zero XP because two invisible bugs thrived in silent success paths: detector tested only n.disabled but Duolingo sets aria-disabled="true", so every challenge read as answered; solver answered all 12 questions before the skip heuristic matched lesson-complete and discarded everything. Fixed both bugs, verified +15 XP on next lesson, and found two more gaps dangerous once the solver worked: process.exit(0) on out-of-hearts kills the unattended session with no restart, and clickByText still tested only .disabled (same aria-disabled bug in the helper). Fixed both plus XP counter that silently zeroed on every restart because it captured xp0 at process start, hiding the day's real gain; now measure against persisted daily baseline matching Duolingo's rollover. Added optional menu bar setting for XP today or current question (off by default due to resizing). Live numbers: plus 375 XP today, Czech active track.
 
 ## Apps
 
