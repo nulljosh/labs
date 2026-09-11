@@ -11,3 +11,10 @@ coverage, and it makes the honest tools in the other repos harder to find.
 Shipped instead in: epiphany, healstack, roost, curvely, wiretext, litigate,
 cadence, sparkjar, lexly, talli, quotable, wordroot, newsline, nyc, notes,
 bookrank, homeward.
+
+## Archive navigation and discovery — scoped 2026-09-11
+
+- [ ] Per-app index page: view the history of each project at a glance
+- [ ] Tags or categories: find entries by theme or topic
+- [ ] Site-wide streak graph on homepage: show consecutive commit days
+- [ ] Visible RSS link in footer: make subscriptions obvious
