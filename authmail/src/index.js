@@ -23,6 +23,7 @@ const SUBJECT = {
   invite: "You have been invited",
   email_change: "Confirm your new email",
   reauthentication: "Your verification code",
+  welcome: "Welcome",
 };
 const BODY = {
   signup: "Tap the button to confirm your email and activate your account.",
@@ -31,6 +32,7 @@ const BODY = {
   invite: "You have been invited. Tap the button to accept and create your account.",
   email_change: "Tap the button to confirm your new email address.",
   reauthentication: "Enter this code to continue:",
+  welcome: "Your account is confirmed. Glad to have you.",
 };
 
 function themeFor(redirectTo = "") {
@@ -40,9 +42,10 @@ function themeFor(redirectTo = "") {
 }
 
 function html(t, type, link, token) {
+  const ctaLabel = type === "welcome" ? `Open ${t.name}` : SUBJECT[type] || "Continue";
   const cta = type === "reauthentication"
     ? `<p style="font-size:28px;letter-spacing:6px;font-weight:600;margin:24px 0">${token}</p>`
-    : `<a href="${link}" style="display:inline-block;background:${t.accent};color:#fff;text-decoration:none;padding:12px 22px;border-radius:8px;font-weight:600;margin:24px 0">${SUBJECT[type] || "Continue"}</a>`;
+    : `<a href="${link}" style="display:inline-block;background:${t.accent};color:#fff;text-decoration:none;padding:12px 22px;border-radius:8px;font-weight:600;margin:24px 0">${ctaLabel}</a>`;
   return `<!doctype html><body style="margin:0;background:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;color:#111">
 <table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:40px 16px">
 <table width="480" cellpadding="0" cellspacing="0" style="max-width:480px;background:#fff;border-radius:12px;padding:32px;text-align:left">
@@ -69,6 +72,19 @@ async function verify(req, body, secret) {
   return sigs.split(" ").some((s) => s.split(",")[1] === expected);
 }
 
+function send(env, t, type, to, link, token) {
+  return fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      from: `${t.name} <noreply@heyitsmejosh.com>`,
+      to: [to],
+      subject: `${SUBJECT[type] || "Continue"} · ${t.name}`,
+      html: html(t, type, link, token),
+    }),
+  });
+}
+
 export default {
   async fetch(req, env) {
     if (req.method !== "POST") return new Response("authmail", { status: 200 });
@@ -79,20 +95,17 @@ export default {
 
     const { user, email_data: d } = JSON.parse(body);
     const type = d.email_action_type;
-    const t = themeFor(d.redirect_to || d.site_url);
-    const link = `https://${ref}.supabase.co/auth/v1/verify?token=${encodeURIComponent(d.token_hash)}&type=${type}&redirect_to=${encodeURIComponent(d.redirect_to || d.site_url)}`;
+    const dest = d.redirect_to || d.site_url;
+    const t = themeFor(dest);
+    const link = `https://${ref}.supabase.co/auth/v1/verify?token=${encodeURIComponent(d.token_hash)}&type=${type}&redirect_to=${encodeURIComponent(dest)}`;
 
-    const r = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        from: `${t.name} <noreply@heyitsmejosh.com>`,
-        to: [user.email],
-        subject: `${SUBJECT[type] || "Continue"} · ${t.name}`,
-        html: html(t, type, link, d.token),
-      }),
-    });
+    const r = await send(env, t, type, user.email, link, d.token);
     if (!r.ok) return new Response(await r.text(), { status: 500 });
+
+    // ponytail: welcome email rides the signup confirmation request, not a separate
+    // post-confirmation trigger — no DB webhook needed, one extra Resend call here.
+    if (type === "signup") await send(env, t, "welcome", user.email, dest);
+
     return new Response("{}", { headers: { "Content-Type": "application/json" } });
   },
 };

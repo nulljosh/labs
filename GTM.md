@@ -3,6 +3,14 @@
 Single source of truth for what earns money, what can't yet, and why. Verified against ASC and
 production on 2026-08-29. Don't re-derive this from 18 ASC records; update this table instead.
 
+## Current focus, 2026-09-11
+
+Revenue work is Epiphany and Voxprint. Talli is a disability-tracking utility, not a revenue target (Joshua, 2026-09-11). Existing Talli payment fixes are reliability work only.
+
+Live ASC checks: Voxprint 1.3.9 is live on Mac and approved pending developer release on iOS. Epiphany iOS 2.5.11 is waiting for review; Mac 2.5.2 is live. Both apps have an approved non-consumable IAP. Voxprint is already on Product Hunt; do not plan a duplicate launch.
+
+See [the revenue audit](REVENUE.md) for verified fixes, checks, and the next actions. This section supersedes conflicting historical blockers and focus rules below.
+
 ## The one-line summary
 
 Paid Apps Agreement is **ACTIVE** (2026-09-08, BN 795776756 RT0001). iOS can charge. Voxprint 1.3.9 ships the real $1 IAP
