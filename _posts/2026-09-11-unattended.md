@@ -11,7 +11,7 @@ categories: journal daily
 
 ## Friday
 
-Runner ran unattended overnight, earned zero XP: two invisible bugs thrived because success paths log nothing. First: detector tested only n.disabled but Duolingo sets aria-disabled="true" on unanswered word banks, so every challenge read as answered and clicked dead button before solver ran. Second: solver answered all 12 questions then discarded the lesson because DuoRadio skip heuristic matched the lesson-complete screen. Fixed both bugs, verified +15 XP on post-fix lesson, also deleted four shadowed duplicate definitions in math.js (62 lines), ported grid clustering from pwnlingo into seamark, and fixed stalled tracks persisting across restarts. Key finding: lesson-end log now carries per-cycle detector tally, which made both bugs findable in minutes after 7.5 hours of empty logs.
+Runner ran unattended overnight, earned zero XP because two invisible bugs thrived in silent success paths. The detector tested only n.disabled but Duolingo sets aria-disabled="true", so every challenge read as answered; the solver then answered all 12 questions before the skip heuristic matched the lesson-complete screen and discarded everything. Fixed both bugs and verified +15 XP on the next lesson, plus deleted shadowed definitions, ported grid clustering into seamark, and fixed stalled tracks. Jekyll build broke because the post referenced a missing header SVG, so added it matching house style and verified the build passes.
 
 ## Apps
 
