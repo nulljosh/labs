@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-09-10 (Blockframe canvas element selection + rename to Blockframe, Pwnlingo seven-platform rollout, PH launch kits for Litigate/Sparkjar/Blockframe/Doorstock). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
+*Refreshed 2026-09-11 (Litigate docs refresh — stale Brief-era naming corrected, ship-status docs updated for app restoration). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
 
 ![Commits per month since Claude Code inception](progress.svg)
 
