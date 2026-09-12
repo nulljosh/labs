@@ -1,7 +1,7 @@
 <svg class="post-header-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360">
 <rect x="20" y="20" width="760" height="320" rx="12" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
 <text fill="currentColor" x="48" y="62" font-size="12" opacity="0.6">year</text>
-<text fill="currentColor" x="48" y="96" font-size="28" font-weight="300" letter-spacing="-0.5">6306 commits per week since 2026-02-20</text>
+<text fill="currentColor" x="48" y="96" font-size="28" font-weight="300" letter-spacing="-0.5">6309 commits per week since 2026-02-20</text>
 <line stroke="currentColor" x1="48" y1="118" x2="752" y2="118" stroke-width="1" opacity="0.25"/>
 <rect x="94.9" y="299" width="21.5" height="1" fill="currentColor" opacity="0.6"/>
 <rect x="141.9" y="299" width="21.5" height="1" fill="currentColor" opacity="0.6"/>
@@ -26,7 +26,7 @@
 <rect x="658.1" y="228" width="21.5" height="72" fill="currentColor" opacity="0.6"/>
 <rect x="681.6" y="140" width="21.5" height="160" fill="currentColor" opacity="0.6"/>
 <rect x="705.1" y="172" width="21.5" height="128" fill="currentColor" opacity="0.6"/>
-<rect x="728.5" y="257" width="21.5" height="43" fill="currentColor" opacity="0.6"/>
+<rect x="728.5" y="256" width="21.5" height="44" fill="currentColor" opacity="0.6"/>
 <line stroke="currentColor" x1="388.3" y1="300" x2="388.3" y2="310" stroke-width="1" opacity="0.5"/>
 <text fill="currentColor" x="388.3" y="324" font-size="10" opacity="0.6" text-anchor="middle">spring</text>
 <line stroke="currentColor" x1="599.5" y1="300" x2="599.5" y2="310" stroke-width="1" opacity="0.5"/>
@@ -37,4 +37,6 @@
 <text fill="currentColor" x="716.8" y="324" font-size="10" opacity="0.6" text-anchor="middle">week</text>
 <line stroke="currentColor" x1="740.3" y1="300" x2="740.3" y2="310" stroke-width="1" opacity="0.5"/>
 <text fill="currentColor" x="740.3" y="324" font-size="10" opacity="0.6" text-anchor="middle">scale</text>
+<line stroke="currentColor" x1="740.3" y1="300" x2="740.3" y2="310" stroke-width="1" opacity="0.5"/>
+<text fill="currentColor" x="740.3" y="324" font-size="10" opacity="0.6" text-anchor="middle">workflow</text>
 </svg>
