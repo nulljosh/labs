@@ -8,6 +8,10 @@ cd "$(dirname "$0")/.."
 python3 scripts/graphs.py
 python3 scripts/lint-posts.py
 
+# graphs.py writes generated assets; commit them so CI's checkout has what this build has.
+git add _includes/graphs assets/og
+git diff --cached --quiet || { git commit -m "graphs: regenerate"; git push; }
+
 bundle exec jekyll build
 
 # journal.heyitsmejosh.com is attached to the `journal-heyitsmejosh` project, NOT
