@@ -57,11 +57,11 @@
 | **nulljosh.github.io** | Portfolio, heyitsmejosh.com (jaybulb.com rename pending domain). `/plan` folded in |
 | **journal** | Jekyll blog (Pages project `journal-heyitsmejosh`) |
 | **brain** | RAG over notes, bearer-gated /api + /mcp |
-| **gato** | Voice-first OS shell, text-loop router (claude -p / ollama), landing at gato.heyitsmejosh.com (local-only repo, no GitHub remote) |
+| **gato** (aka Leopard Gecko) | Voice-first OS shell, text-loop router (claude -p / ollama), landing at gato.heyitsmejosh.com (local-only repo, no GitHub remote) |
 | **authmail** | Supabase auth email branding + Resend delivery (Cloudflare Worker) |
 | **notes** | Private notes |
 | **dotfiles** | Shell configs, skills, vibe ref |
-| **os** | i386 kernel, boots on QEMU, building toward its own file explorer + browser | os.heyitsmejosh.com |
+| **joshuatree** (ex-os) | i386 kernel, boots on QEMU, building toward its own file explorer + browser | joshuatree.heyitsmejosh.com |
 | **lec** / **logans-frenchies** | LEC portal client / client site pitch (private) |
 | `scripts/`, `_feature_audit/`, `_external/` | helpers / audit CSVs / read-only checkouts, never push |
 
