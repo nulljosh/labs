@@ -61,7 +61,7 @@
 | **authmail** | Supabase auth email branding + Resend delivery (Cloudflare Worker) |
 | **notes** | Private notes |
 | **dotfiles** | Shell configs, skills, vibe ref |
-| **os** | i386 kernel, boots on QEMU |
+| **os** | i386 kernel, boots on QEMU, building toward its own file explorer + browser | os.heyitsmejosh.com |
 | **lec** / **logans-frenchies** | LEC portal client / client site pitch (private) |
 | `scripts/`, `_feature_audit/`, `_external/` | helpers / audit CSVs / read-only checkouts, never push |
 
