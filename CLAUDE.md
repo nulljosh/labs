@@ -41,7 +41,7 @@
 | **swing** | Random 1:1 video chat, Durable Object lobby | swing.heyitsmejosh.com |
 | **curbfind** | Craigslist browser, web/iOS/macOS/Android/desktop (renamed from curbside 2026-09-05, ASC 6809031662, approved and live on App Store 2026-09-10). Landing hero is the live app itself (blurred iframe), one click zooms in seamlessly, no reload | curbfind.heyitsmejosh.com |
 | **seamark** | Read values off rendered charts (npm lib) | seamark.heyitsmejosh.com |
-| **sieve** (ASC: Siftbox 6811141466) | Inbox triage tool with Gmail OAuth, spam scoring, RFC 8058 unsubscribe; web + native iOS/macOS, API + MCP, KV-backed run history | siftbox.heyitsmejosh.com |
+| **siftbox** (ASC id 6811141466, ex-Sieve) | Inbox triage tool with Gmail OAuth, spam scoring, RFC 8058 unsubscribe; web + native iOS/macOS, API + MCP, KV-backed run history | siftbox.heyitsmejosh.com |
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
 | **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
 | **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.heyitsmejosh.com |
@@ -57,6 +57,7 @@
 | **nulljosh.github.io** | Portfolio, heyitsmejosh.com (jaybulb.com rename pending domain). `/plan` folded in |
 | **journal** | Jekyll blog (Pages project `journal-heyitsmejosh`) |
 | **brain** | RAG over notes, bearer-gated /api + /mcp |
+| **gato** | Voice-first OS shell, text-loop router (claude -p / ollama), landing at gato.heyitsmejosh.com (local-only repo, no GitHub remote) |
 | **authmail** | Supabase auth email branding + Resend delivery (Cloudflare Worker) |
 | **notes** | Private notes |
 | **dotfiles** | Shell configs, skills, vibe ref |

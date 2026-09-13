@@ -22,3 +22,7 @@ npm i && npm run dev
 curl localhost:3000/api/accounts
 curl -X POST localhost:3000/api/trade -d '{"symbol":"AAPL","qty":1,"side":"buy"}'
 ```
+
+## Architecture
+
+<img src="architecture.svg" width="600">
