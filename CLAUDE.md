@@ -48,7 +48,7 @@
 | **lucarne** | WebKit browser, iOS + macOS, one SwiftUI file, tabs | lucarne.heyitsmejosh.com |
 | **weather** | Forecast page, Open-Meteo, one file | weather.heyitsmejosh.com |
 | **fieldbook** | Every field of science + math explained plainly, one file | fieldbook.heyitsmejosh.com |
-| **co-stanza** | Poetry network, svbtle-shaped, Costanza riff; web + iOS/macOS + kmp, shared spark table `stanza_poems` | co-stanza.heyitsmejosh.com |
+| **costanza** | Poetry network, svbtle-shaped, Costanza riff; web + iOS/macOS + kmp, shared spark table `stanza_poems` | costanza.heyitsmejosh.com |
 | **windgate** | Guided breathing, four presets; web + iOS/macOS (repo folder still `breathe`, renamed 2026-09-10) | windgate.heyitsmejosh.com · 6810806058 |
 
 ### Sites & infra
