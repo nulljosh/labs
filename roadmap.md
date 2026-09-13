@@ -659,3 +659,8 @@ conway's repo, no separate scaffold needed).
 - [ ] No CI release workflow yet for any of them — `.msi`/`.deb`/`.apk` are
   built locally only. Needs a GitHub Actions matrix (windows + ubuntu
   runners) on a tag once more than one or two apps have real KMP code.
+
+## Whitepaper why-refresh (queued 2026-09-12)
+Refresh every WHITEPAPER.md with "why this feature exists" + "why this product exists" framing (not just what it does).
+Done: curbfind, weather.
+Remaining (~53): everything else in ~/Documents/Code with a WHITEPAPER.md. Run after weekly usage resets (Sat).
