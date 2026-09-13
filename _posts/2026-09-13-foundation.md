@@ -11,9 +11,9 @@ categories: journal daily
 
 ## Saturday
 
-Restarted the LLM project (previous one Arthur was abandoned), calling this one Turing with model Samantha, a LoRA fine-tune of Qwen2.5-0.5B on the project's docs. Ran six training passes that each fixed a real bug until the key discovery: a 0.5B model memorizes style but can't learn facts, so I pivoted to retrieval instead, wiring Samantha into brain's RAG-over-notes project to answer from real indexed docs rather than guessing weights. Score jumped from one correct out of 28 to 14 out of 28, with categories like license now 100% correct via direct extraction. Fixed a bug in brain's deployed Cloudflare Worker and widened per-repo doc coverage; Turing's landing page is live with a loss chart, though precision beyond the extraction shortcuts needs a bigger base model.
+Restarted the LLM project (Turing with model Samantha, a fine-tune of Qwen2.5-0.5B on the docs) by running six training passes until discovering a 0.5B model memorizes style but can't learn facts; pivoted to retrieval instead, wiring Samantha into brain's RAG-over-notes to answer from real indexed docs. Score jumped from one correct out of 28 to 14, with extraction shortcuts now 100% correct; polished chat.py to trim artifacts and added --json to ask.py. Fixed a brain bug in the deployed Worker and widened doc coverage; Turing's landing page is live with a loss chart. Retried Qwen3.5-0.8B training and confirmed it crashes from clean 6.4GB-free (hardware ceiling, not tuning), then built a Craigslist skill that automates post.craigslist.org, handles HEIC-to-JPG, and extracts confirmation links from Mail; sold an old Canon printer with it, now live at vancouver.craigslist.org.
 
-**Apps**: turing, brain.
+**Apps**: turing, brain, craigslist-post.
 
 ## Sunday
 
