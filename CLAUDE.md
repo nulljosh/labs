@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-09-11 (Litigate docs refresh, stale Brief-era naming corrected, ship-status docs updated for app restoration). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
+*Refreshed 2026-09-13 (Joshua Tree kernel v0-v5 shipped, renamed from os; Gato naming clarified, Leopard Gecko reserved for Joshua Tree's future distro; fleet-wide whitepaper refresh and roadmap pruning). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
 
 ![Commits per month since Claude Code inception](progress.svg)
 
@@ -57,7 +57,7 @@
 | **nulljosh.github.io** | Portfolio, heyitsmejosh.com (jaybulb.com rename pending domain). `/plan` folded in |
 | **journal** | Jekyll blog (Pages project `journal-heyitsmejosh`) |
 | **brain** | RAG over notes, bearer-gated /api + /mcp |
-| **gato** (aka Leopard Gecko) | Voice-first OS shell, text-loop router (claude -p / ollama), landing at gato.heyitsmejosh.com (local-only repo, no GitHub remote) |
+| **gato** | Voice-first OS shell, text-loop router (claude -p / ollama), landing at gato.heyitsmejosh.com (local-only repo, no GitHub remote). Note: Leopard Gecko reserved as future distro name for Joshua Tree kernel's eventual graphical OS |
 | **authmail** | Supabase auth email branding + Resend delivery (Cloudflare Worker) |
 | **notes** | Private notes |
 | **dotfiles** | Shell configs, skills, vibe ref |
