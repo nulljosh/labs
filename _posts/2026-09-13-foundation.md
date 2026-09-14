@@ -17,6 +17,8 @@ Restarted the LLM project (Turing with model Samantha, a fine-tune of Qwen2.5-0.
 
 ## Sunday
 
-Built Joshua Tree (an i386 kernel from actual nothing) going through interrupts, paging, task switching, disk drivers, filesystems, and a file browser; landed on the name and swapped the landing page demo for a real live in-browser boot instead of a recording. Fixed the v86-emulator DAC palette bug, redesigned the Dock to real pictograms with anti-aliased edges, added dmesg, booted straight to GUI, and did a full Mac polish pass (gradient wallpaper, tree logo, gloss effects, dock shadow, smaller overlay). Fixed two real bugs from looking at screenshots: canvas-coordinate-mapping affecting clicks and swipes, plus a stuck-app-can't-close hang. Debugged Gato's voice recording for silence detection (stops after 1.2 seconds quiet, capped 15 seconds), picked back up Conveyer's Factorio automation, and added voice mode to pwnlingo with aloud question reading and automatic speak-challenge solving.
+Built Joshua Tree kernel boot with interrupts, paging, task switching, disk drivers, filesystems, and file browser; swapped landing demo for live in-browser boot, fixed palette and Dock pictograms, added dmesg and full Mac polish. Fixed canvas-coordinate bugs affecting clicks and swipes, plus a stuck-app hang; debugged Gato voice recording, picked up Conveyer Factorio work, added pwnlingo voice mode.
+
+Fixed pwnlingo voice-toggle by killing a stale node process that hadn't picked up new code; auto-restart reloaded current version and toggle works now. Mac disk critical (1.8GB free); real work legitimately hogs space, buying external SSD tonight.
 
 **Apps**: joshuatree, gato, conveyer, pwnlingo.
