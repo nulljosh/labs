@@ -38,3 +38,11 @@ Spent the night deep in Conveyer's skill layer (the deterministic Factorio autom
 Spent the night really grilling Turing's Samantha model with actual questions instead of just auditing the code, and it kept catching itself lying in new and increasingly funny ways. Asked it "is this project blocked" and got an article about internet censorship in China; asked about the model and got a food donation law; another follow-up landed on an article about a comedian. Every detour traced back to a real root cause, not a fluke: the keyword patterns were missing "project"/"repo"/"repository" and "model", the pronoun-based memory wasn't remembering follow-ups like "what is its first model called", and a silent failure on the word "current" broke the entire Wikidata lookup. Fixed all nine bugs, added regression tests, and shipped them as separate releases. Updated the landing page to show real before/after transcripts from these fixes.
 
 **Apps**: turing.
+
+Shipped real Desmos parity work on Curvely: typed `a = 3` as an equation row to get a draggable slider, other equations referencing `a` update live on the graph. Added hover coordinate tracing to read exact points. Built implicit equation support (circles, vertical lines, etc.) via marching squares on the web, then ported to Swift for iOS and macOS; both native targets verified with xcodebuild. Submitted both platforms to App Review with sliders, hover-coords, and implicit equations.
+
+**Apps**: curvely.
+
+Fixed the portfolio; design tokens weren't wired up. Only tokens.css loaded, hairlines showed Jaybulb's yellow instead of black/white. Added tokens-lovefrom.css link and pushed live.
+
+**Apps**: nulljosh.github.io.
