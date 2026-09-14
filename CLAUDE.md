@@ -50,6 +50,7 @@
 | **fieldbook** | Every field of science + math explained plainly, one file | fieldbook.heyitsmejosh.com |
 | **costanza** | Poetry network, svbtle-shaped, Costanza riff; web + iOS/macOS + kmp, shared spark table `stanza_poems` | costanza.heyitsmejosh.com |
 | **windgate** | Guided breathing, four presets; web + iOS/macOS (repo folder still `breathe`, renamed 2026-09-10) | windgate.heyitsmejosh.com · 6810806058 |
+| **hormuz** | Strait of Hormuz geopolitics, oil prices, trading signals | hormuz.heyitsmejosh.com |
 
 ### Sites & infra
 | Repo | What |
