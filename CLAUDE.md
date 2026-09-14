@@ -45,7 +45,7 @@
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
 | **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
 | **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.heyitsmejosh.com |
-| **janela** | WebKit browser, iOS + macOS, one SwiftUI file, tabs (renamed from Lucarne 2026-09-14, repo folder still `lucarne`) | janela.heyitsmejosh.com |
+| **madobe** | WebKit browser, iOS + macOS, one SwiftUI file, tabs (renamed from Lucarne 2026-09-14, repo folder still `lucarne`) | madobe.heyitsmejosh.com |
 | **weather** | Forecast page, Open-Meteo, one file | weather.heyitsmejosh.com |
 | **fieldbook** | Every field of science + math explained plainly, one file | fieldbook.heyitsmejosh.com |
 | **costanza** | Poetry network, svbtle-shaped, Costanza riff; web + iOS/macOS + kmp, shared spark table `stanza_poems` | costanza.heyitsmejosh.com |
