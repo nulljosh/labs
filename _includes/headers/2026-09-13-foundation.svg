@@ -2,30 +2,30 @@
   <rect fill="none" class="bg" width="800" height="500"/>
   <rect class="brd" x="20" y="20" width="760" height="460" rx="12" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
 
-  <text fill="currentColor" x="48" y="90" font-size="42" font-weight="300" letter-spacing="-1">Conveyer</text>
-  <text fill="currentColor" x="48" y="126" font-size="16" opacity="0.6">vanilla factorio start . 20 automation skills . unattended bootstrap chain</text>
+  <text fill="currentColor" x="48" y="90" font-size="42" font-weight="300" letter-spacing="-1">Foundation</text>
+  <text fill="currentColor" x="48" y="126" font-size="16" opacity="0.6">working tools, real checks, a clearer storefront</text>
 
   <line stroke="currentColor" x1="48" y1="152" x2="752" y2="152" stroke-width="1" opacity="0.25"/>
 
-  <text fill="currentColor" x="48" y="188" font-size="14">conveyer</text>
+  <text fill="currentColor" x="48" y="188" font-size="14">turing . joshua tree . conveyer . swing . roost</text>
 
-  <text fill="currentColor" x="48" y="236" font-size="14">automation library expanded from 6 to 20 skills</text>
-  <text fill="currentColor" x="48" y="258" font-size="14">hot-reload driver for fast iteration</text>
-  <text fill="currentColor" x="48" y="280" font-size="14">bootstrap script automated the full chain</text>
-  <text fill="currentColor" x="48" y="302" font-size="14">five bugs found and fixed in unattended runs</text>
-  <text fill="currentColor" x="48" y="324" font-size="14">native menu-bar monitor app with live status</text>
+  <text fill="currentColor" x="48" y="236" font-size="14">small model grounded in real notes</text>
+  <text fill="currentColor" x="48" y="258" font-size="14">kernel boots into a usable desktop</text>
+  <text fill="currentColor" x="48" y="280" font-size="14">factory chain runs unattended</text>
+  <text fill="currentColor" x="48" y="302" font-size="14">two synthetic callers proved video chat</text>
+  <text fill="currentColor" x="48" y="324" font-size="14">roost refreshed and map pins untangled</text>
 
   <rect class="brd" x="560" y="176" width="200" height="280" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
-  <text fill="currentColor" x="584" y="206" font-size="12" opacity="0.6">running now</text>
-  <text fill="currentColor" x="584" y="238" font-size="28" font-weight="500">5</text>
-  <text fill="currentColor" x="584" y="272" font-size="12" opacity="0.6">consecutive runs</text>
-  <text fill="currentColor" x="584" y="296" font-size="14">goal in progress</text>
-  <text fill="currentColor" x="584" y="318" font-size="12" opacity="0.6">blocker lifted</text>
-  <text fill="currentColor" x="584" y="344" font-size="14">cold-start vanilla</text>
-  <text fill="currentColor" x="584" y="366" font-size="14">free resources gone</text>
-  <text fill="currentColor" x="584" y="388" font-size="12" opacity="0.6">monitor features</text>
-  <text fill="currentColor" x="584" y="410" font-size="14">server controls</text>
-  <text fill="currentColor" x="584" y="432" font-size="14">milestone sounds</text>
+  <text fill="currentColor" x="584" y="206" font-size="12" opacity="0.6">live check</text>
+  <text fill="currentColor" x="584" y="238" font-size="28" font-weight="500">2</text>
+  <text fill="currentColor" x="584" y="272" font-size="12" opacity="0.6">video peers</text>
+  <text fill="currentColor" x="584" y="296" font-size="14">audio and video</text>
+  <text fill="currentColor" x="584" y="318" font-size="12" opacity="0.6">shipped</text>
+  <text fill="currentColor" x="584" y="344" font-size="14">roost refresh</text>
+  <text fill="currentColor" x="584" y="366" font-size="14">report queue</text>
+  <text fill="currentColor" x="584" y="388" font-size="12" opacity="0.6">still open</text>
+  <text fill="currentColor" x="584" y="410" font-size="14">turn key</text>
+  <text fill="currentColor" x="584" y="432" font-size="14">real device call</text>
 
   <text fill="currentColor" x="48" y="462" font-size="13" opacity="0.6">2026-09-13</text>
 </svg>
