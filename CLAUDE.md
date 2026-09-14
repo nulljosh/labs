@@ -106,7 +106,7 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 - `mole clean` needs a real TTY for sudo. Run it yourself
 
 ## Open work
-`roadmap.md` is the queue. `GTM.md` is the ledger. About 18 apps still need a `kmp/` module. roost needs i18n keys before it gets a landing section. litigate has no landing on purpose.
+`roadmap.md` is the queue. `GTM.md` is the ledger. About 18 apps still need a `kmp/` module. Roost's auth pages still need localization before native release. litigate has no landing on purpose.
 
 ## TUI rollout (2026-09-05)
 Shipped 16, each with a `tui/` + root `Package.swift` (SwiftPM target depending on rensbreur/SwiftTUI, static one-shot render, needs a real TTY): nimble, cadence, numen, wordroot, keyrate, curvely, charwork, bookrank, quotestreak, inkpress, tripwire, sidewise, nyc, curbfind, homeward, roost.

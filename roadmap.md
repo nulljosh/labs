@@ -208,8 +208,8 @@ top level first, they existed only in that clone).
          build output / gitignored); `web/tokens.css` and `web/icon.svg` were byte-identical
          to the `docs/` originals and are now symlinks to them. `scripts/build-site.sh` uses
          `cp`, which dereferences, so `dist/` still ships real files.
-      3. notes and roost have their own distinct token sets (roost even imports Fraunces) , 
-         leave them alone unless the answer to (1) is "adopt Jaybulb everywhere".
+      3. notes has its own distinct tokens. Roost now imports the shared tokens
+         while keeping its brown palette; its UI was refreshed 2026-09-13.
       Then add `nulljosh.github.io/apps.json` as the single app registry , 
       portfolio cards, app footers and `wiki-refresh` all read it instead of hardcoded lists
       (this is why 8 renames each needed hand-editing everywhere).
