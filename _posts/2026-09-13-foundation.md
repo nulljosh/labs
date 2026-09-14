@@ -17,8 +17,6 @@ Restarted the LLM project (Turing with model Samantha, a fine-tune of Qwen2.5-0.
 
 ## Sunday
 
-Built Joshua Tree kernel boot with interrupts, paging, task switching, disk drivers, filesystems, and file browser; swapped landing demo for live in-browser boot, fixed palette and Dock pictograms, added dmesg and full Mac polish. Fixed canvas-coordinate bugs affecting clicks and swipes, plus a stuck-app hang; debugged Gato voice recording, picked up Conveyer Factorio work, added pwnlingo voice mode.
+Built Joshua Tree kernel with interrupts, paging, task switching, disk drivers, filesystems, and file browser, then replaced the landing demo with live in-browser boot, fixed palette and Dock, added dmesg and full Mac polish. Fixed canvas-coordinate bugs, debugged Gato voice recording, picked up Conveyer work, and added pwnlingo voice mode; fixed the voice-toggle by killing a stale node process. Mac disk critical (1.8GB free) so buying an external SSD. Restarted Turing LLM project, pivoting from memorization to retrieval via brain's RAG when discovery showed the 0.5B model can't learn facts; fixed real bugs (prep_data.py iCloud hangs, missing general_knowledge calls), built QA scorer and FAQ matcher (10→22/28), added Wikidata officeholder lookup and extraction shortcuts, retrained on doubled data with real instruction examples from git commits, and wired up versioning and CI.
 
-Fixed pwnlingo voice-toggle by killing a stale node process that hadn't picked up new code; auto-restart reloaded current version and toggle works now. Mac disk critical (1.8GB free); real work legitimately hogs space, buying external SSD tonight.
-
-**Apps**: joshuatree, gato, conveyer, pwnlingo.
+**Apps**: turing, brain, joshuatree, gato, conveyer, pwnlingo.
