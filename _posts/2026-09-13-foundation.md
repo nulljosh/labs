@@ -17,6 +17,6 @@ Restarted the LLM project (Turing with model Samantha, a fine-tune of Qwen2.5-0.
 
 ## Sunday
 
-Spent the night building a kernel from actual nothing with Claude, going through interrupts, memory paging, task switching, disk drivers, filesystems, and a text-mode file browser, verifying each part against real disk images. Landed on Joshua Tree as the name, fixed the landing page demo by swapping it for a real recorded boot, and clarified that Gato stays its own separate voice project. Debugged Gato's voice recording to replace the hard 5-second window with silence detection that stops after 1.2 seconds of quiet, capped at 15 seconds, using sox for audio. Also picked back up Conveyer's Factorio automation with an unattended bootstrap run working end to end.
+Spent the night building a kernel from actual nothing with Claude, going through interrupts, memory paging, task switching, disk drivers, filesystems, and a text-mode file browser, verifying each part against real disk images. Landed on Joshua Tree as the name, fixed the landing page demo by swapping it for a real recorded boot, and clarified that Gato stays its own separate voice project. Debugged Gato's voice recording to replace the hard 5-second window with silence detection that stops after 1.2 seconds of quiet, capped at 15 seconds, using sox for audio, and picked back up Conveyer's Factorio automation with an unattended bootstrap run working end to end. Added voice mode to pwnlingo (the Duolingo autopilot bot): a menu-bar toggle that reads questions and answers aloud while solving, plus automatic solving of the speak challenges that used to hang the bot.
 
-**Apps**: joshuatree, gato, conveyer.
+**Apps**: joshuatree, gato, conveyer, pwnlingo.
