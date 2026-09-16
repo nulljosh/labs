@@ -36,7 +36,7 @@ v2.3.0
 - Journal now shares the portfolio's design tokens (`heyitsmejosh.com/tokens.css`); blue accent used for links, hover states, and theme toggle.
 
 v2.2.0
-- Switched to Vercel prebuilt deployment via `./scripts/deploy.sh`. No GitHub Actions, no gh-pages.
+- Switched to Cloudflare Pages deployment via `./scripts/deploy.sh` (later migrated from Vercel Build Output API). No GitHub Actions, no gh-pages.
 - Fixed light-mode `.dim` CSS in Apr 26, May 1, May 8 SVG headers (was `rgba(255,255,255,0.25)`, now `rgba(0,0,0,0.25)`).
 
 v2.1.0
