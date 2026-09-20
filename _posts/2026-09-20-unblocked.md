@@ -15,7 +15,7 @@ Finished setup for the stalled-loop diagnosis in pwnlingo: recorded the XP basel
 
 ## Saturday
 
-Cracked the stalled-loop bug after the solver got stuck in 1033 identical cycles with zero XP for 23 hours, fixing forceQuitOnOpen to dismiss stalled stories and rotation to skip blacklisted tracks, plus transliterationAssist and patternTapComplete challenge shapes with DOM instrumentation. Runner restarted, 46 tests green, XP flowing. Joshua Tree kernel shipped glossy icon tiles, real syscalls with file writes and argv, progress graph fixes, lazy-loaded v86 demo perf, and a real back buffer. Onboarding slides went live across 11 apps for signed-out visitors, and Lexly added Unit 1 worked examples. Updated stale dock positions in the checks after pinning Stocks, but GitHub CI exposed more test problems and is still red.
+Fixed pwnlingo's 23-hour stalled loop (1033 cycles, zero XP) by dismissing stalled stories, skipping blacklisted tracks, and fixing challenge shapes; 46 tests green. Shipped Joshua Tree kernel with glossy tiles, real syscalls, graphs, lazy v86 loading, and back buffer; onboarding went live on 11 apps, Lexly added worked examples. Updated dock check positions after pinning Stocks, but exposed a cascade: landing terminal gibberish, header out of sync, CI red (PR #6 pending), checks failing randomly, everything laggy, weather dead. Spent this morning debugging it and got frustrated; Joshua Tree broke and needs real fixes plus green CI before it's usable.
 
 ## Sunday
 
