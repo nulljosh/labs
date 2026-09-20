@@ -19,6 +19,6 @@ Cracked the stalled-loop bug after the solver got stuck in 1033 identical cycles
 
 ## Sunday
 
-All eight shipped iOS apps built against iOS 27; epiphany needed a smaller chart expression to get past Swift's type checker, and I fixed the roadmap issue sync after it created 25 junk titles. Joshua Tree gained Search, a pinned Stocks icon, contrast fixes, release notes, a shorter roadmap, and an interactive landing page while I chased dock animation lag. I protected its main branch with required CI and pull requests, but the suite kept exposing brittle checks after the dock changed. A repair is open, GitHub is still running it, and I left the issue open without merging.
+All eight shipped iOS apps built against iOS 27; epiphany needed a smaller chart expression to get past Swift's type checker, and I fixed the roadmap issue sync after it created 25 junk titles. Joshua Tree gained Search, a pinned Stocks icon, contrast fixes, release notes, a shorter roadmap, and an interactive landing page while I chased dock animation lag. I protected its main branch with required CI and pull requests, but the suite kept exposing brittle checks after the dock changed. I pushed a fix that waits for the desktop before testing dock clicks; all eleven apps passed locally, while GitHub still needs to check it, so I left the issue open without merging.
 
 **Apps**: pwnlingo, joshuatree, lexly, bookrank, costanza, curbfind, curvely, dream, epiphany, healstack, roost, sidewise, sparkjar, dotfiles
