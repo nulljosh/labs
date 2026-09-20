@@ -15,7 +15,7 @@ Finished setup for the stalled-loop diagnosis in pwnlingo: recorded the XP basel
 
 ## Saturday
 
-Cracked the stalled-loop bug after the solver got stuck in 1033 identical cycles with zero XP for 23 hours, fixing forceQuitOnOpen to dismiss stalled stories and rotation to skip blacklisted tracks, plus transliterationAssist and patternTapComplete challenge shapes with DOM instrumentation. Runner restarted, 46 tests green, XP flowing. Joshua Tree kernel shipped glossy icon tiles, real syscalls with file writes and argv, progress graph fixes, lazy-loaded v86 demo perf, and a real back buffer. Onboarding slides went live across 11 apps for signed-out visitors, and Lexly added Unit 1 worked examples.
+Cracked the stalled-loop bug after the solver got stuck in 1033 identical cycles with zero XP for 23 hours, fixing forceQuitOnOpen to dismiss stalled stories and rotation to skip blacklisted tracks, plus transliterationAssist and patternTapComplete challenge shapes with DOM instrumentation. Runner restarted, 46 tests green, XP flowing. Joshua Tree kernel shipped glossy icon tiles, real syscalls with file writes and argv, progress graph fixes, lazy-loaded v86 demo perf, and a real back buffer. Onboarding slides went live across 11 apps for signed-out visitors, and Lexly added Unit 1 worked examples. Fixed a real CI flake that had been spamming my email: 22 check scripts carried a stale hardcoded dock icon position left over from when I pinned Stocks to the dock, verified and pushed.
 
 ## Sunday
 
