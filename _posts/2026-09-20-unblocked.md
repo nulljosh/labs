@@ -15,6 +15,6 @@ Finished setup for the stalled-loop diagnosis in pwnlingo: recorded the XP basel
 
 ## Saturday
 
-Cracked the stalled-loop bug after the solver got stuck in 1033 identical cycles with zero XP for 23 hours, fixed by setting forceQuitOnOpen to dismiss stalled stories and making rotation skip blacklisted tracks. Also fixed transliterationAssist and patternTapComplete challenge shapes and added DOM instrumentation for unknown challenges. Runner restarted, 46 tests green, XP flowing. Shipped step 4 to checkpoint: roadmap-to-issues.py mirrors each repo's roadmap into GitHub issues.
+Cracked the stalled-loop bug after the solver got stuck in 1033 identical cycles with zero XP for 23 hours, fixing forceQuitOnOpen to dismiss stalled stories and rotation to skip blacklisted tracks, plus transliterationAssist and patternTapComplete challenge shapes with DOM instrumentation. Runner restarted, 46 tests green, XP flowing. Joshua Tree kernel shipped glossy icon tiles, real syscalls with file writes and argv, progress graph fixes, lazy-loaded v86 demo perf, and a real back buffer. Onboarding slides went live across 11 apps for signed-out visitors, and Lexly added Unit 1 worked examples.
 
-**Apps**: pwnlingo, dotfiles
+**Apps**: pwnlingo, joshuatree, lexly, bookrank, costanza, curbfind, curvely, dream, epiphany, healstack, roost, sidewise, sparkjar, dotfiles
