@@ -19,6 +19,6 @@ Fixed pwnlingo's 23-hour stalled loop (1033 cycles, zero XP) by dismissing stall
 
 ## Sunday
 
-All eight shipped iOS apps built against iOS 27; epiphany needed a smaller chart expression to get past Swift's type checker, and I fixed the roadmap issue sync. Joshua Tree gained Search, a pinned Stocks icon, contrast fixes, release notes, a shorter roadmap, and an interactive landing page while chasing dock animation lag. Protected main with required CI and pull requests, but the suite kept exposing brittle checks; the latest fix waits for the desktop before clicking and all apps passed locally. Stocks and Epiphany merged to main with all CI green; QA found and fixed a titlebar X bug where cursor coordinates were full-screen and needed viewport origin subtracted.
+All eight shipped iOS apps built against iOS 27, with epiphany fixing a chart expression; Joshua Tree gained Search, a pinned Stocks icon, contrast fixes, and an interactive landing page. The week's CI failure turned out to be the Apps folder loop throwing away mouse clicks during redraw; tests assumed a 10-icon dock, and the test job stopped at the first failure, hiding everything after. Removed dock hover zoom, fixed weather showing stale data due to a proxy issue, added dock slot guards; Stocks and Epiphany merged to main with all CI green, with Chat redesign, keyboard buffer, weather window, and wallpaper fix in flight. Next is ship 1.0.
 
 **Apps**: pwnlingo, joshuatree, lexly, bookrank, costanza, curbfind, curvely, dream, epiphany, healstack, roost, sidewise, sparkjar, dotfiles
