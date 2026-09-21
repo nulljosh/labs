@@ -11,6 +11,27 @@ Live ASC checks: Voxprint 1.3.9 is live on Mac and approved pending developer re
 
 See [the revenue audit](REVENUE.md) for verified fixes, checks, and the next actions. This section supersedes conflicting historical blockers and focus rules below.
 
+## Monetization plan, 2026-09-20 (supersedes the 2026-09-09 strategy below)
+
+Every app gets a rail. The old objection to paid upfront was that it kills the trial funnel. It doesn't here: every app runs free on its landing page. The web app is the trial. The store is the checkout.
+
+Anyone who downloaded while free keeps it forever. Only new customers pay.
+
+| Rail | Apps | State |
+|---|---|---|
+| **$0.99 upfront** | Curvely, Plaintxt, Toroid, Charblock, Wordroot, NYC Survive, Windgate, Inkpress | **Live 2026-09-20.** Set with `asc pricing schedule create --price 0.99`. No build, no review. Revert with `--free` |
+| **Free + $0.99 one-time IAP** | Voxprint, Epiphany | Both IAPs approved. Voxprint iOS 1.3.9 is approved and unreleased: `asc versions release --version-id 36846827-7c37-45a0-875b-29ee1caf5029 --confirm` |
+| **Stripe subscription, web** | Epiphany Pro $2.99/mo, Siftbox $2.99/mo, Sidewise API $4.99/mo | Planned. Epiphany first, it is the one app with real recurring cost. Siftbox and Sidewise wait until they have a live store build |
+| **Stripe $1 one-time, web** | Sparkjar, Healstack | Live, unchanged |
+| **Free + ads, $0.99 IAP removes them** | Quotestreak | Planned, not built. The only app where ads fit: a daily casual game. Do not build until it shows 1k monthly players. Ads at zero users earn zero and cost a privacy label |
+| **Free, on purpose** | Talli, Litigate, Doorstock, Madobe, Curbfind, Nimble Answers, Bookrank, Lexly | Disability tool, public good, client work, browsers, funnel top. Bookrank charges nothing because selling book summaries invites a copyright fight. Lexly is the natural subscription app but sits in the 4.3(a) wave; revisit when the appeal lands |
+
+Orphan IAP records `com.nulljosh.grapher.unlock` and `com.nulljosh.journal.unlock` are MISSING_METADATA with no code behind them. Leave them. Both apps are paid upfront now.
+
+Do not mass-submit new IAP builds. Bulk submissions are what triggered the 5.6 suspension and the 4.3(a) wave. One app per week at most.
+
+Price is not the bottleneck. Traffic is: about 37 visits a day across the whole portfolio. None of these rails earn until that moves.
+
 ## The one-line summary
 
 Paid Apps Agreement is **ACTIVE** (2026-09-08, BN 795776756 RT0001). iOS can charge. Voxprint 1.3.9 ships the real $1 IAP
