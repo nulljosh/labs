@@ -6,6 +6,7 @@
 !scripts/
 scripts/*
 !scripts/progress-svg.py
+!scripts/doc-digest.py
 capu/
 byo-bot/
 byo-kv-database/

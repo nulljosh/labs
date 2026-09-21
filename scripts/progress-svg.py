@@ -59,13 +59,15 @@ commits = git("rev-list", "--count", "HEAD", "--", ".").strip()
 def doc_pct():
     # Same idea as joshuatree's progress.sh: a file is documented when docs/ARCHITECTURE.md
     # names it, or names a directory it lives in (`components/` covers everything under it).
-    # ponytail: substring match, a short basename can false-positive; tighten to backticked names if it lies
+    # Only backticked names count, so a filename that merely shows up inside a sentence earns nothing.
     try:
-        arch = open("docs/ARCHITECTURE.md").read()
+        arch = " ".join(re.findall(r"`([^`]+)`", open("docs/ARCHITECTURE.md").read()))
     except OSError:
         return 0
     units = [f for f in git("ls-files", ".").splitlines() if real(f)]
     hit = lambda f: f.rsplit("/", 1)[-1] in arch or any(d + "/" in arch for d in f.split("/")[:-1])
+    if "--missing" in sys.argv:  # list what the doc still has to cover
+        print("\n".join(f for f in units if not hit(f)))
     return sum(map(hit, units)) * 100 // len(units) if units else 0
 
 
