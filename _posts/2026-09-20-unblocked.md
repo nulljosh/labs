@@ -19,6 +19,8 @@ Fixed pwnlingo's 23-hour stalled loop (1033 cycles, zero XP) by dismissing stall
 
 ## Sunday
 
-Shipped first-run onboarding to eleven native apps with GitHub issue sync; fixed Epiphany's valuation and portfolio sync; deployed the engraved design system. Finished fleet docs pass across 52 repos (progress graphs, architecture diagrams, SHIPPING.md with every asc command), updated CI with cancel-stale-runs and a docs linter. Went through issue trackers fleet-wide: open issues dropped from 168 to 120; closed duplicates on epiphany (11), nimble, cadence, lexly, homeward, healstack, labs, curvely; sidewise shipped saved stories + Saved tab + accessibility (108 tests); sparkjar cleared all 18 (16 were drift alert dupes); tripwire fixed root cause (skip alerts within 30 days). Closed gaps on bcgd: added three service areas, homeowner tip, six blog posts, coupon PDF.
+Joshua Tree landed icon redesign (#60), Weather forecast (#53), saved-file persistence check (#61), landing headline fix (#63), and roadmap prune (#59). Six more PRs staged with auto-merge awaiting CI: Activity Monitor with kill button (#62), shell running by bare name (#64), Chat defaulting to Qwen with real reply working (#65), repo cleanup (#66), colour wallpaper and boot logo seamless (#67), landing page contrast via clrs.cc (#68). Releases tagged retrospectively; a Bonsai 2 worker wiring Chat as default. Still hunting for OS name to replace Joshua Tree; candidates Matsu, Tupelo, Pinekoi, Barkoi, Plumkoi.
 
-**Apps**: bcgd, pwnlingo, joshuatree, lexly, bookrank, costanza, curbfind, curvely, dream, epiphany, healstack, roost, sidewise, sparkjar, dotfiles
+Also shipped pixelmator-skill v1.0.0: a tool that builds logos live inside Pixelmator Pro from a JSON spec. Wrote 56 unit tests, added an arc_text helper for text on curves and shape recipes, and wired up CI for ubuntu and macOS. Recreated dad's Best Choice Garage Doors logo in about six seconds; he texted back asking how long that would take in Flash.
+
+**Apps**: joshuatree
