@@ -19,6 +19,6 @@ Fixed pwnlingo's 23-hour stalled loop (1033 cycles, zero XP) by dismissing stall
 
 ## Sunday
 
-I spent the day pushing Joshua Tree toward a real 1.0: the new icon finally looks like the tree, the Weather window and a proper save test landed, and the landing page headline stopped vanishing when you click the demo. Six more pieces are lined up behind the tests: an Activity Monitor, typing a program's name to run it, Chat talking to Qwen with Bonsai being wired in behind it, a cleaned up repo with a roadmap a person can read, the colour wallpaper and clean boot logo, and colour back on the landing page. JoshuaTree.com is taken so I am still hunting for a name, something short like Koi or Bonsai. I also built a little tool that draws logos live in Pixelmator from a spec and used it to recreate my dad's Best Choice garage door logo in six seconds.
+Pushed Joshua Tree toward 1.0: icon, Weather window, save test, and landing page all landed; six more pieces pending, plus built a Pixelmator logo tool and recreated my dad's Best Choice logo in six seconds. Committed the fleet to monetization: eight apps moved to 99 cents (still free on their websites) with MONEY.md and GTM.md across the fleet, launch kits for all 23 apps, and Voxprint shipped with the paywall live.
 
-**Apps**: joshuatree
+**Apps**: joshuatree, voxprint
