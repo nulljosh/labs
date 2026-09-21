@@ -3,6 +3,9 @@
 !CLAUDE.md
 !roadmap.md
 !PROGRESS.md
+!scripts/
+scripts/*
+!scripts/progress-svg.py
 capu/
 byo-bot/
 byo-kv-database/
