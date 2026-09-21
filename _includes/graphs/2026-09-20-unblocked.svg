@@ -5,16 +5,16 @@
 <line stroke="currentColor" x1="48" y1="118" x2="752" y2="118" stroke-width="1" opacity="0.25"/>
 <a href="https://github.com/nulljosh/joshuatree"><text fill="currentColor" x="48" y="157" font-size="13">joshuatree</text></a>
 <rect x="150" y="146" width="340" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="498" y="157" font-size="12" opacity="0.6">101</text>
+<text fill="currentColor" x="498" y="157" font-size="12" opacity="0.6">102</text>
 <a href="https://github.com/nulljosh/notes"><text fill="currentColor" x="48" y="183" font-size="13">notes</text></a>
-<rect x="150" y="172" width="64" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="222" y="183" font-size="12" opacity="0.6">19</text>
+<rect x="150" y="172" width="63" height="14" rx="2" fill="currentColor" opacity="0.8"/>
+<text fill="currentColor" x="221" y="183" font-size="12" opacity="0.6">19</text>
 <a href="https://github.com/nulljosh/dotfiles"><text fill="currentColor" x="48" y="209" font-size="13">dotfiles</text></a>
 <rect x="150" y="198" width="37" height="14" rx="2" fill="currentColor" opacity="0.8"/>
 <text fill="currentColor" x="195" y="209" font-size="12" opacity="0.6">11</text>
 <a href="https://github.com/nulljosh/pwnlingo"><text fill="currentColor" x="48" y="235" font-size="13">pwnlingo</text></a>
-<rect x="150" y="224" width="34" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="192" y="235" font-size="12" opacity="0.6">10</text>
+<rect x="150" y="224" width="33" height="14" rx="2" fill="currentColor" opacity="0.8"/>
+<text fill="currentColor" x="191" y="235" font-size="12" opacity="0.6">10</text>
 <a href="https://github.com/nulljosh/epiphany"><text fill="currentColor" x="48" y="261" font-size="13">epiphany</text></a>
 <rect x="150" y="250" width="30" height="14" rx="2" fill="currentColor" opacity="0.8"/>
 <text fill="currentColor" x="188" y="261" font-size="12" opacity="0.6">9</text>
@@ -33,7 +33,7 @@
 <text fill="currentColor" x="48" y="332" font-size="11" opacity="0.6">commits per day, 4 days</text>
 <rect x="560" y="136" width="200" height="180" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
 <text fill="currentColor" x="584" y="166" font-size="12" opacity="0.6">commits</text>
-<text fill="currentColor" x="584" y="198" font-size="28" font-weight="500">331</text>
+<text fill="currentColor" x="584" y="198" font-size="28" font-weight="500">332</text>
 <text fill="currentColor" x="584" y="232" font-size="12" opacity="0.6">projects touched</text>
 <text fill="currentColor" x="584" y="264" font-size="28" font-weight="500">54</text>
 <text fill="currentColor" x="584" y="298" font-size="11" opacity="0.6">2026-09-17 to 2026-09-20</text>
