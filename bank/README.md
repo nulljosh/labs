@@ -2,6 +2,8 @@
 
 Neobank prototype (Wealthsimple-style): accounts + stock trading, sandbox-only.
 
+<img src="progress.svg" width="460">
+
 ## Stack
 - Next.js API routes (deploy: Vercel)
 - Ledger: in-memory mock now → Supabase later (shared spark DB)

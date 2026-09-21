@@ -6,6 +6,8 @@
 
 A native iOS app and lightweight web wrapper for searching CanLII (Canadian case law and legislation), backed by a serverless proxy that keeps the CanLII API key off the client.
 
+<img src="progress.svg" width="460">
+
 ## Why
 
 canlii.org's own site is dated and blocks scraping (403 on direct fetch). This project uses CanLII's official public API instead, proxied through Vercel so the API key never ships in the iOS app or browser bundle.
