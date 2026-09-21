@@ -10,6 +10,8 @@ Type a city or use your location. You get the temperature now, what it feels lik
 
 **[weather.heyitsmejosh.com →](https://weather.heyitsmejosh.com)**
 
+<img src="progress.svg" width="460">
+
 ## Features
 
 - **Any city.** Search by name, or one tap for where you are.
