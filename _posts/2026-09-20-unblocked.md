@@ -19,8 +19,6 @@ Fixed pwnlingo's 23-hour stalled loop (1033 cycles, zero XP) by dismissing stall
 
 ## Sunday
 
-Joshua Tree landed icon redesign (#60), Weather forecast (#53), saved-file persistence check (#61), landing headline fix (#63), and roadmap prune (#59). Six more PRs staged with auto-merge awaiting CI: Activity Monitor with kill button (#62), shell running by bare name (#64), Chat defaulting to Qwen with real reply working (#65), repo cleanup (#66), colour wallpaper and boot logo seamless (#67), landing page contrast via clrs.cc (#68). Releases tagged retrospectively; a Bonsai 2 worker wiring Chat as default. Still hunting for OS name to replace Joshua Tree; candidates Matsu, Tupelo, Pinekoi, Barkoi, Plumkoi.
-
-Also shipped pixelmator-skill v1.0.0: a tool that builds logos live inside Pixelmator Pro from a JSON spec. Wrote 56 unit tests, added an arc_text helper for text on curves and shape recipes, and wired up CI for ubuntu and macOS. Recreated dad's Best Choice Garage Doors logo in about six seconds; he texted back asking how long that would take in Flash.
+Joshua Tree landed icon redesign, Weather forecast, saved-file persistence, landing headline fix, and roadmap prune; six PRs staged awaiting CI with Activity Monitor, shell bare names, Chat defaulting to Qwen, repo cleanup, wallpaper and boot logo, and landing contrast. Releases tagged retrospectively; a Bonsai 2 worker wiring Chat; still hunting for OS names: Matsu, Tupelo, Pinekoi, Barkoi, Plumkoi. Also shipped pixelmator-skill: a tool for building logos live in Pixelmator Pro from JSON specs; 56 unit tests, arc_text curves, CI on ubuntu and macOS, recreated dad's Best Choice garage door logo in six seconds.
 
 **Apps**: joshuatree
