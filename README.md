@@ -12,6 +12,8 @@ a general RSS reader, lives at [github.com/nulljosh/inkpress](https://github.com
 and can subscribe to this blog's `feed.xml` like any other feed. That is the whole
 connection.
 
+<img src="progress.svg" width="460">
+
 ## Features
 - `bundle exec jekyll serve` runs it at `http://localhost:4000/`.
 - Posts live in `_posts/` as `YYYY-MM-DD-title.md`. Front matter template included. Write like a person.
