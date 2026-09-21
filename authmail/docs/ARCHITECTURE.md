@@ -1,6 +1,6 @@
 # Architecture
 
-Supabase auth email hook → branded email sender via Resend. A Cloudflare Worker that intercepts Supabase authentication emails, applies app-specific branding based on the redirect URL, and dispatches them through Resend's API.
+Authmail makes sign-in emails look like they came from the app that sent them. When someone signs up or resets a password, the login system normally sends a plain, generic email. Authmail catches that email first, works out which app it belongs to from the link inside it, dresses it in that app's name and colours, and sends it on. It is one small program running on Cloudflare's network.
 
 ## How it runs
 
