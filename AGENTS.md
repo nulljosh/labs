@@ -1,1 +1,1 @@
-/Users/joshua/Documents/Code/journal/CLAUDE.md
+CLAUDE.md
