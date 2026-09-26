@@ -63,7 +63,7 @@
 | **notes** | Private notes |
 | **dotfiles** | Shell configs, skills, vibe ref |
 | **joshuatree** (ex-os) | i386 kernel, boots on QEMU, building toward its own file explorer + browser | joshuatree.heyitsmejosh.com |
-| **lec** / **logans-frenchies** | LEC portal client / client site pitch (private) |
+| **lec** (Margin) / **logans-frenchies** | D2L study companion (renamed from LEC, 2026-09-25) / client site pitch (private) |
 | `scripts/`, `_feature_audit/`, `_external/` | helpers / audit CSVs / read-only checkouts, never push |
 
 Gone. Don't mention them: systems, beep, missing-pets, abraham, code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay, plan (archived).
