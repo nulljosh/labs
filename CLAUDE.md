@@ -45,7 +45,7 @@
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
 | **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
 | **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.heyitsmejosh.com |
-| **madobe** | WebKit browser, iOS + macOS, one SwiftUI file, tabs (renamed from Lucarne 2026-09-14, repo folder still `lucarne`) | madobe.heyitsmejosh.com |
+| **madobe** | WebKit browser, iOS + macOS, one SwiftUI file, tabs (renamed from Lucarne 2026-09-14) | madobe.heyitsmejosh.com |
 | **weather** | Forecast page, Open-Meteo, one file | weather.heyitsmejosh.com |
 | **fieldbook** | Every field of science + math explained plainly, one file | fieldbook.heyitsmejosh.com |
 | **costanza** | Poetry network, svbtle-shaped, Costanza riff; web + iOS/macOS + kmp, shared spark table `stanza_poems` | costanza.heyitsmejosh.com |
@@ -63,7 +63,7 @@
 | **notes** | Private notes |
 | **dotfiles** | Shell configs, skills, vibe ref |
 | **joshuatree** (ex-os) | i386 kernel, boots on QEMU, building toward its own file explorer + browser | joshuatree.heyitsmejosh.com |
-| **lec** (Margin) / **logans-frenchies** | D2L study companion (renamed from LEC, 2026-09-25) / client site pitch (private) |
+| **homeroom** (ex-lec, ex-Margin, renamed 2026-09-25) / **logans-frenchies** | D2L quiz app for LEC, homeroom.heyitsmejosh.com / client site pitch (private) |
 | `scripts/`, `_feature_audit/`, `_external/` | helpers / audit CSVs / read-only checkouts, never push |
 
 Gone. Don't mention them: systems, beep, missing-pets, abraham, code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay, plan (archived).
