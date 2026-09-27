@@ -664,3 +664,20 @@ conway's repo, no separate scaffold needed).
 Refresh every WHITEPAPER.md with "why this feature exists" + "why this product exists" framing (not just what it does).
 Done: curbfind, weather.
 Remaining (~53): everything else in ~/Documents/Code with a WHITEPAPER.md. Run after weekly usage resets (Sat).
+
+## Landing sync to the Plank pattern (started 2026-09-26, Joshua: "sexiest landing in the codebase")
+Shared drop-in lives on the portfolio: `https://heyitsmejosh.com/landing.css` + `landing.js` (lp- prefixed classes, source in nulljosh.github.io). Reference conversions: `plank/site/index.html` (origin) and `keyrate/index.html` (first sync, shows the recipe on a page that already had the device-frame demo).
+
+Recipe per page, one repo at a time, verify before deploy:
+1. After tokens.css add `<link rel="stylesheet" href="https://heyitsmejosh.com/landing.css">` and `<script defer src="https://heyitsmejosh.com/landing.js" data-shape="bars"></script>` (dots or rings if bars clash with the app's own look).
+2. Top of body: `<div class="lp-rule" aria-hidden="true"><span>Name</span><span><a href=GITHUB>GitHub</a></span></div>`. Same rule as the footer.
+3. Hero becomes `<header class="lp-hero">`: `.lp-mark` with the existing icon, `<h1>Introducing <span class="brand">Name.</span></h1>`, `.lp-eyebrow` = the old tagline, `.lp-lede` = the old description, `.lp-cta` with the old buttons as `.lp-btn` and `.lp-btn.lp-solid`. Keep the copy, never invent.
+4. Existing device-frame demo moves directly under the hero inside `.lp-stage`, followed by `<p class="lp-cap">Fig. 1 · ...</p>`. Retire any old hero background effect.
+5. Optional `.lp-facts` row, real numbers only, never lines of code.
+6. `lp-reveal` on each following section.
+7. Screenshot headless at 1280x1400 and 500x1300 with Chrome, look at both, then the repo's wrangler deploy, commit, push. No em dashes.
+
+Done: plank, keyrate.
+Queue (real marketing landings with a cf deploy): bookrank, breathe (windgate), cadence, conveyer, costanza, dream, fieldbook, homeroom, hormuz, inkpress, madobe, nimble (docs/), notate (docs/), nyc, plain, pwnlingo, quotestreak, seamark, sidewise, siftbox, sparkjar, swing, tripwire, weather, wordroot, homeqi, lexly, conway, curbfind (hero is the blurred app, adapt gently).
+Skip: joshuatree and turing (already the pattern's parents), joshuatree-* worktrees, tiny index.html app roots (blockframe, curvely, epiphany, healstack, numen, talli, roost, monocode), journal, notes, plan, canlii-app, logans-frenchies, nulljosh.github.io, vancouvervice, gato, litigate.
+Budget note: each conversion is roughly 3 to 5 percent of a session window when done in the main session. Route batches of five to one Sonnet subagent at a time, 15 minute cap, never a fan-out.
