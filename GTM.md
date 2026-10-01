@@ -1,5 +1,45 @@
 # GTM, revenue state of every app
 
+## Launch month, Oct 2026 (verified 2026-10-01 via asc JSON, curl, PH /my/products)
+
+Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
+
+| App | Live where | Price | PH | Reddit | HN | Directories |
+|---|---|---|---|---|---|---|
+| Epiphany | iOS 2.5.13, Mac 2.5.3, web | $1.00 upfront + web Stripe | posted 09-18 | none | none | none |
+| Notate (Voxprint) | Mac 1.4.0, iOS 1.3.9 (1.4.0 pending release), web | Free + $0.99 IAP | posted (as Voxprint) | none | none | none |
+| Curvely | iOS + Mac 1.2.5, web | $0.99 | posted 09-12 | none | none | none |
+| Wordroot | iOS 1.0.4, Mac 1.0.1, web | $0.99 | posted 09-16 | none | none | none |
+| Inkpress | iOS 1.0.6, Mac 1.0.7, web | $0.99 | posted 09-14 | none | none | none |
+| NYC Survive | iOS + Mac 1.0.1, web | $0.99 | posted 09-20 | none | none | none |
+| Blockframe (ASC: Charblock) | iOS 1.1.1, web (wiretext.) | $0.99 | posted 09-21 | none | none | none |
+| Toroid | iOS + Mac 1.0, web | $0.99 | **not posted** | none | none | none |
+| Plaintxt | Mac 1.0.0, web (plain.) | $0.99 | **not posted** | none | none | none |
+| Nimble Answers | iOS 1.0.0, Mac 1.0.1, web | Free | **not posted** | none | none | none |
+| Curbfind | Mac 1.0.0, web | Free | **not posted** | none | none | none |
+| Litigate | iOS 1.0.3, web | Free | **not posted** | none | none | none |
+| Healstack | iOS 2.3.5, web | Free + $1 web Stripe | **not posted** | none | none | none |
+| Sidewise | Mac 1.0, web | Free | posted 09-22 | none | none | none |
+| Talli | iOS 3.5.16, Mac 3.5.7, web | Free (+ web Stripe) | posted 09-13 | none | none | none |
+| Sparkjar | iOS 1.0.1, Mac 1.0.2, web | Free + $1 web Stripe | posted 09-19 | none | none | none |
+| Quotestreak | iOS + Mac 1.2.1, web | Free | posted 09-15 | none | none | none |
+| Bookrank | iOS + Mac 1.0.1, web | Free | posted 09-11 | none | none | none |
+| Doorstock | iOS + Mac 1.0 | Free (client) | posted 09-11 | skip | skip | skip |
+| Lexly | Mac 1.1.5, iOS 1.1.3 (1.1.6 rejected) | Free | posted 09-17 | wait | wait | wait |
+| Joshua Tree | web + GitHub | Free, Sponsors | not posted | none | none | none |
+| Plank | web + GitHub | Free, Sponsors | not posted | none | none | none |
+| Windgate, Siftbox, Madobe | nothing live, all REJECTED | n/a | wait | wait | wait | wait |
+
+Sponsors/tips: no GitHub Sponsors listing, no Ko-fi verified. Stripe: zero charges ever.
+
+Decisions 2026-10-01 (Joshua: "keep all my shit free or a dollar or two"):
+- No subscriptions anywhere. The Stripe $2.99/mo Epiphany plan and the yearly/lifetime tiers are dropped.
+- Epiphany stays $1 upfront on the App Store; the approved Premium IAP stays as the only extra.
+- Price test is Plaintxt (Mac) $0.99 to **$1.99 on 2026-10-01**, not $4.99. Launch price $0.99 on PH day Oct 8 for 48h, then back to $1.99.
+- Tips: one pay-what-you-want Stripe Payment Link on the existing account instead of GitHub Sponsors + Ko-fi (no new accounts, no tax forms). Joshua creates it; the classifier blocks live Stripe writes from Claude.
+- Calendar in launch/drafts.md approved 2026-10-01.
+
+
 Single source of truth for what earns money, what can't yet, and why. Verified against ASC and
 production on 2026-08-29. Don't re-derive this from 18 ASC records; update this table instead.
 
