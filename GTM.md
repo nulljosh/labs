@@ -13,7 +13,7 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | Inkpress | iOS 1.0.6, Mac 1.0.7, web | $0.99 | posted 09-14 | none | none | none |
 | NYC Survive | iOS + Mac 1.0.1, web | $0.99 | posted 09-20 | none | none | none |
 | Blockframe (ASC: Charblock) | iOS 1.1.1, web (wiretext.) | $0.99 | posted 09-21 | none | none | none |
-| Toroid | iOS + Mac 1.0, web | $0.99 | **not posted** | none | none | none |
+| Toroid | iOS + Mac 1.0, web | $0.99 | scheduled Tue Oct 6 12:01 AM PT | none | none | none |
 | Plaintxt | Mac 1.0.0, web (plain.) | $0.99 | **not posted** | none | none | none |
 | Nimble Answers | iOS 1.0.0, Mac 1.0.1, web | Free | **not posted** | none | none | none |
 | Curbfind | Mac 1.0.0, web | Free | **not posted** | none | none | none |
@@ -31,6 +31,8 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | Windgate, Siftbox, Madobe | nothing live, all REJECTED | n/a | wait | wait | wait | wait |
 
 Stripe: zero charges ever.
+
+Prep done 2026-10-01: OG previews fixed on Toroid, Plank, Bookrank, Litigate, Sidewise, Talli, Sparkjar (all 20 landings now unfurl). Email capture endpoint live at authmail.heyitsmejosh.com/signup (Resend "General"). JT hardware waitlist already live (0 signups).
 
 Decisions 2026-10-01 (Joshua: "keep all my shit free or a dollar or two"):
 - No subscriptions anywhere. The Stripe $2.99/mo Epiphany plan and the yearly/lifetime tiers are dropped.
