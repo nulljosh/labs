@@ -15,7 +15,7 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | Blockframe (ASC: Charblock) | iOS 1.1.1, web (wiretext.) | $0.99 | posted 09-21 | none | none | none |
 | Toroid | iOS + Mac 1.0, web | $0.99 | scheduled Tue Oct 6 12:01 AM PT | none | none | none |
 | Plaintxt | Mac 1.0.0, web (plain.) | $0.99 | scheduled Thu Oct 8 12:01 AM PT | none | none | none |
-| Nimble Answers | iOS 1.0.0, Mac 1.0.1, web | Free | **not posted** | none | none | none |
+| Nimble Answers | iOS 1.0.0, Mac 1.0.1, web | Free | scheduled Tue Oct 13 12:01 AM PT | none | none | none |
 | Curbfind | Mac 1.0.0, web | Free | **not posted** | none | none | none |
 | Litigate | iOS 1.0.3, web | Free | **not posted** | none | none | none |
 | Healstack | iOS 2.3.5, web | Free + $1 web Stripe | **not posted** | none | none | none |
