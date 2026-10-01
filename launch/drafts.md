@@ -50,7 +50,7 @@ I built it with Claude Code doing a lot of the typing. Nothing ships until it's 
 **Text:**
 Most language tutorials stop at a tree-walking interpreter. I wanted to see the part where it makes a real binary, so Plank goes straight to machine code. The whole compiler is one Python file on top of llvmlite. LLVM does register allocation and optimization, the file does lexing, parsing, type checking and IR.
 
-v0 has ints, floats, bools, strings, functions, if, while and for, and makes native binaries on macOS and Linux. No arrays or structs yet, those are next. `plank emit` prints the LLVM IR if you want to see what your code turns into. It's meant to be read in an evening and forked.
+It has strings with interpolation, lists, dicts, structs with methods, enums with an exhaustive match, optionals, closures with map and filter, imports, try and catch, and a garbage collector, and it makes native binaries on macOS and Linux. The repo has six real programs written in it, including a calculator with its own parser, and the test suite runs them on every push. `plank emit` prints the LLVM IR if you want to see what your code turns into. It's meant to be read, forked and taught from. What's missing, on purpose or not yet: generics, threads, a package manager and a REPL.
 
 ## Product Hunt
 
@@ -84,9 +84,9 @@ First comment: `curbfind/launch/producthunt.md`, minus the iOS/Android mentions 
 
 **Wed Oct 21, Plank**
 Tagline: A compiled language you can read in an evening
-Description: Plank is a small compiled language whose whole compiler is one Python file. Functions, ints, floats, strings, loops, native binaries on macOS and Linux. LLVM does the hard parts. Free and open source.
+Description: Plank is a small compiled language whose whole compiler is one Python file. Structs, enums with match, optionals, closures, lists and dicts, a garbage collector, and native binaries through LLVM on macOS and Linux. Free and open source.
 First comment:
-Building a language sounds like a year of work and most tutorials quit right before the part that makes a binary. I wanted the opposite: the smallest thing that's still a real compiler. Plank is one Python file on llvmlite. You write fib in it and get a native executable. `plank emit` shows you the LLVM IR, which is the best way I've found to learn what a compiler actually does. Arrays and structs are next. It's free and meant to be forked and taught from.
+Building a language sounds like a year of work and most tutorials quit right before the part that makes a binary. I wanted the opposite: the smallest thing that's still a real compiler. Plank is one Python file on llvmlite. It has what you reach for in Python or Swift: strings with interpolation, lists, dicts, structs with methods, enums with an exhaustive match, optionals, closures with map and filter, imports, try and catch, and a garbage collector. `plank emit` shows you the LLVM IR, which is the best way I've found to learn what a compiler actually does. The repo has six real programs written in it, including a calculator with its own parser, and the test suite runs them on every push. It's free and meant to be read, forked and taught from.
 
 **Tue Oct 27, Healstack**
 Tagline: Know what you took, when, and what it's still doing
@@ -112,7 +112,7 @@ Body: Inkpress does one thing: add feeds, read them. No account, no algorithm, n
 
 **r/ProgrammingLanguages, Thu Oct 15**
 Title: Plank: a tiny compiled language, the whole compiler is one Python file on llvmlite
-Body: I wanted a teaching-sized compiler that skips the tree-walking interpreter and goes straight to native code. Plank has ints, floats, bools, strings, functions, if/while/for. Lexer, parser, type checker and IR generation all live in one file; LLVM does register allocation and optimization. `plank emit` dumps the IR. Arrays and structs are next and I'm unsure about the struct syntax, so opinions welcome. github.com/nulljosh/plank (I'm the author.)
+Body: I wanted a teaching-sized compiler that skips the tree-walking interpreter and goes straight to native code. Plank has structs with methods, enums with an exhaustive match, optionals, closures, lists, dicts, try/catch and a garbage collector. Lexer, parser, type checker and IR generation all live in one file; LLVM does register allocation and optimization. `plank emit` dumps the IR. The garbage collector is the newest and least tested piece, so that's where I'd most like eyes. github.com/nulljosh/plank (I'm the author.)
 
 **r/SideProject, Fri Oct 16**
 Title: I'm on disability and I've shipped 20-odd apps to the App Store this year with Claude Code. Revenue so far: $0
@@ -133,7 +133,7 @@ Body: Written the morning it posts, from GTM.md numbers only. No draft until the
 - Oct 7: I built an operating system from scratch. Kernel, desktop, 26 apps, no libc. Runs in your browser. On Hacker News today. joshuatree.heyitsmejosh.com?ref=x
 - Oct 8: Plaintxt is a Mac text editor made of almost nothing: the system text view and three settings. 99 cents. (PH link)
 - Oct 13: Nimble Answers: ask a question, get one sentence back, not ten links. Free. (PH link)
-- Oct 14: Plank: a compiled language whose compiler is one Python file. Show HN today. (HN link)
+- Oct 14: Plank: a compiled language with structs, enums and closures, and the compiler is one Python file. Show HN today. (HN link)
 - Oct 15: Joshua Tree is on Product Hunt. A whole computer built from nothing. (PH link)
 - Oct 20: Curbfind: Craigslist as a photo grid. Free. (PH link)
 - Oct 21: Plank on Product Hunt. (PH link)
