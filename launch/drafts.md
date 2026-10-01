@@ -116,7 +116,7 @@ Body: I wanted a teaching-sized compiler that skips the tree-walking interpreter
 
 **r/SideProject, Fri Oct 16**
 Title: I'm on disability and I've shipped 20-odd apps to the App Store this year with Claude Code. Revenue so far: $0
-Body: Real numbers, because the "I made $10k MRR" posts don't help anyone. I'm on BC disability, I can't hold a regular job, and building things is what I can do. With Claude Code doing a lot of the typing, I've put 20 apps in the App Store and a from-scratch operating system on GitHub. 14 went on Product Hunt in September. Total revenue: zero. This month I'm trying to fix the part that isn't code: pricing, distribution, asking. Everything's at nulljosh.github.io?ref=reddit. If you've gone from zero to first sale, what actually moved it?
+Body: Real numbers, because the "I made $10k MRR" posts don't help anyone. I'm on BC disability, and building things is what I do with my days. With Claude Code doing a lot of the typing, I've put 20 apps in the App Store and a from-scratch operating system on GitHub. 14 went on Product Hunt in September. Total revenue: zero. This month I'm trying to fix the part that isn't code: pricing, distribution, asking. Everything's at nulljosh.github.io?ref=reddit. If you've gone from zero to first sale, what actually moved it?
 (Revenue line gets updated to the real number the morning it posts.)
 
 **r/Craigslist, Tue Oct 20** (only if self-promo allowed)
