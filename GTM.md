@@ -30,13 +30,13 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | Plank | web + GitHub | Free, Sponsors | not posted | none | none | none |
 | Windgate, Siftbox, Madobe | nothing live, all REJECTED | n/a | wait | wait | wait | wait |
 
-Sponsors/tips: no GitHub Sponsors listing, no Ko-fi verified. Stripe: zero charges ever.
+Stripe: zero charges ever.
 
 Decisions 2026-10-01 (Joshua: "keep all my shit free or a dollar or two"):
 - No subscriptions anywhere. The Stripe $2.99/mo Epiphany plan and the yearly/lifetime tiers are dropped.
 - Epiphany stays $1 upfront on the App Store; the approved Premium IAP stays as the only extra.
 - Price test is Plaintxt (Mac) $0.99 to **$1.99 on 2026-10-01**, not $4.99. Launch price $0.99 on PH day Oct 8 for 48h, then back to $1.99.
-- Tips: one pay-what-you-want Stripe Payment Link on the existing account instead of GitHub Sponsors + Ko-fi (no new accounts, no tax forms). Joshua creates it; the classifier blocks live Stripe writes from Claude.
+- No tips, no Sponsors, no Ko-fi (Joshua, 2026-10-01). Money comes from App Store sales and IAP only.
 - Calendar in launch/drafts.md approved 2026-10-01.
 
 

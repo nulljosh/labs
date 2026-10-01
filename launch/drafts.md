@@ -77,7 +77,7 @@ Every computer I've used was someone else's decisions stacked a thousand deep, a
 
 It has its own memory management, interrupts, a scheduler where each process gets its own page tables, a FAT16 disk driver, a network stack, and on top of that a dock, a terminal, Mail, Calendar, Stocks, 25 apps in all. It boots to a shell in about a quarter of a second in QEMU. The easiest way to try it is the browser link, nothing to install.
 
-The longer goal is hardware: this software on a small machine I build, with no cloud in the loop. If that sounds like something you'd want, there's a notify-me form on the site. It's free and open source, and if you want to help keep it going, there is a tip link in the README.
+The longer goal is hardware: this software on a small machine I build, with no cloud in the loop. If that sounds like something you'd want, there's a notify-me form on the site. It's free and open source.
 
 **Tue Oct 20, Curbfind**
 Tagline: Craigslist, without the 2003-era clutter
