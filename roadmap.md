@@ -681,3 +681,12 @@ Done: plank, keyrate.
 Queue (real marketing landings with a cf deploy): bookrank, breathe (windgate), cadence, conveyer, costanza, dream, fieldbook, homeroom, hormuz, inkpress, madobe, nimble (docs/), notate (docs/), nyc, plain, pwnlingo, quotestreak, seamark, sidewise, siftbox, sparkjar, swing, tripwire, weather, wordroot, homeqi, lexly, conway, curbfind (hero is the blurred app, adapt gently).
 Skip: joshuatree and turing (already the pattern's parents), joshuatree-* worktrees, tiny index.html app roots (blockframe, curvely, epiphany, healstack, numen, talli, roost, monocode), journal, notes, plan, canlii-app, logans-frenchies, nulljosh.github.io, vancouvervice, gato, litigate.
 Budget note: each conversion is roughly 3 to 5 percent of a session window when done in the main session. Route batches of five to one Sonnet subagent at a time, 15 minute cap, never a fan-out.
+
+## Ingested 2026-10-01
+- [ ] Apple Watch: full support across the whole codebase.
+- [ ] Liquid glass icons for all apps via Icon Composer; make it a skill.
+- [ ] Remove share button from all apps (memory says stripped 2026-09-23; verify nothing left).
+- [ ] GitHub Actions hit 90% of the free 2,000 min (1,820 used) for nulljosh in the cycle that reset 2026-10-01. Cut CI minutes or set a $0 budget before next month's cap. (screenshot: notes/attachments/2026-10-01/github-1.png)
+- [ ] ASC triage from phone screenshot: rejected or flagged are Windgate iOS+macOS 1.0, Plaintxt iOS 1.0.0, Lexly iOS 1.1.6, Siftbox iOS+macOS 1.0, Madobe iOS+macOS 1.0.0, Curbfind iOS 1.0.0, Healstack iOS 2.3.6 + macOS 2.3.5, Sidewise iOS 1.0. Charblock iOS 1.1.2 pending. (screenshots: notes/attachments/2026-10-01/asc-1.png, notes/attachments/2026-10-01/asc-2.png)
+- [ ] BLOCKED on Joshua: Stripe action required, all overdue: accept terms of service, provide a phone number for the account rep (Joshua Trommel), provide a title. Incoming charges paused since 9 Jan 2025, payouts paused since 10 Dec 2024. (Q: which Stripe account? screenshot: notes/attachments/2026-10-01/stripe-1.png)
+- [ ] Archive the old nulljosh/pixelmator-skill GitHub repo; it's a skill in Turing now. (screenshot: notes/attachments/2026-10-01/github-archive-1.png)
