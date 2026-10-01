@@ -62,7 +62,7 @@ First comment: `conway/launch/producthunt.md` as written (glider-hits-the-wall s
 
 **Thu Oct 8, Plaintxt**
 Tagline: A text editor that writes no editor code
-First comment: `plain/launch/producthunt.md`, with two fixes: it's on Mac only in the store right now (iOS is in review) Also add one line it's missing: "On the Mac, ⌘↩ in a code file asks a local model through Ollama to fill in at the cursor."
+First comment: `plain/launch/producthunt.md`, with two fixes: it's Mac only in the store right now. Also add one line it's missing: "On the Mac, ⌘↩ in a code file asks a local model through Ollama to fill in at the cursor."
 
 **Tue Oct 13, Nimble Answers**
 Tagline: Ask a question. Get one sentence back.
