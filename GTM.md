@@ -32,7 +32,7 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 
 Stripe: zero charges ever.
 
-Prep done 2026-10-01: OG previews fixed on Toroid, Plank, Bookrank, Litigate, Sidewise, Talli, Sparkjar (all 20 landings now unfurl). Email capture endpoint live at authmail.heyitsmejosh.com/signup (Resend "General"). JT hardware waitlist already live (0 signups).
+Prep done 2026-10-01: OG previews fixed on Toroid, Plank, Bookrank, Litigate, Sidewise, Talli, Sparkjar (all 20 landings now unfurl). Email capture live (authmail.heyitsmejosh.com/signup to Resend "General") on Toroid, Plaintxt, Nimble, Curbfind, Plank landings; Healstack has no marketing page. JT hardware waitlist already live (0 signups).
 
 Decisions 2026-10-01 (Joshua: "keep all my shit free or a dollar or two"):
 - No subscriptions anywhere. The Stripe $2.99/mo Epiphany plan and the yearly/lifetime tiers are dropped.
