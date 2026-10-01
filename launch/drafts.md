@@ -23,7 +23,6 @@ Waits until approved in the store: Windgate, Siftbox, Madobe, Lexly iOS, Sidewis
 | Fri Oct 16 | | | r/SideProject: the 15-app story | | |
 | Tue Oct 20 | Curbfind | | r/Craigslist: Curbfind | Curbfind | |
 | Wed Oct 21 | Plank | | r/indiehackers: month-one numbers | Plank | Journal post 2 live (15 apps) |
-| Thu Oct 22 | Litigate | | r/selfrepresentation: Litigate | Litigate | |
 | Tue Oct 27 | Healstack | | r/macapps already used, skip | Healstack | |
 | Wed Oct 28 | | (spare slot: one app, only if JT or Plank landed) | | | |
 
@@ -89,10 +88,6 @@ Description: Plank is a small compiled language whose whole compiler is one Pyth
 First comment:
 Building a language sounds like a year of work and most tutorials quit right before the part that makes a binary. I wanted the opposite: the smallest thing that's still a real compiler. Plank is one Python file on llvmlite. You write fib in it and get a native executable. `plank emit` shows you the LLVM IR, which is the best way I've found to learn what a compiler actually does. Arrays and structs are next. It's free and meant to be forked and taught from.
 
-**Thu Oct 22, Litigate**
-Tagline: Keep your own court case organized, without a lawyer
-First comment: `litigate/launch/producthunt.md` as written. Free.
-
 **Tue Oct 27, Healstack**
 Tagline: Know what you took, when, and what it's still doing
 First comment: `healstack/launch/producthunt.md` as written. Pricing line: free on iPhone and the web, $1 one-time CSV export on the web.
@@ -132,10 +127,6 @@ Body: Craigslist has the best local listings and the worst way to browse them. C
 Title: Three weeks of launching 20 small apps: what moved and what didn't
 Body: Written the morning it posts, from GTM.md numbers only. No draft until there's data.
 
-**r/selfrepresentation, Thu Oct 22** (only if self-promo allowed)
-Title: I built a free app to keep a self-represented case organized
-Body: When you're your own lawyer, the hard part is keeping everything in one place: facts, witnesses, the timeline, what you're claiming and why. Litigate holds all of that, synced between web, iPhone and Mac, private to your account. It is not legal advice and doesn't pretend to be. Free: litigate.heyitsmejosh.com?ref=reddit. I'm the maker, and I'd like to know what's missing from it for an actual case.
-
 ## X, one post per launch day
 
 - Oct 6: Made a Game of Life where the board wraps, so gliders never die at the edge. Toroid is on Product Hunt today. producthunt.com/... (link filled when live)
@@ -146,7 +137,6 @@ Body: When you're your own lawyer, the hard part is keeping everything in one pl
 - Oct 15: Joshua Tree is on Product Hunt. A whole computer built from nothing. (PH link)
 - Oct 20: Curbfind: Craigslist as a photo grid. Free. (PH link)
 - Oct 21: Plank on Product Hunt. (PH link)
-- Oct 22: Litigate: keep your own court case in one place. Free. (PH link)
 - Oct 27: Healstack: know what you took and what it's still doing. (PH link)
 
 ## Directories (one listing each, reused across sites)

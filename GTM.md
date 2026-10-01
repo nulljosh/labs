@@ -17,8 +17,8 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | Plaintxt | Mac 1.0.0, web (plain.) | $0.99 | scheduled Thu Oct 8 12:01 AM PT | none | none | none |
 | Nimble Answers | iOS 1.0.0, Mac 1.0.1, web | Free | scheduled Tue Oct 13 12:01 AM PT | none | none | none |
 | Curbfind | Mac 1.0.0, web | Free | scheduled Tue Oct 20 12:01 AM PT | none | none | none |
-| Litigate | iOS 1.0.3, web | Free | **not posted** | none | none | none |
-| Healstack | iOS 2.3.5, web | Free + $1 web Stripe | **not posted** | none | none | none |
+| Litigate | iOS 1.0.3, web | Free | private, not launching (Joshua 2026-10-01) | skip | skip | skip |
+| Healstack | iOS 2.3.5, web | Free + $1 web Stripe | scheduled Tue Oct 27 12:01 AM PT | none | none | none |
 | Sidewise | Mac 1.0, web | Free | posted 09-22 | none | none | none |
 | Talli | iOS 3.5.16, Mac 3.5.7, web | Free (+ web Stripe) | posted 09-13 | none | none | none |
 | Sparkjar | iOS 1.0.1, Mac 1.0.2, web | Free + $1 web Stripe | posted 09-19 | none | none | none |
