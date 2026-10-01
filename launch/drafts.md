@@ -36,7 +36,7 @@ Every Reddit sub gets its rules and pinned self-promo thread read the day before
 **URL:** https://github.com/nulljosh/joshuatree?ref=hn
 
 **Text:**
-I wanted one computer where I understand the whole thing, from the first instruction the CPU runs to the pixels on the screen. Joshua Tree is that: a 32-bit kernel in C with no libc, its own paging, interrupts, scheduler with per-process page tables, a FAT16 driver, a network stack, and a desktop with 25 apps on top.
+I wanted one computer where I understand the whole thing, from the first instruction the CPU runs to the pixels on the screen. Joshua Tree is that: a 32-bit kernel in C with no libc, its own paging, interrupts, scheduler with per-process page tables, a FAT16 driver, a network stack, and a desktop with 26 apps on top.
 
 It boots to a shell in about 260 ms in QEMU on my Mac Mini, and you can try it in the browser at joshuatree.heyitsmejosh.com without installing anything. There's also an ISO you can dd to a USB stick.
 
@@ -71,11 +71,11 @@ First comment: `nimble/launch/producthunt.md` as written. Free.
 
 **Thu Oct 15, Joshua Tree**
 Tagline: A whole computer, built from nothing, in a browser tab
-Description: A from-scratch i386 operating system: its own kernel, desktop, network stack and 25 apps, written in C with no libc. Boot it in your browser or from a USB stick. Free and open source.
+Description: A from-scratch i386 operating system: its own kernel, desktop, network stack and 26 apps, written in C with no libc. Boot it in your browser or from a USB stick. Free and open source.
 First comment:
 Every computer I've used was someone else's decisions stacked a thousand deep, and I couldn't see any of them. I wanted one machine where I understand the whole thing. So I started from the first instruction the CPU runs and kept going until there was a desktop.
 
-It has its own memory management, interrupts, a scheduler where each process gets its own page tables, a FAT16 disk driver, a network stack, and on top of that a dock, a terminal, Mail, Calendar, Stocks, 25 apps in all. It boots to a shell in about a quarter of a second in QEMU. The easiest way to try it is the browser link, nothing to install.
+It has its own memory management, interrupts, a scheduler where each process gets its own page tables, a FAT16 disk driver, a network stack, and on top of that a dock, a terminal, Mail, Calendar, Stocks, 26 apps in all. It boots to a shell in about a quarter of a second in QEMU. The easiest way to try it is the browser link, nothing to install.
 
 The longer goal is hardware: this software on a small machine I build, with no cloud in the loop. If that sounds like something you'd want, there's a notify-me form on the site. It's free and open source.
 
@@ -104,7 +104,7 @@ Title: I made a Game of Life where the board wraps, so gliders never hit a wall
 Body: Every Game of Life app I used had a hard edge, and every glider walked into it and died. So I made the board a torus: off the right edge, back in on the left, same for top and bottom. Gosper's gun runs forever without eating itself on a wall. The engine is written twice, JavaScript for the web and Swift for iPhone and Mac, and both are held to the same tests so they can't drift. It's free in the browser: toroid.heyitsmejosh.com?ref=reddit (the native app is $0.99). I'm the maker. Curious which patterns behave differently on a wrapped board, I haven't found many yet.
 
 **r/osdev, Thu Oct 8**
-Title: My hobby i386 OS now boots to a desktop with 25 apps, and runs in a browser tab
+Title: My hobby i386 OS now boots to a desktop with 26 apps, and runs in a browser tab
 Body: I've been building Joshua Tree for a while: C, no libc, its own paging with per-process page tables, IRQ handling, a preemptive scheduler, FAT16 on a real disk image, a network stack, and a compositor-ish desktop on top. It boots to a shell in about 260 ms in QEMU. Repo: github.com/nulljosh/joshuatree. Live in the browser: joshuatree.heyitsmejosh.com?ref=reddit. Honest gaps: no SMP, 32-bit only, drivers mostly target QEMU's emulated devices, and real-hardware boots are inconsistent. I'd love to hear what you'd tackle next, I'm leaning toward a real NIC driver for actual hardware.
 
 **r/macapps, Mon Oct 12** (check the pinned self-promo thread first, post there if required)
@@ -158,7 +158,7 @@ Name, one-liner, two-sentence description and links come straight from each app'
 To Console.dev, TLDR, Hacker Newsletter, OSNews, plus a Lobsters submission if you get an invite:
 
 Subject: From-scratch i386 OS that boots in a browser tab
-Hi, I'm Joshua. I built Joshua Tree, a 32-bit operating system written from nothing: its own kernel, scheduler, FAT16 driver, network stack and a desktop with 25 apps, in C with no libc. It boots to a shell in about 260 ms and you can run it in your browser without installing anything: joshuatree.heyitsmejosh.com. Source is Apache 2.0 at github.com/nulljosh/joshuatree. Thought it might fit your readers. Thanks for reading. Joshua
+Hi, I'm Joshua. I built Joshua Tree, a 32-bit operating system written from nothing: its own kernel, scheduler, FAT16 driver, network stack and a desktop with 26 apps, in C with no libc. It boots to a shell in about 260 ms and you can run it in your browser without installing anything: joshuatree.heyitsmejosh.com. Source is Apache 2.0 at github.com/nulljosh/joshuatree. Thought it might fit your readers. Thanks for reading. Joshua
 
 ## Journal posts (journal.heyitsmejosh.com, cross-posted to dev.to and Hashnode with canonical link)
 

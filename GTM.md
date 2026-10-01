@@ -26,8 +26,8 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | Bookrank | iOS + Mac 1.0.1, web | Free | posted 09-11 | none | none | none |
 | Doorstock | iOS + Mac 1.0 | Free (client) | posted 09-11 | skip | skip | skip |
 | Lexly | Mac 1.1.5, iOS 1.1.3 (1.1.6 rejected) | Free | posted 09-17 | wait | wait | wait |
-| Joshua Tree | web + GitHub | Free, Sponsors | not posted | none | none | none |
-| Plank | web + GitHub | Free, Sponsors | not posted | none | none | none |
+| Joshua Tree | web + GitHub | Free | scheduled Thu Oct 15 12:01 AM PT | none | none | none |
+| Plank | web + GitHub | Free | not posted | none | none | none |
 | Windgate, Siftbox, Madobe | nothing live, all REJECTED | n/a | wait | wait | wait | wait |
 
 Stripe: zero charges ever.
