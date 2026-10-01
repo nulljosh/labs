@@ -39,7 +39,7 @@ I wanted one computer where I understand the whole thing, from the first instruc
 
 It boots to a shell in about 260 ms in QEMU on my Mac Mini, and you can try it in the browser at joshuatree.heyitsmejosh.com without installing anything. There's also an ISO you can dd to a USB stick.
 
-I built it with Claude Code doing a lot of the typing, and I read and tested every change. Every feature has a regression check behind it (./check.sh). What's missing: no SMP, no 64-bit, drivers only for QEMU's emulated hardware so far, and real hardware boots are hit and miss. Happy to answer anything about how it works.
+I built it with Claude Code doing a lot of the typing, and I read and tested every change. Every feature has a regression check behind it (./check.sh). What's missing: no SMP, no 64-bit, drivers only for QEMU's emulated hardware so far, and I haven't booted it on a real machine yet. Happy to answer anything about how it works.
 
 ## Show HN, Wed Oct 14, 8 AM PT
 
@@ -100,7 +100,7 @@ Body: Every Game of Life app I used had a hard edge, and every glider walked int
 
 **r/osdev, Thu Oct 8**
 Title: My hobby i386 OS now boots to a desktop with 26 apps, and runs in a browser tab
-Body: I've been building Joshua Tree for a while: C, no libc, its own paging with per-process page tables, IRQ handling, a preemptive scheduler, FAT16 on a real disk image, a network stack, and a compositor-ish desktop on top. It boots to a shell in about 260 ms in QEMU. Repo: github.com/nulljosh/joshuatree. Live in the browser: joshuatree.heyitsmejosh.com?ref=reddit. Honest gaps: no SMP, 32-bit only, drivers mostly target QEMU's emulated devices, and real-hardware boots are inconsistent. I'd love to hear what you'd tackle next, I'm leaning toward a real NIC driver for actual hardware.
+Body: I've been building Joshua Tree for a while: C, no libc, its own paging with per-process page tables, IRQ handling, a preemptive scheduler, FAT16 on a real disk image, a network stack, and a compositor-ish desktop on top. It boots to a shell in about 260 ms in QEMU. Repo: github.com/nulljosh/joshuatree. Live in the browser: joshuatree.heyitsmejosh.com?ref=reddit. Honest gaps: no SMP, 32-bit only, drivers mostly target QEMU's emulated devices, and I haven't booted it on real hardware yet. I'd love to hear what you'd tackle next, I'm leaning toward a real NIC driver for actual hardware.
 
 **r/macapps, Mon Oct 12** (check the pinned self-promo thread first, post there if required)
 Title: Plaintxt: a native Mac text editor that's just NSTextView, no Electron, no subscription
