@@ -1,0 +1,3 @@
+I made a photo-grid view of Craigslist for Mac and the web
+---
+Craigslist has the best local listings and the worst way to browse them. Curbfind reads Craigslist's own search and lays it out as a photo grid with price and distance filters across 700 cities, plus a "best deals" sort that compares each listing to the median price of the same search. Free, no account: curbfind.heyitsmejosh.com?ref=reddit. I'm the maker.

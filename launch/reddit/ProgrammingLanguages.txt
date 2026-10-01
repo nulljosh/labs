@@ -1,0 +1,3 @@
+Plank: a tiny compiled language, the whole compiler is one Python file on llvmlite
+---
+I wanted a teaching-sized compiler that skips the tree-walking interpreter and goes straight to native code. Plank has structs with methods, enums with an exhaustive match, optionals, closures, lists, dicts, try/catch and a garbage collector. Lexer, parser, type checker and IR generation all live in one file; LLVM does register allocation and optimization. `plank emit` dumps the IR. The garbage collector is the newest and least tested piece, so that's where I'd most like eyes. github.com/nulljosh/plank (I'm the author.)

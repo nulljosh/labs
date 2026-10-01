@@ -1,0 +1,3 @@
+Plaintxt: a free native Mac text editor that's just NSTextView, no Electron, no subscription
+---
+I missed when text editors were small. Plaintxt is SwiftUI's DocumentGroup and the system text view, so autosave, versions, iCloud, tabs, undo and VoiceOver all come from macOS. On top it adds a monospaced toggle, font size, a word/line/character count, light colouring for Markdown and code, and ⌘↩ to ask a local Ollama model to fill in code at the cursor, nothing leaves the Mac. It's free on the Mac App Store, and there's a web version too: plain.heyitsmejosh.com?ref=reddit. I'm the dev. No line numbers yet, tell me if that's a dealbreaker.

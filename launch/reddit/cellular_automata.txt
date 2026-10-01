@@ -1,0 +1,3 @@
+I made a Game of Life where the board wraps, so gliders never hit a wall
+---
+Every Game of Life app I used had a hard edge, and every glider walked into it and died. So I made the board a torus: off the right edge, back in on the left, same for top and bottom. Gosper's gun runs forever without eating itself on a wall. The engine is written twice, JavaScript for the web and Swift for iPhone and Mac, and both are held to the same tests so they can't drift. It's free in the browser: toroid.heyitsmejosh.com?ref=reddit (the native app is $0.99). I'm the maker. Curious which patterns behave differently on a wrapped board, I haven't found many yet.
