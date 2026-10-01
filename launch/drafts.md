@@ -139,7 +139,7 @@ Body: When you're your own lawyer, the hard part is keeping everything in one pl
 ## X, one post per launch day
 
 - Oct 6: Made a Game of Life where the board wraps, so gliders never die at the edge. Toroid is on Product Hunt today. producthunt.com/... (link filled when live)
-- Oct 7: I built an operating system from scratch. Kernel, desktop, 25 apps, no libc. Runs in your browser. On Hacker News today. joshuatree.heyitsmejosh.com?ref=x
+- Oct 7: I built an operating system from scratch. Kernel, desktop, 26 apps, no libc. Runs in your browser. On Hacker News today. joshuatree.heyitsmejosh.com?ref=x
 - Oct 8: Plaintxt is a Mac text editor made of almost nothing: the system text view and three settings. 99 cents. (PH link)
 - Oct 13: Nimble Answers: ask a question, get one sentence back, not ten links. Free. (PH link)
 - Oct 14: Plank: a compiled language whose compiler is one Python file. Show HN today. (HN link)
