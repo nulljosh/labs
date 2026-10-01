@@ -154,3 +154,11 @@ Hi, I'm Joshua. I built Joshua Tree, a 32-bit operating system written from noth
 
 1. Oct 7, "How I built an i386 kernel from scratch". Drafted from the JT whitepaper in your voice, sent to you before it goes up.
 2. Oct 21, "Shipping 20 apps on disability with Claude". Same.
+
+## Launch-day fixes (Product Hunt will not let a scheduled first comment be edited)
+
+The first comments saved on PH before these decisions are stale. The minute each launch goes live, edit the posted first comment to match the text in this file:
+- Plaintxt (Oct 8): last line must read "Plaintxt is free on the Mac App Store and on the web." (PH still has "$0.99 on the Mac App Store, free on the web.") PH pricing is already set to Free.
+- Plank (Oct 21): replace the whole comment with the one in the Plank section above (PH still has the old one saying arrays and structs are next). The PH description is already updated.
+- Show HN: HN drops the text field when a URL is set, so post the Text paragraph as the first comment right after submitting.
+- Reddit: run `launch/reddit-open.sh <sub>` (opens the submit page in your logged-in browser, title prefilled, body on the clipboard).
