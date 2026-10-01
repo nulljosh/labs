@@ -103,8 +103,8 @@ Title: My hobby i386 OS now boots to a desktop with 26 apps, and runs in a brows
 Body: I've been building Joshua Tree for a while: C, no libc, its own paging with per-process page tables, IRQ handling, a scheduler with real process isolation, FAT16 on a real disk image, a network stack, and a desktop on top. It boots to a shell in about 260 ms in QEMU. Repo: github.com/nulljosh/joshuatree. Live in the browser: joshuatree.heyitsmejosh.com?ref=reddit. Honest gaps: no SMP, 32-bit only, drivers mostly target QEMU's emulated devices, and I haven't booted it on real hardware yet. I'd love to hear what you'd tackle next, I'm leaning toward a real NIC driver for actual hardware.
 
 **r/macapps, Mon Oct 12** (check the pinned self-promo thread first, post there if required)
-Title: Plaintxt: a native Mac text editor that's just NSTextView, no Electron, no subscription
-Body: I missed when text editors were small. Plaintxt is SwiftUI's DocumentGroup and the system text view, so autosave, versions, iCloud, tabs, undo and VoiceOver all come from macOS. On top it adds a monospaced toggle, font size, a word/line/character count, light colouring for Markdown and code, and ⌘↩ to ask a local Ollama model to fill in code at the cursor, nothing leaves the Mac. It's 99 cents on the Mac App Store, and there's a free web version to try first: plain.heyitsmejosh.com?ref=reddit. I'm the dev. No line numbers yet, tell me if that's a dealbreaker.
+Title: Plaintxt: a free native Mac text editor that's just NSTextView, no Electron, no subscription
+Body: I missed when text editors were small. Plaintxt is SwiftUI's DocumentGroup and the system text view, so autosave, versions, iCloud, tabs, undo and VoiceOver all come from macOS. On top it adds a monospaced toggle, font size, a word/line/character count, light colouring for Markdown and code, and ⌘↩ to ask a local Ollama model to fill in code at the cursor, nothing leaves the Mac. It's free on the Mac App Store, and there's a web version too: plain.heyitsmejosh.com?ref=reddit. I'm the dev. No line numbers yet, tell me if that's a dealbreaker.
 
 **r/rss, Tue Oct 13**
 Title: I built a small RSS and Atom reader for iPhone, Mac and the web
@@ -131,7 +131,7 @@ Body: Written the morning it posts, from GTM.md numbers only. No draft until the
 
 - Oct 6: Made a Game of Life where the board wraps, so gliders never die at the edge. Toroid is on Product Hunt today. producthunt.com/... (link filled when live)
 - Oct 7: I built an operating system from scratch. Kernel, desktop, 26 apps, no libc. Runs in your browser. On Hacker News today. joshuatree.heyitsmejosh.com?ref=x
-- Oct 8: Plaintxt is a Mac text editor made of almost nothing: the system text view and three settings. 99 cents. (PH link)
+- Oct 8: Plaintxt is a Mac text editor made of almost nothing: the system text view and three settings. Free. (PH link)
 - Oct 13: Nimble Answers: ask a question, get one sentence back, not ten links. Free. (PH link)
 - Oct 14: Plank: a compiled language with structs, enums and closures, and the compiler is one Python file. Show HN today. (HN link)
 - Oct 15: Joshua Tree is on Product Hunt. A whole computer built from nothing. (PH link)

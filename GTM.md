@@ -14,7 +14,7 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | NYC Survive | iOS + Mac 1.0.1, web | $0.99 | posted 09-20 | none | none | none |
 | Blockframe (ASC: Charblock) | iOS 1.1.1, web (wiretext.) | $0.99 | posted 09-21 | none | none | none |
 | Toroid | iOS + Mac 1.0, web | $0.99 | scheduled Tue Oct 6 12:01 AM PT | none | none | none |
-| Plaintxt | Mac 1.0.0, web (plain.) | $0.99 | scheduled Thu Oct 8 12:01 AM PT | none | none | none |
+| Plaintxt | Mac 1.0.0, web (plain.) | Free (Joshua 2026-10-01: a text editor should be free) | scheduled Thu Oct 8 12:01 AM PT | none | none | none |
 | Nimble Answers | iOS 1.0.0, Mac 1.0.1, web | Free | scheduled Tue Oct 13 12:01 AM PT | none | none | none |
 | Curbfind | Mac 1.0.0, web | Free | scheduled Tue Oct 20 12:01 AM PT | none | none | none |
 | Litigate | iOS 1.0.3, web | Free | private, not launching (Joshua 2026-10-01) | skip | skip | skip |
@@ -39,7 +39,7 @@ Prep done 2026-10-01: OG previews fixed on Toroid, Plank, Bookrank, Litigate, Si
 Decisions 2026-10-01 (Joshua: "keep all my shit free or a dollar or two"):
 - No subscriptions anywhere. The Stripe $2.99/mo Epiphany plan and the yearly/lifetime tiers are dropped.
 - Epiphany is a $1 app, full stop. The Premium IAP gate comes out in the next build after 2.5.14 clears review, so nobody pays twice.
-- Every app is $1 or free. Web buys through Stripe, iPhone and Mac through the App Store. No price test: Plaintxt went to $1.99 and straight back to $0.99 on 2026-10-01, zero sales in between.
+- Every app is $1 or free. Web buys through Stripe, iPhone and Mac through the App Store. No price test: Plaintxt went to $1.99, back to $0.99, then free on 2026-10-01 (a text editor should be free), zero sales in between.
 - No tips, no Sponsors, no Ko-fi (Joshua, 2026-10-01). Money comes from App Store sales and IAP only.
 - Calendar in launch/drafts.md approved 2026-10-01.
 
