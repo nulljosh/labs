@@ -11,11 +11,11 @@ Waits until approved in the store: Windgate, Siftbox, Madobe, Lexly iOS, Sidewis
 
 | Date | PH (12:01 AM PT) | HN (8 AM PT) | Reddit (one a day max) | X | Other |
 |---|---|---|---|---|---|
-| Fri Oct 2 | | | | | Plaintxt $0.99 to $1.99 (done Oct 1). Sponsors, Ko-fi, notify-me form, email capture, OG tags |
+| Fri Oct 2 | | | | | Notify-me form, email capture, OG tags |
 | Mon Oct 5 | | | | | Directories batch 1: Toroid, Plaintxt, Nimble, Curvely, Notate |
 | Tue Oct 6 | Toroid | | r/cellular_automata: Toroid | Toroid | |
 | Wed Oct 7 | | Show HN: Joshua Tree | | Joshua Tree | Journal post 1 live (kernel) |
-| Thu Oct 8 | Plaintxt (launch price $0.99 for 48h) | | r/osdev: Joshua Tree | Plaintxt | Newsletter pitches go to you |
+| Thu Oct 8 | Plaintxt | | r/osdev: Joshua Tree | Plaintxt | Newsletter pitches go to you |
 | Mon Oct 12 | | | r/macapps: Plaintxt | | Directories batch 2: JT, Plank, Curbfind, Litigate, Healstack |
 | Tue Oct 13 | Nimble Answers | | r/rss: Inkpress | Nimble | |
 | Wed Oct 14 | | Show HN: Plank | | Plank | |
@@ -63,7 +63,7 @@ First comment: `conway/launch/producthunt.md` as written (glider-hits-the-wall s
 
 **Thu Oct 8, Plaintxt**
 Tagline: A text editor that writes no editor code
-First comment: `plain/launch/producthunt.md`, with two fixes: it's on Mac only in the store right now (iOS is in review), and add "Launch price: $0.99 for 48 hours, then $1.99." Also add one line it's missing: "On the Mac, ⌘↩ in a code file asks a local model through Ollama to fill in at the cursor."
+First comment: `plain/launch/producthunt.md`, with two fixes: it's on Mac only in the store right now (iOS is in review) Also add one line it's missing: "On the Mac, ⌘↩ in a code file asks a local model through Ollama to fill in at the cursor."
 
 **Tue Oct 13, Nimble Answers**
 Tagline: Ask a question. Get one sentence back.
@@ -109,7 +109,7 @@ Body: I've been building Joshua Tree for a while: C, no libc, its own paging wit
 
 **r/macapps, Mon Oct 12** (check the pinned self-promo thread first, post there if required)
 Title: Plaintxt: a native Mac text editor that's just NSTextView, no Electron, no subscription
-Body: I missed when text editors were small. Plaintxt is SwiftUI's DocumentGroup and the system text view, so autosave, versions, iCloud, tabs, undo and VoiceOver all come from macOS. On top it adds a monospaced toggle, font size, a word/line/character count, light colouring for Markdown and code, and ⌘↩ to ask a local Ollama model to fill in code at the cursor, nothing leaves the Mac. It's $1.99 once on the Mac App Store, and there's a free web version to try first: plain.heyitsmejosh.com?ref=reddit. I'm the dev. No line numbers yet, tell me if that's a dealbreaker.
+Body: I missed when text editors were small. Plaintxt is SwiftUI's DocumentGroup and the system text view, so autosave, versions, iCloud, tabs, undo and VoiceOver all come from macOS. On top it adds a monospaced toggle, font size, a word/line/character count, light colouring for Markdown and code, and ⌘↩ to ask a local Ollama model to fill in code at the cursor, nothing leaves the Mac. It's 99 cents on the Mac App Store, and there's a free web version to try first: plain.heyitsmejosh.com?ref=reddit. I'm the dev. No line numbers yet, tell me if that's a dealbreaker.
 
 **r/rss, Tue Oct 13**
 Title: I built a small RSS and Atom reader for iPhone, Mac and the web
@@ -140,7 +140,7 @@ Body: When you're your own lawyer, the hard part is keeping everything in one pl
 
 - Oct 6: Made a Game of Life where the board wraps, so gliders never die at the edge. Toroid is on Product Hunt today. producthunt.com/... (link filled when live)
 - Oct 7: I built an operating system from scratch. Kernel, desktop, 25 apps, no libc. Runs in your browser. On Hacker News today. joshuatree.heyitsmejosh.com?ref=x
-- Oct 8: Plaintxt is a Mac text editor made of almost nothing: the system text view and three settings. 99 cents for launch week. (PH link)
+- Oct 8: Plaintxt is a Mac text editor made of almost nothing: the system text view and three settings. 99 cents. (PH link)
 - Oct 13: Nimble Answers: ask a question, get one sentence back, not ten links. Free. (PH link)
 - Oct 14: Plank: a compiled language whose compiler is one Python file. Show HN today. (HN link)
 - Oct 15: Joshua Tree is on Product Hunt. A whole computer built from nothing. (PH link)

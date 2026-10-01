@@ -34,8 +34,8 @@ Stripe: zero charges ever.
 
 Decisions 2026-10-01 (Joshua: "keep all my shit free or a dollar or two"):
 - No subscriptions anywhere. The Stripe $2.99/mo Epiphany plan and the yearly/lifetime tiers are dropped.
-- Epiphany stays $1 upfront on the App Store; the approved Premium IAP stays as the only extra.
-- Price test is Plaintxt (Mac) $0.99 to **$1.99 on 2026-10-01**, not $4.99. Launch price $0.99 on PH day Oct 8 for 48h, then back to $1.99.
+- Epiphany is a $1 app, full stop. The Premium IAP gate comes out in the next build after 2.5.14 clears review, so nobody pays twice.
+- Every app is $1 or free. Web buys through Stripe, iPhone and Mac through the App Store. No price test: Plaintxt went to $1.99 and straight back to $0.99 on 2026-10-01, zero sales in between.
 - No tips, no Sponsors, no Ko-fi (Joshua, 2026-10-01). Money comes from App Store sales and IAP only.
 - Calendar in launch/drafts.md approved 2026-10-01.
 
