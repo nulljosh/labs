@@ -16,7 +16,7 @@ Waits until approved in the store: Windgate, Siftbox, Madobe, Lexly iOS, Sidewis
 | Tue Oct 6 | Toroid | | r/cellular_automata: Toroid | Toroid | |
 | Wed Oct 7 | | Show HN: Joshua Tree | | Joshua Tree | Journal post 1 live (kernel) |
 | Thu Oct 8 | Plaintxt | | r/osdev: Joshua Tree | Plaintxt | Newsletter pitches go to you |
-| Mon Oct 12 | | | r/macapps: Plaintxt | | Directories batch 2: JT, Plank, Curbfind, Litigate, Healstack |
+| Mon Oct 12 | | | r/macapps: Plaintxt | | Directories batch 2: JT, Plank, Curbfind, Healstack |
 | Tue Oct 13 | Nimble Answers | | r/rss: Inkpress | Nimble | |
 | Wed Oct 14 | | Show HN: Plank | | Plank | |
 | Thu Oct 15 | Joshua Tree | | r/ProgrammingLanguages: Plank | Joshua Tree | |
