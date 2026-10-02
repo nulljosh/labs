@@ -210,5 +210,30 @@
    "joshuatree-monitor",
    "joshuatree"
   ]
- ]
+ ],
+ "status": {
+  "bookrank": "review",
+  "blockframe": "draft",
+  "curbfind": "rejected",
+  "curvely": "live",
+  "bcgd": "live",
+  "epiphany": "review",
+  "healstack": "rejected",
+  "inkpress": "live",
+  "lexly": "rejected",
+  "litigate": "live",
+  "madobe": "rejected",
+  "nyc": "live",
+  "nimble": "rejected",
+  "plain": "rejected",
+  "quotestreak": "live",
+  "sidewise": "rejected",
+  "siftbox": "rejected",
+  "sparkjar": "live",
+  "talli": "review",
+  "toroid": "live",
+  "notate": "review",
+  "windgate": "rejected",
+  "wordroot": "live"
+ }
 }
