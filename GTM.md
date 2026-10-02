@@ -23,7 +23,7 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | Talli | iOS 3.5.16, Mac 3.5.7, web | Free (+ web Stripe) | posted 09-13 | none | none | none |
 | Sparkjar | iOS 1.0.1, Mac 1.0.2, web | Free + $1 web Stripe | posted 09-19 | none | none | none |
 | Quotestreak | iOS + Mac 1.2.1, web | Free | posted 09-15 | none | none | none |
-| Bookrank | iOS + Mac 1.0.1, web | Free | posted 09-11 | none | none | none |
+| Bookrank | iOS + Mac, web | $0.99 (voices) | posted 09-11 | none | none | none |
 | Doorstock | iOS + Mac 1.0 | Free (client) | posted 09-11 | skip | skip | skip |
 | Lexly | Mac 1.1.5, iOS 1.1.3 (1.1.6 rejected) | Free | posted 09-17 | wait | wait | wait |
 | Joshua Tree | web + GitHub | Free | scheduled Thu Oct 15 12:01 AM PT | none | none | none |
@@ -67,8 +67,9 @@ Anyone who downloaded while free keeps it forever. Only new customers pay.
 | **Free + $0.99 one-time IAP** | Voxprint, Epiphany | Both IAPs approved. Voxprint iOS 1.3.9 released 2026-09-20, paywall live on iOS and Mac |
 | **Stripe subscription, web** | Epiphany Pro $2.99/mo, Siftbox $2.99/mo, Sidewise API $4.99/mo | Planned, not built. Epiphany first, it is the one app with real recurring cost. Catch: iOS sells the same Pro for $0.99 once, so a $2.99/mo web price just sends everyone to iOS. The switch needs an iOS auto-renewable sub in the same release. Trigger: the first real one-time sale. The Stripe account has zero charges ever, so a subscription today bills nobody. Siftbox and Sidewise wait until they have a live store build |
 | **Stripe $1 one-time, web** | Sparkjar, Healstack | Live, unchanged |
+| **$0.99 upfront, selling the voices** | Bookrank | Since 2026-10-02. The summaries are Joshua's own notes and are not what is sold; the natural ElevenLabs voices are. App Store paid upfront, no IAP. Voice cost is capped at 25k characters a month app-wide in /api/speak. Existing free users keep it |
 | **Free + ads, $0.99 IAP removes them** | Quotestreak | Planned, not built. The only app where ads fit: a daily casual game. Do not build until it shows 1k monthly players. Ads at zero users earn zero and cost a privacy label |
-| **Free, on purpose** | Talli, Litigate, Doorstock, Madobe, Curbfind, Nimble Answers, Bookrank, Lexly | Disability tool, public good, client work, browsers, funnel top. Bookrank charges nothing because selling book summaries invites a copyright fight. Lexly is the natural subscription app but sits in the 4.3(a) wave; revisit when the appeal lands |
+| **Free, on purpose** | Talli, Litigate, Doorstock, Madobe, Curbfind, Nimble Answers, Lexly | Disability tool, public good, client work, browsers, funnel top. Lexly is the natural subscription app but sits in the 4.3(a) wave; revisit when the appeal lands |
 
 Orphan IAP records `com.nulljosh.grapher.unlock` and `com.nulljosh.journal.unlock` are MISSING_METADATA with no code behind them. Leave them. Both apps are paid upfront now.
 
@@ -97,7 +98,7 @@ Three rails, picked per app by what the app already has:
 3. **Web Stripe only** for apps whose value is server-side and whose iOS build must not mention
    the paid tier: Epiphany (until 2 lands), Talli, Sparkjar, Healstack. Unchanged.
 
-Stays free on purpose: Litigate (public-good tool), Bookrank and Sidewise (need an audience before
+Stays free on purpose: Litigate (public-good tool), Sidewise (needs an audience before
 a price), Doorstock (client), Curbfind and Lucarne (browsers are free by convention).
 
 Launch order for Product Hunt: Voxprint (clean one-line pitch, own-it-once), then Epiphany once
@@ -114,7 +115,7 @@ revenue signal until PostHog or similar is added.
 | Voxprint | 6782604262 | Mac 1.3.6 · iOS 1.3.8 staged | $1 one-time | StoreKit LIVE in 1.3.9 (iOS submitted 2026-09-09, Mac following) | watch review |
 | Lexly | 6783501611 | iOS 1.1.3 · Mac 1.1.4 · **1.1.5 REJECTED both platforms** | free | none | none planned |
 | Litigate | 6787857503 | iOS 1.0.3 | free | none | none planned |
-| Bookrank | 6792376485 | iOS 1.0.1 · Mac 1.0.1 | free | none | personal shelf, not a product |
+| Bookrank | 6792376485 | iOS 1.0.5 in review | $0.99 upfront (2026-10-02) | none | selling the natural voices, not the summaries |
 | Sparkjar | 6785162492 | Mac 1.0.1 · **iOS 1.0 REJECTED** | $1 Spark Pro | Stripe live (wired 2026-09-06) | iOS never shipped; email/OAuth unconfigured: leave alone |
 | Inkpress | 6787759999 | iOS 1.0.6 · Mac 1.0.7 | free | none | Mac 1.0.7 approved 2026-08-30, first Mac release |
 | Wordroot | 6794988021 | iOS 1.0.1 · Mac 1.0 · **Mac 1.0.1 REJECTED** | free | none | none planned |
