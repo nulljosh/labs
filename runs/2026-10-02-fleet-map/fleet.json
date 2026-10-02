@@ -1,0 +1,214 @@
+{
+ "out": "~/Documents/Code/runs/2026-10-02-fleet-map/fleet.svg",
+ "title": "The Fleet",
+ "footer": "everything hosts on Cloudflare",
+ "groups": [
+  {
+   "name": "Apps",
+   "items": [
+    "epiphany",
+    "talli",
+    "notate",
+    "lexly",
+    "litigate",
+    "healstack",
+    "sparkjar",
+    "curvely",
+    "blockframe",
+    "bookrank",
+    "wordroot",
+    "quotestreak",
+    "inkpress",
+    "sidewise",
+    "siftbox",
+    "windgate",
+    "plain",
+    "madobe",
+    "homeward",
+    "costanza",
+    "seamark",
+    "homeqi",
+    "fieldbook",
+    "toroid",
+    "numen",
+    "curbfind",
+    "roost",
+    "nimble",
+    "cadence",
+    "dream",
+    "swing",
+    "nyc",
+    "keyrate",
+    "weather",
+    "hormuz",
+    "tripwire",
+    "pwnlingo",
+    "homeroom"
+   ]
+  },
+  {
+   "name": "Joshua Tree",
+   "items": [
+    "joshuatree",
+    "joshuatree-monitor",
+    "plank",
+    "homebrew-plank",
+    "gato"
+   ]
+  },
+  {
+   "name": "Samantha and AI",
+   "items": [
+    "turing",
+    "paintbar",
+    "brain",
+    "conveyer",
+    "secretary",
+    "agent-101"
+   ]
+  },
+  {
+   "name": "Sites and infra",
+   "items": [
+    "nulljosh.github.io",
+    "journal",
+    "authmail",
+    "notes",
+    "dotfiles",
+    "plan",
+    "launch"
+   ]
+  },
+  {
+   "name": "Games, labs, client work",
+   "items": [
+    "vancouvervice",
+    "hamurabi",
+    "hackrange",
+    "slicehack",
+    "credis",
+    "erdos-targets",
+    "hessian4",
+    "bank",
+    "canlii-app",
+    "video-speed-ext",
+    "bbgd",
+    "bcgd",
+    "logans-frenchies"
+   ]
+  }
+ ],
+ "services": [
+  {
+   "name": "Supabase",
+   "detail": "spark",
+   "color": "leaf",
+   "uses": [
+    "epiphany",
+    "lexly",
+    "litigate",
+    "healstack",
+    "sparkjar",
+    "bookrank",
+    "quotestreak",
+    "homeward",
+    "costanza",
+    "roost",
+    "authmail",
+    "bbgd",
+    "bcgd"
+   ]
+  },
+  {
+   "name": "Stripe",
+   "detail": "one account",
+   "color": "gold",
+   "uses": [
+    "epiphany",
+    "talli",
+    "lexly",
+    "healstack",
+    "sparkjar"
+   ]
+  },
+  {
+   "name": "Workers AI",
+   "detail": "Cloudflare",
+   "color": "clay",
+   "uses": [
+    "sparkjar",
+    "bookrank",
+    "curbfind",
+    "nimble",
+    "dream",
+    "tripwire",
+    "joshuatree",
+    "turing",
+    "brain"
+   ]
+  },
+  {
+   "name": "Resend",
+   "detail": "mail",
+   "color": "ink",
+   "uses": [
+    "epiphany",
+    "sparkjar",
+    "homeward",
+    "authmail",
+    "joshuatree"
+   ]
+  }
+ ],
+ "store": [
+  "epiphany",
+  "talli",
+  "notate",
+  "lexly",
+  "litigate",
+  "healstack",
+  "sparkjar",
+  "curvely",
+  "blockframe",
+  "bookrank",
+  "wordroot",
+  "quotestreak",
+  "inkpress",
+  "sidewise",
+  "siftbox",
+  "windgate",
+  "plain",
+  "madobe",
+  "toroid",
+  "curbfind",
+  "nimble",
+  "nyc",
+  "bcgd"
+ ],
+ "links": [
+  [
+   "joshuatree",
+   "turing"
+  ],
+  [
+   "paintbar",
+   "turing"
+  ],
+  [
+   "turing",
+   "brain"
+  ],
+  [
+   "brain",
+   "notes"
+  ],
+  [
+   "homebrew-plank",
+   "plank"
+  ],
+  [
+   "joshuatree-monitor",
+   "joshuatree"
+  ]
+ ]
+}

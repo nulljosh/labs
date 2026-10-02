@@ -4,6 +4,8 @@
 
 ![Commits per month since Claude Code inception](progress.svg)
 
+![The fleet: every project, grouped, with the services they share](fleet.svg)
+
 
 ## Environment
 - Mac Mini M4, macOS 25.x · Python 3.14 · Node 24 · xcodegen at `/opt/homebrew/bin/xcodegen`

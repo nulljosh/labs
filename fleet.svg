@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="972" viewBox="0 0 1200 972" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif"><style>.bg{fill:#f5f0e4}.band{fill:#ebe4d3;fill-opacity:.6}.t{fill:#1f1b16}.t2{fill:rgba(31,27,22,.6)}.glass{fill:rgba(255,252,245,.66);stroke:#dcd2bd}.edge{fill:none;stroke:rgba(255,255,255,.9)}.gate{fill:#f5f0e4;stroke:#1f1b16;stroke-width:1.5}.ln{stroke:rgba(31,27,22,.28);fill:none}.tip{fill:rgba(31,27,22,.28)}.ink{fill:#1f1b16}.tint-clay{fill:#b3461f;fill-opacity:0.15;stroke:#b3461f;stroke-opacity:.6}.ln-clay{stroke:#b3461f;stroke-opacity:.6;fill:none}.f-clay{fill:#b3461f}.t-clay{fill:#b3461f}.dash-clay{stroke:#b3461f;fill:none;stroke-dasharray:4 3}.tint-leaf{fill:#4f6b34;fill-opacity:0.15;stroke:#4f6b34;stroke-opacity:.6}.ln-leaf{stroke:#4f6b34;stroke-opacity:.6;fill:none}.f-leaf{fill:#4f6b34}.t-leaf{fill:#4f6b34}.dash-leaf{stroke:#4f6b34;fill:none;stroke-dasharray:4 3}.tint-gold{fill:#ffca30;fill-opacity:0.2;stroke:#8a6412;stroke-opacity:.6}.ln-gold{stroke:#8a6412;stroke-opacity:.6;fill:none}.f-gold{fill:#8a6412}.t-gold{fill:#8a6412}.dash-gold{stroke:#8a6412;fill:none;stroke-dasharray:4 3}.tint-ink{fill:#1f1b16;fill-opacity:0.15;stroke:#1f1b16;stroke-opacity:.6}.ln-ink{stroke:#1f1b16;stroke-opacity:.6;fill:none}.f-ink{fill:#1f1b16}.t-ink{fill:#1f1b16}.dash-ink{stroke:#1f1b16;fill:none;stroke-dasharray:4 3}@media (prefers-color-scheme:dark){.bg{fill:#1c1a17}.band{fill:#26231f;fill-opacity:.6}.t{fill:#f3ede0}.t2{fill:rgba(243,237,224,.6)}.glass{fill:rgba(70,63,54,.5);stroke:#3a352e}.edge{fill:none;stroke:rgba(255,255,255,.16)}.gate{fill:#1c1a17;stroke:#f3ede0;stroke-width:1.5}.ln{stroke:rgba(243,237,224,.3);fill:none}.tip{fill:rgba(243,237,224,.3)}.ink{fill:#f3ede0}.tint-clay{fill:#e07856;fill-opacity:0.15;stroke:#e07856;stroke-opacity:.6}.ln-clay{stroke:#e07856;stroke-opacity:.6;fill:none}.f-clay{fill:#e07856}.t-clay{fill:#e07856}.dash-clay{stroke:#e07856;fill:none;stroke-dasharray:4 3}.tint-leaf{fill:#8fb06a;fill-opacity:0.15;stroke:#8fb06a;stroke-opacity:.6}.ln-leaf{stroke:#8fb06a;stroke-opacity:.6;fill:none}.f-leaf{fill:#8fb06a}.t-leaf{fill:#8fb06a}.dash-leaf{stroke:#8fb06a;fill:none;stroke-dasharray:4 3}.tint-gold{fill:#ffca30;fill-opacity:0.2;stroke:#ffca30;stroke-opacity:.6}.ln-gold{stroke:#ffca30;stroke-opacity:.6;fill:none}.f-gold{fill:#ffca30}.t-gold{fill:#ffca30}.dash-gold{stroke:#ffca30;fill:none;stroke-dasharray:4 3}.tint-ink{fill:#f3ede0;fill-opacity:0.15;stroke:#f3ede0;stroke-opacity:.6}.ln-ink{stroke:#f3ede0;stroke-opacity:.6;fill:none}.f-ink{fill:#f3ede0}.t-ink{fill:#f3ede0}.dash-ink{stroke:#f3ede0;fill:none;stroke-dasharray:4 3}}</style><defs><filter id="sh" x="-20%" y="-30%" width="140%" height="190%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="rgb(60,40,20)" flood-opacity=".13"/></filter><filter id="sh1" x="-10%" y="-20%" width="120%" height="170%"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="rgb(60,40,20)" flood-opacity=".12"/></filter></defs><rect class="bg" width="1200" height="972"/>
+<text class="t" x="600" y="34" font-size="16" font-weight="600" text-anchor="middle">The Fleet</text>
+<rect class="band" x="20" y="56" width="832" height="364" rx="18"/>
+<rect class="band" x="20" y="432" width="832" height="76" rx="18"/>
+<rect class="band" x="20" y="520" width="832" height="76" rx="18"/>
+<rect class="band" x="20" y="608" width="832" height="124" rx="18"/>
+<rect class="band" x="20" y="744" width="832" height="172" rx="18"/>
+<path class="ln-gold" d="M146 118V122H854C907 122 907 113 960 113"/>
+<path class="ln-gold" d="M282 118V122H854C907 122 907 113 960 113"/>
+<path class="ln-gold" d="M554 118V122H854C907 122 907 113 960 113"/>
+<path class="ln-gold" d="M826 118V122H854C907 122 907 113 960 113"/>
+<path class="ln-gold" d="M146 166V170H854C907 170 907 113 960 113"/>
+<path class="ln-leaf" d="M139 118V125H860C910 125 910 307 960 307"/>
+<path class="ln-leaf" d="M547 118V125H860C910 125 910 307 960 307"/>
+<path class="ln-leaf" d="M683 118V125H860C910 125 910 307 960 307"/>
+<path class="ln-leaf" d="M819 118V125H860C910 125 910 307 960 307"/>
+<path class="ln-leaf" d="M139 166V173H860C910 173 910 307 960 307"/>
+<path class="ln-leaf" d="M547 166V173H860C910 173 910 307 960 307"/>
+<path class="ln-leaf" d="M819 166V173H860C910 173 910 307 960 307"/>
+<path class="ln-leaf" d="M139 262V269H860C910 269 910 307 960 307"/>
+<path class="ln-leaf" d="M275 262V269H860C910 269 910 307 960 307"/>
+<path class="ln-leaf" d="M411 310V317H860C910 317 910 307 960 307"/>
+<path class="ln-leaf" d="M411 670V677H860C910 677 910 307 960 307"/>
+<path class="ln-leaf" d="M683 854V861H860C910 861 910 307 960 307"/>
+<path class="ln-leaf" d="M819 854V861H860C910 861 910 307 960 307"/>
+<path class="ln-ink" d="M132 118V128H866C913 128 913 371 960 371"/>
+<path class="ln-ink" d="M132 166V176H866C913 176 913 371 960 371"/>
+<path class="ln-ink" d="M132 262V272H866C913 272 913 371 960 371"/>
+<path class="ln-ink" d="M404 670V680H866C913 680 913 371 960 371"/>
+<path class="ln-ink" d="M132 494V504H866C913 504 913 371 960 371"/>
+<path class="ln-clay" d="M125 166V179H872C916 179 916 435 960 435"/>
+<path class="ln-clay" d="M533 166V179H872C916 179 916 435 960 435"/>
+<path class="ln-clay" d="M261 310V323H872C916 323 916 435 960 435"/>
+<path class="ln-clay" d="M533 310V323H872C916 323 916 435 960 435"/>
+<path class="ln-clay" d="M805 310V323H872C916 323 916 435 960 435"/>
+<path class="ln-clay" d="M805 358V371H872C916 371 916 435 960 435"/>
+<path class="ln-clay" d="M125 494V507H872C916 507 916 435 960 435"/>
+<path class="ln-clay" d="M125 582V595H872C916 595 916 435 960 435"/>
+<path class="ln-clay" d="M397 582V595H872C916 595 916 435 960 435"/>
+<text class="t2" x="32" y="76" font-size="11" font-weight="600" letter-spacing=".7" style="font-variant:small-caps">Apps</text>
+<text class="t2" x="32" y="452" font-size="11" font-weight="600" letter-spacing=".7" style="font-variant:small-caps">Joshua Tree</text>
+<text class="t2" x="32" y="540" font-size="11" font-weight="600" letter-spacing=".7" style="font-variant:small-caps">Samantha and AI</text>
+<text class="t2" x="32" y="628" font-size="11" font-weight="600" letter-spacing=".7" style="font-variant:small-caps">Sites and infra</text>
+<text class="t2" x="32" y="764" font-size="11" font-weight="600" letter-spacing=".7" style="font-variant:small-caps">Games, labs, client work</text>
+<rect class="glass" x="32" y="88" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="89" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="107" font-size="11">epiphany</text>
+<circle class="ink" cx="149" cy="103.0" r="3"/>
+<rect class="glass" x="168" y="88" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="169" y="89" width="126" height="28" rx="8"/>
+<text class="t" x="179" y="107" font-size="11">talli</text>
+<circle class="ink" cx="285" cy="103.0" r="3"/>
+<rect class="glass" x="304" y="88" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="305" y="89" width="126" height="28" rx="8"/>
+<text class="t" x="315" y="107" font-size="11">notate</text>
+<circle class="ink" cx="421" cy="103.0" r="3"/>
+<rect class="glass" x="440" y="88" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="441" y="89" width="126" height="28" rx="8"/>
+<text class="t" x="451" y="107" font-size="11">lexly</text>
+<circle class="ink" cx="557" cy="103.0" r="3"/>
+<rect class="glass" x="576" y="88" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="577" y="89" width="126" height="28" rx="8"/>
+<text class="t" x="587" y="107" font-size="11">litigate</text>
+<circle class="ink" cx="693" cy="103.0" r="3"/>
+<rect class="glass" x="712" y="88" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="713" y="89" width="126" height="28" rx="8"/>
+<text class="t" x="723" y="107" font-size="11">healstack</text>
+<circle class="ink" cx="829" cy="103.0" r="3"/>
+<rect class="glass" x="32" y="136" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="137" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="155" font-size="11">sparkjar</text>
+<circle class="ink" cx="149" cy="151.0" r="3"/>
+<rect class="glass" x="168" y="136" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="169" y="137" width="126" height="28" rx="8"/>
+<text class="t" x="179" y="155" font-size="11">curvely</text>
+<circle class="ink" cx="285" cy="151.0" r="3"/>
+<rect class="glass" x="304" y="136" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="305" y="137" width="126" height="28" rx="8"/>
+<text class="t" x="315" y="155" font-size="11">blockframe</text>
+<circle class="ink" cx="421" cy="151.0" r="3"/>
+<rect class="glass" x="440" y="136" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="441" y="137" width="126" height="28" rx="8"/>
+<text class="t" x="451" y="155" font-size="11">bookrank</text>
+<circle class="ink" cx="557" cy="151.0" r="3"/>
+<rect class="glass" x="576" y="136" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="577" y="137" width="126" height="28" rx="8"/>
+<text class="t" x="587" y="155" font-size="11">wordroot</text>
+<circle class="ink" cx="693" cy="151.0" r="3"/>
+<rect class="glass" x="712" y="136" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="713" y="137" width="126" height="28" rx="8"/>
+<text class="t" x="723" y="155" font-size="11">quotestreak</text>
+<circle class="ink" cx="829" cy="151.0" r="3"/>
+<rect class="glass" x="32" y="184" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="185" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="203" font-size="11">inkpress</text>
+<circle class="ink" cx="149" cy="199.0" r="3"/>
+<rect class="glass" x="168" y="184" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="169" y="185" width="126" height="28" rx="8"/>
+<text class="t" x="179" y="203" font-size="11">sidewise</text>
+<circle class="ink" cx="285" cy="199.0" r="3"/>
+<rect class="glass" x="304" y="184" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="305" y="185" width="126" height="28" rx="8"/>
+<text class="t" x="315" y="203" font-size="11">siftbox</text>
+<circle class="ink" cx="421" cy="199.0" r="3"/>
+<rect class="glass" x="440" y="184" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="441" y="185" width="126" height="28" rx="8"/>
+<text class="t" x="451" y="203" font-size="11">windgate</text>
+<circle class="ink" cx="557" cy="199.0" r="3"/>
+<rect class="glass" x="576" y="184" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="577" y="185" width="126" height="28" rx="8"/>
+<text class="t" x="587" y="203" font-size="11">plain</text>
+<circle class="ink" cx="693" cy="199.0" r="3"/>
+<rect class="glass" x="712" y="184" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="713" y="185" width="126" height="28" rx="8"/>
+<text class="t" x="723" y="203" font-size="11">madobe</text>
+<circle class="ink" cx="829" cy="199.0" r="3"/>
+<rect class="glass" x="32" y="232" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="233" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="251" font-size="11">homeward</text>
+<rect class="glass" x="168" y="232" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="169" y="233" width="126" height="28" rx="8"/>
+<text class="t" x="179" y="251" font-size="11">costanza</text>
+<rect class="glass" x="304" y="232" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="305" y="233" width="126" height="28" rx="8"/>
+<text class="t" x="315" y="251" font-size="11">seamark</text>
+<rect class="glass" x="440" y="232" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="441" y="233" width="126" height="28" rx="8"/>
+<text class="t" x="451" y="251" font-size="11">homeqi</text>
+<rect class="glass" x="576" y="232" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="577" y="233" width="126" height="28" rx="8"/>
+<text class="t" x="587" y="251" font-size="11">fieldbook</text>
+<rect class="glass" x="712" y="232" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="713" y="233" width="126" height="28" rx="8"/>
+<text class="t" x="723" y="251" font-size="11">toroid</text>
+<circle class="ink" cx="829" cy="247.0" r="3"/>
+<rect class="glass" x="32" y="280" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="281" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="299" font-size="11">numen</text>
+<rect class="glass" x="168" y="280" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="169" y="281" width="126" height="28" rx="8"/>
+<text class="t" x="179" y="299" font-size="11">curbfind</text>
+<circle class="ink" cx="285" cy="295.0" r="3"/>
+<rect class="glass" x="304" y="280" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="305" y="281" width="126" height="28" rx="8"/>
+<text class="t" x="315" y="299" font-size="11">roost</text>
+<rect class="glass" x="440" y="280" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="441" y="281" width="126" height="28" rx="8"/>
+<text class="t" x="451" y="299" font-size="11">nimble</text>
+<circle class="ink" cx="557" cy="295.0" r="3"/>
+<rect class="glass" x="576" y="280" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="577" y="281" width="126" height="28" rx="8"/>
+<text class="t" x="587" y="299" font-size="11">cadence</text>
+<rect class="glass" x="712" y="280" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="713" y="281" width="126" height="28" rx="8"/>
+<text class="t" x="723" y="299" font-size="11">dream</text>
+<rect class="glass" x="32" y="328" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="329" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="347" font-size="11">swing</text>
+<rect class="glass" x="168" y="328" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="169" y="329" width="126" height="28" rx="8"/>
+<text class="t" x="179" y="347" font-size="11">nyc</text>
+<circle class="ink" cx="285" cy="343.0" r="3"/>
+<rect class="glass" x="304" y="328" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="305" y="329" width="126" height="28" rx="8"/>
+<text class="t" x="315" y="347" font-size="11">keyrate</text>
+<rect class="glass" x="440" y="328" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="441" y="329" width="126" height="28" rx="8"/>
+<text class="t" x="451" y="347" font-size="11">weather</text>
+<rect class="glass" x="576" y="328" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="577" y="329" width="126" height="28" rx="8"/>
+<text class="t" x="587" y="347" font-size="11">hormuz</text>
+<rect class="glass" x="712" y="328" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="713" y="329" width="126" height="28" rx="8"/>
+<text class="t" x="723" y="347" font-size="11">tripwire</text>
+<rect class="glass" x="32" y="376" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="377" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="395" font-size="11">pwnlingo</text>
+<rect class="glass" x="168" y="376" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="169" y="377" width="126" height="28" rx="8"/>
+<text class="t" x="179" y="395" font-size="11">homeroom</text>
+<rect class="glass" x="32" y="464" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="465" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="477" font-size="11">joshuatree</text>
+<text class="t2" x="43" y="488" font-size="9">uses turing</text>
+<rect class="glass" x="168" y="464" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="169" y="465" width="126" height="28" rx="8"/>
+<text class="t" x="179" y="477" font-size="10">joshuatree-monitor</text>
+<text class="t2" x="179" y="488" font-size="9">uses joshuatree</text>
+<rect class="glass" x="304" y="464" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="305" y="465" width="126" height="28" rx="8"/>
+<text class="t" x="315" y="483" font-size="11">plank</text>
+<rect class="glass" x="440" y="464" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="441" y="465" width="126" height="28" rx="8"/>
+<text class="t" x="451" y="477" font-size="11">homebrew-plank</text>
+<text class="t2" x="451" y="488" font-size="9">uses plank</text>
+<rect class="glass" x="576" y="464" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="577" y="465" width="126" height="28" rx="8"/>
+<text class="t" x="587" y="483" font-size="11">gato</text>
+<rect class="glass" x="32" y="552" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="553" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="565" font-size="11">turing</text>
+<text class="t2" x="43" y="576" font-size="9">uses brain</text>
+<rect class="glass" x="168" y="552" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="169" y="553" width="126" height="28" rx="8"/>
+<text class="t" x="179" y="565" font-size="11">paintbar</text>
+<text class="t2" x="179" y="576" font-size="9">uses turing</text>
+<rect class="glass" x="304" y="552" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="305" y="553" width="126" height="28" rx="8"/>
+<text class="t" x="315" y="565" font-size="11">brain</text>
+<text class="t2" x="315" y="576" font-size="9">uses notes</text>
+<rect class="glass" x="440" y="552" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="441" y="553" width="126" height="28" rx="8"/>
+<text class="t" x="451" y="571" font-size="11">conveyer</text>
+<rect class="glass" x="576" y="552" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="577" y="553" width="126" height="28" rx="8"/>
+<text class="t" x="587" y="571" font-size="11">secretary</text>
+<rect class="glass" x="712" y="552" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="713" y="553" width="126" height="28" rx="8"/>
+<text class="t" x="723" y="571" font-size="11">agent-101</text>
+<rect class="glass" x="32" y="640" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="641" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="659" font-size="10">nulljosh.github.io</text>
+<rect class="glass" x="168" y="640" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="169" y="641" width="126" height="28" rx="8"/>
+<text class="t" x="179" y="659" font-size="11">journal</text>
+<rect class="glass" x="304" y="640" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="305" y="641" width="126" height="28" rx="8"/>
+<text class="t" x="315" y="659" font-size="11">authmail</text>
+<rect class="glass" x="440" y="640" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="441" y="641" width="126" height="28" rx="8"/>
+<text class="t" x="451" y="659" font-size="11">notes</text>
+<rect class="glass" x="576" y="640" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="577" y="641" width="126" height="28" rx="8"/>
+<text class="t" x="587" y="659" font-size="11">dotfiles</text>
+<rect class="glass" x="712" y="640" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="713" y="641" width="126" height="28" rx="8"/>
+<text class="t" x="723" y="659" font-size="11">plan</text>
+<rect class="glass" x="32" y="688" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="689" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="707" font-size="11">launch</text>
+<rect class="glass" x="32" y="776" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="777" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="795" font-size="11">vancouvervice</text>
+<rect class="glass" x="168" y="776" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="169" y="777" width="126" height="28" rx="8"/>
+<text class="t" x="179" y="795" font-size="11">hamurabi</text>
+<rect class="glass" x="304" y="776" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="305" y="777" width="126" height="28" rx="8"/>
+<text class="t" x="315" y="795" font-size="11">hackrange</text>
+<rect class="glass" x="440" y="776" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="441" y="777" width="126" height="28" rx="8"/>
+<text class="t" x="451" y="795" font-size="11">slicehack</text>
+<rect class="glass" x="576" y="776" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="577" y="777" width="126" height="28" rx="8"/>
+<text class="t" x="587" y="795" font-size="11">credis</text>
+<rect class="glass" x="712" y="776" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="713" y="777" width="126" height="28" rx="8"/>
+<text class="t" x="723" y="795" font-size="11">erdos-targets</text>
+<rect class="glass" x="32" y="824" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="825" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="843" font-size="11">hessian4</text>
+<rect class="glass" x="168" y="824" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="169" y="825" width="126" height="28" rx="8"/>
+<text class="t" x="179" y="843" font-size="11">bank</text>
+<rect class="glass" x="304" y="824" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="305" y="825" width="126" height="28" rx="8"/>
+<text class="t" x="315" y="843" font-size="11">canlii-app</text>
+<rect class="glass" x="440" y="824" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="441" y="825" width="126" height="28" rx="8"/>
+<text class="t" x="451" y="843" font-size="11">video-speed-ext</text>
+<rect class="glass" x="576" y="824" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="577" y="825" width="126" height="28" rx="8"/>
+<text class="t" x="587" y="843" font-size="11">bbgd</text>
+<rect class="glass" x="712" y="824" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="713" y="825" width="126" height="28" rx="8"/>
+<text class="t" x="723" y="843" font-size="11">bcgd</text>
+<circle class="ink" cx="829" cy="839.0" r="3"/>
+<rect class="glass" x="32" y="872" width="128" height="30" rx="9" filter="url(#sh1)"/><rect class="edge" x="33" y="873" width="126" height="28" rx="8"/>
+<text class="t" x="43" y="891" font-size="11">logans-frenchies</text>
+<circle class="f-gold" cx="146" cy="118" r="2.5"/>
+<circle class="f-gold" cx="282" cy="118" r="2.5"/>
+<circle class="f-gold" cx="554" cy="118" r="2.5"/>
+<circle class="f-gold" cx="826" cy="118" r="2.5"/>
+<circle class="f-gold" cx="146" cy="166" r="2.5"/>
+<circle class="f-leaf" cx="139" cy="118" r="2.5"/>
+<circle class="f-leaf" cx="547" cy="118" r="2.5"/>
+<circle class="f-leaf" cx="683" cy="118" r="2.5"/>
+<circle class="f-leaf" cx="819" cy="118" r="2.5"/>
+<circle class="f-leaf" cx="139" cy="166" r="2.5"/>
+<circle class="f-leaf" cx="547" cy="166" r="2.5"/>
+<circle class="f-leaf" cx="819" cy="166" r="2.5"/>
+<circle class="f-leaf" cx="139" cy="262" r="2.5"/>
+<circle class="f-leaf" cx="275" cy="262" r="2.5"/>
+<circle class="f-leaf" cx="411" cy="310" r="2.5"/>
+<circle class="f-leaf" cx="411" cy="670" r="2.5"/>
+<circle class="f-leaf" cx="683" cy="854" r="2.5"/>
+<circle class="f-leaf" cx="819" cy="854" r="2.5"/>
+<circle class="f-ink" cx="132" cy="118" r="2.5"/>
+<circle class="f-ink" cx="132" cy="166" r="2.5"/>
+<circle class="f-ink" cx="132" cy="262" r="2.5"/>
+<circle class="f-ink" cx="404" cy="670" r="2.5"/>
+<circle class="f-ink" cx="132" cy="494" r="2.5"/>
+<circle class="f-clay" cx="125" cy="166" r="2.5"/>
+<circle class="f-clay" cx="533" cy="166" r="2.5"/>
+<circle class="f-clay" cx="261" cy="310" r="2.5"/>
+<circle class="f-clay" cx="533" cy="310" r="2.5"/>
+<circle class="f-clay" cx="805" cy="310" r="2.5"/>
+<circle class="f-clay" cx="805" cy="358" r="2.5"/>
+<circle class="f-clay" cx="125" cy="494" r="2.5"/>
+<circle class="f-clay" cx="125" cy="582" r="2.5"/>
+<circle class="f-clay" cx="397" cy="582" r="2.5"/>
+<rect class="tint-gold" x="960" y="91" width="220" height="44" rx="22" filter="url(#sh)"/><rect class="edge" x="961" y="92" width="218" height="42" rx="21"/>
+<text class="t" x="1070" y="110" font-size="13" font-weight="600" text-anchor="middle">Stripe</text>
+<text class="t2" x="1070" y="125" font-size="10" text-anchor="middle">one account · 5</text>
+<rect class="tint-leaf" x="960" y="285" width="220" height="44" rx="22" filter="url(#sh)"/><rect class="edge" x="961" y="286" width="218" height="42" rx="21"/>
+<text class="t" x="1070" y="304" font-size="13" font-weight="600" text-anchor="middle">Supabase</text>
+<text class="t2" x="1070" y="319" font-size="10" text-anchor="middle">spark · 13</text>
+<rect class="tint-ink" x="960" y="349" width="220" height="44" rx="22" filter="url(#sh)"/><rect class="edge" x="961" y="350" width="218" height="42" rx="21"/>
+<text class="t" x="1070" y="368" font-size="13" font-weight="600" text-anchor="middle">Resend</text>
+<text class="t2" x="1070" y="383" font-size="10" text-anchor="middle">mail · 5</text>
+<rect class="tint-clay" x="960" y="413" width="220" height="44" rx="22" filter="url(#sh)"/><rect class="edge" x="961" y="414" width="218" height="42" rx="21"/>
+<text class="t" x="1070" y="432" font-size="13" font-weight="600" text-anchor="middle">Workers AI</text>
+<text class="t2" x="1070" y="447" font-size="10" text-anchor="middle">Cloudflare · 9</text>
+<circle class="ink" cx="36" cy="950" r="3"/>
+<text class="t2" x="46" y="954" font-size="10">on the App Store · coloured dot and line: uses that shared service · everything hosts on Cloudflare</text>
+</svg>
