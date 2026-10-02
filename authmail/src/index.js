@@ -95,14 +95,21 @@ async function verify(req, body, secret) {
   return sigs.split(" ").some((s) => s.split(",")[1] === expected);
 }
 
-// One Resend call site: key, JSON headers and the failure log live here. Callers read the Response.
+// One Resend call site: key, headers and the failure log live here. Callers read the Response. A body means
+// POST, none means GET. A network fault becomes a 502 Response, so nothing downstream throws.
 async function resend(env, path, body) {
-  const r = await fetch(`https://api.resend.com${path}`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
-  if (!r.ok) console.error("resend", path, r.status, await r.clone().text());
+  let r;
+  try {
+    r = await fetch(`https://api.resend.com${path}`, {
+      method: body ? "POST" : "GET",
+      headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, ...(body && { "Content-Type": "application/json" }) },
+      body: body && JSON.stringify(body),
+    });
+  } catch (e) {
+    console.error("resend", path, "unreachable", String(e));
+    return new Response("resend unreachable", { status: 502 });
+  }
+  if (!r.ok && r.status !== 404) console.error("resend", path, r.status, await r.clone().text());
   return r;
 }
 
@@ -116,32 +123,42 @@ function send(env, t, type, to, link, token) {
   });
 }
 
-// Landing-page email capture, double opt-in (CASL). POST /signup only emails a confirm link; the
-// Resend contact is created by GET /confirm?t=<token>, so nobody can enrol an address that did not
-// click. Token = base64url("email.unixSeconds") + "." + base64url(HMAC-SHA256(SIGNUP_SECRET)), 48 h.
-// The Origin check is only CORS hygiene (spoofable); consent, the honeypot and the rate limit are the gates.
+// Landing-page email capture, double opt-in (CASL). POST /signup only emails a confirm link. GET /confirm
+// only shows a button, and the Resend contact is created by the POST behind that button, so a link scanner
+// that merely fetches the URL enrols nobody. Token = base64url(JSON {e: email, t: unixSeconds, r: return URL})
+// + "." + base64url(HMAC-SHA256(SIGNUP_SECRET)), 48 h. The return URL lives inside the signed token, so the
+// mailed link cannot be pointed anywhere else. The Origin check is only CORS hygiene (spoofable); consent,
+// the honeypot and the rate limits are the gates.
 // ponytail: one list. Joshua Tree's hardware waitlist lives in its own Worker's KV.
 const LIST = "154529c4-2064-4a20-876e-7a8269371987"; // Resend "General": new apps and updates
-const OURS = /^https:\/\/([a-z0-9-]+\.)*(heyitsmejosh\.com|jaybulb\.com|nulljosh\.github\.io)$/;
+// Only domains Joshua owns. jaybulb.com stays out until it is registered: an unowned name in this list is an open redirect.
+const OURS = /^https:\/\/(([a-z0-9-]+\.)*heyitsmejosh\.com|nulljosh\.github\.io)$/;
 const TOKEN_TTL = 48 * 3600;
 
 const b64u = (u8) => btoa(String.fromCharCode(...u8)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 const unb64u = (s) => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0));
+// Canonical base64url only: no padding, no spaces, no spare trailing bits, so one token has one spelling.
+const canonical = (s) => /^[A-Za-z0-9_-]+$/.test(s) && b64u(unb64u(s)) === s;
 const hmacKey = (env, use) => crypto.subtle.importKey("raw", new TextEncoder().encode(env.SIGNUP_SECRET), { name: "HMAC", hash: "SHA-256" }, false, [use]);
 
-async function mint(env, email) {
-  const p = b64u(new TextEncoder().encode(`${email}.${Math.floor(Date.now() / 1000)}`));
+async function mint(env, email, back) {
+  const p = b64u(new TextEncoder().encode(JSON.stringify({ e: email, t: Math.floor(Date.now() / 1000), r: back })));
   const mac = await crypto.subtle.sign("HMAC", await hmacKey(env, "sign"), new TextEncoder().encode(p));
   return `${p}.${b64u(new Uint8Array(mac))}`;
 }
 
-// The email if the token is genuine and fresh, else null. crypto.subtle.verify compares in constant time.
+// {email, to} if the token is genuine, fresh and exactly as minted, else null. `to` is re-checked against the
+// allow-list now, so dropping a domain from OURS kills old links to it. crypto.subtle.verify is constant time.
 async function redeem(env, token = "") {
   try {
-    const [p, s] = token.split(".");
+    const parts = token.split(".");
+    if (token.length > 2048 || parts.length !== 2 || !parts.every(canonical)) return null;
+    const [p, s] = parts;
     if (!(await crypto.subtle.verify("HMAC", await hmacKey(env, "verify"), unb64u(s), new TextEncoder().encode(p)))) return null;
-    const [, email, ts] = /^(.+)\.(\d+)$/.exec(new TextDecoder().decode(unb64u(p)));
-    return Date.now() / 1000 - Number(ts) <= TOKEN_TTL ? email : null;
+    const { e, t, r } = JSON.parse(new TextDecoder().decode(unb64u(p)));
+    const age = Date.now() / 1000 - t;
+    if (typeof e !== "string" || typeof t !== "number" || !(age <= TOKEN_TTL && age >= -60)) return null;
+    return { email: e, to: ourUrl(String(r || ""), "") };
   } catch {
     return null;
   }
@@ -151,9 +168,31 @@ async function redeem(env, token = "") {
 function ourUrl(s, fallback) {
   try {
     const u = new URL(s);
-    if (OURS.test(u.origin)) return u.origin + u.pathname + u.search;
+    if (s.length <= 512 && OURS.test(u.origin)) return u.origin + u.pathname + u.search;
   } catch {}
   return fallback;
+}
+
+// true: allowed. false: over the limit. null: the binding is missing or threw, which callers treat as a refusal.
+async function allow(env, name, key) {
+  try {
+    return (await env[name]?.limit({ key }))?.success === true ? true : env[name] ? false : null;
+  } catch (e) {
+    console.error("limiter", name, String(e));
+    return null;
+  }
+}
+
+// Rate-limit key for a client. One IPv6 customer owns a whole /64, so key on that, not on the single address.
+function ipKey(req) {
+  const ip = (req.headers.get("cf-connecting-ip") || "unknown").toLowerCase();
+  const v4 = /^::ffff:(\d+\.\d+\.\d+\.\d+)$/.exec(ip);
+  if (v4) return v4[1];
+  if (!ip.includes(":")) return ip;
+  const [head, tail] = ip.split("::");
+  const h = head ? head.split(":") : [], t = tail ? tail.split(":") : [];
+  const groups = ip.includes("::") ? [...h, ...Array(Math.max(0, 8 - h.length - t.length)).fill("0"), ...t] : h;
+  return `${groups.slice(0, 4).map((g) => parseInt(g || "0", 16).toString(16)).join(":")}::/64`;
 }
 
 async function signup(req, env, url) {
@@ -168,39 +207,64 @@ async function signup(req, env, url) {
   const done = (ok) => nav
     ? new Response(null, { status: 303, headers: { ...cors, Location: `${back}#${ok ? "signed-up" : "signup-failed"}` } })
     : Response.json({ ok }, { status: ok ? 200 : 400, headers: cors });
-  if (!(await env.SIGNUP_RATE_LIMITER?.limit({ key: req.headers.get("cf-connecting-ip") || "unknown" }))?.success) {
-    return new Response("slow down", { status: 429, headers: cors }); // also refuses when the binding is missing
-  }
+  const slow = () => new Response("slow down", { status: 429, headers: cors });
+  if (!(await allow(env, "SIGNUP_RATE_LIMITER", ipKey(req)))) return slow(); // also refuses when the binding is missing
   let f;
   try { f = await req.formData(); } catch { return done(false); } // JSON or empty body
   back = ourUrl(String(f.get("return") || ""), origin);
   if (f.get("website")) return done(true); // honeypot: bots fill every field
   const email = String(f.get("email") || "").trim().toLowerCase();
   if (!env.SIGNUP_SECRET || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 254) return done(false);
-  const link = `${url.origin}/confirm?t=${await mint(env, email)}&r=${encodeURIComponent(back)}`;
+  // One confirm mail per address per minute, however many IPs ask, so nobody can bury a victim. The answer
+  // is the same either way: the first mail is already on its way, and nobody learns which case they hit.
+  const fresh = await allow(env, "RECIPIENT_RATE_LIMITER", `signup:${email}`);
+  if (fresh === null) return slow();
+  if (!fresh) return done(true);
+  // Everything public shares Resend's 10 requests a second with the auth hook, so the whole public surface has a ceiling.
+  if (!(await allow(env, "GLOBAL_RATE_LIMITER", "public"))) return slow();
+  const link = `${url.origin}/confirm?t=${await mint(env, email, back)}`;
   return done((await send(env, DEFAULT, "subscribe", email, link)).ok);
 }
 
-const page = (msg, status) => new Response(`<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${msg}</title><body style="margin:0;display:grid;place-items:center;min-height:100vh;background:#F4EEE3;color:#1A1814;font:600 20px -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif"><p>${msg}</p>`, { status, headers: { "Content-Type": "text/html; charset=utf-8" } });
+const shell = (title, inner, status = 200) => new Response(`<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title}</title><body style="margin:0;display:grid;place-items:center;min-height:100vh;background:#F4EEE3;color:#1A1814;font:600 20px -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif">${inner}`, {
+  status,
+  headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "Referrer-Policy": "no-referrer", "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; frame-ancestors 'none'" },
+});
+const page = (msg, status) => shell(msg, `<p>${msg}</p>`, status);
+// The button a human presses. `t` already passed redeem, so it is plain base64url and safe in an attribute.
+const ask = (t) => shell("Confirm your subscription", `<form method="post" action="/confirm" style="text-align:center"><p>Confirm your subscription</p><input type="hidden" name="t" value="${t}"><button style="font:inherit;font-size:16px;background:#1A1814;color:#FFFFFF;border:0;border-radius:999px;padding:13px 26px;cursor:pointer">Confirm</button></form>`);
 
-// The only place a contact is created. No "unsubscribed" field, so an opted-out address stays opted out,
-// and "already exists" counts as success. Needs a Full-access Resend key (sending-only keys get 401 here).
-async function confirm(env, url) {
-  const email = await redeem(env, url.searchParams.get("t") || "");
-  if (!email) return page("This link has expired. Sign up again.", 400);
-  const r = await resend(env, `/audiences/${LIST}/contacts`, { email });
-  if (!r.ok && !/already exist/i.test(await r.clone().text())) return page("Something went wrong. Try again later.", 502);
-  const to = ourUrl(url.searchParams.get("r") || "", "");
-  return to ? new Response(null, { status: 303, headers: { Location: `${to}#subscribed` } }) : page("You are on the list.", 200);
+// GET only shows the button and changes nothing. The POST behind it is the only place a contact is created.
+// It looks the address up first and never writes over an existing one, so an opted-out address stays opted out
+// whatever Resend does with a duplicate. Needs a Full-access Resend key (sending-only keys get 401 here).
+// Known gap: a contact deleted from Resend inside the 48 h window can be re-added by its old link. Closing that
+// needs a durable used-token store, which this Worker does not have.
+async function confirm(req, env, url) {
+  let t = "";
+  if (req.method === "POST") { try { t = String((await req.formData()).get("t") || ""); } catch {} } else t = url.searchParams.get("t") || "";
+  const tok = await redeem(env, t);
+  if (!tok) return page("This link has expired. Sign up again.", 400);
+  if (req.method === "GET") return ask(t);
+  // Each check runs only if the one before passed, so a refused request spends no one else's allowance.
+  const ok = (await allow(env, "SIGNUP_RATE_LIMITER", `confirm:${ipKey(req)}`)) && (await allow(env, "RECIPIENT_RATE_LIMITER", `confirm:${tok.email}`)) && (await allow(env, "GLOBAL_RATE_LIMITER", "public"));
+  if (!ok) return page("Slow down. Try again in a minute.", 429);
+  const seen = await resend(env, `/audiences/${LIST}/contacts/${encodeURIComponent(tok.email)}`);
+  if (!seen.ok) {
+    if (seen.status !== 404) return page("Something went wrong. Try again later.", 502);
+    const r = await resend(env, `/audiences/${LIST}/contacts`, { email: tok.email });
+    if (!r.ok && !/already exist/i.test(await r.clone().text())) return page("Something went wrong. Try again later.", 502);
+  }
+  return tok.to ? new Response(null, { status: 303, headers: { Location: `${tok.to}#subscribed` } }) : page("You are on the list.", 200);
 }
 
 export default {
   async fetch(req, env) {
     const url = new URL(req.url), path = url.pathname;
     if (path === "/signup" || path === "/confirm") {
-      if (path === "/signup" && (req.method === "POST" || req.method === "OPTIONS")) return signup(req, env, url);
-      if (path === "/confirm" && req.method === "GET") return confirm(env, url);
-      return new Response("method not allowed", { status: 405 });
+      const m = req.method;
+      const run = path === "/signup" ? (m === "POST" || m === "OPTIONS") && signup : (m === "GET" || m === "POST") && confirm;
+      if (!run) return new Response("method not allowed", { status: 405 });
+      try { return await run(req, env, url); } catch (e) { console.error("authmail", String(e)); return new Response("try again later", { status: 503 }); }
     }
     if (req.method !== "POST") return new Response("authmail", { status: 200 });
     const ref = path.replace(/^\/+|\/+$/g, "");
