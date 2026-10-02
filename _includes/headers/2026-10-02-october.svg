@@ -1,0 +1,28 @@
+<svg class="post-header-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect fill="none" class="bg" width="800" height="500"/>
+  <rect class="brd" x="20" y="20" width="760" height="460" rx="12" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+
+  <text fill="currentColor" x="48" y="90" font-size="42" font-weight="300" letter-spacing="-1">October</text>
+  <text fill="currentColor" x="48" y="126" font-size="16" opacity="0.6">oct 1 to 2 . 2.0 release, bookrank ios, trend 2x rules live</text>
+
+  <line stroke="currentColor" x1="48" y1="152" x2="752" y2="152" stroke-width="1" opacity="0.25"/>
+
+  <text fill="currentColor" x="48" y="188" font-size="14">joshuatree . bookrank . epiphany . plank . conveyer</text>
+
+  <text fill="currentColor" x="48" y="236" font-size="14">joshua tree release: pr #331 at ci finish line, one poll left</text>
+  <text fill="currentColor" x="48" y="258" font-size="14">bookrank ios live, elevenLabs voices, goodreads, offline</text>
+  <text fill="currentColor" x="48" y="280" font-size="14">epiphany premium $1, trend 2x edge 15%, autopilot live</text>
+  <text fill="currentColor" x="48" y="302" font-size="14">plank major released, result type, generics, packages</text>
+  <text fill="currentColor" x="48" y="324" font-size="14">pr #336 red on kernel.c lines, #337 green awaiting rebase</text>
+
+  <rect class="brd" x="560" y="176" width="200" height="280" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+  <text fill="currentColor" x="584" y="206" font-size="12" opacity="0.6">prs in flight</text>
+  <text fill="currentColor" x="584" y="238" font-size="28" font-weight="500">3</text>
+  <text fill="currentColor" x="584" y="272" font-size="12" opacity="0.6">ready to ship</text>
+  <text fill="currentColor" x="584" y="318" font-size="12" opacity="0.6">this evening</text>
+  <text fill="currentColor" x="584" y="340" font-size="14">2.0 tag and release</text>
+  <text fill="currentColor" x="584" y="362" font-size="14">trim kernel.c, bookrank fix</text>
+  <text fill="currentColor" x="584" y="384" font-size="14">rebase #337 after main</text>
+
+  <text fill="currentColor" x="48" y="462" font-size="13" opacity="0.6">2026-10-02</text>
+</svg>
