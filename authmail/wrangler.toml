@@ -5,3 +5,9 @@ routes = [{ pattern = "authmail.heyitsmejosh.com", custom_domain = true }]
 
 [observability]
 enabled = true
+
+# /signup: 5 per 10 s per IP. The Worker refuses every signup if this binding is missing.
+[[ratelimits]]
+name = "SIGNUP_RATE_LIMITER"
+namespace_id = "1701"
+simple = { limit = 5, period = 10 }
