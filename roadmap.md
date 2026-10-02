@@ -690,3 +690,6 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] ASC triage from phone screenshot: rejected or flagged are Windgate iOS+macOS 1.0, Plaintxt iOS 1.0.0, Lexly iOS 1.1.6, Siftbox iOS+macOS 1.0, Madobe iOS+macOS 1.0.0, Curbfind iOS 1.0.0, Healstack iOS 2.3.6 + macOS 2.3.5, Sidewise iOS 1.0. Charblock iOS 1.1.2 pending. (screenshots: notes/attachments/2026-10-01/asc-1.png, notes/attachments/2026-10-01/asc-2.png)
 - [ ] BLOCKED on Joshua: Stripe action required, all overdue: accept terms of service, provide a phone number for the account rep (Joshua Trommel), provide a title. Incoming charges paused since 9 Jan 2025, payouts paused since 10 Dec 2024. (Q: which Stripe account? screenshot: notes/attachments/2026-10-01/stripe-1.png)
 - [x] Archive the old nulljosh/pixelmator-skill GitHub repo; it's a skill in Turing now. (screenshot: notes/attachments/2026-10-01/github-archive-1.png) Archived 2026-10-01.
+
+## Ingested 2026-10-02
+- [ ] Some app keeps talking out loud using the macOS say command. Find it and fix it.
