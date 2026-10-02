@@ -56,7 +56,7 @@ function html(t, type, link, token) {
     ? `<p style="font-size:30px;letter-spacing:8px;font-weight:600;margin:28px 0">${token}</p>`
     : `<p style="margin:28px 0"><a href="${link}" style="display:inline-block;background:${t.accent};color:${ink(t.accent)};text-decoration:none;font-weight:600;font-size:16px;padding:13px 26px;border-radius:999px">${ctaLabel}</a></p>`;
   const fallback = type === "reauthentication" || type === "welcome" ? "" :
-    `<p class="mute" style="font-size:13px;line-height:1.55;color:#6F675C;margin:0 0 20px">This link works once and expires in one hour. If the button does not open, copy this into your browser:<br><span style="word-break:break-all">${link}</span></p>`;
+    `<p class="mute" style="font-size:13px;line-height:1.55;color:#6F675C;margin:0 0 24px">This link works once and expires in one hour.</p>`;
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark"><title>${title} · ${t.name}</title>
 <style>@media (prefers-color-scheme:dark){body,.bg{background:#14120F!important}.sheet{background:#1D1A16!important;border-color:#2E2A24!important}.rule{border-color:#2E2A24!important}.ink{color:#F4EEE3!important}.mute{color:#A59C8C!important}}</style></head>
 <body class="bg" style="margin:0;background:#F4EEE3;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;color:#1A1814;-webkit-font-smoothing:antialiased">
@@ -66,14 +66,14 @@ function html(t, type, link, token) {
 <h1 class="ink" style="font-size:28px;line-height:1.15;font-weight:600;letter-spacing:-.02em;margin:0 0 14px;color:#1A1814">${title}</h1>
 <p class="ink" style="font-size:16px;line-height:1.55;margin:0;color:#1A1814">${BODY[type] || ""}</p>
 ${cta}${fallback}
-<p class="mute rule" style="font-size:13px;line-height:1.55;color:#6F675C;margin:0;border-top:1px solid #E2D9C6;padding-top:18px">Sent by ${t.name}. If you did not ask for this email, you can ignore it.</p>
+<p class="mute rule" style="font-size:13px;line-height:1.55;color:#6F675C;margin:0;border-top:1px solid #E2D9C6;padding-top:18px">Sent by ${t.name}.</p>
 </td></tr></table></td></tr></table></body></html>`;
 }
 
 function text(t, type, link, token) {
   const body = BODY[type] || "";
   const action = type === "reauthentication" ? token : type === "welcome" ? "" : link;
-  return `${t.name}\n\n${SUBJECT[type] || "Continue"}\n\n${body}${action ? `\n\n${action}` : ""}\n\nSent by ${t.name}. If you did not ask for this email, you can ignore it.\n`;
+  return `${t.name}\n\n${SUBJECT[type] || "Continue"}\n\n${body}${action ? `\n\n${action}` : ""}${action && type !== "reauthentication" ? "\n\nThis link works once and expires in one hour." : ""}\n\nSent by ${t.name}.\n`;
 }
 
 // Svix webhook verification (what Supabase auth hooks use): secret is base64
