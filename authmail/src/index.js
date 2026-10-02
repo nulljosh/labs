@@ -7,7 +7,7 @@ const THEMES = {
   healstack: { name: "Healstack",       accent: "#5B9BD5", match: ["healstack", "dose"] },
   litigate:  { name: "Litigate",        accent: "#1F3A5F", match: ["litigate"] },
   homeward:  { name: "Homeward",        accent: "#FF851B", match: ["homeward", "pets"] },
-  bookrank:  { name: "Bookrank",        accent: "#5B9BD5", match: ["bookrank"] },
+  bookrank:  { name: "Bookrank",        accent: "#5B9BD5", match: ["bookrank"], icon: "https://bookrank.heyitsmejosh.com/icon-192.png" },
   bcgd:      { name: "BC Garage Doors", accent: "#B4661C", match: ["bcgd", "doorstock"] },
   roost:     { name: "Roost",           accent: "#2E7D32", match: ["roost"] },
   stanza:    { name: "Stanza",          accent: "#171717", match: ["stanza"] },
@@ -41,20 +41,39 @@ function themeFor(redirectTo = "") {
   return DEFAULT;
 }
 
+// House email style (same paper, ink and pill as the Joshua Tree waitlist mail): cream sheet,
+// near-black type, one accent pill, SF/Helvetica, short plain sentences. Dark mode flips the
+// sheet, not the accent. The button text picks ink or white by the accent's own brightness.
+function ink(hex) {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  return 0.299 * r + 0.587 * g + 0.114 * b > 130 ? "#1A1814" : "#FFFFFF";
+}
+
 function html(t, type, link, token) {
-  const ctaLabel = type === "welcome" ? `Open ${t.name}` : SUBJECT[type] || "Continue";
+  const title = SUBJECT[type] || "Continue";
+  const ctaLabel = type === "welcome" ? `Open ${t.name}` : title;
   const cta = type === "reauthentication"
-    ? `<p style="font-size:28px;letter-spacing:6px;font-weight:600;margin:24px 0">${token}</p>`
-    : `<a href="${link}" style="display:inline-block;background:${t.accent};color:#fff;text-decoration:none;padding:12px 22px;border-radius:8px;font-weight:600;margin:24px 0">${ctaLabel}</a>`;
-  return `<!doctype html><body style="margin:0;background:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;color:#111">
-<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:40px 16px">
-<table width="480" cellpadding="0" cellspacing="0" style="max-width:480px;background:#fff;border-radius:12px;padding:32px;text-align:left">
-<tr><td style="font-size:14px;font-weight:600;color:${t.accent};padding-bottom:20px">${t.name}</td></tr>
-<tr><td style="font-size:22px;font-weight:600;padding-bottom:12px">${SUBJECT[type] || "Continue"}</td></tr>
-<tr><td style="font-size:15px;line-height:1.5;color:#444">${BODY[type] || ""}</td></tr>
-<tr><td>${cta}</td></tr>
-<tr><td style="font-size:12px;color:#888;line-height:1.5">This link expires in one hour. If the button does not work, copy this into your browser:<br><span style="word-break:break-all">${type === "reauthentication" ? "" : link}</span></td></tr>
-</table></td></tr></table></body>`;
+    ? `<p style="font-size:30px;letter-spacing:8px;font-weight:600;margin:28px 0">${token}</p>`
+    : `<p style="margin:28px 0"><a href="${link}" style="display:inline-block;background:${t.accent};color:${ink(t.accent)};text-decoration:none;font-weight:600;font-size:16px;padding:13px 26px;border-radius:999px">${ctaLabel}</a></p>`;
+  const fallback = type === "reauthentication" || type === "welcome" ? "" :
+    `<p class="mute" style="font-size:13px;line-height:1.55;color:#6F675C;margin:0 0 20px">This link works once and expires in one hour. If the button does not open, copy this into your browser:<br><span style="word-break:break-all">${link}</span></p>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark"><title>${title} · ${t.name}</title>
+<style>@media (prefers-color-scheme:dark){body,.bg{background:#14120F!important}.sheet{background:#1D1A16!important;border-color:#2E2A24!important}.rule{border-color:#2E2A24!important}.ink{color:#F4EEE3!important}.mute{color:#A59C8C!important}}</style></head>
+<body class="bg" style="margin:0;background:#F4EEE3;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;color:#1A1814;-webkit-font-smoothing:antialiased">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:40px 16px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="sheet" style="max-width:520px;background:#FBF8F1;border:1px solid #E2D9C6;border-radius:14px"><tr><td style="padding:36px 32px">
+<p class="ink" style="font-size:15px;font-weight:600;letter-spacing:.01em;margin:0 0 28px;color:#1A1814">${t.icon ? `<img src="${t.icon}" width="28" height="28" alt="" style="vertical-align:middle;border-radius:7px;margin-right:10px;border:0">` : ""}<span style="vertical-align:middle">${t.name}</span></p>
+<h1 class="ink" style="font-size:28px;line-height:1.15;font-weight:600;letter-spacing:-.02em;margin:0 0 14px;color:#1A1814">${title}</h1>
+<p class="ink" style="font-size:16px;line-height:1.55;margin:0;color:#1A1814">${BODY[type] || ""}</p>
+${cta}${fallback}
+<p class="mute rule" style="font-size:13px;line-height:1.55;color:#6F675C;margin:0;border-top:1px solid #E2D9C6;padding-top:18px">Sent by ${t.name}. If you did not ask for this email, you can ignore it.</p>
+</td></tr></table></td></tr></table></body></html>`;
+}
+
+function text(t, type, link, token) {
+  const body = BODY[type] || "";
+  const action = type === "reauthentication" ? token : type === "welcome" ? "" : link;
+  return `${t.name}\n\n${SUBJECT[type] || "Continue"}\n\n${body}${action ? `\n\n${action}` : ""}\n\nSent by ${t.name}. If you did not ask for this email, you can ignore it.\n`;
 }
 
 // Svix webhook verification (what Supabase auth hooks use): secret is base64
@@ -81,12 +100,41 @@ function send(env, t, type, to, link, token) {
       to: [to],
       subject: `${SUBJECT[type] || "Continue"} · ${t.name}`,
       html: html(t, type, link, token),
+      text: text(t, type, link, token),
     }),
   });
 }
 
+// Landing-page email capture → Resend audience. Plain form POST (works without JS) or fetch.
+// ponytail: honeypot + origin check, no rate limit. Add Turnstile if bots show up in the audience.
+// ponytail: one list. Joshua Tree's hardware waitlist lives in its own Worker's KV.
+const LIST = "154529c4-2064-4a20-876e-7a8269371987"; // Resend "General": new apps and updates
+const OURS = /^https:\/\/([a-z0-9-]+\.)*(heyitsmejosh\.com|jaybulb\.com|nulljosh\.github\.io)$/;
+
+async function signup(req, env) {
+  const origin = req.headers.get("origin") || "";
+  const cors = OURS.test(origin) ? { "Access-Control-Allow-Origin": origin } : {};
+  if (req.method === "OPTIONS") return new Response(null, { headers: { ...cors, "Access-Control-Allow-Methods": "POST", "Access-Control-Allow-Headers": "Content-Type" } });
+  if (!OURS.test(origin)) return new Response("bad origin", { status: 403 });
+  const f = await req.formData();
+  const email = String(f.get("email") || "").trim().toLowerCase();
+  const wantsJson = (req.headers.get("accept") || "").includes("json");
+  const done = (ok) => wantsJson
+    ? Response.json({ ok }, { status: ok ? 200 : 400, headers: cors })
+    : Response.redirect(`${req.headers.get("referer") || origin}#${ok ? "signed-up" : "signup-failed"}`, 303);
+  if (f.get("website")) return done(true); // honeypot: bots fill every field
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 254) return done(false);
+  const r = await fetch(`https://api.resend.com/audiences/${LIST}/contacts`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ email, unsubscribed: false }),
+  });
+  return done(r.ok);
+}
+
 export default {
   async fetch(req, env) {
+    if (new URL(req.url).pathname === "/signup") return signup(req, env);
     if (req.method !== "POST") return new Response("authmail", { status: 200 });
     const ref = new URL(req.url).pathname.replace(/^\/+|\/+$/g, "");
     if (!/^[a-z]{20}$/.test(ref)) return new Response("bad project", { status: 404 });
