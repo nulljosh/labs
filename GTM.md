@@ -111,6 +111,7 @@ revenue signal until PostHog or similar is added.
 | App | ASC ID | Live (verified against ASC 2026-09-01) | Price | Rail | Blocker / next action |
 |---|---|---|---|---|---|
 | Epiphany | 6779522175 | Mac 2.5.2 · **iOS 2.5.6 REJECTED** | $1 one-time (planned) | Stripe live + StoreKit | **Focus.** iOS is out of the store on 4.3(a); fix that before any paywall work |
+| Conveyer | none | web landing only | free (MIT) | none | Nothing sold yet. Next: milestone GIF on the landing. See conveyer/MONEY.md |
 | Talli | 6782366555 | iOS 3.5.14 · Mac 3.5.6 | free | Stripe live | **Focus.** One upgrade CTA (`src/api.js` → `/api/stripe-checkout`) |
 | Voxprint | 6782604262 | Mac 1.3.6 · iOS 1.3.8 staged | $1 one-time | StoreKit LIVE in 1.3.9 (iOS submitted 2026-09-09, Mac following) | watch review |
 | Lexly | 6783501611 | iOS 1.1.3 · Mac 1.1.4 · **1.1.5 REJECTED both platforms** | free | none | none planned |
