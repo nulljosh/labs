@@ -6,6 +6,7 @@
       <a href="{{ post.url }}">
         <span class="home-date">{{ post.date | date: "%m-%d" }}</span>
         {{ post.title }}
+        {% if post.description %}<span class="home-desc">{{ post.description }}</span>{% endif %}
       </a>
     </li>
   {% endfor %}

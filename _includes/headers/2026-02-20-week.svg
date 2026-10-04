@@ -1,28 +1,26 @@
-<svg class="post-header-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" width="800" height="460">
-  <rect fill="none" class="bg" width="800" height="460"/>
-  <rect class="brd" x="20" y="20" width="760" height="420" rx="12" ry="12" fill="none" stroke-width="1"/>
+<svg class="post-header-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect fill="none" class="bg" width="800" height="500"/>
+  <rect class="brd" x="20" y="20" width="760" height="460" rx="12" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
 
-  <text fill="currentColor" class="t fg" x="48" y="90" font-size="42" font-weight="300" letter-spacing="-1">Week of Feb 20</text>
-  <text fill="currentColor" class="t mut" x="48" y="126" font-size="16">OS phase 2 . nullOS boots . 30 projects licensed MIT</text>
+  <text fill="currentColor" x="48" y="90" font-size="42" font-weight="300" letter-spacing="-1">Spring</text>
+  <text fill="currentColor" x="48" y="126" font-size="16" opacity="0.6">feb to may . building my own operating system</text>
 
-  <line stroke="currentColor" fill="none" class="brd" x1="48" y1="152" x2="752" y2="152" stroke-width="1"/>
+  <line stroke="currentColor" x1="48" y1="152" x2="752" y2="152" stroke-width="1" opacity="0.25"/>
 
-  <text fill="currentColor" class="m fg" x="48" y="188" font-size="14">nullOS</text>
-  <text fill="currentColor" class="m fg" x="48" y="210" font-size="14">finterm</text>
-  <text fill="currentColor" class="m fg" x="48" y="232" font-size="14">dose</text>
-  <text fill="currentColor" class="m fg" x="48" y="254" font-size="14">tally</text>
-  <text fill="currentColor" class="m fg" x="48" y="276" font-size="14">fony</text>
-  <text fill="currentColor" class="m fg" x="48" y="298" font-size="14">arthur</text>
+  <text fill="currentColor" x="48" y="188" font-size="14" opacity="0.6">what happened</text>
 
-  <rect class="brd" x="560" y="176" width="200" height="210" rx="8" ry="8" fill="none" stroke-width="1"/>
-  <text fill="currentColor" class="m mut" x="584" y="206" font-size="12">projects</text>
-  <text fill="currentColor" class="m fg" x="584" y="232" font-size="28" font-weight="500">30</text>
-  <text fill="currentColor" class="m mut" x="584" y="266" font-size="12">ships</text>
-  <text fill="currentColor" class="m fg" x="584" y="290" font-size="14">nullOS phase 2</text>
-  <text fill="currentColor" class="m fg" x="584" y="312" font-size="14">dose v1</text>
-  <text fill="currentColor" class="m fg" x="584" y="334" font-size="14">tally BC blue</text>
-  <text fill="currentColor" class="m mut" x="584" y="360" font-size="12">window</text>
-  <text fill="currentColor" class="m fg" x="584" y="378" font-size="13">Feb 15-21</text>
+  <text fill="currentColor" x="48" y="236" font-size="14">my own operating system boots and takes commands</text>
+  <text fill="currentColor" x="48" y="258" font-size="14">trading app grew from 58 to 100 assets</text>
+  <text fill="currentColor" x="48" y="280" font-size="14">legal case app became a real Mac and iPhone app</text>
+  <text fill="currentColor" x="48" y="302" font-size="14">projects cut from thirty to ten</text>
 
-  <text fill="currentColor" class="t dim" x="48" y="422" font-size="13">2026-02-20</text>
+  <rect class="brd" x="560" y="176" width="200" height="280" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+  <text fill="currentColor" x="584" y="206" font-size="12" opacity="0.6">projects left</text>
+  <text fill="currentColor" x="584" y="238" font-size="28" font-weight="500">10</text>
+  <text fill="currentColor" x="584" y="318" font-size="12" opacity="0.6">next</text>
+  <text fill="currentColor" x="584" y="340" font-size="14">finish school plans</text>
+  <text fill="currentColor" x="584" y="362" font-size="14">keep building</text>
+  <text fill="currentColor" x="584" y="384" font-size="14">stay steady</text>
+
+  <text fill="currentColor" x="48" y="462" font-size="13" opacity="0.6">2026-05-29</text>
 </svg>

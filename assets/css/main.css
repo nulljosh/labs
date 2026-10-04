@@ -219,3 +219,5 @@ footer .nav { justify-content: center; }
 .post-nav a { color: var(--text-secondary); text-decoration: none; }
 .post-nav a:hover { color: var(--link, var(--accent)); }
 .streak { font-size: 0.85rem; color: var(--text-tertiary); margin-top: 0.25rem; }
+
+.home-desc { display: block; margin-top: 2px; font-size: 0.85rem; opacity: 0.65; line-height: 1.4; }

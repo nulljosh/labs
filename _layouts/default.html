@@ -4,10 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>
-    {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
-  </title>
-
   {%- seo -%}
   {% if page.layout == "post" %}<meta property="og:image" content="{{ site.url }}/assets/og/{{ page.path | split: "/" | last | replace: ".md", ".png" }}"><meta name="twitter:card" content="summary_large_image">{% endif %}
   {%- feed_meta -%}
