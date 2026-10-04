@@ -22,7 +22,7 @@
 | **lexly** | Gamified language learning | 6783501611 (6783501927 is a stray dupe) |
 | **litigate** | Litigation tool, private | litigate.heyitsmejosh.com |
 | **healstack** | Health/supplement tracker | healstack.heyitsmejosh.com |
-| **sparkjar** | Idea forum | sparkjar.heyitsmejosh.com |
+| **hikko** (ex-Hotaru, ex-Sparkjar, renamed 2026-10-04; Pages project still `sparkjar`) | Idea forum | hikko.heyitsmejosh.com · 6785162492 |
 | **curvely** | Equation grapher | 6794988370 |
 | **blockframe** (ex-charwork/wiretext, renamed to Block Frame / Charblock) | Unicode wireframe tool → canvas editor (product: Block Frame, ASC display: Charblock 6794988951; Xcode/bundle ID/DNS still Charwork/Wiretext; own warm-paper theme, not the shared tokens) | wiretext.heyitsmejosh.com |
 | **bookrank** | Book summaries | bookrank.heyitsmejosh.com |
@@ -38,12 +38,12 @@
 | **dream** | Dream journal, Workers AI | dream.heyitsmejosh.com |
 | **toroid** | Game of Life on a toroidal grid | toroid.heyitsmejosh.com |
 | **homeward** | Lost/found pets, web + iOS + KMP | homeward.heyitsmejosh.com |
-| **roost** | Real estate browsing, 25 languages | roost.heyitsmejosh.com |
+| **brick** (ex-roost, renamed 2026-10-04; folder and Pages project still `roost`) | Real estate browsing, 25 languages, live rental listings via /api/listings | brick.heyitsmejosh.com |
 | **numen** | Free-form calculator canvas | numen.heyitsmejosh.com |
 | **swing** | Random 1:1 video chat, Durable Object lobby | swing.heyitsmejosh.com |
 | **curbfind** | Craigslist browser, web/iOS/macOS/Android/desktop (renamed from curbside 2026-09-05, ASC 6809031662, approved and live on App Store 2026-09-10). Landing hero is the live app itself (blurred iframe), one click zooms in seamlessly, no reload | curbfind.heyitsmejosh.com |
 | **seamark** | Read values off rendered charts (npm lib) | seamark.heyitsmejosh.com |
-| **siftbox** (ASC id 6811141466, ex-Sieve) | Inbox triage tool with Gmail OAuth, spam scoring, RFC 8058 unsubscribe; web + native iOS/macOS, API + MCP, KV-backed run history | siftbox.heyitsmejosh.com |
+| **hagaki** (ASC id 6811141466, ex-Pare, ex-Siftbox, ex-Sieve, renamed 2026-10-04) | Inbox triage tool with Gmail OAuth, spam scoring, RFC 8058 unsubscribe; web + native iOS/macOS, API + MCP, KV-backed run history | hagaki.heyitsmejosh.com |
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
 | **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
 | **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.heyitsmejosh.com |
@@ -104,7 +104,7 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 
 ## Gotchas
 - `npm i <pkg> --save-dev` on a pinned dep upgrades it without telling you. Edit package.json by hand and diff the lockfile
-- Stripe is live on epiphany, healstack, sparkjar and talli. It cannot unlock in-app features under App Review. That needs IAP
+- Stripe is live on epiphany, healstack, hikko and talli. It cannot unlock in-app features under App Review. That needs IAP
 - Social sign-in is blocked on console registrations. The code is done
 - `mole clean` needs a real TTY for sudo. Run it yourself
 
@@ -114,4 +114,4 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 ## TUI rollout (2026-09-05)
 Shipped 16, each with a `tui/` + root `Package.swift` (SwiftPM target depending on rensbreur/SwiftTUI, static one-shot render, needs a real TTY): nimble, cadence, numen, wordroot, keyrate, curvely, blockframe, bookrank, quotestreak, inkpress, tripwire, sidewise, nyc, curbfind, homeward, roost.
 Three patterns used: reuse an existing Foundation-only model file as-is (nimble/QueryEngine, numen/Parser, curbfind/CraigslistAPI); a thin fetch against the live API/Function when logic lives server-side (cadence, wordroot, curvely, blockframe, bookrank, quotestreak, sidewise, tripwire); or a thin fetch against a third-party/public API when there's no backend of its own to wrap (roost→Nominatim, homeward→Supabase PostgREST directly, inkpress→its CORS proxy + Foundation's XMLParser). keyrate and nyc ported/reused static logic (score.js line-for-line; nyc's building-cost table, matching its watchOS app's own "quick-reference, not a live mirror" scope decision).
-Deliberately not done, with reasons: epiphany, talli, litigate, sparkjar, healstack, lexly (auth-gated personal/financial/health/legal data, nothing to show a stateless CLI without building a login flow); notate (on-device WhisperKit transcription needs mic input, different shape entirely); seamark, homeqi (watchOS wrapper only, real logic is JS, would need a fresh port not a reuse); bcgd (local-only business data, nothing to fetch); dream (interpretation endpoint is safety-sensitive, distress detection, and bills Workers AI per call, not something to wrap casually); swing (video chat needs a browser camera and two participants); plain (explicit prior decision against a terminal editor, see its own CLAUDE.md).
+Deliberately not done, with reasons: epiphany, talli, litigate, hikko, healstack, lexly (auth-gated personal/financial/health/legal data, nothing to show a stateless CLI without building a login flow); notate (on-device WhisperKit transcription needs mic input, different shape entirely); seamark, homeqi (watchOS wrapper only, real logic is JS, would need a fresh port not a reuse); bcgd (local-only business data, nothing to fetch); dream (interpretation endpoint is safety-sensitive, distress detection, and bills Workers AI per call, not something to wrap casually); swing (video chat needs a browser camera and two participants); plain (explicit prior decision against a terminal editor, see its own CLAUDE.md).
