@@ -3,7 +3,7 @@
   <rect class="brd" x="20" y="20" width="760" height="460" rx="12" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
 
   <text fill="currentColor" x="48" y="90" font-size="42" font-weight="300" letter-spacing="-1">Accurate</text>
-  <text fill="currentColor" x="48" y="126" font-size="16" opacity="0.6">august . checking everything for real</text>
+  <text fill="currentColor" x="48" y="126" font-size="16" opacity="0.6">august: checking everything for real</text>
 
   <line stroke="currentColor" x1="48" y1="152" x2="752" y2="152" stroke-width="1" opacity="0.25"/>
 

@@ -41,7 +41,7 @@ body {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: var(--bg2);
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
   padding: clamp(3.5rem, 9vw, 5.5rem) 0 clamp(3rem, 7vw, 4.5rem);
   text-align: center;
@@ -240,3 +240,9 @@ footer .nav { justify-content: center; }
   --color-hairline: #e3e3df; --border: #e3e3df;
   --glass-bg: rgba(252,252,251,0.92);
 }
+
+/* plain top: no drifting stripes */
+.hero::before, .hero::after { display: none; }
+
+/* phones: the commits chart is unreadable at this size, keep the summary card */
+@media (max-width: 600px) { .graph-svg { display: none; } }

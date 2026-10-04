@@ -40,7 +40,7 @@ def svg(title, start, end, by_repo, by_day):
     days = (end - start).days + 1
     t = lambda x, y, s, **k: '<text fill="currentColor" x="%d" y="%d" font-size="%s"%s>%s</text>' % (
         x, y, k.pop("size", 14), "".join(f' {a.replace("_", "-")}="{v}"' for a, v in k.items()), s)
-    o = ['<svg class="post-header-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">',
+    o = ['<svg class="post-header-svg graph-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">',
          '<rect x="20" y="20" width="760" height="380" rx="12" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>',
          t(48, 62, "work", size=14, opacity="0.6"),
          t(48, 96, "commits by project" if total else "no commits recorded", size=28, font_weight="300", letter_spacing="-0.5"),
