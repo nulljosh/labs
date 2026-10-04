@@ -1,32 +1,26 @@
 <svg class="post-header-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
 <rect x="20" y="20" width="760" height="380" rx="12" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
-<text fill="currentColor" x="48" y="62" font-size="12" opacity="0.6">work</text>
+<text fill="currentColor" x="48" y="62" font-size="14" opacity="0.6">work</text>
 <text fill="currentColor" x="48" y="96" font-size="28" font-weight="300" letter-spacing="-0.5">commits by project</text>
 <line stroke="currentColor" x1="48" y1="118" x2="752" y2="118" stroke-width="1" opacity="0.25"/>
-<a href="https://github.com/nulljosh/joshuatree"><text fill="currentColor" x="48" y="157" font-size="13">joshuatree</text></a>
+<a href="https://github.com/nulljosh/joshuatree"><text fill="currentColor" x="48" y="157" font-size="14">joshuatree</text></a>
 <rect x="150" y="146" width="340" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="498" y="157" font-size="12" opacity="0.6">564</text>
-<a href="https://github.com/nulljosh/turing"><text fill="currentColor" x="48" y="183" font-size="13">turing</text></a>
+<text fill="currentColor" x="498" y="157" font-size="14" opacity="0.6">564</text>
+<a href="https://github.com/nulljosh/turing"><text fill="currentColor" x="48" y="183" font-size="14">turing</text></a>
 <rect x="150" y="172" width="81" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="239" y="183" font-size="12" opacity="0.6">134</text>
-<a href="https://github.com/nulljosh/notes"><text fill="currentColor" x="48" y="209" font-size="13">notes</text></a>
+<text fill="currentColor" x="239" y="183" font-size="14" opacity="0.6">134</text>
+<a href="https://github.com/nulljosh/notes"><text fill="currentColor" x="48" y="209" font-size="14">notes</text></a>
 <rect x="150" y="198" width="62" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="220" y="209" font-size="12" opacity="0.6">103</text>
-<a href="https://github.com/nulljosh/dotfiles"><text fill="currentColor" x="48" y="235" font-size="13">dotfiles</text></a>
+<text fill="currentColor" x="220" y="209" font-size="14" opacity="0.6">103</text>
+<a href="https://github.com/nulljosh/dotfiles"><text fill="currentColor" x="48" y="235" font-size="14">dotfiles</text></a>
 <rect x="150" y="224" width="19" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="177" y="235" font-size="12" opacity="0.6">32</text>
-<a href="https://github.com/nulljosh/nulljosh.github.io"><text fill="currentColor" x="48" y="261" font-size="13">nulljosh.github.io</text></a>
+<text fill="currentColor" x="177" y="235" font-size="14" opacity="0.6">32</text>
+<a href="https://github.com/nulljosh/nulljosh.github.io"><text fill="currentColor" x="48" y="261" font-size="14">nulljosh.github.io</text></a>
 <rect x="150" y="250" width="17" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="175" y="261" font-size="12" opacity="0.6">28</text>
-<a href="https://github.com/nulljosh/gato"><text fill="currentColor" x="48" y="287" font-size="13">gato</text></a>
+<text fill="currentColor" x="175" y="261" font-size="14" opacity="0.6">28</text>
+<a href="https://github.com/nulljosh/gato"><text fill="currentColor" x="48" y="287" font-size="14">gato</text></a>
 <rect x="150" y="276" width="16" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="174" y="287" font-size="12" opacity="0.6">27</text>
-<a href="https://github.com/nulljosh/epiphany"><text fill="currentColor" x="48" y="313" font-size="13">epiphany</text></a>
-<rect x="150" y="302" width="14" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="172" y="313" font-size="12" opacity="0.6">24</text>
-<a href="https://github.com/nulljosh/curvely"><text fill="currentColor" x="48" y="339" font-size="13">curvely</text></a>
-<rect x="150" y="328" width="13" height="14" rx="2" fill="currentColor" opacity="0.8"/>
-<text fill="currentColor" x="171" y="339" font-size="12" opacity="0.6">21</text>
+<text fill="currentColor" x="174" y="287" font-size="14" opacity="0.6">27</text>
 <rect x="48.0" y="364" width="11.0" height="20" fill="currentColor" opacity="0.5"/>
 <rect x="60.0" y="357" width="11.0" height="27" fill="currentColor" opacity="0.5"/>
 <rect x="72.0" y="364" width="11.0" height="20" fill="currentColor" opacity="0.5"/>
@@ -35,11 +29,11 @@
 <rect x="120.0" y="383" width="11.0" height="1" fill="currentColor" opacity="0.5"/>
 <rect x="132.0" y="379" width="11.0" height="5" fill="currentColor" opacity="0.5"/>
 <rect x="144.0" y="340" width="11.0" height="44" fill="currentColor" opacity="0.5"/>
-<text fill="currentColor" x="48" y="332" font-size="11" opacity="0.6">commits per day, 9 days</text>
+<text fill="currentColor" x="48" y="332" font-size="13" opacity="0.6">commits per day, 9 days</text>
 <rect x="560" y="136" width="200" height="180" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
-<text fill="currentColor" x="584" y="166" font-size="12" opacity="0.6">commits</text>
+<text fill="currentColor" x="584" y="166" font-size="14" opacity="0.6">commits</text>
 <text fill="currentColor" x="584" y="198" font-size="28" font-weight="500">1385</text>
-<text fill="currentColor" x="584" y="232" font-size="12" opacity="0.6">projects touched</text>
+<text fill="currentColor" x="584" y="232" font-size="14" opacity="0.6">projects touched</text>
 <text fill="currentColor" x="584" y="264" font-size="28" font-weight="500">55</text>
-<text fill="currentColor" x="584" y="298" font-size="11" opacity="0.6">2026-09-12 to 2026-09-20</text>
+<text fill="currentColor" x="584" y="298" font-size="13" opacity="0.6">2026-09-12 to 2026-09-20</text>
 </svg>

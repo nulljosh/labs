@@ -7,18 +7,18 @@
 
   <line stroke="currentColor" x1="48" y1="152" x2="752" y2="152" stroke-width="1" opacity="0.25"/>
 
-  <text fill="currentColor" x="48" y="188" font-size="14" opacity="0.6">what happened</text>
+  <text fill="currentColor" x="48" y="188" font-size="16" opacity="0.6">what happened</text>
 
-  <text fill="currentColor" x="48" y="236" font-size="14">Epiphany reached the App Store</text>
-  <text fill="currentColor" x="48" y="258" font-size="14">half my apps got new names</text>
-  <text fill="currentColor" x="48" y="280" font-size="14">ten real bugs and leaks fixed</text>
-  <text fill="currentColor" x="48" y="302" font-size="14">Lexly free, Epiphany $1 unlock</text>
+  <text fill="currentColor" x="48" y="236" font-size="19">Epiphany reached the App Store</text>
+  <text fill="currentColor" x="48" y="270" font-size="19">half my apps got new names</text>
+  <text fill="currentColor" x="48" y="304" font-size="19">ten real bugs and leaks fixed</text>
+  <text fill="currentColor" x="48" y="338" font-size="19">Lexly free, Epiphany $1 unlock</text>
 
   <rect class="brd" x="560" y="176" width="200" height="280" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
-  <text fill="currentColor" x="584" y="206" font-size="12" opacity="0.6">renamed</text>
-  <text fill="currentColor" x="584" y="238" font-size="28" font-weight="500">6</text>
-  <text fill="currentColor" x="584" y="318" font-size="12" opacity="0.6">still stuck</text>
-  <text fill="currentColor" x="584" y="340" font-size="14">Apple signing for five apps</text>
+  <text fill="currentColor" x="584" y="206" font-size="14" opacity="0.6">renamed</text>
+  <text fill="currentColor" x="584" y="242" font-size="36" font-weight="500">6</text>
+  <text fill="currentColor" x="584" y="318" font-size="14" opacity="0.6">still stuck</text>
+  <text fill="currentColor" x="584" y="340" font-size="16">Apple signing</text>
 
-  <text fill="currentColor" x="48" y="462" font-size="13" opacity="0.6">2026-07-31</text>
+  <text fill="currentColor" x="48" y="462" font-size="15" opacity="0.6">2026-07-31</text>
 </svg>

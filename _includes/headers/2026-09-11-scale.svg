@@ -7,19 +7,19 @@
 
   <line stroke="currentColor" x1="48" y1="152" x2="752" y2="152" stroke-width="1" opacity="0.25"/>
 
-  <text fill="currentColor" x="48" y="188" font-size="14" opacity="0.6">what happened</text>
+  <text fill="currentColor" x="48" y="188" font-size="16" opacity="0.6">what happened</text>
 
-  <text fill="currentColor" x="48" y="236" font-size="14">30 apps live, 17 got Android versions</text>
-  <text fill="currentColor" x="48" y="258" font-size="14">taught a program to win Duolingo chess</text>
-  <text fill="currentColor" x="48" y="280" font-size="14">got my Canadian business number</text>
-  <text fill="currentColor" x="48" y="302" font-size="14">paid apps went on sale at $1</text>
+  <text fill="currentColor" x="48" y="236" font-size="19">30 apps live, 17 got Android versions</text>
+  <text fill="currentColor" x="48" y="270" font-size="19">taught a program to win Duolingo chess</text>
+  <text fill="currentColor" x="48" y="304" font-size="19">got my Canadian business number</text>
+  <text fill="currentColor" x="48" y="338" font-size="19">paid apps went on sale at $1</text>
 
   <rect class="brd" x="560" y="176" width="200" height="280" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
-  <text fill="currentColor" x="584" y="206" font-size="12" opacity="0.6">apps live</text>
-  <text fill="currentColor" x="584" y="238" font-size="28" font-weight="500">30</text>
-  <text fill="currentColor" x="584" y="318" font-size="12" opacity="0.6">next</text>
-  <text fill="currentColor" x="584" y="340" font-size="14">Product Hunt launches</text>
-  <text fill="currentColor" x="584" y="362" font-size="14">thirteen scheduled</text>
+  <text fill="currentColor" x="584" y="206" font-size="14" opacity="0.6">apps live</text>
+  <text fill="currentColor" x="584" y="242" font-size="36" font-weight="500">30</text>
+  <text fill="currentColor" x="584" y="318" font-size="14" opacity="0.6">next</text>
+  <text fill="currentColor" x="584" y="340" font-size="16">Product Hunt launches</text>
+  <text fill="currentColor" x="584" y="362" font-size="16">thirteen scheduled</text>
 
-  <text fill="currentColor" x="48" y="462" font-size="13" opacity="0.6">2026-09-12</text>
+  <text fill="currentColor" x="48" y="462" font-size="15" opacity="0.6">2026-09-12</text>
 </svg>

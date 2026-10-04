@@ -16,7 +16,7 @@ CODE = ROOT.parent
 OUT = ROOT / "_includes" / "graphs"
 FIRST_START = date(2026, 2, 20)  # first header SVG; nothing older is journaled
 SKIP = {"journal"}  # ponytail: the journal writing itself is not product work
-TOP = 8
+TOP = 6
 
 
 def commits(start, end):
@@ -42,7 +42,7 @@ def svg(title, start, end, by_repo, by_day):
         x, y, k.pop("size", 14), "".join(f' {a.replace("_", "-")}="{v}"' for a, v in k.items()), s)
     o = ['<svg class="post-header-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">',
          '<rect x="20" y="20" width="760" height="380" rx="12" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>',
-         t(48, 62, "work", size=12, opacity="0.6"),
+         t(48, 62, "work", size=14, opacity="0.6"),
          t(48, 96, "commits by project" if total else "no commits recorded", size=28, font_weight="300", letter_spacing="-0.5"),
          '<line stroke="currentColor" x1="48" y1="118" x2="752" y2="118" stroke-width="1" opacity="0.25"/>']
     top = by_repo.most_common(TOP)
@@ -50,9 +50,9 @@ def svg(title, start, end, by_repo, by_day):
     y = 146
     for name, n in top:
         w = max(4, round(340 * n / peak))
-        o += [f'<a href="https://github.com/nulljosh/{name}">' + t(48, y + 11, name, size=13) + "</a>",
+        o += [f'<a href="https://github.com/nulljosh/{name}">' + t(48, y + 11, name, size=14) + "</a>",
               f'<rect x="150" y="{y}" width="{w}" height="14" rx="2" fill="currentColor" opacity="0.8"/>',
-              t(150 + w + 8, y + 11, n, size=12, opacity="0.6")]
+              t(150 + w + 8, y + 11, n, size=14, opacity="0.6")]
         y += 26
     # daily strip: one bar per day, only worth drawing for a multi-day period
     if days > 1 and by_day:
@@ -63,11 +63,11 @@ def svg(title, start, end, by_repo, by_day):
             h = round((base - top_y) * by_day.get(d, 0) / peak_d)
             if h:
                 o.append(f'<rect x="{48 + i * bw:.1f}" y="{base - h}" width="{max(1, bw - 1):.1f}" height="{h}" fill="currentColor" opacity="0.5"/>')
-        o.append(t(48, 332, f"commits per day, {days} days", size=11, opacity="0.6"))
+        o.append(t(48, 332, f"commits per day, {days} days", size=13, opacity="0.6"))
     o += ['<rect x="560" y="136" width="200" height="180" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>',
-          t(584, 166, "commits", size=12, opacity="0.6"), t(584, 198, total, size=28, font_weight="500"),
-          t(584, 232, "projects touched", size=12, opacity="0.6"), t(584, 264, len(by_repo), size=28, font_weight="500"),
-          t(584, 298, f"{start} to {end}" if days > 1 else str(end), size=11, opacity="0.6"),
+          t(584, 166, "commits", size=14, opacity="0.6"), t(584, 198, total, size=28, font_weight="500"),
+          t(584, 232, "projects touched", size=14, opacity="0.6"), t(584, 264, len(by_repo), size=28, font_weight="500"),
+          t(584, 298, f"{start} to {end}" if days > 1 else str(end), size=13, opacity="0.6"),
           "</svg>"]
     return "\n".join(o) + "\n"
 

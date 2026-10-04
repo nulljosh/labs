@@ -7,20 +7,20 @@
 
   <line stroke="currentColor" x1="48" y1="152" x2="752" y2="152" stroke-width="1" opacity="0.25"/>
 
-  <text fill="currentColor" x="48" y="188" font-size="14" opacity="0.6">what happened</text>
+  <text fill="currentColor" x="48" y="188" font-size="16" opacity="0.6">what happened</text>
 
-  <text fill="currentColor" x="48" y="236" font-size="14">my own operating system boots and takes commands</text>
-  <text fill="currentColor" x="48" y="258" font-size="14">trading app grew from 58 to 100 assets</text>
-  <text fill="currentColor" x="48" y="280" font-size="14">legal case app became a real Mac and iPhone app</text>
-  <text fill="currentColor" x="48" y="302" font-size="14">projects cut from thirty to ten</text>
+  <text fill="currentColor" x="48" y="236" font-size="19">my own operating system boots and takes commands</text>
+  <text fill="currentColor" x="48" y="270" font-size="19">trading app grew from 58 to 100 assets</text>
+  <text fill="currentColor" x="48" y="304" font-size="19">legal case app became a real Mac and iPhone app</text>
+  <text fill="currentColor" x="48" y="338" font-size="19">projects cut from thirty to ten</text>
 
   <rect class="brd" x="560" y="176" width="200" height="280" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
-  <text fill="currentColor" x="584" y="206" font-size="12" opacity="0.6">projects left</text>
-  <text fill="currentColor" x="584" y="238" font-size="28" font-weight="500">10</text>
-  <text fill="currentColor" x="584" y="318" font-size="12" opacity="0.6">next</text>
-  <text fill="currentColor" x="584" y="340" font-size="14">finish school plans</text>
-  <text fill="currentColor" x="584" y="362" font-size="14">keep building</text>
-  <text fill="currentColor" x="584" y="384" font-size="14">stay steady</text>
+  <text fill="currentColor" x="584" y="206" font-size="14" opacity="0.6">projects left</text>
+  <text fill="currentColor" x="584" y="242" font-size="36" font-weight="500">10</text>
+  <text fill="currentColor" x="584" y="318" font-size="14" opacity="0.6">next</text>
+  <text fill="currentColor" x="584" y="340" font-size="16">finish school plans</text>
+  <text fill="currentColor" x="584" y="362" font-size="16">keep building</text>
+  <text fill="currentColor" x="584" y="384" font-size="16">stay steady</text>
 
-  <text fill="currentColor" x="48" y="462" font-size="13" opacity="0.6">2026-05-29</text>
+  <text fill="currentColor" x="48" y="462" font-size="15" opacity="0.6">2026-05-29</text>
 </svg>
