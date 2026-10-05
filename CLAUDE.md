@@ -43,7 +43,7 @@
 | **swing** | Random 1:1 video chat, Durable Object lobby | swing.heyitsmejosh.com |
 | **curbfind** | Craigslist browser, web/iOS/macOS/Android/desktop (renamed from curbside 2026-09-05, ASC 6809031662, approved and live on App Store 2026-09-10). Landing hero is the live app itself (blurred iframe), one click zooms in seamlessly, no reload | curbfind.heyitsmejosh.com |
 | **seamark** | Read values off rendered charts (npm lib) | seamark.heyitsmejosh.com |
-| **hagaki** (ASC id 6811141466, ex-Pare, ex-Siftbox, ex-Sieve, renamed 2026-10-04) | Inbox triage tool with Gmail OAuth, spam scoring, RFC 8058 unsubscribe; web + native iOS/macOS, API + MCP, KV-backed run history | hagaki.heyitsmejosh.com |
+| **mailbag** (ASC id 6811141466, ex-Hagaki, ex-Pare, ex-Siftbox, ex-Sieve, renamed 2026-10-04; store listing and the API/OAuth host `hagaki.heyitsmejosh.com` still say Hagaki until a Mailbag build is submitted) | Inbox zero in one button: machine mail into seven folders, people to the archive, nothing deleted. Rules plus a Workers AI pass; Gmail and iCloud; web + native iOS/macOS | mailbag.heyitsmejosh.com |
 | **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
 | **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
 | **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.heyitsmejosh.com |
