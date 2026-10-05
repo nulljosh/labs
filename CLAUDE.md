@@ -13,3 +13,7 @@ Hamurabi (1968) as a game you can watch. Web, Mac, iPhone, terminal. Public repo
 - A push deploys nothing. `npx wrangler deploy` ships `web/`. When web files change, bump `CACHE` in `web/play/sw.js`
 - Docs: README, `docs/ARCHITECTURE.md` (a row per file), `WHITEPAPER.md` (the rules and the math). Update them in the same commit as the code
 - No sand or beige in the art or the UI. Off-white, ink and the terracotta accent `#b5502c`
+
+## The loop
+
+Current state: `docs/LOOP-HANDOFF.md`. App Store submission loop. Signed builds ready, metadata prepared, submit held until 2026-10-05 morning to avoid spam wave. Once approved, Joshua Tree port starts.
