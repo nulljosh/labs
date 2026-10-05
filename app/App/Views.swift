@@ -120,7 +120,7 @@ struct TitleHeading: View {
     let compact: Bool
     var body: some View {
         VStack(spacing: 6) {
-            Text("Hamurabi").font(.system(size: compact ? 54 : 78, weight: .heavy)).tracking(-1)
+            Text("Hamurapi").font(.system(size: compact ? 54 : 78, weight: .heavy)).tracking(-1)
             Text("Be king for 10 years. Feed your people. Keep your crown.")
                 .font(compact ? .subheadline : .title3).foregroundStyle(Theme.muted).multilineTextAlignment(.center)
         }

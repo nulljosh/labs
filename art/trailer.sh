@@ -1,16 +1,16 @@
 #!/bin/sh
-# Records the Mac app and cuts the trailer for the landing page. Usage: art/trailer.sh <built Hamurabi.app>
+# Records the Mac app and cuts the trailer for the landing page. Usage: art/trailer.sh <built Hamurapi.app>
 # Each scene is a staged moment (HAMURABI_SHOT) left to play (HAMURABI_LIVE), with a caption laid over it.
 set -e
-APP="$1"; ROOT="$(cd "$(dirname "$0")/.." && pwd)"; T="${TMPDIR:-/tmp}/hamurabi-trailer"
+APP="$1"; ROOT="$(cd "$(dirname "$0")/.." && pwd)"; T="${TMPDIR:-/tmp}/hamurapi-trailer"
 rm -rf "$T"; mkdir -p "$T"
 FONT=/System/Library/Fonts/Supplemental/Arial\ Bold.ttf
 
 scene() {  # name, seconds, caption
-  pkill -x Hamurabi 2>/dev/null || true; sleep 0.5
-  HAMURABI_SHOT=$1 HAMURABI_LIVE=1 "$APP/Contents/MacOS/Hamurabi" >/dev/null 2>&1 &
+  pkill -x Hamurapi 2>/dev/null || true; sleep 0.5
+  HAMURABI_SHOT=$1 HAMURABI_LIVE=1 "$APP/Contents/MacOS/Hamurapi" >/dev/null 2>&1 &
   sleep 2
-  osascript -e 'tell application "System Events" to tell process "Hamurabi"
+  osascript -e 'tell application "System Events" to tell process "Hamurapi"
     set frontmost to true
     set position of window 1 to {300, 120}
     set size of window 1 to {1280, 800}
@@ -36,12 +36,12 @@ scene report 7 "Fill the barn."
 scene plague 8 "Things go wrong."
 scene card 5 "Make hard choices."
 scene over 6 "Keep your crown."
-pkill -x Hamurabi 2>/dev/null || true
+pkill -x Hamurapi 2>/dev/null || true
 
 # End card: icon, name, where to play.
 magick -size 1280x800 xc:'#f6f6f4' \( "$ROOT/web/icon.png" -filter point -resize 200x200 \) -gravity center -geometry +0-150 -composite \
-  -font "$FONT" -fill '#23262d' -pointsize 96 -annotate +0+40 "Hamurabi" \
-  -fill '#666b75' -pointsize 34 -annotate +0+130 "Free. Play now at hamurabi.heyitsmejosh.com" "$T/end.png"
+  -font "$FONT" -fill '#23262d' -pointsize 96 -annotate +0+40 "Hamurapi" \
+  -fill '#666b75' -pointsize 34 -annotate +0+130 "Play now at hamurapi.heyitsmejosh.com" "$T/end.png"
 ffmpeg -y -loglevel error -loop 1 -t 3.5 -i "$T/end.png" -r 30 -c:v libx264 -pix_fmt yuv420p -crf 20 "$T/end.mp4"
 echo "file '$T/end.mp4'" >> "$T/list.txt"
 

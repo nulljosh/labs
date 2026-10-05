@@ -1,14 +1,14 @@
 <img src="icon.svg" width="80" alt="">
 
-# Hamurabi
+# Hamurapi
 
-![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![tests](https://github.com/nulljosh/hamurabi/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/hamurabi/actions/workflows/test.yml) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fhamurabi-black?logo=github)](https://github.com/nulljosh/hamurabi)
+![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![tests](https://github.com/nulljosh/hamurapi/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/hamurapi/actions/workflows/test.yml) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fhamurapi-black?logo=github)](https://github.com/nulljosh/hamurapi)
 
-**Play it now: [hamurabi.heyitsmejosh.com](https://hamurabi.heyitsmejosh.com)**
+**Play it now: [hamurapi.heyitsmejosh.com](https://hamurapi.heyitsmejosh.com)**
 
 Be king for 10 years. Feed your people. Keep your crown.
 
-In 1968 Doug Dyment wrote a game where you rule an old city for ten years. You get 100 people, 1,000 acres and a barn of grain. Each year you choose how much land to buy, how much to feed your people and how much to plant. Then the rats, the harvest and the sickness decide how that went.
+In 1968 Doug Dyment wrote Hamurabi, a game where you rule an old city for ten years. Hamurapi is that game, drawn. You get 100 people, 1,000 acres and a barn of grain. Each year you choose how much land to buy, how much to feed your people and how much to plant. Then the rats, the harvest and the sickness decide how that went.
 
 This is that game with a city you can watch. It runs in a browser, on a Mac, on an iPhone and in a terminal.
 
@@ -32,29 +32,29 @@ Your game is saved at the start of each year. Nothing leaves your device.
 
 ## Play it
 
-On the web, open [hamurabi.heyitsmejosh.com](https://hamurabi.heyitsmejosh.com). The top of the page is the game. It works on anything with a browser: Windows, Android, Linux, an iPad. Add it to your home screen and it plays with no internet.
+On the web, open [hamurapi.heyitsmejosh.com](https://hamurapi.heyitsmejosh.com). The top of the page is the game. It works on anything with a browser: Windows, Android, Linux, an iPad. Add it to your home screen and it plays with no internet.
 
 On a Mac or iPhone, build the app:
 
 ```
-cd app && xcodegen generate && open Hamurabi.xcodeproj
+cd app && xcodegen generate && open Hamurapi.xcodeproj
 ```
 
-Pick the Hamurabi scheme and run it on My Mac or an iPhone simulator. It needs Xcode 26 or newer.
+Pick the Hamurapi scheme and run it on My Mac or an iPhone simulator. It needs Xcode 26 or newer.
 
 In a terminal:
 
 ```
-python3 hamurabi.py
+python3 hamurapi.py
 ```
 
 ## Check it
 
 ```
-python3 hamurabi.py --demo        # 200 games, nothing goes negative, bad orders are refused
+python3 hamurapi.py --demo        # 200 games, nothing goes negative, bad orders are refused
 python3 ruler.py --golden         # one number for 200 robot games: 639940
 node web/play/rules.js            # the web rules give the same number, and the story gives 390695
-cd app && xcodebuild test -scheme Hamurabi -destination platform=macOS
+cd app && xcodebuild test -scheme Hamurapi -destination platform=macOS
 node art/qa_web.mjs               # plays whole games in headless Chrome by clicking the real buttons
 ```
 

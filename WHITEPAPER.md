@@ -1,4 +1,4 @@
-# Hamurabi Technical Whitepaper
+# Hamurapi Technical Whitepaper
 
 **v1.0.0** | October 2026
 

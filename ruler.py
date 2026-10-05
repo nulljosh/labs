@@ -1,6 +1,6 @@
-"""A ruler that plays Hamurabi for an A+. Run: python3 ruler.py [seed] | --sweep | --bench | --golden"""
+"""A ruler that plays Hamurapi for an A+. Run: python3 ruler.py [seed] | --sweep | --bench | --golden"""
 import sys, time
-from hamurabi import State, SplitMix, step, check, grade, report, FOOD_PER_PERSON, ACRES_PER_PERSON
+from hamurapi import State, SplitMix, step, check, grade, report, FOOD_PER_PERSON, ACRES_PER_PERSON
 
 KNOBS = dict(gate=16, cap=19, share=6)  # tuned by sweep() over 1000 seeds
 

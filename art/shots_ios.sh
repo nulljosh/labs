@@ -4,12 +4,12 @@
 set -e
 UDID="$1"; OUT="$2"; PRE="${3:-iphone}"; shift 3 2>/dev/null || shift $#
 [ $# -eq 0 ] && set -- title card orders report plague over
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"; DD="${TMPDIR:-/tmp}/hamurabi-ios"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"; DD="${TMPDIR:-/tmp}/hamurapi-ios"
 mkdir -p "$OUT"
 xcrun simctl bootstatus "$UDID" -b >/dev/null 2>&1 || true
-( cd "$ROOT/app" && xcodegen generate >/dev/null && xcodebuild build -project Hamurabi.xcodeproj -scheme Hamurabi \
+( cd "$ROOT/app" && xcodegen generate >/dev/null && xcodebuild build -project Hamurapi.xcodeproj -scheme Hamurapi \
     -destination "platform=iOS Simulator,id=$UDID" -derivedDataPath "$DD" -quiet 2>&1 | grep -E "error:|BUILD" || true )
-APP="$DD/Build/Products/Debug-iphonesimulator/Hamurabi.app"
+APP="$DD/Build/Products/Debug-iphonesimulator/Hamurapi.app"
 xcrun simctl install "$UDID" "$APP"
 xcrun simctl status_bar "$UDID" override --time "9:41" --batteryState charged --batteryLevel 100 --cellularBars 4 --wifiBars 3 2>/dev/null || true
 # Relaunch in place for each shot. Terminating first hands the screen to whatever ran before,

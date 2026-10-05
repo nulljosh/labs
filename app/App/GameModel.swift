@@ -73,11 +73,11 @@ import SwiftUI
     var shortOfGrain: Bool { city.grain - orders.buy * city.price < city.people * foodPerPerson }
 
     var shareText: String {
-        let link = "hamurabi.heyitsmejosh.com"
-        if city.impeached { return "I got thrown out as king in year \(log.count) of Hamurabi. Can you do better? \(link)" }
+        let link = "hamurapi.heyitsmejosh.com"
+        if city.impeached { return "I got thrown out as king in year \(log.count) of Hamurapi. Can you do better? \(link)" }
         let each = city.people == 0 ? "nobody left" : String(format: "%.1f acres each", Double(city.acres) / Double(city.people))
         let what = mode == .daily ? "played today's game" : "was king for 10 years"
-        return "I \(what) in Hamurabi and got \(grade(city).rawValue). \(fmt(city.starvedTotal)) starved, \(each). \(link)"
+        return "I \(what) in Hamurapi and got \(grade(city).rawValue). \(fmt(city.starvedTotal)) starved, \(each). \(link)"
     }
 
     /// What the scene draws for the current phase.

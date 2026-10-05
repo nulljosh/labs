@@ -1,9 +1,9 @@
 import XCTest
-@testable import Hamurabi
+@testable import Hamurapi
 
-final class HamurabiTests: XCTestCase {
+final class HamurapiTests: XCTestCase {
     private func scratch() -> UserDefaults {
-        let d = UserDefaults(suiteName: "hamurabi.test")!; d.removePersistentDomain(forName: "hamurabi.test"); return d
+        let d = UserDefaults(suiteName: "hamurapi.test")!; d.removePersistentDomain(forName: "hamurapi.test"); return d
     }
 
     // MARK: the rules

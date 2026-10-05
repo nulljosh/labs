@@ -1,4 +1,4 @@
-// The rules of Hamurabi for the web game. Mirrors app/App/Game.swift, Ruler.swift, Story.swift and hamurabi.py.
+// The rules of Hamurapi for the web game. Mirrors app/App/Game.swift, Ruler.swift, Story.swift and hamurapi.py.
 // `node web/play/rules.js` plays 200 reigns and checks the total against the Swift and Python ports.
 const YEARS = 10, FOOD = 20, TEND = 10;
 const M = (1n << 64n) - 1n;

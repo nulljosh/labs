@@ -12,7 +12,7 @@ Everything else sits on top of the rules: the story, the robot king, the drawn c
 
 | File | What it owns |
 |---|---|
-| `hamurabi.py` | The rules in Python: `check()` refuses bad orders, `step()` plays a year, `grade()` scores the reign. Also the terminal game and the `--demo` self-check. |
+| `hamurapi.py` | The rules in Python: `check()` refuses bad orders, `step()` plays a year, `grade()` scores the reign. Also the terminal game and the `--demo` self-check. |
 | `ruler.py` | The robot king. Three tuned knobs, the sweep that tuned them, `--bench` and `--golden`. |
 | `app/App/Game.swift` | The same rules in Swift, plus the three difficulty levels. |
 | `app/App/Ruler.swift` | The same robot in Swift. The demo and the tests use it. |
@@ -38,9 +38,9 @@ Everything else sits on top of the rules: the story, the robot king, the drawn c
 | `app/App/Sprites.swift` | Loads the sprite images by name. |
 | `app/App/Theme.swift` | Colours, button styles, the glass panels. |
 | `app/App/Feel.swift` | Music, sound effects and haptics. |
-| `app/App/HamurabiApp.swift` | The app's one window. |
-| `app/Hamurabi.icon` | The Icon Composer icon, in three layers. Built by `art/build.py`. |
-| `app/Tests/HamurabiTests.swift` | The rules, the two golden numbers, the benchmarks, saving, the story, every sprite and sound. |
+| `app/App/HamurapiApp.swift` | The app's one window. |
+| `app/Hamurapi.icon` | The Icon Composer icon, in three layers. Built by `art/build.py`. |
+| `app/Tests/HamurapiTests.swift` | The rules, the two golden numbers, the benchmarks, saving, the story, every sprite and sound. |
 | `app/project.yml` | The xcodegen spec: one app for iOS 17 and macOS 14, one test bundle. |
 
 ## The web game and the site
@@ -55,7 +55,7 @@ Everything else sits on top of the rules: the story, the robot king, the drawn c
 | `web/play/manifest.webmanifest`, `sw.js` | Make the web game installable and playable with no internet. |
 | `web/privacy.html` | The privacy page the store listing links to. |
 | `web/trailer.mp4`, `web/shots/` | The trailer and screenshots on the landing page. |
-| `wrangler.toml` | Serves `web/` at hamurabi.heyitsmejosh.com. Deploy with `npx wrangler deploy`. |
+| `wrangler.toml` | Serves `web/` at hamurapi.heyitsmejosh.com. Deploy with `npx wrangler deploy`. |
 
 ## The App Store
 
@@ -64,7 +64,7 @@ Everything else sits on top of the rules: the story, the robot king, the drawn c
 | `metadata/` | The store name, subtitle, description and keywords. |
 | `screenshots/iphone`, `screenshots/mac` | The store screenshots, taken by the two scripts in `art/`. |
 | `.asc/workflow.json` | `asc workflow run ship-ios VERSION:x.y.z`, then `ship-mac`. |
-| `app/ExportOptions-*.plist`, `app/Hamurabi-macOS.entitlements` | Signing and the Mac sandbox. |
+| `app/ExportOptions-*.plist`, `app/Hamurapi-macOS.entitlements` | Signing and the Mac sandbox. |
 
 ## The art
 

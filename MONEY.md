@@ -1,6 +1,6 @@
-# Hamurabi Money
+# Hamurapi Money
 
-How Hamurabi makes money. The fleet-wide ledger is `GTM.md` in the Code root.
+How Hamurapi makes money. The fleet-wide ledger is `GTM.md` in the Code root.
 
 ## Price
 

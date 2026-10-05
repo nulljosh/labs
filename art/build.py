@@ -297,7 +297,7 @@ def write_icon():
               "Ziggurat": lambda x, y: y < 54 and zig(x, y), "Wheat": lambda x, y: y >= 54}
     def sky(y): k = y / 63; return (int(13 + 20 * k), int(18 + 26 * k), int(32 + 44 * k))
     def zig(x, y): return any(a <= x < a + w and b <= y < b + h for a, b, w, h in ((7, 44, 50, 10), (14, 34, 36, 10), (21, 24, 22, 10), (26, 14, 12, 10)))
-    bundle = os.path.join(ROOT, "app/Hamurabi.icon"); shutil.rmtree(bundle, ignore_errors=True); os.makedirs(os.path.join(bundle, "Assets"))
+    bundle = os.path.join(ROOT, "app/Hamurapi.icon"); shutil.rmtree(bundle, ignore_errors=True); os.makedirs(os.path.join(bundle, "Assets"))
     for name, keep in layers.items():
         layer = Image.new("RGBA", (64, 64), (0, 0, 0, 0))
         for (x, y), c in px.items():

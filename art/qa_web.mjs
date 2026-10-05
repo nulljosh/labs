@@ -4,7 +4,7 @@
 import { spawn } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 
-const BASE = process.argv[2] || "http://localhost:8765", OUT = process.argv[3] || "/tmp/hamurabi-qa";
+const BASE = process.argv[2] || "http://localhost:8765", OUT = process.argv[3] || "/tmp/hamurapi-qa";
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", PORT = 9333;
 mkdirSync(OUT, { recursive: true });
 const chrome = spawn(CHROME, ["--headless=new", `--remote-debugging-port=${PORT}`, "--disable-gpu", "--hide-scrollbars", "--mute-audio",
@@ -117,7 +117,7 @@ try {
     if (info.wide) problems.push(`landing ${name}: page scrolls sideways`);
     if (!info.game || !info.canvas) problems.push(`landing ${name}: the game at the top did not start`);
     if (info.top > 1 || info.tall < 500) problems.push(`landing ${name}: the game is not the top of the page`);
-    for (const need of ["github.com/nulljosh/hamurabi", "/play/", "LICENSE"]) if (!info.links.some(l => l.includes(need))) problems.push(`landing: no link to ${need}`);
+    for (const need of ["github.com/nulljosh/hamurapi", "/play/", "LICENSE"]) if (!info.links.some(l => l.includes(need))) problems.push(`landing: no link to ${need}`);
     await p.shot(`landing-${name}`); await p.shot(`landing-${name}-full`, true);
     console.log(`  landing ${name}: game ${Math.round(info.tall)}px tall`);
   }

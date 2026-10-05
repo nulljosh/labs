@@ -1,4 +1,4 @@
-"""Hamurabi (1968): rule Sumeria for 10 years. Run: python3 hamurabi.py [--demo]"""
+"""Hamurapi, the 1968 game Hamurabi: rule Sumeria for 10 years. Run: python3 hamurapi.py [--demo]"""
 import random, sys
 from dataclasses import dataclass
 
@@ -35,7 +35,7 @@ def check(s, buy, feed, plant):
     if buy < 0 and -buy > s.acres: return "You don't own that much land."
     if cost > s.grain: return "Not enough grain to buy that land."
     left = s.grain - cost
-    if feed < 0 or plant < 0: return "Hamurabi, think again."
+    if feed < 0 or plant < 0: return "Hamurapi, think again."
     if feed > left: return "Not enough grain to feed that much."
     if plant > s.acres + buy: return "You don't own that much land."
     if plant > left - feed: return "Not enough grain for seed."

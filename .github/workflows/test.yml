@@ -17,10 +17,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-      - run: python3 hamurabi.py --demo
+      - run: python3 hamurapi.py --demo
       - name: QA, scripted reign plays a year then gets impeached
         run: |
-          printf '0\n2000\n800\n0\n0\n0\n' | python3 hamurabi.py > out.txt
+          printf '0\n2000\n800\n0\n0\n0\n' | python3 hamurapi.py > out.txt
           cat out.txt
           grep -Eq "term is over|impeached" out.txt
       - name: QA, the ruler still earns an A+
@@ -43,7 +43,7 @@ jobs:
       - name: Swift tests, including both golden numbers
         run: |
           cd app && xcodegen generate
-          xcodebuild test -project Hamurabi.xcodeproj -scheme Hamurabi -destination platform=macOS CODE_SIGNING_ALLOWED=NO | tail -30
+          xcodebuild test -project Hamurapi.xcodeproj -scheme Hamurapi -destination platform=macOS CODE_SIGNING_ALLOWED=NO | tail -30
 
   docs:
     runs-on: ubuntu-latest
