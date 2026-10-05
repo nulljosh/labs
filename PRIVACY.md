@@ -1,17 +1,20 @@
 # Hamurabi Privacy Policy
 
-*Last updated September 2026*
+*Last updated October 2026*
 
-Hamurabi is a text game. It doesn't want your data, and it collects as little as it can.
+Hamurabi is a game. It doesn't want your data and it doesn't collect any.
 
 ## What leaves your device
-- Nothing. It runs in your terminal and never touches the network.
+Nothing. The game runs on your device and works with no internet. There are no accounts, no ads and no trackers.
 
-## What we never do
-No ads. No selling data. No tracking cookies.
+## What stays on your device
+Your best grade, your settings and your game in progress. The app keeps them in its own storage. The web game keeps them in your browser. Delete the app or clear the site's data and they are gone.
+
+## The website
+hamurabi.heyitsmejosh.com is served by Cloudflare, which counts page views without cookies and without knowing who you are.
 
 ## Kids
-Hamurabi isn't aimed at children under 13 and doesn't knowingly collect anything from them.
+There is nothing here to collect from anyone, of any age.
 
 ## Contact
 Questions: trommatic@icloud.com

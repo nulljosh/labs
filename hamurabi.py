@@ -4,6 +4,20 @@ from dataclasses import dataclass
 
 YEARS, FOOD_PER_PERSON, ACRES_PER_PERSON = 10, 20, 10
 
+class SplitMix:
+    """SplitMix64. The app and the web game use the same one, so a seed means the same reign everywhere."""
+    M = (1 << 64) - 1
+    def __init__(self, seed): self.x = seed & self.M
+    def next(self):
+        self.x = (self.x + 0x9E3779B97F4A7C15) & self.M
+        z = self.x
+        z = ((z ^ (z >> 30)) * 0xBF58476D1CE4E5B9) & self.M
+        z = ((z ^ (z >> 27)) * 0x94D049BB133111EB) & self.M
+        return z ^ (z >> 31)
+    def randint(self, a, b): return a + self.next() % (b - a + 1)
+    def choice(self, xs): return xs[self.next() % len(xs)]
+    def random(self): return (self.next() >> 11) / (1 << 53)
+
 @dataclass
 class State:
     year: int = 1
@@ -72,7 +86,8 @@ def ask(prompt):
         except ValueError: print("Enter a whole number.")
         except EOFError: sys.exit()
 
-def play(rng=random.Random()):
+def play(rng=None):
+    rng = rng or SplitMix(random.getrandbits(64))
     s = State()
     print("HAMURABI: rule wisely for 10 years.")
     while not s.over:
@@ -91,7 +106,7 @@ def play(rng=random.Random()):
 def demo():
     # ponytail: seeded auto-player asserting invariants; replace with pytest if it grows
     for seed in range(200):
-        rng, s = random.Random(seed), State()
+        rng, s = SplitMix(seed), State()
         while not s.over:
             feed = min(s.grain, s.people * FOOD_PER_PERSON)
             plant = min(s.acres, s.people * ACRES_PER_PERSON, s.grain - feed)

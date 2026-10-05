@@ -1,9 +1,15 @@
 # hamurabi
 
-Hamurabi (1968) in Python, stdlib only, terminal game. Local folder, public repo `nulljosh/hamurabi`. No deploy yet.
+Hamurabi (1968) as a game you can watch. Web, Mac, iPhone, terminal. Public repo `nulljosh/hamurabi`, live at hamurabi.heyitsmejosh.com.
 
-- `hamurabi.py` holds the rules: `check()` refuses bad orders, `step()` plays a year, `grade()` scores the reign. Keep the terminal loop dumb
-- `ruler.py` is the robot player. Its three knobs in `KNOBS` came from `--sweep`; rerun the sweep if the rules change
-- Test before pushing: `python3 hamurabi.py --demo && python3 ruler.py 8 | tail -1`, CI runs the same plus a README link check
-- Docs: README (house voice, prose), `docs/ARCHITECTURE.md` (a row per file), `WHITEPAPER.md` (the math). Update them in the same commit as the code
-- No em dashes anywhere
+- The rules exist three times: `hamurabi.py`, `app/App/Game.swift`, `web/play/rules.js`. Change all three together. Two golden numbers prove they agree (639940 robot, 390695 story). If you change a rule, the dice order or the robot's knobs, recompute both and update every place they appear: `ruler.py --golden`, `rules.js` (GOLDEN, STORY_GOLDEN), `HamurabiTests.swift`, the CI workflow, README, WHITEPAPER
+- Never use a language's own random functions in the rules. Use the SplitMix draws (`int`, `chance`). Today's game depends on one seed meaning one game everywhere
+- `ruler.py` is the robot. `KNOBS` came from `--sweep`; rerun it if the rules change and copy the knobs to `Ruler.swift` and `rules.js`
+- The scene is drawn twice: `app/App/Scene.swift` and `web/play/scene.js`. They are meant to match line for line. Change both
+- Art is code. `python3 art/build.py` draws every sprite and the icon and copies `art/story.json` into the app and the web. `uv run --with numpy art/make_audio.py` writes the sounds. Never hand-edit files under `app/App/Sprites`, `web/play/sprites.*`, `app/Hamurabi.icon` or the two `story.json` copies
+- Every word of the story lives in `art/story.json`. Plain words, short sentences, no em dashes
+- `app/` is xcodegen (`xcodegen generate`, no checked-in xcodeproj). Staged screenshots: launch with `HAMURABI_SHOT=title|card|orders|report|plague|over`
+- Test before pushing: `python3 hamurabi.py --demo && node web/play/rules.js && (cd app && xcodebuild test -scheme Hamurabi -destination platform=macOS)`. For anything on the web, also `node art/qa_web.mjs` with `python3 -m http.server 8765 --directory web` running
+- A push deploys nothing. `npx wrangler deploy` ships `web/`
+- Docs: README, `docs/ARCHITECTURE.md` (a row per file), `WHITEPAPER.md` (the rules and the math). Update them in the same commit as the code
+- No sand or beige in the art or the UI. Off-white, ink and the terracotta accent `#b5502c`

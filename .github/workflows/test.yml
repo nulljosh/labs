@@ -26,6 +26,24 @@ jobs:
       - name: QA, the ruler still earns an A+
         run: |
           python3 ruler.py 8 | tail -1 | grep -q "Grade: A+"
+      - name: The Python rules give the golden number
+        run: test "$(python3 ruler.py --golden)" = 639940
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: The web rules give the same numbers, robot and story
+        run: node web/play/rules.js
+
+  app:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install xcodegen
+      - name: Swift tests, including both golden numbers
+        run: |
+          cd app && xcodegen generate
+          xcodebuild test -project Hamurabi.xcodeproj -scheme Hamurabi -destination platform=macOS CODE_SIGNING_ALLOWED=NO | tail -30
 
   docs:
     runs-on: ubuntu-latest
