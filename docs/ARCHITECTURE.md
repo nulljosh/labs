@@ -52,8 +52,19 @@ Everything else sits on top of the rules: the story, the robot king, the drawn c
 | `web/play/scene.js` | Draws the city on a canvas. A line-for-line port of `Scene.swift`. |
 | `web/play/sprites.png`, `sprites.json` | Every sprite on one sheet, and where each one sits. |
 | `web/play/audio/` | The music and the sounds. |
+| `web/play/manifest.webmanifest`, `sw.js` | Make the web game installable and playable with no internet. |
+| `web/privacy.html` | The privacy page the store listing links to. |
 | `web/trailer.mp4`, `web/shots/` | The trailer and screenshots on the landing page. |
 | `wrangler.toml` | Serves `web/` at hamurabi.heyitsmejosh.com. Deploy with `npx wrangler deploy`. |
+
+## The App Store
+
+| File | What it owns |
+|---|---|
+| `metadata/` | The store name, subtitle, description and keywords. |
+| `screenshots/iphone`, `screenshots/mac` | The store screenshots, taken by the two scripts in `art/`. |
+| `.asc/workflow.json` | `asc workflow run ship-ios VERSION:x.y.z`, then `ship-mac`. |
+| `app/ExportOptions-*.plist`, `app/Hamurabi-macOS.entitlements` | Signing and the Mac sandbox. |
 
 ## The art
 

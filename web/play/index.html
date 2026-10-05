@@ -6,6 +6,10 @@
 <title>Hamurabi</title>
 <meta name="description" content="Be king for 10 years. Feed your people. Keep your crown. The 1968 game, rebuilt with a living city.">
 <link rel="icon" href="../icon.png">
+<link rel="apple-touch-icon" href="../icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f6f6f4">
+<meta name="mobile-web-app-capable" content="yes">
 <script>if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed');if(/[?&]shot=/.test(location.search))document.documentElement.classList.add('still')</script>
 <style>
 :root{--ink:#23262d;--muted:#666b75;--accent:#b5502c;--sky:#f6f6f4}
@@ -96,7 +100,7 @@ let STORY = null;
 
 const Snd = {
   cache: {}, gen: 0, muted: store.get("muted", false), musicOff: store.get("musicOff", false), silent: params.has("shot"),
-  el(n) { return this.cache[n] ??= Object.assign(new Audio(`audio/${n}.mp3`), n === "music" ? { loop: true, volume: 0.32 } : {}); },
+  el(n) { return this.cache[n] ??= Object.assign(new Audio(`audio/${n}.mp3`), n === "music" ? { loop: true, volume: 0.5 } : {}); },
   music() { if (this.silent) return; if (this.muted || this.musicOff) this.el("music").pause(); else this.el("music").play().catch(() => {}); },
   play(n, after = 0) {
     if (this.muted || this.silent) return;
@@ -445,6 +449,7 @@ function frame(now) {
   paintScene($("#scene"), snapshot(), now, innerWidth < 700 ? 340 : 200, REDUCE);
   requestAnimationFrame(frame);
 }
+if ("serviceWorker" in navigator && !params.has("shot")) navigator.serviceWorker.register("sw.js").catch(() => {});  // offline play, and installable
 Promise.all([fetch("story.json").then(r => r.json()), loadSprites()]).then(([story]) => {
   STORY = story;
   if (params.has("shot")) stage(params.get("shot")); else render();

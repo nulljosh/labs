@@ -12,9 +12,11 @@ xcrun simctl bootstatus "$UDID" -b >/dev/null 2>&1 || true
 APP="$DD/Build/Products/Debug-iphonesimulator/Hamurabi.app"
 xcrun simctl install "$UDID" "$APP"
 xcrun simctl status_bar "$UDID" override --time "9:41" --batteryState charged --batteryLevel 100 --cellularBars 4 --wifiBars 3 2>/dev/null || true
+# Relaunch in place for each shot. Terminating first hands the screen to whatever ran before,
+# and the next launch then carries a "back to that app" link in the status bar.
+xcrun simctl launch --terminate-running-process "$UDID" com.nulljosh.hamurabi >/dev/null; sleep 2
 for shot in "$@"; do
-  xcrun simctl terminate "$UDID" com.nulljosh.hamurabi 2>/dev/null || true
-  SIMCTL_CHILD_HAMURABI_SHOT=$shot xcrun simctl launch "$UDID" com.nulljosh.hamurabi >/dev/null
+  SIMCTL_CHILD_HAMURABI_SHOT=$shot xcrun simctl launch --terminate-running-process "$UDID" com.nulljosh.hamurabi >/dev/null
   sleep 4
   xcrun simctl io "$UDID" screenshot "$OUT/$PRE-$shot.png" 2>/dev/null
 done

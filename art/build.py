@@ -290,6 +290,7 @@ def write_icon():
     im = Image.new("RGB", (64, 64))
     for (x, y), c in px.items(): im.putpixel((x, y), c)
     im.resize((1024, 1024), Image.NEAREST).save(os.path.join(ROOT, "web/icon.png"))
+    im.resize((192, 192), Image.NEAREST).save(os.path.join(ROOT, "web/icon-192.png"))  # home screen icon for the web game
     # Icon Composer bundle for the app: the same picture split into layers, so the system can light each one.
     # Xcode builds every icon size from it.
     layers = {"Sun": lambda x, y: y < 54 and not zig(x, y) and px[(x, y)] != sky(y),

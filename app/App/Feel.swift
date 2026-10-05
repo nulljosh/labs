@@ -33,7 +33,7 @@ final class Sound {
 
     func startMusic() {
         guard !muted, !musicOff, !silent, let m = player("music") else { return }
-        m.numberOfLoops = -1; m.volume = 0.32
+        m.numberOfLoops = -1; m.volume = 0.5
         m.play()
     }
 

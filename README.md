@@ -24,13 +24,15 @@ Three ways to play. A new game has the story and three levels: easy, normal, har
 
 A robot king. It plays a whole game while you watch, and it earns an A+ in 878 of 1,000 games. Beat it.
 
-Music and sound made by a short program. No recordings. One switch turns it off.
+Music and sound made by a short program: a slow lo-fi loop, and effects tuned to the same key. No recordings. One switch turns it off.
 
 Your game is saved at the start of each year. Nothing leaves your device.
 
+<img src="screenshots/iphone/05-over.png" width="240" alt="An A plus ending on iPhone"> <img src="screenshots/iphone/04-plague.png" width="240" alt="A sickness passing through the city"> <img src="screenshots/iphone/03-card.png" width="240" alt="A story card with two choices">
+
 ## Play it
 
-On the web, open [hamurabi.heyitsmejosh.com](https://hamurabi.heyitsmejosh.com). The top of the page is the game.
+On the web, open [hamurabi.heyitsmejosh.com](https://hamurabi.heyitsmejosh.com). The top of the page is the game. It works on anything with a browser: Windows, Android, Linux, an iPad. Add it to your home screen and it plays with no internet.
 
 On a Mac or iPhone, build the app:
 
