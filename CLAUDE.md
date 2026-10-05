@@ -16,4 +16,4 @@ Hamurapi is Hamurabi (1968) as a game you can watch. The store name Hamurabi was
 
 ## The loop
 
-Current state: `docs/LOOP-HANDOFF.md`. App Store submission loop. Signed builds ready, metadata prepared, submit held until 2026-10-05 morning to avoid spam wave. Once approved, Joshua Tree port starts.
+Current state and next steps: `docs/LOOP-HANDOFF.md`.
