@@ -48,6 +48,6 @@ echo "file '$T/end.mp4'" >> "$T/list.txt"
 ffmpeg -y -loglevel error -f concat -safe 0 -i "$T/list.txt" -c copy "$T/silent.mp4"
 LEN=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$T/silent.mp4")
 ffmpeg -y -loglevel error -i "$T/silent.mp4" -stream_loop -1 -i "$ROOT/web/play/audio/music.mp3" -t "$LEN" \
-  -af "afade=t=in:d=0.5,afade=t=out:st=$(echo "$LEN - 2" | bc):d=2" -c:v copy -c:a aac -b:a 96k -movflags +faststart "$ROOT/web/trailer.mp4"
+  -af "afade=t=in:d=0.5,afade=t=out:st=$(echo "$LEN - 2" | bc):d=2" -c:v copy -c:a aac -b:a 128k -movflags +faststart "$ROOT/web/trailer.mp4"
 ffmpeg -y -loglevel error -ss 6 -i "$ROOT/web/trailer.mp4" -frames:v 1 -vf scale=1200:-2 "$ROOT/web/og.png"
 ls -la "$ROOT/web/trailer.mp4" | awk '{print $5, "bytes"}'; echo "length $LEN s"

@@ -5,3 +5,5 @@ app/build/
 art/sheet.png
 *.wav
 .wrangler/
+.asc/artifacts/
+.asc/signing/

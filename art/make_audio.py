@@ -4,8 +4,7 @@ import os, subprocess, wave
 import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SR = 22050
-# D Phrygian dominant, the scale a lyre in Ur might have been tuned near
+SR = 44100
 N = dict(D2=73.42, G2=98.0, A2=110.0, D3=146.83, Eb3=155.56, A3=220.0, D4=293.66, Eb4=311.13, Fs4=369.99, G4=392.0,
          A4=440.0, Bb4=466.16, C5=523.25, D5=587.33, Eb5=622.25, Fs5=739.99, A5=880.0, D6=1174.66)
 
@@ -37,26 +36,70 @@ def mix(total, parts):
         if n > 0: out[i:i + n] += snd[:n] * vol
     return out
 
+# ---- the music: a slow lo-fi loop. Kalimba over jazzy chords, a soft pad, a round bass, a quiet beat.
+NOTE = {n: 440 * 2 ** ((i - 57) / 12) for i, n in enumerate(f"{k}{o}" for o in range(8) for k in ("C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"))}
+
+def kalimba(hz, secs, vel=1.0):
+    x = t(secs)
+    body = np.sin(2 * np.pi * hz * x) * np.exp(-x * 3.2) + 0.35 * np.sin(2 * np.pi * hz * 2 * x) * np.exp(-x * 6)
+    tine = 0.22 * np.sin(2 * np.pi * hz * 5.4 * x) * np.exp(-x * 30)  # the bright tick of the tine
+    return fade(body + tine, 0.002, 0.08) * vel
+def pad(freqs, secs):
+    x = t(secs); out = 0
+    for i, hz in enumerate(freqs):  # each note is three slightly detuned sines, so the chord shimmers
+        out = out + sum(np.sin(2 * np.pi * hz * d * x + i) for d in (0.997, 1.0, 1.004)) / 3
+    return fade(out / len(freqs) * (0.9 + 0.1 * np.sin(2 * np.pi * 0.2 * x)), 0.7, 0.9)
+def bass(hz, secs):
+    x = t(secs); return fade(np.tanh(1.6 * (np.sin(2 * np.pi * hz * x) + 0.25 * np.sin(4 * np.pi * hz * x))) * np.exp(-x * 1.1), 0.01, 0.08)
+def ocarina(hz, secs):
+    x = t(secs); vib = hz * (1 + 0.005 * np.sin(2 * np.pi * 5.2 * x) * np.minimum(1, x / 0.3))
+    return fade(np.sin(2 * np.pi * np.cumsum(vib) / SR) + 0.12 * np.sin(4 * np.pi * np.cumsum(vib) / SR), 0.05, 0.12)
+def kick(secs=0.28):
+    x = t(secs); return fade(np.sin(2 * np.pi * (48 * x + 70 / 22 * (1 - np.exp(-22 * x)))) * np.exp(-x * 11), 0.002, 0.05)
+def shaker(secs=0.07):
+    n = np.random.default_rng(3).uniform(-1, 1, int(secs * SR)); n = np.diff(n, prepend=0)  # differencing leaves the hiss
+    return fade(n * np.exp(-t(secs) * 55), 0.004, 0.02)
+
+def comb(x, delay, gain):
+    y = x.copy()
+    for k in range(delay, len(x), delay): y[k:k + delay] += gain * y[k - delay:k][: len(y[k:k + delay])]
+    return y
+def reverb(x, seed):
+    """A small room: four feedback delays of unrelated lengths, summed. Different lengths per ear."""
+    return sum(comb(x, int(SR * d), 0.72) for d in np.array([0.0297, 0.0371, 0.0411, 0.0437]) * (1 + 0.035 * seed)) / 4
+
 def music():
-    beat = 60 / 76; e = beat / 2; bar = 4 * beat
-    A = [("A4", 2), ("G4", 1), ("Fs4", 1), ("G4", 2), ("A4", 2), ("Bb4", 1), ("A4", 1), ("G4", 1), ("Fs4", 1), ("Eb4", 2), ("D4", 2)]
-    A2 = [("A4", 2), ("G4", 1), ("Fs4", 1), ("G4", 2), ("A4", 2), ("C5", 1), ("Bb4", 1), ("A4", 1), ("G4", 1), ("A4", 4)]
-    B = [("D5", 2), ("C5", 1), ("Bb4", 1), ("A4", 2), ("G4", 2), ("Bb4", 1), ("A4", 1), ("G4", 1), ("Fs4", 1), ("G4", 2), ("Fs4", 2)]
-    C = [("Eb4", 2), ("Fs4", 1), ("G4", 1), ("A4", 2), ("G4", 1), ("Fs4", 1), ("Eb4", 2), ("D4", 6)]
-    parts = []
-    for rep in range(2):
-        at = rep * 8 * bar
-        for name, units in A + A2 + B + C:
-            parts.append((at, pluck(N[name], units * e + 0.5), 0.34))
-            if rep == 1 and units >= 2: parts.append((at, flute(N[name] * 2, units * e), 0.07))  # second pass: a reed pipe joins
-            at += units * e
-    for i, root in enumerate(["D2"] * 8 + ["G2"] * 2 + ["D2"] * 2 + ["A2"] * 2 + ["D2"] * 2):
-        parts.append((i * bar, drone(N[root], bar + 0.3), 0.16))
-        if i >= 2:  # frame drum comes in after two bars: dum tek . tek dum . tek .
-            for k, hit in enumerate("DT.TD.T."):
-                if hit == "D": parts.append((i * bar + k * e, dum(), 0.5))
-                if hit == "T": parts.append((i * bar + k * e, tek(), 0.16))
-    return mix(16 * bar, parts)[: int(16 * bar * SR)]
+    beat = 60 / 84; e = beat / 2; bar = 4 * beat; swing = 0.09 * beat
+    chords = [("A2", ["A3", "C4", "E4", "G4"]), ("F2", ["A3", "C4", "E4", "F4"]), ("C3", ["G3", "B3", "C4", "E4"]), ("G2", ["G3", "A3", "B3", "D4"])]
+    # the tune, two bars to a line: (note, beats). A minor pentatonic, so it sits on every chord.
+    tune = [("E5", 1.5), ("D5", .5), ("C5", 1), ("A4", 1), ("C5", 1.5), ("D5", .5), ("C5", 1), ("A4", 1),
+            ("E5", 1), ("G5", 1), ("E5", 1), ("D5", 1), ("D5", 2), ("B4", 1), ("G4", 1),
+            ("A5", 1.5), ("G5", .5), ("E5", 1), ("C5", 1), ("D5", 1), ("C5", 1), ("A4", 2),
+            ("C5", 1), ("E5", 1), ("G5", 1), ("E5", 1), ("D5", 2), ("E5", 2)]
+    dry, wet = [], []
+    for i in range(16):
+        at = i * bar; root, notes = chords[i % 4]
+        wet.append((at, pad([NOTE[n] for n in notes], bar + 0.6), 0.20))
+        dry.append((at, bass(NOTE[root], beat * 2.5), 0.50)); dry.append((at + beat * 2.5, bass(NOTE[root], beat * 1.2), 0.32))
+        up = [NOTE[n] * 2 for n in notes]
+        for k, step in enumerate((0, 2, 3, 2, 1, 2, 3, 1) if i % 2 == 0 else (0, 1, 2, 3, 2, 1, 3, 2)):  # the kalimba walks the chord
+            if i < 2 and k % 2: continue  # the first two bars are sparse, so the loop breathes when it comes round
+            wet.append((at + k * e + (swing if k % 2 else 0), kalimba(up[step], 1.4, 0.75 + 0.25 * ((k * 7 + i * 3) % 4) / 3), 0.20))
+        if i >= 2:
+            for k in (0, 2): dry.append((at + k * beat, kick(), 0.55))
+            for k in range(8):
+                if k % 2: dry.append((at + k * e + swing, shaker(), 0.10 + 0.05 * (k % 4 == 3)))
+    at = 8 * bar  # the ocarina takes the second half
+    for name, beats in tune:
+        wet.append((at, ocarina(NOTE[name], beats * beat * 0.95), 0.16)); at += beats * beat
+    n = int(16 * bar * SR)
+    d, w = mix(32 * bar, dry + [(a + 16 * bar, s, v) for a, s, v in dry]), mix(32 * bar, wet + [(a + 16 * bar, s, v) for a, s, v in wet])
+    out = []
+    for seed in (0, 1):  # left, right
+        room = reverb(w, seed)
+        full = d + w * 0.8 + room * 0.55
+        out.append(np.tanh(full[n: 2 * n] * 1.3))  # the second pass, so the room's tail is already ringing at the loop point
+    return np.stack(out, axis=1)
 
 def seq(notes, gap, secs=0.5, vol=0.5, decay=4):
     return mix(gap * len(notes) + secs, [(i * gap, pluck(N[n], secs, decay), vol) for i, n in enumerate(notes)])
@@ -83,13 +126,14 @@ def sounds():
     }
 
 def save(name, x):
-    x = np.clip(x / max(1e-9, np.max(np.abs(x))) * (0.6 if name == "music" else 0.8), -1, 1)
+    if x.ndim == 1: x = np.stack([x, x], axis=1)
+    x = np.clip(x / max(1e-9, np.max(np.abs(x))) * (0.85 if name == "music" else 0.8), -1, 1)
     tmp = os.path.join(ROOT, "art", name + ".wav")
     with wave.open(tmp, "wb") as f:
-        f.setnchannels(1); f.setsampwidth(2); f.setframerate(SR); f.writeframes((x * 32767).astype("<i2").tobytes())
+        f.setnchannels(2); f.setsampwidth(2); f.setframerate(SR); f.writeframes((x * 32767).astype("<i2").tobytes())
     for d in ("app/App/Audio", "web/play/audio"):
         os.makedirs(os.path.join(ROOT, d), exist_ok=True)
-        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp, "-c:a", "libmp3lame", "-b:a", "64k" if name == "music" else "48k",
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp, "-c:a", "libmp3lame", "-b:a", "128k" if name == "music" else "96k",
                         os.path.join(ROOT, d, name + ".mp3")], check=True)
     os.remove(tmp)
 

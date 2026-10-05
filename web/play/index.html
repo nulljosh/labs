@@ -96,7 +96,7 @@ let STORY = null;
 
 const Snd = {
   cache: {}, gen: 0, muted: store.get("muted", false), musicOff: store.get("musicOff", false), silent: params.has("shot"),
-  el(n) { return this.cache[n] ??= Object.assign(new Audio(`audio/${n}.mp3`), n === "music" ? { loop: true, volume: 0.4 } : {}); },
+  el(n) { return this.cache[n] ??= Object.assign(new Audio(`audio/${n}.mp3`), n === "music" ? { loop: true, volume: 0.32 } : {}); },
   music() { if (this.silent) return; if (this.muted || this.musicOff) this.el("music").pause(); else this.el("music").play().catch(() => {}); },
   play(n, after = 0) {
     if (this.muted || this.silent) return;
