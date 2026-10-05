@@ -2,17 +2,17 @@
 
 # Hamurapi
 
-![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![tests](https://github.com/nulljosh/hamurapi/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/hamurapi/actions/workflows/test.yml) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fhamurapi-black?logo=github)](https://github.com/nulljosh/hamurapi)
+![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![tests](https://github.com/nulljosh/hamurapi/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/hamurapi/actions/workflows/test.yml)
 
 **Play it now: [hamurapi.heyitsmejosh.com](https://hamurapi.heyitsmejosh.com)**
 
 Be king for 10 years. Feed your people. Keep your crown.
 
+![Choosing how much to feed and plant](web/shots/orders.png)
+
 In 1968 Doug Dyment wrote Hamurabi, a game where you rule an old city for ten years. Hamurapi is that game, drawn. You get 100 people, 1,000 acres and a barn of grain. Each year you choose how much land to buy, how much to feed your people and how much to plant. Then the rats, the harvest and the sickness decide how that went.
 
-This is that game with a city you can watch. It runs in a browser, on a Mac, on an iPhone and in a terminal.
-
-![Choosing how much to feed and plant](web/shots/orders.png)
+It runs in a browser, on a Mac, on an iPhone and in a terminal.
 
 ## What's in it
 
@@ -62,24 +62,7 @@ The rules live in three languages: Python, Swift and JavaScript. They share one 
 
 ## Benchmarks
 
-The robot king over 1,000 games, seeds 0 to 999:
-
-| Grade | Share |
-|---|---|
-| A+ | 87.8% |
-| B | 5.4% |
-| C | 2.0% |
-| F | 4.8% |
-
-How fast the rules run on a Mac mini M4:
-
-| Version | Games a second |
-|---|---|
-| Swift | about 500,000 |
-| JavaScript | about 100,000 |
-| Python | about 32,000 |
-
-Run them yourself with `python3 ruler.py --bench`, `node web/play/rules.js` and the Swift test `testThousandReignsBenchmark`.
+A robot king playing 1,000 seeded games earns A+ in 878 of them (87.8%), B in 5.4%, C in 2.0% and F in 4.8%. The rules run about 500,000 games a second in Swift, 100,000 in JavaScript and 32,000 in Python on a Mac mini M4. Run them yourself with `python3 ruler.py --bench`, `node web/play/rules.js` and the Swift test `testThousandReignsBenchmark`.
 
 ## How it's built
 
