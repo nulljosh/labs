@@ -693,3 +693,6 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 
 ## Ingested 2026-10-02
 - [ ] Some app keeps talking out loud using the macOS say command. Find it and fix it.
+
+## Ingested 2026-10-05
+- [ ] Obsidian: refresh wiki and index. Names are kinda stale (screenshot notes/attachments/2026-10-05/obsidian-1.png: Entities list still shows voxprint, hotaru, lexly, healstack and similar old names).
