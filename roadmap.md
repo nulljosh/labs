@@ -9,3 +9,8 @@
 ## TUI pilot (2026-09-05)
 - `keyrate-tui` SwiftPM target (SwiftTUI), `tui/Sources/Score.swift` is a line-for-line port of score.js. `swift build && ./.build/debug/keyrate-tui "target text" "typed text" 3.2` scores one attempt. Static score render, not a live typing test — see comment in tui/Sources/main.swift. Needs a real TTY.
 - [ ] native (kmp) port — sibling apps have one, this doesn't (project-sync 2026-09-05)
+
+## Ingested 2026-10-05
+- [ ] QA
+- [ ] Fix wallpaper color
+- [ ] Ship apps etc
