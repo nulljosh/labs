@@ -53,6 +53,7 @@
 | **costanza** | Poetry network, svbtle-shaped, Costanza riff; web + iOS/macOS + kmp, shared spark table `stanza_poems` | costanza.heyitsmejosh.com |
 | **windgate** | Guided breathing, four presets; web + iOS/macOS (repo folder still `breathe`, renamed 2026-09-10) | windgate.heyitsmejosh.com · 6810806058 |
 | **hormuz** | Strait of Hormuz geopolitics, oil prices, trading signals | hormuz.heyitsmejosh.com |
+| **hamurapi** (ex-hamurabi, renamed 2026-10-04; bundle ID and Worker still `hamurabi`) | The 1968 game Hamurabi with a drawn city: web, Mac, iPhone, terminal, and a Joshua Tree port | hamurapi.heyitsmejosh.com · 6819131590 |
 
 ### Sites & infra
 | Repo | What |
@@ -109,7 +110,7 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 - `mole clean` needs a real TTY for sudo. Run it yourself
 
 ## Open work
-`roadmap.md` is the queue. `GTM.md` is the ledger. About 18 apps still need a `kmp/` module. Roost's auth pages still need localization before native release. litigate has no landing on purpose.
+`roadmap.md` is the queue. `GTM.md` is the ledger. About 18 apps still need a `kmp/` module. Brick's auth pages still need localization before native release. litigate has no landing on purpose.
 
 ## TUI rollout (2026-09-05)
 Shipped 16, each with a `tui/` + root `Package.swift` (SwiftPM target depending on rensbreur/SwiftTUI, static one-shot render, needs a real TTY): nimble, cadence, numen, wordroot, keyrate, curvely, blockframe, bookrank, quotestreak, inkpress, tripwire, sidewise, nyc, curbfind, homeward, brick.
