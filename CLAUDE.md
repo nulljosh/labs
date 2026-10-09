@@ -65,7 +65,7 @@
 | **authmail** | Supabase auth email branding + Resend delivery (Cloudflare Worker) |
 | **notes** | Private notes |
 | **dotfiles** | Shell configs, skills, vibe ref |
-| **joshuatree** (ex-os) | i386 kernel, boots on QEMU, building toward its own file explorer + browser | joshuatree.heyitsmejosh.com |
+| **joshuatree** (ex-os) | From-scratch i386 and Raspberry Pi 4 OS, desktop, Wi-Fi, HTTPS browser and Samantha relay | joshuatree.heyitsmejosh.com |
 | **homeroom** (ex-lec, ex-Margin, renamed 2026-09-25) / **logans-frenchies** | D2L quiz app for LEC, homeroom.heyitsmejosh.com / client site pitch (private) |
 | `scripts/`, `_feature_audit/`, `_external/` | helpers / audit CSVs / read-only checkouts, never push |
 
