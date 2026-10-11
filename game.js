@@ -266,7 +266,7 @@ $('restart').onclick = () => {
   modeSelect.classList.remove('hidden');
 };
 $('share').onclick = () => {
-  const text = `I scored ${score} on Quotestreak! Can you beat me? https://quotable.heyitsmejosh.com`;
+  const text = `I scored ${score} on Quotestreak! Can you beat me? https://quotable.jaybulb.com`;
   if (navigator.share) navigator.share({ text });
   else navigator.clipboard.writeText(text).then(() => {
     $('share').textContent = 'Copied!';
