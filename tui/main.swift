@@ -9,7 +9,7 @@ struct Last: Decodable { let at: String; let report: [WatchReport] }
 struct Status: Decodable { let last: Last }
 
 func fetchStatus() async -> Status? {
-    guard let url = URL(string: "https://tripwire.heyitsmejosh.com/api") else { return nil }
+    guard let url = URL(string: "https://tripwire.jaybulb.com/api") else { return nil }
     guard let (data, _) = try? await URLSession.shared.data(from: url) else { return nil }
     return try? JSONDecoder().decode(Status.self, from: data)
 }
@@ -26,7 +26,7 @@ struct StatusCard: View {
                     Text("\(r.status == "unchanged" ? "ok" : "!!") \(r.name): \(r.status)")
                 }
             } else {
-                Text("Could not reach tripwire.heyitsmejosh.com")
+                Text("Could not reach tripwire.jaybulb.com")
             }
         }
         .padding()
