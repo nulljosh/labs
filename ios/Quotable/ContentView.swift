@@ -304,7 +304,7 @@ private struct GameOverView: View {
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
                 .tint(Theme.accent)
-            ShareLink(item: "I scored \(game.score) on Quotestreak! Can you beat me? https://quotable.heyitsmejosh.com")
+            ShareLink(item: "I scored \(game.score) on Quotestreak! Can you beat me? https://quotable.jaybulb.com")
             Spacer()
         }
         .padding(28)

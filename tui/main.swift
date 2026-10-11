@@ -14,7 +14,7 @@ struct Round: Decodable {
 }
 
 func fetchRound() async -> Round? {
-    guard let url = URL(string: "https://quotestreak.heyitsmejosh.com/api/random") else { return nil }
+    guard let url = URL(string: "https://quotestreak.jaybulb.com/api/random") else { return nil }
     guard let (data, _) = try? await URLSession.shared.data(from: url) else { return nil }
     return try? JSONDecoder().decode(Round.self, from: data)
 }
@@ -32,7 +32,7 @@ struct RoundCard: View {
                 }
                 Text("\(round.genre) · \(round.type)")
             } else {
-                Text("Could not reach quotestreak.heyitsmejosh.com")
+                Text("Could not reach quotestreak.jaybulb.com")
             }
         }
         .padding()
