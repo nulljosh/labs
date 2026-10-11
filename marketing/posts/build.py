@@ -17,11 +17,11 @@ POSTS = {
  'broken-spring': dict(head="BROKEN SPRING?\nDON’T FORCE IT.", sub='Check the spring, then call a pro.',
                        photo='site/brian-worn-hinges.jpg', crop=(1000, 516, 600, 30)),
  'crooked-door': dict(head='DOOR GOING\nCROOKED? STOP.', sub='Do not keep moving it.',
-                      card='A crooked door that keeps moving can damage more parts and risk the whole door coming down on your car or your family. Stop it, then call us.', who='Garage door tip'),
+                      card='A crooked door that keeps moving can damage more parts or come down on your car or family. Stop it, then call us.', who='Garage door tip'),
  'safety-check': dict(head='FREE GARAGE DOOR\nSAFETY CHECK.', sub='Ask for it when you call.',
                       photo='site/brian-with-truck.jpg', crop=(900, 600, -400, 260)),
  'photo-eyes': dict(head='SINCE 1991, PHOTO\nEYES ARE REQUIRED.', sub='Does your opener have its safety sensors?',
-                    card='Photo eyes are mandatory on all new garage door openers in Canada. If your door does not have them, your family is at risk of a tragic and avoidable accident. We can check.', who='Garage door tip'),
+                    card='Photo eyes are mandatory on all new garage door openers in Canada. No safety sensors on yours? Your family is at risk. We can check.', who='Garage door tip'),
  'family': dict(head='THREE GENERATIONS.\nSAME FAMILY.', sub='30+ years. Our own team does every job.',
                 photo='site/brian-portrait.jpg', crop=(2560, 1707, 0, 0)),
  'review-bernadette': dict(head='“HE IS HONEST AND\nKNOWLEDGEABLE.”', sub='Maintenance done right, with honest advice.', stars=True,
@@ -45,12 +45,12 @@ def panel(p, M):
     card = ['(', '-size', '960x510', f'xc:{LIGHT}', ')', '-gravity', 'north', '-geometry', '+0+636', '-composite']
     y = 636
     body = p['card']; n = len(body)
-    ps = 48 if n <= 160 else 40 if n <= 240 else 36
+    ps = (44 if n <= 160 else 38) if p.get('stars') else (58 if n <= 100 else 50 if n <= 160 else 44)
     if p.get('stars'):
         card += ['-fill', ORANGE]
         for d in stars_draw(540, y+60): card += ['-draw', d]
-    card += ['-interline-spacing', '4', '-background', LIGHT, '-font', BODY, '-fill', '#3A3E40', '-pointsize', str(ps), '-gravity', 'center', '-size', '860x', 'caption:'+body, '-geometry', '+0+224', '-composite']
-    card += ['+size', '-background', 'none', '-font', BODY, '-fill', '#1B5959', '-pointsize', '30', '-gravity', 'north', '-annotate', f'+0+{y+510-46}', p['who']]
+    card += ['-interline-spacing', '4', '-background', LIGHT, '-font', BODY, '-fill', '#3A3E40', '-pointsize', str(ps), '-gravity', 'center', '-size', '860x', 'caption:'+body, '-geometry', '+0+' + ('232' if p.get('stars') else '215'), '-composite']
+    card += ['+size', '-background', 'none', '-font', BODY, '-fill', '#1B5959', '-pointsize', '32', '-gravity', 'north', '-annotate', f'+0+{y+510-50}', p['who']]
     return card
 def render(slug, p):
     out = f'{H}/{slug}.png'
