@@ -1,1 +1,1 @@
-6912a4dc-18d3-4db6-bc96-2463a0063a2c  brian boom dance (genjutsu motion transfer), fetch: curl https://api.higgsfield.ai/requests/<id>/status -H 'Authorization: Key $HIGGSFIELD_API_KEY'
+(fetched 2026-10-11 -> brian-boom-dance.mp4)
