@@ -7,7 +7,7 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | App | Live where | Price | PH | Reddit | HN | Directories |
 |---|---|---|---|---|---|---|
 | Epiphany | iOS 2.5.13, Mac 2.5.3, web | $1.00 upfront + web Stripe | posted 09-18 | none | none | none |
-| Notate (Voxprint) | Mac 1.4.0, iOS 1.3.9 (1.4.0 pending release), web | Free + $0.99 IAP | posted (as Voxprint) | none | none | none |
+| Notate | Mac 1.4.0, iOS 1.3.9 (1.4.0 pending release), web | Free + $0.99 IAP | posted | none | none | none |
 | Curvely | iOS + Mac 1.2.5, web | $0.99 | posted 09-12 | none | none | none |
 | Wordroot | iOS 1.0.4, Mac 1.0.1, web | $0.99 | posted 09-16 | none | none | none |
 | Inkpress | iOS 1.0.6, Mac 1.0.7, web | $0.99 | posted 09-14 | none | none | none |
@@ -32,9 +32,9 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 
 Stripe: zero charges ever.
 
-Buy page live 2026-10-01: heyitsmejosh.com/buy.html lists every app, price and store button; use it as the bio link everywhere.
+Buy page live 2026-10-01: jaybulb.com/buy.html lists every app, price and store button; use it as the bio link everywhere.
 
-Prep done 2026-10-01: OG previews fixed on Toroid, Plank, Bookrank, Litigate, Sidewise, Talli, Sparkjar (all 20 landings now unfurl). Email capture live (authmail.heyitsmejosh.com/signup to Resend "General") on Toroid, Plaintxt, Nimble, Curbfind, Plank landings; Healstack has no marketing page. JT hardware waitlist already live (0 signups).
+Prep done 2026-10-01: OG previews fixed on Toroid, Plank, Bookrank, Litigate, Sidewise, Talli, Sparkjar (all 20 landings now unfurl). Email capture live (authmail.jaybulb.com/signup to Resend "General") on Toroid, Plaintxt, Nimble, Curbfind, Plank landings; Healstack has no marketing page. JT hardware waitlist already live (0 signups).
 
 Decisions 2026-10-01 (Joshua: "keep all my shit free or a dollar or two"):
 - No subscriptions anywhere. The Stripe $2.99/mo Epiphany plan and the yearly/lifetime tiers are dropped.
@@ -49,9 +49,9 @@ production on 2026-08-29. Don't re-derive this from 18 ASC records; update this 
 
 ## Current focus, 2026-09-11
 
-Revenue work is Epiphany and Voxprint. Talli is a disability-tracking utility, not a revenue target (Joshua, 2026-09-11). Existing Talli payment fixes are reliability work only.
+Revenue work is Epiphany and Notate. Talli is a disability-tracking utility, not a revenue target (Joshua, 2026-09-11). Existing Talli payment fixes are reliability work only.
 
-Live ASC checks: Voxprint 1.3.9 is live on Mac and approved pending developer release on iOS. Epiphany iOS 2.5.11 is waiting for review; Mac 2.5.2 is live. Both apps have an approved non-consumable IAP. Voxprint is already on Product Hunt; do not plan a duplicate launch.
+Live ASC checks: Notate 1.3.9 is live on Mac and approved pending developer release on iOS. Epiphany iOS 2.5.11 is waiting for review; Mac 2.5.2 is live. Both apps have an approved non-consumable IAP. Notate is already on Product Hunt; do not plan a duplicate launch.
 
 See [the revenue audit](REVENUE.md) for verified fixes, checks, and the next actions. This section supersedes conflicting historical blockers and focus rules below.
 
@@ -64,7 +64,7 @@ Anyone who downloaded while free keeps it forever. Only new customers pay.
 | Rail | Apps | State |
 |---|---|---|
 | **$0.99 upfront** | Curvely, Plaintxt, Toroid, Charblock, Wordroot, NYC Survive, Windgate, Inkpress | **Live 2026-09-20.** Set with `asc pricing schedule create --price 0.99`. No build, no review. Revert with `--free` |
-| **Free + $0.99 one-time IAP** | Voxprint, Epiphany | Both IAPs approved. Voxprint iOS 1.3.9 released 2026-09-20, paywall live on iOS and Mac |
+| **Free + $0.99 one-time IAP** | Notate, Epiphany | Both IAPs approved. Notate iOS 1.3.9 released 2026-09-20, paywall live on iOS and Mac |
 | **Stripe subscription, web** | Epiphany Pro $2.99/mo, Siftbox $2.99/mo, Sidewise API $4.99/mo | Planned, not built. Epiphany first, it is the one app with real recurring cost. Catch: iOS sells the same Pro for $0.99 once, so a $2.99/mo web price just sends everyone to iOS. The switch needs an iOS auto-renewable sub in the same release. Trigger: the first real one-time sale. The Stripe account has zero charges ever, so a subscription today bills nobody. Siftbox and Sidewise wait until they have a live store build |
 | **Stripe $1 one-time, web** | Hikko, Healstack | Live, unchanged |
 | **$0.99 upfront, selling the voices** | Bookrank | Since 2026-10-02. The summaries are Joshua's own notes and are not what is sold; the natural ElevenLabs voices are. App Store paid upfront, no IAP. Voice cost is capped at 25k characters a month app-wide in /api/speak. Existing free users keep it |
@@ -79,7 +79,7 @@ Price is not the bottleneck. Traffic is: about 37 visits a day across the whole 
 
 ## The one-line summary
 
-Paid Apps Agreement is **ACTIVE** (2026-09-08, BN 795776756 RT0001). iOS can charge. Voxprint 1.3.9 ships the real $1 IAP
+Paid Apps Agreement is **ACTIVE** (2026-09-08, BN 795776756 RT0001). iOS can charge. Notate 1.3.9 ships the real $1 IAP
 (in review 2026-09-09). The other nine stay free as ASO surface, per the focus rule below. Distribution and
 measurement are still the gap.
 
@@ -91,7 +91,7 @@ Three rails, picked per app by what the app already has:
    Charwork, Quotestreak, Toroid, NYC Survive). Tried $0.99 upfront for an hour on 2026-09-09 and
    reverted: it kills the trial funnel a Product Hunt launch needs and earns nothing at zero users.
    Revisit as free + $1 IAP only for an app that shows real installs.
-2. **Free + $1 one-time IAP** where a free tier is the funnel: Voxprint (3 free files then $1,
+2. **Free + $1 one-time IAP** where a free tier is the funnel: Notate (3 free files then $1,
    1.3.9 submitted 2026-09-09). Epiphany next: `asc iap setup` a $1 non-consumable, verify the
    JWS transaction server-side and set the same `isPro` the Stripe webhook sets, so web and iOS
    share one entitlement. Only code work left on the revenue side.
@@ -101,7 +101,7 @@ Three rails, picked per app by what the app already has:
 Stays free on purpose: Litigate (public-good tool), Sidewise (needs an audience before
 a price), Doorstock (client), Curbfind and Lucarne (browsers are free by convention).
 
-Launch order for Product Hunt: Voxprint (clean one-line pitch, own-it-once), then Epiphany once
+Launch order for Product Hunt: Notate (clean one-line pitch, own-it-once), then Epiphany once
 the IAP ships, then the free apps as a roundup. Each needs: tagline, first comment, 3 screenshots,
 landing page (done fleet-wide). No analytics yet; App Store Connect sales reports are the only
 revenue signal until PostHog or similar is added.
@@ -113,7 +113,7 @@ revenue signal until PostHog or similar is added.
 | Epiphany | 6779522175 | Mac 2.5.2 · **iOS 2.5.6 REJECTED** | $1 one-time (planned) | Stripe live + StoreKit | **Focus.** iOS is out of the store on 4.3(a); fix that before any paywall work |
 | Conveyer | none | web landing only | free (MIT) | none | Nothing sold yet. Next: milestone GIF on the landing. See conveyer/MONEY.md |
 | Talli | 6782366555 | iOS 3.5.14 · Mac 3.5.6 | free | Stripe live | **Focus.** One upgrade CTA (`src/api.js` → `/api/stripe-checkout`) |
-| Voxprint | 6782604262 | Mac 1.3.6 · iOS 1.3.8 staged | $1 one-time | StoreKit LIVE in 1.3.9 (iOS submitted 2026-09-09, Mac following) | watch review |
+| Notate | 6782604262 | Mac 1.3.6 · iOS 1.3.8 staged | $1 one-time | StoreKit LIVE in 1.3.9 (iOS submitted 2026-09-09, Mac following) | watch review |
 | Lexly | 6783501611 | iOS 1.1.3 · Mac 1.1.4 · **1.1.5 REJECTED both platforms** | free | none | none planned |
 | Litigate | 6787857503 | iOS 1.0.3 | free | none | none planned |
 | Bookrank | 6792376485 | iOS 1.0.5 in review | $0.99 upfront (2026-10-02) | none | selling the natural voices, not the summaries |
@@ -136,7 +136,7 @@ the question stops resurfacing as a portfolio "gap":
 
 | App | Why not |
 |---|---|
-| Numen | Free-form calculator. Thin by Apple's 4.3(a) definition; live at numen.heyitsmejosh.com |
+| Numen | Free-form calculator. Thin by Apple's 4.3(a) definition; live at numen.jaybulb.com |
 | Journal | Personal weekly writing site, not a product. Inkpress is the shipped writing app |
 | Nimble | Instant-answer search box. Thin; no ASC record and none planned |
 | Feng Shui | Web app is a 24-question assessment; the iOS reader target is PARKED and diverged |
@@ -147,7 +147,7 @@ which had been claiming iOS/macOS while their store builds were rejected or in r
 **Do not batch-create ASC records for these.** Bulk new thin apps are what triggered the 5.6
 suspension and the 4.3(a) wave that took out 7 apps on 2026-08-28, two are still rejected today.
 
-Focus is **Epiphany, Talli, Voxprint**. The other nine stay free and serve as ASO surface , 
+Focus is **Epiphany, Talli, Notate**. The other nine stay free and serve as ASO surface , 
 twelve paywalls with no users each earn $0 and triple the review surface.
 
 ## What's blocked on Joshua (no agent path)
@@ -171,19 +171,19 @@ twelve paywalls with no users each earn $0 and triple the review surface.
 
 ## Funnel
 
-Two hops: portfolio → `<app>.heyitsmejosh.com` → App Store. Both hops work; every landing page
+Two hops: portfolio → `<app>.jaybulb.com` → App Store. Both hops work; every landing page
 carries a store button (Epiphany's is `epiphany/src/pages/LandingPage.jsx:383`, it's an SPA, so
 curl reports a false zero. **Grep the source, never curl, when auditing these.**)
 
 - **Done:** `nulljosh.github.io/index.html` now carries a direct App Store link on all 12 live
   apps, alongside the landing-page link, so returning visitors skip the second hop.
 - **Done, and the old "blocked" note here was wrong.** Cloudflare Web Analytics has been live
-  on `heyitsmejosh.com` for ~6 months, set to **"Enable, excluding visitor data in the EU"**,
+  on `jaybulb.com` for ~6 months, set to **"Enable, excluding visitor data in the EU"**,
   which means Cloudflare injects the beacon at the edge. That is exactly why grepping the repos
   for `cloudflareinsights` / `beacon.min.js` finds nothing, **there is no script tag to find, and
   its absence is not evidence of no analytics.** Verified in the dashboard 2026-08-30: 37 visits /
   38 page views in 24h, and the per-URL breakdown covers the app subdomains, not just the apex
-  (heyitsmejosh.com, doorstock., bookrank., voxprint., nyc. all reporting). Site tag
+  (jaybulb.com, doorstock., bookrank., voxprint., nyc. all reporting). Site tag
   `b4cf73902e484158b50172410b0ca54d`. Both funnel hops are measured. Nothing to install.
 - **Done 2026-08-30:** ASO metadata. **The old claim here, "No app has canonical `metadata/`
   checked in", was wrong.** 14 apps already had it; the remaining 5 were pulled from live on
@@ -203,15 +203,15 @@ curl reports a false zero. **Grep the source, never curl, when auditing these.**
 
 A live IAP under an inactive agreement fails review, so this is staged, not applied.
 
-- **Voxprint** `Sources/Services/StoreManager.swift`: flip `isPro = true` → `false`, un-early-return
+- **Notate** `Sources/Services/StoreManager.swift`: flip `isPro = true` → `false`, un-early-return
   `refreshEntitlement()`, delete the `ponytail:` comment explaining the workaround. Product
   `com.nulljosh.echo.unlock`, $9.99 non-consumable, 3-free-file gate, `PaywallView.swift` already
   built. It is **live right now, shipping fully unlocked**.
-- Pricing as decided: Voxprint $9.99 one-time (a subscription contradicts the "own it once,
+- Pricing as decided: Notate $9.99 one-time (a subscription contradicts the "own it once,
   nothing leaves your device" pitch); Epiphany $1 one-time.
   Benchmark: **Aiko** is the direct comparable, same on-device Whisper, iOS + Mac, one-time
   **$19.99**. MacWhisper Pro is $59 one-time. Otter/Rev/Descript are $8-30 **per month**, so
-  one-time is the differentiator, not a discount. $9.99 sits well under Aiko because Voxprint has no reviews and Pro unlocks
+  one-time is the differentiator, not a discount. $9.99 sits well under Aiko because Notate has no reviews and Pro unlocks
   only unlimited file imports plus the `whisper-small` model, live mic is free forever. For a
   no-review app a low price buys reviews, which are the scarcer asset; raise toward $19.99 once
   they exist. Set in ASC 2026-08-30 (was $3.99). None of this matters until Form 506 clears.
@@ -268,7 +268,7 @@ Checked the whole account: **zero charges ever, zero checkout sessions.** Nothin
    `checkout.session.completed` there is someone who **paid and got nothing**, replay it (the
    handler is idempotent, it just writes `sub:<customerId>`) and confirm their tier flips.
    If the endpoint is missing entirely, that is the finding: create it against
-   `https://epiphany.heyitsmejosh.com/api/stripe-webhook` and update `STRIPE_WEBHOOK_SECRET`.
+   `https://epiphany.jaybulb.com/api/stripe-webhook` and update `STRIPE_WEBHOOK_SECRET`.
 2. Cross-check that Talli's webhook endpoint exists too, its code is fine and it runs on the
    same Worker adapter, but it was never probed. Forged-signature probe: 400 healthy, 500 broken. Send `content-type: application/json`; a form body skips rawBody and 500s by design. Talli probed 2026-09-06: 400, healthy. Epiphany re-probed 2026-09-06: 400, healthy.
 
