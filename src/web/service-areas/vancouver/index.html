@@ -2323,10 +2323,8 @@
         }
 
         // Booking form handler
-        // Leads go to the shared Supabase project. The publishable key is safe to
-        // expose: RLS grants anon INSERT only -- anon SELECT returns nothing.
-        const LEADS_URL = 'https://tjsxsqlxjmanwvmywwvw.supabase.co/rest/v1/bcgd_leads';
-        const LEADS_KEY = 'sb_publishable_3a5WLExQ3oF_kPV3KRCjdg_iEOiHO90';
+        // Leads go to spark-api (Cloudflare Worker + D1). Anyone can add a lead, only the owner can read them.
+        const LEADS_URL = 'https://api.heyitsmejosh.com/rest/bcgd_leads';
 
         async function handleBooking(event) {
             event.preventDefault();
@@ -2345,7 +2343,6 @@
                 const res = await fetch(LEADS_URL, {
                     method: 'POST',
                     headers: {
-                        'apikey': LEADS_KEY,
                         'Content-Type': 'application/json',
                         'Prefer': 'return=minimal',
                     },
