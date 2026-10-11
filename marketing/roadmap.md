@@ -3,6 +3,7 @@
 Best Choice Garage Doors. Joshua is running this for his dad. Updated 2026-10-11.
 
 ## For Dad: what is ready
+- A 30-day plan with every post slotted by date (`calendar.md`).
 - 37 Instagram and Facebook post images in the shop's own colors, with captions (`posts/`, `posts/captions.md`).
 - A 7-slide carousel, "What happens when you call us".
 - Copy for city posts, Google Business Profile posts and review replies, and 5 ad variants (`copy.md`).
