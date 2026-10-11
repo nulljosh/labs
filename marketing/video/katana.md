@@ -36,3 +36,10 @@ The Higgsfield connector is already added to Joshua's claude.ai account, and `cl
 - Label it as AI-made if the platform asks.
 - Higgsfield's free plan has no commercial use, so paid ads need a paid plan.
 - Budget: Lite test 6 credits for 4s, Veo 3.1 high 24 credits for 6s, expect 3 to 5 tries.
+
+## Run log 2026-10-11
+- Dance render fetched: `brian-boom-dance.mp4` (genjutsu, request 6912a4dc).
+- Katana headlights NOT run. Connector works, but `/katana/headlights` and `/katana/headlights-reveal` both return not_found (real slug unknown, `get_preset_instructions` catalog lists no Katana presets). The general `/katana` workflow needs a reference video plus paid Seedance 2.5 jobs.
+- Higgsfield app balance: 2.5 credits, free plan. A 4s clip is ~6 credits, so it would not finish. Needs a plan or top-up (Joshua's call), then the exact slug from the Katana catalog page.
+- Dance video texted to Dad (second try worked; the first attachment failed with error 34).
+- Headlights clip: `brian-headlights.mp4`, Kling 2.5 Turbo standard via the API key (request 9e6c3dad), 5s, 1108x828. It came out in daylight and color, not the black and white night look. The truck pulls forward and the headlights come on at the end. The wrap text warps on the turn.
