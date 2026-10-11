@@ -1,7 +1,7 @@
 name = "plan"
 compatibility_date = "2025-07-01"
 workers_dev = false
-routes = [{ pattern = "plan.heyitsmejosh.com", custom_domain = true }]
+routes = [{ pattern = "plan.heyitsmejosh.com", custom_domain = true }, { pattern = "plan.jaybulb.com", custom_domain = true }]
 
 [assets]
 directory = "."
