@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-09-13 (Joshua Tree kernel v0-v5 shipped, renamed from os; Gato naming clarified, Leopard Gecko reserved for Joshua Tree's future distro; fleet-wide whitepaper refresh and roadmap pruning). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
+*Refreshed 2026-10-11 (Supabase to Cloudflare for web auth). Earlier: 2026-09-13 (Joshua Tree kernel v0-v5 shipped, renamed from os; Gato naming clarified, Leopard Gecko reserved for Joshua Tree's future distro; fleet-wide whitepaper refresh and roadmap pruning). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
 
 ![Commits per month since Claude Code inception](progress.svg)
 
@@ -62,7 +62,8 @@
 | **journal** | Jekyll blog (Pages project `journal-heyitsmejosh`) |
 | **brain** | RAG over notes, bearer-gated /api + /mcp |
 | **gato** | Voice-first OS shell, text-loop router (claude -p / ollama), landing at gato.heyitsmejosh.com (local-only repo, no GitHub remote). Note: Leopard Gecko reserved as future distro name for Joshua Tree kernel's eventual graphical OS |
-| **authmail** | Supabase auth email branding + Resend delivery (Cloudflare Worker) |
+| **authmail** | Auth email branding + Resend delivery (Cloudflare Worker). Sends reset and confirm mail for spark-api and the Supabase apps still on Supabase |
+| **spark-api** | Cloudflare Worker on D1 and KV: sign-in, data rules, photo storage and mail for the web apps at api.heyitsmejosh.com. No roadmap |
 | **notes** | Private notes |
 | **dotfiles** | Shell configs, skills, vibe ref |
 | **joshuatree** (ex-os) | From-scratch i386 and Raspberry Pi 4 OS, desktop, Wi-Fi, HTTPS browser and Samantha relay | joshuatree.heyitsmejosh.com |
@@ -76,7 +77,7 @@ Never write versions here. They go stale in a day. `asc versions list --app <id>
 Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28. Replies are filed. Never resubmit into it. Book apps get a vague 2.1 unless you drop CHN.
 
 ## Stack
-- **Auth**: Supabase email+password, most apps share the `spark` project. Auth emails are intercepted by the authmail Cloudflare Worker, branded per app, and sent via Resend. Swift SDK via SPM, `@Observable` store
+- **Auth**: web apps use spark-api (Cloudflare Worker on D1 and KV): email+password, Apple and Google id tokens, per-table access rules. Reset and confirm mail goes through the authmail Worker, branded per app, sent via Resend. Supabase (the shared `spark` project) is kept only for the installed native apps until their new builds ship. Swift SDK via SPM, `@Observable` store
 - **Hosting**: Cloudflare Pages and Workers. Deploys are `wrangler pages deploy`, not git. **A push deploys nothing.**
 - **DNS**: curl with `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish`. It is not named `CLOUDFLARE_API_TOKEN` on purpose. That name breaks wrangler's OAuth
 - **Apple**: xcodegen `project.yml`, no checked-in xcodeproj. SwiftUI, iOS 17+/macOS 14+. `asc xcode archive`/`export`
