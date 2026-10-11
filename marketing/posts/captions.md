@@ -69,3 +69,19 @@ Called one day, fixed first thing the next morning. Thank you, Faye. Broken spri
 **review-pamela.png**
 Called on a Saturday, fixed within hours. Thank you, Pamela. Old school work ethic runs in the family.
 #CustomerReviews #FamilyOwned #LangleyBC #SaturdayService #GoogleReviews
+
+## Service and city posts
+**svc-cable.png** Most garage door cables last 8 to 15 years, and Lower Mainland weather can wear them faster. They fray without warning, so past 7 to 10 years, get them inspected. #GarageDoorCable #LangleyBC #GarageDoorRepair #HomeMaintenance #LowerMainland
+**svc-rollers.png** Your whole door rides on its rollers. New nylon rollers are strong, quiet and have no bearings to wear out. #GarageDoorRollers #QuietDoor #LangleyBC #GarageDoorRepair #HomeMaintenance
+**svc-track.png** A door off its track is heavy and unsafe. We find the exact cause and most track repairs are done in one visit. Call (604) 240-0180. #GarageDoorTrack #GarageDoorSafety #LangleyBC #GarageDoorRepair #LowerMainland
+**svc-panel.png** A dented panel does not mean a new door. If it can be repaired, we fix it. No unnecessary upgrades. #PanelRepair #GarageDoors #LangleyBC #FamilyOwned #CurbAppeal
+**svc-hinge.png** Hinges are small, but worn ones affect how safely your door runs. We check them when we inspect the whole door. #GarageDoorHinges #GarageDoorSafety #LangleyBC #HomeMaintenance #GarageDoorRepair
+**svc-keypad.png** Keypad not responding? We reset, reprogram or replace it with LiftMaster-compatible parts. #GarageDoorKeypad #LangleyBC #HomeSecurity #GarageDoorRepair #LowerMainland
+**svc-clicker.png** Clicker dead or lost? We reprogram or repair yours first, and never push parts you do not need. #GarageDoorRemote #LangleyBC #GarageDoorRepair #HomeTips #LowerMainland
+**svc-weather.png** Drafts or light under your door? A worn bottom seal lets in water, dirt, pests and cold air. A new weather strip fixes it. #WeatherStrip #FallMaintenance #LangleyBC #GarageDoorRepair #HomeTips
+**svc-maintenance.png** A yearly check beats a breakdown. Routine maintenance catches strain early, before it turns into a stuck door. #GarageDoorMaintenance #LangleyBC #HomeMaintenance #GarageDoorRepair #LowerMainland
+**city-surrey.png** Heard a bang in your Surrey garage? Often a broken spring. Do not lift the door. Same-day emergency repair, open 24 hours. #SurreyBC #GarageDoorSpring #EmergencyRepair #LangleyBC
+**city-coquitlam.png** Door stuck open or closed in Coquitlam? We are open 24 hours for emergency repair. Call or text (604) 240-0180. #Coquitlam #EmergencyRepair #GarageDoorRepair #24Hours
+**city-abbotsford.png** Drafts under your Abbotsford door? Worn weather stripping lets in cold, water and dirt. We replace it and check the rest of the door. #AbbotsfordBC #WeatherStrip #GarageDoorRepair #FraserValley
+**city-maple-ridge.png** Grinding door in Maple Ridge? Check the rollers first. We find the real problem and fix that. #MapleRidge #GarageDoorRollers #GarageDoorRepair #LowerMainland
+**city-port-moody.png** One Port Moody customer had a broken spring and a trapped car. We were there within the hour. Call (604) 240-0180. #PortMoody #BrokenSpring #EmergencyRepair #GarageDoorRepair
