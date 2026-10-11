@@ -67,3 +67,24 @@ Garage door technician in work gloves checking a hinge on a closed garage door, 
 
 **Weather strip**
 Close-up of a cracked rubber weather strip along the bottom of a garage door, daylight, shallow depth of field, realistic photo, vertical 4:5, no text
+
+## Variants from the first chat
+The first chat's wording for the core prompts. Same jobs, different shape. Use the SEO writer one to produce tags, the audit one above to check them.
+
+**Brand brief (paste version)**
+Here is the website text for Best Choice Garage Doors (bcgaragedoors.ca): [paste pages]. Write a 1-page brand brief: services, service area, ideal customer (homeowner vs commercial), tone of voice, top 5 selling points, and 10 phrases he already uses. Only use facts from the text. Flag anything missing.
+
+**Sample posts (photo version)**
+Using this brief and these photos, write 10 social posts for Best Choice Garage Doors. For each: platform (FB/IG), hook, caption under 80 words, 5 hashtags, and which photo it uses. Mix: 3 repair showcases, 2 tips (spring safety, opener maintenance, winter care), 2 trust (family, local, fast response), 2 seasonal, 1 offer. Friendly local tone. Only use facts from the brief.
+
+**Higgsfield, generic photo clip**
+Slow push-in on this finished garage door repair, golden hour light, clean and realistic, door and house do not warp or change shape, no text, 5 seconds, vertical 9:16.
+
+**Higgsfield, talking clip (new)**
+See `video/README.md`.
+
+**SEO writer**
+Here is the text for the [page] page on bcgaragedoors.ca. Write a title tag (under 60 characters), a meta description (under 155), LocalBusiness schema JSON-LD, and alt text for these images. Target keyword: "[service] in [city]".
+
+**Google Business Profile (short)**
+Write 4 weekly Google Business Profile posts for a garage door company, plus reply templates for 5-star, 3-star and 1-star reviews.
