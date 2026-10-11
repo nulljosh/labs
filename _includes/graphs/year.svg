@@ -1,7 +1,7 @@
 <svg class="post-header-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360">
 <rect x="20" y="20" width="760" height="320" rx="12" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
 <text fill="currentColor" x="48" y="62" font-size="12" opacity="0.6">year</text>
-<text fill="currentColor" x="48" y="96" font-size="28" font-weight="300" letter-spacing="-0.5">11150 commits per week since 2026-02-20</text>
+<text fill="currentColor" x="48" y="96" font-size="28" font-weight="300" letter-spacing="-0.5">11240 commits per week since 2026-02-20</text>
 <line stroke="currentColor" x1="48" y1="118" x2="752" y2="118" stroke-width="1" opacity="0.25"/>
 <rect x="89.4" y="299" width="18.7" height="1" fill="currentColor" opacity="0.6"/>
 <rect x="151.5" y="299" width="18.7" height="1" fill="currentColor" opacity="0.6"/>
@@ -14,21 +14,21 @@
 <rect x="379.3" y="288" width="18.7" height="12" fill="currentColor" opacity="0.6"/>
 <rect x="400.0" y="277" width="18.7" height="23" fill="currentColor" opacity="0.6"/>
 <rect x="420.7" y="265" width="18.7" height="35" fill="currentColor" opacity="0.6"/>
-<rect x="441.4" y="260" width="18.7" height="40" fill="currentColor" opacity="0.6"/>
+<rect x="441.4" y="261" width="18.7" height="39" fill="currentColor" opacity="0.6"/>
 <rect x="462.1" y="267" width="18.7" height="33" fill="currentColor" opacity="0.6"/>
 <rect x="482.8" y="248" width="18.7" height="52" fill="currentColor" opacity="0.6"/>
 <rect x="503.5" y="265" width="18.7" height="35" fill="currentColor" opacity="0.6"/>
-<rect x="524.2" y="268" width="18.7" height="32" fill="currentColor" opacity="0.6"/>
+<rect x="524.2" y="269" width="18.7" height="31" fill="currentColor" opacity="0.6"/>
 <rect x="544.9" y="266" width="18.7" height="34" fill="currentColor" opacity="0.6"/>
 <rect x="565.6" y="269" width="18.7" height="31" fill="currentColor" opacity="0.6"/>
-<rect x="586.4" y="223" width="18.7" height="77" fill="currentColor" opacity="0.6"/>
-<rect x="607.1" y="144" width="18.7" height="156" fill="currentColor" opacity="0.6"/>
+<rect x="586.4" y="224" width="18.7" height="76" fill="currentColor" opacity="0.6"/>
+<rect x="607.1" y="145" width="18.7" height="155" fill="currentColor" opacity="0.6"/>
 <rect x="627.8" y="176" width="18.7" height="124" fill="currentColor" opacity="0.6"/>
-<rect x="648.5" y="168" width="18.7" height="132" fill="currentColor" opacity="0.6"/>
+<rect x="648.5" y="169" width="18.7" height="131" fill="currentColor" opacity="0.6"/>
 <rect x="669.2" y="175" width="18.7" height="125" fill="currentColor" opacity="0.6"/>
-<rect x="689.9" y="210" width="18.7" height="90" fill="currentColor" opacity="0.6"/>
+<rect x="689.9" y="211" width="18.7" height="89" fill="currentColor" opacity="0.6"/>
 <rect x="710.6" y="140" width="18.7" height="160" fill="currentColor" opacity="0.6"/>
-<rect x="731.3" y="267" width="18.7" height="33" fill="currentColor" opacity="0.6"/>
+<rect x="731.3" y="258" width="18.7" height="42" fill="currentColor" opacity="0.6"/>
 <line stroke="currentColor" x1="348.2" y1="300" x2="348.2" y2="310" stroke-width="1" opacity="0.5"/>
 <text fill="currentColor" x="348.2" y="324" font-size="10" opacity="0.6" text-anchor="middle">spring</text>
 <line stroke="currentColor" x1="534.6" y1="300" x2="534.6" y2="310" stroke-width="1" opacity="0.5"/>
