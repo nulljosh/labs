@@ -257,6 +257,19 @@ async function confirm(req, env, url) {
   return tok.to ? new Response(null, { status: 303, headers: { Location: `${tok.to}#subscribed` } }) : page("You are on the list.", 200);
 }
 
+// spark-api (the Cloudflare replacement for Supabase auth) mails through here so the branding and the Resend key stay in one place.
+// Bound by service binding and guarded by a shared secret. Either a themed auth mail (type + link) or a plain one (subject + text).
+async function internalMail(req, env) {
+  const given = new TextEncoder().encode(req.headers.get("x-internal-secret") || ""), want = new TextEncoder().encode(env.INTERNAL_SECRET || "\0");
+  if (!env.INTERNAL_SECRET || given.length !== want.length || !crypto.subtle.timingSafeEqual(given, want)) return new Response("forbidden", { status: 403 });
+  const m = await req.json().catch(() => ({}));
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m.to || "")) return new Response("bad recipient", { status: 400 });
+  const r = m.link
+    ? await send(env, themeFor(m.dest || m.link), m.type, m.to, m.link, "")
+    : await resend(env, "/emails", { from: `${m.from || "Joshua"} <noreply@heyitsmejosh.com>`, to: [m.to], subject: String(m.subject).slice(0, 200), text: String(m.text).slice(0, 5000) });
+  return new Response(r.ok ? "{}" : await r.text(), { status: r.ok ? 200 : 502 });
+}
+
 export default {
   async fetch(req, env) {
     const url = new URL(req.url), path = url.pathname;
@@ -266,6 +279,7 @@ export default {
       if (!run) return new Response("method not allowed", { status: 405 });
       try { return await run(req, env, url); } catch (e) { console.error("authmail", String(e)); return new Response("try again later", { status: 503 }); }
     }
+    if (path === "/internal/mail" && req.method === "POST") return internalMail(req, env); // spark-api, over a service binding
     if (req.method !== "POST") return new Response("authmail", { status: 200 });
     const ref = path.replace(/^\/+|\/+$/g, "");
     if (!/^[a-z]{20}$/.test(ref)) return new Response("bad project", { status: 404 });
