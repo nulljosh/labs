@@ -6,4 +6,4 @@ Body: Here's the line, name the movie or the artist. Four choices, streak counte
 
 Free. Feedback welcome, especially on the genre mix.
 
-https://quotestreak.heyitsmejosh.com
+https://quotestreak.jaybulb.com
