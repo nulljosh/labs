@@ -14,3 +14,13 @@ higgsfield generate create veo3_1 --start-image brian-start.jpg --aspect_ratio 9
 ```
 
 Then watch it with sound. If the lips or face drift, change one thing in the prompt and run again. One clip at a time.
+
+## Free version (works, 35 seconds)
+Stock ElevenLabs voice (Chris, not a clone) says the line, then LatentSync lips it onto the portrait on Hugging Face's free GPUs. Nothing heavy runs on the Mac.
+
+```
+cd local   # holds portrait.png (1024 square of brian-start.jpg) and line.wav
+bash ~/.claude/skills/character-creator/scripts/lipsync.sh . line.wav   # writes talk.mp4
+```
+
+First result: `local/talk.mp4`, 512x512, 1.9 seconds, mouth matches the words. The source frame has him squinting one eye, and that carries through. Try a frame with both eyes open next. Limits: square and small, very little head movement, 2 second line.
