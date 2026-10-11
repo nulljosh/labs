@@ -11,7 +11,7 @@ Topics: Games, Music, Entertainment
 Pricing: Free.
 
 Links
-Web: https://quotestreak.heyitsmejosh.com
+Web: https://quotestreak.jaybulb.com
 App Store: https://apps.apple.com/app/id6804394619
 GitHub: https://github.com/nulljosh/quotestreak
 

@@ -1,4 +1,4 @@
-1/ Quotestreak is live. Name that line. Beat your streak.. https://quotestreak.heyitsmejosh.com
+1/ Quotestreak is live. Name that line. Beat your streak.. https://quotestreak.jaybulb.com
 
 2/ Guess the movie from the quote or the artist from the lyric. 272 quotes across ten genres, a slow mode and a speed round, a leaderboard. Free on web, iPhone and Mac.
 
