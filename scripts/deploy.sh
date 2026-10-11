@@ -14,7 +14,7 @@ git diff --cached --quiet || { git commit -m "graphs: regenerate"; git push; }
 
 bundle exec jekyll build
 
-# journal.heyitsmejosh.com is attached to the `journal-heyitsmejosh` project, NOT
+# journal.jaybulb.com is attached to the `journal-heyitsmejosh` project, NOT
 # `journal` -- deploying to `journal` succeeds and changes nothing live.
 npx wrangler pages deploy _site --project-name journal-heyitsmejosh --branch=main
 

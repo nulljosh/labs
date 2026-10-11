@@ -24,7 +24,7 @@ for f in $(ls -1 _posts/*.md | sort -r); do
   month=${date:5:2}
   day=${date:8:2}
   monthname=$(date -j -f "%Y-%m-%d" "$date" "+%b %d" 2>/dev/null || echo "$date")
-  url="https://journal.heyitsmejosh.com/${year}/${month}/${day}/${slug}/"
+  url="https://journal.jaybulb.com/${year}/${month}/${day}/${slug}/"
   # Label the first post of each year, not just the first post overall, so a list
   # spanning years does not sit under one wrong heading.
   span=""
