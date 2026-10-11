@@ -1,7 +1,7 @@
 // Accounts + leaderboard on spark-api (Cloudflare Workers + D1). Vanilla, no bundler.
 import { createClient } from './spark.js';
 
-const sb = createClient('https://api.heyitsmejosh.com');
+const sb = createClient('https://api.jaybulb.com');
 const $ = (id) => document.getElementById(id);
 let user = null;
 
