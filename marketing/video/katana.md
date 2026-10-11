@@ -4,9 +4,19 @@ Katana is Higgsfield's reference-video editing tool, announced October 8, 2026. 
 
 What is confirmed: the idea, the `/katana` command, and the Higgsfield MCP link. What is not: price, credit cost per edit, reference video length limits, and whether it works in Claude Code or only in claude.ai and the desktop app. Third-party guides disagree on details. Check Higgsfield's own Katana page before spending.
 
-## Set up
-1. **Claude desktop or claude.ai:** Customize, then Connectors, add a custom connector with the Higgsfield MCP URL, sign in to your Higgsfield account, then type `/katana`.
-2. **Claude Code (unverified):** `claude mcp add --transport http --scope user higgsfield https://mcp.higgsfield.ai/mcp`, then `/mcp` to sign in. The URL comes from third-party guides, not Higgsfield, so confirm it first.
+## Set up in Claude Code (verified 2026-10-11)
+The Higgsfield connector is already added to Joshua's claude.ai account, and `claude mcp list` shows `claude.ai Higgsfield ... Connected`. Its tools only load in a session started after it was added.
+
+1. Quit Claude Code and start it again in `~/Documents/Code/bcgd`.
+2. Type `/mcp` and check that Higgsfield is listed and connected. If it asks, sign in to Higgsfield in the browser.
+3. Type `/` and look for a Higgsfield or Katana command. If there is none, just say: "Use Higgsfield Katana to recreate the headlights preset with Brian's truck."
+4. First thing in the new session: fetch the dance clip that was still rendering (`pending-renders.txt`).
+
+**Billing:** the connector most likely spends the Higgsfield app account (free plan, 2.5 credits), not the API dollars (open.higgsfield.ai). If Katana says there are not enough credits, stop there. The API route (`trailer/`, Genjutsu dance) does the same kind of meme video with no plan.
+
+## Picked presets (higgsfield.ai/katana, community)
+1. **Headlights reveal** (by moonchild27): black and white, a car rolls up out of the dark with blinding headlights. Swap in the wrapped truck from `../site/truck-from-garage.jpg`. End on "The garage door guy has arrived. 604-240-0180."
+2. **"who I was."** (aura walk, black and white): Brian walks toward camera in slow motion. Use `../site/brian-with-truck.jpg`. Retitle it "who I fix."
 
 ## The recipe for Dad
 1. **Pick a reference.** Find a short vertical video you like. Aura-farming edits and product launch edits are the ones Higgsfield pushes. Only use it as a pattern for pacing and style. Do not reuse its footage, music or people.
