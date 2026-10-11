@@ -41,3 +41,11 @@ Three generations. Same family. 30+ years in Langley and the Lower Mainland, and
 **motor-no-move.png**
 Motor running but the door won't move? That's usually a stripped gear inside the opener. Fix the root cause so it doesn't happen again. Call (604) 240-0180.
 #GarageDoorOpener #GarageDoorRepair #LangleyBC #Burnaby #HomeTips
+
+**google-rating.png**
+4.9 stars from 217 Google reviews. Thank you to every customer who took the time. Read them at bcgaragedoors.ca/reviews or search Best Choice Garage Door Services on Google. Call or text (604) 240-0180.
+#CustomerReviews #5Star #LangleyBC #GarageDoorRepair #LowerMainland
+
+**carousel-1 to carousel-7.png** (post as one carousel)
+No surprises. This is what a Best Choice visit looks like, from the first call to the clean-up. Book at bcgaragedoors.ca or call (604) 240-0180.
+#GarageDoorRepair #LangleyBC #FamilyOwned #LowerMainland #BestChoiceGarageDoors

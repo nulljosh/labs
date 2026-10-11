@@ -10,3 +10,12 @@ Six real customer reviews, copied as printed from https://www.bcgaragedoors.ca/r
 - **Ken Thomas** "Hi Brian, it took me a while to get to it but I have now put a comment on the review section of your website. I thank you again for taking care of my emergency repair a couple weeks backs."
 
 Best for post 10: L.F. (Port Moody, broken spring, car trapped, there within an hour). It matches the emergency ad.
+
+## Google (checked 2026-10-11)
+Google Maps shows **4.9 stars from 217 reviews** for Best Choice Garage Door Services Inc. Use "4.9 stars, 217 Google reviews" and recheck the number before each run. Three recent ones, copied as shown (the same permission rule applies):
+
+- **Pamela Sunshine**, 4 months ago: "Ben just finished fixing our garage door. We called on a Saturday and he arrived within a couple of hours. Great guy, wonderful attitude and old school work ethic! Highly recommend!"
+- **Faye**, 3 months ago: "We had our garage door stuck because of spring broken. We called Best Choice Garage yesterday and Brian came first thing this morning ... He replaced springs and handled completely professional. Friendly and reliable. Recommend to everyone."
+- **Mark Kramarik**, 3 months ago: "BRIAN came by and fixed all my issues quickly and professionally with great expertise. He pointed out maintenance issues I should be mindful of and really provided an extra level of fantastic customer service."
+
+Brian answers reviews himself in a warm, funny voice. Match that tone in the replies.

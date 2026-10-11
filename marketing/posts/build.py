@@ -26,6 +26,8 @@ POSTS = {
                 photo='site/brian-portrait.jpg', crop=(2560, 1707, 0, 0)),
  'review-bernadette': dict(head='“HE IS HONEST AND\nKNOWLEDGEABLE.”', sub='Maintenance done right, with honest advice.', stars=True,
                    card='Brian provided excellent and prompt maintenance service. He advised on other items that will eventually need to be replaced. He is honest and knowledgeable.', who='Bernadette E., customer (excerpt)'),
+ 'google-rating': dict(head='4.9 STARS\nON GOOGLE.', sub='217 customer reviews. Read them for yourself.',
+                   photo='site/brian-portrait.jpg', crop=(2200, 1467, 200, 0)),
  'motor-no-move': dict(head="MOTOR RUNS,\nDOOR WON’T MOVE?", sub='Likely a stripped gear in the opener.',
                        card='Fix the root of the problem or it can happen again. Call Best Choice Garage Doors and get it done right the first time.', who='Garage door tip'),
 }
