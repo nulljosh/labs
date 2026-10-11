@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { exportAll, importAll } from '../lib/storage';
-import { supabase } from '../lib/supabase';
+import { spark } from '../lib/spark';
 
 export default function Settings({ settings, onSave }) {
   const [form, setForm] = useState(settings);
@@ -19,7 +19,7 @@ export default function Settings({ settings, onSave }) {
       setPwMsg('Password must be at least 8 characters');
       return;
     }
-    const { error } = await supabase.auth.updateUser({ password: pwInput });
+    const { error } = await spark.auth.updateUser({ password: pwInput });
     setPwInput('');
     setPwMsg(error ? `Update failed: ${error.message}` : 'Password updated');
     setTimeout(() => setPwMsg(''), 3000);
@@ -102,7 +102,7 @@ export default function Settings({ settings, onSave }) {
             </button>
           </div>
           {pwMsg && <span className="form-hint" style={{ color: pwMsg.includes('least') || pwMsg.includes('failed') ? 'var(--red)' : 'var(--green)' }}>{pwMsg}</span>}
-          <span className="form-hint">Sign-in is handled by Supabase auth. Customer leads are only readable once signed in.</span>
+          <span className="form-hint">Sign-in is handled by your account on Cloudflare. Customer leads are only readable once signed in.</span>
         </div>
       </div>
 

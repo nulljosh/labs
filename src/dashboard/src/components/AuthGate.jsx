@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { supabase } from '../lib/supabase';
+import { spark } from '../lib/spark';
 import Logo from './Logo';
 
 // Replaces the old 4-digit PinGate. Leads are customer PII (names + phone
-// numbers) so read access is gated by real Supabase auth + RLS, not a client
+// numbers) so read access is gated by real sign-in, enforced by the API, not a client
 // -side PIN check that anyone could edit out in devtools.
 //
 // Three modes in one card: sign in, request a reset link, and — when App
@@ -31,7 +31,7 @@ export default function AuthGate({ recovering = false, onRecovered }) {
     setNotice('');
 
     if (mode === 'reset') {
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      const { error } = await spark.auth.resetPasswordForEmail(email, {
         redirectTo: window.location.origin,
       });
       setBusy(false);
@@ -41,8 +41,8 @@ export default function AuthGate({ recovering = false, onRecovered }) {
     }
 
     if (mode === 'update') {
-      if (password.length < 6) { setBusy(false); fail('Password must be at least 6 characters.'); return; }
-      const { error } = await supabase.auth.updateUser({ password });
+      if (password.length < 8) { setBusy(false); fail('Password must be at least 8 characters.'); return; }
+      const { error } = await spark.auth.updateUser({ password });
       setBusy(false);
       if (error) { fail(error.message); return; }
       setPassword('');
@@ -50,7 +50,7 @@ export default function AuthGate({ recovering = false, onRecovered }) {
       return;
     }
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await spark.auth.signInWithPassword({ email, password });
     setBusy(false);
     if (error) fail(error.message);
     // Success: App's onAuthStateChange listener swaps this out.

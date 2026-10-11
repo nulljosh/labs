@@ -1,15 +1,11 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from './spark-client.js';
 
-// Shared `spark` project (free tier is capped at 2 projects).
-// Publishable key only -- RLS denies anon reads on bcgd_leads.
-const SUPABASE_URL = 'https://tjsxsqlxjmanwvmywwvw.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_3a5WLExQ3oF_kPV3KRCjdg_iEOiHO90';
-
-export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+// Accounts and leads live in the spark-api Worker (Cloudflare D1). The signed-in user's own token is the only credential.
+export const spark = createClient('https://api.heyitsmejosh.com');
 
 // Leads the website has captured but the dashboard has not turned into jobs yet.
 export async function fetchNewLeads() {
-  const { data, error } = await supabase
+  const { data, error } = await spark
     .from('bcgd_leads')
     .select('id, created_at, name, phone, service, message')
     .eq('status', 'Lead')
@@ -20,7 +16,7 @@ export async function fetchNewLeads() {
 
 export async function markLeadsImported(ids) {
   if (!ids.length) return;
-  const { error } = await supabase
+  const { error } = await spark
     .from('bcgd_leads')
     .update({ status: 'Imported' })
     .in('id', ids);

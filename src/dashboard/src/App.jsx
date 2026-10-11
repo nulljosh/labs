@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { getParts, saveParts, addHistory, getSettings, saveSettings, buildReorderMailto, CATEGORIES, getJobs, saveJobs, JOB_STATUSES, generateId } from './lib/storage';
-import { supabase, fetchNewLeads, markLeadsImported } from './lib/supabase';
+import { spark, fetchNewLeads, markLeadsImported } from './lib/spark';
 import Logo from './components/Logo';
 import AuthGate from './components/AuthGate';
 import PartList from './components/PartList';
@@ -54,13 +54,13 @@ export default function App() {
   useEffect(() => { saveJobs(jobs); }, [jobs]);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
+    spark.auth.getSession().then(({ data }) => {
       setSession(data.session);
       setAuthReady(true);
     });
     // A recovery link signs the user in, so without this flag they'd land on the
     // dashboard and never get asked for the new password they came to set.
-    const { data: sub } = supabase.auth.onAuthStateChange((e, s) => {
+    const { data: sub } = spark.auth.onAuthStateChange((e, s) => {
       if (e === 'PASSWORD_RECOVERY') setRecovering(true);
       setSession(s);
     });
@@ -315,7 +315,7 @@ export default function App() {
           </button>
           <button
             className="btn btn-secondary"
-            onClick={() => supabase.auth.signOut()}
+            onClick={() => spark.auth.signOut()}
           >
             Sign Out
           </button>
