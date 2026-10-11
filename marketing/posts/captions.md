@@ -49,3 +49,23 @@ Motor running but the door won't move? That's usually a stripped gear inside the
 **carousel-1 to carousel-7.png** (post as one carousel)
 No surprises. This is what a Best Choice visit looks like, from the first call to the clean-up. Book at bcgaragedoors.ca or call (604) 240-0180.
 #GarageDoorRepair #LangleyBC #FamilyOwned #LowerMainland #BestChoiceGarageDoors
+
+**review-brad.png**
+"Excellent service, excellent price." Thank you, Brad. Efficient, professional and on time is the job. More reviews at bcgaragedoors.ca/reviews
+#CustomerReviews #5Star #LangleyBC #GarageDoors #FamilyOwned
+
+**review-mary.png**
+"His workmanship was impeccable." Thank you, Mary. We call ahead and give honest advice, even when the answer is a smaller job.
+#CustomerReviews #HonestService #LangleyBC #GarageDoorOpener #SupportLocal
+
+**review-faye.png**
+Called one day, fixed first thing the next morning. Thank you, Faye. Broken spring? Call (604) 240-0180.
+#CustomerReviews #BrokenSpring #LangleyBC #GarageDoorRepair #GoogleReviews
+
+**review-mark.png**
+"The job done right at a fair price." Thank you, Mark. We also point out what to watch for, so there are no surprises later.
+#CustomerReviews #FairPrice #LangleyBC #GarageDoorMaintenance #GoogleReviews
+
+**review-pamela.png**
+Called on a Saturday, fixed within hours. Thank you, Pamela. Old school work ethic runs in the family.
+#CustomerReviews #FamilyOwned #LangleyBC #SaturdayService #GoogleReviews
