@@ -11,7 +11,7 @@ Topics: Small Business, Productivity, macOS
 Pricing: Free.
 
 Links
-Web: https://bcgd-dashboard.heyitsmejosh.com
+Web: https://bcgd-dashboard.jaybulb.com
 App Store: https://apps.apple.com/app/id6791106082
 GitHub: private repo, not public
 

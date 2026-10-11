@@ -10,4 +10,4 @@ Mac is live on the Mac App Store now. iOS was caught in an App Review rejection 
 
 Free. Would love feedback from anyone who's run a trade crew or small shop, mainly on whether the pipeline stages match how real jobs actually move.
 
-https://bcgd-dashboard.heyitsmejosh.com
+https://bcgd-dashboard.jaybulb.com
