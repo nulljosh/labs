@@ -165,7 +165,7 @@ struct SettingsView: View {
                 }
                 Section("About") {
                     LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")
-                    Link("doorstock.heyitsmejosh.com", destination: URL(string: "https://doorstock.heyitsmejosh.com")!)
+                    Link("doorstock.jaybulb.com", destination: URL(string: "https://doorstock.jaybulb.com")!)
                         .tint(.bcgdTeal)
                 }
             }
