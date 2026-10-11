@@ -29,7 +29,7 @@ Keep the current ads (Google Ads, Door Domination) for 1 to 2 months while the n
 - [x] Veo 3.1 Lite clip of Brian made (`video/brian-veo-lite.mp4`, 720x1280, 4s, with audio). Listen to it, then top up for the 24-credit high-quality version if it is worth it.
 - [ ] Try Katana once a reference video is picked (`video/katana.md`).
 - [ ] Retry the free 5-second clip when the Hugging Face GPU quota resets.
-- [ ] Dad sent the garage and truck photo ("you can use this"). Save the original HEIC from Messages into a folder outside the repo, then I strip the location from a copy and make the post.
+- [x] Dad's garage and truck photo is a post now (`posts/we-come-to-you.png`, house numbers blurred, screenshot copy so no location data). Still need the original file from his phone for the Google Business Profile upload.
 - [ ] Pull Yelp reviews and Dad's Instagram photos.
 - [ ] Send Dad the text in `message-to-dad.md`.
 - [ ] Re-check the Google rating before each run.

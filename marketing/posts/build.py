@@ -38,6 +38,8 @@ POSTS = {
                    card='BRIAN came by and fixed all my issues quickly and professionally with great expertise. He pointed out maintenance issues I should be mindful of and really provided an extra level of fantastic customer service.', who='Mark Kramarik, Google review (excerpt)'),
  'review-pamela': dict(head='“OLD SCHOOL\nWORK ETHIC.”', sub='Called on a Saturday, there within hours.', stars=True,
                    card='Ben just finished fixing our garage door. We called on a Saturday and he arrived within a couple of hours. Great guy, wonderful attitude and old school work ethic! Highly recommend!', who='Pamela Sunshine, Google review'),
+ 'we-come-to-you': dict(head='WE COME\nTO YOU.', sub='Same-day service across the Lower Mainland.',
+   photo='site/truck-from-garage.jpg', crop=(1145, 608, 0, 30)),
  'svc-cable': dict(head='CABLES LAST\n8 TO 15 YEARS.', sub='In the Lower Mainland they can wear faster.',
    card='Steel cables stretch, fray and weaken, often with no warning until they snap. Past 7 to 10 years, have them inspected.', who='Cable replacement'),
  'svc-rollers': dict(head='YOUR DOOR RIDES\nON ITS ROLLERS.', sub='Nylon rollers are strong and quiet.',

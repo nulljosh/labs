@@ -85,3 +85,7 @@ Called on a Saturday, fixed within hours. Thank you, Pamela. Old school work eth
 **city-abbotsford.png** Drafts under your Abbotsford door? Worn weather stripping lets in cold, water and dirt. We replace it and check the rest of the door. #AbbotsfordBC #WeatherStrip #GarageDoorRepair #FraserValley
 **city-maple-ridge.png** Grinding door in Maple Ridge? Check the rollers first. We find the real problem and fix that. #MapleRidge #GarageDoorRollers #GarageDoorRepair #LowerMainland
 **city-port-moody.png** One Port Moody customer had a broken spring and a trapped car. We were there within the hour. Call (604) 240-0180. #PortMoody #BrokenSpring #EmergencyRepair #GarageDoorRepair
+
+**we-come-to-you.png**
+We come to you. Same-day service across Langley and the Lower Mainland, in the truck you can't miss. Call or text (604) 240-0180.
+#GarageDoorRepair #LangleyBC #LowerMainland #FamilyOwned #BestChoiceGarageDoors

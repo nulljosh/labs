@@ -24,7 +24,7 @@ crooked-door, photo-eyes, motor-no-move, svc-cable, svc-track, svc-panel, svc-hi
 
 ## Slot in when ready
 - The Brian video as a Reel (needs his real voice).
-- The garage and truck photo (needs the original file).
+- we-come-to-you (Dad's garage and truck photo, made). Post it Sun Oct 18.
 - Halloween, Oct 31: the "Attack of the Garage Door" truck.
 - Fresh job photos from Dad swap in for the three repeated site photos.
 
