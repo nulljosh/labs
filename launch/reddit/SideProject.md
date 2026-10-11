@@ -13,6 +13,6 @@ It's four rules, drawn with your finger or dropped in from six known patterns, i
 
 No accounts, no network, no analytics. Free to try on the web, $0.99 upfront on iOS if you want it on your phone.
 
-Web: https://toroid.heyitsmejosh.com
+Web: https://toroid.jaybulb.com
 
 Would love feedback, especially on the wrap math or anything that feels off in the simulation.

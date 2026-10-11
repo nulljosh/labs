@@ -11,6 +11,6 @@ It's plain HTML, CSS, and one JavaScript file for the engine, no framework, no b
 
 No accounts, no network calls, no analytics. `node life.test.js` runs the four test cases that pin down the rules (still life, blinker, glider, and the edge wrap itself).
 
-https://toroid.heyitsmejosh.com
+https://toroid.jaybulb.com
 
 Curious if anyone's found a cleaner way to handle the wrap math than resolving it once per row and once per column.

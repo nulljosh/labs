@@ -11,6 +11,6 @@ The engine is a pure Swift function, `step(grid) -> grid`, shared as source betw
 
 No accounts, no network access, no analytics. Built with xcodegen and SwiftUI, no third-party dependencies.
 
-$0.99 upfront on the App Store, and there's a free web version at toroid.heyitsmejosh.com if you want to try it before buying: apps.apple.com/app/id6806324937
+$0.99 upfront on the App Store, and there's a free web version at toroid.jaybulb.com if you want to try it before buying: apps.apple.com/app/id6806324937
 
 Happy to talk through the wrap math or the watchOS port if anyone's curious.

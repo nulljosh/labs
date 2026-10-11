@@ -11,4 +11,4 @@ Draw a pattern with the mouse, run it at anywhere from one generation a second t
 
 No accounts, no network requests, no analytics. It's arithmetic running on a grid of booleans.
 
-https://toroid.heyitsmejosh.com
+https://toroid.jaybulb.com

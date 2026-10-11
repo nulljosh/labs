@@ -31,6 +31,6 @@ Toroid is $0.99 on iPhone, iPad and Mac, free on the web.
 $0.99 on iPhone, iPad and Mac, free on the web.
 
 ## Links
-- Web: https://toroid.heyitsmejosh.com
+- Web: https://toroid.jaybulb.com
 - App Store: https://apps.apple.com/app/id6806324937
 - GitHub: https://github.com/nulljosh/toroid
