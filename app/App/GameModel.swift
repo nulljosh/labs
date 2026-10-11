@@ -73,7 +73,7 @@ import SwiftUI
     var shortOfGrain: Bool { city.grain - orders.buy * city.price < city.people * foodPerPerson }
 
     var shareText: String {
-        let link = "hamurapi.heyitsmejosh.com"
+        let link = "hamurapi.jaybulb.com"
         if city.impeached { return "I got thrown out as king in year \(log.count) of Hamurapi. Can you do better? \(link)" }
         let each = city.people == 0 ? "nobody left" : String(format: "%.1f acres each", Double(city.acres) / Double(city.people))
         let what = mode == .daily ? "played today's game" : "was king for 10 years"
