@@ -2,7 +2,7 @@
 
 ## 2026-10-11, marketing folder added
 
-Brought the Instagram ad work into `marketing/`. Four finished ads, the palette, the plan. Next: real job photos from Dad, one real review, then the sample batch of 10 posts and 2-3 video ads.
+Built the Instagram work in `marketing/`: 37 rendered posts in the site's design system, a seven-slide carousel, captions, SEO fixes for 84 pages, and six real reviews. Next: Dad's OK on running reviews in ads, Yelp reviews, real job photos from Dad, and the 6 second video clip once Joshua tops up Higgsfield credits.
 
 ## 2026-09-11, Face ID lock and Sign in with Apple/Google added
 
