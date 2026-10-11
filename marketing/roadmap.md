@@ -3,6 +3,8 @@
 Best Choice Garage Doors. Joshua is running this for his dad. Updated 2026-10-11.
 
 ## For Dad: what is ready
+- One sheet of all 38 posts to show Dad (`preview/all-posts.jpg`, also a PDF).
+- Vertical 9:16 Stories versions of the 6 ad posts (`stories/`).
 - A 30-day plan with every post slotted by date (`calendar.md`).
 - 37 Instagram and Facebook post images in the shop's own colors, with captions (`posts/`, `posts/captions.md`).
 - A 7-slide carousel, "What happens when you call us".
@@ -30,7 +32,7 @@ Keep the current ads (Google Ads, Door Domination) for 1 to 2 months while the n
 - [ ] Try Katana once a reference video is picked (`video/katana.md`).
 - [ ] Retry the free 5-second clip when the Hugging Face GPU quota resets.
 - [x] Dad's garage and truck photo is a post now (`posts/we-come-to-you.png`, house numbers blurred, screenshot copy so no location data). Still need the original file from his phone for the Google Business Profile upload.
-- [ ] Pull Yelp reviews and Dad's Instagram photos.
+- [ ] Pull Yelp reviews and Dad's Instagram photos. Yelp blocks plain requests (403), so this needs the Chrome extension reconnected.
 - [ ] Send Dad the text in `message-to-dad.md`.
 - [ ] Re-check the Google rating before each run.
 
