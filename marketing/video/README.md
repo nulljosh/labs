@@ -24,3 +24,6 @@ bash ~/.claude/skills/character-creator/scripts/lipsync.sh . line.wav   # writes
 ```
 
 First result: `local/talk.mp4`, 512x512, 1.9 seconds, mouth matches the words. The source frame has him squinting one eye, and that carries through. Try a frame with both eyes open next. Limits: square and small, very little head movement, 2 second line.
+
+## Higgsfield Lite result (2026-10-11)
+`brian-veo-lite.mp4`: Veo 3.1 Lite, 720x1280, 4s with audio, from `brian-start.jpg`. Cost 6 credits (2.5 left). Far better than the free clip: real gestures and an expressive face. The voice is Veo's, not Brian's, and the squint from the photo still shows. Next: the 24-credit Veo 3.1 high version, or Katana (`katana.md`).

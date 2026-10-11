@@ -1,8 +1,8 @@
 # Bcgd Roadmap
 
-## 2026-10-11, marketing folder added
+## Marketing
 
-Built the Instagram work in `marketing/`: 37 rendered posts in the site's design system, a seven-slide carousel, captions, SEO fixes for 84 pages, and six real reviews. Next: Dad's OK on running reviews in ads, Yelp reviews, real job photos from Dad, and the 6 second video clip once Joshua tops up Higgsfield credits.
+The Best Choice Garage Doors Instagram and Google work lives in `marketing/`. Its own queue is `marketing/roadmap.md`.
 
 ## 2026-09-11, Face ID lock and Sign in with Apple/Google added
 
