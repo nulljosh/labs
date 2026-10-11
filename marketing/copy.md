@@ -18,7 +18,7 @@ Caption: No surprises. This is what a Best Choice visit looks like. Book at bcga
 **Coquitlam:** Door stuck open or closed in Coquitlam? We're open 24 hours for emergency repair. Call or text (604) 240-0180.
 **Abbotsford:** Feeling drafts under your Abbotsford garage door? Worn weather stripping lets in cold, water and dirt. We replace it and check the rest of the door while we're there.
 **Maple Ridge:** Maple Ridge door grinding or shaking? Worn rollers are a common cause. We find the real problem and fix that. Book at bcgaragedoors.ca
-**Port Moody:** Broken spring and a trapped car in Port Moody? We've been there within the hour. Call (604) 240-0180.
+**Port Moody:** Broken spring and a trapped car in Port Moody? One customer had us there within the hour. Call (604) 240-0180.
 
 ## Google Business Profile posts (weekly, 300 words max)
 1. **Call now:** Stuck door? We're open 24 hours, 7 days a week. Same-day emergency garage door repair across Langley and the Lower Mainland.
