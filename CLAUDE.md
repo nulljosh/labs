@@ -21,7 +21,7 @@
 | **notate** (ex-voxprint, ex-echo, renamed 2026-09-21) | On-device transcription, WhisperKit. Store listing name flips to Notate with 1.4.1; Xcode targets and the Pages project still say Voxprint | notate.heyitsmejosh.com · 6782604262 |
 | **tonchi** (ex-Lexly) | Gamified learning: languages, code, math, science, engineering | 6783501611 (6783501927 is a stray dupe) |
 | **litigate** | Litigation tool, private | litigate.heyitsmejosh.com |
-| **intake** (ex-healstack, repo and folder renamed 2026-10-04; store name, domain and Pages project still `healstack`) | Health/supplement tracker | healstack.heyitsmejosh.com |
+| **intake** (ex-healstack, repo and folder renamed 2026-10-04; store name, domain and Pages project still `healstack`) | Health/supplement tracker | intake.jaybulb.com |
 | **hikko** (ex-Hotaru, ex-Sparkjar, renamed 2026-10-04; Pages project still `sparkjar`) | Idea forum | hikko.heyitsmejosh.com · 6785162492 |
 | **curvely** | Equation grapher | 6794988370 |
 | **blockframe** (ex-charwork/wiretext, renamed to Blockframe) | Unicode wireframe tool → canvas editor (product: Blockframe, ASC display: Blockframe 6794988951; Xcode/bundle ID/DNS still Charwork/Wiretext; own warm-paper theme, not the shared tokens) | wiretext.heyitsmejosh.com |
@@ -58,7 +58,7 @@
 ### Sites & infra
 | Repo | What |
 |---|---|
-| **nulljosh.github.io** | Portfolio, heyitsmejosh.com (jaybulb.com rename pending domain). `/plan` folded in |
+| **nulljosh.github.io** | Portfolio, heyitsmejosh.com, plus the Jaybulb landing (Cloudflare Pages project `jaybulb`). `/plan` folded in |
 | **journal** | Jekyll blog (Pages project `journal-heyitsmejosh`) |
 | **brain** | RAG over notes, bearer-gated /api + /mcp |
 | **gato** | Voice-first OS shell, text-loop router (claude -p / ollama), landing at gato.heyitsmejosh.com (local-only repo, no GitHub remote). Note: Leopard Gecko reserved as future distro name for Joshua Tree kernel's eventual graphical OS |
