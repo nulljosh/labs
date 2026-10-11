@@ -8,4 +8,4 @@ Built in Swift 6 and SpriteKit, one codebase for iOS and macOS.
 
 Free on the web. On the App Store it's $0.99 upfront, no ads, no timers, nothing else to buy. Would love feedback on the difficulty curve and whether the night phase reads clearly.
 
-https://nyc.heyitsmejosh.com
+https://nyc.jaybulb.com

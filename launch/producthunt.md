@@ -11,7 +11,7 @@ Topics: Games, Mac, Web App
 Pricing: $0.99 on the App Store. Free on web.
 
 Links
-Web: https://nyc.heyitsmejosh.com
+Web: https://nyc.jaybulb.com
 App Store: https://apps.apple.com/app/id6782618198
 GitHub: https://github.com/nulljosh/nyc
 

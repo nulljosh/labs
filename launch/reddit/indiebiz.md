@@ -8,4 +8,4 @@ The idea: the web build is the trial, the store listing is the checkout. Anyone 
 
 Built solo in Swift 6 and SpriteKit. Curious how other solo devs think about the free-web-to-paid-store split, and whether $0.99 is priced right for what it is.
 
-https://nyc.heyitsmejosh.com
+https://nyc.jaybulb.com
