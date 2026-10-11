@@ -1,10 +1,10 @@
 /*
- * Portfolio vibe reference — extracted from https://heyitsmejosh.com (2026-07-07)
+ * Portfolio vibe reference — extracted from https://jaybulb.com (2026-07-07)
  * Minimal sage restyle (tokens-sage.css). Reference only; apply manually.
  *
  * Fonts: Inter 400–500 (body/headings, weight 460), Newsreader italic (accents)
  * @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400..500&family=Newsreader:ital,opsz,wght@1,6..72,400..500&display=swap');
- * Live shared tokens: https://heyitsmejosh.com/tokens.css
+ * Live shared tokens: https://jaybulb.com/tokens.css
  */
 :root {
     --vibe-bg: #fdfdfc;

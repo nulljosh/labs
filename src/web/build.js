@@ -13,7 +13,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-const SITE = 'https://bcgd.heyitsmejosh.com';
+const SITE = 'https://bcgd.jaybulb.com';
 
 const index = readFileSync(join(ROOT, 'index.html'), 'utf8');
 const services = JSON.parse(readFileSync(join(ROOT, 'data/services.json'), 'utf8'));

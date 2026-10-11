@@ -1,7 +1,7 @@
 {
   "description": "Doorstock is a small, offline inventory and job tracker for garage-door installers, repair techs, and other small trade contractors — anyone who needs to know what's on the truck and what's booked this week without running a whole field-service platform to find out.\n\nINVENTORY\nTrack parts by category — springs, rollers, hinges, openers, weather seal — with quick quantity controls. Set a low-stock threshold on any part and see everything that needs reordering in one list. Search and filter as your parts list grows.\n\nJOBS\nMove work through a simple pipeline: Lead, Quote, Scheduled, Complete, Paid. Add a customer and address, advance a job with one tap, and swipe away what's done.\n\nAT A GLANCE\nThe dashboard puts your stock count, low-stock warnings, and open job totals on one screen, so a morning check takes seconds.\n\nSTARTS READY\nDoorstock ships seeded with industry-standard part types so you're not staring at an empty list on day one. Edit, add to, or reset it to make the catalog your own.\n\nPRIVATE BY DESIGN\nNo account. No sign-in. No network requests of any kind. Everything you enter stays on your device, and nothing is ever transmitted or collected.",
   "keywords": "garage door inventory,contractor job tracker,trade parts,field service,small business stock",
-  "marketingUrl": "https://doorstock.heyitsmejosh.com",
-  "supportUrl": "https://doorstock.heyitsmejosh.com",
+  "marketingUrl": "https://doorstock.jaybulb.com",
+  "supportUrl": "https://doorstock.jaybulb.com",
   "promotionalText": "Know what's on the truck and what's booked this week. Offline inventory and job tracking built for garage-door techs and small trade crews."
 }

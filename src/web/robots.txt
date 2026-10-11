@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bcgd.heyitsmejosh.com/sitemap.xml
+Sitemap: https://bcgd.jaybulb.com/sitemap.xml

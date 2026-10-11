@@ -97,7 +97,7 @@ export default function App() {
   }, []);
 
   // ---- Website leads -> Lead jobs ----
-  // The booking form on bcgd.heyitsmejosh.com inserts into bcgd_leads. Pull any
+  // The booking form on bcgd.jaybulb.com inserts into bcgd_leads. Pull any
   // that haven't been turned into a job yet, then flip them to 'Imported' so the
   // next poll skips them. ponytail: 60s poll, switch to realtime if it matters.
   useEffect(() => {
