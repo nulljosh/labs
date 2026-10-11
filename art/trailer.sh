@@ -41,7 +41,7 @@ pkill -x Hamurapi 2>/dev/null || true
 # End card: icon, name, where to play.
 magick -size 1280x800 xc:'#f6f6f4' \( "$ROOT/web/icon.png" -filter point -resize 200x200 \) -gravity center -geometry +0-150 -composite \
   -font "$FONT" -fill '#23262d' -pointsize 96 -annotate +0+40 "Hamurapi" \
-  -fill '#666b75' -pointsize 34 -annotate +0+130 "Play now at hamurapi.heyitsmejosh.com" "$T/end.png"
+  -fill '#666b75' -pointsize 34 -annotate +0+130 "Play now at hamurapi.jaybulb.com" "$T/end.png"
 ffmpeg -y -loglevel error -loop 1 -t 3.5 -i "$T/end.png" -r 30 -c:v libx264 -pix_fmt yuv420p -crf 20 "$T/end.mp4"
 echo "file '$T/end.mp4'" >> "$T/list.txt"
 
