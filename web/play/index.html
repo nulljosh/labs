@@ -375,7 +375,7 @@ function render() {
 }
 
 function shareText() {
-  const c = G.city, link = "hamurapi.heyitsmejosh.com";
+  const c = G.city, link = "hamurapi.jaybulb.com";
   if (c.impeached) return `I got thrown out as king in year ${G.log.length} of Hamurapi. Can you do better? ${link}`;
   const each = c.people === 0 ? "nobody left" : `${(c.acres / c.people).toFixed(1)} acres each`;
   return `I ${G.mode === "daily" ? "played today's game" : "was king for 10 years"} in Hamurapi and got ${grade(c)}. ${fmt(c.starvedTotal)} starved, ${each}. ${link}`;
