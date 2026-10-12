@@ -106,7 +106,7 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 
 ## Gotchas
 - `npm i <pkg> --save-dev` on a pinned dep upgrades it without telling you. Edit package.json by hand and diff the lockfile
-- Stripe is live on epiphany, healstack, hikko and talli. It cannot unlock in-app features under App Review. That needs IAP
+- Stripe is live on epiphany, intake, hikko and talli. It cannot unlock in-app features under App Review. That needs IAP
 - Social sign-in is blocked on console registrations. The code is done
 - `mole clean` needs a real TTY for sudo. Run it yourself
 
