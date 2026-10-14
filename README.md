@@ -26,3 +26,5 @@ No dependencies, accounts or model calls. Foreground queues stop when their work
 Read [WHITEPAPER.md](WHITEPAPER.md), [research and sources](docs/RESEARCH.md), [roadmap.md](roadmap.md), and [loop handoff](docs/LOOP-HANDOFF.md). No open problem has been solved. Browser examples are bounded teaching tools; published figures come from Python reports.
 
 First descent now covers starts 2 through 1,000,000. Every start descended, and two implementations agreed on the ordinary-step counts and endpoints. This is a bounded result. [Brand system](landing/brand.html) · [QA and limitations](docs/design/QA.md).
+
+Modulo-32 studies now isolate four remaining classes. Written algebra covers first descent in 28 of 32 classes. Lean 4.35.0 verifies one exact three-step lemma; see [proofs/README.md](proofs/README.md). No general Collatz termination claim follows.

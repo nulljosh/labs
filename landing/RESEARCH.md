@@ -107,3 +107,39 @@ These three remaining groups account for 187,500 checked starts. Every one desce
 ## Next predeclared question
 
 Split only remainders 7, 11 and 15 into the corresponding classes modulo 32, keeping the bound fixed. Derive the forced initial affine paths before running the comparison. Seek an exact first-descent lemma or an explicit exception, then keep any variable-length branches visible. Do not confuse a fixed prefix or an average decrease with eventual descent for every start.
+
+## Cycle 3 protocol: forced prefixes modulo 32
+
+Before numerical comparison: split only remainders 7, 11 and 15 modulo 16 into remainders 7, 11, 15, 23, 27 and 31 modulo 32. Keep starts two through one million and the ordinary 1,000-step cap. Derive each affine prefix 32k+r for k >= 0 by applying a step only while its parity is fixed for all k. Stop at a uniformly smaller term or at a term whose parity depends on k.
+
+| Remainder | Forced steps | Affine prefix | Stop reason |
+| --- | ---: | --- | --- |
+| 7 | 9 | 32k+7 → 96k+22 → 48k+11 → 144k+34 → 72k+17 → 216k+52 → 108k+26 → 54k+13 → 162k+40 → 81k+20 | next parity depends on k |
+| 11 | 8 | 32k+11 → 96k+34 → 48k+17 → 144k+52 → 72k+26 → 36k+13 → 108k+40 → 54k+20 → 27k+10 | strictly below the start for every k >= 0 |
+| 15 | 9 | 32k+15 → 96k+46 → 48k+23 → 144k+70 → 72k+35 → 216k+106 → 108k+53 → 324k+160 → 162k+80 → 81k+40 | next parity depends on k |
+| 23 | 8 | 32k+23 → 96k+70 → 48k+35 → 144k+106 → 72k+53 → 216k+160 → 108k+80 → 54k+40 → 27k+20 | strictly below the start for every k >= 0 |
+| 27 | 9 | 32k+27 → 96k+82 → 48k+41 → 144k+124 → 72k+62 → 36k+31 → 108k+94 → 54k+47 → 162k+142 → 81k+71 | next parity depends on k |
+| 31 | 10 | 32k+31 → 96k+94 → 48k+47 → 144k+142 → 72k+71 → 216k+214 → 108k+107 → 324k+322 → 162k+161 → 486k+484 → 243k+242 | next parity depends on k |
+
+For remainders 11 and 23, the eighth terms are 27k+10 and 27k+20. They are below 32k+11 and 32k+23 by 5k+1 and 5k+3. Every preceding affine term has both its coefficient and constant greater than those of the start. Thus there is no earlier descent. Predeclared controls: these two groups have exact first-descent time eight; reject a numerical run if this fails, an earlier baseline changes, or the six group counts fail to partition their parent groups. No constant first-descent time is predicted for the other four groups.
+
+Formal-check target: the exact three-step first descent of 4k+1 for positive k. Use the actual ordinary Collatz function, all earlier steps, and a universally quantified integer parameter. No finite enumeration, Collatz assumption, new axiom or unfinished proof is acceptable.
+
+## Cycle 3 results and first formal check
+
+The six selected modulo-32 groups partition the three prior parent groups. All earlier trajectory digests and aggregate measurements still match the frozen baseline. Each group contains 31,250 starts at the one-million bound. No case was unresolved and the independent implementations agreed.
+
+| Remainder modulo 32 | Starts checked | Minimum first descent | Maximum in this range | First start attaining maximum |
+| --- | ---: | ---: | ---: | ---: |
+| 7 | 31,250 | 11 | 269 | 362,343 |
+| 11 | 31,250 | 8 | 8 | 11 |
+| 15 | 31,250 | 11 | 285 | 667,375 |
+| 23 | 31,250 | 8 | 8 | 23 |
+| 27 | 31,250 | 11 | 287 | 626,331 |
+| 31 | 31,250 | 13 | 282 | 381,727 |
+
+The algebraic eight-step predictions for remainders 11 and 23 matched every checked case. Together with the previous written arguments, first descent is established algebraically for 28 of 32 residue classes, excluding start one. Four classes remain outside those arguments: 7, 15, 27 and 31. The maximum values above are finite observations, not universal bounds. No novel mathematical result is claimed.
+
+Lean 4.35.0 checked the universally quantified exact three-step lemma for 4k+1 with k >= 1. The definition includes the actual ordinary Collatz iteration and all earlier steps. The proof uses standard Lean logic, no new axiom, no Collatz assumption, no unfinished proof and no finite-case enumeration. Both direct checking with warnings as errors and lake build succeeded locally. Its dependency report lists only propext and Quot.sound. The written eight-step lemmas have not yet been checked in Lean.
+
+The downloadable Noema.lean and proof-check.json identify exactly what was checked. Lean verification of one lemma is not verification of the Python corpus, the entire whitepaper, other written arguments, or a termination theorem.

@@ -115,3 +115,22 @@ These three remaining groups account for 187,500 checked starts. Every one desce
 ## Next predeclared question
 
 Split only remainders 7, 11 and 15 into the corresponding classes modulo 32, keeping the bound fixed. Derive the forced initial affine paths before running the comparison. Seek an exact first-descent lemma or an explicit exception, then keep any variable-length branches visible. Do not confuse a fixed prefix or an average decrease with eventual descent for every start.
+
+## Cycle 3 results and first formal check
+
+The six selected modulo-32 groups partition the three prior parent groups. All earlier trajectory digests and aggregate measurements still match the frozen baseline. Each group contains 31,250 starts at the one-million bound. No case was unresolved and the independent implementations agreed.
+
+| Remainder modulo 32 | Starts checked | Minimum first descent | Maximum in this range | First start attaining maximum |
+| --- | ---: | ---: | ---: | ---: |
+| 7 | 31,250 | 11 | 269 | 362,343 |
+| 11 | 31,250 | 8 | 8 | 11 |
+| 15 | 31,250 | 11 | 285 | 667,375 |
+| 23 | 31,250 | 8 | 8 | 23 |
+| 27 | 31,250 | 11 | 287 | 626,331 |
+| 31 | 31,250 | 13 | 282 | 381,727 |
+
+The algebraic eight-step predictions for remainders 11 and 23 matched every checked case. Together with the previous written arguments, first descent is established algebraically for 28 of 32 residue classes, excluding start one. Four classes remain outside those arguments: 7, 15, 27 and 31. The maximum values above are finite observations, not universal bounds. No novel mathematical result is claimed.
+
+Lean 4.35.0 checked the universally quantified exact three-step lemma for 4k+1 with k >= 1. The definition includes the actual ordinary Collatz iteration and all earlier steps. The proof uses standard Lean logic, no new axiom, no Collatz assumption, no unfinished proof and no finite-case enumeration. Both direct checking with warnings as errors and lake build succeeded locally. Its dependency report lists only propext and Quot.sound. The written eight-step lemmas have not yet been checked in Lean.
+
+The downloadable Noema.lean and proof-check.json identify exactly what was checked. Lean verification of one lemma is not verification of the Python corpus, the entire whitepaper, other written arguments, or a termination theorem.

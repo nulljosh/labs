@@ -45,14 +45,16 @@ def study(limit):
     digest, histogram, records, unresolved = hashlib.sha256(), Counter(), [], []
     groups = {str(modulus): [dict(remainder=r, checked=0, unresolved=0,
                                 minimum_steps=None, maximum=None)
-                            for r in range(modulus)] for modulus in (8, 16)}
+                            for r in range(modulus)] for modulus in (8, 16, 32)}
     for start in range(2, limit + 1):
         result = first_descent(start)
         expected = accelerated_check(start, 1000)
         if (result['steps'], result['first_below']) != expected:
             raise RuntimeError(f'Independent descent calculation disagrees at start {start}.')
         digest.update((json.dumps(result, sort_keys=True, separators=(',', ':')) + '\n').encode())
-        for modulus in (8, 16):
+        for modulus in (8, 16, 32):
+            if modulus == 32 and start % 16 not in (7, 11, 15):
+                continue
             group = groups[str(modulus)][start % modulus]
             group['checked'] += 1
             if result['status'] != 'descended':
@@ -67,6 +69,8 @@ def study(limit):
                 raise RuntimeError(f'Even-start control failed at {start}.')
             if start % 4 == 1 and result['steps'] != 3:
                 raise RuntimeError(f'4k+1 control failed at {start}.')
+            if start % 32 in (11, 23) and result['steps'] != 8:
+                raise RuntimeError(f'Modulo-32 eight-step control failed at {start}.')
         if result['status'] == 'descended':
             histogram[result['steps']] += 1
             if not records or result['steps'] > records[-1]['steps']:
@@ -77,12 +81,13 @@ def study(limit):
             'unresolved': unresolved, 'record_highs': records,
             'step_histogram': {str(k): v for k, v in sorted(histogram.items())},
             'independent_disagreements': 0, 'evidence_sha256': digest.hexdigest(),
-            'residue_groups': groups}
+            'residue_groups': {m: [g for g in rows if m != '32' or g['remainder'] % 16 in (7, 11, 15)]
+                               for m, rows in groups.items()}}
 
 
 def run():
     started = time.monotonic()
-    report = {'suite': 'first-descent-v2', 'status': 'complete',
+    report = {'suite': 'first-descent-v3', 'status': 'complete',
               'updated_at': datetime.now(timezone.utc).isoformat(),
               'engine_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
               'stages': [study(n) for n in (10000, 100000, 1000000)],
@@ -92,6 +97,12 @@ def run():
     baseline = json.loads((ROOT / 'benchmarks/first-descent-baseline.json').read_text())
     unchanged = [{key: value for key, value in stage.items() if key != 'residue_groups'}
                  for stage in report['stages']]
+    for stage in report['stages']:
+        parents = stage['residue_groups']['16']
+        children = stage['residue_groups']['32']
+        for r in (7, 11, 15):
+            if sum(g['checked'] for g in children if g['remainder'] % 16 == r) != parents[r]['checked']:
+                raise RuntimeError('Modulo-32 groups do not partition their parent.')
     if unchanged != baseline['stages']:
         raise RuntimeError('First-descent regression: accepted findings were not replaced.')
     encoded = json.dumps(report, indent=2) + '\n'

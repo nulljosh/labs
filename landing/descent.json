@@ -1,8 +1,8 @@
 {
-  "suite": "first-descent-v2",
+  "suite": "first-descent-v3",
   "status": "complete",
-  "updated_at": "2026-10-14T17:15:09.399865+00:00",
-  "engine_sha256": "1bc541a1e02233e986bc04b2f9a83fd56d5d5a65462309a124fe689c330f43b8",
+  "updated_at": "2026-10-14T17:36:41.846745+00:00",
+  "engine_sha256": "8f89b8c981640b2099cb48b0ee1af66812d62df2c159a4ad7c358569fb967c75",
   "stages": [
     {
       "limit": 10000,
@@ -379,6 +379,80 @@
             "checked": 625,
             "unresolved": 0,
             "minimum_steps": 11,
+            "maximum": {
+              "start": 703,
+              "steps": 132,
+              "first_below": 628,
+              "status": "descended"
+            }
+          }
+        ],
+        "32": [
+          {
+            "remainder": 7,
+            "checked": 313,
+            "unresolved": 0,
+            "minimum_steps": 11,
+            "maximum": {
+              "start": 7527,
+              "steps": 119,
+              "first_below": 7066,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 11,
+            "checked": 313,
+            "unresolved": 0,
+            "minimum_steps": 8,
+            "maximum": {
+              "start": 11,
+              "steps": 8,
+              "first_below": 10,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 15,
+            "checked": 313,
+            "unresolved": 0,
+            "minimum_steps": 11,
+            "maximum": {
+              "start": 1583,
+              "steps": 127,
+              "first_below": 1256,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 23,
+            "checked": 312,
+            "unresolved": 0,
+            "minimum_steps": 8,
+            "maximum": {
+              "start": 23,
+              "steps": 8,
+              "first_below": 20,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 27,
+            "checked": 312,
+            "unresolved": 0,
+            "minimum_steps": 11,
+            "maximum": {
+              "start": 7963,
+              "steps": 117,
+              "first_below": 4984,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 31,
+            "checked": 312,
+            "unresolved": 0,
+            "minimum_steps": 13,
             "maximum": {
               "start": 703,
               "steps": 132,
@@ -804,6 +878,80 @@
               "start": 60975,
               "steps": 207,
               "first_below": 52975,
+              "status": "descended"
+            }
+          }
+        ],
+        "32": [
+          {
+            "remainder": 7,
+            "checked": 3125,
+            "unresolved": 0,
+            "minimum_steps": 11,
+            "maximum": {
+              "start": 35655,
+              "steps": 220,
+              "first_below": 29405,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 11,
+            "checked": 3125,
+            "unresolved": 0,
+            "minimum_steps": 8,
+            "maximum": {
+              "start": 11,
+              "steps": 8,
+              "first_below": 10,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 15,
+            "checked": 3125,
+            "unresolved": 0,
+            "minimum_steps": 11,
+            "maximum": {
+              "start": 60975,
+              "steps": 207,
+              "first_below": 52975,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 23,
+            "checked": 3125,
+            "unresolved": 0,
+            "minimum_steps": 8,
+            "maximum": {
+              "start": 23,
+              "steps": 8,
+              "first_below": 20,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 27,
+            "checked": 3125,
+            "unresolved": 0,
+            "minimum_steps": 11,
+            "maximum": {
+              "start": 57115,
+              "steps": 200,
+              "first_below": 29405,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 31,
+            "checked": 3125,
+            "unresolved": 0,
+            "minimum_steps": 13,
+            "maximum": {
+              "start": 37503,
+              "steps": 205,
+              "first_below": 21722,
               "status": "descended"
             }
           }
@@ -1283,10 +1431,84 @@
               "status": "descended"
             }
           }
+        ],
+        "32": [
+          {
+            "remainder": 7,
+            "checked": 31250,
+            "unresolved": 0,
+            "minimum_steps": 11,
+            "maximum": {
+              "start": 362343,
+              "steps": 269,
+              "first_below": 323434,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 11,
+            "checked": 31250,
+            "unresolved": 0,
+            "minimum_steps": 8,
+            "maximum": {
+              "start": 11,
+              "steps": 8,
+              "first_below": 10,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 15,
+            "checked": 31250,
+            "unresolved": 0,
+            "minimum_steps": 11,
+            "maximum": {
+              "start": 667375,
+              "steps": 285,
+              "first_below": 424094,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 23,
+            "checked": 31250,
+            "unresolved": 0,
+            "minimum_steps": 8,
+            "maximum": {
+              "start": 23,
+              "steps": 8,
+              "first_below": 20,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 27,
+            "checked": 31250,
+            "unresolved": 0,
+            "minimum_steps": 11,
+            "maximum": {
+              "start": 626331,
+              "steps": 287,
+              "first_below": 597017,
+              "status": "descended"
+            }
+          },
+          {
+            "remainder": 31,
+            "checked": 31250,
+            "unresolved": 0,
+            "minimum_steps": 13,
+            "maximum": {
+              "start": 381727,
+              "steps": 282,
+              "first_below": 323434,
+              "status": "descended"
+            }
+          }
         ]
       }
     }
   ],
   "limits": "Finite ordinary-step first descent. Start 1 is excluded. Stages overlap. No universal termination claim.",
-  "seconds": 3.9703007500000003
+  "seconds": 4.153266083
 }

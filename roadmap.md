@@ -2,7 +2,6 @@
 
 - [ ] Check tiny pigeonhole formulas and DPLL node counts.
 - [ ] Measure prime gaps on disjoint intervals with checked endpoints.
-- [ ] Formalize one small proved lemma before larger proof proposals.
 - [ ] Review a specific complexity technique against its computation model and barriers.
 
 Raise one study's scope at a time. Riemann remains literature-only until prerequisites and a rigorous verification method are specified.
@@ -26,7 +25,13 @@ Current evidence: starts 2 through 1,000,000 all descended within 1,000 ordinary
 
 Modulo 8 and 16 summaries preserve all earlier aggregate results. Elementary first-descent proofs cover even starts, 4k+1 for k >= 1, and 16k+3 for k >= 0. Remaining remainders modulo 16: 7, 11 and 15. This is known algebra reproduced in the notebook, not a new Collatz result.
 
-- [ ] Split the remaining three groups modulo 32 at the existing bound. Derive affine prefixes before calculation and preserve variable branches and exceptions.
-- [ ] Formalize the exact three-step or six-step lemma in Lean, with no unproved Collatz assumption.
 
 Do not infer termination for an initial class merely because its first descent is proved: its smaller endpoint may belong to an uncovered class.
+
+## Next after cycle 3
+
+Modulo-32 splits and the first small Lean proof are complete. Written first-descent arguments cover 28 of 32 residue classes; only the 4k+1 exact three-step lemma is Lean-checked. Remaining classes: 7, 15, 27 and 31. Keep the bound fixed.
+
+- [ ] Formalize the two exact eight-step lemmas, 32k+11 and 32k+23, in Lean using the ordinary map and all earlier steps.
+- [ ] Derive forced prefixes for the four remaining groups modulo 64 before checking them at the existing bound. Preserve parity-dependent branches.
+- [ ] Keep proof-assistant status separate from bounded software checks and written algebra in every public claim.

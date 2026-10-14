@@ -49,3 +49,20 @@ class DescentTests(unittest.TestCase):
         class_three = result['residue_groups']['16'][3]
         self.assertEqual(class_three['minimum_steps'], 6)
         self.assertEqual(class_three['maximum']['steps'], 6)
+
+    def test_remaining_modulo_32_groups(self):
+        result = study(10000)
+        groups = result['residue_groups']['32']
+        self.assertEqual([g['remainder'] for g in groups], [7,11,15,23,27,31])
+        self.assertEqual(sum(g['checked'] for g in groups), 1875)
+        for group in groups:
+            r = group['remainder']
+            self.assertEqual(group['checked'], sum(n % 32 == r for n in range(2,10001)))
+            if r in (11,23):
+                self.assertEqual(group['minimum_steps'], 8)
+                self.assertEqual(group['maximum']['steps'], 8)
+            else:
+                self.assertGreater(group['maximum']['steps'], group['minimum_steps'])
+        for k in range(100):
+            for r in (11,23):
+                self.assertEqual(first_descent(32*k+r)['steps'], 8)

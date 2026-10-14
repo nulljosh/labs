@@ -4,3 +4,5 @@ runs/
 .DS_Store
 
 dist/
+
+proofs/.lake/

@@ -14,3 +14,14 @@ jobs:
       - run: python mathlab.py benchmark
       - run: python conjectures.py
       - run: python descent.py
+  proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          lake-package-directory: proofs
+          auto-config: 'false'
+          build: 'true'
+          test: 'false'
+          lint: 'false'

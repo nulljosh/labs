@@ -25,3 +25,5 @@ No native Safari, Android hardware, screen-reader or independent user study has 
 The first-descent findings section was subsequently checked at 320px and 1440px without overflow. The three-stage JSON report loads and its final record matches the displayed 287-step case. noema.jaybulb.com returned HTTPS 200 after hostname activation.
 
 Cycle 2 adds a source-linked remainder-group note and expands the downloadable descent report. No interactive controls or brand tokens changed.
+
+Cycle 3 adds the modulo-32 results, a downloadable Lean source file and its source-hashed verification record. Sixteen Python tests pass, including export integrity. The exact three-step theorem passed Lean 4.35.0 with warnings as errors and lake build locally. The two new eight-step written arguments are explicitly labelled not yet Lean-checked. Hosted GitHub CI has not run.
