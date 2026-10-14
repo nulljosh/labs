@@ -25,7 +25,6 @@ Current evidence: starts 2 through 1,000,000 all descended within 1,000 ordinary
 
 Modulo 8 and 16 summaries preserve all earlier aggregate results. Elementary first-descent proofs cover even starts, 4k+1 for k >= 1, and 16k+3 for k >= 0. Remaining remainders modulo 16: 7, 11 and 15. This is known algebra reproduced in the notebook, not a new Collatz result.
 
-
 Do not infer termination for an initial class merely because its first descent is proved: its smaller endpoint may belong to an uncovered class.
 
 ## Next after cycle 3
