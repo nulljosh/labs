@@ -1,10 +1,5 @@
 # Research queue
 
-- [x] Inspect Evidna and adapt its finite evidence loop.
-- [x] Exhaustively check small SAT formulas and save stalled examples.
-- [x] Run Goldbach, Collatz and twin-prime studies at three increasing bounds.
-- [x] Write a source-backed whitepaper and research ladder.
-- [x] Measure first descent through 1,000,000 and cross-check every start with an accelerated implementation.
 - [ ] Check tiny pigeonhole formulas and DPLL node counts.
 - [ ] Measure prime gaps on disjoint intervals with checked endpoints.
 - [ ] Formalize one small proved lemma before larger proof proposals.
@@ -24,9 +19,6 @@ Last reviewed: October 14, 2026. Update this file after each completed study or 
 Recent papers are leads, not assumed solutions. Keep a precise source and status with every added item.
 
 ## Next after the first-descent run
-
-- [x] Split first-descent measurements by residue classes modulo 8 and 16. Declare the grouping before running, preserve odd/even distinctions, and look for a statement that can be proved rather than merely checked farther.
-- [x] Prove the easy class n = 4k+1 for k >= 1: three ordinary steps give 3k+1, which is below 4k+1. Compare with exact first-descent measurements, then consider a small Lean formalization.
 
 Current evidence: starts 2 through 1,000,000 all descended within 1,000 ordinary steps. The maximum was 287 steps at 626,331. No universal claim follows.
 
