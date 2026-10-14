@@ -16,6 +16,7 @@
 ### Apps
 | Repo | What | Domain / ASC |
 |---|---|---|
+| **noema** | Mathematics lab, bounded SAT and number-theory studies, small first-descent proofs | noema.jaybulb.com |
 | **evidna** | Evidence-first Python biology lab, public HBB data and versioned benchmarks | evidna.jaybulb.com |
 | **epiphany** | Finance dashboard | epiphany.heyitsmejosh.com · 6779522175 |
 | **talli** | DTC/RDSP/CDB admin tool | talli.heyitsmejosh.com |
