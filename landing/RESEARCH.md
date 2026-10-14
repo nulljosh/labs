@@ -65,3 +65,45 @@ The ordinary Collatz map counts an odd 3n+1 step separately from the following h
 | 1,000,000 | 999,999 | 0 | 626,331 | 287 | 597,017 |
 
 No implementation disagreements occurred. The three stages overlap and must not be summed. The longest first descent is distinct from total stopping time to one. This finite reproduction does not prove every integer eventually descends. The complete report is landing/descent.json; run python3 descent.py to reproduce it. The study is software-checked, not proof-assistant-certified or a verification record.
+
+## Cycle 2 protocol: remainder groups
+
+Before running: preserve the existing starts 2 through 1,000,000, ordinary-step convention and 1,000-step cap. Group each start by its remainder after division by 8 and 16. Report counts, unresolved cases, minimum first-descent time and the first case attaining each group's maximum. Compare every trajectory with the existing accelerated checker, and preserve the previous stream digest and aggregate measurements as a regression baseline.
+
+Predeclared controls: even starts descend in one step; starts 4k+1 with k >= 1 descend in exactly three. Reject the run if either control fails, group totals differ from the full corpus, or existing measurements change. Inspect any further class pattern with an algebraic proof. Agreement in a bounded group alone does not establish its infinite analogue.
+
+## Cycle 2: three elementary proofs
+
+These are established elementary Collatz facts, reproduced here rather than claimed as new mathematics. Counts use the ordinary map T(n) = n/2 for even n and T(n) = 3n+1 for odd n. A first descent must be strictly below the start, and every earlier term must still be at least that start.
+
+**Even starts.** For n >= 2 even, T(n) = n/2 < n. First descent takes exactly one step.
+
+**Starts 4k+1, k >= 1.** Their first three steps are
+
+`4k+1 → 12k+4 → 6k+2 → 3k+1`.
+
+The first two terms exceed the start: their differences from it are 8k+3 and 2k+1. The third is smaller by k. Therefore first descent takes exactly three ordinary steps. The exception k=0 gives start one and is excluded.
+
+**Starts 16k+3, k >= 0.** Their first six steps are
+
+`16k+3 → 48k+10 → 24k+5 → 72k+16 → 36k+8 → 18k+4 → 9k+2`.
+
+The displayed parity choices hold for every nonnegative integer k. The first five differences from the start are 32k+7, 8k+2, 56k+13, 20k+5 and 2k+1, all positive. The sixth term is smaller by 7k+1. Therefore first descent takes exactly six ordinary steps.
+
+Together these arguments cover the eight even remainders modulo 16, the four remainders 1, 5, 9 and 13, and remainder 3. That is 13 of 16 residue classes, with start one excluded. It is not a proof that these classes are invariant under iteration; the arguments establish first descent from each start in a covered class. A descent may land in an uncovered class. They therefore do not prove Collatz even for every start in the covered classes without an additional termination argument.
+
+## Cycle 2 measurements
+
+The same 999,999 starts from two through one million were grouped modulo 8 and 16. All earlier trajectory digests and aggregate measurements matched the frozen first-descent-v1 baseline. The v2 report adds group summaries. All group totals matched the full corpus, every accelerated cross-check agreed, and the proved 1-, 3- and 6-step cases matched computation.
+
+| Remainder modulo 16 | Starts checked | Observed minimum first descent | Observed maximum | First start attaining maximum |
+| --- | ---: | ---: | ---: | ---: |
+| 7 | 62,500 | 8 | 269 | 362,343 |
+| 11 | 62,500 | 8 | 287 | 626,331 |
+| 15 | 62,500 | 11 | 285 | 667,375 |
+
+These three remaining groups account for 187,500 checked starts. Every one descended within the cap, but no infinite descent theorem is supplied for those groups. The maximum values in this table are finite observations, not universal bounds. Grouping starts does not establish an inductive invariant or rule out a cycle.
+
+## Next predeclared question
+
+Split only remainders 7, 11 and 15 into the corresponding classes modulo 32, keeping the bound fixed. Derive the forced initial affine paths before running the comparison. Seek an exact first-descent lemma or an explicit exception, then keep any variable-length branches visible. Do not confuse a fixed prefix or an average decrease with eventual descent for every start.

@@ -32,3 +32,20 @@ class DescentTests(unittest.TestCase):
         self.assertEqual(sum(result['step_histogram'].values()), 9999)
         self.assertEqual(result['unresolved'], [])
         self.assertEqual(result['independent_disagreements'], 0)
+        for modulus in (8, 16):
+            groups = result['residue_groups'][str(modulus)]
+            self.assertEqual(sum(g['checked'] for g in groups), 9999)
+            for group in groups:
+                r = group['remainder']
+                expected = sum(n % modulus == r for n in range(2, 10001))
+                self.assertEqual(group['checked'], expected)
+                self.assertEqual(group['unresolved'], 0)
+                if r % 2 == 0:
+                    self.assertEqual(group['minimum_steps'], 1)
+                    self.assertEqual(group['maximum']['steps'], 1)
+                if r % 4 == 1:
+                    self.assertEqual(group['minimum_steps'], 3)
+                    self.assertEqual(group['maximum']['steps'], 3)
+        class_three = result['residue_groups']['16'][3]
+        self.assertEqual(class_three['minimum_steps'], 6)
+        self.assertEqual(class_three['maximum']['steps'], 6)

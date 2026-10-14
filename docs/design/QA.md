@@ -23,3 +23,5 @@ Tabs show one panel, maintain selection and use roving focus. Arrow-key navigati
 No native Safari, Android hardware, screen-reader or independent user study has run. Viewports are browser emulation. Wordmark SVGs use live system-font text; letterforms can vary. Name/trademark availability was not checked. Numerical controls and regression baselines do not prove an open conjecture.
 
 The first-descent findings section was subsequently checked at 320px and 1440px without overflow. The three-stage JSON report loads and its final record matches the displayed 287-step case. noema.jaybulb.com returned HTTPS 200 after hostname activation.
+
+Cycle 2 adds a source-linked remainder-group note and expands the downloadable descent report. No interactive controls or brand tokens changed.

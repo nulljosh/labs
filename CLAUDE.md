@@ -5,4 +5,4 @@ Run python3 -m unittest discover -s tests -v, python3 mathlab.py benchmark, and 
 
 Read docs/RESEARCH.md before extending a study. State exact domains, controls and rejection rules first. Bounded observations are not universal proofs. Keep baseline failures visible; never automatically overwrite baselines. No background automation, paid model calls or automatic pushes. No subagents unless requested.
 
-Run python3 descent.py for the finite three-stage descent study. Next: residue classes, not an unmotivated larger numeric bound.
+Run python3 descent.py for the finite three-stage descent study. Modulo 8/16 summaries and three elementary first-descent proofs are complete. Next: split remainders 7/11/15 modulo 32 at the same bound. Preserve the first-descent-v1 baseline and the distinction between first descent and termination.
