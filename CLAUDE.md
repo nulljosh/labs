@@ -16,6 +16,7 @@
 ### Apps
 | Repo | What | Domain / ASC |
 |---|---|---|
+| **evidna** | Evidence-first Python biology lab, public HBB data and versioned benchmarks | evidna.jaybulb.com |
 | **epiphany** | Finance dashboard | epiphany.heyitsmejosh.com · 6779522175 |
 | **talli** | DTC/RDSP/CDB admin tool | talli.heyitsmejosh.com |
 | **notate** (ex-voxprint, ex-echo, renamed 2026-09-21) | On-device transcription, WhisperKit. Store listing name flips to Notate with 1.4.1; Xcode targets and the Pages project still say Voxprint | notate.heyitsmejosh.com · 6782604262 |
@@ -105,6 +106,7 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 - Stripe/Resend/Supabase keys rotated 2026-05; on-disk copies may be stale, probe the platform
 
 ## Gotchas
+- `heyitsmejosh.com` expired by choice on 2026-10-13. New sites use `<name>.jaybulb.com`. Evidna is deployed there.
 - `npm i <pkg> --save-dev` on a pinned dep upgrades it without telling you. Edit package.json by hand and diff the lockfile
 - Stripe is live on epiphany, intake, hikko and talli. It cannot unlock in-app features under App Review. That needs IAP
 - Social sign-in is blocked on console registrations. The code is done
