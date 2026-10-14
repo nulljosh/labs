@@ -16,8 +16,10 @@ Screenshots inspected at desktop and 320px mobile width. Landing overflow checks
 
 Browser calculations matched known controls: Collatz 27 takes 111 steps and peaks at 9,232; 6,171 takes 261 steps; Goldbach 7,426 has minimum prime addend 173; four has pair 2+2. The SAT example has exactly three satisfied clauses for all four assignments. Invalid bounds, nonintegers and odd Goldbach inputs fail native validation.
 
-Tabs show one panel, maintain selection and use roving focus. Arrow-key navigation reaches the next tab. Skip links, form labels, plot summaries, scale labels, textual result states and reduced-motion CSS are present. Seven intended palette text combinations meet 4.5:1 in the automated test. Eleven Python tests pass; JavaScript syntax passes.
+Tabs show one panel, maintain selection and use roving focus. Arrow-key navigation reaches the next tab. Skip links, form labels, plot summaries, scale labels, textual result states and reduced-motion CSS are present. Seven intended palette text combinations meet 4.5:1 in the automated test. Fourteen Python tests pass; JavaScript syntax passes.
 
 ## Limits
 
 No native Safari, Android hardware, screen-reader or independent user study has run. Viewports are browser emulation. Wordmark SVGs use live system-font text; letterforms can vary. Name/trademark availability was not checked. Numerical controls and regression baselines do not prove an open conjecture.
+
+The first-descent findings section was subsequently checked at 320px and 1440px without overflow. The three-stage JSON report loads and its final record matches the displayed 287-step case. noema.jaybulb.com returned HTTPS 200 after hostname activation.

@@ -53,3 +53,15 @@ Reviewed October 14, 2026. [Barina's 2025 peer-reviewed verification paper](http
 [New Algebrization Barriers to Circuit Lower Bounds via Communication Complexity of Missing-String, 2025 preprint](https://arxiv.org/abs/2511.14038) is a later complexity-theory reading lead. Check its exact theorem statements and publication status before selecting an experiment. Noema has not verified its proofs.
 
 At each research session, refresh sources before adding a new direction. Add the date, primary source, claim, publication status, prerequisites and smallest testable question. A new preprint does not automatically become a priority or an accepted theorem.
+
+## First-descent calculation, October 14, 2026
+
+The ordinary Collatz map counts an odd 3n+1 step separately from the following halving. For every start from two through the stated bound, the study finds the first value strictly below that start. One is excluded because it has no smaller positive target. Each start is cross-checked with a separate implementation that combines odd steps with their next halving, then restores the ordinary-step count.
+
+| Upper bound | Starts checked | Unresolved at 1,000 steps | First start with longest descent | Steps | First lower value |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 10,000 | 9,999 | 0 | 703 | 132 | 628 |
+| 100,000 | 99,999 | 0 | 35,655 | 220 | 29,405 |
+| 1,000,000 | 999,999 | 0 | 626,331 | 287 | 597,017 |
+
+No implementation disagreements occurred. The three stages overlap and must not be summed. The longest first descent is distinct from total stopping time to one. This finite reproduction does not prove every integer eventually descends. The complete report is landing/descent.json; run python3 descent.py to reproduce it. The study is software-checked, not proof-assistant-certified or a verification record.
