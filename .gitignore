@@ -11,3 +11,4 @@ kmp/.kotlin/
 kmp/build/
 kmp/*/build/
 kmp/local.properties
+.deploy-out.txt
