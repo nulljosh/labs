@@ -9,11 +9,12 @@
 <meta property="og:description" content="Words appear. You type them. You get one number.">
 <meta property="og:type" content="website">
 <link rel="icon" href="icon.svg">
-<meta name="theme-color" content="#f5f0e4">
+<meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="https://jaybulb.com/tokens.css">
 <link rel="stylesheet" href="https://jaybulb.com/landing.css">
 <script defer src="https://jaybulb.com/landing.js" data-shape="bars"></script>
 <style>
+  :root, :root[data-theme] { --bg: #fff; --bg2: #f6f6f6; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background: var(--bg); color: var(--text);
@@ -27,7 +28,6 @@
 
   section { padding: 4rem 0; }
   .lp-stage { margin-top: 8px; }
-  .demo { margin: 0 auto; }
   h2 { font-size: clamp(1.5rem, 3.6vw, 2rem); font-weight: 700; letter-spacing: -.02em; text-align: center; margin-bottom: .6rem; }
   .lead { text-align: center; color: var(--text2); max-width: 34rem; margin: 0 auto 2.25rem; }
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
@@ -57,21 +57,6 @@
   @media (max-width: 700px) { .foot-dir { grid-template-columns: repeat(2, 1fr); } footer .foot-rule { font-size: .5625rem; letter-spacing: .14em; gap: 10px; } }
   :focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
 </style>
-<link rel="stylesheet" href="devices.css">
-<script>
-// ponytail: UA sniff, good enough for a mockup. iphone is the default. ?embed = app only, for the landing demo frame.
-(function(u,d){d=/Android/.test(u)?'android':/iPhone|iPad/.test(u)?'iphone':/Windows/.test(u)?'windows':/Mac/.test(u)?'mac':'iphone';document.documentElement.dataset.device=d;if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed')})(navigator.userAgent);
-</script>
-<style>
-/* Live demo: the real app in a frame matching the visitor's device (nimble treatment) */
-.demo{margin:2rem auto 0;text-align:center;position:relative;z-index:2}
-.demo .device-screen{aspect-ratio:9/19.5}
-.demo .device-mac .device-screen,.demo .device-windows .device-screen{aspect-ratio:16/10}
-.demo .device-screen iframe{position:absolute;top:0;left:0;border:0;display:block;transform-origin:0 0;width:390px;height:845px;background:#fff}
-.demo .device-mac .device-screen iframe,.demo .device-windows .device-screen iframe{width:1024px;height:640px}
-.demo-caption{font-size:.9rem;opacity:.65;margin:1rem 0 0}
-.embed .demo,.embed footer,.embed nav,.embed .lp-rule,.embed #lp-bg{display:none!important}
-</style>
 </head>
 <body>
 <main>
@@ -87,17 +72,6 @@
   </div>
 </header>
 <div class="lp-stage">
-<div class="demo">
-  <div class="device device-iphone" id="demoFrame" data-title="Keyrate"><div class="device-screen"><iframe id="demoApp" title="Keyrate, live" loading="lazy" data-src="/app/?embed"></iframe></div></div>
-  <span id="demoDev" hidden></span>
-</div>
-<script>
-(function(){var names={iphone:'iPhone',android:'Android',mac:'Mac',windows:'Windows'},dev=document.documentElement.dataset.device,f=document.getElementById('demoFrame'),i=document.getElementById('demoApp');
-if(!names[dev])dev='iphone';f.className='device device-'+dev;document.getElementById('demoDev').textContent=names[dev];addEventListener('DOMContentLoaded',function(){document.getElementById('demoDev2').textContent=names[dev];});
-if(!document.documentElement.classList.contains('embed'))i.src=i.dataset.src;
-function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidth)+')';}fit();addEventListener('resize',fit);})();
-</script>
-  <p class="lp-cap">Fig. 1 &middot; The <span id="demoDev2">iPhone</span> app, live. Try it.</p>
 </div>
 <section id="test" class="lp-reveal">
   <div class="container">

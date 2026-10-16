@@ -8,6 +8,7 @@
 <link rel="icon" href="../icon.svg">
 <link rel="stylesheet" href="https://jaybulb.com/tokens.css">
 <style>
+  :root, :root[data-theme] { --bg: #fff; --bg2: #f6f6f6; }
   :root { --ok: var(--text, #111); --bad: #c0392b; --dim: var(--text3, #999); }
   html, body { height: 100%; }
   body {
@@ -52,9 +53,7 @@
   #hist polyline { fill: none; stroke: var(--accent, #111); stroke-width: 1.5; }
   input#sink { position: absolute; opacity: 0; pointer-events: none; }
   @media (max-width: 600px) { #words { font-size: 1.3rem; } #result .big { font-size: 3rem; } }
-  html.embed h1 { display: none; }
 </style>
-<script>if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed')</script>
 </head>
 <body>
 <h1>Keyrate</h1>
