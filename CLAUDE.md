@@ -18,58 +18,58 @@
 |---|---|---|
 | **noema** | Mathematics lab, bounded SAT and number-theory studies, small first-descent proofs | noema.jaybulb.com |
 | **evidna** | Evidence-first Python biology lab, public HBB data and versioned benchmarks | evidna.jaybulb.com |
-| **epiphany** | Finance dashboard | epiphany.heyitsmejosh.com · 6779522175 |
-| **talli** | DTC/RDSP/CDB admin tool | talli.heyitsmejosh.com |
-| **notate** (ex-voxprint, ex-echo, renamed 2026-09-21) | On-device transcription, WhisperKit. Store listing name flips to Notate with 1.4.1; Xcode targets and the Pages project still say Voxprint | notate.heyitsmejosh.com · 6782604262 |
+| **epiphany** | Finance dashboard | epiphany.jaybulb.com · 6779522175 |
+| **talli** | DTC/RDSP/CDB admin tool | talli.jaybulb.com |
+| **notate** (ex-voxprint, ex-echo, renamed 2026-09-21) | On-device transcription, WhisperKit. Store listing name flips to Notate with 1.4.1; Xcode targets and the Pages project still say Voxprint | notate.jaybulb.com · 6782604262 |
 | **tonchi** (ex-Lexly) | Gamified learning: languages, code, math, science, engineering | 6783501611 (6783501927 is a stray dupe) |
-| **litigate** | Litigation tool, private | litigate.heyitsmejosh.com |
+| **litigate** | Litigation tool, private | litigate.jaybulb.com |
 | **intake** (ex-healstack, repo and folder renamed 2026-10-04; store name and Pages project still `healstack`) | Health/supplement tracker | intake.jaybulb.com |
-| **hikko** (ex-Hotaru, ex-Sparkjar, renamed 2026-10-04; Pages project still `sparkjar`) | Idea forum | hikko.heyitsmejosh.com · 6785162492 |
+| **hikko** (ex-Hotaru, ex-Sparkjar, renamed 2026-10-04; Pages project still `sparkjar`) | Idea forum | hikko.jaybulb.com · 6785162492 |
 | **curvely** | Equation grapher | 6794988370 |
-| **blockframe** (ex-charwork/wiretext, renamed to Blockframe) | Unicode wireframe tool → canvas editor (product: Blockframe, ASC display: Blockframe 6794988951; Xcode/bundle ID/DNS still Charwork/Wiretext; own warm-paper theme, not the shared tokens) | wiretext.heyitsmejosh.com |
-| **bookrank** | Book summaries | bookrank.heyitsmejosh.com |
-| **wordroot** | Etymology lookup | wordroot.heyitsmejosh.com |
+| **blockframe** (ex-charwork/wiretext, renamed to Blockframe) | Unicode wireframe tool → canvas editor (product: Blockframe, ASC display: Blockframe 6794988951; Xcode/bundle ID/DNS still Charwork/Wiretext; own warm-paper theme, not the shared tokens) | wiretext.jaybulb.com |
+| **bookrank** | Book summaries | bookrank.jaybulb.com |
+| **wordroot** | Etymology lookup | wordroot.jaybulb.com |
 | **quotestreak** | Quote guessing game, no backend | 6804394619 |
 | **inkpress** | Multi-feed RSS reader, iOS | 6787759999 |
-| **sidewise** | RSS bias API + reader | sidewise.heyitsmejosh.com · 6806028670 |
-| **nyc** | Times Square city sim | nyc.heyitsmejosh.com |
-| **bcgd** | Garage-door site; ships as **Doorstock** | bcgd.heyitsmejosh.com |
-| **homeqi** | Feng shui home-assessment tool (web, ex-fengshui); iOS reader-only | homeqi.heyitsmejosh.com |
-| **nimble** | Instant answers, menu bar + web. **The reference repo** | nimble.heyitsmejosh.com |
-| **cadence** | Commit-history tracker | cadence.heyitsmejosh.com |
-| **dream** | Dream journal, Workers AI | dream.heyitsmejosh.com |
-| **toroid** | Game of Life on a toroidal grid | toroid.heyitsmejosh.com |
-| **homeward** | Lost/found pets, web + iOS + KMP | homeward.heyitsmejosh.com |
-| **brick** (ex-roost, renamed 2026-10-04; folder and Pages project still `roost`) | Real estate browsing, 25 languages, live rental listings via /api/listings | brick.heyitsmejosh.com |
-| **numen** | Free-form calculator canvas | numen.heyitsmejosh.com |
-| **swing** | Random 1:1 video chat, Durable Object lobby | swing.heyitsmejosh.com |
-| **curbfind** | Craigslist browser, web/iOS/macOS/Android/desktop (renamed from curbside 2026-09-05, ASC 6809031662, approved and live on App Store 2026-09-10). Landing hero is the live app itself (blurred iframe), one click zooms in seamlessly, no reload | curbfind.heyitsmejosh.com |
-| **seamark** | Read values off rendered charts (npm lib) | seamark.heyitsmejosh.com |
+| **sidewise** | RSS bias API + reader | sidewise.jaybulb.com · 6806028670 |
+| **nyc** | Times Square city sim | nyc.jaybulb.com |
+| **bcgd** | Garage-door site; ships as **Doorstock** | bcgd.jaybulb.com |
+| **homeqi** | Feng shui home-assessment tool (web, ex-fengshui); iOS reader-only | homeqi.jaybulb.com |
+| **nimble** | Instant answers, menu bar + web. **The reference repo** | nimble.jaybulb.com |
+| **cadence** | Commit-history tracker | cadence.jaybulb.com |
+| **dream** | Dream journal, Workers AI | dream.jaybulb.com |
+| **toroid** | Game of Life on a toroidal grid | toroid.jaybulb.com |
+| **homeward** | Lost/found pets, web + iOS + KMP | homeward.jaybulb.com |
+| **brick** (ex-roost, renamed 2026-10-04; folder and Pages project still `roost`) | Real estate browsing, 25 languages, live rental listings via /api/listings | brick.jaybulb.com |
+| **numen** | Free-form calculator canvas | numen.jaybulb.com |
+| **swing** | Random 1:1 video chat, Durable Object lobby | swing.jaybulb.com |
+| **curbfind** | Craigslist browser, web/iOS/macOS/Android/desktop (renamed from curbside 2026-09-05, ASC 6809031662, approved and live on App Store 2026-09-10). Landing hero is the live app itself (blurred iframe), one click zooms in seamlessly, no reload | curbfind.jaybulb.com |
+| **seamark** | Read values off rendered charts (npm lib) | seamark.jaybulb.com |
 | **mailbag** (ASC id 6811141466, ex-Hagaki, ex-Pare, ex-Siftbox, ex-Sieve, renamed 2026-10-04; store listing and the API/OAuth host `hagaki.heyitsmejosh.com` still say Hagaki until a Mailbag build is submitted) | Inbox zero in one button: machine mail into seven folders, people to the archive, nothing deleted. Rules plus a Workers AI pass; Gmail and iCloud; web + native iOS/macOS | mailbag.heyitsmejosh.com |
-| **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
-| **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
-| **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.heyitsmejosh.com |
-| **madobe** | WebKit browser, iOS + macOS, one SwiftUI file, tabs (renamed from Lucarne 2026-09-14) | madobe.heyitsmejosh.com |
-| **weather** | Forecast page, Open-Meteo, one file | weather.heyitsmejosh.com |
-| **fieldbook** | Every field of science + math explained plainly, one file | fieldbook.heyitsmejosh.com |
-| **costanza** | Poetry network, svbtle-shaped, Costanza riff; web + iOS/macOS + kmp, shared spark table `stanza_poems` | costanza.heyitsmejosh.com |
-| **windgate** | Guided breathing, four presets; web + iOS/macOS (repo folder still `breathe`, renamed 2026-09-10) | windgate.heyitsmejosh.com · 6810806058 |
-| **hormuz** | Strait of Hormuz geopolitics, oil prices, trading signals | hormuz.heyitsmejosh.com |
-| **hamurapi** (ex-hamurabi, renamed 2026-10-04; bundle ID and Worker still `hamurabi`) | The 1968 game Hamurabi with a drawn city: web, Mac, iPhone, terminal, and a Joshua Tree port | hamurapi.heyitsmejosh.com · 6819131590 |
+| **tripwire** | API drift watcher | tripwire.jaybulb.com |
+| **keyrate** | Typing test, one file | keyrate.jaybulb.com |
+| **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.jaybulb.com |
+| **madobe** | WebKit browser, iOS + macOS, one SwiftUI file, tabs (renamed from Lucarne 2026-09-14) | madobe.jaybulb.com |
+| **weather** | Forecast page, Open-Meteo, one file | weather.jaybulb.com |
+| **fieldbook** | Every field of science + math explained plainly, one file | fieldbook.jaybulb.com |
+| **costanza** | Poetry network, svbtle-shaped, Costanza riff; web + iOS/macOS + kmp, shared spark table `stanza_poems` | costanza.jaybulb.com |
+| **windgate** | Guided breathing, four presets; web + iOS/macOS (repo folder still `breathe`, renamed 2026-09-10) | windgate.jaybulb.com · 6810806058 |
+| **hormuz** | Strait of Hormuz geopolitics, oil prices, trading signals | hormuz.jaybulb.com |
+| **hamurapi** (ex-hamurabi, renamed 2026-10-04; bundle ID and Worker still `hamurabi`) | The 1968 game Hamurabi with a drawn city: web, Mac, iPhone, terminal, and a Joshua Tree port | hamurapi.jaybulb.com · 6819131590 |
 
 ### Sites & infra
 | Repo | What |
 |---|---|
-| **nulljosh.github.io** | Portfolio, heyitsmejosh.com, plus the Jaybulb landing (Cloudflare Pages project `jaybulb`). `/plan` folded in |
+| **nulljosh.github.io** | Portfolio, jaybulb.com, plus the Jaybulb landing (Cloudflare Pages project `jaybulb`). `/plan` folded in |
 | **journal** | Jekyll blog (Pages project `journal-heyitsmejosh`) |
 | **brain** | RAG over notes, bearer-gated /api + /mcp |
-| **gato** | Voice-first OS shell, text-loop router (claude -p / ollama), landing at gato.heyitsmejosh.com (local-only repo, no GitHub remote). Note: Leopard Gecko reserved as future distro name for Joshua Tree kernel's eventual graphical OS |
+| **gato** | Voice-first OS shell, text-loop router (claude -p / ollama), landing at gato.jaybulb.com (local-only repo, no GitHub remote). Note: Leopard Gecko reserved as future distro name for Joshua Tree kernel's eventual graphical OS |
 | **authmail** | Auth email branding + Resend delivery (Cloudflare Worker). Sends reset and confirm mail for spark-api and the Supabase apps still on Supabase |
-| **spark-api** | Cloudflare Worker on D1 and KV: sign-in, data rules, photo storage and mail for the web apps at api.heyitsmejosh.com. No roadmap |
+| **spark-api** | Cloudflare Worker on D1 and KV: sign-in, data rules, photo storage and mail for the web apps at api.jaybulb.com. No roadmap |
 | **notes** | Private notes |
 | **dotfiles** | Shell configs, skills, vibe ref |
-| **joshuatree** (ex-os) | From-scratch i386 and Raspberry Pi 4 OS, desktop, Wi-Fi, HTTPS browser and Samantha relay | joshuatree.heyitsmejosh.com |
-| **homeroom** (ex-lec, ex-Margin, renamed 2026-09-25) / **logans-frenchies** | D2L quiz app for LEC, homeroom.heyitsmejosh.com / client site pitch (private) |
+| **joshuatree** (ex-os) | From-scratch i386 and Raspberry Pi 4 OS, desktop, Wi-Fi, HTTPS browser and Samantha relay | joshuatree.jaybulb.com |
+| **homeroom** (ex-lec, ex-Margin, renamed 2026-09-25) / **logans-frenchies** | D2L quiz app for LEC, homeroom.jaybulb.com / client site pitch (private) |
 | `scripts/`, `_feature_audit/`, `_external/` | helpers / audit CSVs / read-only checkouts, never push |
 
 Gone. Don't mention them: systems, beep, missing-pets, abraham, code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay, plan (archived).
@@ -93,7 +93,7 @@ Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28. Replies are filed. Never 
 - `WHITEPAPER.md` in every repo, no exceptions: H1 `<Name> Technical Whitepaper`, `**vX** | Month Year`, one-paragraph summary, then the core mechanic first and supporting detail after, MIT footer. ~40-60 lines. New repo = write it before the first push
 - `.github/workflows/test.yml` where tests exist. GitHub: description (few words), homepage, topics set
 - Icons 200×200 dark terminal aesthetic. Architecture SVGs Apple node-and-line, white bg
-- Landing page in every repo, deployed to `<name>.heyitsmejosh.com` (Cloudflare Worker, `wrangler.toml` + `deploy.sh`, `landing/` or `docs/`). Native-only apps too: hero, tagline, demo per the Landing pages section, Source button. New repo = landing live before the ASC record. Only litigate is exempt
+- Landing page in every repo, deployed to `<name>.jaybulb.com` (Cloudflare Worker, `wrangler.toml` + `deploy.sh`, `landing/` or `docs/`). Native-only apps too: hero, tagline, demo per the Landing pages section, Source button. New repo = landing live before the ASC record. Only litigate is exempt
 
 ## Landing pages (2026-09-06)
 Every landing page gets the nimble treatment: the real app, live and interactive, inside a device frame matched to the visitor's user agent (iPhone, Android, Mac window, Windows window), right under the hero tagline, with a caption naming the device. Reference: `nimble/docs/index.html`. `/landing-demo` applies it; the skill's `inject.py` holds the drop-in. Never a screenshot where the app itself can run. New app = landing gets this before its first deploy.
