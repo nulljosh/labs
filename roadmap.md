@@ -127,3 +127,7 @@ from `game.js` at game over.
 
 ## Ingested 2026-10-05
 - [ ] QA
+
+## Ingested 2026-10-16
+- [ ] Stale App Store screenshots. (screenshot: notes/attachments/2026-10-16/app-store-screenshots-3.png)
+- [ ] Stale App Store screenshots. (screenshot: notes/attachments/2026-10-16/app-store-screenshots-3.png)
