@@ -19,8 +19,8 @@ A website and a stock dashboard for Best Choice Garage Doors (bcgaragedoors.ca).
 
 | Directory | Description | URL |
 |-----------|-------------|-----|
-| `web/` | Conversion landing page | [bcgd.heyitsmejosh.com](https://bcgd.heyitsmejosh.com) |
-| `dashboard/` | Inventory and stock tracker | [bcgd-dashboard.heyitsmejosh.com](https://bcgd-dashboard.heyitsmejosh.com) |
+| `web/` | Conversion landing page | [bcgd.jaybulb.com](https://bcgd.jaybulb.com) |
+| `dashboard/` | Inventory and stock tracker | [bcgd-dashboard.jaybulb.com](https://bcgd-dashboard.jaybulb.com) |
 
 ## License
 
