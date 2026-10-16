@@ -9,3 +9,9 @@
 - An iPad layout that uses the width
 - Native Android and Windows through `kmp/`. Until then the web game covers them
 - architecture.svg in the house style
+
+## Ingested 2026-10-16
+- [ ] Needs iOS shipping. Currently only macOS (App Store page says "Only on Mac"). (screenshot: notes/attachments/2026-10-16/hamurapi-2.png)
+- [ ] Mobile web: display UI broken at hamurapi.jaybulb.com (controls panel over the scene on a phone). (screenshot: notes/attachments/2026-10-16/hamurapi-3.png)
+- [ ] Needs iOS shipping. Currently only macOS (App Store page says "Only on Mac"). (screenshot: notes/attachments/2026-10-16/hamurapi-2.png)
+- [ ] Mobile web: display UI broken at hamurapi.jaybulb.com (controls panel over the scene on a phone). (screenshot: notes/attachments/2026-10-16/hamurapi-3.png)
