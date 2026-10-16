@@ -5,7 +5,7 @@
 ![version](https://img.shields.io/badge/version-v2.4.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fjournal-black?logo=github)](https://github.com/nulljosh/journal)
 
 My journal. A Jekyll blog, a few big entries a year.
-Live at [journal.heyitsmejosh.com](https://journal.heyitsmejosh.com).
+Live at [journal.jaybulb.com](https://journal.jaybulb.com).
 
 Split out of `inkpress` on 2026-07-21. This is the blog only. The Inkpress iOS app,
 a general RSS reader, lives at [github.com/nulljosh/inkpress](https://github.com/nulljosh/inkpress)
@@ -35,7 +35,7 @@ v2.4.0
 - Split out of the `inkpress` repo into its own repo (2026-07-21), see Inkpress's own README for the RSS reader app side.
 
 v2.3.0
-- Journal now shares the portfolio's design tokens (`heyitsmejosh.com/tokens.css`); blue accent used for links, hover states, and theme toggle.
+- Journal now shares the portfolio's design tokens (`jaybulb.com/tokens.css`); blue accent used for links, hover states, and theme toggle.
 
 v2.2.0
 - Switched to Cloudflare Pages deployment via `./scripts/deploy.sh` (later migrated from Vercel Build Output API). No GitHub Actions, no gh-pages.
