@@ -696,3 +696,17 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 
 ## Ingested 2026-10-05
 - [x] Obsidian: refresh wiki and index. Names are kinda stale. (wiki/index.md Entities relabelled via aliases: Tonchi, Hikko, Notate, Homeroom, Intake, Brick, Blockframe, 2026-10-05; ASC ship-tier audit not run)
+
+## Ingested 2026-10-16
+- [ ] Joshua Tree: GitHub screenshots need updating (README screenshot shows v3.9.3). Update and simplify the guide markdown, architecture and roadmap. (screenshot: notes/attachments/2026-10-16/joshuatree-1.png)
+- [ ] Joshua Tree Twitter: update avatar, url etc. Simplify the changelog tweet format.
+- [ ] Secretary: get a Twilio key. Research ElevenLabs Reception (https://elevenlabs.io/docs/reception-ai/overview) and integrate the receptionist (https://elevenlabs.io/docs/reception-ai/receptionist/overview) into the secretary project.
+- [ ] Inkpress + Sidewise: compare similarities and differences. Should we merge them? Which is more developed? Which can be merged into which?
+- [ ] Refresh all screenshots across all repositories.
+- [ ] Clean up the codebase. Keep codebase.svg updated, using the Joshua Tree architecture SVG as the reference.
+- [ ] Apple Developer: can we switch the developer name to Jaybulb, or is it stuck on Joshua Trommel? The developer account also needs its website updated for the domain change. (screenshots: notes/attachments/2026-10-16/app-store-administration-2.png, notes/attachments/2026-10-16/app-store-administration-3.png)
+- [ ] ASC emails flagged "probably spam" 2026-10-14 (no action unless a real rejection shows). Free App Store Account Audit link saved: https://activationpal.com/tools/app-store-account-audit
+- [ ] Jaybulb: who are we? Write the mission statement and the vision.
+- [ ] Product Hunt: lots of projects are missing (Joshua Tree for one). Are the posts stale too? Icon and other details are stale.
+- [ ] LLMs: build more evaluations.
+- [ ] Make skills: a Figma UI skill and a Dribbble/Mobbin UI skill.
