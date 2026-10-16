@@ -329,4 +329,3 @@ nyc/ROADMAP.md
 
 ## Ingested 2026-10-16
 - [ ] Game still too confusing. Tutorial isn't playable because the window covers the build menu. Minimap doesn't work. App just needs a lot of updating. (screenshot: notes/attachments/2026-10-16/nyc-1.png)
-- [ ] Game still too confusing. Tutorial isn't playable because the window covers the build menu. Minimap doesn't work. App just needs a lot of updating. (screenshot: notes/attachments/2026-10-16/nyc-1.png)
