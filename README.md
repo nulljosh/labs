@@ -4,7 +4,7 @@
 
 ![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![tests](https://github.com/nulljosh/hamurapi/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/hamurapi/actions/workflows/test.yml)
 
-**Play it now: [hamurapi.heyitsmejosh.com](https://hamurapi.heyitsmejosh.com)**
+**Play it now: [hamurapi.jaybulb.com](https://hamurapi.jaybulb.com)**
 
 Be king for 10 years. Feed your people. Keep your crown.
 
@@ -32,7 +32,7 @@ Your game is saved at the start of each year. Nothing leaves your device.
 
 ## Play it
 
-On the web, open [hamurapi.heyitsmejosh.com](https://hamurapi.heyitsmejosh.com). The top of the page is the game. It works on anything with a browser: Windows, Android, Linux, an iPad. Add it to your home screen and it plays with no internet.
+On the web, open [hamurapi.jaybulb.com](https://hamurapi.jaybulb.com). The top of the page is the game. It works on anything with a browser: Windows, Android, Linux, an iPad. Add it to your home screen and it plays with no internet.
 
 On a Mac or iPhone, build the app:
 
