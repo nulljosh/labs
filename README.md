@@ -61,7 +61,7 @@ The same demo everywhere, in English, Spanish, French, German, Japanese and
 Chinese. Each app carries its own port of the engine, with tests beside it.
 Nothing depends on a web view.
 
-- **Web:** https://seamark.heyitsmejosh.com. Draw a curve and watch it get measured.
+- **Web:** https://seamark.jaybulb.com. Draw a curve and watch it get measured.
 - **iPhone, iPad and Mac:** SwiftUI app in `ios/`. `Engine.swift` is the Swift port.
 - **Apple Watch:** standalone SwiftUI app in `watchos/`, same `Engine.swift`. No drawing
   surface on a watch face, so it pages through six preset curves and shows the same
