@@ -37,7 +37,7 @@ node --test
 npx wrangler deploy
 ```
 
-Live at [keyrate.heyitsmejosh.com](https://keyrate.heyitsmejosh.com); the test itself is at [/app](https://keyrate.heyitsmejosh.com/app).
+Live at [keyrate.jaybulb.com](https://keyrate.jaybulb.com); the test itself is at [/app](https://keyrate.jaybulb.com/app).
 
 **Terminal:** `swift build && ./.build/debug/keyrate-tui "target text" "typed text" 3.2` — see [tui/](tui/)
 
