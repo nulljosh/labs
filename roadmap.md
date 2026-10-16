@@ -8,6 +8,4 @@
 - [ ] native (kmp) port — sibling apps have one, this doesn't (project-sync 2026-09-05)
 
 ## Ingested 2026-10-05
-- [ ] QA
-- [ ] Fix wallpaper color
 - [ ] Ship apps etc
