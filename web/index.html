@@ -34,8 +34,9 @@
   .meta{color:var(--dim);font-size:13px;margin-top:6px}
   .hourly{margin:0 0 28px;text-align:left}
   .hourly h2{font-size:15px;font-weight:500}
-  .hours{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}
+  .hours{position:relative;display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}
   .hour{flex:0 0 90px;border:1px solid var(--line);border-radius:14px;padding:12px 6px;text-align:center;font-size:13px}
+  .hour.cur{border-color:var(--accent)}
   .hour b,.hour span{display:block;margin-bottom:6px}
   .hour small{color:var(--dim)}
   .days{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:8px;text-align:center}
@@ -46,7 +47,7 @@
   .day .d{color:var(--dim);font-size:11px;margin-top:6px}
   .wx{width:56px;height:56px;display:block;overflow:visible}
   .hour .wx,.day .wx{width:36px;height:36px;margin:0 auto 6px}
-  .nowrow{display:flex;align-items:center;gap:14px}
+  .nowrow{display:flex;align-items:center;justify-content:center;gap:14px}
   .nowrow .wx{width:clamp(64px,16vw,104px);height:clamp(64px,16vw,104px);flex:none}
   .wx .s{fill:var(--sun)} .wx .r{stroke:var(--sun);stroke-width:3;stroke-linecap:round}
   .wx .m{fill:var(--moon)} .wx .c{fill:var(--cloud)} .wx .f{stroke:var(--cloud);stroke-width:4;stroke-linecap:round}
@@ -173,9 +174,10 @@ function render(p,j){
   const today=c.time.slice(0,10);
   const hours=(h?.time||[]).map((time,i)=>({time,i})).filter(x=>x.time.slice(0,10)===today);
   $('hourly').hidden=!hours.length;
-  $('hours').innerHTML=hours.map(({time,i})=>`<div class="hour"><b>${time.slice(11,16)}</b>${icon(h.weather_code[i],isDay(time))}
+  $('hours').innerHTML=hours.map(({time,i})=>`<div class="hour${time.slice(11,13)===c.time.slice(11,13)?' cur':''}"><b>${time.slice(11,13)===c.time.slice(11,13)?'Now':time.slice(11,16)}</b>${icon(h.weather_code[i],isDay(time))}
     <span>${Number.isFinite(h.temperature_2m[i])?t(h.temperature_2m[i]):'—'}</span>
     <small>${CODES[h.weather_code[i]]||'—'}<br>${Number.isFinite(h.precipitation_probability[i])?h.precipitation_probability[i]+'% precipitation':'Precipitation unavailable'}</small></div>`).join('');
+  const cur=$('hours').querySelector('.cur'); if(cur) $('hours').scrollLeft=cur.offsetLeft-$('hours').offsetLeft;
   $('days').innerHTML=j.daily.time.map((d,i)=>`<div class="day"><b>${i?new Date(d+'T12:00').toLocaleDateString(undefined,{weekday:'short'}):'Today'}</b>
     ${icon(j.daily.weather_code[i])}<span class="hi">${t(j.daily.temperature_2m_max[i])}</span> <span class="lo">${t(j.daily.temperature_2m_min[i])}</span>
     <div class="d">${CODES[j.daily.weather_code[i]]||''}</div></div>`).join('');
