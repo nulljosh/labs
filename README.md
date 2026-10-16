@@ -5,7 +5,7 @@
 ![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Ftoroid-black?logo=github)](https://github.com/nulljosh/toroid)
 
 
-**Live:** https://toroid.heyitsmejosh.com
+**Live:** https://toroid.jaybulb.com
 
 Toroid is Conway's Game of Life on a wrapping board. Web, iOS, macOS, and a standalone watchOS companion. App Store name and domain are Toroid; the bundle id keeps the conway name.
 
