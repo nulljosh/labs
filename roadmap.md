@@ -3,6 +3,19 @@
 Items without their own repo. Per-project work lives in each repo's `roadmap.md`.
 Last pruned 2026-09-01 against live ASC + HTTP state, not against notes.
 
+## Fable queue (ingested from ~/Downloads/FABLE.md 2026-09-01)
+
+- [x] **Doorstock keyword regression.** DONE 2026-09-05, legacy phrases applied + verified live. Live keywords are single words
+      (`garage door,inventory,jobs,contractor,field service,trade,stock`); the deleted legacy set
+      used phrases (`garage door inventory,contractor job tracker,trade parts,field service,small
+      business stock`) and ranks better. Push it back only after iOS 1.0's 4.3(a) verdict lands;
+      a review is open until then. Legacy string staged in `bcgd/metadata/version/1.0/en-US.json` 2026-09-05.
+- Done 2026-09-01: promotionalText on all live localizations (Epiphany and Talli live in
+  **en-CA**, not en-US, which is why they kept showing empty). GTM ledger and this file's
+  staleness section re-verified against ASC.
+- Not for a fast pass: epiphany + talli Vercel migrations (native deps, Browser Rendering, blob
+  to R2). Architecture work, needs a plan.
+
 ## Blocked on Joshua (manual, dashboard or phone)
 
 **Probed 2026-08-25, two of these are smaller than their labels said.**
@@ -95,6 +108,38 @@ no-ops. See `cadence/functions/_adapter.js` for the globalThis workaround, or bu
       and you get Apple's real answer.
 - [ ] **TestFlight staleness**, most apps are weeks stale. Establish a cadence of
       `asc workflow run ship-ios` per app.
+- [x] **Real collisions fixed 2026-09-04.** Not a full redesign (30 apps of taste calls
+      wasn't going to happen in one lean pass) — audited every `icon.svg` accent color and
+      fixed the actual exact-duplicates: conway/sidewise/healstack all used `#5B9BD5`
+      (conway → clrs green `#2ECC40`, healstack → clrs olive `#3D9970`, sidewise kept the
+      blue); curvely/charwork both used `#0071e3` (charwork → clrs maroon `#85144b`,
+      curvely kept the blue); sparkjar/inkpress had near-identical oranges (sparkjar →
+      clrs lime `#01FF70`). All four deployed live and verified via curl. Everything else
+      already differentiates fine, left alone per the original note.
+- **Icon scaling bug, CLOSED 2026-08-25, already fixed; do not re-open without a live example.**
+      Root-caused: the cause was `rsvg-convert` using the SVG's *intrinsic* size, so art landed
+      small on a 1024 canvas. Every `scripts/make-appicon.sh` that exists (bookrank, lexly,
+      nulljosh.github.io, sparkjar, uprighty) already passes `-w 1024 -h 1024`, which forces full
+      size, bookrank's even carries a comment naming this exact glitch. Spot-checked the shipped
+      PNGs for talli (the version named above) and inkpress: both are 1024x1024, `hasAlpha: no`,
+      and the art fills the canvas. `talli 2.4.1` predates the fix; it ships 3.5.12 now.
+      **Residual risk, deliberately not acted on (YAGNI):** 19 repos have an `icon.svg` but no
+      `make-appicon.sh`, so they have no guardrail against a hand export reintroducing this.
+      Nothing is currently broken, so no script was copied into 19 repos. If it recurs, the fix
+      is one shared parameterized script (dest + bg differ per repo), not 19 copies.
+- **macOS coverage, DONE 2026-08-30. Do not re-open.** That old list was stale: bcgd, healstack,
+      litigate and inkpress all already had macOS targets. charwork and curvely were the only two
+      genuinely missing one and both now build, sign and run. **Every app in the estate has a Mac
+      target.** Recipe if it ever comes up again: `supportedDestinations: [iOS, macOS]`, the ten
+      `mac_*.png` icon idioms, `LSApplicationCategoryType` in the *plist* (INFOPLIST_KEY_* is
+      ignored under `GENERATE_INFOPLIST_FILE: NO`), and **two entitlements files split by
+      `[sdk=macosx*]`**, a shared one compiles but cannot sign, because `application-identifier`
+      is not a valid macOS entitlement.
+- **Icon "missing" scare, investigated 2026-08-30, NOT a real estate-wide bug.** A missing
+      `ASSETCATALOG_COMPILER_APPICON_NAME` breaks only *macOS* builds; iOS auto-detects an
+      appiconset named AppIcon. Verified against talli's and healstack's built apps, which both
+      carry `CFBundleIconName` despite lacking the setting. talli and healstack need no fix.
+      **Cadence icon, DONE 2026-08-30.** Generated universal 1024 from icon.svg for iOS and ten mac idiom sizes for macOS; set the compiler flag on both targets. Verified Mac app now carries AppIcon.icns.
 - [ ] **MCP endpoints, next three** (charwork and curvely both shipped one 2026-08-30 , 
       `functions/mcp.js` + a shared `src/lib/tools.js`, ~75 lines of JSON-RPC, no SDK, no Durable
       Object, copy either). Ranked by cost:
@@ -223,6 +268,17 @@ the watchOS one (`SparkWatch`, `TalliWatch`), which fails against an iOS Simulat
 pick `Spark` / `Talli` from `ios/` explicitly. Healstack's iOS scheme is still called `Dose`,
 not `Healstack`.
 
+## Wiki backlog (deferred from the 2026-08-11 wrap)
+
+- [x] **DONE 2026-09-04.** This whole section was stale — both `notes/notes/master.md`
+  and the Obsidian vault have been kept current continuously since 2026-08-11 by
+  every session's own wrap step, not by this backlog item. Ran `wiki-refresh` fresh
+  to confirm: found and fixed one real issue, an orphaned `echo.md` page duplicating
+  `voxprint.md` (the Echo→Voxprint rename) with one unique section not yet merged.
+  Merged it in, deleted the orphan, fixed two stray `[[echo]]` links. Everything else
+  across all three surfaces (vault index/_overview, master.md, Code/CLAUDE.md) was
+  already correct — no other stale renames found. See `wiki/log.md`'s 2026-09-04 entry.
+
 ## Someday / explore
 
 - [ ] **Sparkjar rename**, name still undecided.
@@ -335,6 +391,8 @@ Reported only; nothing bulk-submitted (a bulk wave is what triggered the 5.6 sus
 **In flight (re-verified 2026-09-01):** nothing is in review except Sidewise 1.0 (both platforms WAITING_FOR_REVIEW). Lexly 1.1.5 (both), Wordroot macOS 1.0.1, NYC macOS 1.0.1 and Healstack 2.3.5 (both) all came back REJECTED in the 4.3(a) wave. Voxprint iOS 1.3.8 and Toroid 1.0 sit in PREPARE_FOR_SUBMISSION.
 
 **Re-verified again 2026-09-04, real movement since the above:**
+- [x] **Nimble shipped on macOS** — 1.0.0 READY_FOR_SALE. iOS 1.0.0 now WAITING_FOR_REVIEW (was blocked on the ASC-record-creation issue, since resolved). This closes most of the "Nimble: approved to ship" item further down — only the iOS verdict is still pending.
+- [x] **Toroid shipped on macOS** — 1.0 READY_FOR_SALE (was PREPARE_FOR_SUBMISSION). iOS 1.0 now WAITING_FOR_REVIEW.
 - [ ] **Sidewise macOS now REJECTED** (was WAITING_FOR_REVIEW) — iOS 1.0 still WAITING_FOR_REVIEW. Read the actual rejection reason via Resolution Center before doing anything; not investigated this pass.
 - Voxprint iOS 1.3.8 still sits in PREPARE_FOR_SUBMISSION, unsubmitted (macOS 1.3.6 and iOS 1.3.7 both live, one version behind).
 - Everything else (Bookrank, Curvely, Charwork, Litigate, Talli, Quotestreak, Doorstock, Sparkjar, Epiphany, Healstack, Wordroot, Lexly, NYC) unchanged from the 2026-09-01 read.
@@ -451,6 +509,16 @@ but it is tuned for fill.**
 - A handful of separate `--text2` greys also fail: bookrank/fengshui `#8f8f8f`,
   roost `#868686`, sparkjar `#8c8c8c`.
 
+- [x] **DONE 2026-09-04.** Re-ran `wcag-audit.py`: 62 of the 64 original
+  failures were already fixed (unclear when, presumably each app's normal
+  churn). The last two were roost's `--text2` sitting just under 4.5:1
+  (bumped opacity 0.66 -> 0.72) and a stray internal tool, the skill-creator
+  eval-viewer, whose `--accent` was used as link text (added a distinct
+  `--link` token, same pattern as homeward). `wcag-audit.py` now reports
+  0 text contrast failures across the whole codebase.
+- The 60 border findings the script also reports are advisory. WCAG 1.4.11 covers
+  UI components and meaningful graphics, not decorative 1px dividers.
+
 ## Bulk deploy: bash 3.2 trap, 2026-08-31
 
 A script to redeploy every app used `declare -A` for the repo-to-Pages-project
@@ -566,6 +634,9 @@ always takes it) and without the 26-language i18n.
   login UX (Supabase email+password token exchange is the same on Android/
   desktop as iOS, so this isn't blocked technically, just needs a chosen
   scope per app) before doing all four the same way.
+- [x] 17 of 17 apps now have a real port. Queue closed 2026-09-04. Next
+  work here is per-app polish (see the out-of-scope list above), not more
+  scaffolding.
 
 ## Native fleet rollout, `kmp/` scaffolding (2026-09-03, DONE — bare scaffolds only)
 
@@ -618,9 +689,13 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] GitHub Actions hit 90% of the free 2,000 min (1,820 used) for nulljosh in the cycle that reset 2026-10-01. Cut CI minutes or set a $0 budget before next month's cap. (screenshot: notes/attachments/2026-10-01/github-1.png)
 - [ ] ASC triage from phone screenshot: rejected or flagged are Windgate iOS+macOS 1.0, Plaintxt iOS 1.0.0, Lexly iOS 1.1.6, Siftbox iOS+macOS 1.0, Madobe iOS+macOS 1.0.0, Curbfind iOS 1.0.0, Healstack iOS 2.3.6 + macOS 2.3.5, Sidewise iOS 1.0. Charblock iOS 1.1.2 pending. (screenshots: notes/attachments/2026-10-01/asc-1.png, notes/attachments/2026-10-01/asc-2.png)
 - [ ] BLOCKED on Joshua: Stripe action required, all overdue: accept terms of service, provide a phone number for the account rep (Joshua Trommel), provide a title. Incoming charges paused since 9 Jan 2025, payouts paused since 10 Dec 2024. (Q: which Stripe account? screenshot: notes/attachments/2026-10-01/stripe-1.png)
+- [x] Archive the old nulljosh/pixelmator-skill GitHub repo; it's a skill in Turing now. (screenshot: notes/attachments/2026-10-01/github-archive-1.png) Archived 2026-10-01.
 
 ## Ingested 2026-10-02
 - [ ] Some app keeps talking out loud using the macOS say command. Find it and fix it.
+
+## Ingested 2026-10-05
+- [x] Obsidian: refresh wiki and index. Names are kinda stale. (wiki/index.md Entities relabelled via aliases: Tonchi, Hikko, Notate, Homeroom, Intake, Brick, Blockframe, 2026-10-05; ASC ship-tier audit not run)
 
 ## Ingested 2026-10-16
 - [ ] Joshua Tree: GitHub screenshots need updating (README screenshot shows v3.9.3). Update and simplify the guide markdown, architecture and roadmap. (screenshot: notes/attachments/2026-10-16/joshuatree-1.png)
