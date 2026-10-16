@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Weather</title>
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script>document.documentElement.classList.add('js')</script>
 <style>
   :root{ --bg:#0b1420; --bg2:#0e1a29; --fg:#eef3f8; --dim:#8fa2b8; --accent:#5b8def; --line:#1a2c44; }
@@ -15,7 +17,7 @@
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Helvetica,Arial,sans-serif;
     min-height:100vh;display:flex;flex-direction:column;align-items:center}
   header{width:100%;max-width:960px;padding:28px 24px 0;display:flex;justify-content:space-between;align-items:center}
-  .brand{font-weight:600;letter-spacing:.02em;font-size:17px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.02em;font-size:17px}
   nav a{color:var(--dim);text-decoration:none;font-size:14px;margin-left:20px}
   main{width:100%;max-width:640px;padding:40px 24px 80px;text-align:center}
   h1{font-size:clamp(28px,5vw,42px);font-weight:600;margin:8px 0 6px;letter-spacing:-.01em}
@@ -68,7 +70,7 @@
 <body>
 
 <header>
-  <div class="brand">Weather</div>
+  <div class="brand"><img src="icon.png" alt="" width="32" height="32">Weather</div>
   <nav><a href="#tool">Try it</a></nav>
 </header>
 
