@@ -4,7 +4,7 @@
 
 ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fplan-black?logo=github)](https://github.com/nulljosh/plan)
 
-I kept the next ten years in my head, then in a text file, then in a repo nobody could see. Now it's a page anyone can open: [plan.heyitsmejosh.com](https://plan.heyitsmejosh.com).
+I kept the next ten years in my head, then in a text file, then in a repo nobody could see. Now it's a page anyone can open: [plan.jaybulb.com](https://plan.jaybulb.com).
 
 <img src="progress.svg" width="460">
 
@@ -24,7 +24,7 @@ Ruled out: UVic (not Lower Mainland), KPU (no real CS degree), BCIT (too vocatio
 
 ## The page
 
-One HTML file. The hero is a ten-year time-lapse, one photo per chapter. Below it, the whole plan: school, the finance track, costs, funding, income while studying, salary bands, and an interactive net-worth chart. Drag the savings and return sliders, hover any year, or press the $1B, $100B and $1T buttons to see how long compounding takes when you are not Elon. It follows the portfolio's design tokens, so it looks like the rest of heyitsmejosh.com.
+One HTML file. The hero is a ten-year time-lapse, one photo per chapter. Below it, the whole plan: school, the finance track, costs, funding, income while studying, salary bands, and an interactive net-worth chart. Drag the savings and return sliders, hover any year, or press the $1B, $100B and $1T buttons to see how long compounding takes when you are not Elon. It follows the portfolio's design tokens, so it looks like the rest of jaybulb.com.
 
 ## Files
 
