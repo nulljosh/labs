@@ -51,7 +51,7 @@ node test.js
 npx wrangler deploy
 ```
 
-Live at [tripwire.heyitsmejosh.com](https://tripwire.heyitsmejosh.com).
+Live at [tripwire.jaybulb.com](https://tripwire.jaybulb.com).
 
 **Terminal:** `swift build && ./.build/debug/tripwire-tui` — see [tui/](tui/)
 
