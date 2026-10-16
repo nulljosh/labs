@@ -1,69 +1,50 @@
 # Journal
 v2.4.0
 
-## Rules
-- Project is a personal Jekyll blog. Split out of the `inkpress` repo 2026-07-21, that repo now holds only the Inkpress iOS app (RSS reader). No shared code between the two; the only connection is that Inkpress can subscribe to this blog's `feed.xml` like any other feed.
-- URL slug comes from the filename, not the `title:` front matter. Filename format: `YYYY-MM-DD-slug.md`, the slug portion is what appears in the URL (e.g., `2026-04-13-week.md` ships at `/2026/04/13/week/`).
-- Journal shares the portfolio's design tokens (`jaybulb.com/tokens.css`, linked in `_layouts/default.html` before `main.css`). The blue `--accent` is used for link/hover states. `--text-secondary`/`--text-tertiary`/`--subtle` map to the shared `--text2`/`--text3`/`--border2`. Body font stays Geist (not the portfolio's mono) for reading comfort. SVG headers live in `_includes/headers/` and are inlined into posts with `{% include headers/<name>.svg %}`, never `<img>`. Every shape uses `currentColor` and carries no `<style>` block, so the art inherits the page's colour and follows the theme toggle. Do not give an SVG colour its only definition inside a `prefers-color-scheme` block: an `<img>`-loaded SVG cannot see the page's `data-theme`, and an undefined colour computes to `none`, which is why the old headers rendered invisible.
-- **Header SVGs are an information card summarizing the entry, never decorative icons.** This is the house style and it is not optional: an 800x500 rounded border frame, the one-word title at 42px weight 300, a lowercase subtitle line, a hairline rule, the repos touched, four or five short lines of what actually happened, a right-hand panel (200x280 at x=560) holding a label, one big number, and the in-flight or held-back items, then the date bottom left. See `_includes/headers/2026-07-03-week.svg` and `2026-08-17-fortified.svg` as the reference. Do not draw shields, locks, puzzle pieces, magnifying glasses or any other clipart, and do not fall back to a big title word on a 1200x200 banner: both are drift that happened before and got reverted 2026-08-18.
-- Live site is `journal.jaybulb.com`.
-- Posts live in `_posts/`.
-- `./scripts/deploy.sh` is the only publish path. It builds Jekyll locally and ships `_site` to the **Cloudflare Pages project `journal-heyitsmejosh`** (`wrangler pages deploy _site --project-name journal-heyitsmejosh --branch=main`). There is a second Pages project named plain `journal` with no custom domain, deploying to it reports success and changes nothing live; that bug kept the site on an Aug 6 build until 2026-08-11. No GitHub Pages flow, no remote build; a plain `git push` does not deploy. Verify by curling the live post URL, not by trusting wrangler's success line.
-- One post per few months (changed 2026-08-24 from monthly, which was itself changed 2026-07-04 from weekly). Default to appending to the current quarter's post rather than starting a new one; only start a new post when the period genuinely ends. If entries pile up again, merge them back down instead of leaving ten short ones.
-- Filename date and front matter date must match.
-- Write in natural English, not tool-name spam.
-- Post titles are ONE WORD. No commas, no ampersands, no "X and Y". Write a label, not a sentence.
-- Posts cap at ~350 words (500 for `categories: journal monthly`, 1200 for `categories: journal quarterly`). A quarterly post is flowing prose in a handful of paragraphs, not day headings. Say what a change means, not what the code does: no function names, regexes, commit hashes, or build numbers.
-- **`scripts/lint-posts.py` enforces all of the above and runs from `deploy.sh`, so a bloated post cannot publish.** Run it before committing. These rules were written here twice and ignored twice; the gate is why they hold now. `--selftest` checks the linter itself.
-- No em dashes, and no AI voice: no "delve", "leverage", "seamlessly", no "it's not just X, it's Y". Plain natural English, light on tech jargon.
-- No filler phrases.
-- No emojis.
-- Fix errors immediately when they appear; do not leave obvious breakages for a later prompt.
-- Break substantial work into smaller verifiable steps and keep the user informed.
-- Never rewrite git history unless the user explicitly asks for it.
-- Read docs or current local config before changing setup; back up high-risk config or scripts before editing them.
-- When you learn something durable about how the user works or what they want, write it down in `CLAUDE.md` immediately.
+Personal Jekyll blog at `journal.jaybulb.com`, repo `nulljosh/journal`. Split out of `inkpress` 2026-07-21; Inkpress (iOS RSS reader) can subscribe to `feed.xml`, nothing else is shared.
 
-Post front matter template:
+## Posts
+- Live in `_posts/` as `YYYY-MM-DD-slug.md`. The URL comes from the filename slug, not `title:`. Filename date and front matter date must match.
+- One post per few months (weekly, then monthly, before 2026-08-24). Append to the current quarter's post; start a new one only when the period ends. If entries pile up, merge them down.
+- Title is ONE WORD, a label, not a sentence.
+- Cap: ~350 words, 500 for `journal monthly`, 1200 for `journal quarterly`. Quarterly is flowing prose, no function names, regexes, hashes or build numbers. Say what a change means, not what the code does.
+- Plain natural English. No em dashes, emojis, filler, or AI voice ("delve", "leverage", "seamlessly", "it's not just X, it's Y").
+- `scripts/lint-posts.py` enforces all of this and runs from `deploy.sh`. `--selftest` checks the linter.
+
 ```markdown
 ---
 layout: post
 title: "Title"
 date: 2026-03-11 12:00:00 -0800
-categories: journal daily
+categories: journal quarterly
 ---
 ```
 
-## Run
-```bash
-cd ~/Documents/Code/journal
-bundle install
-bundle exec jekyll serve   # local preview
-./scripts/deploy.sh        # build locally + ship _site to Cloudflare Pages
-```
+## Header SVGs
+Inlined with `{% include headers/<name>.svg %}`, never `<img>`. Every shape is `currentColor`, no `<style>` block, so it follows the theme toggle (an `<img>` SVG can't see `data-theme`, which made old headers invisible).
 
-## /journal shortcut
-Repo: `nulljosh/journal` on GitHub (split out of `nulljosh/inkpress` 2026-07-21, which now holds only the iOS RSS reader app).
-`/journal` (skill at `~/.claude/skills/journal/SKILL.md`) creates or bumps the current entry, then builds and deploys:
-```bash
-/journal              # create/update the current entry (interactive)
-/journal <date>       # create entry for specific date (YYYY-MM-DD)
-/journal push         # ./scripts/deploy.sh (build + ship to Cloudflare Pages)
-/journal open         # open current entry in browser
-```
-
-## Key Files
-- `_posts/` - Published entries, one per date, with front matter.
-- `scripts/deploy.sh` - Only publish path; builds Jekyll locally and deploys `_site` to Cloudflare Pages project `journal-heyitsmejosh`.
-- `_config.yml` - Jekyll site configuration.
-- `index.html` - Site entry point.
-
-## Related
-[[inkpress]], the RSS reader iOS app this repo used to share a folder with. Can subscribe to journal.jaybulb.com/feed.xml.
+House style, not optional: an information card summarizing the entry. 800x500 rounded frame, one-word title at 42px weight 300, lowercase subtitle, hairline rule, repos touched, four or five short lines of what happened, a right panel (200x280 at x=560) with a label, one big number and the in-flight items, date bottom left. References: `_includes/headers/2026-07-03-week.svg`, `2026-08-17-fortified.svg`. No clipart, no big word on a 1200x200 banner (reverted 2026-08-18).
 
 ## Graphs
-- Every post carries `{% include graphs/<post>.svg %}` right after its header. `scripts/graphs.py` writes them from git history across `~/Documents/Code` for the days since the previous post (commits per project, commits per day, totals), same framed currentColor card as the headers. It runs from `deploy.sh`; never hand-edit a graph SVG, rerun the script.
-- `graphs.py` also writes `graphs/year.svg` (commits per week, post markers, shown at `/year/`), `graphs/streak.html` (consecutive commit days, shown under the hero), and `assets/og/<post>.png` (the header card rasterized with rsvg-convert for link unfurls; `default.html` points og:image at it).
+`scripts/graphs.py` writes `{% include graphs/<post>.svg %}` (placed after the header) from git history across `~/Documents/Code`, plus `graphs/year.svg`, `graphs/streak.html` and `assets/og/<post>.png` (needs rsvg-convert). It runs from `deploy.sh`. Never hand-edit a graph; rerun the script.
+
+## Style
+Shares the portfolio's tokens (`jaybulb.com/tokens.css`, linked before `main.css`); blue `--accent` for links. Body font is Geist, not mono.
+
+## Publish
+```bash
+bundle exec jekyll serve   # local preview
+./scripts/deploy.sh        # lint, graphs, build, ship _site
+```
+`deploy.sh` is the only publish path: it ships to Cloudflare Pages project **`journal-heyitsmejosh`**. A second project named plain `journal` has no domain; deploying there reports success and changes nothing (kept the site stale until 2026-08-11). A `git push` deploys nothing. Verify by curling the live post URL.
+
+`/journal` (skill `~/.claude/skills/journal/SKILL.md`) creates or bumps the entry, then deploys. `/journal push` deploys, `/journal open` opens it.
 
 ## Native
-- `kmp/` is the Android + desktop reader (Compose Multiplatform, copied from `nimble/kmp`). `shared/Feed.kt` fetches `feed.xml` and parses the Atom entries with regex, dropping the inlined SVGs; `composeApp` is a list and a reader, nothing else. Needs JDK 17: `JAVA_HOME=/opt/homebrew/opt/openjdk@17 ./gradlew :shared:jvmTest :composeApp:desktopJar`. No iOS or macOS target here; the feed already reaches Apple devices through Inkpress.
+`kmp/` is the Android + desktop reader (Compose Multiplatform). It parses `feed.xml` and is a list and a reader, nothing more. Needs JDK 17: `JAVA_HOME=/opt/homebrew/opt/openjdk@17 ./gradlew :shared:jvmTest :composeApp:desktopJar`.
+
+## Working rules
+- Fix breakages when they appear. Small verifiable steps.
+- Never rewrite git history unless asked.
+- Back up high-risk config before editing.
+- Write durable user preferences into this file immediately.
