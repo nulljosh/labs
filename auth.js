@@ -15,7 +15,15 @@ function render() {
   if (user) $('auth-who').textContent = `Signed in as ${displayName(user)}`;
 }
 
-sb.auth.onAuthStateChange((_e, session) => { user = session?.user ?? null; render(); });
+sb.auth.onAuthStateChange((e, session) => {
+  user = session?.user ?? null; render();
+  // arrived from a reset email: the password box now takes the new password
+  if (e === 'PASSWORD_RECOVERY') {
+    $('account').classList.remove('hidden');
+    $('auth-newpass').classList.remove('hidden');
+    msg('Type a new password, then tap Set new password.');
+  }
+});
 
 const msg = (t) => { $('auth-msg').textContent = t; };
 
@@ -33,6 +41,15 @@ $('auth-signup').onclick = async () => {
     options: { data: { name: $('auth-name').value.trim().slice(0, 24) || undefined }, emailRedirectTo: location.origin + '/play' },
   });
   msg(error ? error.message : 'Check your email to confirm your account.');
+};
+$('auth-forgot').onclick = async () => {
+  const { error } = await sb.auth.resetPasswordForEmail($('auth-email').value, { redirectTo: location.origin + '/play' });
+  msg(error ? error.message : 'Check your email for a reset link.');
+};
+$('auth-newpass').onclick = async () => {
+  const { error } = await sb.auth.updateUser({ password: $('auth-pass').value });
+  if (!error) $('auth-newpass').classList.add('hidden');
+  msg(error ? error.message : 'Password updated.');
 };
 $('auth-logout').onclick = () => sb.auth.signOut();
 
