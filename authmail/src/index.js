@@ -3,16 +3,16 @@
 // ponytail: theme is a static map keyed on the redirect URL. Add a row per app, nothing else.
 
 const THEMES = {
-  lexly:     { name: "Lexly",           accent: "#5B9BD5", match: ["lexly", "lingo"] },
-  healstack: { name: "Healstack",       accent: "#5B9BD5", match: ["healstack", "dose"] },
+  tonchi:    { name: "Tonchi",          accent: "#5B9BD5", match: ["tonchi", "lexly", "lingo"] },
+  intake:    { name: "Intake",          accent: "#5B9BD5", match: ["intake", "healstack", "dose"] },
   litigate:  { name: "Litigate",        accent: "#1F3A5F", match: ["litigate"] },
   homeward:  { name: "Homeward",        accent: "#FF851B", match: ["homeward", "pets"] },
   bookrank:  { name: "Bookrank",        accent: "#5B9BD5", match: ["bookrank"], icon: "https://bookrank.jaybulb.com/icon-192.png" },
   bcgd:      { name: "BC Garage Doors", accent: "#B4661C", match: ["bcgd", "doorstock"] },
-  roost:     { name: "Roost",           accent: "#2E7D32", match: ["roost"] },
-  stanza:    { name: "Stanza",          accent: "#171717", match: ["stanza"] },
+  brick:     { name: "Brick",           accent: "#2E7D32", match: ["brick", "roost"] },
+  stanza:    { name: "Co-Stanza",       accent: "#171717", match: ["stanza"] },
   quotestreak: { name: "Quotestreak",   accent: "#5B9BD5", match: ["quotestreak", "quotable"] },
-  sparkjar:  { name: "Sparkjar",        accent: "#3B82F6", match: ["spark"] },
+  hikko:     { name: "Hikko",           accent: "#3B82F6", match: ["spark", "hikko"] },
 };
 const DEFAULT = { name: "Jaybulb", accent: "#111111" };
 
