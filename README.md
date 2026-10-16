@@ -8,7 +8,7 @@ The forecast, and nothing else.
 
 Type a city or use your location. You get the temperature now, what it feels like, and the week ahead. No account, no ads, no app to install.
 
-**[weather.heyitsmejosh.com →](https://weather.heyitsmejosh.com)**
+**[weather.jaybulb.com →](https://weather.jaybulb.com)**
 
 <img src="progress.svg" width="460">
 
