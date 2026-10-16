@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write progress.svg (lines of hand-written code over commit history) for a project.
+"""Write progress.svg (commits over time, documentation coverage in the caption) for a project.
 
 Fleet version of joshuatree/tools/gen/progress.sh. Usage: progress-svg.py [project-dir]
 """
@@ -22,21 +22,8 @@ def real(path):
     return path.endswith(CODE) and not any(s in path for s in SKIP)
 
 
-rename = re.compile(r"^(.*)\{(.*) => (.*)\}(.*)$")
-files, points, date = {}, [], None
-for line in git("log", "--reverse", "--numstat", "--relative", "--pretty=format:@@%ad", "--date=short", "--", ".").split("\n"):
-    if line.startswith("@@"):
-        date = line[2:]
-        continue
-    parts = line.split("\t")
-    if len(parts) != 3 or parts[0] == "-":
-        continue
-    m = rename.match(parts[2])
-    path = m.group(1) + m.group(3) + m.group(4) if m else parts[2]
-    if not real(path):
-        continue
-    files[path] = files.get(path, 0) + int(parts[0]) - int(parts[1])
-    points.append((date, sum(v for v in files.values() if 0 < v <= MAX_FILE)))
+# Commits over time, not lines: Joshua, 2026-09-25, "lines of code is shit", documentation coverage is the fair metric.
+points = [(d, i + 1) for i, d in enumerate(git("log", "--reverse", "--pretty=format:%ad", "--date=short", "--", ".").split("\n")) if d]
 
 if len(points) < 2:
     sys.exit("not enough code history to plot")
@@ -82,11 +69,11 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{heigh
   text {{ font-family: -apple-system, Helvetica, Arial, sans-serif; fill: var(--ink); }}
   line, polyline {{ stroke: var(--ink); fill: none; }}
   .g {{ stroke-dasharray: 1 4; }}
-</style><text x="{L}" y="11" font-size="10">Lines of real code</text>{ticks}
+</style><text x="{L}" y="11" font-size="10">Commits</text>{ticks}
 <line x1="{L}" y1="{T}" x2="{L}" y2="{T+H}"/><line x1="{L}" y1="{T+H}" x2="{L+W}" y2="{T+H}"/>
 <polyline points="{" ".join(f"{x(i)},{y(p[1])}" for i, p in enumerate(pts))}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
 <text x="{L}" y="{T+H+16}" font-size="10">{short(pts[0][0])}</text><text x="{L+W}" y="{T+H+16}" font-size="10" text-anchor="end">{short(pts[-1][0])}</text>
-<text x="{L}" y="{height-4}" font-size="10" font-weight="600">{pts[-1][1]:,} lines &#183; {docs}% documented &#183; {commits} commits since {short(points[0][0])} {points[0][0][:4]}</text></svg>
+<text x="{L}" y="{height-4}" font-size="10" font-weight="600">{commits} commits &#183; {docs}% documented &#183; since {short(points[0][0])} {points[0][0][:4]}</text></svg>
 '''
 open("progress.svg", "w").write(svg)
-print(f"{os.path.basename(os.getcwd())}: {pts[-1][1]:,} lines, {docs}% documented, {commits} commits")
+print(f"{os.path.basename(os.getcwd())}: {commits} commits, {docs}% documented")

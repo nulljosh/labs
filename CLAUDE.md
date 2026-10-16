@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-09-13 (Joshua Tree kernel v0-v5 shipped, renamed from os; Gato naming clarified, Leopard Gecko reserved for Joshua Tree's future distro; fleet-wide whitepaper refresh and roadmap pruning). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
+*Refreshed 2026-10-11 (Supabase to Cloudflare for web auth). Earlier: 2026-09-13 (Joshua Tree kernel v0-v5 shipped, renamed from os; Gato naming clarified, Leopard Gecko reserved for Joshua Tree's future distro; fleet-wide whitepaper refresh and roadmap pruning). This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money.*
 
 ![Commits per month since Claude Code inception](progress.svg)
 
@@ -16,56 +16,60 @@
 ### Apps
 | Repo | What | Domain / ASC |
 |---|---|---|
-| **epiphany** | Finance dashboard | epiphany.heyitsmejosh.com · 6779522175 |
-| **talli** | DTC/RDSP/CDB admin tool | talli.heyitsmejosh.com |
-| **notate** (ex-voxprint, ex-echo, renamed 2026-09-21) | On-device transcription, WhisperKit. Store listing name flips to Notate with 1.4.1; Xcode targets and the Pages project still say Voxprint | notate.heyitsmejosh.com · 6782604262 |
-| **lexly** | Gamified language learning | 6783501611 (6783501927 is a stray dupe) |
-| **litigate** | Litigation tool, private | litigate.heyitsmejosh.com |
-| **healstack** | Health/supplement tracker | healstack.heyitsmejosh.com |
-| **sparkjar** | Idea forum | sparkjar.heyitsmejosh.com |
+| **noema** | Mathematics lab, bounded SAT and number-theory studies, small first-descent proofs | noema.jaybulb.com |
+| **evidna** | Evidence-first Python biology lab, public HBB data and versioned benchmarks | evidna.jaybulb.com |
+| **epiphany** | Finance dashboard | epiphany.jaybulb.com · 6779522175 |
+| **talli** | DTC/RDSP/CDB admin tool | talli.jaybulb.com |
+| **notate** (ex-voxprint, ex-echo, renamed 2026-09-21) | On-device transcription, WhisperKit. Store listing name flips to Notate with 1.4.1; Xcode targets and the Pages project still say Voxprint | notate.jaybulb.com · 6782604262 |
+| **tonchi** (ex-Lexly) | Gamified learning: languages, code, math, science, engineering | 6783501611 (6783501927 is a stray dupe) |
+| **litigate** | Litigation tool, private | litigate.jaybulb.com |
+| **intake** (ex-healstack, repo and folder renamed 2026-10-04; store name and Pages project still `healstack`) | Health/supplement tracker | intake.jaybulb.com |
+| **hikko** (ex-Hotaru, ex-Sparkjar, renamed 2026-10-04; Pages project still `sparkjar`) | Idea forum | hikko.jaybulb.com · 6785162492 |
 | **curvely** | Equation grapher | 6794988370 |
-| **blockframe** (ex-charwork/wiretext, renamed to Block Frame / Charblock) | Unicode wireframe tool → canvas editor (product: Block Frame, ASC display: Charblock 6794988951; Xcode/bundle ID/DNS still Charwork/Wiretext; own warm-paper theme, not the shared tokens) | wiretext.heyitsmejosh.com |
-| **bookrank** | Book summaries | bookrank.heyitsmejosh.com |
-| **wordroot** | Etymology lookup | wordroot.heyitsmejosh.com |
+| **blockframe** (ex-charwork/wiretext, renamed to Blockframe) | Unicode wireframe tool → canvas editor (product: Blockframe, ASC display: Blockframe 6794988951; Xcode/bundle ID/DNS still Charwork/Wiretext; own warm-paper theme, not the shared tokens) | wiretext.jaybulb.com |
+| **bookrank** | Book summaries | bookrank.jaybulb.com |
+| **wordroot** | Etymology lookup | wordroot.jaybulb.com |
 | **quotestreak** | Quote guessing game, no backend | 6804394619 |
 | **inkpress** | Multi-feed RSS reader, iOS | 6787759999 |
-| **sidewise** | RSS bias API + reader | sidewise.heyitsmejosh.com · 6806028670 |
-| **nyc** | Times Square city sim | nyc.heyitsmejosh.com |
-| **bcgd** | Garage-door site; ships as **Doorstock** | bcgd.heyitsmejosh.com |
-| **homeqi** | Feng shui home-assessment tool (web, ex-fengshui); iOS reader-only | homeqi.heyitsmejosh.com |
-| **nimble** | Instant answers, menu bar + web. **The reference repo** | nimble.heyitsmejosh.com |
-| **cadence** | Commit-history tracker | cadence.heyitsmejosh.com |
-| **dream** | Dream journal, Workers AI | dream.heyitsmejosh.com |
-| **toroid** | Game of Life on a toroidal grid | toroid.heyitsmejosh.com |
-| **homeward** | Lost/found pets, web + iOS + KMP | homeward.heyitsmejosh.com |
-| **roost** | Real estate browsing, 25 languages | roost.heyitsmejosh.com |
-| **numen** | Free-form calculator canvas | numen.heyitsmejosh.com |
-| **swing** | Random 1:1 video chat, Durable Object lobby | swing.heyitsmejosh.com |
-| **curbfind** | Craigslist browser, web/iOS/macOS/Android/desktop (renamed from curbside 2026-09-05, ASC 6809031662, approved and live on App Store 2026-09-10). Landing hero is the live app itself (blurred iframe), one click zooms in seamlessly, no reload | curbfind.heyitsmejosh.com |
-| **seamark** | Read values off rendered charts (npm lib) | seamark.heyitsmejosh.com |
-| **siftbox** (ASC id 6811141466, ex-Sieve) | Inbox triage tool with Gmail OAuth, spam scoring, RFC 8058 unsubscribe; web + native iOS/macOS, API + MCP, KV-backed run history | siftbox.heyitsmejosh.com |
-| **tripwire** | API drift watcher | tripwire.heyitsmejosh.com |
-| **keyrate** | Typing test, one file | keyrate.heyitsmejosh.com |
-| **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.heyitsmejosh.com |
-| **madobe** | WebKit browser, iOS + macOS, one SwiftUI file, tabs (renamed from Lucarne 2026-09-14) | madobe.heyitsmejosh.com |
-| **weather** | Forecast page, Open-Meteo, one file | weather.heyitsmejosh.com |
-| **fieldbook** | Every field of science + math explained plainly, one file | fieldbook.heyitsmejosh.com |
-| **costanza** | Poetry network, svbtle-shaped, Costanza riff; web + iOS/macOS + kmp, shared spark table `stanza_poems` | costanza.heyitsmejosh.com |
-| **windgate** | Guided breathing, four presets; web + iOS/macOS (repo folder still `breathe`, renamed 2026-09-10) | windgate.heyitsmejosh.com · 6810806058 |
-| **hormuz** | Strait of Hormuz geopolitics, oil prices, trading signals | hormuz.heyitsmejosh.com |
+| **sidewise** | RSS bias API + reader | sidewise.jaybulb.com · 6806028670 |
+| **nyc** | Times Square city sim | nyc.jaybulb.com |
+| **bcgd** | Garage-door site; ships as **Doorstock** | bcgd.jaybulb.com |
+| **homeqi** | Feng shui home-assessment tool (web, ex-fengshui); iOS reader-only | homeqi.jaybulb.com |
+| **nimble** | Instant answers, menu bar + web. **The reference repo** | nimble.jaybulb.com |
+| **cadence** | Commit-history tracker | cadence.jaybulb.com |
+| **dream** | Dream journal, Workers AI | dream.jaybulb.com |
+| **toroid** | Game of Life on a toroidal grid | toroid.jaybulb.com |
+| **homeward** | Lost/found pets, web + iOS + KMP | homeward.jaybulb.com |
+| **brick** (ex-roost, renamed 2026-10-04; folder and Pages project still `roost`) | Real estate browsing, 25 languages, live rental listings via /api/listings | brick.jaybulb.com |
+| **numen** | Free-form calculator canvas | numen.jaybulb.com |
+| **swing** | Random 1:1 video chat, Durable Object lobby | swing.jaybulb.com |
+| **curbfind** | Craigslist browser, web/iOS/macOS/Android/desktop (renamed from curbside 2026-09-05, ASC 6809031662, approved and live on App Store 2026-09-10). Landing hero is the live app itself (blurred iframe), one click zooms in seamlessly, no reload | curbfind.jaybulb.com |
+| **seamark** | Read values off rendered charts (npm lib) | seamark.jaybulb.com |
+| **mailbag** (ASC id 6811141466, ex-Hagaki, ex-Pare, ex-Siftbox, ex-Sieve, renamed 2026-10-04; store listing and the API/OAuth host `hagaki.heyitsmejosh.com` still say Hagaki until a Mailbag build is submitted) | Inbox zero in one button: machine mail into seven folders, people to the archive, nothing deleted. Rules plus a Workers AI pass; Gmail and iCloud; web + native iOS/macOS | mailbag.heyitsmejosh.com |
+| **tripwire** | API drift watcher | tripwire.jaybulb.com |
+| **keyrate** | Typing test, one file | keyrate.jaybulb.com |
+| **plain** | Plain text editor, iOS + macOS + CLI, DocumentGroup only | plain.jaybulb.com |
+| **madobe** | WebKit browser, iOS + macOS, one SwiftUI file, tabs (renamed from Lucarne 2026-09-14) | madobe.jaybulb.com |
+| **weather** | Forecast page, Open-Meteo, one file | weather.jaybulb.com |
+| **fieldbook** | Every field of science + math explained plainly, one file | fieldbook.jaybulb.com |
+| **costanza** | Poetry network, svbtle-shaped, Costanza riff; web + iOS/macOS + kmp, shared spark table `stanza_poems` | costanza.jaybulb.com |
+| **windgate** | Guided breathing, four presets; web + iOS/macOS (repo folder still `breathe`, renamed 2026-09-10) | windgate.jaybulb.com · 6810806058 |
+| **hormuz** | Strait of Hormuz geopolitics, oil prices, trading signals | hormuz.jaybulb.com |
+| **hamurapi** (ex-hamurabi, renamed 2026-10-04; bundle ID and Worker still `hamurabi`) | The 1968 game Hamurabi with a drawn city: web, Mac, iPhone, terminal, and a Joshua Tree port | hamurapi.jaybulb.com · 6819131590 |
 
 ### Sites & infra
 | Repo | What |
 |---|---|
-| **nulljosh.github.io** | Portfolio, heyitsmejosh.com (jaybulb.com rename pending domain). `/plan` folded in |
+| **nulljosh.github.io** | Portfolio, jaybulb.com, plus the Jaybulb landing (Cloudflare Pages project `jaybulb`). `/plan` folded in |
 | **journal** | Jekyll blog (Pages project `journal-heyitsmejosh`) |
 | **brain** | RAG over notes, bearer-gated /api + /mcp |
-| **gato** | Voice-first OS shell, text-loop router (claude -p / ollama), landing at gato.heyitsmejosh.com (local-only repo, no GitHub remote). Note: Leopard Gecko reserved as future distro name for Joshua Tree kernel's eventual graphical OS |
-| **authmail** | Supabase auth email branding + Resend delivery (Cloudflare Worker) |
+| **gato** | Voice-first OS shell, text-loop router (claude -p / ollama), landing at gato.jaybulb.com (local-only repo, no GitHub remote). Note: Leopard Gecko reserved as future distro name for Joshua Tree kernel's eventual graphical OS |
+| **authmail** | Auth email branding + Resend delivery (Cloudflare Worker). Sends reset and confirm mail for spark-api and the Supabase apps still on Supabase |
+| **spark-api** | Cloudflare Worker on D1 and KV: sign-in, data rules, photo storage and mail for the web apps at api.jaybulb.com. No roadmap |
 | **notes** | Private notes |
 | **dotfiles** | Shell configs, skills, vibe ref |
-| **joshuatree** (ex-os) | i386 kernel, boots on QEMU, building toward its own file explorer + browser | joshuatree.heyitsmejosh.com |
-| **homeroom** (ex-lec, ex-Margin, renamed 2026-09-25) / **logans-frenchies** | D2L quiz app for LEC, homeroom.heyitsmejosh.com / client site pitch (private) |
+| **joshuatree** (ex-os) | From-scratch i386 and Raspberry Pi 4 OS, desktop, Wi-Fi, HTTPS browser and Samantha relay | joshuatree.jaybulb.com |
+| **homeroom** (ex-lec, ex-Margin, renamed 2026-09-25) / **logans-frenchies** | D2L quiz app for LEC, homeroom.jaybulb.com / client site pitch (private) |
 | `scripts/`, `_feature_audit/`, `_external/` | helpers / audit CSVs / read-only checkouts, never push |
 
 Gone. Don't mention them: systems, beep, missing-pets, abraham, code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay, plan (archived).
@@ -75,7 +79,7 @@ Never write versions here. They go stale in a day. `asc versions list --app <id>
 Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28. Replies are filed. Never resubmit into it. Book apps get a vague 2.1 unless you drop CHN.
 
 ## Stack
-- **Auth**: Supabase email+password, most apps share the `spark` project. Auth emails are intercepted by the authmail Cloudflare Worker, branded per app, and sent via Resend. Swift SDK via SPM, `@Observable` store
+- **Auth**: web apps use spark-api (Cloudflare Worker on D1 and KV): email+password, Apple and Google id tokens, per-table access rules. Reset and confirm mail goes through the authmail Worker, branded per app, sent via Resend. Supabase (the shared `spark` project) is kept only for the installed native apps until their new builds ship. Swift SDK via SPM, `@Observable` store
 - **Hosting**: Cloudflare Pages and Workers. Deploys are `wrangler pages deploy`, not git. **A push deploys nothing.**
 - **DNS**: curl with `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish`. It is not named `CLOUDFLARE_API_TOKEN` on purpose. That name breaks wrangler's OAuth
 - **Apple**: xcodegen `project.yml`, no checked-in xcodeproj. SwiftUI, iOS 17+/macOS 14+. `asc xcode archive`/`export`
@@ -89,7 +93,7 @@ Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28. Replies are filed. Never 
 - `WHITEPAPER.md` in every repo, no exceptions: H1 `<Name> Technical Whitepaper`, `**vX** | Month Year`, one-paragraph summary, then the core mechanic first and supporting detail after, MIT footer. ~40-60 lines. New repo = write it before the first push
 - `.github/workflows/test.yml` where tests exist. GitHub: description (few words), homepage, topics set
 - Icons 200×200 dark terminal aesthetic. Architecture SVGs Apple node-and-line, white bg
-- Landing page in every repo, deployed to `<name>.heyitsmejosh.com` (Cloudflare Worker, `wrangler.toml` + `deploy.sh`, `landing/` or `docs/`). Native-only apps too: hero, tagline, demo per the Landing pages section, Source button. New repo = landing live before the ASC record. Only litigate is exempt
+- Landing page in every repo, deployed to `<name>.jaybulb.com` (Cloudflare Worker, `wrangler.toml` + `deploy.sh`, `landing/` or `docs/`). Native-only apps too: hero, tagline, demo per the Landing pages section, Source button. New repo = landing live before the ASC record. Only litigate is exempt
 
 ## Landing pages (2026-09-06)
 Every landing page gets the nimble treatment: the real app, live and interactive, inside a device frame matched to the visitor's user agent (iPhone, Android, Mac window, Windows window), right under the hero tagline, with a caption naming the device. Reference: `nimble/docs/index.html`. `/landing-demo` applies it; the skill's `inject.py` holds the drop-in. Never a screenshot where the app itself can run. New app = landing gets this before its first deploy.
@@ -103,15 +107,16 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 - Stripe/Resend/Supabase keys rotated 2026-05; on-disk copies may be stale, probe the platform
 
 ## Gotchas
+- `heyitsmejosh.com` expired by choice on 2026-10-13. New sites use `<name>.jaybulb.com`. Evidna is deployed there.
 - `npm i <pkg> --save-dev` on a pinned dep upgrades it without telling you. Edit package.json by hand and diff the lockfile
-- Stripe is live on epiphany, healstack, sparkjar and talli. It cannot unlock in-app features under App Review. That needs IAP
+- Stripe is live on epiphany, intake, hikko and talli. It cannot unlock in-app features under App Review. That needs IAP
 - Social sign-in is blocked on console registrations. The code is done
 - `mole clean` needs a real TTY for sudo. Run it yourself
 
 ## Open work
-`roadmap.md` is the queue. `GTM.md` is the ledger. About 18 apps still need a `kmp/` module. Roost's auth pages still need localization before native release. litigate has no landing on purpose.
+`roadmap.md` is the queue. `GTM.md` is the ledger. About 18 apps still need a `kmp/` module. Brick's auth pages still need localization before native release. litigate has no landing on purpose.
 
 ## TUI rollout (2026-09-05)
-Shipped 16, each with a `tui/` + root `Package.swift` (SwiftPM target depending on rensbreur/SwiftTUI, static one-shot render, needs a real TTY): nimble, cadence, numen, wordroot, keyrate, curvely, blockframe, bookrank, quotestreak, inkpress, tripwire, sidewise, nyc, curbfind, homeward, roost.
-Three patterns used: reuse an existing Foundation-only model file as-is (nimble/QueryEngine, numen/Parser, curbfind/CraigslistAPI); a thin fetch against the live API/Function when logic lives server-side (cadence, wordroot, curvely, blockframe, bookrank, quotestreak, sidewise, tripwire); or a thin fetch against a third-party/public API when there's no backend of its own to wrap (roost→Nominatim, homeward→Supabase PostgREST directly, inkpress→its CORS proxy + Foundation's XMLParser). keyrate and nyc ported/reused static logic (score.js line-for-line; nyc's building-cost table, matching its watchOS app's own "quick-reference, not a live mirror" scope decision).
-Deliberately not done, with reasons: epiphany, talli, litigate, sparkjar, healstack, lexly (auth-gated personal/financial/health/legal data, nothing to show a stateless CLI without building a login flow); notate (on-device WhisperKit transcription needs mic input, different shape entirely); seamark, homeqi (watchOS wrapper only, real logic is JS, would need a fresh port not a reuse); bcgd (local-only business data, nothing to fetch); dream (interpretation endpoint is safety-sensitive, distress detection, and bills Workers AI per call, not something to wrap casually); swing (video chat needs a browser camera and two participants); plain (explicit prior decision against a terminal editor, see its own CLAUDE.md).
+Shipped 16, each with a `tui/` + root `Package.swift` (SwiftPM target depending on rensbreur/SwiftTUI, static one-shot render, needs a real TTY): nimble, cadence, numen, wordroot, keyrate, curvely, blockframe, bookrank, quotestreak, inkpress, tripwire, sidewise, nyc, curbfind, homeward, brick.
+Three patterns used: reuse an existing Foundation-only model file as-is (nimble/QueryEngine, numen/Parser, curbfind/CraigslistAPI); a thin fetch against the live API/Function when logic lives server-side (cadence, wordroot, curvely, blockframe, bookrank, quotestreak, sidewise, tripwire); or a thin fetch against a third-party/public API when there's no backend of its own to wrap (brick→Nominatim, homeward→Supabase PostgREST directly, inkpress→its CORS proxy + Foundation's XMLParser). keyrate and nyc ported/reused static logic (score.js line-for-line; nyc's building-cost table, matching its watchOS app's own "quick-reference, not a live mirror" scope decision).
+Deliberately not done, with reasons: epiphany, talli, litigate, hikko, healstack, tonchi (auth-gated personal/financial/health/legal data, nothing to show a stateless CLI without building a login flow); notate (on-device WhisperKit transcription needs mic input, different shape entirely); seamark, homeqi (watchOS wrapper only, real logic is JS, would need a fresh port not a reuse); bcgd (local-only business data, nothing to fetch); dream (interpretation endpoint is safety-sensitive, distress detection, and bills Workers AI per call, not something to wrap casually); swing (video chat needs a browser camera and two participants); plain (explicit prior decision against a terminal editor, see its own CLAUDE.md).
