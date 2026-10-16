@@ -4,7 +4,7 @@
 
 ![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fswing-black?logo=github)](https://github.com/nulljosh/swing)
 
-**Live:** https://swing.heyitsmejosh.com · **GitHub:** https://github.com/nulljosh/swing
+**Live:** https://swing.jaybulb.com · **GitHub:** https://github.com/nulljosh/swing
 
 Fifteen seconds of video with a stranger.
 
