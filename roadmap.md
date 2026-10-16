@@ -16,5 +16,4 @@ bookrank, homeward.
 
 - [ ] Per-app index page: view the history of each project at a glance
 - [ ] Tags or categories: find entries by theme or topic
-- [x] Site-wide streak graph on homepage: show consecutive commit days
 - [ ] Visible RSS link in footer: make subscriptions obvious
