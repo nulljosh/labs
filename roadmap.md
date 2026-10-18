@@ -1,5 +1,7 @@
 # Dream, roadmap
 
+> Priority tier 5 (2026-10-17): exploratory, this year. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
+
 ## v0, decide it is worth building
 DONE 2026-08-27. Prompt tested against real dreams before shipping; it fabricated a
 recurrence on the first pass and was rewritten.
@@ -10,9 +12,6 @@ recurrence on the first pass and was rewritten.
 ## v2, voice entry and accounts, VOICE DONE 2026-09-02
 - [ ] Supabase auth + `dreams` table with RLS keyed to auth.uid(). Check the shared spark
       project's free-tier headroom before creating anything.
-- [x] Delete-everything for the current localStorage journal, with a two-step
-      confirmation. Export remains available first. Account-backed deletion
-      remains part of the future sync work.
 - [ ] Migrate localStorage entries on first sign-in.
 
 ## v3, the part people pay for
