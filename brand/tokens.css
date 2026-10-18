@@ -1,0 +1,7 @@
+/* Quotestreak brand tokens. The accent is the only colour this app owns; spacing, radii and type come from the shared system. */
+:root {
+  --accent: #d8341f;
+  --accent-light: #ff6a55;
+  --accent-deep: #d8341f;
+  --accent-ring: color-mix(in srgb, #d8341f 30%, transparent);
+}

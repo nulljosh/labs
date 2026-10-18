@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
-  <rect width="200" height="200" rx="44" fill="#0b0d10"/>
-  <g fill="#3b82f6">
-    <path transform="translate(33,44) scale(1.12) rotate(180,24,52)" d="M 0,24 A 24,24 0 1,1 48,24 C 48,64 34,90 8,104 C 20,84 26,62 23,42 A 24,24 0 0,1 0,24 Z"/>
-    <path transform="translate(110,44) scale(1.12) rotate(180,24,52)" d="M 0,24 A 24,24 0 1,1 48,24 C 48,64 34,90 8,104 C 20,84 26,62 23,42 A 24,24 0 0,1 0,24 Z"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 1024 1024"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff6a55"/><stop offset="1" stop-color="#d8341f"/></linearGradient></defs><rect width="1024" height="1024" rx="224" fill="url(#g)"/><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="68"><rect x="228" y="440" width="568" height="350" rx="44"/><path d="M240 330L780 244"/></g></svg>
