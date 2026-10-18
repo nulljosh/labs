@@ -1,5 +1,7 @@
 # Bcgd Roadmap
 
+> Priority tier 4 (2026-10-17): portfolio and meta. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
+
 ## Marketing
 
 The Best Choice Garage Doors Instagram and Google work lives in `marketing/`. Its own queue is `marketing/roadmap.md`.
