@@ -1,16 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
-  <rect width="200" height="200" fill="#f5f5f7" stroke="#d1d5db" rx="32"/>
-  <rect width="176" height="176" x="12" y="12" fill="none" stroke="#d1d5db" stroke-width="1.5" rx="24"/>
-  <rect x="40" y="44" width="120" height="16" rx="3" fill="none" stroke="#1d1d1f" stroke-width="1.5"/>
-  <rect x="40" y="44" width="120" height="16" rx="3" fill="#1d1d1f" opacity="0.06"/>
-  <text x="100" y="56" font-family="-apple-system,sans-serif" font-size="10" fill="#1d1d1f" text-anchor="middle" opacity="0.5">[ Button ]</text>
-  <rect x="40" y="70" width="120" height="16" rx="3" fill="none" stroke="#d1d5db" stroke-width="1.5"/>
-  <text x="100" y="82" font-family="-apple-system,sans-serif" font-size="10" fill="#6e6e73" text-anchor="middle">[____________]</text>
-  <rect x="40" y="96" width="120" height="8" rx="4" fill="#e5e5ea"/>
-  <rect x="40" y="96" width="72" height="8" rx="4" fill="#85144b"/>
-  <rect x="40" y="116" width="120" height="52" rx="6" fill="none" stroke="#d1d5db" stroke-width="1.5"/>
-  <text x="48" y="128" font-family="monospace" font-size="9" fill="#6e6e73">┌──────────┬──────┐</text>
-  <text x="48" y="140" font-family="monospace" font-size="9" fill="#6e6e73">│ Column A │  B   │</text>
-  <text x="48" y="152" font-family="monospace" font-size="9" fill="#6e6e73">├──────────┼──────┤</text>
-  <text x="48" y="164" font-family="monospace" font-size="9" fill="#6e6e73">└──────────┴──────┘</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 1024 1024"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fd68a"/><stop offset="1" stop-color="#12995a"/></linearGradient></defs><rect width="1024" height="1024" rx="224" fill="url(#g)"/><g fill="none" stroke="#fff" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"><rect x="220" y="240" width="584" height="544" rx="56"/><path d="M220 440H804M450 440V784"/></g></svg>
