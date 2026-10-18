@@ -1,5 +1,7 @@
 # Research queue
 
+> Priority tier 5 (2026-10-17): exploratory, this year. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
+
 - [ ] Check tiny pigeonhole formulas and DPLL node counts.
 - [ ] Measure prime gaps on disjoint intervals with checked endpoints.
 - [ ] Review a specific complexity technique against its computation model and barriers.
