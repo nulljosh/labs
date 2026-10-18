@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
-  <rect width="200" height="200" rx="40" fill="#0f172a"/>
-  <circle cx="100" cy="100" r="62" fill="none" stroke="#C9784A" stroke-width="12"/>
-  <circle cx="100" cy="100" r="34" fill="none" stroke="#E9B08A" stroke-width="10"/>
-  <circle cx="100" cy="100" r="11" fill="#C9784A"/>
-  <g stroke="#E9B08A" stroke-width="10" stroke-linecap="round">
-    <line x1="100" y1="22" x2="100" y2="38"/><line x1="100" y1="162" x2="100" y2="178"/>
-    <line x1="22" y1="100" x2="38" y2="100"/><line x1="162" y1="100" x2="178" y2="100"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 1024 1024"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ee5a3c"/><stop offset="1" stop-color="#a8240f"/></linearGradient></defs><rect width="1024" height="1024" rx="224" fill="url(#g)"/><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="64"><path d="M382 262H642L762 382V642L642 762H382L262 642V382Z"/></g><circle cx="512" cy="512" r="84" fill="#fff"/></svg>
