@@ -1,5 +1,7 @@
 # Inkpress Roadmap
 
+> Priority tier 3 (2026-10-17): active feature work, this month. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
+
 - [ ] Verify iPad split-view (EntryListView) visually on simulator -- 2026-09-02. Pushed
   the NavigationSplitView conversion without a simulator screenshot; this machine's Xcode
   only has the iOS 26.5 SDK but the iOS 26.2 runtime downloaded, so `xcodebuild` won't
@@ -184,8 +186,9 @@ bookrank, homeward.
 ## TUI pilot (2026-09-05)
 - `inkpress-tui` SwiftPM target (SwiftTUI). `swift build && ./.build/debug/inkpress-tui <feed-url>` fetches through the CORS proxy and lists item titles via Foundation's XMLParser. Needs a real TTY.
 
-## Bugs fixed
-- [x] Keep Atom article links when self or replies links follow them. Run `tools/check-feed-parser.sh`.
-
 ## Ingested 2026-10-05
 - [ ] QA
+
+## Ingested 2026-10-16
+- [ ] What is this app? QA it. (also see root roadmap: compare and maybe merge with Sidewise) (screenshots: notes/attachments/2026-10-16/inkpress-and-sidewise-1.png)
+- [ ] What is this app? QA it. (also see root roadmap: compare and maybe merge with Sidewise) (screenshots: notes/attachments/2026-10-16/inkpress-and-sidewise-1.png)
