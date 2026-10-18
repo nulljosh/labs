@@ -1,5 +1,7 @@
 # Wiretext Roadmap
 
+> Priority tier 2 (2026-10-17): ship push, this week. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
+
 ## Decision 2026-09-10: toward a real canvas editor, not a stamp tool
 
 Direction: move Blockframe from "stamp a preset into a fixed char grid" toward something
@@ -264,7 +266,6 @@ Web editing: select an element, drag any edge or corner, or choose Edit text. Do
 ## Ingested 2026-10-02
 - [ ] Stale name: the Charwork name is stale somewhere (Joshua's note just said "Charwork, stale name"). Which surface still says Charwork?
 
-## Ingested 2026-10-05
-- [x] Name change worked, but the app doesn't need a title. Just the app itself. (iOS/macOS toolbar title removed 2026-10-05)
-- [x] Refresh App Store screenshots (iPhone 6.9in 1320x2868 and iPad 13in, neutral look, no title, 2026-10-05; old 6.5in set removed)
-- [x] Remove the tan/sand color. No more of that color. (iOS Theme is neutral gray and white 2026-10-05; web tokens still warm paper) (screenshot: notes/attachments/2026-10-05/blockframe-1.png)
+## Ingested 2026-10-16
+- [ ] Stale App Store screenshots (preview still says "wiretext"). (screenshot: notes/attachments/2026-10-16/app-store-screenshots-2.png)
+- [ ] Stale App Store screenshots (preview still says "wiretext"). (screenshot: notes/attachments/2026-10-16/app-store-screenshots-2.png)
