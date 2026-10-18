@@ -1,0 +1,46 @@
+{
+  "fill-specializations": [
+    {
+      "value": {
+        "linear-gradient": [
+          "extended-srgb:0.251,0.753,0.541,1.0",
+          "extended-srgb:0.059,0.478,0.290,1.0"
+        ]
+      }
+    },
+    {
+      "appearance": "dark",
+      "value": {
+        "linear-gradient": [
+          "extended-srgb:0.016,0.134,0.081,1.0",
+          "extended-srgb:0.007,0.057,0.035,1.0"
+        ]
+      }
+    }
+  ],
+  "groups": [
+    {
+      "layers": [
+        {
+          "glass": false,
+          "image-name": "glyph.png",
+          "name": "Fieldbook"
+        }
+      ],
+      "lighting": "individual",
+      "name": "Fieldbook",
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.3
+      },
+      "specular": true,
+      "translucency": {
+        "enabled": false,
+        "value": 0
+      }
+    }
+  ],
+  "supported-platforms": {
+    "squares": "shared"
+  }
+}
