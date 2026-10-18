@@ -1,5 +1,7 @@
 # Roadmap
 
+> Priority tier 5 (2026-10-17): exploratory, this year. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
+
 ## Now
 
 A public HBB study, coding substitutions, protein translation, a researcher and skeptic, and a local evidence notebook. An interactive landing page reads Python-generated reports.
