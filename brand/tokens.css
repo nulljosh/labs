@@ -1,0 +1,7 @@
+/* Seamark brand tokens. The accent is the only colour this app owns; spacing, radii and type come from the shared system. */
+:root {
+  --accent: #0369a1;
+  --accent-light: #38bdf8;
+  --accent-deep: #0369a1;
+  --accent-ring: color-mix(in srgb, #0369a1 30%, transparent);
+}
