@@ -1,5 +1,7 @@
 # NYC Roadmap
 
+> Priority tier 3 (2026-10-17): active feature work, this month. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
+
 ## CLOSED 2026-09-09: Gather-fix build iOS 1.0.1 approved and live
 
 The gather-fix build (commit `49b474a`, 2026-09-09) fixed a critical bug: colonists could never
