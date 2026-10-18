@@ -21,9 +21,9 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **epiphany** | Finance dashboard · 6779522175 |
 | **talli** | DTC/RDSP/CDB admin tool |
 | **notate** (ex-voxprint) | On-device transcription, WhisperKit. Xcode targets and Pages project still say Voxprint · 6782604262 |
-| **tonchi** (ex-lexly) | Gamified learning, 165 courses · 6783501611 (6783501927 is a stray dupe) |
+| **patois** (ex-tonchi, ex-lexly). Folder is `tonchi` | Gamified learning, 165 courses · 6783501611 (6783501927 is a stray dupe) |
 | **intake** (ex-healstack) | Health/supplement tracker. Store name and Pages project still `healstack` |
-| **hikko** (ex-sparkjar) | Idea forum. Pages project still `sparkjar` · 6785162492 |
+| **thinkpond** (ex-hikko, ex-sparkjar). Folder is `hikko` | Idea forum. Pages project still `sparkjar` · 6785162492 |
 | **mailbag** (ex-hagaki, siftbox, pare, sieve) | Inbox zero in one button. Store listing and API host still say Hagaki · 6811141466 |
 | **bookrank** | Book summaries, listen feature |
 | **curvely** | Equation grapher · 6794988370 |
@@ -34,9 +34,9 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **sidewise** | RSS bias API + reader · 6806028670 |
 | **plain** | Plain text editor, iOS + macOS + CLI |
 | **madobe** (ex-lucarne) | WebKit browser, one SwiftUI file |
-| **windgate** | Guided breathing. Folder is `breathe` · 6810806058 |
+| **airwell** (ex-windgate) | Guided breathing. Folder is `breathe` · 6810806058 |
 | **curbfind** | Craigslist browser, every platform · 6809031662 |
-| **brick** (ex-roost) | Real estate browsing, 25 languages. Folder and Pages project still `roost` |
+| **atlin** (ex-brick, ex-roost) | Real rentals on a map, deal-ranked, 27 languages. Bundle ID still `com.nulljosh.brick`, Pages project still `roost` (neither can be renamed) · 6824157219 |
 | **hamurapi** (ex-hamurabi) | 1968 Hamurabi with a drawn city. Bundle ID and Worker still `hamurabi` · 6819131590 |
 | **toroid** | Game of Life on a torus. Folder is `conway` · 6806324937 |
 | **nyc** | Times Square city sim (NYC Survive) · 6782618198 |
@@ -77,7 +77,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **journal** | Jekyll blog (Pages project `journal-heyitsmejosh`) |
 | **notes** | Notes repo, source of truth for the Obsidian vault copy |
 | **brain** | RAG over notes, bearer-gated /api + /mcp |
-| **spark-api** | Cloudflare Worker on D1 and KV: sign-in, data rules, photos, mail for web apps at api.jaybulb.com |
+| **jaybulb-api** | Cloudflare Worker on D1 and KV: sign-in, data rules, photos, mail for web apps at api.jaybulb.com |
 | **authmail** | Auth email branding + Resend delivery Worker |
 | **dotfiles** | Shell configs, skills |
 
@@ -90,7 +90,7 @@ Gone. Don't mention them: systems, beep, missing-pets, abraham, code-meta, chart
 Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28 and again on 2026-10-05. Reply with the nine answers, never resubmit unchanged, and send nothing without Joshua's yes. Book apps get a vague 2.1 unless you drop CHN. Rejection reasons live in Resolution Center only (`asc-login` for 2FA). The ledger is `wiki/pages/asc-status.md` in the Obsidian vault, regenerate it, don't trust it.
 
 ## Stack
-- **Auth**: web apps use spark-api (email+password, Apple and Google id tokens, per-table rules). Reset and confirm mail goes through authmail via Resend. Supabase (shared `spark` project) stays only for installed native apps until their new builds ship.
+- **Auth**: web apps use jaybulb-api (email+password, Apple and Google id tokens, per-table rules). Reset and confirm mail goes through authmail via Resend. Supabase (shared `spark` project) stays only for installed native apps until their new builds ship.
 - **Hosting**: Cloudflare Pages and Workers. Deploys are `wrangler pages deploy`. **A push deploys nothing.**
 - **DNS**: curl with `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish`. Not named `CLOUDFLARE_API_TOKEN` on purpose, that name breaks wrangler's OAuth.
 - **Apple**: xcodegen `project.yml`, no checked-in xcodeproj. SwiftUI, iOS 17+/macOS 14+. `asc xcode archive`/`export`.
@@ -104,7 +104,7 @@ Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28 and again on 2026-10-05. R
 - `WHITEPAPER.md`: H1 `<Name> Technical Whitepaper`, `**vX** | Month Year`, one-paragraph summary, core mechanic first, MIT footer, about 40 to 60 lines. Write it before the first push.
 - `.github/workflows/test.yml` where tests exist. GitHub description, homepage, topics set.
 - Icons 200x200 dark terminal style. Architecture SVGs Apple node-and-line, white bg.
-- **Landing in every repo** at `<name>.jaybulb.com` (Worker, `wrangler.toml` + `deploy.sh`, `landing/` or `docs/`), live before the ASC record. Real app, interactive, inside a device frame matched to the visitor, right under the hero tagline, caption naming the device. Never a screenshot where the app can run. Reference `nimble/docs/index.html`, applied with `/landing-demo`. Newer pattern: `plank/site/index.html` plus the shared `landing.css` and `landing.js` from the portfolio.
+- **Landing in every repo** at `<name>.jaybulb.com` (Worker, `wrangler.toml` + `deploy.sh`, `landing/` or `docs/`), live before the ASC record. The real app runs directly on the page under the hero tagline, with no device frame or window around it (Joshua 2026-10-17). Never a screenshot where the app can run. Built on the shared tokens: 8 point grid, one radius set, 48 point capsule controls, system font. Reference: `airwell/web/index.html` and `wordroot/brand/tokens.css`. Older landings that still use a device frame (nimble `docs/index.html` and others) are being rebuilt.
 
 ## Writing (READMEs, whitepapers, CLAUDE.md, roadmaps, journal, landing copy)
 tripwire's README is the reference. Short sentences. Plain words. Say the problem, then the thing, then stop. Talk to one person. Cut hedges, jargon, "leverage", "seamlessly", "robust". No em dashes, no emojis, no bullet walls where a sentence works. If it reads like a brochure or an AI wrote it, rewrite it. Prose only, never touches code.
@@ -116,7 +116,7 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 ## Gotchas
 - `heyitsmejosh.com` lapsed 2026-10-13 on purpose. Everything lives at `<name>.jaybulb.com`. Native apps still hardcode the old host until their next build.
 - `npm i <pkg> --save-dev` on a pinned dep upgrades it silently. Edit package.json by hand and diff the lockfile.
-- Stripe is live on epiphany, intake, hikko and talli. It cannot unlock in-app features under App Review, that needs IAP.
+- Stripe is live on epiphany, intake, thinkpond and talli. It cannot unlock in-app features under App Review, that needs IAP.
 - Social sign-in is blocked on console registrations. The code is done.
 - `mole clean` needs a real TTY for sudo. Run it yourself.
 
