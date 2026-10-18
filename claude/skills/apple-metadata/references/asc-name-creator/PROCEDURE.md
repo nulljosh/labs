@@ -104,3 +104,14 @@ What a day of checking 200+ names taught (2026-09-20):
 - Check collisions inside computing before pitching. Known burns: Bonsai is PrismML's LLM, Koi Computers sells HPC hardware, Flint OS and Koa.js exist, macOS used Mojave, Sequoia and Sonoma.
 - Rank candidates against the user's own anchors and lead with one pick. Taste so far: likes Bonsai and Koi (short, Japanese, a living thing you can draw as an emblem), hard consonants, a vowel ending. Matsu and Tupelo were "okay". Yucca, Agave and Rowan were rejected as too soft.
 - whois and DNS are signals only. Always say a name is unconfirmed until a registrar check and a trademark search are done.
+
+## Learnings, 2026-10-17 (Patois, Thinkpond, Airwell)
+
+- **Probe record.** The old throwaway (Lexly Mac 6783501927) is gone and `probe.sh` refuses any record with a live or in-review version, which is nearly every app. Use a record whose versions are all REJECTED: `ASC_PROBE_APP=6811141466 ./probe.sh ...` (Mailbag, listed as Hagaki). The trap restores the name; read it back after every batch (`asc apps view --id 6811141466`, expect Hagaki).
+- **Public search lies both ways.** `asc apps public search` showed Tidal and Hatch as free; Apple said taken. Skip it, probe directly.
+- **Plain words are a dead namespace.** About 2 of 80 plain one-word candidates were free (Patois, Kernel), and 0 of 45 Apple-style plain nouns (Vowel, Fireside, Unwind, Quiet, Lounge and so on). Free names are rare real words or fused two-word compounds like Thinkpond and Airwell. Budget for 150+ probes.
+- **Taste bar.** One word, two syllables at most, a real word that says what the app does, Apple-simple. No Japanese-sounding names for a non-Japanese product, no coinages, no generic startup roots.
+- **.com is not required.** Apps live at `<name>.jaybulb.com`, so skip the domain scan unless the user wants a bought domain (`domains.sh` found no free plain-word .com).
+- **Applying the rename.** An app with a live Mac and a rejected iOS has two app infos, so `asc apps rename` errors until you pass `--app-info <REJECTED id>` (list with `asc apps info list --app ID`). It renames the iOS listing now; the Mac listing keeps the old name until its next version.
+- **Propagation checklist.** Replace the display name across the repo (skip dirty files), then rename every file the project spec names (`Hikko.icon`, `*.entitlements`, `*App.swift`), run `xcodegen generate` in each target folder to prove nothing is missing, and revert the generated project diffs. Update the root CLAUDE.md table, roadmap, fleet.svg labels and memory. Folders, Pages projects, domains and bundle IDs stay on purpose.
+- **Locking.** When the user says "you decide", lock the best free names and rename; do not wait for another round.
