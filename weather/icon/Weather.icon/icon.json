@@ -1,0 +1,15 @@
+{
+  "fill": {
+    "linear-gradient": ["extended-srgb:0.36,0.60,0.98,1.0", "extended-srgb:0.20,0.38,0.80,1.0"],
+    "orientation": {"start": {"x": 0.5, "y": 0}, "stop": {"x": 0.5, "y": 1}}
+  },
+  "groups": [{
+    "layers": [{"glass": true, "image-name": "glyph.png", "name": "Glyph"}],
+    "lighting": "individual",
+    "name": "Glyph",
+    "shadow": {"kind": "neutral", "opacity": 0.4},
+    "specular": true,
+    "translucency": {"enabled": false, "value": 0}
+  }],
+  "supported-platforms": {"squares": "shared"}
+}

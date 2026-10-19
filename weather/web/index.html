@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weather</title>
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+  :root{ --bg:#0b1420; --bg2:#0e1a29; --fg:#eef3f8; --dim:#8fa2b8; --accent:#5b8def; --line:#1a2c44; --cloud:#8aa0bd; --sun:#ffb81f; --moon:#dfe8f5; --wet:#5b9dff; }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f7fb; --bg2:#eaf0f8; --fg:#16202c; --dim:#5c6b7d; --accent:#3f6fd8; --line:#dbe6f7; --cloud:#a9bbd4; --sun:#f5a300; --moon:#8da2c4; --wet:#3f7be0; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Helvetica,Arial,sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center}
+  header{width:100%;max-width:960px;padding:28px 24px 0;display:flex;justify-content:space-between;align-items:center}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.02em;font-size:17px}
+  nav a{color:var(--dim);text-decoration:none;font-size:14px;margin-left:20px}
+  main{width:100%;max-width:640px;padding:40px 24px 80px;text-align:center}
+  h1{font-size:clamp(28px,5vw,42px);font-weight:600;margin:8px 0 6px;letter-spacing:-.01em}
+  p.sub{color:var(--dim);font-size:16px;margin:0 0 40px}
+  form button{flex:none}
+  @media (max-width:430px){form{gap:6px}form button{padding:10px 13px}}
+  form{display:flex;gap:8px;justify-content:center;margin-bottom:28px}
+  input[type=search]{flex:1;min-width:0;max-width:320px;padding:10px 14px;border-radius:999px;border:1px solid var(--line);
+    background:none;color:var(--fg);font-size:15px}
+  button{background:var(--accent);color:#fff;border:none;padding:10px 18px;border-radius:999px;font-size:14px;cursor:pointer}
+  button.ghost{background:none;border:1px solid var(--line);color:var(--dim)}
+  .now{margin:12px 0 32px}
+  .place{color:var(--dim);font-size:14px}
+  .temp{font-size:clamp(56px,14vw,96px);font-weight:300;line-height:1;margin:6px 0}
+  .desc{font-size:17px}
+  .meta{color:var(--dim);font-size:13px;margin-top:6px}
+  .hourly{margin:0 0 28px;text-align:left}
+  .hourly h2{font-size:15px;font-weight:500}
+  .hours{position:relative;display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}
+  .hour{flex:0 0 90px;border:1px solid var(--line);border-radius:14px;padding:12px 6px;text-align:center;font-size:13px}
+  .hour.cur{border-color:var(--accent)}
+  .hour b,.hour span{display:block;margin-bottom:6px}
+  .hour small{color:var(--dim)}
+  .days{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:8px;text-align:center}
+  .day{border:1px solid var(--line);border-radius:14px;padding:12px 6px;font-size:13px}
+  .day b{display:block;font-weight:500;margin-bottom:6px}
+  .day .hi{font-weight:600}
+  .day .lo{color:var(--dim)}
+  .day .d{color:var(--dim);font-size:11px;margin-top:6px}
+  .wx{width:56px;height:56px;display:block;overflow:visible}
+  .hour .wx,.day .wx{width:36px;height:36px;margin:0 auto 6px}
+  .nowrow{display:flex;align-items:center;justify-content:center;gap:14px}
+  .nowrow .wx{width:clamp(64px,16vw,104px);height:clamp(64px,16vw,104px);flex:none}
+  .wx .s{fill:var(--sun)} .wx .r{stroke:var(--sun);stroke-width:3;stroke-linecap:round}
+  .wx .m{fill:var(--moon)} .wx .c{fill:var(--cloud)} .wx .f{stroke:var(--cloud);stroke-width:4;stroke-linecap:round}
+  .wx .d{stroke:var(--wet);stroke-width:3;stroke-linecap:round} .wx .k{fill:var(--fg);opacity:.9} .wx .b{fill:var(--sun)}
+  .wx .drift,.wx .fall,.wx .snow,.wx .fog,.wx .bolt,.wx .moon{transform-box:fill-box;transform-origin:center}
+  @media (prefers-reduced-motion: no-preference){
+    .wx .rays{animation:spin 24s linear infinite}
+    .wx .drift{animation:drift 7s ease-in-out infinite alternate}
+    .wx .fall{animation:fall 1s linear infinite}
+    .wx .snow{animation:snow 2.6s linear infinite}
+    .wx .fog{animation:drift 5s ease-in-out infinite alternate}
+    .wx .bolt{animation:flash 3s steps(1) infinite}
+    .wx .moon{animation:bob 5s ease-in-out infinite alternate}
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes drift{from{transform:translateX(-3px)}to{transform:translateX(3px)}}
+  @keyframes fall{0%{transform:translateY(-6px);opacity:0}25%{opacity:1}100%{transform:translateY(10px);opacity:0}}
+  @keyframes snow{0%{transform:translate(-2px,-6px);opacity:0}25%{opacity:1}100%{transform:translate(2px,10px);opacity:0}}
+  @keyframes flash{0%,60%,66%,100%{opacity:.15}62%,64%,70%{opacity:1}}
+  @keyframes bob{from{transform:translateY(-1px) rotate(-3deg)}to{transform:translateY(1px) rotate(3deg)}}
+  .status{color:var(--dim);font-size:14px;min-height:20px}
+  footer{color:var(--dim);font-size:13px;padding:24px;text-align:center}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+  @media (prefers-reduced-motion: no-preference) {
+    html.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease-out, transform .6s ease-out; }
+    html.js .reveal.in-view { opacity: 1; transform: translateY(0); }
+  }
+</style>
+<link rel="stylesheet" href="devices.css">
+<script>
+// ponytail: UA sniff, good enough for a mockup. iphone is the default. ?embed = app only, for the landing demo frame.
+(function(u,d){d=/Android/.test(u)?'android':/iPhone|iPad/.test(u)?'iphone':/Windows/.test(u)?'windows':/Mac/.test(u)?'mac':'iphone';document.documentElement.dataset.device=d;if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed')})(navigator.userAgent);
+</script>
+<style>
+.demo{margin:2rem auto 0;text-align:center;position:relative;z-index:2}
+.demo .device-screen{aspect-ratio:9/19.5}
+.demo .device-mac .device-screen,.demo .device-windows .device-screen{aspect-ratio:16/10}
+.demo .device-screen iframe{position:absolute;top:0;left:0;border:0;display:block;transform-origin:0 0;width:390px;height:845px;background:#fff}
+.demo .device-mac .device-screen iframe,.demo .device-windows .device-screen iframe{width:1024px;height:640px}
+.demo-caption{font-size:.9rem;opacity:.65;margin:1rem 0 0}
+.embed .demo,.embed footer,.embed nav,.embed header,.embed h1,.embed .sub{display:none!important}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand"><img src="icon.png" alt="" width="32" height="32">Weather</div>
+  <nav><a href="#tool">Try it</a></nav>
+</header>
+
+<main>
+  <h1>The forecast, and nothing else</h1>
+  <p class="sub">Your city, today and the week ahead. No account, no ads, no app to install.</p>
+
+  <form id="tool" role="search">
+    <input type="search" id="q" placeholder="City" aria-label="City" autocomplete="off">
+    <button type="submit">Go</button>
+    <button type="button" class="ghost" id="here" aria-label="Use my location">Here</button>
+    <button type="button" class="ghost" id="unit" aria-pressed="false">°F</button>
+  </form>
+
+  <div class="status" id="status" aria-live="polite"></div>
+
+  <section class="now" id="now" hidden>
+    <div class="place" id="place"></div>
+    <div class="nowrow"><span id="wx"></span><div class="temp" id="temp"></div></div>
+    <div class="desc" id="desc"></div>
+    <div class="meta" id="meta"></div>
+  </section>
+
+  <section class="hourly" id="hourly" hidden aria-labelledby="hourly-title">
+    <h2 id="hourly-title">Today by hour · local time</h2>
+    <div class="hours" id="hours" tabindex="0" role="region" aria-label="Hourly forecast"></div>
+  </section>
+  <div class="days" id="days"></div>
+</main>
+
+<footer>weather.jaybulb.com · data from Open-Meteo</footer>
+
+<script>
+// ponytail: Open-Meteo, no key, no backend. Last place + unit in localStorage.
+const $=id=>document.getElementById(id);
+const CODES={0:'Clear',1:'Mostly clear',2:'Partly cloudy',3:'Overcast',45:'Fog',48:'Rime fog',51:'Light drizzle',53:'Drizzle',55:'Heavy drizzle',
+  56:'Freezing drizzle',57:'Freezing drizzle',61:'Light rain',63:'Rain',65:'Heavy rain',66:'Freezing rain',67:'Freezing rain',71:'Light snow',73:'Snow',
+  75:'Heavy snow',77:'Snow grains',80:'Showers',81:'Showers',82:'Heavy showers',85:'Snow showers',86:'Snow showers',95:'Thunderstorm',96:'Thunderstorm, hail',99:'Thunderstorm, hail'};
+let unit=localStorage.getItem('unit')||'C', last=null;
+// Animated inline SVG per WMO code. day=false swaps sun for moon.
+const CLOUD='<path class="c" d="M19 47a9 9 0 0 1-.5-18 13 13 0 0 1 25-3 10 10 0 0 1 2.5 21z"/>';
+const sun=(x,y,r)=>`<g class="rays" style="transform-origin:${x}px ${y}px">${[...Array(8)].map((_,i)=>`<line class="r" x1="${x}" y1="${y-r-4}" x2="${x}" y2="${y-r-8}" transform="rotate(${i*45} ${x} ${y})"/>`).join('')}</g><circle class="s" cx="${x}" cy="${y}" r="${r}"/>`;
+const moon=(x,y)=>`<path class="m moon" d="M${x+6} ${y-12}a14 14 0 1 0 8 22 11 11 0 0 1-8-22z"/>`;
+const drops=(n)=>[...Array(n)].map((_,i)=>`<line class="d fall" x1="${22+i*8}" y1="50" x2="${20+i*8}" y2="56" style="animation-delay:${(i*.27).toFixed(2)}s"/>`).join('');
+const flakes=()=>[0,1,2].map(i=>`<circle class="k snow" cx="${24+i*9}" cy="53" r="2" style="animation-delay:${(i*.8).toFixed(1)}s"/>`).join('');
+function icon(code,day=true){
+  const body=code===0?(day?sun(32,32,10):moon(30,32)):
+    code<=2?(day?sun(24,24,8):moon(22,24))+`<g class="drift">${CLOUD}</g>`:
+    code===3?`<g class="drift">${CLOUD}</g>`:
+    code<=48?[0,1,2].map(i=>`<line class="f fog" x1="${16+i*3}" y1="${24+i*10}" x2="${40+i*3}" y2="${24+i*10}" style="animation-delay:-${i*1.4}s"/>`).join(''):
+    code<=57?CLOUD+drops(2):
+    code<=67||(code>=80&&code<=82)?CLOUD+drops(4):
+    code<=77||code===85||code===86?CLOUD+flakes():
+    CLOUD+'<path class="b bolt" d="M34 40l-8 11h6l-3 9 11-13h-6z"/>';
+  return `<svg class="wx" viewBox="0 0 64 64" role="img" aria-label="${CODES[code]||''}">${body}</svg>`;
+}
+const isDay=iso=>{const h=+iso.slice(11,13);return h>=6&&h<20};
+const say=m=>$('status').textContent=m;
+const t=c=>Math.round(unit==='F'?c*9/5+32:c)+'°';
+
+async function geocode(name){
+  const r=await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(name)}&count=1`);
+  const j=await r.json(); if(!j.results) throw new Error('No such place');
+  const p=j.results[0]; return {name:[p.name,p.admin1,p.country_code].filter(Boolean).join(', '),lat:p.latitude,lon:p.longitude};
+}
+async function load(p){
+  last=p; localStorage.setItem('place',JSON.stringify(p)); say('Loading…');
+  const u=`https://api.open-meteo.com/v1/forecast?latitude=${p.lat}&longitude=${p.lon}&current=is_day,temperature_2m,apparent_temperature,weather_code,wind_speed_10m,relative_humidity_2m&hourly=temperature_2m,weather_code,precipitation_probability&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto`;
+  const j=await (await fetch(u)).json(); render(p,j); say('');
+}
+function render(p,j){
+  const c=j.current;
+  $('now').hidden=false; $('place').textContent=p.name; $('temp').textContent=t(c.temperature_2m);
+  $('desc').textContent=CODES[c.weather_code]||'—'; $('wx').innerHTML=icon(c.weather_code,c.is_day!==0);
+  $('meta').textContent=`Feels like ${t(c.apparent_temperature)} · Wind ${Math.round(c.wind_speed_10m)} km/h · Humidity ${c.relative_humidity_2m}%`;
+  const h=j.hourly;
+  const today=c.time.slice(0,10);
+  const hours=(h?.time||[]).map((time,i)=>({time,i})).filter(x=>x.time.slice(0,10)===today);
+  $('hourly').hidden=!hours.length;
+  $('hours').innerHTML=hours.map(({time,i})=>`<div class="hour${time.slice(11,13)===c.time.slice(11,13)?' cur':''}"><b>${time.slice(11,13)===c.time.slice(11,13)?'Now':time.slice(11,16)}</b>${icon(h.weather_code[i],isDay(time))}
+    <span>${Number.isFinite(h.temperature_2m[i])?t(h.temperature_2m[i]):'—'}</span>
+    <small>${CODES[h.weather_code[i]]||'—'}<br>${Number.isFinite(h.precipitation_probability[i])?h.precipitation_probability[i]+'% precipitation':'Precipitation unavailable'}</small></div>`).join('');
+  const cur=$('hours').querySelector('.cur'); if(cur) $('hours').scrollLeft=cur.offsetLeft-$('hours').offsetLeft;
+  $('days').innerHTML=j.daily.time.map((d,i)=>`<div class="day"><b>${i?new Date(d+'T12:00').toLocaleDateString(undefined,{weekday:'short'}):'Today'}</b>
+    ${icon(j.daily.weather_code[i])}<span class="hi">${t(j.daily.temperature_2m_max[i])}</span> <span class="lo">${t(j.daily.temperature_2m_min[i])}</span>
+    <div class="d">${CODES[j.daily.weather_code[i]]||''}</div></div>`).join('');
+}
+const run=f=>f().catch(e=>say(e.message));
+$('tool').onsubmit=e=>{e.preventDefault(); const q=$('q').value.trim(); if(q) run(async()=>load(await geocode(q)));};
+$('here').onclick=()=>navigator.geolocation?navigator.geolocation.getCurrentPosition(
+  g=>run(()=>load({name:'Your location',lat:g.coords.latitude,lon:g.coords.longitude})),()=>say('Location blocked')):say('No geolocation');
+function setUnit(u){unit=u; localStorage.setItem('unit',u); $('unit').textContent=u==='C'?'°F':'°C'; $('unit').setAttribute('aria-pressed',u==='F'); if(last) run(()=>load(last));}
+$('unit').onclick=()=>setUnit(unit==='C'?'F':'C');
+$('unit').textContent=unit==='C'?'°F':'°C';
+try{ const p=JSON.parse(localStorage.getItem('place')); if(p) run(()=>load(p)); else $('here').click(); }catch{}
+</script>
+<script>
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  document.querySelectorAll('.days, footer').forEach(function(el){ el.classList.add('reveal'); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
