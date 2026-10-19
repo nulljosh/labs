@@ -25,7 +25,7 @@
     ['All the world’s a stage, and all the men and women merely players.', 'As You Like It'],
     ['Now is the winter of our discontent.', 'Richard III'],
     ['Friends, Romans, countrymen, lend me your ears.', 'Julius Caesar'],
-    ['Cry “Havoc!” and let slip the dogs of war.', 'Julius Caesar'],
+    ['Cry ‘Havoc!’ and let slip the dogs of war.', 'Julius Caesar'],
     ['But, soft! what light through yonder window breaks?', 'Romeo and Juliet'],
     ['Is this a dagger which I see before me?', 'Macbeth'],
     ['Out, damned spot! out, I say!', 'Macbeth'],
