@@ -81,4 +81,11 @@ let filtered = Game(quotes: quotes)
 filtered.start(genre: genre, speed: false)
 check(filtered.current?.genre == genre, "genre filter dealt the wrong genre")
 
+
+// Decade filter only deals that decade's dated lines.
+let dated = Game(quotes: quotes)
+let d = dated.decades.first!
+dated.start(genre: nil, speed: false, decade: d)
+check(dated.current?.year.map { $0 / 10 * 10 } == d, "decade filter dealt the wrong decade")
+
 print("ok — \(checks) checks, \(quotes.count) quotes")

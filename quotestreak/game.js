@@ -72,11 +72,13 @@ const GENRES = {
   tvdrama: { color: 'var(--g-tvdrama)', text: 'var(--g-tvdrama-text)' },
   cartoon: { color: 'var(--g-cartoon)', text: 'var(--g-cartoon-text)' },
   game: { color: 'var(--g-game)', text: 'var(--g-game-text)' },
+  book: { color: 'var(--g-book)', text: 'var(--g-book-text)' },
 };
 // Genre keys that do not read well capitalized. Mirrored by Theme.label(for:) in Swift.
-const LABELS = { scifi: 'Sci-fi', hiphop: 'Hip-hop', rnb: 'R&B', tvdrama: 'TV drama', game: 'Games' };
+const LABELS = { scifi: 'Sci-fi', hiphop: 'Hip-hop', rnb: 'R&B', tvdrama: 'TV drama', game: 'Games', book: 'First lines' };
 const label = (g) => LABELS[g] || g[0].toUpperCase() + g.slice(1);
-const PROMPTS = { music: 'Guess the artist from the lyric.', tv: 'Guess the show from the quote.', game: 'Guess the game from the quote.', movie: 'Guess the movie from the quote.' };
+const decadeOf = (y) => Math.floor(y / 10) * 10;
+const PROMPTS = { music: 'Guess the artist from the lyric.', tv: 'Guess the show from the quote.', game: 'Guess the game from the quote.', book: 'Name the book from its first line.', movie: 'Guess the movie from the quote.' };
 
 fetch('quotes.json').then(r => r.json()).then(data => {
   quotes = data;
@@ -86,6 +88,13 @@ fetch('quotes.json').then(r => r.json()).then(data => {
     opt.value = g;
     opt.textContent = label(g);
     genreSelect.appendChild(opt);
+  });
+  // Decades come from the bank's years; lines without a year (songs, books) only play under All.
+  [...new Set(data.filter(q => q.year).map(q => decadeOf(q.year)))].sort().forEach(d => {
+    const opt = document.createElement('option');
+    opt.value = d;
+    opt.textContent = `${d}s`;
+    $('decade').appendChild(opt);
   });
   buildBackdrop(data);
   updateDailyButton();
@@ -139,7 +148,9 @@ function startGame(speed) {
   score = 0;
   streak = 0;
   const genre = $('genre').value;
-  pool = shuffle(genre === 'all' ? quotes : quotes.filter(q => q.genre === genre));
+  const decade = $('decade').value;
+  pool = shuffle(quotes.filter(q => (genre === 'all' || q.genre === genre) && (decade === 'all' || (q.year && decadeOf(q.year) === +decade))));
+  if (!pool.length) pool = shuffle(quotes.filter(q => genre === 'all' || q.genre === genre));  // an empty pairing plays the genre
   updateStats();
   modeSelect.classList.add('hidden');
   endEl.classList.add('hidden');
@@ -234,7 +245,7 @@ function choose(opt, btn) {
     feedbackEl.textContent = `Nope, it was "${current.answer}"`;
     beep(180, 0.25);
   }
-  if (current.character) feedbackEl.textContent += ` · ${current.character}, ${current.year}`;
+  if (current.character) feedbackEl.textContent += ` · ${[current.character, current.year].filter(Boolean).join(', ')}`;
   updateStats();
   if (dailyMode) recordDaily(correct);
   setTimeout(dailyMode ? finishDaily : nextQuestion, 1100);

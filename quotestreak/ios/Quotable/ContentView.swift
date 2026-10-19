@@ -6,6 +6,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var game = Game()
     @State private var genre = MenuView.allGenres
+    @State private var decade = 0  // 0 = all decades
     @AppStorage("quotable_haptics_on") private var hapticsOn = true
     @AppStorage("quotable_sfx_on") private var sfxOn = true
     @AppStorage("quotable_sfx_vol") private var sfxVolume = 60.0
@@ -83,7 +84,7 @@ private struct MenuView: View {
         VStack(spacing: 24) {
             Spacer()
             Quip(pose: "idle")
-            Text("Guess the movie or artist from the quote.")
+            Text("Guess the movie, show, game, song or book from the line.")
                 .font(.quip(.title3, weight: .medium))
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
@@ -96,10 +97,16 @@ private struct MenuView: View {
             }
             .pickerStyle(.menu)
 
+            Picker("Decade", selection: $decade) {
+                Text("All decades").tag(0)
+                ForEach(game.decades, id: \.self) { d in Text(verbatim: "\(d)s").tag(d) }
+            }
+            .pickerStyle(.menu)
+
             VStack(spacing: 12) {
-                Button("Play") { game.start(genre: selectedGenre, speed: false) }
+                Button("Play") { game.start(genre: selectedGenre, speed: false, decade: decade == 0 ? nil : decade) }
                     .buttonStyle(PrimaryButtonStyle())
-                Button("Speed Round (10s)") { game.start(genre: selectedGenre, speed: true) }
+                Button("Speed Round (10s)") { game.start(genre: selectedGenre, speed: true, decade: decade == 0 ? nil : decade) }
                     .buttonStyle(SecondaryButtonStyle())
             }
 

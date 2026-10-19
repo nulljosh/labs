@@ -30,16 +30,20 @@ final class Game {
     var isAnswered: Bool { pickedAnswer != nil || lastWasCorrect != nil }
 
     var genres: [String] { Array(Set(quotes.map(\.genre))).sorted() }
+    /// Decades with at least one dated line, e.g. 1930, 1940. Mirrors the web decade menu.
+    var decades: [Int] { Array(Set(quotes.compactMap { $0.year.map { $0 / 10 * 10 } })).sorted() }
 
     init(quotes: [Quote] = Quote.loadBundled()) {
         self.quotes = quotes
     }
 
-    func start(genre: String?, speed: Bool) {
+    func start(genre: String?, speed: Bool, decade: Int? = nil) {
         speedMode = speed
         score = 0
         streak = 0
-        let filtered = genre.map { g in quotes.filter { $0.genre == g } } ?? quotes
+        let byGenre = genre.map { g in quotes.filter { $0.genre == g } } ?? quotes
+        let byDecade = decade.map { d in byGenre.filter { $0.year.map { $0 / 10 * 10 } == d } } ?? byGenre
+        let filtered = byDecade.isEmpty ? byGenre : byDecade  // an empty pairing plays the genre
         pool = filtered.shuffled()
         phase = .playing
         nextQuestion()
