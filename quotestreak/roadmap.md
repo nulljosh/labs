@@ -14,7 +14,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 
 ### Era 1: a deeper game (2 to 10)
 - [x] **v2 Daily Quote.** One shared puzzle a day, the same for everyone, a day streak, and a spoiler-free share card.
-- [ ] **v3 Hints.** Reveal the year, then the first letter; each hint halves the points.
+- [x] **v3 Hints.** Reveal the year, then the first letter; each hint halves the points.
 - [ ] **v4 Type it.** Answer by typing with forgiving matching instead of four choices.
 - [ ] **v5 1,000 lines.** Grow the bank to 1,000 verified quotes with year, character and source on every line.
 - [ ] **v6 TV.** A television category: sitcoms, dramas, cartoons.

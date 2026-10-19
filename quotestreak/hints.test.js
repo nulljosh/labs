@@ -1,0 +1,9 @@
+const assert = require('assert');
+const { hintText, points } = require('./hints');
+assert.equal(hintText({ year: 1994, answer: 'Pulp Fiction' }, 1), 'Released 1994');
+assert.equal(hintText({ answer: 'Led Zeppelin' }, 1), '2 words');
+assert.equal(hintText({ answer: 'Queen' }, 1), '1 word');
+assert.equal(hintText({ answer: 'queen' }, 2), 'Starts with Q');
+assert.deepEqual([0, 1, 2].map(n => points(10, n)), [10, 5, 2]);
+assert.equal(points(1, 2), 1);
+console.log('hints ok');

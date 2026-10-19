@@ -11,6 +11,7 @@ const HIGH_KEY = 'quotable_high_score';
 const DAILY_KEY = 'quotable_daily';            // {day, correct, answer} for the last daily played
 const DAILY_STREAK_KEY = 'quotable_daily_streak';  // {lastDay, count}
 let dailyMode = false;
+let hintsUsed = 0;
 const SFX_ON_KEY = 'quotable_sfx_on';
 const SFX_VOL_KEY = 'quotable_sfx_vol';
 
@@ -151,6 +152,9 @@ function nextQuestion() {
   void quoteEl.offsetWidth;
   quoteEl.style.animation = '';
   feedbackEl.textContent = '';
+  hintsUsed = 0;
+  $('hint').textContent = '';
+  $('hint-btn').classList.remove('hidden');
   optionsEl.innerHTML = '';
   promptEl.textContent = current.type === 'music' ? 'Guess the artist from the lyric.' : 'Guess the movie from the quote.';
   (dailyMode ? current.options : shuffle(current.options)).forEach(opt => {  // the daily board is the same for everyone
@@ -162,6 +166,12 @@ function nextQuestion() {
   preloadArt(current.art);
   if (speedMode) startTimer();
 }
+
+$('hint-btn').onclick = () => {
+  if (!current || hintsUsed >= Hints.MAX) return;
+  $('hint').textContent += (hintsUsed ? ' · ' : '') + Hints.hintText(current, ++hintsUsed);
+  if (hintsUsed >= Hints.MAX) $('hint-btn').classList.add('hidden');
+};
 
 function startTimer() {
   timeLeft = TIME_LIMIT;
@@ -184,6 +194,7 @@ function updateRing() {
 
 function choose(opt, btn) {
   clearInterval(timer);
+  $('hint-btn').classList.add('hidden');
   const correct = opt === current.answer;
   [...optionsEl.children].forEach(b => {
     if (b.textContent === current.answer) b.classList.add('correct');
@@ -193,10 +204,10 @@ function choose(opt, btn) {
   if (correct) {
     flashArt(current.art);
     streak++;
-    const bonus = speedMode ? Math.max(1, Math.ceil(timeLeft)) : 1;
-    score += 10 * bonus;
+    const pts = Hints.points(10 * (speedMode ? Math.max(1, Math.ceil(timeLeft)) : 1), hintsUsed);
+    score += pts;
     const milestone = streak % 5 === 0;
-    feedbackEl.textContent = milestone ? `${streak} in a row! +${10 * bonus}` : `Correct! +${10 * bonus}`;
+    feedbackEl.textContent = milestone ? `${streak} in a row! +${pts}` : `Correct! +${pts}`;
     beep(660, 0.15);
     burst(btn, milestone ? 60 : 24);
     bump($('streak'));
