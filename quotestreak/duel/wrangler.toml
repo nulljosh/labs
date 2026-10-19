@@ -4,7 +4,7 @@ name = "quotestreak-duel"
 main = "worker.js"
 compatibility_date = "2025-07-01"
 workers_dev = false
-routes = [{ pattern = "quotestreak.jaybulb.com/duel*", zone_name = "jaybulb.com" }]
+routes = [{ pattern = "quotestreak.jaybulb.com/duel/*", zone_name = "jaybulb.com" }]
 
 [[durable_objects.bindings]]
 name = "ROOMS"

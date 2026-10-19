@@ -15,6 +15,7 @@ let hintsUsed = 0;
 let typeMode = false;
 let challenge = null;   // {quotes, score, name} when playing a friend's link
 let run = [];          // {qid, pts} for each question this game, for the challenge link
+let duel = null;       // {ws, code, them, theirDone, done} during a live duel
 const SFX_ON_KEY = 'quotable_sfx_on';
 const SFX_VOL_KEY = 'quotable_sfx_vol';
 
@@ -110,44 +111,9 @@ fetch('quotes.json').then(r => r.json()).then(data => {
   if (new URLSearchParams(location.search).has('daily')) startDaily();  // share links land on the daily
   challenge = Challenge.decode(location.search, quotes, Difficulty.qid);
   if (challenge) startGame(false);
+  const room = new URLSearchParams(location.search).get('duel');
+  if (room && /^[A-Za-z]{4}$/.test(room)) openDuel(room.toUpperCase());
 });
-
-// Static mosaic of the bank's artwork behind the game. Reuses the fetch above rather than
-// pulling quotes.json twice, and asks for thumbnails, not the full-size art flashArt() uses.
-function buildBackdrop(data) {
-  const el = $('backdrop');
-  if (!el) return;
-  const seen = new Set();
-  const art = [];
-  data.forEach(q => {
-    if (!q.art || seen.has(q.art)) return;
-    seen.add(q.art);
-    art.push({
-      url: q.art.replace('/w500/', '/w185/').replace('/600x600bb.jpg', '/200x200bb.jpg'),
-      sq: q.type === 'music',
-    });
-  });
-  if (art.length < 8) return;
-  const shuffled = shuffle(art);
-  const cols = Math.max(3, Math.ceil(window.innerWidth / 150));
-  const per = Math.ceil(window.innerHeight / 150) + 1;
-  for (let c = 0; c < cols; c++) {
-    const col = document.createElement('div');
-    col.className = 'bcol ' + (c % 2 ? 'down' : 'up');
-    col.style.setProperty('--dur', (80 + c * 13) + 's');
-    // doubled so the drift loops seamlessly
-    for (let r = 0; r < per * 2; r++) {
-      const a = shuffled[(c * per + r % per) % shuffled.length];
-      const img = new Image();
-      img.src = a.url;
-      img.alt = '';
-      img.referrerPolicy = 'no-referrer';
-      if (a.sq) img.className = 'sq';
-      col.appendChild(img);
-    }
-    el.appendChild(col);
-  }
-}
 
 function shuffle(arr) {
   return [...arr].sort(() => Math.random() - 0.5);
@@ -165,6 +131,7 @@ function startGame(speed) {
     && (level === 'all' || Difficulty.level(q, stats) === level)));
   if (!pool.length) pool = shuffle(quotes.filter(q => genre === 'all' || q.genre === genre));  // an empty pairing plays the genre
   if (challenge) pool = [...challenge.quotes].reverse();  // nextQuestion pops from the end
+  if (duel?.quotes) pool = [...duel.quotes].reverse();
   updateStats();
   modeSelect.classList.add('hidden');
   endEl.classList.add('hidden');
@@ -266,6 +233,7 @@ function choose(opt, btn) {
   if (current.character) feedbackEl.textContent += ` · ${[current.character, current.year].filter(Boolean).join(', ')}`;
   tally(current, correct);
   run.push({ qid: Difficulty.qid(current.quote), pts });
+  duelSend({ type: 'answer', score });
   updateStats();
   if (dailyMode) recordDaily(correct);
   setTimeout(dailyMode ? finishDaily : nextQuestion, 1100);
@@ -294,47 +262,8 @@ function bump(el) {
   el.classList.add('bump');
 }
 
-// Full-size art is fetched as soon as the question is shown, so a correct answer flashes
-// it instantly instead of racing a cold network fetch against the 1100ms round timer.
-const artCache = new Map();
-function preloadArt(url) {
-  if (!url || artCache.has(url)) return;
-  const img = new Image();
-  img.referrerPolicy = 'no-referrer';
-  artCache.set(url, img);
-  img.src = url;
-}
-
-let artEl = null;
-let artHideTimer = null;
-function flashArt(url) {
-  if (!url) return;
-  if (!artEl) {
-    artEl = document.createElement('div');
-    artEl.id = 'art-flash';
-    document.body.appendChild(artEl);
-  }
-  const show = () => {
-    // Back-to-back correct answers: kill the previous hide so it can't cut this one short.
-    clearTimeout(artHideTimer);
-    artEl.style.backgroundImage = `url("${url}")`;
-    artEl.classList.add('show');
-    artHideTimer = setTimeout(() => artEl.classList.remove('show'), 950);
-  };
-  const cached = artCache.get(url);
-  if (cached && cached.complete && cached.naturalWidth) return show();
-  // Still in flight. Show it when it lands, but only if this question is still on screen —
-  // otherwise it flashes the previous round's art over the next quote. A failed load is a
-  // no-op rather than a stuck overlay.
-  const asked = current;
-  const img = new Image();
-  img.referrerPolicy = 'no-referrer';
-  img.onload = () => { if (current === asked) show(); };
-  img.src = url;
-}
-
 function updateStats() {
-  $('score').textContent = `Score: ${score}`;
+  $('score').textContent = duel?.quotes ? `You: ${score} · Them: ${duel.them}${duel.left ? ' (left)' : ''}` : `Score: ${score}`;
   $('streak').textContent = `Streak: ${streak}`;
 }
 
@@ -355,8 +284,10 @@ function endGame() {
     challenge = null;
     history.replaceState(null, '', location.pathname);  // Play Again starts a normal game
   }
-  $('challenge-btn').classList.toggle('hidden', !run.length || speedMode);
+  $('challenge-btn').classList.toggle('hidden', !run.length || speedMode || !!duel);
+  if (duel?.quotes) { duel.done = true; duelSend({ type: 'done', score }); duelResult(); }
 }
+
 
 // Ten quotes of this run (or fewer if it ended early) and the points earned on them.
 $('challenge-btn').onclick = () => {
