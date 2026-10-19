@@ -1,4 +1,3 @@
-// One runnable check for the filtering and validation — the only real logic here.
 import assert from 'node:assert/strict';
 import { callTool, ToolError, GENRES, TYPES } from './tools.js';
 
