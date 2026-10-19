@@ -60,7 +60,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v44 Custom packs.** Build a quote pack and share it by link.
 - [x] **v45 Pack library.** Browse and play moderated community packs.
 - [x] **v46 Classroom.** Literature and speech packs with a teacher view.
-- [ ] **v47 Stream mode.** Twitch chat votes on the answer.
+- [x] **v47 Stream mode.** Twitch chat votes on the answer.
 - [ ] **v48 Discord.** A Discord Activity.
 - [ ] **v49 iMessage.** Play a round inside a conversation.
 - [ ] **v50 Champions.** A live tournament of season winners.
