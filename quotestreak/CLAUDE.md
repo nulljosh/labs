@@ -77,6 +77,9 @@ Ship with `asc workflow run ship-ios VERSION:x.y.z` (see `.asc/workflow.json`).
 ## Apple TV (v34)
 `tvos/`, a SwiftUI host for party games: `PartyHost.swift` opens a party room (`/duel/party`, the `Party` Durable Object in `duel/worker.js`), shows a code and a QR code, and phones join at `buzz.html` in any browser. The TV deals ten quotes, sends each question's options to the phones, collects buzzes and scores (10 for right, 5 more for the fastest right). Same bundle id as iOS, so it joins the universal purchase. Type sizes come from the tvOS branch of `Theme.quipSize`. There is no tvOS simulator runtime on this Mac; the screens were checked by rendering the views with ImageRenderer.
 
+## Vision Pro (v35)
+`visionos/`, the full game in a window from the same shared sources as macOS, plus `PosterWall.swift`: an ImmersiveSpace with three rings of TMDB posters, 3.2 m out, opened from the menu (`PosterWallButton`, the only `#if os(visionOS)` in ContentView). visionOS 26 minimum, for `sensoryFeedback`. Same bundle id, so it joins the universal purchase. No visionOS simulator device on this Mac; the build is verified, the wall is not seen yet.
+
 ## macOS
 `macos/`, native SwiftUI, rewritten 2026-08-23 off the same shared sources as iOS. Sandboxed, bundle `com.heyitsmejosh.quotable.mac`. Builds clean.
 

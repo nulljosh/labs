@@ -137,6 +137,9 @@ private struct MenuView: View {
                     .buttonStyle(SecondaryButtonStyle())
                 Button("Live duel") { showDuel = true }
                     .buttonStyle(SecondaryButtonStyle())
+                #if os(visionOS)
+                PosterWallButton()
+                #endif
             }
 
             if game.highScore > 0 {
