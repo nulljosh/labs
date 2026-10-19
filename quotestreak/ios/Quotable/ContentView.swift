@@ -19,7 +19,7 @@ struct ContentView: View {
         NavigationStack {
             Group {
                 switch game.phase {
-                case .menu: MenuView(game: game, genre: $genre)
+                case .menu: MenuView(game: game, genre: $genre, decade: $decade, level: $level)
                 case .playing: RoundView(game: game, hapticsOn: hapticsOn, sfxOn: sfxOn, sfxVolume: sfxVolume)
                 case .over: GameOverView(game: game)
                 }
@@ -81,6 +81,8 @@ private struct MenuView: View {
 
     let game: Game
     @Binding var genre: String
+    @Binding var decade: Int
+    @Binding var level: String
 
     var body: some View {
         VStack(spacing: 24) {
