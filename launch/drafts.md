@@ -3,7 +3,7 @@
 Approved by Joshua 2026-10-01. One approval covers this whole file. After that each item posts on its date without asking again.
 Every link carries `?ref=<channel>` so Cloudflare Web Analytics shows which channel works.
 
-Already on Product Hunt (never repost): Notate (as Voxprint), Doorstock, Bookrank, Curvely, Talli, Inkpress, Quotestreak, Wordroot, Lexly, Epiphany, Sparkjar, NYC Survive, Blockframe, Sidewise. Those 14 launches in September made $0, so PH is not the main bet this month. HN with Joshua Tree is.
+Already on Product Hunt (never repost): Notate (as Voxprint; 2.0 relaunch requested 2026-10-19 as a major update, PH reviewing; delete the old post once the new one is approved), Doorstock, Bookrank, Curvely, Talli, Inkpress, Quotestreak, Wordroot, Lexly, Epiphany, Sparkjar, NYC Survive, Blockframe, Sidewise. Those 14 launches in September made $0, so PH is not the main bet this month. HN with Joshua Tree is.
 
 Waits until approved in the store: Windgate, Siftbox, Madobe, Lexly iOS, Sidewise iOS, Plaintxt iOS, Curbfind iOS.
 
