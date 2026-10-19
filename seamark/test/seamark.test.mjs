@@ -1,0 +1,208 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { makeDataSpace, pageToShot, snap } from '../src/coords.js';
+import { crossings, describe as describeBranch, fitCircle, family, centroid } from '../src/curve.js';
+import { fromLatex, fingerprint, same, pairUp, degree } from '../src/expr.js';
+import { labelEdges, assign, rebalance } from '../src/dom.js';
+
+test('data space inverts a chart with a flipped y axis', () => {
+  const s = makeDataSpace({ x: 100, y: 300 }, { x: 150, y: 250 });
+  assert.deepEqual(s.toData(200, 200), [2, 2]);
+  assert.deepEqual(s.toPage(2, 2), { x: 200, y: 200 });
+});
+
+test('screenshot scaling matches a narrowed capture', () => {
+  assert.deepEqual(pageToShot({ x: 932, y: 100 }, 1864, 1568), { x: 784, y: 84 });
+});
+
+test('snap only rounds within tolerance', () => {
+  assert.equal(snap(2.04), 2);
+  assert.equal(snap(2.4), 2.4);
+});
+
+test('crossings finds both roots of a parabola', () => {
+  const pts = [];
+  for (let x = -3; x <= 3; x += 0.05) pts.push([x, x * x - 4]);
+  const r = crossings(pts);
+  assert.equal(r.length, 2);
+  assert.ok(Math.abs(r[0] + 2) < 0.05 && Math.abs(r[1] - 2) < 0.05);
+});
+
+test('a horizontal branch reads as flat', () => {
+  const pts = [];
+  for (let x = 2; x <= 5; x += 0.1) pts.push([x, 1]);
+  const d = describeBranch(pts);
+  assert.equal(d.flat, true);
+  assert.equal(d.vertical, false);
+  assert.equal(d.x0, 2);
+});
+
+test('circle fit recovers a centre from a partial arc', () => {
+  const pts = [];
+  for (let a = 0; a < Math.PI / 2; a += 0.05)
+    pts.push([3 + 5 * Math.cos(a), -2 + 5 * Math.sin(a)]);
+  const c = fitCircle(pts);
+  assert.ok(Math.abs(c.cx - 3) < 1e-6);
+  assert.ok(Math.abs(c.cy + 2) < 1e-6);
+  assert.ok(Math.abs(c.r - 5) < 1e-6);
+});
+
+test('latex fractions survive brace stripping', () => {
+  assert.equal(fromLatex('\\frac{1}{3}'), '((1)/(3))');
+  assert.equal(fromLatex('4\\cdot\\frac{1}{2}'), '4*((1)/(2))');
+});
+
+test('implicit multiplication is made explicit', () => {
+  assert.equal(fromLatex('4x^2(x+8)'), '4*x^2*(x+8)');
+});
+
+test('factored and expanded forms pair up, despite agreeing at zero', () => {
+  const f = (x) => 4 * x * x * (x + 8);
+  const g = (x) => 4 * x ** 3 + 32 * x * x;
+  const h = (x) => 7 * x ** 4 * (x - 1);
+  // the trap a single sample falls into: all three vanish at x = 0
+  assert.ok(f(0) === 0 && g(0) === 0 && h(0) === 0);
+  const prints = [f, g, h].map((fn) => fingerprint(fn));
+  assert.ok(same(prints[0], prints[1]));
+  assert.ok(!same(prints[0], prints[2]));
+  assert.deepEqual(pairUp(prints), [[0, 1]]);
+});
+
+test('degree reads the highest exponent, and gives up on rationals', () => {
+  assert.equal(degree('x^{3} - 4x + 9'), 3);
+  assert.equal(degree('9 - 9x'), 1);
+  assert.equal(degree('\\frac{1}{x}'), null);
+});
+
+test('labels attach to their nearest edge and know which is vertical', () => {
+  const segs = [
+    { mx: 50, my: 10, dx: 80, dy: 0 },   // horizontal top edge
+    { mx: 10, my: 50, dx: 0, dy: 80 },   // vertical left edge
+  ];
+  const got = labelEdges([{ x: 52, y: 6, t: '8' }, { x: 6, y: 48, t: '3' }], segs);
+  assert.equal(got[0].vertical, false);
+  assert.equal(got[1].vertical, true);
+  assert.ok(got[0].distance < 6);
+});
+
+test('a value table is classified by the fewest-parameter model that fits', () => {
+  assert.equal(family([[0, 3], [1, 5], [2, 7], [3, 9]]), 'linear');
+  assert.equal(family([[0, 1], [1, 4], [2, 9], [3, 16]]), 'quadratic');
+  assert.equal(family([[0, 2], [1, 6], [2, 18], [3, 54]]), 'exponential');
+  assert.equal(family([[0, -2], [1, -6], [2, -18], [3, -54]]), 'exponential');
+  assert.equal(family([[0, 0], [1, 1], [2, 0], [3, 1]]), null);
+});
+
+test('family survives arc-length sampling, where x is uneven', () => {
+  const pts = [];
+  for (let t = 0; t <= 1; t += 0.01) { const x = -3 + 6 * t * t; pts.push([x, 0.5 * x * x - 2]); }
+  assert.equal(family(pts), 'quadratic');
+  const e = [];
+  for (let t = 0; t <= 1; t += 0.01) { const x = -4 + 7 * t * t; e.push([x, 0.5 * 2 ** x]); }
+  assert.equal(family(e), 'exponential');
+});
+
+test('centroid is the mean', () => {
+  assert.deepEqual(centroid([[0, 0], [2, 0], [2, 2], [0, 2]]), [1, 1]);
+});
+
+test('labels offset to the right pick the right points, where greedy would not', () => {
+  const points = [[0, 0], [1, 0], [2, 0]];
+  const labels = [{ x: 0.7, y: 0.1 }, { x: 1.7, y: 0.1 }, { x: 2.7, y: 0.1 }];
+  // greedy nearest-first gives label 0 -> point 1; the total-cost optimum is the shift
+  assert.deepEqual(assign(labels, points), [0, 1, 2]);
+});
+
+test('rebalance moves surplus dots into deficit columns', () => {
+  const dots = [{ x: 3 }, { x: 3 }, { x: 3 }, { x: 5 }];
+  const m = rebalance(dots, [3, 3, 5, 5]);
+  assert.equal(m.length, 1);
+  assert.equal(m[0].item.x, 3);
+  assert.equal(m[0].to, 5);
+  assert.equal(rebalance(dots, [3, 5, 5]), null);
+});
+
+test('grid cell lands in the middle of the square, both orientations', async () => {
+  const { gridCell } = await import('../src/coords.js');
+  const rect = { left: 0, top: 0, width: 800, height: 800 };
+  assert.deepEqual(gridCell('a1', rect), { x: 50, y: 750 });
+  assert.deepEqual(gridCell('a1', rect, { flipped: true }), { x: 750, y: 50 });
+  assert.deepEqual(gridCell([4, 3], rect), gridCell('e4', rect));
+});
+
+test('fiber walk returns the first matching props up the tree', async () => {
+  const { fiberFind } = await import('../src/dom.js');
+  const top = { memoizedProps: { fen: 'start' }, return: null };
+  const mid = { memoizedProps: {}, memoizedState: null, return: top };
+  const el = { __reactFiber$abc: { memoizedProps: { x: 1 }, return: mid } };
+  assert.equal(fiberFind(el, (p) => p.fen), 'start');
+  assert.equal(fiberFind(el, (p) => p.nope), null);
+  assert.equal(fiberFind(null, (p) => p.fen), null);
+});
+
+test('tileText strips the shortcut number and normalises', async () => {
+  const { tileText } = await import('../src/dom.js');
+  assert.equal(tileText({ innerText: '1\nești' }), 'ești');
+  assert.equal(tileText({ innerText: '  How   much ' }), 'how much');
+  assert.equal(tileText(null), '');
+});
+
+test('waitFor resolves when the element appears, null on timeout', async () => {
+  const { waitFor } = await import('../src/dom.js');
+  let hit = null;
+  const root = { querySelector: () => hit };
+  setTimeout(() => { hit = { ok: true }; }, 30);
+  assert.deepEqual(await waitFor('x', 500, root, 10), { ok: true });
+  assert.equal(await waitFor('x', 20, { querySelector: () => null }, 5), null);
+});
+
+test('clusterGrid recovers a table from positioned cells', async () => {
+  const { clusterGrid } = await import('../src/coords.js');
+  // three rows of two, absolutely placed — no <table>, only coordinates
+  const cells = [
+    { x: 100, y: 50, t: '60 / 15' }, { x: 300, y: 52, t: '4' },
+    { x: 101, y: 90, t: '75 / 15' }, { x: 299, y: 91, t: '5' },
+    { x: 100, y: 130, t: '90 / 15' }, { x: 300, y: 129, t: '?' },
+  ];
+  const { grid, xs, ys } = clusterGrid(cells);
+  assert.deepEqual(grid, [['60 / 15', '4'], ['75 / 15', '5'], ['90 / 15', '?']]);
+  assert.equal(xs.length, 2);
+  assert.equal(ys.length, 3);
+});
+
+test('clusterGrid: per-axis tolerance keeps near rows apart from wide columns', async () => {
+  const { clusterGrid } = await import('../src/coords.js');
+  // rows 20px apart would merge under a single 24px tolerance
+  const cells = [
+    { x: 0, y: 0, t: 'a' }, { x: 200, y: 0, t: 'b' },
+    { x: 0, y: 20, t: 'c' }, { x: 200, y: 20, t: 'd' },
+    { x: 0, y: 40, t: 'e' }, { x: 200, y: 40, t: 'f' },
+  ];
+  assert.deepEqual(clusterGrid(cells, { tolY: 10 }).grid, [['a', 'b'], ['c', 'd'], ['e', 'f']]);
+});
+
+test('clusterGrid returns null rather than a one-cell "table"', async () => {
+  const { clusterGrid } = await import('../src/coords.js');
+  assert.equal(clusterGrid([{ x: 1, y: 1, t: 'x' }]), null);
+  assert.equal(clusterGrid([]), null);
+  assert.equal(clusterGrid(null), null);
+});
+
+test('gridCell insets a grid drawn inside its own padding', async () => {
+  const { gridCell, insetRect } = await import('../src/coords.js');
+  const rect = { left: 0, top: 0, width: 1000, height: 1000 };
+  // a board drawn at 80% of a canvas, offset from the corner
+  const inset = { left: 0.0975, top: 0.1, width: 0.8 };
+  const a1 = gridCell('a1', rect, { inset });
+  assert.deepEqual(insetRect(rect, inset), { left: 97.5, top: 100, width: 800, height: 800 });
+  assert.deepEqual(a1, { x: 97.5 + 50, y: 100 + 750 });
+  // without the inset every square lands wrong, which is the whole hazard
+  assert.notDeepEqual(gridCell('a1', rect), a1);
+});
+
+test('clusterGrid joins spans that share a cell instead of keeping the last', async () => {
+  const { clusterGrid } = await import('../src/coords.js');
+  const cells = [[0, 0, 'a'], [100, 0, 'b'], [0, 40, 'c'], [100, 40, '12'], [110, 40, '%'], [0, 80, 'e'], [100, 80, 'f']]
+    .map(([x, y, t]) => ({ x, y, t }));
+  assert.deepEqual(clusterGrid(cells).grid, [['a', 'b'], ['c', '12 %'], ['e', 'f']]);
+});

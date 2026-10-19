@@ -15,6 +15,7 @@
 !cadence/
 !fieldbook/
 !dream/
+!seamark/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
