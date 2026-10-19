@@ -12,7 +12,7 @@
 
 ## Repos
 
-**`~/Documents/Code` is the `labs` repo.** 24 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, swing, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), curvely, hamurapi, bcgd, nyc, inkpress. Glyphbox (ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/glyphbox`, folder `glyphbox/`, ignored here). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`.
+**`~/Documents/Code` is the `labs` repo.** 24 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, swing, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), curvely, hamurapi, bcgd, nyc, inkpress. Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`.
 
 ### Apps
 Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
@@ -29,7 +29,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **mailbag** (ex-hagaki, siftbox, pare, sieve) | Inbox zero in one button. Store listing renamed Mailbag and resubmitted 2026-10-18; Google callback still on hagaki.jaybulb.com · 6811141466 |
 | **bookrank** | Book summaries, listen feature |
 | **curvely** | Equation grapher · 6794988370 |
-| **glyphbox** (ex-glyphic, ex-blockprint, ex-blockframe, ex-wiretext). Own repo, not in labs | Sketch a screen in plain text. Domain, Pages project and bundle ID still `wiretext` · 6794988951 |
+| **icelus** (ex-morphis, ex-morpheus, ex-glyphbox, ex-glyphic, ex-blockprint, ex-blockframe, ex-wiretext). Own repo, not in labs | Describe a screen and it takes shape: a design tool on a real canvas, text underneath. Domain icelus.jaybulb.com; Pages project and bundle ID still `wiretext` · 6794988951 |
 | **wordroot** | Etymology lookup |
 | **coda** (ex-quotestreak) | Quote guessing game at coda.jaybulb.com. Store listing, Pages project, storage keys and RPCs still say quotestreak · 6804394619 |
 | **inkpress** | Multi-feed RSS reader · 6787759999 |
@@ -97,7 +97,7 @@ Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28 and again on 2026-10-05. R
 - **DNS**: curl with `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish`. Not named `CLOUDFLARE_API_TOKEN` on purpose, that name breaks wrangler's OAuth.
 - **Apple**: xcodegen `project.yml`, no checked-in xcodeproj. SwiftUI, iOS 17+/macOS 14+. `asc xcode archive`/`export`.
 - **Other platforms**: Kotlin Multiplatform under `<repo>/kmp/`. A PWA is a fallback and does not count as coverage.
-- **/api + /mcp**: house Cloudflare Functions pattern (coda, bookrank, wordroot, curvely, glyphbox).
+- **/api + /mcp**: house Cloudflare Functions pattern (coda, bookrank, wordroot, curvely, icelus).
 - No emojis in any UI. No demo accounts for screenshots. Use the gitignored `.env`.
 
 ## Repo standard (nimble is the reference)
