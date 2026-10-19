@@ -9,6 +9,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | File | Owns |
 |---|---|
 | `game.js` | The loop: load the bank, filters, rounds, scoring, streaks, speed clock, daily, end screen |
+| `modes.js` | Era 3 ways to guess: each mode turns a bank entry into a question (`display`, `prompt`, `answer`, `options`) |
 | `hints.js`, `match.js` | Hints, and forgiving matching for typed answers |
 | `daily.js` | One quote per UTC day from a fixed shuffle |
 | `difficulty.js` | Quote ids (FNV-1a of the text) and easy/medium/hard from real hit rates |
@@ -26,7 +27,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `webmcp.js` | Agent tools, see `API.md` |
 | `sw.js` | Offline cache. Bump `quotestreak-vNN` every release |
 
-Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `cup`, `badges`, `stats`, `sharecard`, `season`) work in Node too and each has a `*.test.js` next to it.
+Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `cup`, `badges`, `stats`, `sharecard`, `season`, `modes`) work in Node too and each has a `*.test.js` next to it.
 
 `scripts/build-site.sh` copies an explicit file list into `dist/`. A new script has to be added there or it 404s in production.
 

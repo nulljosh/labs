@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80" height="80" alt="Quotestreak icon">
 
-![version](https://img.shields.io/badge/version-20.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-21.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Here's the line. Name the movie.
 
@@ -15,7 +15,7 @@ Or the show, the game, the song or the book. 1,624 lines across 15 genres, from 
 
 ## Features
 
-**Guess.** Four choices or type it in. Hints when you're stuck. Filter by genre, decade and difficulty, where difficulty comes from what real players get right.
+**Guess.** Four choices or type it in. Hints when you're stuck. Filter by genre, decade and difficulty, where difficulty comes from what real players get right. Other ways to guess: who said it.
 
 **Speed round.** Ten seconds a line. Faster answers pay more.
 

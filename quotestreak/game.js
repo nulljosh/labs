@@ -133,6 +133,9 @@ function startGame(speed) {
   pool = shuffle(quotes.filter(q => (genre === 'all' || q.genre === genre) && (decade === 'all' || (q.year && decadeOf(q.year) === +decade))
     && (level === 'all' || Difficulty.level(q, stats) === level)));
   if (!pool.length) pool = shuffle(quotes.filter(q => genre === 'all' || q.genre === genre));  // an empty pairing plays the genre
+  const mode = $('mode').value;  // Era 3 ways to guess (modes.js); friend modes below stay classic
+  if (mode !== 'classic') pool = pool.map(q => Modes.build(mode, q, quotes)).filter(Boolean);
+  if (!pool.length) pool = shuffle(quotes).map(q => Modes.build(mode, q, quotes)).filter(Boolean);
   if (challenge) pool = [...challenge.quotes].reverse();  // nextQuestion pops from the end
   if (duel?.quotes) pool = [...duel.quotes].reverse();
   if (cupRound) pool = [...cupRound].reverse();
@@ -153,7 +156,7 @@ function nextQuestion() {
   genreBadge.textContent = label(current.genre);
   genreBadge.style.background = g.color;
   genreBadge.style.setProperty('--badge-text', g.text);
-  quoteEl.textContent = `\u201C${current.quote}\u201D`;  // curly, so Quip Sans draws the logo's marks
+  quoteEl.textContent = `\u201C${current.display || current.quote}\u201D`;  // curly, so Quip Sans draws the logo's marks
   quoteEl.style.animation = 'none';
   void quoteEl.offsetWidth;
   quoteEl.style.animation = '';
@@ -164,7 +167,7 @@ function nextQuestion() {
   optionsEl.innerHTML = '';
   $('type-form').classList.toggle('hidden', !typeMode);
   if (typeMode) { $('type-input').value = ''; $('type-input').disabled = false; $('type-input').focus(); }
-  promptEl.textContent = PROMPTS[current.type] || PROMPTS.movie;
+  promptEl.textContent = current.prompt || PROMPTS[current.type] || PROMPTS.movie;
   if (!typeMode) (dailyMode ? current.options : shuffle(current.options)).forEach(opt => {  // the daily board is the same for everyone
     const btn = document.createElement('button');
     btn.textContent = opt;
