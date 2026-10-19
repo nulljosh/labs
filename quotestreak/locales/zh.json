@@ -527,5 +527,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "至今所有的每日一句，当天所有人看到的都是同一句。玩旧的不会影响你的连胜。",
  "{x} · right": "{x} · 答对",
  "{x} · missed": "{x} · 答错",
- "Past dailies show up here from tomorrow.": "往日的每日一句从明天起会出现在这里。"
+ "Past dailies show up here from tomorrow.": "往日的每日一句从明天起会出现在这里。",
+ "Daily #{n}": "每日一句 #{n}",
+ "Hall of fame": "名人堂",
+ "The best runs ever, checked and kept for good.": "有史以来最好的成绩，经过核验，永久保留。",
+ "Nobody yet. The first great run goes here.": "还没有人。第一个精彩成绩将出现在这里。",
+ "The hall is out of reach right now.": "名人堂暂时无法访问。",
+ "Speed Round": "快速回合",
+ "A former player": "一位前玩家"
 }

@@ -33,7 +33,7 @@
  "Card saved": "Đã lưu thẻ",
  "Challenge a friend": "Thách đấu bạn bè",
  "Champions": "Nhà vô địch",
- "Classic": "Kinh điển",
+ "Classic": "Cổ điển",
  "Close": "Đóng",
  "Close!": "Suýt nữa!",
  "Club": "Câu lạc bộ",
@@ -525,5 +525,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "Mọi câu nói hằng ngày cho đến nay, cùng một câu mọi người nhận hôm đó. Chơi lại không ảnh hưởng chuỗi của bạn.",
  "{x} · right": "{x} · đúng",
  "{x} · missed": "{x} · sai",
- "Past dailies show up here from tomorrow.": "Các câu trước đây sẽ xuất hiện ở đây từ ngày mai."
+ "Past dailies show up here from tomorrow.": "Các câu trước đây sẽ xuất hiện ở đây từ ngày mai.",
+ "Daily #{n}": "Câu nói hôm nay #{n}",
+ "Hall of fame": "Đại sảnh danh vọng",
+ "The best runs ever, checked and kept for good.": "Những lượt chơi hay nhất mọi thời đại, đã kiểm tra và lưu mãi mãi.",
+ "Nobody yet. The first great run goes here.": "Chưa có ai. Lượt chơi xuất sắc đầu tiên sẽ ở đây.",
+ "The hall is out of reach right now.": "Hiện không truy cập được đại sảnh.",
+ "Speed Round": "Vòng tốc độ",
+ "A former player": "Một người chơi cũ"
 }

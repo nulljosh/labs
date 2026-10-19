@@ -33,7 +33,7 @@
  "Card saved": "הכרטיס נשמר",
  "Challenge a friend": "אתגור חבר",
  "Champions": "אלופים",
- "Classic": "קלאסיקה",
+ "Classic": "קלאסי",
  "Close": "סגירה",
  "Close!": "קרוב!",
  "Club": "מועדון",
@@ -525,5 +525,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "כל ציטוטי היום עד עכשיו, אותו ציטוט שכולם קיבלו באותו יום. משחק בהם לא נוגע ברצף שלך.",
  "{x} · right": "{x} · נכון",
  "{x} · missed": "{x} · פספוס",
- "Past dailies show up here from tomorrow.": "ציטוטים קודמים יופיעו כאן החל ממחר."
+ "Past dailies show up here from tomorrow.": "ציטוטים קודמים יופיעו כאן החל ממחר.",
+ "Daily #{n}": "ציטוט יומי מס׳ {n}",
+ "Hall of fame": "היכל התהילה",
+ "The best runs ever, checked and kept for good.": "הסיבובים הטובים ביותר אי פעם, נבדקו ונשמרו לתמיד.",
+ "Nobody yet. The first great run goes here.": "עוד אין אף אחד. הסיבוב הגדול הראשון ייכנס לכאן.",
+ "The hall is out of reach right now.": "ההיכל לא זמין כרגע.",
+ "Speed Round": "סבב מהיר",
+ "A former player": "שחקן לשעבר"
 }

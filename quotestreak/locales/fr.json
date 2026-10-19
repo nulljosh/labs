@@ -533,5 +533,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "Toutes les citations du jour jusqu’ici, la même pour tout le monde ce jour-là. En jouer une ne touche pas à votre série.",
  "{x} · right": "{x} · trouvée",
  "{x} · missed": "{x} · ratée",
- "Past dailies show up here from tomorrow.": "Les citations passées apparaissent ici dès demain."
+ "Past dailies show up here from tomorrow.": "Les citations passées apparaissent ici dès demain.",
+ "Daily #{n}": "Citation du jour nº {n}",
+ "Hall of fame": "Panthéon",
+ "The best runs ever, checked and kept for good.": "Les meilleures parties de tous les temps, vérifiées et gardées pour de bon.",
+ "Nobody yet. The first great run goes here.": "Personne encore. La première grande partie ira ici.",
+ "The hall is out of reach right now.": "Le panthéon est injoignable pour l’instant.",
+ "Speed Round": "Manche éclair",
+ "A former player": "Un ancien joueur"
 }

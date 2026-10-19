@@ -33,7 +33,7 @@
  "Card saved": "Kort sparat",
  "Challenge a friend": "Utmana en vän",
  "Champions": "Mästare",
- "Classic": "Klassiker",
+ "Classic": "Klassiskt",
  "Close": "Stäng",
  "Close!": "Nära!",
  "Club": "Klubb",
@@ -525,5 +525,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "Varje dagens citat hittills, samma replik som alla fick den dagen. Att spela ett rör inte din svit.",
  "{x} · right": "{x} · rätt",
  "{x} · missed": "{x} · miss",
- "Past dailies show up here from tomorrow.": "Tidigare citat dyker upp här från och med i morgon."
+ "Past dailies show up here from tomorrow.": "Tidigare citat dyker upp här från och med i morgon.",
+ "Daily #{n}": "Dagens citat nr {n}",
+ "Hall of fame": "Hall of fame",
+ "The best runs ever, checked and kept for good.": "De bästa omgångarna någonsin, kontrollerade och sparade för gott.",
+ "Nobody yet. The first great run goes here.": "Ingen än. Den första stora omgången hamnar här.",
+ "The hall is out of reach right now.": "Listan går inte att nå just nu.",
+ "Speed Round": "Snabbrunda",
+ "A former player": "En tidigare spelare"
 }

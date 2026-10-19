@@ -33,7 +33,7 @@
  "Card saved": "Carta salvata",
  "Challenge a friend": "Sfida un amico",
  "Champions": "Campioni",
- "Classic": "Classici",
+ "Classic": "Classica",
  "Close": "Chiudi",
  "Close!": "Quasi!",
  "Club": "Club",
@@ -525,5 +525,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "Tutte le citazioni del giorno finora, la stessa per tutti quel giorno. Giocarne una non tocca la tua serie.",
  "{x} · right": "{x} · indovinata",
  "{x} · missed": "{x} · sbagliata",
- "Past dailies show up here from tomorrow.": "Le citazioni passate compaiono qui da domani."
+ "Past dailies show up here from tomorrow.": "Le citazioni passate compaiono qui da domani.",
+ "Daily #{n}": "Citazione del giorno n. {n}",
+ "Hall of fame": "Albo d’oro",
+ "The best runs ever, checked and kept for good.": "Le migliori partite di sempre, verificate e conservate per sempre.",
+ "Nobody yet. The first great run goes here.": "Ancora nessuno. La prima grande partita finirà qui.",
+ "The hall is out of reach right now.": "L’albo d’oro non è raggiungibile ora.",
+ "Speed Round": "Round veloce",
+ "A former player": "Un ex giocatore"
 }

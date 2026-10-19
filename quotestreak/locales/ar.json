@@ -525,5 +525,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "كل اقتباسات الأيام حتى الآن، العبارة نفسها التي حصل عليها الجميع في ذلك اليوم. لعب أحدها لا يمس سلسلتك.",
  "{x} · right": "{x} · صحيحة",
  "{x} · missed": "{x} · خاطئة",
- "Past dailies show up here from tomorrow.": "تظهر الاقتباسات السابقة هنا بدءًا من الغد."
+ "Past dailies show up here from tomorrow.": "تظهر الاقتباسات السابقة هنا بدءًا من الغد.",
+ "Daily #{n}": "اقتباس اليوم رقم {n}",
+ "Hall of fame": "قاعة المشاهير",
+ "The best runs ever, checked and kept for good.": "أفضل الجولات على الإطلاق، مُتحقق منها ومحفوظة إلى الأبد.",
+ "Nobody yet. The first great run goes here.": "لا أحد بعد. أول جولة رائعة ستكون هنا.",
+ "The hall is out of reach right now.": "القاعة غير متاحة الآن.",
+ "Speed Round": "الجولة السريعة",
+ "A former player": "لاعب سابق"
 }

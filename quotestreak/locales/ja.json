@@ -525,5 +525,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "これまでの今日の一言すべて。その日、全員に出たのと同じセリフです。遊んでも連続記録は変わりません。",
  "{x} · right": "{x} · 正解",
  "{x} · missed": "{x} · 不正解",
- "Past dailies show up here from tomorrow.": "過去の一言は明日からここに並びます。"
+ "Past dailies show up here from tomorrow.": "過去の一言は明日からここに並びます。",
+ "Daily #{n}": "今日の一言 #{n}",
+ "Hall of fame": "殿堂",
+ "The best runs ever, checked and kept for good.": "史上最高のプレイ。検証済みで、ずっと残ります。",
+ "Nobody yet. The first great run goes here.": "まだ誰もいません。最初の名プレイがここに入ります。",
+ "The hall is out of reach right now.": "殿堂に今はつながりません。",
+ "Speed Round": "スピードラウンド",
+ "A former player": "元プレイヤー"
 }

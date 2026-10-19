@@ -525,5 +525,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "Bugüne kadarki tüm günün sözleri, o gün herkese gelen aynı replik. Birini oynamak serini etkilemez.",
  "{x} · right": "{x} · doğru",
  "{x} · missed": "{x} · kaçtı",
- "Past dailies show up here from tomorrow.": "Geçmiş sözler yarından itibaren burada görünür."
+ "Past dailies show up here from tomorrow.": "Geçmiş sözler yarından itibaren burada görünür.",
+ "Daily #{n}": "Günün sözü #{n}",
+ "Hall of fame": "Şöhretler listesi",
+ "The best runs ever, checked and kept for good.": "Tüm zamanların en iyi oyunları, doğrulanmış ve kalıcı.",
+ "Nobody yet. The first great run goes here.": "Henüz kimse yok. İlk büyük oyun buraya gelecek.",
+ "The hall is out of reach right now.": "Liste şu an ulaşılamıyor.",
+ "Speed Round": "Hızlı tur",
+ "A former player": "Eski bir oyuncu"
 }

@@ -525,5 +525,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "지금까지의 오늘의 대사 전부, 그날 모두가 받은 같은 대사예요. 플레이해도 연속 기록에는 영향이 없어요.",
  "{x} · right": "{x} · 정답",
  "{x} · missed": "{x} · 오답",
- "Past dailies show up here from tomorrow.": "지난 대사는 내일부터 여기에 나와요."
+ "Past dailies show up here from tomorrow.": "지난 대사는 내일부터 여기에 나와요.",
+ "Daily #{n}": "오늘의 대사 #{n}",
+ "Hall of fame": "명예의 전당",
+ "The best runs ever, checked and kept for good.": "역대 최고의 기록, 검증되어 영원히 남아요.",
+ "Nobody yet. The first great run goes here.": "아직 아무도 없어요. 첫 명기록이 여기에 올라요.",
+ "The hall is out of reach right now.": "지금은 명예의 전당에 연결할 수 없어요.",
+ "Speed Round": "스피드 라운드",
+ "A former player": "이전 플레이어"
 }

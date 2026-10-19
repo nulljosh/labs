@@ -76,3 +76,6 @@ See `docs/AUDIT.md`: escaping checked at every markup sink, security headers and
 
 ## Archive (v96)
 Past dailies (`archive.js`, from the Daily result screen) lists every Daily Quote so far, newest first, each the same line everyone got that day (`Daily.quoteFor`). Playing one never touches the daily streak, the board or the difficulty tally; the archive keeps its own right or missed per day. Day one has no past, so the list fills from 2026-10-20. Wrappers of `window.quotableBadge` must load after `badges-ui.js`, which sets the base hook; archive.js first loaded before it and was silently dropped.
+
+## Hall of fame (v97)
+The ten best runs ever on the Classic and Speed Round boards (`halloffame.js`, jaybulb-api `quotestreak_hall`). A run gets in only after the server has checked it (v87) and it beats the current tenth; it is kept for good. Deleting an account keeps the run but renames it "A former player" and drops the user id, so nothing personal stays. Moderation renames carry into the hall. It starts empty: no scores existed on the new board before fair play.

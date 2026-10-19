@@ -33,7 +33,7 @@
  "Card saved": "Kaart opgeslagen",
  "Challenge a friend": "Daag een vriend uit",
  "Champions": "Kampioenen",
- "Classic": "Klassiekers",
+ "Classic": "Klassiek",
  "Close": "Sluiten",
  "Close!": "Bijna!",
  "Club": "Club",
@@ -525,5 +525,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "Elk dagcitaat tot nu toe, dezelfde zin die iedereen die dag kreeg. Er een spelen raakt je reeks niet.",
  "{x} · right": "{x} · goed",
  "{x} · missed": "{x} · fout",
- "Past dailies show up here from tomorrow.": "Eerdere dagcitaten verschijnen hier vanaf morgen."
+ "Past dailies show up here from tomorrow.": "Eerdere dagcitaten verschijnen hier vanaf morgen.",
+ "Daily #{n}": "Dagcitaat #{n}",
+ "Hall of fame": "Eregalerij",
+ "The best runs ever, checked and kept for good.": "De beste rondes ooit, gecontroleerd en voorgoed bewaard.",
+ "Nobody yet. The first great run goes here.": "Nog niemand. De eerste grote ronde komt hier.",
+ "The hall is out of reach right now.": "De eregalerij is nu niet bereikbaar.",
+ "Speed Round": "Snelle ronde",
+ "A former player": "Een oud-speler"
 }

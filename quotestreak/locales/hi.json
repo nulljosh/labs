@@ -525,5 +525,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "अब तक के सभी दैनिक उद्धरण, उस दिन सबको मिली वही पंक्ति। इन्हें खेलने से आपकी लगातार जीत पर असर नहीं पड़ता।",
  "{x} · right": "{x} · सही",
  "{x} · missed": "{x} · चूक",
- "Past dailies show up here from tomorrow.": "पिछले उद्धरण कल से यहाँ दिखेंगे।"
+ "Past dailies show up here from tomorrow.": "पिछले उद्धरण कल से यहाँ दिखेंगे।",
+ "Daily #{n}": "दैनिक उद्धरण #{n}",
+ "Hall of fame": "हॉल ऑफ़ फ़ेम",
+ "The best runs ever, checked and kept for good.": "अब तक के सबसे अच्छे खेल, जाँचे हुए और हमेशा के लिए सहेजे गए।",
+ "Nobody yet. The first great run goes here.": "अभी कोई नहीं। पहला शानदार खेल यहाँ आएगा।",
+ "The hall is out of reach right now.": "हॉल अभी उपलब्ध नहीं है।",
+ "Speed Round": "स्पीड राउंड",
+ "A former player": "एक पूर्व खिलाड़ी"
 }

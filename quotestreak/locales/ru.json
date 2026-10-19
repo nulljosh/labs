@@ -525,5 +525,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "Все цитаты дня до сегодня, та же реплика, что была у всех в тот день. Игра в них не трогает вашу серию.",
  "{x} · right": "{x} · верно",
  "{x} · missed": "{x} · мимо",
- "Past dailies show up here from tomorrow.": "Прошлые цитаты появятся здесь с завтрашнего дня."
+ "Past dailies show up here from tomorrow.": "Прошлые цитаты появятся здесь с завтрашнего дня.",
+ "Daily #{n}": "Цитата дня № {n}",
+ "Hall of fame": "Зал славы",
+ "The best runs ever, checked and kept for good.": "Лучшие игры всех времён, проверенные и сохранённые навсегда.",
+ "Nobody yet. The first great run goes here.": "Пока никого. Первая великая игра будет здесь.",
+ "The hall is out of reach right now.": "Зал славы сейчас недоступен.",
+ "Speed Round": "Блиц",
+ "A former player": "Бывший игрок"
 }

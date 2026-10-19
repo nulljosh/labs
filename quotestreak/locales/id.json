@@ -525,5 +525,12 @@
  "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "Semua kutipan harian sejauh ini, kalimat yang sama untuk semua orang hari itu. Memainkannya tidak memengaruhi rentetanmu.",
  "{x} · right": "{x} · benar",
  "{x} · missed": "{x} · salah",
- "Past dailies show up here from tomorrow.": "Kutipan sebelumnya muncul di sini mulai besok."
+ "Past dailies show up here from tomorrow.": "Kutipan sebelumnya muncul di sini mulai besok.",
+ "Daily #{n}": "Kutipan Harian #{n}",
+ "Hall of fame": "Hall of fame",
+ "The best runs ever, checked and kept for good.": "Permainan terbaik sepanjang masa, diperiksa dan disimpan selamanya.",
+ "Nobody yet. The first great run goes here.": "Belum ada. Permainan hebat pertama akan masuk sini.",
+ "The hall is out of reach right now.": "Hall of fame sedang tidak terjangkau.",
+ "Speed Round": "Ronde cepat",
+ "A former player": "Mantan pemain"
 }

@@ -20,3 +20,4 @@
 #quip-live { position: absolute; top: 6px; left: 6px; width: 56px; height: 56px; pointer-events: none; }
 #quip-live svg { width: 100%; height: 100%; }
 #archive-btn, #archive-back { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--accent-deep); }
+#hall-btn, #hall-back { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--accent-deep); }
