@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quotestreak Brand Kit</title>
+<meta name="description" content="The Quotestreak mark, Quip the mascot, colour, Quip Sans and the components, in one page.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://jaybulb.com/tokens.css">
+<link rel="stylesheet" href="/brand/tokens.css">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-brand); line-height: 1.5; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+header { background: linear-gradient(var(--ink-2), var(--ink)); color: #f5f0e4; padding: 72px 0 64px; }
+header .wrap { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+header img { width: 128px; height: 128px; border-radius: 28px; }
+header h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0; letter-spacing: -0.02em; line-height: 1.05; }
+header p { margin: 8px 0 0; font-size: 1.15rem; opacity: 0.8; max-width: 34ch; }
+header b { color: var(--accent); }
+section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+h2 { font-size: 1.6rem; margin: 0 0 6px; letter-spacing: -0.01em; }
+.lead { margin: 0 0 28px; color: var(--text2); max-width: 60ch; }
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.card { border: 1px solid var(--border); border-radius: 16px; padding: 20px; background: var(--bg2); }
+.card.ink { background: linear-gradient(var(--ink-2), var(--ink)); color: #f5f0e4; border-color: transparent; }
+.card small { display: block; margin-top: 10px; font-size: 0.85rem; color: var(--text2); }
+.card.ink small { color: #f5f0e4; opacity: 0.7; }
+.sizes { display: flex; align-items: end; gap: 20px; flex-wrap: wrap; }
+.sizes img { display: block; border-radius: 22%; }
+.mark { width: 96px; height: 96px; -webkit-mask: url(/brand/mark.svg) center / contain no-repeat; mask: url(/brand/mark.svg) center / contain no-repeat; }
+.quips { display: grid; gap: 16px; grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 640px) { .quips { grid-template-columns: repeat(2, 1fr); } }
+.quips .card { text-align: center; }
+.quips img { width: 100%; max-width: 160px; aspect-ratio: 1; }
+.swatch { height: 96px; border-radius: 12px; margin-bottom: 12px; border: 1px solid var(--border); }
+.swatch + b { display: block; }
+code { font-size: 0.85rem; }
+.specimen { font-size: clamp(2.4rem, 7vw, 4.4rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 20px; }
+.weights { display: grid; gap: 8px; font-size: 1.4rem; }
+.weights span { color: var(--text2); font-size: 0.9rem; display: inline-block; width: 120px; }
+.glyphs { font-size: 2rem; letter-spacing: 0.02em; margin: 20px 0 0; word-break: break-word; }
+.big-quotes { font-size: 9rem; font-weight: 700; line-height: 0.6; color: var(--accent-deep); margin: 40px 0 0; }
+.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 28px; border-radius: 999px; font: 700 1rem var(--font-brand); border: 0; margin: 0 8px 8px 0; }
+.btn.primary { background: var(--accent); color: var(--on-accent); }
+.btn.secondary { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--accent-deep); }
+.answers { display: grid; gap: 10px; max-width: 420px; }
+.answer { min-height: 52px; display: flex; align-items: center; padding: 0 20px; border-radius: 14px; font-weight: 600; background: var(--bg); box-shadow: inset 0 0 0 1px var(--border); }
+.answer.right { background: var(--right); color: #fff; box-shadow: none; }
+.answer.wrong { background: var(--wrong); color: #fff; box-shadow: none; }
+.answer.spent { opacity: 0.5; }
+ul { padding-left: 1.2em; margin: 0; }
+li { margin: 4px 0; }
+a { color: var(--text); text-decoration: underline; text-decoration-color: var(--accent-deep); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+footer { padding: 40px 0 64px; color: var(--text2); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <img src="/icon.svg" alt="Quotestreak icon">
+    <div>
+      <h1>Quotestreak brand kit</h1>
+      <p><b>“</b>A quote mark on a streak. Yellow light on night ink, like a cinema marquee.<b>”</b></p>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>The mark</h2>
+    <p class="lead">Two opening quote marks leaning into a run, speed lines behind. The tail is always longer than the ball. It holds at 29 pixels.</p>
+    <div class="grid">
+      <div class="card"><div class="sizes"><img src="/icon.svg" width="128" height="128" alt=""><img src="/icon.svg" width="58" height="58" alt=""><img src="/icon.svg" width="29" height="29" alt=""></div><small>App icon at 128, 58 and 29</small></div>
+      <div class="card ink"><div class="mark" style="background:var(--accent)"></div><small>Mark on ink, in yellow</small></div>
+      <div class="card"><div class="mark" style="background:var(--text)"></div><small>Mark on the ground, in text colour</small></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Quip</h2>
+    <p class="lead">The mark come to life: the ball is the body, the tail is the cowlick. Four poses, each with a twin for dark grounds.</p>
+    <div class="quips">
+      <div class="card"><img src="/brand/quip-idle.svg" alt="Quip idle"><small>idle</small></div>
+      <div class="card"><img src="/brand/quip-cheer.svg" alt="Quip cheering"><small>cheer</small></div>
+      <div class="card"><img src="/brand/quip-oops.svg" alt="Quip oops"><small>oops</small></div>
+      <div class="card"><img src="/brand/quip-streak.svg" alt="Quip on a streak"><small>streak</small></div>
+      <div class="card ink"><img src="/brand/quip-idle-dark.svg" alt=""><small>idle, dark</small></div>
+      <div class="card ink"><img src="/brand/quip-cheer-dark.svg" alt=""><small>cheer, dark</small></div>
+      <div class="card ink"><img src="/brand/quip-oops-dark.svg" alt=""><small>oops, dark</small></div>
+      <div class="card ink"><img src="/brand/quip-streak-dark.svg" alt=""><small>streak, dark</small></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Colour</h2>
+    <p class="lead">Yellow is for the one primary action on a screen, the mark, and Quip. Green and red belong to right and wrong. Text on yellow is always ink.</p>
+    <div class="grid">
+      <div class="card"><div class="swatch" style="background:#ffcc00"></div><b>Marquee yellow</b><code>#ffcc00</code></div>
+      <div class="card"><div class="swatch" style="background:#e0a800"></div><b>Accent deep</b><code>#e0a800</code><small>Strokes and rings on light</small></div>
+      <div class="card"><div class="swatch" style="background:linear-gradient(#2e3039,#15161a)"></div><b>Night ink</b><code>#15161a → #2e3039</code></div>
+      <div class="card"><div class="swatch" style="background:var(--right)"></div><b>Right</b><code>#248a3d · #34c759</code></div>
+      <div class="card"><div class="swatch" style="background:var(--wrong)"></div><b>Wrong</b><code>#d70015 · #ff453a</code></div>
+      <div class="card"><div class="swatch" style="background:#f5f0e4"></div><b>Cream ground</b><code>#f5f0e4 · #1c1a17</code><small>From the shared jaybulb tokens</small></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Quip Sans</h2>
+    <p class="lead">Built from Hanken Grotesk (SIL OFL): Helvetica's grotesk, SF's clarity, Lato's warmth. Ours are the curly quotes, redrawn as the mark, and proportional figures.</p>
+    <p class="specimen">“Are you not entertained?”</p>
+    <div class="weights">
+      <div style="font-weight:400"><span>Regular 400</span>Guess the movie or artist from the quote.</div>
+      <div style="font-weight:500"><span>Medium 500</span>Guess the movie or artist from the quote.</div>
+      <div style="font-weight:600"><span>Semibold 600</span>Guess the movie or artist from the quote.</div>
+      <div style="font-weight:700"><span>Bold 700</span>Guess the movie or artist from the quote.</div>
+    </div>
+    <p class="glyphs">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 ‘’ “” Il1 O0 12,480 pts</p>
+    <p class="big-quotes" aria-hidden="true">“ ”</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Components</h2>
+    <p class="lead">Controls are 48 points tall. One yellow primary per screen; everything else is outlined. Answers are full-width cards.</p>
+    <div style="margin-bottom:24px"><span class="btn primary">Play</span><span class="btn secondary">Speed Round (10s)</span><span class="btn secondary">Leaderboard</span></div>
+    <div class="answers">
+      <div class="answer right">Gladiator</div>
+      <div class="answer wrong">300</div>
+      <div class="answer spent">Troy</div>
+      <div class="answer">Braveheart</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Motion and voice</h2>
+    <ul>
+      <li>The poster wall drifts, and freezes for the speed round so it never fights the clock.</li>
+      <li>A right answer throws confetti. Every fifth in a row throws more. A new high score throws the most.</li>
+      <li>The streak flame bounces when it grows. Quip bobs. All of it stops under reduced motion.</li>
+      <li>Short and a little cocky: “5 in a row!”, “Nope, it was Titanic”. No emojis.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Files: <a href="/brand/icon-1024.png">icon-1024.png</a> · <a href="/brand/mark.svg">mark.svg</a> · <a href="/icon.svg">icon.svg</a> · <a href="/brand/tokens.css">tokens.css</a> · <a href="/fonts/QuipSans-Bold.ttf">Quip Sans</a> (<a href="/fonts/OFL.txt">OFL</a>) · <a href="/play.html">Play</a>
+  </div>
+</footer>
+</body>
+</html>

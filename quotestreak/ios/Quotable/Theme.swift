@@ -1,5 +1,6 @@
 // Colors lifted from style.css so the app and the web game read as one product.
 
+import CoreText
 import SwiftUI
 
 extension Color {
@@ -23,8 +24,27 @@ enum Theme {
         #endif
     }
 
-    static let accent = Color(hex: "5B9BD5")
-    static let accent2 = Color(hex: "3d7bb8")
+    /// brand/tokens.css: marquee yellow is the only colour the app owns; green and red stay for right and wrong.
+    static let accent = Color(hex: "ffcc00")
+    static let onAccent = Color(hex: "15161a")   // text on yellow is always ink
+    /// Strokes and outlines: plain yellow washes out on a light ground, so it deepens there.
+    static var accentStroke: Color {
+        #if os(macOS)
+        Color(nsColor: NSColor(name: nil) { $0.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua ? NSColor(Color(hex: "ffcc00")) : NSColor(Color(hex: "e0a800")) })
+        #else
+        Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? UIColor(Color(hex: "ffcc00")) : UIColor(Color(hex: "e0a800")) })
+        #endif
+    }
+
+    /// Quip Sans (fonts/, built by scripts/gen_font.py) registered from the bundle once, before first use,
+    /// so neither Info.plist needs a font list.
+    static let fontsRegistered: Void = {
+        for name in ["Regular", "Medium", "Semibold", "Bold"] {
+            if let url = Bundle.main.url(forResource: "QuipSans-\(name)", withExtension: "ttf") {
+                CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+            }
+        }
+    }()
 
     /// `--g-*` / `--g-*-text` pairs from style.css. Unknown genres fall back to accent.
     static func badge(for genre: String) -> (background: Color, foreground: Color) {
@@ -39,7 +59,94 @@ enum Theme {
         case "hiphop":  return (Color(hex: "2e8b57"), .white)
         case "rnb":     return (Color(hex: "b8860b"), .black)
         case "country": return (Color(hex: "8b5a2b"), .white)
-        default:        return (accent, .white)
+        default:        return (accent, onAccent)
         }
     }
 }
+
+extension Font {
+    /// Quip Sans at a text style's size, scaling with Dynamic Type on iOS.
+    static func quip(_ style: Font.TextStyle, weight: Font.Weight = .regular) -> Font {
+        _ = Theme.fontsRegistered
+        let name = switch weight {
+        case .bold, .heavy, .black: "QuipSans-Bold"
+        case .semibold: "QuipSans-Semibold"
+        case .medium: "QuipSans-Medium"
+        default: "QuipSans-Regular"
+        }
+        return .custom(name, size: quipSize(style), relativeTo: style)
+    }
+
+    private static func quipSize(_ style: Font.TextStyle) -> CGFloat {
+        #if os(macOS)
+        switch style {
+        // a notch above AppKit's defaults: this is a game window, read from arm's length
+        case .largeTitle: 30; case .title: 24; case .title2: 21; case .title3: 17
+        case .headline, .body: 14; case .callout: 13; case .subheadline: 12
+        case .footnote, .caption, .caption2: 11; default: 14
+        }
+        #else
+        switch style {
+        case .largeTitle: 34; case .title: 28; case .title2: 22; case .title3: 20
+        case .headline, .body: 17; case .callout: 16; case .subheadline: 15
+        case .footnote: 13; case .caption: 12; case .caption2: 11; default: 17
+        }
+        #endif
+    }
+}
+
+/// The one bright action: a yellow capsule with ink text, 48 points tall like every house control.
+struct PrimaryButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.quip(.headline, weight: .bold))
+            .foregroundStyle(Theme.onAccent)
+            .padding(.horizontal, 28).frame(minHeight: 48)
+            .background(Theme.accent, in: Capsule())
+            .scaleEffect(configuration.isPressed ? 0.96 : 1)
+            .animation(.easeOut(duration: 0.12), value: configuration.isPressed)
+            .contentShape(Capsule())
+    }
+}
+
+/// Everything else: an outlined capsule, so the primary action stays the only yellow fill.
+struct SecondaryButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.quip(.headline, weight: .bold))
+            .foregroundStyle(.primary)
+            .padding(.horizontal, 24).frame(minHeight: 48)
+            .overlay(Capsule().strokeBorder(Theme.accentStroke, lineWidth: 2))
+            .scaleEffect(configuration.isPressed ? 0.96 : 1)
+            .animation(.easeOut(duration: 0.12), value: configuration.isPressed)
+            .contentShape(Capsule())
+    }
+}
+
+/// An answer: a full-width card with a hairline. Revealed answers fill green or red with white text;
+/// the rest fade back. The same look on iOS and macOS, where .bordered rendered as bare text.
+struct AnswerButtonStyle: ButtonStyle {
+    enum State { case open, right, wrong, spent }
+    let state: State
+
+    func makeBody(configuration: Configuration) -> some View {
+        let fill: Color = switch state {
+        case .right: .green
+        case .wrong: .red
+        default: Theme.canvas
+        }
+        configuration.label
+            .font(.quip(.headline, weight: .semibold))
+            .foregroundStyle(state == .right || state == .wrong ? Color.white : Color.primary)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 20).frame(minHeight: 52)
+            .background(fill, in: RoundedRectangle(cornerRadius: 14))
+            .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(.primary.opacity(state == .open ? 0.14 : 0), lineWidth: 1))
+            .opacity(state == .spent ? 0.5 : 1)
+            .scaleEffect(configuration.isPressed ? 0.98 : (state == .right ? 1.02 : 1))
+            .animation(.spring(duration: 0.3), value: state == .right)
+            .contentShape(RoundedRectangle(cornerRadius: 14))
+    }
+}
+
+extension AnswerButtonStyle.State: Equatable {}

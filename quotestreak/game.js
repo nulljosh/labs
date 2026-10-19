@@ -141,7 +141,7 @@ function nextQuestion() {
   genreBadge.textContent = current.genre;
   genreBadge.style.background = g.color;
   genreBadge.style.setProperty('--badge-text', g.text);
-  quoteEl.textContent = `"${current.quote}"`;
+  quoteEl.textContent = `\u201C${current.quote}\u201D`;  // curly, so Quip Sans draws the logo's marks
   quoteEl.style.animation = 'none';
   void quoteEl.offsetWidth;
   quoteEl.style.animation = '';
@@ -208,7 +208,7 @@ function choose(opt, btn) {
 function burst(from, n) {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const r = from.getBoundingClientRect();
-  const colors = [genreBadge.style.background || '#ff6b35', '#5B9BD5', '#ffd23f', '#ff6fae', '#34c759'];
+  const colors = [genreBadge.style.background || '#ff6b35', '#ffcc00', '#ffffff', '#ff6fae', '#34c759'];
   for (let i = 0; i < n; i++) {
     const p = document.createElement('i');
     p.className = 'confetti';
@@ -278,6 +278,8 @@ function endGame() {
   const prev = parseInt(localStorage.getItem(HIGH_KEY) || '0', 10);
   const high = Math.max(score, prev);
   if (score > prev) requestAnimationFrame(() => burst($('final-score'), 80));
+  const dark = document.documentElement.dataset.theme === 'dark' ? '-dark' : '';  // cream limbs on the dark ground
+  $('quip-end').src = `brand/quip-${score > prev ? 'cheer' : score > 0 ? 'idle' : 'oops'}${dark}.svg`;
   localStorage.setItem(HIGH_KEY, high);
   $('final-score').textContent = `Final score: ${score} · High score: ${high}`;
   window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal');

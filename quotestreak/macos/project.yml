@@ -39,6 +39,12 @@ targets:
       - path: Quotable/QuotableApp.swift
       - path: Quotable/Resources
         buildPhase: resources
+      - path: ../Quotestreak.icon
+      - path: ../brand/Quip.xcassets
+        buildPhase: resources
+      - path: ../fonts
+        buildPhase: resources
+        includes: ["*.ttf", "OFL.txt"]
       - path: Assets.xcassets
         buildPhase: resources
     dependencies:
@@ -46,10 +52,11 @@ targets:
         product: Supabase
     settings:
       base:
+        PRODUCT_NAME: Quotestreak   # the built app is Quotestreak.app; target and scheme keep the old name
         PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.quotable
         INFOPLIST_FILE: Quotable/Info.plist
         GENERATE_INFOPLIST_FILE: NO
-        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_APPICON_NAME: Quotestreak
         DEVELOPMENT_TEAM: QMM486NPYC
         CODE_SIGN_STYLE: Automatic
         CODE_SIGN_ENTITLEMENTS: Quotable.entitlements

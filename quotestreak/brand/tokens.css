@@ -1,7 +1,20 @@
-/* Quotestreak brand tokens. The accent is the only colour this app owns; spacing, radii and type come from the shared system. */
+/* Quotestreak design system. Marquee yellow is the only colour this app owns; green and red stay reserved
+   for right and wrong. Ground, surfaces, spacing and radii come from the shared jaybulb tokens.css. */
+@font-face { font-family: "Quip Sans"; src: url("/fonts/QuipSans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Quip Sans"; src: url("/fonts/QuipSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Quip Sans"; src: url("/fonts/QuipSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Quip Sans"; src: url("/fonts/QuipSans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
 :root {
-  --accent: #d8341f;
-  --accent-light: #ff6a55;
-  --accent-deep: #d8341f;
-  --accent-ring: color-mix(in srgb, #d8341f 30%, transparent);
+  --accent: #ffcc00;        /* marquee yellow: primary actions, the mark, Quip */
+  --accent-deep: #e0a800;   /* strokes and rings on the light ground, where plain yellow washes out */
+  --on-accent: #15161a;     /* text on yellow is always ink, never white */
+  --ink: #15161a;           /* the icon tile, bottom */
+  --ink-2: #2e3039;         /* the icon tile, top */
+  --accent-ring: color-mix(in srgb, #ffcc00 50%, transparent);
+  --right: #248a3d;
+  --wrong: #d70015;
+  --font-brand: "Quip Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+:root[data-theme="dark"] { --accent-deep: #ffcc00; --right: #34c759; --wrong: #ff453a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --accent-deep: #ffcc00; --right: #34c759; --wrong: #ff453a; } }

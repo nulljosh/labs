@@ -12,25 +12,24 @@
 <meta property="og:title" content="Quotestreak - guess the movie or the artist from the quote">
 <meta property="og:description" content="A quote-guessing game. 272 movie quotes and song lyrics across 10 genres, multiple choice, plus a 10-second speed round with a score multiplier.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://quotable.jaybulb.com/screenshots/web/03-question.jpg">
+<meta property="og:image" content="https://quotestreak.jaybulb.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Quotestreak — guess the movie or the artist from the quote">
 <meta name="twitter:description" content="A quote-guessing game. 272 movie quotes and song lyrics across 10 genres, multiple choice, plus a 10-second speed round with a score multiplier.">
-<meta name="twitter:image" content="https://quotable.jaybulb.com/screenshots/web/03-question.jpg">
+<meta name="twitter:image" content="https://quotestreak.jaybulb.com/og.png">
 <meta name="apple-itunes-app" content="app-id=6804394619">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://jaybulb.com/tokens.css">
+<link rel="stylesheet" href="brand/tokens.css">
 <style>
 :root {
-  --accent: var(--clay);
-  --link: var(--clay-deep);
+  --link: var(--text);   /* yellow text does not read on the light ground; links underline in --accent-deep */
   --accent-soft: color-mix(in srgb, var(--accent) 9%, var(--bg));
-  --font-body: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: var(--font-brand);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --link: var(--clay);
     --accent-soft: color-mix(in srgb, var(--accent) 9%, var(--bg));
   }
 }
@@ -48,7 +47,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-::selection { background: var(--accent); color: #fff; }
+::selection { background: var(--accent); color: var(--on-accent); }
 a { color: var(--link, var(--accent)); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img { max-width: 100%; }
@@ -115,12 +114,15 @@ img { max-width: 100%; }
   transition: transform 0.15s ease, opacity 0.15s ease;
 }
 .btn:hover { text-decoration: none; transform: translateY(-1px); }
-.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary { background: var(--accent); color: var(--on-accent); font-weight: 700; }
 .btn-primary:hover { opacity: 0.9; }
 .btn-outline { border-color: var(--border); color: var(--text); background: var(--bg); }
-.btn-outline:hover { border-color: var(--link, var(--accent)); color: var(--link, var(--accent)); }
+.btn-outline:hover { border-color: var(--accent-deep); }
 
 section { padding: 4rem 0; }
+.quip { display: block; margin: 0 auto 1rem; animation: quip-bob 2.4s ease-in-out infinite; }
+@keyframes quip-bob { 50% { transform: translateY(-6px) rotate(-2deg); } }
+@media (prefers-reduced-motion: reduce) { .quip { animation: none; } }
 .features h2, .closing h2 {
   font-size: clamp(1.5rem, 3.6vw, 2rem);
   font-weight: 700;
@@ -255,6 +257,7 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
 
 <section id="play" class="closing">
   <div class="container">
+    <picture><source srcset="brand/quip-cheer-dark.svg" media="(prefers-color-scheme: dark)"><img class="quip" src="brand/quip-cheer.svg" alt="Quip, the Quotestreak mascot, cheering" width="140" height="140"></picture>
     <h2>Name that quote</h2>
     <p>No sign-up, nothing to install. Pick a genre and start guessing.</p>
     <div class="buttons">
@@ -274,7 +277,7 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
 #install-anywhere .xp-card{background:color-mix(in srgb, currentColor 4%, transparent);border:1px solid color-mix(in srgb, currentColor 14%, transparent);border-radius:12px;padding:1.25rem;display:flex;flex-direction:column;gap:.5rem;}
 #install-anywhere .xp-card h3{margin:0;font-size:1rem;letter-spacing:-.01em;}
 #install-anywhere .xp-card p{margin:0;font-size:.9rem;line-height:1.5;opacity:.7;flex:1;}
-#install-anywhere .xp-card a{margin-top:.5rem;font-size:.875rem;font-weight:500;color:var(--accent,currentColor);text-decoration:none;}
+#install-anywhere .xp-card a{margin-top:.5rem;font-size:.875rem;font-weight:500;color:var(--text);text-decoration:underline;text-decoration-color:var(--accent-deep);text-decoration-thickness:2px;text-underline-offset:3px;}
 #install-anywhere .xp-card a:hover{text-decoration:underline;}
 </style>
 

@@ -26,9 +26,9 @@ jobs:
       - name: Zip app
         run: |
           cd macos/build/Build/Products/Release
-          zip -r "$GITHUB_WORKSPACE/quotestreak/Quotable-macOS.zip" Quotable.app
+          zip -r "$GITHUB_WORKSPACE/quotestreak/Quotestreak-macOS.zip" Quotestreak.app
       - uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: quotestreak/Quotable-macOS.zip
+          files: quotestreak/Quotestreak-macOS.zip
           generate_release_notes: true

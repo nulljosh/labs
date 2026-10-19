@@ -9,7 +9,7 @@ struct AccountSheet: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("Account").font(.title2.bold())
+            Text("Account").font(.quip(.title2, weight: .bold))
             if account.isSignedIn {
                 Text("Signed in as \(account.name)")
                 Button("Sign out") { account.signOut() }
@@ -55,7 +55,7 @@ struct LeaderboardSheet: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            Text(speed ? "Speed Round leaders" : "Leaders").font(.title2.bold())
+            Text(speed ? "Speed Round leaders" : "Leaders").font(.quip(.title2, weight: .bold))
             if let entries {
                 if entries.isEmpty {
                     Text("No scores yet. Sign in and play!").foregroundStyle(.secondary)

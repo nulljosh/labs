@@ -7,18 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BE347D13257220639AE1B73 /* QuipSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EA5ECE0E096B28ACBDF8FBA /* QuipSans-Regular.ttf */; };
 		2071D5C2988CAEE90B8626D6 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86FADC9B12722F80D8A322 /* Sound.swift */; };
 		21BB588AF5A28878EB2812F7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DEE5D3B5B21818E95B52B2 /* Account.swift */; };
 		2E29339E8EF696C8DE96D9BC /* SharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6F9F3D1E7095C33B65A0AC /* SharedStore.swift */; };
 		40BA3761F0315F7CCD087D7D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 09C80DAF89F26D0C3958D4B0 /* Localizable.xcstrings */; };
 		48941AFBAABFD77F30E81011 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D0E22F1C48E3EFB7EABC97 /* Theme.swift */; };
+		4C5F1EE28BBC44D4BB5F3009 /* QuipSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2784FB3C2743E5A56677BD01 /* QuipSans-Medium.ttf */; };
 		508D3BE089EB84B16456089A /* QuotableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E85168A0A7B3C0D436D4A9 /* QuotableApp.swift */; };
+		5550573199C6CF4EA5EBEE4B /* Quip.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7AF29CDFD917165A0271BE6 /* Quip.xcassets */; };
 		60E5702BD5ABB15B3C57C978 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D307F023E4118532E949DCA2 /* Assets.xcassets */; };
 		7DFF7D7B40A63846C0C2A765 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC408E6EFA84328599CCE6 /* Quote.swift */; };
+		945CA5730B08BC490FF50CF0 /* Quotestreak.icon in Resources */ = {isa = PBXBuildFile; fileRef = 20DD4CD996C0C91CF08C183A /* Quotestreak.icon */; };
 		B7217E2DA4D5DF9CD42659BC /* quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = 5128DA1479B038DECC148F85 /* quotes.json */; };
 		B8B4BA1F10F735DE4F09A5F2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FACB4D1E162790952E8FA9 /* Game.swift */; };
 		BC8186BE7C90EB8DC5E9B6C8 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = F8B9AF275A00D618814E7040 /* Supabase */; };
+		C7905858B1F98BF2DBC45BFC /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 78569A7FE4A673CE13D7BC46 /* OFL.txt */; };
 		DDB5C9151611C89EFFB671F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA15A4D922C004188104FA8 /* ContentView.swift */; };
+		DFC0C995510776A72E63FFF7 /* QuipSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4AFD0F64F5A760073FEFB89 /* QuipSans-Semibold.ttf */; };
+		E14A00AB9EF604A42B3B2614 /* QuipSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C6D28F0644B70870BD65AAA /* QuipSans-Bold.ttf */; };
 		FB5845D0E63AF829566C9C44 /* AccountViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F8EC3C7A160FCFC18D8CD9 /* AccountViews.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,15 +33,22 @@
 		09C80DAF89F26D0C3958D4B0 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		0AC0BE836F69E3802264672C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1A6F9F3D1E7095C33B65A0AC /* SharedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStore.swift; sourceTree = "<group>"; };
+		1C6D28F0644B70870BD65AAA /* QuipSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuipSans-Bold.ttf"; sourceTree = "<group>"; };
+		20DD4CD996C0C91CF08C183A /* Quotestreak.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = Quotestreak.icon; sourceTree = "<group>"; };
+		2784FB3C2743E5A56677BD01 /* QuipSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuipSans-Medium.ttf"; sourceTree = "<group>"; };
 		29DEE5D3B5B21818E95B52B2 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		3BFC408E6EFA84328599CCE6 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		3EA5ECE0E096B28ACBDF8FBA /* QuipSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuipSans-Regular.ttf"; sourceTree = "<group>"; };
 		43D0E22F1C48E3EFB7EABC97 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		4DA15A4D922C004188104FA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5128DA1479B038DECC148F85 /* quotes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quotes.json; sourceTree = "<group>"; };
 		64E85168A0A7B3C0D436D4A9 /* QuotableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotableApp.swift; sourceTree = "<group>"; };
+		78569A7FE4A673CE13D7BC46 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		79F8EC3C7A160FCFC18D8CD9 /* AccountViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViews.swift; sourceTree = "<group>"; };
 		B8FACB4D1E162790952E8FA9 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		C4AFD0F64F5A760073FEFB89 /* QuipSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuipSans-Semibold.ttf"; sourceTree = "<group>"; };
 		D307F023E4118532E949DCA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D7AF29CDFD917165A0271BE6 /* Quip.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Quip.xcassets; sourceTree = "<group>"; };
 		E30DCDB6978F6CBBCFA82D5B /* Quotable.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Quotable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC86FADC9B12722F80D8A322 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,6 +65,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22FC282BB6ECB995E907452C /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				78569A7FE4A673CE13D7BC46 /* OFL.txt */,
+				1C6D28F0644B70870BD65AAA /* QuipSans-Bold.ttf */,
+				2784FB3C2743E5A56677BD01 /* QuipSans-Medium.ttf */,
+				3EA5ECE0E096B28ACBDF8FBA /* QuipSans-Regular.ttf */,
+				C4AFD0F64F5A760073FEFB89 /* QuipSans-Semibold.ttf */,
+			);
+			name = fonts;
+			path = ../fonts;
+			sourceTree = "<group>";
+		};
 		25580EB1E353CAB0B03D98A3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,7 +98,10 @@
 			isa = PBXGroup;
 			children = (
 				D307F023E4118532E949DCA2 /* Assets.xcassets */,
+				F49A95685504B2F7F6ED1E5E /* brand */,
+				22FC282BB6ECB995E907452C /* fonts */,
 				917C4E70147AA6EBEBE4F6C9 /* Quotable */,
+				F8606E9FCB1669ED39B4C415 /* quotestreak */,
 				5DBD2FBF6578CB2314CA450F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,6 +123,24 @@
 				25580EB1E353CAB0B03D98A3 /* Resources */,
 			);
 			path = Quotable;
+			sourceTree = "<group>";
+		};
+		F49A95685504B2F7F6ED1E5E /* brand */ = {
+			isa = PBXGroup;
+			children = (
+				D7AF29CDFD917165A0271BE6 /* Quip.xcassets */,
+			);
+			name = brand;
+			path = ../brand;
+			sourceTree = "<group>";
+		};
+		F8606E9FCB1669ED39B4C415 /* quotestreak */ = {
+			isa = PBXGroup;
+			children = (
+				20DD4CD996C0C91CF08C183A /* Quotestreak.icon */,
+			);
+			name = quotestreak;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +213,13 @@
 			files = (
 				60E5702BD5ABB15B3C57C978 /* Assets.xcassets in Resources */,
 				40BA3761F0315F7CCD087D7D /* Localizable.xcstrings in Resources */,
+				C7905858B1F98BF2DBC45BFC /* OFL.txt in Resources */,
+				5550573199C6CF4EA5EBEE4B /* Quip.xcassets in Resources */,
+				E14A00AB9EF604A42B3B2614 /* QuipSans-Bold.ttf in Resources */,
+				4C5F1EE28BBC44D4BB5F3009 /* QuipSans-Medium.ttf in Resources */,
+				1BE347D13257220639AE1B73 /* QuipSans-Regular.ttf in Resources */,
+				DFC0C995510776A72E63FFF7 /* QuipSans-Semibold.ttf in Resources */,
+				945CA5730B08BC490FF50CF0 /* Quotestreak.icon in Resources */,
 				B7217E2DA4D5DF9CD42659BC /* quotes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,7 +314,7 @@
 		AE64ECED9E17649B09060DE1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Quotestreak;
 				CODE_SIGN_ENTITLEMENTS = Quotable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -271,6 +326,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.quotable;
+				PRODUCT_NAME = Quotestreak;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -279,7 +335,7 @@
 		B1DBEF5C9D9B2DF9614CF12E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Quotestreak;
 				CODE_SIGN_ENTITLEMENTS = Quotable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -291,6 +347,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.quotable;
+				PRODUCT_NAME = Quotestreak;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
