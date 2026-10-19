@@ -48,6 +48,7 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: "17" }
       - uses: android-actions/setup-android@v3
+        with: { packages: "platform-tools" }   # the default also asks for "tools", which the SDK no longer ships
       # ponytail: debug APK -- sideloadable today. Swap to assembleRelease once there is
       # a keystore in secrets and somewhere to publish it.
       - run: ./gradlew :composeApp:assembleDebug --no-daemon
