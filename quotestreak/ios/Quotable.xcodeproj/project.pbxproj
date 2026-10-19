@@ -12,7 +12,9 @@
 		2071D5C2988CAEE90B8626D6 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86FADC9B12722F80D8A322 /* Sound.swift */; };
 		21BB588AF5A28878EB2812F7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DEE5D3B5B21818E95B52B2 /* Account.swift */; };
 		2387A1EF8B5F035F17E4E6C5 /* QuotestreakWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A7452099D0CAD5844021F4 /* QuotestreakWidget.swift */; };
+		25E14564B3E93892E0ACDB27 /* Duel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D5C94901206E797A9D9489 /* Duel.swift */; };
 		2E29339E8EF696C8DE96D9BC /* SharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6F9F3D1E7095C33B65A0AC /* SharedStore.swift */; };
+		357FCB301F6277A72C43E2EC /* DuelActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1537B08CDD9E3F2CD9B9BE5 /* DuelActivity.swift */; };
 		40BA3761F0315F7CCD087D7D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 09C80DAF89F26D0C3958D4B0 /* Localizable.xcstrings */; };
 		41A53266183AF74DFDB5BE52 /* QuipSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4AFD0F64F5A760073FEFB89 /* QuipSans-Semibold.ttf */; };
 		48941AFBAABFD77F30E81011 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D0E22F1C48E3EFB7EABC97 /* Theme.swift */; };
@@ -20,7 +22,9 @@
 		508D3BE089EB84B16456089A /* QuotableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E85168A0A7B3C0D436D4A9 /* QuotableApp.swift */; };
 		5550573199C6CF4EA5EBEE4B /* Quip.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7AF29CDFD917165A0271BE6 /* Quip.xcassets */; };
 		60E5702BD5ABB15B3C57C978 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D307F023E4118532E949DCA2 /* Assets.xcassets */; };
+		6BA43F860E0509C4DC95E444 /* DuelViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C23D71F8E22F6308CA6D7 /* DuelViews.swift */; };
 		7B1A7F19EBC0ADF6491443D3 /* QuipSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2784FB3C2743E5A56677BD01 /* QuipSans-Medium.ttf */; };
+		7D7275D2EA443FD0ABF60D58 /* DuelActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1537B08CDD9E3F2CD9B9BE5 /* DuelActivity.swift */; };
 		7DFF7D7B40A63846C0C2A765 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC408E6EFA84328599CCE6 /* Quote.swift */; };
 		91ED4E7C01FF874DE14A48A7 /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2366C44BE0D1172C1F730F23 /* Daily.swift */; };
 		945CA5730B08BC490FF50CF0 /* Quotestreak.icon in Resources */ = {isa = PBXBuildFile; fileRef = 20DD4CD996C0C91CF08C183A /* Quotestreak.icon */; };
@@ -77,15 +81,18 @@
 		43D0E22F1C48E3EFB7EABC97 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		4DA15A4D922C004188104FA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5128DA1479B038DECC148F85 /* quotes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quotes.json; sourceTree = "<group>"; };
+		64D5C94901206E797A9D9489 /* Duel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duel.swift; sourceTree = "<group>"; };
 		64E85168A0A7B3C0D436D4A9 /* QuotableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotableApp.swift; sourceTree = "<group>"; };
 		78569A7FE4A673CE13D7BC46 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		79F8EC3C7A160FCFC18D8CD9 /* AccountViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViews.swift; sourceTree = "<group>"; };
+		964C23D71F8E22F6308CA6D7 /* DuelViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelViews.swift; sourceTree = "<group>"; };
 		B0A7452099D0CAD5844021F4 /* QuotestreakWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotestreakWidget.swift; sourceTree = "<group>"; };
 		B8FACB4D1E162790952E8FA9 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		C4AFD0F64F5A760073FEFB89 /* QuipSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuipSans-Semibold.ttf"; sourceTree = "<group>"; };
 		D307F023E4118532E949DCA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D54101B2FF96FEAAAA76892C /* QuotableWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = QuotableWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AF29CDFD917165A0271BE6 /* Quip.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Quip.xcassets; sourceTree = "<group>"; };
+		E1537B08CDD9E3F2CD9B9BE5 /* DuelActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelActivity.swift; sourceTree = "<group>"; };
 		E30DCDB6978F6CBBCFA82D5B /* Quotable.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Quotable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC86FADC9B12722F80D8A322 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +156,9 @@
 				79F8EC3C7A160FCFC18D8CD9 /* AccountViews.swift */,
 				4DA15A4D922C004188104FA8 /* ContentView.swift */,
 				2366C44BE0D1172C1F730F23 /* Daily.swift */,
+				64D5C94901206E797A9D9489 /* Duel.swift */,
+				E1537B08CDD9E3F2CD9B9BE5 /* DuelActivity.swift */,
+				964C23D71F8E22F6308CA6D7 /* DuelViews.swift */,
 				B8FACB4D1E162790952E8FA9 /* Game.swift */,
 				0AC0BE836F69E3802264672C /* Info.plist */,
 				09C80DAF89F26D0C3958D4B0 /* Localizable.xcstrings */,
@@ -304,6 +314,9 @@
 				FB5845D0E63AF829566C9C44 /* AccountViews.swift in Sources */,
 				DDB5C9151611C89EFFB671F0 /* ContentView.swift in Sources */,
 				DF47145B28879966009C338A /* Daily.swift in Sources */,
+				25E14564B3E93892E0ACDB27 /* Duel.swift in Sources */,
+				7D7275D2EA443FD0ABF60D58 /* DuelActivity.swift in Sources */,
+				6BA43F860E0509C4DC95E444 /* DuelViews.swift in Sources */,
 				B8B4BA1F10F735DE4F09A5F2 /* Game.swift in Sources */,
 				508D3BE089EB84B16456089A /* QuotableApp.swift in Sources */,
 				7DFF7D7B40A63846C0C2A765 /* Quote.swift in Sources */,
@@ -318,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91ED4E7C01FF874DE14A48A7 /* Daily.swift in Sources */,
+				357FCB301F6277A72C43E2EC /* DuelActivity.swift in Sources */,
 				B956F9614126752E27454D7A /* Quote.swift in Sources */,
 				2387A1EF8B5F035F17E4E6C5 /* QuotestreakWidget.swift in Sources */,
 				CF700F9ABAA2F7F1FF80B830 /* Theme.swift in Sources */,

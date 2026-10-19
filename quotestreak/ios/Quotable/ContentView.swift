@@ -14,14 +14,16 @@ struct ContentView: View {
     @State private var showAccount = false
     @State private var showBoard = false
     @State private var showSettings = false
+    @State private var showDuel = false
+    @State private var duel: Duel?
 
     var body: some View {
         NavigationStack {
             Group {
                 switch game.phase {
-                case .menu: MenuView(game: game, genre: $genre, decade: $decade, level: $level)
+                case .menu: MenuView(game: game, genre: $genre, decade: $decade, level: $level, showDuel: $showDuel)
                 case .playing: RoundView(game: game, hapticsOn: hapticsOn, sfxOn: sfxOn, sfxVolume: sfxVolume)
-                case .over: GameOverView(game: game)
+                case .over: GameOverView(game: game, duel: duel)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -47,6 +49,13 @@ struct ContentView: View {
             .sheet(isPresented: $showAccount) { AccountSheet() }
             .sheet(isPresented: $showBoard) { LeaderboardSheet(speed: game.speedMode) }
             .sheet(isPresented: $showSettings) { SettingsSheet(hapticsOn: $hapticsOn, sfxOn: $sfxOn, sfxVolume: $sfxVolume) }
+            .sheet(isPresented: $showDuel) { DuelSheet(game: game, duel: $duel) }
+            // A duel hears every answer and the end of the run; leaving the game-over screen closes it.
+            .onChange(of: game.answeredCount) { _, n in if n > 0 { duel?.answered(score: game.score, count: n) } }
+            .onChange(of: game.phase) { _, phase in
+                if phase == .over { duel?.finish(score: game.score) }
+                if phase == .menu { duel?.close(); duel = nil }
+            }
             .toolbar {
                 if game.phase != .playing {
                     ToolbarItem(placement: .primaryAction) {
@@ -60,6 +69,11 @@ struct ContentView: View {
                     }
                 }
                 if game.phase == .playing {
+                    if let duel {
+                        ToolbarItem(placement: .primaryAction) {
+                            Text("Them \(duel.them)").font(.quip(.headline)).foregroundStyle(.secondary).contentTransition(.numericText())
+                        }
+                    }
                     ToolbarItem(placement: .primaryAction) {
                         Text("\(game.score)").font(.quip(.headline, weight: .bold)).contentTransition(.numericText())
                     }
@@ -83,6 +97,7 @@ private struct MenuView: View {
     @Binding var genre: String
     @Binding var decade: Int
     @Binding var level: String
+    @Binding var showDuel: Bool
 
     var body: some View {
         VStack(spacing: 24) {
@@ -119,6 +134,8 @@ private struct MenuView: View {
                 Button("Play") { game.start(genre: selectedGenre, speed: false, decade: decade == 0 ? nil : decade, level: level == "all" ? nil : level) }
                     .buttonStyle(PrimaryButtonStyle())
                 Button("Speed Round (10s)") { game.start(genre: selectedGenre, speed: true, decade: decade == 0 ? nil : decade, level: level == "all" ? nil : level) }
+                    .buttonStyle(SecondaryButtonStyle())
+                Button("Live duel") { showDuel = true }
                     .buttonStyle(SecondaryButtonStyle())
             }
 
@@ -334,6 +351,7 @@ private struct TimerRing: View {
 
 private struct GameOverView: View {
     let game: Game
+    let duel: Duel?
     private var newHigh: Bool { game.score > 0 && game.score == game.highScore }
 
     var body: some View {
@@ -342,6 +360,9 @@ private struct GameOverView: View {
             Quip(pose: newHigh ? "cheer" : game.score > 0 ? "idle" : "oops")
             Text("Game Over").font(.quip(.largeTitle, weight: .bold))
             Text("Final score: \(game.score) · High score: \(game.highScore)").font(.quip(.title3))
+            if let duel {
+                Text(duel.verdict).font(.quip(.headline, weight: .bold)).multilineTextAlignment(.center)
+            }
             if newHigh {
                 Text("New high score!").font(.quip(.headline, weight: .bold)).foregroundStyle(Theme.accentStroke)
             }
@@ -352,7 +373,7 @@ private struct GameOverView: View {
         }
         .padding(28)
         .overlay { if newHigh { ConfettiView(burst: Burst(count: 80)) } }
-        .task { await Account.shared.submit(score: game.score, speed: game.speedMode) }
+        .task { if duel == nil { await Account.shared.submit(score: game.score, speed: game.speedMode) } }  // duels stay off the board, like the web
     }
 }
 

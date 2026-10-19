@@ -23,6 +23,8 @@ final class Game {
     private(set) var lastWasCorrect: Bool?
     /// Points the last correct answer earned, so the feedback line can read "Correct! +30".
     private(set) var lastPoints = 0
+    /// Questions answered this game; a duel reports it with each score.
+    private(set) var answeredCount = 0
     private(set) var highScore = UserDefaults.standard.integer(forKey: Game.highKey)
 
     private static let highKey = "quotable_high_score"
@@ -44,6 +46,7 @@ final class Game {
         speedMode = speed
         score = 0
         streak = 0
+        answeredCount = 0
         let byGenre = genre.map { g in quotes.filter { $0.genre == g } } ?? quotes
         let byDecade = decade.map { d in byGenre.filter { $0.year.map { $0 / 10 * 10 } == d } } ?? byGenre
         let byLevel = level.map { l in byDecade.filter { $0.level(stats) == l } } ?? byDecade
@@ -52,6 +55,17 @@ final class Game {
         phase = .playing
         nextQuestion()
         SharedStore.sync(score: score, streak: streak, highScore: highScore, phase: phase)
+    }
+
+    /// A fixed run, played in order: a duel's ten quotes (v33).
+    func start(fixed: [Quote]) {
+        speedMode = false
+        score = 0
+        streak = 0
+        answeredCount = 0
+        pool = fixed.reversed()   // popLast deals from the front
+        phase = .playing
+        nextQuestion()
     }
 
     func nextQuestion() {
@@ -77,6 +91,7 @@ final class Game {
         let points = pendingPoints
         pickedAnswer = answer
         lastWasCorrect = correct
+        answeredCount += 1
         lastPoints = correct ? points : 0
         if correct {
             streak += 1

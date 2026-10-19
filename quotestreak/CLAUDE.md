@@ -51,6 +51,8 @@ Answer buttons deliberately use `.allowsHitTesting(false)` rather than `.disable
 
 `ios/Widget/QuotestreakWidget.swift` (v31) is a WidgetKit extension on iOS (small, medium, lock screen) and macOS (small, medium), target `QuotableWidget`, bundle `com.heyitsmejosh.quotable.widget`. It bundles its own `quotes.json` and works the day's line out with `Daily.swift`, a bit-for-bit port of `daily.js` (mulberry32 with UInt32 wrapping for Math.imul), so it needs no app group. It never shows the answer.
 
+Live duels (v33): `Duel.swift` speaks the same room protocol as `duel-client.js` over `URLSessionWebSocketTask`, so the apps and the web duel each other; `DuelViews.swift` is the start/join sheet. On iPhone each duel runs as a Live Activity (`DuelActivity.swift` attributes, drawn by `DuelLiveActivity` in the widget extension; `NSSupportsLiveActivities` in Info.plist). Duel scores stay off the leaderboard, like the web.
+
 Self-check (no XCTest, no framework):
 
 ```

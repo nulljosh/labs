@@ -75,6 +75,15 @@ struct DailyView: View {
 }
 
 @main
+struct QuotestreakWidgets: WidgetBundle {
+    var body: some Widget {
+        QuotestreakWidget()
+        #if os(iOS)
+        DuelLiveActivity()
+        #endif
+    }
+}
+
 struct QuotestreakWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "DailyQuote", provider: DailyProvider()) { DailyView(entry: $0) }
@@ -87,3 +96,55 @@ struct QuotestreakWidget: Widget {
             #endif
     }
 }
+
+#if os(iOS)
+import ActivityKit
+
+/// A live duel on the lock screen and in the Dynamic Island (v33): both scores and the question
+/// you are on, until both players finish. Duel.swift in the app starts and updates it.
+struct DuelLiveActivity: Widget {
+    var body: some WidgetConfiguration {
+        ActivityConfiguration(for: DuelAttributes.self) { context in
+            let s = context.state
+            HStack(spacing: 16) {
+                Text("\u{201C}").font(.quip(.largeTitle, weight: .bold)).foregroundStyle(Theme.accent)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Live duel").font(.quip(.caption, weight: .bold)).foregroundStyle(.secondary)
+                    Text(Self.status(s)).font(.quip(.subheadline, weight: .semibold))
+                }
+                Spacer()
+                Self.score("You", s.you)
+                Self.score("Them", s.them)
+            }
+            .padding(16)
+            .activityBackgroundTint(Theme.canvas)
+        } dynamicIsland: { context in
+            let s = context.state
+            return DynamicIsland {
+                DynamicIslandExpandedRegion(.leading) { Self.score("You", s.you) }
+                DynamicIslandExpandedRegion(.trailing) { Self.score("Them", s.them) }
+                DynamicIslandExpandedRegion(.bottom) { Text(Self.status(s)).font(.quip(.footnote)) }
+            } compactLeading: {
+                Text("\(s.you)").font(.quip(.footnote, weight: .bold)).foregroundStyle(Theme.accent)
+            } compactTrailing: {
+                Text("\(s.them)").font(.quip(.footnote, weight: .bold))
+            } minimal: {
+                Text("\(s.you)").font(.quip(.footnote, weight: .bold)).foregroundStyle(Theme.accent)
+            }
+        }
+    }
+
+    static func status(_ s: DuelAttributes.ContentState) -> String {
+        if s.youDone && s.themDone { return s.you > s.them ? "You won" : s.you < s.them ? "They won" : "A tie" }
+        if s.youDone { return "Waiting for your friend" }
+        return "Question \(s.question) of \(s.total)"
+    }
+
+    static func score(_ who: String, _ n: Int) -> some View {
+        VStack(spacing: 0) {
+            Text("\(n)").font(.quip(.title2, weight: .bold)).contentTransition(.numericText())
+            Text(who).font(.quip(.caption2)).foregroundStyle(.secondary)
+        }
+    }
+}
+#endif

@@ -52,6 +52,7 @@ targets:
       - path: Quotable/Quote.swift
       - path: Quotable/Daily.swift
       - path: Quotable/Theme.swift
+      - path: Quotable/DuelActivity.swift
       - path: Quotable/Resources/quotes.json
         buildPhase: resources
       - path: ../fonts

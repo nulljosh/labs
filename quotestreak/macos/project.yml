@@ -29,6 +29,9 @@ targets:
       - path: ../ios/Quotable/Sound.swift
       - path: ../ios/Quotable/Account.swift
       - path: ../ios/Quotable/AccountViews.swift
+      - path: ../ios/Quotable/Duel.swift
+      - path: ../ios/Quotable/DuelViews.swift
+      - path: ../ios/Quotable/Daily.swift
       - path: ../ios/Quotable/Localizable.xcstrings
         buildPhase: resources
       - path: Quotable/QuotableApp.swift
