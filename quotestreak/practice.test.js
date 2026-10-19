@@ -1,0 +1,17 @@
+const assert = require('assert');
+const { record, due, WAIT } = require('./practice');
+const DAY = 86400000, t0 = Date.UTC(2026, 9, 19);
+let s = record({}, 'a', false, t0);
+assert.deepEqual(s.a, { box: 1, due: t0 + DAY });
+assert.deepEqual(due(s, t0), ['a'], 'a fresh miss can be practised at once');
+assert.deepEqual(due(s, t0, false), [], 'but is not due until tomorrow');
+assert.deepEqual(record({}, 'b', true, t0), {}, 'a right answer on a line you never missed changes nothing');
+s = record(s, 'a', true, t0 + DAY);
+assert.deepEqual(s.a, { box: 2, due: t0 + DAY + 3 * DAY });
+s = record(s, 'a', false, t0 + 2 * DAY);
+assert.equal(s.a.box, 1, 'a miss sends it back to the start');
+let l = { a: { box: WAIT.length, due: t0 } };
+assert.deepEqual(record(l, 'a', true, t0), {}, 'right in the last box: learned, gone');
+const many = { x: { box: 2, due: t0 - 5 }, y: { box: 3, due: t0 - 50 }, z: { box: 2, due: t0 + 99 * DAY } };
+assert.deepEqual(due(many, t0, false), ['y', 'x'], 'longest overdue first, not-yet-due left out');
+console.log('practice ok');

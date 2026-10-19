@@ -122,6 +122,7 @@
     : mode === 'improv' ? shuffle(Imp.questions(), rand)
     : mode === 'phrase' ? shuffle(Phr.questions(rand), rand)
     : mode === 'world' ? shuffle(Wor.questions(rand), rand)
+    : mode === 'practice' ? (root.Practice?.questions ? root.Practice.questions(all) : [])
     : mode === 'timeline' ? timeline(list, rand)
     : mode === 'poster' || mode === 'album' ? reveal(list, mode, rand)
     : mode === 'year' ? year(list, rand)
