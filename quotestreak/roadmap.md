@@ -13,7 +13,7 @@
 One major version per milestone. Each one ships on the web first (deploy the same day), then iOS and Mac in the next store batch. Only one store build is in review at a time, so native majors queue and go out together. A milestone is done when it is live, tested, and its line is checked here.
 
 ### Era 1: a deeper game (2 to 10)
-- [ ] **v2 Daily Quote.** One shared puzzle a day, the same for everyone, a day streak, and a spoiler-free share card.
+- [x] **v2 Daily Quote.** One shared puzzle a day, the same for everyone, a day streak, and a spoiler-free share card.
 - [ ] **v3 Hints.** Reveal the year, then the first letter; each hint halves the points.
 - [ ] **v4 Type it.** Answer by typing with forgiving matching instead of four choices.
 - [ ] **v5 1,000 lines.** Grow the bank to 1,000 verified quotes with year, character and source on every line.

@@ -1,6 +1,6 @@
 # Quotestreak Technical Whitepaper
 
-**v1.7.0** | August 2026
+**v2.0.0** | October 2026
 
 Here's the line. Name the movie.
 
