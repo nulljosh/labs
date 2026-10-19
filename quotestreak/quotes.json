@@ -14621,5 +14621,4175 @@
     "type": "movie",
     "character": "Francis Freeman/Ajax",
     "source": "https://en.wikiquote.org/wiki/Deadpool_(film)"
+  },
+  {
+    "quote": "You know, when a plate breaks, you don't fix it. You just get another plate. So I tied a knot.",
+    "year": 2017,
+    "options": [
+      "Charmed",
+      "Legion",
+      "Judging Amy",
+      "Kung Fu"
+    ],
+    "genre": "tvdrama",
+    "answer": "Legion",
+    "type": "tv",
+    "character": "David Haller",
+    "source": "https://en.wikiquote.org/wiki/Legion_(TV_series)"
+  },
+  {
+    "quote": "This family means everything to me. Without it, I have nothing to lose.",
+    "year": 2008,
+    "options": [
+      "Breaking Bad",
+      "The Gilded Age",
+      "Dexter",
+      "Peaky Blinders"
+    ],
+    "genre": "tvdrama",
+    "answer": "Breaking Bad",
+    "type": "tv",
+    "character": "Walter",
+    "source": "https://en.wikiquote.org/wiki/Breaking_Bad"
+  },
+  {
+    "quote": "Rose, I take it that no member of your family was ever a returning champion on Jeopardy!.",
+    "year": 1985,
+    "options": [
+      "How I Met Your Mother",
+      "Seinfeld",
+      "Curb Your Enthusiasm",
+      "The Golden Girls"
+    ],
+    "genre": "sitcom",
+    "answer": "The Golden Girls",
+    "type": "tv",
+    "character": "Dorothy",
+    "source": "https://en.wikiquote.org/wiki/The_Golden_Girls"
+  },
+  {
+    "quote": "My taekwondo instructor says I'm just two moves away from becoming quite threatening.",
+    "year": 1993,
+    "options": [
+      "Frasier",
+      "The Brady Bunch",
+      "Johnny Bravo",
+      "Solar Opposites"
+    ],
+    "genre": "sitcom",
+    "answer": "Frasier",
+    "type": "tv",
+    "character": "Niles",
+    "source": "https://en.wikiquote.org/wiki/Frasier"
+  },
+  {
+    "quote": "What's the world coming to when you can't bribe your best friend?",
+    "year": 1974,
+    "options": [
+      "Happy Days",
+      "The Nanny",
+      "Solar Opposites",
+      "Cheers"
+    ],
+    "genre": "sitcom",
+    "answer": "Happy Days",
+    "type": "tv",
+    "character": "Potsie",
+    "source": "https://en.wikiquote.org/wiki/Happy_Days"
+  },
+  {
+    "quote": "My apologies to Hippocrates but sometimes the best cure for all is death.",
+    "year": 1982,
+    "options": [
+      "Fringe",
+      "St. Elsewhere",
+      "Legion",
+      "Lost"
+    ],
+    "genre": "tvdrama",
+    "answer": "St. Elsewhere",
+    "type": "tv",
+    "character": "Dr. Auschlander",
+    "source": "https://en.wikiquote.org/wiki/St._Elsewhere"
+  },
+  {
+    "quote": "Jerry, I want to slide my tongue around you like a snake... Ooooooooooha, oooooohaaaa...",
+    "year": 1989,
+    "options": [
+      "Seinfeld",
+      "Modern Family",
+      "Solar Opposites",
+      "Home Movies"
+    ],
+    "genre": "sitcom",
+    "answer": "Seinfeld",
+    "type": "tv",
+    "character": "Elaine",
+    "source": "https://en.wikiquote.org/wiki/Seinfeld"
+  },
+  {
+    "quote": "Dr. Reid, this is not \"Bring Your Problems To Work Day\", this is just \"Work Day\".",
+    "year": 2001,
+    "options": [
+      "F Is for Family",
+      "Scrubs",
+      "Brickleberry",
+      "Happy's Place"
+    ],
+    "genre": "sitcom",
+    "answer": "Scrubs",
+    "type": "tv",
+    "character": "Dr. Kelso",
+    "source": "https://en.wikiquote.org/wiki/Scrubs_(TV_series)"
+  },
+  {
+    "quote": "(to Brendon) Quarter for the bus, quarter for the bus. The end. Hey Brendon, the end.",
+    "year": 1999,
+    "options": [
+      "Home Movies",
+      "I Love Lucy",
+      "Squidbillies",
+      "Welcome Back, Kotter"
+    ],
+    "genre": "sitcom",
+    "answer": "Home Movies",
+    "type": "tv",
+    "character": "Coach McGuirk",
+    "source": "https://en.wikiquote.org/wiki/Home_Movies_(TV_series)"
+  },
+  {
+    "quote": "Earth fairies, release your magic into the human world and make a better place.",
+    "year": 2004,
+    "options": [
+      "Dexter's Laboratory",
+      "Winx Club",
+      "Star Wars Rebels",
+      "Batman: The Animated Series"
+    ],
+    "genre": "cartoon",
+    "answer": "Winx Club",
+    "type": "tv",
+    "character": "Morgana",
+    "source": "https://en.wikiquote.org/wiki/Winx_Club"
+  },
+  {
+    "quote": "He doesn't know that I cry sometimes because...I'm not sure there's a cat heaven.",
+    "year": 2001,
+    "options": [
+      "Scrubs",
+      "Cheers",
+      "F Is for Family",
+      "Mission Hill"
+    ],
+    "genre": "sitcom",
+    "answer": "Scrubs",
+    "type": "tv",
+    "character": "Carla",
+    "source": "https://en.wikiquote.org/wiki/Scrubs_(TV_series)"
+  },
+  {
+    "quote": "Sean, one day you're going to have children. And I'm going to enjoy that so much.",
+    "year": 1999,
+    "options": [
+      "Judging Amy",
+      "Twin Peaks",
+      "Star Trek: Enterprise",
+      "Billions"
+    ],
+    "genre": "tvdrama",
+    "answer": "Judging Amy",
+    "type": "tv",
+    "character": "Maxine",
+    "source": "https://en.wikiquote.org/wiki/Judging_Amy"
+  },
+  {
+    "quote": "You look pretty...I look pretty...why don't we go home and stare at each other?",
+    "year": 1997,
+    "options": [
+      "Johnny Bravo",
+      "Going Dutch",
+      "Night Court",
+      "Joey"
+    ],
+    "genre": "sitcom",
+    "answer": "Johnny Bravo",
+    "type": "tv",
+    "character": "Johnny",
+    "source": "https://en.wikiquote.org/wiki/Johnny_Bravo"
+  },
+  {
+    "quote": "Look, the only needle I wanna see is on my stereo. At home. Which is where I'm headed.",
+    "year": 1982,
+    "options": [
+      "True Detective",
+      "Little House on the Prairie",
+      "Lost",
+      "St. Elsewhere"
+    ],
+    "genre": "tvdrama",
+    "answer": "St. Elsewhere",
+    "type": "tv",
+    "character": "Luther Hawkins",
+    "source": "https://en.wikiquote.org/wiki/St._Elsewhere"
+  },
+  {
+    "quote": "How are YOU, sir? I can speak English. I learn it from a book.",
+    "year": 1975,
+    "options": [
+      "The Nanny",
+      "Disenchantment",
+      "Nicky, Ricky, Dicky & Dawn",
+      "Fawlty Towers"
+    ],
+    "genre": "sitcom",
+    "answer": "Fawlty Towers",
+    "type": "tv",
+    "character": "Manuel",
+    "source": "https://en.wikiquote.org/wiki/Fawlty_Towers"
+  },
+  {
+    "quote": "But I'm not aroused, it's only cars! God damn these electric sex pants!",
+    "year": 2006,
+    "options": [
+      "The IT Crowd",
+      "F Is for Family",
+      "Harvey Birdman, Attorney at Law",
+      "Joey"
+    ],
+    "genre": "sitcom",
+    "answer": "The IT Crowd",
+    "type": "tv",
+    "character": "Douglas",
+    "source": "https://en.wikiquote.org/wiki/The_IT_Crowd"
+  },
+  {
+    "quote": "That's it? That's the monster? Look, you can see the zipper in the back.",
+    "year": 1991,
+    "options": [
+      "I Love Lucy",
+      "Cheers",
+      "Moral Orel",
+      "Doug"
+    ],
+    "genre": "sitcom",
+    "answer": "Doug",
+    "type": "tv",
+    "character": "Doug",
+    "source": "https://en.wikiquote.org/wiki/Doug_(TV_series)"
+  },
+  {
+    "quote": "My mother is very excited. She's convening her Bible study group to listen in and then pray for my soul.",
+    "year": 2007,
+    "options": [
+      "The Big Bang Theory",
+      "Nicky, Ricky, Dicky & Dawn",
+      "Curb Your Enthusiasm",
+      "I Love Lucy"
+    ],
+    "genre": "sitcom",
+    "answer": "The Big Bang Theory",
+    "type": "tv",
+    "character": "Sheldon",
+    "source": "https://en.wikiquote.org/wiki/The_Big_Bang_Theory"
+  },
+  {
+    "quote": "(Seeing the portal to the Negative Zone) ...and now you've put a hole in my wall!",
+    "year": 1994,
+    "options": [
+      "George of the Jungle",
+      "Fantastic Four",
+      "We Baby Bears",
+      "Winx Club"
+    ],
+    "genre": "cartoon",
+    "answer": "Fantastic Four",
+    "type": "tv",
+    "character": "Ms. Forbes",
+    "source": "https://en.wikiquote.org/wiki/Fantastic_Four_(1994_TV_series)"
+  },
+  {
+    "quote": "You know what we say at the bank: when opportunity knocks, that's us foreclosing.",
+    "year": 1987,
+    "options": [
+      "The Thundermans",
+      "Married... with Children",
+      "Going Dutch",
+      "Arrested Development"
+    ],
+    "genre": "sitcom",
+    "answer": "Married... with Children",
+    "type": "tv",
+    "character": "Steve",
+    "source": "https://en.wikiquote.org/wiki/Married..._with_Children"
+  },
+  {
+    "quote": "Marion, stop cackling. I've been waiting ten years for you to lay that egg.",
+    "year": 1951,
+    "options": [
+      "That '70s Show",
+      "Solar Opposites",
+      "Moral Orel",
+      "I Love Lucy"
+    ],
+    "genre": "sitcom",
+    "answer": "I Love Lucy",
+    "type": "tv",
+    "character": "Lucy",
+    "source": "https://en.wikiquote.org/wiki/I_Love_Lucy"
+  },
+  {
+    "quote": "(To Thor) Son of Odin, eh? Thou has ticked off Ben Grimm, son of Mr. and Mrs. Grimm!",
+    "year": 1994,
+    "options": [
+      "The New Scooby-Doo Movies",
+      "Justice League Unlimited",
+      "Fantastic Four",
+      "The Powerpuff Girls"
+    ],
+    "genre": "cartoon",
+    "answer": "Fantastic Four",
+    "type": "tv",
+    "character": "Thing",
+    "source": "https://en.wikiquote.org/wiki/Fantastic_Four_(1994_TV_series)"
+  },
+  {
+    "quote": "The game does not conclude until the woman with the eating disorder ululates.",
+    "year": 1995,
+    "options": [
+      "Pinky and the Brain",
+      "The Backyardigans",
+      "Arthur",
+      "The New Scooby-Doo Movies"
+    ],
+    "genre": "cartoon",
+    "answer": "Pinky and the Brain",
+    "type": "tv",
+    "character": "Brain",
+    "source": "https://en.wikiquote.org/wiki/Pinky_and_the_Brain"
+  },
+  {
+    "quote": "She's been a lot better friend to you than I have. She never tried to change you.",
+    "year": 1994,
+    "options": [
+      "Star Trek: Deep Space Nine",
+      "Charmed",
+      "Twin Peaks",
+      "Touched by an Angel"
+    ],
+    "genre": "tvdrama",
+    "answer": "Touched by an Angel",
+    "type": "tv",
+    "character": "Wayne",
+    "source": "https://en.wikiquote.org/wiki/Touched_by_an_Angel"
+  },
+  {
+    "quote": "There is no way I can apologize to you, Mr. Neelix. That is why I have not tried",
+    "year": 1995,
+    "options": [
+      "Star Trek: The Next Generation",
+      "The Unit",
+      "House",
+      "Star Trek: Voyager"
+    ],
+    "genre": "tvdrama",
+    "answer": "Star Trek: Voyager",
+    "type": "tv",
+    "character": "Jetrel",
+    "source": "https://en.wikiquote.org/wiki/Star_Trek%3A_Voyager"
+  },
+  {
+    "quote": "Well, just because you're not a demon anymore doesn't mean we can't live in sin.",
+    "year": 1998,
+    "options": [
+      "Billions",
+      "The Gilded Age",
+      "House",
+      "Charmed"
+    ],
+    "genre": "tvdrama",
+    "answer": "Charmed",
+    "type": "tv",
+    "character": "Phoebe",
+    "source": "https://en.wikiquote.org/wiki/Charmed_(TV_series)"
+  },
+  {
+    "quote": "Nohammers' Hardware. YES, WE HAVE HAMMERS. (slaps his own head) NO, IT'S JUST MY NAME!!!!",
+    "year": 2005,
+    "options": [
+      "Moral Orel",
+      "George Lopez",
+      "Malcolm in the Middle",
+      "Squidbillies"
+    ],
+    "genre": "sitcom",
+    "answer": "Moral Orel",
+    "type": "tv",
+    "character": "Mr. Nohammer",
+    "source": "https://en.wikiquote.org/wiki/Moral_Orel"
+  },
+  {
+    "quote": "You sit in such judgment of the world. How do you expect to ever be a part of it?",
+    "year": 2001,
+    "options": [
+      "Hercules: The Legendary Journeys",
+      "Six Feet Under",
+      "Alias",
+      "Intelligence"
+    ],
+    "genre": "tvdrama",
+    "answer": "Six Feet Under",
+    "type": "tv",
+    "character": "Olivier",
+    "source": "https://en.wikiquote.org/wiki/Six_Feet_Under_(TV_series)"
+  },
+  {
+    "quote": "He's right, I screwed up. I let it come to this. But no more. No fucking more.",
+    "year": 2006,
+    "options": [
+      "Dexter",
+      "The Practice",
+      "The Unit",
+      "True Detective"
+    ],
+    "genre": "tvdrama",
+    "answer": "Dexter",
+    "type": "tv",
+    "character": "Dexter",
+    "source": "https://en.wikiquote.org/wiki/Dexter_(TV_series)"
+  },
+  {
+    "quote": "OH, NO! My skateboard! It's totaled! Oh, man… Where will I ever get another skateboard?",
+    "year": 2004,
+    "options": [
+      "Adventure Time",
+      "The Adventures of Rocky and Bullwinkle and Friends",
+      "Your Friendly Neighborhood Spider-Man",
+      "The Backyardigans"
+    ],
+    "genre": "cartoon",
+    "answer": "The Backyardigans",
+    "type": "tv",
+    "character": "Tyrone",
+    "source": "https://en.wikiquote.org/wiki/The_Backyardigans"
+  },
+  {
+    "quote": "I doubt even Master Qui-Gon could have prepared a Jedi for this.",
+    "year": 2003,
+    "options": [
+      "Star Wars: Clone Wars",
+      "Animaniacs",
+      "Jonny Quest",
+      "Steven Universe"
+    ],
+    "genre": "cartoon",
+    "answer": "Star Wars: Clone Wars",
+    "type": "tv",
+    "character": "Obi-Wan Kenobi",
+    "source": "https://en.wikiquote.org/wiki/Star_Wars%3A_Clone_Wars_(2003_TV_series)"
+  },
+  {
+    "quote": "Holy shit, there really are nerve gas canisters up here. I though that was a joke.",
+    "year": 2009,
+    "options": [
+      "Archer",
+      "We Bare Bears",
+      "Gargoyles",
+      "Green Eggs and Ham"
+    ],
+    "genre": "cartoon",
+    "answer": "Archer",
+    "type": "tv",
+    "character": "Lana",
+    "source": "https://en.wikiquote.org/wiki/Archer_(2009_TV_series)"
+  },
+  {
+    "quote": "I know what you've done. The Salamancas, they do not. Do you understand what I am saying? Look at me. From now on, You. Are. Mine.",
+    "year": 2015,
+    "options": [
+      "Six Feet Under",
+      "Star Trek: The Next Generation",
+      "Better Call Saul",
+      "The West Wing"
+    ],
+    "genre": "tvdrama",
+    "answer": "Better Call Saul",
+    "type": "tv",
+    "character": "Gus",
+    "source": "https://en.wikiquote.org/wiki/Better_Call_Saul"
+  },
+  {
+    "quote": "What if she gets sick, will you create a holographic doctor...? That's crazy!",
+    "year": 2001,
+    "options": [
+      "Star Trek: Enterprise",
+      "The Wire",
+      "MacGyver",
+      "Sherlock"
+    ],
+    "genre": "tvdrama",
+    "answer": "Star Trek: Enterprise",
+    "type": "tv",
+    "character": "Trip",
+    "source": "https://en.wikiquote.org/wiki/Star_Trek%3A_Enterprise"
+  },
+  {
+    "quote": "I'll catch one that'll make that 'neematoad' look like a 'neematadpole'!",
+    "year": 1991,
+    "options": [
+      "Doug",
+      "Malcolm in the Middle",
+      "Drawn Together",
+      "Mad"
+    ],
+    "genre": "sitcom",
+    "answer": "Doug",
+    "type": "tv",
+    "character": "Roger",
+    "source": "https://en.wikiquote.org/wiki/Doug_(TV_series)"
+  },
+  {
+    "quote": "Nothing is as changeable as a young man's heart. Take hope--and warning--from that.",
+    "year": 2010,
+    "options": [
+      "Star Trek: The Next Generation",
+      "Downton Abbey",
+      "Little House on the Prairie",
+      "Breaking Bad"
+    ],
+    "genre": "tvdrama",
+    "answer": "Downton Abbey",
+    "type": "tv",
+    "character": "Mrs. Patmore",
+    "source": "https://en.wikiquote.org/wiki/Downton_Abbey"
+  },
+  {
+    "quote": "I wanted you to destroy the humans, not give them the gift of being a gargoyle!",
+    "year": 1994,
+    "options": [
+      "We Bare Bears",
+      "ThunderCats",
+      "The Adventures of Rocky and Bullwinkle and Friends",
+      "Gargoyles"
+    ],
+    "genre": "cartoon",
+    "answer": "Gargoyles",
+    "type": "tv",
+    "character": "Demona",
+    "source": "https://en.wikiquote.org/wiki/Gargoyles_(TV_series)"
+  },
+  {
+    "quote": "I'd rather sleep in a dungeon with rats, than share satin pillows with a viper.",
+    "year": 1995,
+    "options": [
+      "The Unit",
+      "Hercules: The Legendary Journeys",
+      "Downton Abbey",
+      "Better Call Saul"
+    ],
+    "genre": "tvdrama",
+    "answer": "Hercules: The Legendary Journeys",
+    "type": "tv",
+    "character": "Hercules",
+    "source": "https://en.wikiquote.org/wiki/Hercules%3A_The_Legendary_Journeys"
+  },
+  {
+    "quote": "Sam, if brains were money you'd have to take out a loan for a cup of coffee.",
+    "year": 1982,
+    "options": [
+      "The Big Bang Theory",
+      "Brooklyn Nine-Nine",
+      "Cheers",
+      "Joey"
+    ],
+    "genre": "sitcom",
+    "answer": "Cheers",
+    "type": "tv",
+    "character": "Diane",
+    "source": "https://en.wikiquote.org/wiki/Cheers"
+  },
+  {
+    "quote": "Uh. There’s a big pile of dung under that tree.",
+    "year": 1995,
+    "options": [
+      "Star Wars Rebels",
+      "Gargoyles",
+      "Pinky and the Brain",
+      "VeggieTales"
+    ],
+    "genre": "cartoon",
+    "answer": "Pinky and the Brain",
+    "type": "tv",
+    "character": "Pinky",
+    "source": "https://en.wikiquote.org/wiki/Pinky_and_the_Brain"
+  },
+  {
+    "quote": "Take it down a notch, we’re trying to make a friend, not initiate a three-way.",
+    "year": 2009,
+    "options": [
+      "Drawn Together",
+      "Fawlty Towers",
+      "The Golden Girls",
+      "Modern Family"
+    ],
+    "genre": "sitcom",
+    "answer": "Modern Family",
+    "type": "tv",
+    "character": "Mitchell",
+    "source": "https://en.wikiquote.org/wiki/Modern_Family"
+  },
+  {
+    "quote": "How can I become the world's greatest supervillain if I have to babysit Zippy and Lasergirl?",
+    "year": 2013,
+    "options": [
+      "The Thundermans",
+      "Married... with Children",
+      "Modern Family",
+      "Schitt's Creek"
+    ],
+    "genre": "sitcom",
+    "answer": "The Thundermans",
+    "type": "tv",
+    "character": "Max",
+    "source": "https://en.wikiquote.org/wiki/The_Thundermans"
+  },
+  {
+    "quote": "So, enough with the self-improvement-penance-hand-wringing shit. Let's go to work.",
+    "year": 2014,
+    "options": [
+      "Ghost Whisperer",
+      "The West Wing",
+      "True Detective",
+      "Twin Peaks"
+    ],
+    "genre": "tvdrama",
+    "answer": "True Detective",
+    "type": "tv",
+    "character": "Rust Cohle",
+    "source": "https://en.wikiquote.org/wiki/True_Detective"
+  },
+  {
+    "quote": "I know she's your mom, but I'm not sure that she's into being your mom right now.",
+    "year": 1960,
+    "options": [
+      "Green Eggs and Ham",
+      "DuckTales",
+      "Batman: The Animated Series",
+      "The Wild Thornberrys"
+    ],
+    "genre": "cartoon",
+    "answer": "Green Eggs and Ham",
+    "type": "tv",
+    "character": "Guy",
+    "source": "https://en.wikiquote.org/wiki/Green_Eggs_and_Ham_(TV_series)"
+  },
+  {
+    "quote": "I'm sorry Carl, I can't see you now. I've got HUGE dollar signs in my eyes.",
+    "year": 1997,
+    "options": [
+      "That '70s Show",
+      "Scrubs",
+      "Johnny Bravo",
+      "Arrested Development"
+    ],
+    "genre": "sitcom",
+    "answer": "Johnny Bravo",
+    "type": "tv",
+    "character": "Pops",
+    "source": "https://en.wikiquote.org/wiki/Johnny_Bravo"
+  },
+  {
+    "quote": "This is a family business... but the family is fucked and it's hurting the stock.",
+    "year": 2018,
+    "options": [
+      "Fringe",
+      "Succession",
+      "Intelligence",
+      "The Diplomat"
+    ],
+    "genre": "tvdrama",
+    "answer": "Succession",
+    "type": "tv",
+    "character": "Stewy Hosseini",
+    "source": "https://en.wikiquote.org/wiki/Succession_(TV_series)"
+  },
+  {
+    "quote": "So, you two can't get along unless you think I'm going to kill you.",
+    "year": 2013,
+    "options": [
+      "Steven Universe",
+      "Batman: The Animated Series",
+      "We Bare Bears",
+      "Teenage Mutant Ninja Turtles"
+    ],
+    "genre": "cartoon",
+    "answer": "Steven Universe",
+    "type": "tv",
+    "character": "Garnet",
+    "source": "https://en.wikiquote.org/wiki/Steven_Universe"
+  },
+  {
+    "quote": "They were calling me \"bean boy\" and telling me I had peas on my head!",
+    "year": 1993,
+    "options": [
+      "Star vs. the Forces of Evil",
+      "Steven Universe",
+      "Ultimate Spider-Man",
+      "VeggieTales"
+    ],
+    "genre": "cartoon",
+    "answer": "VeggieTales",
+    "type": "tv",
+    "character": "Junior Asparagus",
+    "source": "https://en.wikiquote.org/wiki/VeggieTales"
+  },
+  {
+    "quote": "It's a sad world we live in when Sam Malone becomes the voice of reason.",
+    "year": 1982,
+    "options": [
+      "Doug",
+      "Cheers",
+      "Fawlty Towers",
+      "The Golden Girls"
+    ],
+    "genre": "sitcom",
+    "answer": "Cheers",
+    "type": "tv",
+    "character": "Sam",
+    "source": "https://en.wikiquote.org/wiki/Cheers"
+  },
+  {
+    "quote": "So, I just wanted to get the gang together early in my tenure to say, uh, \"Yo.\"",
+    "year": 2018,
+    "options": [
+      "Hannibal",
+      "Dollhouse",
+      "True Detective",
+      "Succession"
+    ],
+    "genre": "tvdrama",
+    "answer": "Succession",
+    "type": "tv",
+    "character": "Kendall Roy",
+    "source": "https://en.wikiquote.org/wiki/Succession_(TV_series)"
+  },
+  {
+    "quote": "What's up ya fat old mother--- handsome strong stupid ignorant-ass all-around nice guy?",
+    "year": 2012,
+    "options": [
+      "Everybody Loves Raymond",
+      "Brickleberry",
+      "How I Met Your Mother",
+      "Harvey Birdman, Attorney at Law"
+    ],
+    "genre": "sitcom",
+    "answer": "Brickleberry",
+    "type": "tv",
+    "character": "Denzel",
+    "source": "https://en.wikiquote.org/wiki/Brickleberry"
+  },
+  {
+    "quote": "Cooper you may be fearless in this world, but there are other worlds.",
+    "year": 1990,
+    "options": [
+      "Twin Peaks",
+      "China Beach",
+      "House",
+      "The West Wing"
+    ],
+    "genre": "tvdrama",
+    "answer": "Twin Peaks",
+    "type": "tv",
+    "character": "Deputy Hawk",
+    "source": "https://en.wikiquote.org/wiki/Twin_Peaks"
+  },
+  {
+    "quote": "Jealousy is an ugly thing, Dorothy. And so are you, in anything backless.",
+    "year": 1985,
+    "options": [
+      "I Love Lucy",
+      "That '70s Show",
+      "Doug",
+      "The Golden Girls"
+    ],
+    "genre": "sitcom",
+    "answer": "The Golden Girls",
+    "type": "tv",
+    "character": "Sophia",
+    "source": "https://en.wikiquote.org/wiki/The_Golden_Girls"
+  },
+  {
+    "quote": "I'm a humane man, but right now I could kick a kitten through an electric fan.",
+    "year": 1993,
+    "options": [
+      "Frasier",
+      "Happy's Place",
+      "The IT Crowd",
+      "Joey"
+    ],
+    "genre": "sitcom",
+    "answer": "Frasier",
+    "type": "tv",
+    "character": "Frasier",
+    "source": "https://en.wikiquote.org/wiki/Frasier"
+  },
+  {
+    "quote": "But the 22nd Rule of Acquisition says, \"A wise man can hear profit in the wind.\"",
+    "year": 1993,
+    "options": [
+      "Little House on the Prairie",
+      "Breaking Bad",
+      "Hercules: The Legendary Journeys",
+      "Star Trek: Deep Space Nine"
+    ],
+    "genre": "tvdrama",
+    "answer": "Star Trek: Deep Space Nine",
+    "type": "tv",
+    "character": "Pell",
+    "source": "https://en.wikiquote.org/wiki/Star_Trek%3A_Deep_Space_Nine"
+  },
+  {
+    "quote": "Oh, look at you! Oh, I could kick myself for letting you having that gum, Prudence!",
+    "year": 1991,
+    "options": [
+      "Star Wars: Clone Wars",
+      "BoJack Horseman",
+      "Batman Beyond",
+      "Rugrats"
+    ],
+    "genre": "cartoon",
+    "answer": "Rugrats",
+    "type": "tv",
+    "character": "Mother",
+    "source": "https://en.wikiquote.org/wiki/Rugrats"
+  },
+  {
+    "quote": "I am a great magician, but the one thing I cannot do is grow hair.",
+    "year": 2006,
+    "options": [
+      "VeggieTales",
+      "Justice League Unlimited",
+      "Dungeons & Dragons",
+      "Star Trek: The Animated Series"
+    ],
+    "genre": "cartoon",
+    "answer": "Dungeons & Dragons",
+    "type": "tv",
+    "character": "Merlin",
+    "source": "https://en.wikiquote.org/wiki/Dungeons_%26_Dragons_(TV_series)"
+  },
+  {
+    "quote": "You know a lot of people think its the imperfections that make things beautiful.",
+    "year": 1994,
+    "options": [
+      "Touched by an Angel",
+      "Dexter",
+      "Fringe",
+      "Sherlock"
+    ],
+    "genre": "tvdrama",
+    "answer": "Touched by an Angel",
+    "type": "tv",
+    "character": "Tess",
+    "source": "https://en.wikiquote.org/wiki/Touched_by_an_Angel"
+  },
+  {
+    "quote": "Unless you have an IQ higher than mine, I am not interested in what you think.",
+    "year": 2008,
+    "options": [
+      "Intelligence",
+      "Six Feet Under",
+      "Kung Fu",
+      "Fringe"
+    ],
+    "genre": "tvdrama",
+    "answer": "Fringe",
+    "type": "tv",
+    "character": "Walter",
+    "source": "https://en.wikiquote.org/wiki/Fringe_(TV_series)"
+  },
+  {
+    "quote": "Good night Einstein. Good night Major Glory! Good night, ghost of dead Fishy.",
+    "year": 1996,
+    "options": [
+      "Dungeons & Dragons",
+      "Winx Club",
+      "Dexter's Laboratory",
+      "DuckTales"
+    ],
+    "genre": "cartoon",
+    "answer": "Dexter's Laboratory",
+    "type": "tv",
+    "character": "Dexter",
+    "source": "https://en.wikiquote.org/wiki/Dexter's_Laboratory"
+  },
+  {
+    "quote": "So this thing followed him from the hospital? I'm not going to sleep for weeks.",
+    "year": 2008,
+    "options": [
+      "Fringe",
+      "Dexter",
+      "Legion",
+      "Twin Peaks"
+    ],
+    "genre": "tvdrama",
+    "answer": "Fringe",
+    "type": "tv",
+    "character": "Astrid",
+    "source": "https://en.wikiquote.org/wiki/Fringe_(TV_series)"
+  },
+  {
+    "quote": "There's an unidentified object approaching Oa at a somewhat astonishing speed...",
+    "year": 1957,
+    "options": [
+      "Justice League Unlimited",
+      "Archer",
+      "Beavis and Butt-head",
+      "BoJack Horseman"
+    ],
+    "genre": "cartoon",
+    "answer": "Justice League Unlimited",
+    "type": "tv",
+    "character": "Guardian",
+    "source": "https://en.wikiquote.org/wiki/Justice_League_Unlimited"
+  },
+  {
+    "quote": "We are coming close to perfecting the nerve gas formula! The master will be pleased!",
+    "year": 1964,
+    "options": [
+      "Adventures of the Gummi Bears",
+      "Jonny Quest",
+      "Batman: The Brave and the Bold",
+      "The New Scooby-Doo Movies"
+    ],
+    "genre": "cartoon",
+    "answer": "Jonny Quest",
+    "type": "tv",
+    "character": "Plant worker",
+    "source": "https://en.wikiquote.org/wiki/Jonny_Quest_(TV_series)"
+  },
+  {
+    "quote": "Colonel Mustard did it in the kitchen. ...Or was it Miss Scarlett?",
+    "year": 2020,
+    "options": [
+      "Star Trek: The Animated Series",
+      "We Baby Bears",
+      "Fantastic Four",
+      "Animaniacs"
+    ],
+    "genre": "cartoon",
+    "answer": "Animaniacs",
+    "type": "tv",
+    "character": "Serpent",
+    "source": "https://en.wikiquote.org/wiki/Animaniacs"
+  },
+  {
+    "quote": "Maybe I'll just compromise: go to the party, cut off my foot and drink all I want!",
+    "year": 2006,
+    "options": [
+      "30 Rock",
+      "The Thundermans",
+      "Arrested Development",
+      "Seinfeld"
+    ],
+    "genre": "sitcom",
+    "answer": "30 Rock",
+    "type": "tv",
+    "character": "Tracy",
+    "source": "https://en.wikiquote.org/wiki/30_Rock"
+  },
+  {
+    "quote": "Long distance is a lie teenagers tell each other to get laid the summer before college.",
+    "year": 2005,
+    "options": [
+      "That '70s Show",
+      "George Lopez",
+      "How I Met Your Mother",
+      "Mad"
+    ],
+    "genre": "sitcom",
+    "answer": "How I Met Your Mother",
+    "type": "tv",
+    "character": "Ted",
+    "source": "https://en.wikiquote.org/wiki/How_I_Met_Your_Mother"
+  },
+  {
+    "quote": "Hey! There's a Cheez-It on the shelf! I knew I kept these things around for a reason.",
+    "year": 2014,
+    "options": [
+      "The Backyardigans",
+      "Beavis and Butt-head",
+      "DuckTales",
+      "BoJack Horseman"
+    ],
+    "genre": "cartoon",
+    "answer": "BoJack Horseman",
+    "type": "tv",
+    "character": "Diane",
+    "source": "https://en.wikiquote.org/wiki/BoJack_Horseman"
+  },
+  {
+    "quote": "There's enough material there for an entire conference.",
+    "year": 1975,
+    "options": [
+      "Happy Days",
+      "Going Dutch",
+      "Fawlty Towers",
+      "Seinfeld"
+    ],
+    "genre": "sitcom",
+    "answer": "Fawlty Towers",
+    "type": "tv",
+    "character": "Psychiatrist",
+    "source": "https://en.wikiquote.org/wiki/Fawlty_Towers"
+  },
+  {
+    "quote": "Look at us, riding around in a limo, eating hot dogs... It's like we're the president.",
+    "year": 2005,
+    "options": [
+      "Drawn Together",
+      "Seinfeld",
+      "How I Met Your Mother",
+      "The Thundermans"
+    ],
+    "genre": "sitcom",
+    "answer": "How I Met Your Mother",
+    "type": "tv",
+    "character": "Marshall",
+    "source": "https://en.wikiquote.org/wiki/How_I_Met_Your_Mother"
+  },
+  {
+    "quote": "Oh, I am so excited to be in the food service industry. May I cut the cheese?",
+    "year": 1998,
+    "options": [
+      "Everybody Loves Raymond",
+      "That '70s Show",
+      "Malcolm in the Middle",
+      "Seinfeld"
+    ],
+    "genre": "sitcom",
+    "answer": "That '70s Show",
+    "type": "tv",
+    "character": "Fez",
+    "source": "https://en.wikiquote.org/wiki/That_'70s_Show"
+  },
+  {
+    "quote": "A man's game charges a man's price. Take that away from this, if nothing else.",
+    "year": 2014,
+    "options": [
+      "The Practice",
+      "Mad Men",
+      "True Detective",
+      "Legion"
+    ],
+    "genre": "tvdrama",
+    "answer": "True Detective",
+    "type": "tv",
+    "character": "Marty Hart",
+    "source": "https://en.wikiquote.org/wiki/True_Detective"
+  },
+  {
+    "quote": "That could lead to a coma state, or it could turn her into Carrie at the prom",
+    "year": 2009,
+    "options": [
+      "Dollhouse",
+      "Breaking Bad",
+      "Legion",
+      "Kung Fu"
+    ],
+    "genre": "tvdrama",
+    "answer": "Dollhouse",
+    "type": "tv",
+    "character": "Topher",
+    "source": "https://en.wikiquote.org/wiki/Dollhouse_(TV_series)"
+  },
+  {
+    "quote": "I guess if you let on you can see me, the good doctor would lock you up too.",
+    "year": 2005,
+    "options": [
+      "Star Trek: The Next Generation",
+      "The Strain",
+      "Ghost Whisperer",
+      "Billions"
+    ],
+    "genre": "tvdrama",
+    "answer": "Ghost Whisperer",
+    "type": "tv",
+    "character": "Zoe",
+    "source": "https://en.wikiquote.org/wiki/Ghost_Whisperer"
+  },
+  {
+    "quote": "So you talked to Tammy? What's it like to stare into the eye of Satan's butthole?",
+    "year": 2009,
+    "options": [
+      "The Brady Bunch",
+      "Brickleberry",
+      "That '70s Show",
+      "Parks and Recreation"
+    ],
+    "genre": "sitcom",
+    "answer": "Parks and Recreation",
+    "type": "tv",
+    "character": "Ron",
+    "source": "https://en.wikiquote.org/wiki/Parks_and_Recreation"
+  },
+  {
+    "quote": "All agents to the lab. Intruder is armed, extremely armed, and dangerous.",
+    "year": 2012,
+    "options": [
+      "Your Friendly Neighborhood Spider-Man",
+      "Ultimate Spider-Man",
+      "DuckTales",
+      "Gargoyles"
+    ],
+    "genre": "cartoon",
+    "answer": "Ultimate Spider-Man",
+    "type": "tv",
+    "character": "Nick Fury",
+    "source": "https://en.wikiquote.org/wiki/Ultimate_Spider-Man_(TV_series)"
+  },
+  {
+    "quote": "Memories are okay to have, as long as they don't get in the way of dreams.",
+    "year": 1985,
+    "options": [
+      "Lost",
+      "The Practice",
+      "MacGyver",
+      "Sherlock"
+    ],
+    "genre": "tvdrama",
+    "answer": "MacGyver",
+    "type": "tv",
+    "character": "Carol Varnay",
+    "source": "https://en.wikiquote.org/wiki/MacGyver"
+  },
+  {
+    "quote": "Mother. They let you pass through. They wouldn't let me pass.",
+    "year": 2013,
+    "options": [
+      "Boardwalk Empire",
+      "The West Wing",
+      "Peaky Blinders",
+      "Star Trek: The Next Generation"
+    ],
+    "genre": "tvdrama",
+    "answer": "Peaky Blinders",
+    "type": "tv",
+    "character": "Thomas Shelby",
+    "source": "https://en.wikiquote.org/wiki/Peaky_Blinders_(TV_series)"
+  },
+  {
+    "quote": "It must be a hundred and twenty degrees in the shade, and there isn't any shade!",
+    "year": 2006,
+    "options": [
+      "Arthur",
+      "The Real Ghostbusters",
+      "Adventures of the Gummi Bears",
+      "Dungeons & Dragons"
+    ],
+    "genre": "cartoon",
+    "answer": "Dungeons & Dragons",
+    "type": "tv",
+    "character": "Presto",
+    "source": "https://en.wikiquote.org/wiki/Dungeons_%26_Dragons_(TV_series)"
+  },
+  {
+    "quote": "The here and now is a special, special gift. That's why I call it \"the present\".",
+    "year": 2000,
+    "options": [
+      "Malcolm in the Middle",
+      "Nicky, Ricky, Dicky & Dawn",
+      "Disenchantment",
+      "Brooklyn Nine-Nine"
+    ],
+    "genre": "sitcom",
+    "answer": "Malcolm in the Middle",
+    "type": "tv",
+    "character": "Boone Vincent",
+    "source": "https://en.wikiquote.org/wiki/Malcolm_in_the_Middle"
+  },
+  {
+    "quote": "Falling in love is such a waste of time. I'm going to stay right here with Pa forever and ever!",
+    "year": 1974,
+    "options": [
+      "Little House on the Prairie",
+      "Legion",
+      "Downton Abbey",
+      "Judging Amy"
+    ],
+    "genre": "tvdrama",
+    "answer": "Little House on the Prairie",
+    "type": "tv",
+    "character": "Laura",
+    "source": "https://en.wikiquote.org/wiki/Little_House_on_the_Prairie_(TV_series)"
+  },
+  {
+    "quote": "Oh, baby doll. And just for the record, I usually prefer my dates to have a face.",
+    "year": 1957,
+    "options": [
+      "Dungeons & Dragons",
+      "Ultimate Spider-Man",
+      "Steven Universe",
+      "Justice League Unlimited"
+    ],
+    "genre": "cartoon",
+    "answer": "Justice League Unlimited",
+    "type": "tv",
+    "character": "Huntress",
+    "source": "https://en.wikiquote.org/wiki/Justice_League_Unlimited"
+  },
+  {
+    "quote": "Dad, believe it or not, there are people in the world who aren't out to get us.",
+    "year": 2006,
+    "options": [
+      "Heroes",
+      "The Strain",
+      "Better Call Saul",
+      "Dollhouse"
+    ],
+    "genre": "tvdrama",
+    "answer": "Heroes",
+    "type": "tv",
+    "character": "Claire",
+    "source": "https://en.wikiquote.org/wiki/Heroes_(TV_series)"
+  },
+  {
+    "quote": "You know... maybe we could all learn a thing or two from those sandwiches.",
+    "year": 2010,
+    "options": [
+      "Adventure Time",
+      "Ultimate Spider-Man",
+      "Green Eggs and Ham",
+      "Hey Arnold!"
+    ],
+    "genre": "cartoon",
+    "answer": "Adventure Time",
+    "type": "tv",
+    "character": "Ice King",
+    "source": "https://en.wikiquote.org/wiki/Adventure_Time"
+  },
+  {
+    "quote": "Because if you don't you will be responsible for Cybertrons destruction!",
+    "year": 2009,
+    "options": [
+      "The Transformers",
+      "Jonny Quest",
+      "The Powerpuff Girls",
+      "Justice League Unlimited"
+    ],
+    "genre": "cartoon",
+    "answer": "The Transformers",
+    "type": "tv",
+    "character": "Megatron",
+    "source": "https://en.wikiquote.org/wiki/The_Transformers_(TV_series)"
+  },
+  {
+    "quote": "What you did was impulsive, capricious, and melodramatic. But it was also wrong.",
+    "year": 2015,
+    "options": [
+      "Drawn Together",
+      "Arrested Development",
+      "Schitt's Creek",
+      "Mission Hill"
+    ],
+    "genre": "sitcom",
+    "answer": "Schitt's Creek",
+    "type": "tv",
+    "character": "Moira",
+    "source": "https://en.wikiquote.org/wiki/Schitt's_Creek"
+  },
+  {
+    "quote": "I'm just a guy with a boomerang. I didn't ask for all this flying and magic!",
+    "year": 2005,
+    "options": [
+      "Avatar: The Last Airbender",
+      "Star vs. the Forces of Evil",
+      "The Jetsons",
+      "Star Trek: The Animated Series"
+    ],
+    "genre": "cartoon",
+    "answer": "Avatar: The Last Airbender",
+    "type": "tv",
+    "character": "Sokka",
+    "source": "https://en.wikiquote.org/wiki/Avatar%3A_The_Last_Airbender"
+  },
+  {
+    "quote": "I'm not a creative type like you, with your work sneakers and left-handedness.",
+    "year": 2006,
+    "options": [
+      "30 Rock",
+      "Modern Family",
+      "Solar Opposites",
+      "Disenchantment"
+    ],
+    "genre": "sitcom",
+    "answer": "30 Rock",
+    "type": "tv",
+    "character": "Jack",
+    "source": "https://en.wikiquote.org/wiki/30_Rock"
+  },
+  {
+    "quote": "Put the gun down. We're friends. You're not a killer.",
+    "year": 2014,
+    "options": [
+      "Breaking Bad",
+      "Star Trek: Deep Space Nine",
+      "Dollhouse",
+      "Intelligence"
+    ],
+    "genre": "tvdrama",
+    "answer": "Intelligence",
+    "type": "tv",
+    "character": "Woman",
+    "source": "https://en.wikiquote.org/wiki/Intelligence_(American_TV_series)"
+  },
+  {
+    "quote": "Hey, buddy, I would like to position myself in her lotus. You know what I mean?",
+    "year": 2012,
+    "options": [
+      "Parks and Recreation",
+      "Nicky, Ricky, Dicky & Dawn",
+      "Married... with Children",
+      "Brickleberry"
+    ],
+    "genre": "sitcom",
+    "answer": "Brickleberry",
+    "type": "tv",
+    "character": "Woody",
+    "source": "https://en.wikiquote.org/wiki/Brickleberry"
+  },
+  {
+    "quote": "Warning: If you're not a cartoon swallowing a rubber full of drugs can kill you",
+    "year": 1993,
+    "options": [
+      "The New Scooby-Doo Movies",
+      "Beavis and Butt-head",
+      "George of the Jungle",
+      "VeggieTales"
+    ],
+    "genre": "cartoon",
+    "answer": "Beavis and Butt-head",
+    "type": "tv",
+    "character": "Disclaimer",
+    "source": "https://en.wikiquote.org/wiki/Beavis_and_Butt-head"
+  },
+  {
+    "quote": "One day you'll lose someone who's important to you. You'll see. It's very painful.",
+    "year": 2007,
+    "options": [
+      "Mad Men",
+      "The Gilded Age",
+      "Charmed",
+      "Six Feet Under"
+    ],
+    "genre": "tvdrama",
+    "answer": "Mad Men",
+    "type": "tv",
+    "character": "Joan",
+    "source": "https://en.wikiquote.org/wiki/Mad_Men"
+  },
+  {
+    "quote": "You keep calling me sweetie, gorgeous & beautiful, and I'll follow you anywhere!",
+    "year": 1969,
+    "options": [
+      "Malcolm in the Middle",
+      "The Brady Bunch",
+      "30 Rock",
+      "Arrested Development"
+    ],
+    "genre": "sitcom",
+    "answer": "The Brady Bunch",
+    "type": "tv",
+    "character": "Alice",
+    "source": "https://en.wikiquote.org/wiki/The_Brady_Bunch"
+  },
+  {
+    "quote": "You're very obedient all of a sudden. What are you planning to spring on me?",
+    "year": 2022,
+    "options": [
+      "Hercules: The Legendary Journeys",
+      "Peaky Blinders",
+      "Star Trek: Deep Space Nine",
+      "The Gilded Age"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Gilded Age",
+    "type": "tv",
+    "character": "Agnes van Rhijn",
+    "source": "https://en.wikiquote.org/wiki/The_Gilded_Age_(TV_series)"
+  },
+  {
+    "quote": "Did our forefathers give up on their Independence Day? no! they never gave up.\"",
+    "year": 2014,
+    "options": [
+      "Everybody Loves Raymond",
+      "Nicky, Ricky, Dicky & Dawn",
+      "Solar Opposites",
+      "The Brady Bunch"
+    ],
+    "genre": "sitcom",
+    "answer": "Nicky, Ricky, Dicky & Dawn",
+    "type": "tv",
+    "character": "Dawn",
+    "source": "https://en.wikiquote.org/wiki/Nicky%2C_Ricky%2C_Dicky_%26_Dawn"
+  },
+  {
+    "quote": "Dip down. I did it! I dipped, I dipped, I dipped, Marco! I'm not a skimmer. I dipped!",
+    "year": 2015,
+    "options": [
+      "Gargoyles",
+      "Star vs. the Forces of Evil",
+      "Batman: The Brave and the Bold",
+      "Justice League Unlimited"
+    ],
+    "genre": "cartoon",
+    "answer": "Star vs. the Forces of Evil",
+    "type": "tv",
+    "character": "Star",
+    "source": "https://en.wikiquote.org/wiki/Star_vs._the_Forces_of_Evil"
+  },
+  {
+    "quote": "There is no conjuring something from nothing. There is a give and there is a take.",
+    "year": 2019,
+    "options": [
+      "Lost",
+      "The West Wing",
+      "China Beach",
+      "The Witcher"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Witcher",
+    "type": "tv",
+    "character": "Tissaia de Vries",
+    "source": "https://en.wikiquote.org/wiki/The_Witcher_(TV_series)"
+  },
+  {
+    "quote": "\"Freezed\" to meet you! Hope you saved room for dessert! I'm killing you with ice cream!",
+    "year": 2010,
+    "options": [
+      "Gargoyles",
+      "Adventure Time",
+      "VeggieTales",
+      "The New Scooby-Doo Movies"
+    ],
+    "genre": "cartoon",
+    "answer": "Adventure Time",
+    "type": "tv",
+    "character": "Finn",
+    "source": "https://en.wikiquote.org/wiki/Adventure_Time"
+  },
+  {
+    "quote": "How did I not figure THAT out! I took calculus when I was eight! 243589",
+    "year": 2004,
+    "options": [
+      "Nicky, Ricky, Dicky & Dawn",
+      "Joey",
+      "Brickleberry",
+      "I Love Lucy"
+    ],
+    "genre": "sitcom",
+    "answer": "Joey",
+    "type": "tv",
+    "character": "Michael",
+    "source": "https://en.wikiquote.org/wiki/Joey_(TV_series)"
+  },
+  {
+    "quote": "I'll need some milk money for my first day of new school. I suppose this will do.",
+    "year": 2016,
+    "options": [
+      "The Powerpuff Girls",
+      "We Bare Bears",
+      "Batman Beyond",
+      "The Adventures of Rocky and Bullwinkle and Friends"
+    ],
+    "genre": "cartoon",
+    "answer": "The Powerpuff Girls",
+    "type": "tv",
+    "character": "Princess Morbucks",
+    "source": "https://en.wikiquote.org/wiki/The_Powerpuff_Girls"
+  },
+  {
+    "quote": "(to Krinsman) I've got my friends, sir. I am perfectly content to have you as an enemy.",
+    "year": 2009,
+    "options": [
+      "Succession",
+      "Peaky Blinders",
+      "China Beach",
+      "The Unit"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Unit",
+    "type": "tv",
+    "character": "Ryan",
+    "source": "https://en.wikiquote.org/wiki/The_Unit"
+  },
+  {
+    "quote": "No matter what form you take, Aku, you will never defeat the side of righteousness.",
+    "year": 2001,
+    "options": [
+      "Samurai Jack",
+      "Jonny Quest",
+      "Dexter's Laboratory",
+      "The Real Ghostbusters"
+    ],
+    "genre": "cartoon",
+    "answer": "Samurai Jack",
+    "type": "tv",
+    "character": "Jack",
+    "source": "https://en.wikiquote.org/wiki/Samurai_Jack"
+  },
+  {
+    "quote": "You win, Captain Scavenger! We're splitting!",
+    "year": 1972,
+    "options": [
+      "Green Eggs and Ham",
+      "The New Scooby-Doo Movies",
+      "Your Friendly Neighborhood Spider-Man",
+      "BoJack Horseman"
+    ],
+    "genre": "cartoon",
+    "answer": "The New Scooby-Doo Movies",
+    "type": "tv",
+    "character": "Josie",
+    "source": "https://en.wikiquote.org/wiki/The_New_Scooby-Doo_Movies"
+  },
+  {
+    "quote": "Pete, just tell the truth. Don't worry about the outcome. People respect that.",
+    "year": 2007,
+    "options": [
+      "Mad Men",
+      "The Man in the High Castle",
+      "Billions",
+      "The Wire"
+    ],
+    "genre": "tvdrama",
+    "answer": "Mad Men",
+    "type": "tv",
+    "character": "Peggy",
+    "source": "https://en.wikiquote.org/wiki/Mad_Men"
+  },
+  {
+    "quote": "Mourn Matt's passing, then move on. Life will insist. You mustn't fail life.",
+    "year": 2014,
+    "options": [
+      "Dollhouse",
+      "China Beach",
+      "The Strain",
+      "The Witcher"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Strain",
+    "type": "tv",
+    "character": "Abraham Setrakian",
+    "source": "https://en.wikiquote.org/wiki/The_Strain_(TV_series)"
+  },
+  {
+    "quote": "Gentlemen, we do not wave our genitals at one another to make a point!",
+    "year": 2014,
+    "options": [
+      "Curb Your Enthusiasm",
+      "Arrested Development",
+      "Nicky, Ricky, Dicky & Dawn",
+      "30 Rock"
+    ],
+    "genre": "sitcom",
+    "answer": "Arrested Development",
+    "type": "tv",
+    "character": "George Sr.",
+    "source": "https://en.wikiquote.org/wiki/Arrested_Development"
+  },
+  {
+    "quote": "He never forgave your father for being such a success or for giving up Chanukah.",
+    "year": 2001,
+    "options": [
+      "Six Feet Under",
+      "The Man in the High Castle",
+      "The Twilight Zone",
+      "The Witcher"
+    ],
+    "genre": "tvdrama",
+    "answer": "Six Feet Under",
+    "type": "tv",
+    "character": "Margaret",
+    "source": "https://en.wikiquote.org/wiki/Six_Feet_Under_(TV_series)"
+  },
+  {
+    "quote": "It's not nice to fire at a lady! And it's incredibly stupid to shoot at a witch!",
+    "year": 1987,
+    "options": [
+      "The Backyardigans",
+      "Jonny Quest",
+      "Winx Club",
+      "DuckTales"
+    ],
+    "genre": "cartoon",
+    "answer": "DuckTales",
+    "type": "tv",
+    "character": "Magica",
+    "source": "https://en.wikiquote.org/wiki/DuckTales_(1987_TV_series)"
+  },
+  {
+    "quote": "You know, my grandfather's name was Harold Bingo, and he invented the game \"Bingo.\"",
+    "year": 2000,
+    "options": [
+      "Happy's Place",
+      "Curb Your Enthusiasm",
+      "Scrubs",
+      "The Nanny"
+    ],
+    "genre": "sitcom",
+    "answer": "Curb Your Enthusiasm",
+    "type": "tv",
+    "character": "Larry",
+    "source": "https://en.wikiquote.org/wiki/Curb_Your_Enthusiasm"
+  },
+  {
+    "quote": "Look, you may be used to dealing with freaks and monsters, but I'm a little new at this.",
+    "year": 2015,
+    "options": [
+      "Batman Beyond",
+      "ThunderCats",
+      "Winx Club",
+      "Ultimate Spider-Man"
+    ],
+    "genre": "cartoon",
+    "answer": "Batman Beyond",
+    "type": "tv",
+    "character": "Terry McGinnis",
+    "source": "https://en.wikiquote.org/wiki/Batman_Beyond"
+  },
+  {
+    "quote": "Heather, so glad you're here! Take 5, everybody.",
+    "year": 2023,
+    "options": [
+      "Happy Days",
+      "Curb Your Enthusiasm",
+      "Night Court",
+      "Harvey Birdman, Attorney at Law"
+    ],
+    "genre": "sitcom",
+    "answer": "Night Court",
+    "type": "tv",
+    "character": "Abby",
+    "source": "https://en.wikiquote.org/wiki/Night_Court_(2023_TV_series)"
+  },
+  {
+    "quote": "Oh, dear. I’m not gonna say, “I told you so”, because I’ve written it down.",
+    "year": 1960,
+    "options": [
+      "Star Wars Rebels",
+      "Gargoyles",
+      "Green Eggs and Ham",
+      "Winx Club"
+    ],
+    "genre": "cartoon",
+    "answer": "Green Eggs and Ham",
+    "type": "tv",
+    "character": "Michellee",
+    "source": "https://en.wikiquote.org/wiki/Green_Eggs_and_Ham_(TV_series)"
+  },
+  {
+    "quote": "You are having a breakdown. Not a shave-your-head-and-flash-your-junk wacky phase",
+    "year": 2009,
+    "options": [
+      "Dollhouse",
+      "Sherlock",
+      "Little House on the Prairie",
+      "Downton Abbey"
+    ],
+    "genre": "tvdrama",
+    "answer": "Dollhouse",
+    "type": "tv",
+    "character": "Echo",
+    "source": "https://en.wikiquote.org/wiki/Dollhouse_(TV_series)"
+  },
+  {
+    "quote": "If you must kill me... I am ready. But the Sylvan's right. Don't call me human.",
+    "year": 2019,
+    "options": [
+      "The Strain",
+      "Star Trek: Voyager",
+      "Mad Men",
+      "The Witcher"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Witcher",
+    "type": "tv",
+    "character": "Geralt of Rivia",
+    "source": "https://en.wikiquote.org/wiki/The_Witcher_(TV_series)"
+  },
+  {
+    "quote": "I'm lookin' for my friend Doofus, chubby little kid, about the size of this lamp.",
+    "year": 1987,
+    "options": [
+      "DuckTales",
+      "Dexter's Laboratory",
+      "Adventure Time",
+      "BoJack Horseman"
+    ],
+    "genre": "cartoon",
+    "answer": "DuckTales",
+    "type": "tv",
+    "character": "Launchpad",
+    "source": "https://en.wikiquote.org/wiki/DuckTales_(1987_TV_series)"
+  },
+  {
+    "quote": "Mommy, Mommy, that bald man is in the bathroom and there's something hard in his pants!",
+    "year": 2000,
+    "options": [
+      "Modern Family",
+      "Curb Your Enthusiasm",
+      "Married... with Children",
+      "Brooklyn Nine-Nine"
+    ],
+    "genre": "sitcom",
+    "answer": "Curb Your Enthusiasm",
+    "type": "tv",
+    "character": "Tara",
+    "source": "https://en.wikiquote.org/wiki/Curb_Your_Enthusiasm"
+  },
+  {
+    "quote": "I shall now contact Tilly! Ethel to Tilly, Ethel to Tilly. Come in, Tilly. Over.",
+    "year": 1951,
+    "options": [
+      "The Big Bang Theory",
+      "Night Court",
+      "I Love Lucy",
+      "Curb Your Enthusiasm"
+    ],
+    "genre": "sitcom",
+    "answer": "I Love Lucy",
+    "type": "tv",
+    "character": "Ethel",
+    "source": "https://en.wikiquote.org/wiki/I_Love_Lucy"
+  },
+  {
+    "quote": "In the words of the great....That If you cant beat em... kill them\".",
+    "year": 1965,
+    "options": [
+      "Wild, Wild West",
+      "Ghost Whisperer",
+      "Sherlock",
+      "Little House on the Prairie"
+    ],
+    "genre": "tvdrama",
+    "answer": "Wild, Wild West",
+    "type": "tv",
+    "character": "Count Manzeppi",
+    "source": "https://en.wikiquote.org/wiki/Wild%2C_Wild_West"
+  },
+  {
+    "quote": "That man crossed the Golden Gate Bridge this morning.",
+    "year": 2014,
+    "options": [
+      "The Gilded Age",
+      "Twin Peaks",
+      "Heroes",
+      "Intelligence"
+    ],
+    "genre": "tvdrama",
+    "answer": "Intelligence",
+    "type": "tv",
+    "character": "Gabriel",
+    "source": "https://en.wikiquote.org/wiki/Intelligence_(American_TV_series)"
+  },
+  {
+    "quote": "'Settle for less?' This is from the guys that are running Bob Russell for President?",
+    "year": 1999,
+    "options": [
+      "Star Trek: Enterprise",
+      "Touched by an Angel",
+      "The West Wing",
+      "Better Call Saul"
+    ],
+    "genre": "tvdrama",
+    "answer": "The West Wing",
+    "type": "tv",
+    "character": "Santos",
+    "source": "https://en.wikiquote.org/wiki/The_West_Wing"
+  },
+  {
+    "quote": "Well, keep it down; you know when I'm watching you, I'm watching something on TV!",
+    "year": 2001,
+    "options": [
+      "The Fairly OddParents",
+      "Samurai Jack",
+      "Winx Club",
+      "Jonny Quest"
+    ],
+    "genre": "cartoon",
+    "answer": "The Fairly OddParents",
+    "type": "tv",
+    "character": "Vicky",
+    "source": "https://en.wikiquote.org/wiki/The_Fairly_OddParents"
+  },
+  {
+    "quote": "Every man there go back inside, or we will blow a new crater in this little moon.",
+    "year": 2002,
+    "options": [
+      "The Practice",
+      "Firefly",
+      "Kung Fu",
+      "Star Trek: Voyager"
+    ],
+    "genre": "tvdrama",
+    "answer": "Firefly",
+    "type": "tv",
+    "character": "Wash",
+    "source": "https://en.wikiquote.org/wiki/Firefly_(TV_series)"
+  },
+  {
+    "quote": "I can't go to prison, I've got no butthole! How will I smuggle in treats?!",
+    "year": 2020,
+    "options": [
+      "Solar Opposites",
+      "Harvey Birdman, Attorney at Law",
+      "That '70s Show",
+      "George Lopez"
+    ],
+    "genre": "sitcom",
+    "answer": "Solar Opposites",
+    "type": "tv",
+    "character": "Terry",
+    "source": "https://en.wikiquote.org/wiki/Solar_Opposites"
+  },
+  {
+    "quote": "You know that sound you're hearing, you know, that boom? That's my mind blowing.",
+    "year": 2001,
+    "options": [
+      "Alias",
+      "Peaky Blinders",
+      "Star Trek: Voyager",
+      "Touched by an Angel"
+    ],
+    "genre": "tvdrama",
+    "answer": "Alias",
+    "type": "tv",
+    "character": "Marshall",
+    "source": "https://en.wikiquote.org/wiki/Alias_(TV_series)"
+  },
+  {
+    "quote": "You can't fire me! I quit! No, you fired me. That way, I can collect unemployment.",
+    "year": 1993,
+    "options": [
+      "Johnny Bravo",
+      "Solar Opposites",
+      "The Nanny",
+      "Cheers"
+    ],
+    "genre": "sitcom",
+    "answer": "The Nanny",
+    "type": "tv",
+    "character": "Fran",
+    "source": "https://en.wikiquote.org/wiki/The_Nanny"
+  },
+  {
+    "quote": "If I may make a suggestion... You're a Count. So why don't you count?",
+    "year": 1965,
+    "options": [
+      "Wild, Wild West",
+      "Firefly",
+      "Downton Abbey",
+      "Breaking Bad"
+    ],
+    "genre": "tvdrama",
+    "answer": "Wild, Wild West",
+    "type": "tv",
+    "character": "Artemus",
+    "source": "https://en.wikiquote.org/wiki/Wild%2C_Wild_West"
+  },
+  {
+    "quote": "I think you're right. Taking a punch is something I've gotta learn how to do.",
+    "year": 2001,
+    "options": [
+      "Dollhouse",
+      "Big Love",
+      "Alias",
+      "Lost"
+    ],
+    "genre": "tvdrama",
+    "answer": "Alias",
+    "type": "tv",
+    "character": "Sydney",
+    "source": "https://en.wikiquote.org/wiki/Alias_(TV_series)"
+  },
+  {
+    "quote": "I miss my friends. No! I can't give up! I'll find them! Wow. I got my Charmix.",
+    "year": 2004,
+    "options": [
+      "The Fairly OddParents",
+      "ThunderCats",
+      "The Wild Thornberrys",
+      "Winx Club"
+    ],
+    "genre": "cartoon",
+    "answer": "Winx Club",
+    "type": "tv",
+    "character": "Layla",
+    "source": "https://en.wikiquote.org/wiki/Winx_Club"
+  },
+  {
+    "quote": "The question is, why isn’t all your underwear good, Jay? You make a nice living!",
+    "year": 2009,
+    "options": [
+      "Modern Family",
+      "Frasier",
+      "Doug",
+      "Brooklyn Nine-Nine"
+    ],
+    "genre": "sitcom",
+    "answer": "Modern Family",
+    "type": "tv",
+    "character": "Gloria",
+    "source": "https://en.wikiquote.org/wiki/Modern_Family"
+  },
+  {
+    "quote": "I do not know how to beg. I can only request. Save as many of my people as you can.",
+    "year": 1973,
+    "options": [
+      "The Jetsons",
+      "Hey Arnold!",
+      "Star Trek: The Animated Series",
+      "Star Wars: Clone Wars"
+    ],
+    "genre": "cartoon",
+    "answer": "Star Trek: The Animated Series",
+    "type": "tv",
+    "character": "Mendent",
+    "source": "https://en.wikiquote.org/wiki/Star_Trek%3A_The_Animated_Series"
+  },
+  {
+    "quote": "They're not students, they're inmates! And you are the head cuckoo!",
+    "year": 1975,
+    "options": [
+      "Mad",
+      "Everybody Loves Raymond",
+      "Frasier",
+      "Welcome Back, Kotter"
+    ],
+    "genre": "sitcom",
+    "answer": "Welcome Back, Kotter",
+    "type": "tv",
+    "character": "Julie",
+    "source": "https://en.wikiquote.org/wiki/Welcome_Back%2C_Kotter"
+  },
+  {
+    "quote": "Howdy doody to you, Krystal. It's been many years - but you, you ain't moved a bit.",
+    "year": 2005,
+    "options": [
+      "Malcolm in the Middle",
+      "Squidbillies",
+      "The Big Bang Theory",
+      "Laverne & Shirley"
+    ],
+    "genre": "sitcom",
+    "answer": "Squidbillies",
+    "type": "tv",
+    "character": "Early",
+    "source": "https://en.wikiquote.org/wiki/Squidbillies"
+  },
+  {
+    "quote": "If I don't give the closing of my life tomorrow, a 17-year old girl loses hers.",
+    "year": 1997,
+    "options": [
+      "The Twilight Zone",
+      "Downton Abbey",
+      "The Man in the High Castle",
+      "The Practice"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Practice",
+    "type": "tv",
+    "character": "Bobby",
+    "source": "https://en.wikiquote.org/wiki/The_Practice"
+  },
+  {
+    "quote": "It's a vendetta now. It's personal. Even Charlie doesn't want me to GET ANY SLEEP!",
+    "year": 1988,
+    "options": [
+      "House",
+      "Lost",
+      "China Beach",
+      "The Gilded Age"
+    ],
+    "genre": "tvdrama",
+    "answer": "China Beach",
+    "type": "tv",
+    "character": "McMurphy",
+    "source": "https://en.wikiquote.org/wiki/China_Beach"
+  },
+  {
+    "quote": "She's gone and it's--it's my fault! And I should've... I should’ve brushed her like you said...",
+    "year": 2018,
+    "options": [
+      "VeggieTales",
+      "Samurai Jack",
+      "Gravity Falls",
+      "Big City Greens"
+    ],
+    "genre": "cartoon",
+    "answer": "Big City Greens",
+    "type": "tv",
+    "character": "Cricket",
+    "source": "https://en.wikiquote.org/wiki/Big_City_Greens"
+  },
+  {
+    "quote": "Ladybird, Ladybird, fly away home, your house is on fire and your child all gone.",
+    "year": 1992,
+    "options": [
+      "BoJack Horseman",
+      "X-Men '97",
+      "Samurai Jack",
+      "The New Scooby-Doo Movies"
+    ],
+    "genre": "cartoon",
+    "answer": "X-Men '97",
+    "type": "tv",
+    "character": "Mr. Sinister",
+    "source": "https://en.wikiquote.org/wiki/X-Men_'97"
+  },
+  {
+    "quote": "We'd better get our skates on, Mr. Borden, if we're to host the Duke of Buckingham!",
+    "year": 2022,
+    "options": [
+      "The Gilded Age",
+      "Lost",
+      "The Strain",
+      "Little House on the Prairie"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Gilded Age",
+    "type": "tv",
+    "character": "Mr. Church",
+    "source": "https://en.wikiquote.org/wiki/The_Gilded_Age_(TV_series)"
+  },
+  {
+    "quote": "Come on one more romp, I'll even get in front this time! Well it was fun while it lasted. C'mon!",
+    "year": 2020,
+    "options": [
+      "We Bare Bears",
+      "Animaniacs",
+      "Batman Beyond",
+      "Beavis and Butt-head"
+    ],
+    "genre": "cartoon",
+    "answer": "Animaniacs",
+    "type": "tv",
+    "character": "Yakko",
+    "source": "https://en.wikiquote.org/wiki/Animaniacs"
+  },
+  {
+    "quote": "Flash's foes, they finish last! (Huntress: Too bad sometimes he’s just too fast!)",
+    "year": 2008,
+    "options": [
+      "Arthur",
+      "Batman: The Brave and the Bold",
+      "Justice League Unlimited",
+      "The Adventures of Rocky and Bullwinkle and Friends"
+    ],
+    "genre": "cartoon",
+    "answer": "Batman: The Brave and the Bold",
+    "type": "tv",
+    "character": "Catwoman",
+    "source": "https://en.wikiquote.org/wiki/Batman%3A_The_Brave_and_the_Bold"
+  },
+  {
+    "quote": "It takes a lot of effort not to be free-- keeping your head down, holding your tongue.",
+    "year": 2015,
+    "options": [
+      "MacGyver",
+      "Heroes",
+      "The Man in the High Castle",
+      "The Twilight Zone"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Man in the High Castle",
+    "type": "tv",
+    "character": "Randall Becker",
+    "source": "https://en.wikiquote.org/wiki/The_Man_in_the_High_Castle_(TV_series)"
+  },
+  {
+    "quote": "I was created for one purpose - to destroy. I do not wish to destroy anymore.",
+    "year": 2015,
+    "options": [
+      "VeggieTales",
+      "Jonny Quest",
+      "Your Friendly Neighborhood Spider-Man",
+      "Batman Beyond"
+    ],
+    "genre": "cartoon",
+    "answer": "Batman Beyond",
+    "type": "tv",
+    "character": "Zeta",
+    "source": "https://en.wikiquote.org/wiki/Batman_Beyond"
+  },
+  {
+    "quote": "It's raining, it's pouring The old man is snoring. And this is driving me nuts!",
+    "year": 1996,
+    "options": [
+      "The Real Ghostbusters",
+      "We Bare Bears",
+      "Arthur",
+      "The Jetsons"
+    ],
+    "genre": "cartoon",
+    "answer": "Arthur",
+    "type": "tv",
+    "character": "Francine",
+    "source": "https://en.wikiquote.org/wiki/Arthur_(TV_series)"
+  },
+  {
+    "quote": "Ah, sleeping under the stars. Not bad. Ah, get off! Get away! This is still better.",
+    "year": 2012,
+    "options": [
+      "Star Wars: Clone Wars",
+      "Gravity Falls",
+      "Beavis and Butt-head",
+      "The Jetsons"
+    ],
+    "genre": "cartoon",
+    "answer": "Gravity Falls",
+    "type": "tv",
+    "character": "Dipper",
+    "source": "https://en.wikiquote.org/wiki/Gravity_Falls"
+  },
+  {
+    "quote": "Can we all three just parachute down from cloud cuckoo land?",
+    "year": 2015,
+    "options": [
+      "Better Call Saul",
+      "Hannibal",
+      "The West Wing",
+      "Star Trek: Enterprise"
+    ],
+    "genre": "tvdrama",
+    "answer": "Better Call Saul",
+    "type": "tv",
+    "character": "Jimmy",
+    "source": "https://en.wikiquote.org/wiki/Better_Call_Saul"
+  },
+  {
+    "quote": "I hate ping-pong and too cool. I hate Mr Stingy too I'd like to kill the son of a bitch.",
+    "year": 1999,
+    "options": [
+      "Schitt's Creek",
+      "Home Movies",
+      "The Big Bang Theory",
+      "Scrubs"
+    ],
+    "genre": "sitcom",
+    "answer": "Home Movies",
+    "type": "tv",
+    "character": "McGuirk",
+    "source": "https://en.wikiquote.org/wiki/Home_Movies_(TV_series)"
+  },
+  {
+    "quote": "OK, I looking for another loud-mouth volunteer. No volunteer? Good, very good.",
+    "year": 1974,
+    "options": [
+      "Welcome Back, Kotter",
+      "Happy Days",
+      "I Love Lucy",
+      "Scrubs"
+    ],
+    "genre": "sitcom",
+    "answer": "Happy Days",
+    "type": "tv",
+    "character": "Arnold",
+    "source": "https://en.wikiquote.org/wiki/Happy_Days"
+  },
+  {
+    "quote": "April hates Valentine's Day. And brunch, and outside, and smiling. She's weird.",
+    "year": 2009,
+    "options": [
+      "Parks and Recreation",
+      "Happy's Place",
+      "Scrubs",
+      "The IT Crowd"
+    ],
+    "genre": "sitcom",
+    "answer": "Parks and Recreation",
+    "type": "tv",
+    "character": "Andy",
+    "source": "https://en.wikiquote.org/wiki/Parks_and_Recreation"
+  },
+  {
+    "quote": "Angie, this is ridiculous, what's he gonna learn from this, how to operate a VCR?",
+    "year": 2002,
+    "options": [
+      "Married... with Children",
+      "The Golden Girls",
+      "Frasier",
+      "George Lopez"
+    ],
+    "genre": "sitcom",
+    "answer": "George Lopez",
+    "type": "tv",
+    "character": "George",
+    "source": "https://en.wikiquote.org/wiki/George_Lopez_(TV_series)"
+  },
+  {
+    "quote": "Rules, rules, rules. You're out! Get off my property, or I'm calling the police!",
+    "year": 1996,
+    "options": [
+      "Fantastic Four",
+      "The Transformers",
+      "Steven Universe",
+      "Arthur"
+    ],
+    "genre": "cartoon",
+    "answer": "Arthur",
+    "type": "tv",
+    "character": "Muffy",
+    "source": "https://en.wikiquote.org/wiki/Arthur_(TV_series)"
+  },
+  {
+    "quote": "\"You spend all your time talking to a monkey, and you're telling me how to talk to people?\"",
+    "year": 1998,
+    "options": [
+      "The Fairly OddParents",
+      "The Wild Thornberrys",
+      "Animaniacs",
+      "Beavis and Butt-head"
+    ],
+    "genre": "cartoon",
+    "answer": "The Wild Thornberrys",
+    "type": "tv",
+    "character": "Debbie Thornberry",
+    "source": "https://en.wikiquote.org/wiki/The_Wild_Thornberrys"
+  },
+  {
+    "quote": "It's yet another fucking accommodation. I got this rich so I could stop making them.",
+    "year": 2016,
+    "options": [
+      "Billions",
+      "Peaky Blinders",
+      "House",
+      "The West Wing"
+    ],
+    "genre": "tvdrama",
+    "answer": "Billions",
+    "type": "tv",
+    "character": "Bobby Axelrod",
+    "source": "https://en.wikiquote.org/wiki/Billions_(TV_series)"
+  },
+  {
+    "quote": "I think I agree with the 59th Rule of Acquisition: \"Free advice is seldom cheap.\"",
+    "year": 1993,
+    "options": [
+      "Star Trek: Deep Space Nine",
+      "Star Trek: The Next Generation",
+      "Dollhouse",
+      "Better Call Saul"
+    ],
+    "genre": "tvdrama",
+    "answer": "Star Trek: Deep Space Nine",
+    "type": "tv",
+    "character": "Quark",
+    "source": "https://en.wikiquote.org/wiki/Star_Trek%3A_Deep_Space_Nine"
+  },
+  {
+    "quote": "A clip of the episode \"The Enchiridion\" from Cartoon Network's Adventure Time can be seen playing on the TV in Chloe's home.",
+    "year": 2014,
+    "options": [
+      "Gravity Falls",
+      "We Bare Bears",
+      "The New Scooby-Doo Movies",
+      "DuckTales"
+    ],
+    "genre": "cartoon",
+    "answer": "We Bare Bears",
+    "type": "tv",
+    "character": "Note",
+    "source": "https://en.wikiquote.org/wiki/We_Bare_Bears"
+  },
+  {
+    "quote": "Love born of betrayal is better lost than lived.",
+    "year": 1972,
+    "options": [
+      "Kung Fu",
+      "The Man in the High Castle",
+      "Lost",
+      "Peaky Blinders"
+    ],
+    "genre": "tvdrama",
+    "answer": "Kung Fu",
+    "type": "tv",
+    "character": "Su Yen Lu",
+    "source": "https://en.wikiquote.org/wiki/Kung_Fu_(TV_series)"
+  },
+  {
+    "quote": "I figure you only go 'round once in your life, right? So why go 'round the 11th grade twice?",
+    "year": 1975,
+    "options": [
+      "Harvey Birdman, Attorney at Law",
+      "Laverne & Shirley",
+      "Nicky, Ricky, Dicky & Dawn",
+      "Welcome Back, Kotter"
+    ],
+    "genre": "sitcom",
+    "answer": "Welcome Back, Kotter",
+    "type": "tv",
+    "character": "Vinnie",
+    "source": "https://en.wikiquote.org/wiki/Welcome_Back%2C_Kotter"
+  },
+  {
+    "quote": "We have managed to find the only sportsman in the galaxy who is not on steroids!",
+    "year": 2004,
+    "options": [
+      "House",
+      "Legion",
+      "Heroes",
+      "Charmed"
+    ],
+    "genre": "tvdrama",
+    "answer": "House",
+    "type": "tv",
+    "character": "Dr. House",
+    "source": "https://en.wikiquote.org/wiki/House_(TV_series)"
+  },
+  {
+    "quote": "Get the cheese to sickbay - the Doctor should look at it as soon as possible!",
+    "year": 1995,
+    "options": [
+      "Star Trek: Enterprise",
+      "Star Trek: Voyager",
+      "Ghost Whisperer",
+      "MacGyver"
+    ],
+    "genre": "tvdrama",
+    "answer": "Star Trek: Voyager",
+    "type": "tv",
+    "character": "B'Elanna Torres",
+    "source": "https://en.wikiquote.org/wiki/Star_Trek%3A_Voyager"
+  },
+  {
+    "quote": "Anything that looks like Godzilla wearing an octopus hat shouldn't be hard to find.",
+    "year": 1984,
+    "options": [
+      "Beavis and Butt-head",
+      "King of the Hill",
+      "The Real Ghostbusters",
+      "The Backyardigans"
+    ],
+    "genre": "cartoon",
+    "answer": "The Real Ghostbusters",
+    "type": "tv",
+    "character": "Peter Venkman",
+    "source": "https://en.wikiquote.org/wiki/The_Real_Ghostbusters"
+  },
+  {
+    "quote": "The Land Before Adventure Time. Mondays just a little bit before Adventure Time.",
+    "year": 2010,
+    "options": [
+      "The Golden Girls",
+      "Cheers",
+      "Mad",
+      "Laverne & Shirley"
+    ],
+    "genre": "sitcom",
+    "answer": "Mad",
+    "type": "tv",
+    "character": "Voiceover",
+    "source": "https://en.wikiquote.org/wiki/Mad_(TV_series)"
+  },
+  {
+    "quote": "(to Venom) I'll only say this once without laughing: Let the jock go, stink-breath!",
+    "year": 2012,
+    "options": [
+      "Ultimate Spider-Man",
+      "X-Men '97",
+      "The Wild Thornberrys",
+      "Gargoyles"
+    ],
+    "genre": "cartoon",
+    "answer": "Ultimate Spider-Man",
+    "type": "tv",
+    "character": "Spider-Man",
+    "source": "https://en.wikiquote.org/wiki/Ultimate_Spider-Man_(TV_series)"
+  },
+  {
+    "quote": "Once you get going prosecuting people who don't deserve it, it gets hard to stop.",
+    "year": 2016,
+    "options": [
+      "Kung Fu",
+      "Billions",
+      "St. Elsewhere",
+      "Fringe"
+    ],
+    "genre": "tvdrama",
+    "answer": "Billions",
+    "type": "tv",
+    "character": "Bryan Connerty",
+    "source": "https://en.wikiquote.org/wiki/Billions_(TV_series)"
+  },
+  {
+    "quote": "Why do people like these things? They're just shiny rocks.",
+    "year": 2013,
+    "options": [
+      "Moral Orel",
+      "Johnny Bravo",
+      "Frasier",
+      "Brooklyn Nine-Nine"
+    ],
+    "genre": "sitcom",
+    "answer": "Brooklyn Nine-Nine",
+    "type": "tv",
+    "character": "Diaz",
+    "source": "https://en.wikiquote.org/wiki/Brooklyn_Nine-Nine"
+  },
+  {
+    "quote": "I give you another day of life, Jew, for services rendered.",
+    "year": 2014,
+    "options": [
+      "The Strain",
+      "Rome",
+      "Peaky Blinders",
+      "The Practice"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Strain",
+    "type": "tv",
+    "character": "Thomas Eichhorst",
+    "source": "https://en.wikiquote.org/wiki/The_Strain_(TV_series)"
+  },
+  {
+    "quote": "Boy, you just stepped straight off the bus right into Filth Town, didn't you?",
+    "year": 1976,
+    "options": [
+      "Mad",
+      "Laverne & Shirley",
+      "Modern Family",
+      "Parks and Recreation"
+    ],
+    "genre": "sitcom",
+    "answer": "Laverne & Shirley",
+    "type": "tv",
+    "character": "Shirley",
+    "source": "https://en.wikiquote.org/wiki/Laverne_%26_Shirley"
+  },
+  {
+    "quote": "Everyone thinks we're gay!... Not that there's anything wrong with that.",
+    "year": 1989,
+    "options": [
+      "How I Met Your Mother",
+      "Happy's Place",
+      "Night Court",
+      "Seinfeld"
+    ],
+    "genre": "sitcom",
+    "answer": "Seinfeld",
+    "type": "tv",
+    "character": "Jerry",
+    "source": "https://en.wikiquote.org/wiki/Seinfeld"
+  },
+  {
+    "quote": "Hey, is anyone gon' feed me? Larry King's disembodied wax head needs num-nums.",
+    "year": 2012,
+    "options": [
+      "Gravity Falls",
+      "Pinky and the Brain",
+      "Dungeons & Dragons",
+      "We Bare Bears"
+    ],
+    "genre": "cartoon",
+    "answer": "Gravity Falls",
+    "type": "tv",
+    "character": "Larry King's Head",
+    "source": "https://en.wikiquote.org/wiki/Gravity_Falls"
+  },
+  {
+    "quote": "Mr. Chambers! Don't get on that ship! I've translated the rest of that book, To Serve Man...IT'S A COOKBOOK!",
+    "year": 1959,
+    "options": [
+      "The Twilight Zone",
+      "Little House on the Prairie",
+      "Fringe",
+      "Kung Fu"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Twilight Zone",
+    "type": "tv",
+    "character": "Pat",
+    "source": "https://en.wikiquote.org/wiki/The_Twilight_Zone_(1959_TV_series)"
+  },
+  {
+    "quote": "Chemotherapy and marijuana go together like apple pie and Chevrolet.",
+    "year": 2008,
+    "options": [
+      "Judging Amy",
+      "Dollhouse",
+      "House",
+      "Breaking Bad"
+    ],
+    "genre": "tvdrama",
+    "answer": "Breaking Bad",
+    "type": "tv",
+    "character": "Marie",
+    "source": "https://en.wikiquote.org/wiki/Breaking_Bad"
+  },
+  {
+    "quote": "I came here to drink milk and kick ass. And I've just finished my milk.",
+    "year": 2006,
+    "options": [
+      "Malcolm in the Middle",
+      "The IT Crowd",
+      "Harvey Birdman, Attorney at Law",
+      "That '70s Show"
+    ],
+    "genre": "sitcom",
+    "answer": "The IT Crowd",
+    "type": "tv",
+    "character": "Moss",
+    "source": "https://en.wikiquote.org/wiki/The_IT_Crowd"
+  },
+  {
+    "quote": "They should make a chicken just of skin. I'd buy that. Everybody'd buy that.",
+    "year": 2015,
+    "options": [
+      "F Is for Family",
+      "Fawlty Towers",
+      "30 Rock",
+      "Mad"
+    ],
+    "genre": "sitcom",
+    "answer": "F Is for Family",
+    "type": "tv",
+    "character": "Bob \"Pogo\" Pogrohovich",
+    "source": "https://en.wikiquote.org/wiki/F_Is_for_Family"
+  },
+  {
+    "quote": "A wise man does not burn his bridges until he first knows he can part the waters.",
+    "year": 2002,
+    "options": [
+      "The Strain",
+      "Mad Men",
+      "Succession",
+      "The Wire"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Wire",
+    "type": "tv",
+    "character": "Norman",
+    "source": "https://en.wikiquote.org/wiki/The_Wire"
+  },
+  {
+    "quote": "Oh, no. Despite what I've been saying for years, that ass just might quit.",
+    "year": 2013,
+    "options": [
+      "How I Met Your Mother",
+      "Fawlty Towers",
+      "Brooklyn Nine-Nine",
+      "That '70s Show"
+    ],
+    "genre": "sitcom",
+    "answer": "Brooklyn Nine-Nine",
+    "type": "tv",
+    "character": "Gina",
+    "source": "https://en.wikiquote.org/wiki/Brooklyn_Nine-Nine"
+  },
+  {
+    "quote": "No man has fear until fear comes to him.",
+    "year": 1972,
+    "options": [
+      "Alias",
+      "Legion",
+      "Wild, Wild West",
+      "Kung Fu"
+    ],
+    "genre": "tvdrama",
+    "answer": "Kung Fu",
+    "type": "tv",
+    "character": "Caine",
+    "source": "https://en.wikiquote.org/wiki/Kung_Fu_(TV_series)"
+  },
+  {
+    "quote": "The three true branches of the government are: Military, corporate and Hollywood.",
+    "year": 1998,
+    "options": [
+      "Brooklyn Nine-Nine",
+      "Home Movies",
+      "That '70s Show",
+      "Nicky, Ricky, Dicky & Dawn"
+    ],
+    "genre": "sitcom",
+    "answer": "That '70s Show",
+    "type": "tv",
+    "character": "Hyde",
+    "source": "https://en.wikiquote.org/wiki/That_'70s_Show"
+  },
+  {
+    "quote": "Oh, come on! I spent 1.6 seconds on that self-portrait, it was my masterpiece!",
+    "year": 2012,
+    "options": [
+      "Beavis and Butt-head",
+      "Gargoyles",
+      "Dexter's Laboratory",
+      "Young Justice"
+    ],
+    "genre": "cartoon",
+    "answer": "Young Justice",
+    "type": "tv",
+    "character": "Impulse",
+    "source": "https://en.wikiquote.org/wiki/Young_Justice_(TV_series)"
+  },
+  {
+    "quote": "No one can describe themselves in ten words. Why would we wanna hear anyone else do it?",
+    "year": 2004,
+    "options": [
+      "Star Trek: The Next Generation",
+      "The Witcher",
+      "Alias",
+      "House"
+    ],
+    "genre": "tvdrama",
+    "answer": "House",
+    "type": "tv",
+    "character": "Thirteen",
+    "source": "https://en.wikiquote.org/wiki/House_(TV_series)"
+  },
+  {
+    "quote": "Please continue with your threats; I would hate to submit to implication alone.",
+    "year": 2005,
+    "options": [
+      "Lost",
+      "Big Love",
+      "Judging Amy",
+      "Rome"
+    ],
+    "genre": "tvdrama",
+    "answer": "Rome",
+    "type": "tv",
+    "character": "Cicero",
+    "source": "https://en.wikiquote.org/wiki/Rome_(TV_series)"
+  },
+  {
+    "quote": "Could it be it had a soul, Alfred? A soul of silicon, but a soul nonetheless.",
+    "year": 1989,
+    "options": [
+      "Fantastic Four",
+      "The Adventures of Rocky and Bullwinkle and Friends",
+      "Batman: The Animated Series",
+      "Adventure Time"
+    ],
+    "genre": "cartoon",
+    "answer": "Batman: The Animated Series",
+    "type": "tv",
+    "character": "Batman",
+    "source": "https://en.wikiquote.org/wiki/Batman%3A_The_Animated_Series"
+  },
+  {
+    "quote": "I need to see my bed, I'm thinking of carrying a picture of it in my wallet.",
+    "year": 1999,
+    "options": [
+      "The West Wing",
+      "Intelligence",
+      "Star Trek: Deep Space Nine",
+      "Twin Peaks"
+    ],
+    "genre": "tvdrama",
+    "answer": "The West Wing",
+    "type": "tv",
+    "character": "Will",
+    "source": "https://en.wikiquote.org/wiki/The_West_Wing"
+  },
+  {
+    "quote": "If I may offer advice, Scott: Be wary. Be vigilant. Tragedy lures with fortune first.",
+    "year": 1992,
+    "options": [
+      "X-Men '97",
+      "Animaniacs",
+      "Dexter's Laboratory",
+      "Rugrats"
+    ],
+    "genre": "cartoon",
+    "answer": "X-Men '97",
+    "type": "tv",
+    "character": "Magneto",
+    "source": "https://en.wikiquote.org/wiki/X-Men_'97"
+  },
+  {
+    "quote": "What are you talking about? I've seen you every day this week.",
+    "year": 1964,
+    "options": [
+      "Happy's Place",
+      "Brickleberry",
+      "That '70s Show",
+      "Harvey Birdman, Attorney at Law"
+    ],
+    "genre": "sitcom",
+    "answer": "Happy's Place",
+    "type": "tv",
+    "character": "Bobbie",
+    "source": "https://en.wikiquote.org/wiki/Happy's_Place"
+  },
+  {
+    "quote": "Damn stroke. Clean up on aisle 5. Okay. Who's my next victim?",
+    "year": 1964,
+    "options": [
+      "Happy's Place",
+      "Married... with Children",
+      "Schitt's Creek",
+      "Mission Hill"
+    ],
+    "genre": "sitcom",
+    "answer": "Happy's Place",
+    "type": "tv",
+    "character": "Danny",
+    "source": "https://en.wikiquote.org/wiki/Happy's_Place"
+  },
+  {
+    "quote": "Nobody bothered to mention that he was just following old Snarf's example. Oh, no.",
+    "year": 1985,
+    "options": [
+      "Teenage Mutant Ninja Turtles",
+      "ThunderCats",
+      "King of the Hill",
+      "Your Friendly Neighborhood Spider-Man"
+    ],
+    "genre": "cartoon",
+    "answer": "ThunderCats",
+    "type": "tv",
+    "character": "Snarf",
+    "source": "https://en.wikiquote.org/wiki/ThunderCats_(1985_TV_Series)"
+  },
+  {
+    "quote": "Illusion, Michael. A trick is something a whore does for money. ...Or candy!",
+    "year": 2014,
+    "options": [
+      "Arrested Development",
+      "Mad",
+      "Mission Hill",
+      "Curb Your Enthusiasm"
+    ],
+    "genre": "sitcom",
+    "answer": "Arrested Development",
+    "type": "tv",
+    "character": "Gob",
+    "source": "https://en.wikiquote.org/wiki/Arrested_Development"
+  },
+  {
+    "quote": "This so stupid, it's like a retarded third grader wrote this.",
+    "year": 2004,
+    "options": [
+      "Disenchantment",
+      "Drawn Together",
+      "The Brady Bunch",
+      "Night Court"
+    ],
+    "genre": "sitcom",
+    "answer": "Drawn Together",
+    "type": "tv",
+    "character": "Spanky",
+    "source": "https://en.wikiquote.org/wiki/Drawn_Together"
+  },
+  {
+    "quote": "You knew the job was dangerous when you took it, Fred!",
+    "year": 1967,
+    "options": [
+      "Archer",
+      "George of the Jungle",
+      "X-Men '97",
+      "Beavis and Butt-head"
+    ],
+    "genre": "cartoon",
+    "answer": "George of the Jungle",
+    "type": "tv",
+    "character": "Super Chicken",
+    "source": "https://en.wikiquote.org/wiki/George_of_the_Jungle_(1967_TV_series)"
+  },
+  {
+    "quote": "My patience has run out, Martian. You have 24 hours. Finish curing my son or die.",
+    "year": 2012,
+    "options": [
+      "Avatar: The Last Airbender",
+      "Animaniacs",
+      "Young Justice",
+      "Star Trek: The Animated Series"
+    ],
+    "genre": "cartoon",
+    "answer": "Young Justice",
+    "type": "tv",
+    "character": "Black Manta",
+    "source": "https://en.wikiquote.org/wiki/Young_Justice_(TV_series)"
+  },
+  {
+    "quote": "I do not like to quarrel with fortune, and clearly she's taken you for a pet.",
+    "year": 2005,
+    "options": [
+      "The Man in the High Castle",
+      "Hercules: The Legendary Journeys",
+      "Rome",
+      "Fringe"
+    ],
+    "genre": "tvdrama",
+    "answer": "Rome",
+    "type": "tv",
+    "character": "Caesar",
+    "source": "https://en.wikiquote.org/wiki/Rome_(TV_series)"
+  },
+  {
+    "quote": "To change the grades... or not to change the grades... that is the question....",
+    "year": 2002,
+    "options": [
+      "Pinky and the Brain",
+      "Adventures of the Gummi Bears",
+      "Ultimate Spider-Man",
+      "Hey Arnold!"
+    ],
+    "genre": "cartoon",
+    "answer": "Hey Arnold!",
+    "type": "tv",
+    "character": "Helga",
+    "source": "https://en.wikiquote.org/wiki/Hey_Arnold!"
+  },
+  {
+    "quote": "It just goes to show ya: A good map will always get you where you want to go.",
+    "year": 1985,
+    "options": [
+      "Fringe",
+      "The Practice",
+      "The Diplomat",
+      "MacGyver"
+    ],
+    "genre": "tvdrama",
+    "answer": "MacGyver",
+    "type": "tv",
+    "character": "MacGyver",
+    "source": "https://en.wikiquote.org/wiki/MacGyver"
+  },
+  {
+    "quote": "Mrs Hudson's been attacked by an American. I'm restoring balance to the universe.",
+    "year": 2010,
+    "options": [
+      "Alias",
+      "Legion",
+      "Lost",
+      "Sherlock"
+    ],
+    "genre": "tvdrama",
+    "answer": "Sherlock",
+    "type": "tv",
+    "character": "Sherlock Holmes",
+    "source": "https://en.wikiquote.org/wiki/Sherlock_(TV_series)"
+  },
+  {
+    "quote": "Hi, I'm Richard Donner. I directed the first Superman movie. You know, good one.",
+    "year": 2010,
+    "options": [
+      "Schitt's Creek",
+      "Doug",
+      "F Is for Family",
+      "Mad"
+    ],
+    "genre": "sitcom",
+    "answer": "Mad",
+    "type": "tv",
+    "character": "Richard Donner",
+    "source": "https://en.wikiquote.org/wiki/Mad_(TV_series)"
+  },
+  {
+    "quote": "I teach school, which has nothing to do with life, so don't pin this on me!",
+    "year": 2005,
+    "options": [
+      "Frasier",
+      "Moral Orel",
+      "Cheers",
+      "Seinfeld"
+    ],
+    "genre": "sitcom",
+    "answer": "Moral Orel",
+    "type": "tv",
+    "character": "Miss Sculptham",
+    "source": "https://en.wikiquote.org/wiki/Moral_Orel"
+  },
+  {
+    "quote": "All of man's troubles come from his inability to sit quietly in a room, by himself.",
+    "year": 2010,
+    "options": [
+      "Six Feet Under",
+      "Ghost Whisperer",
+      "The Wire",
+      "Boardwalk Empire"
+    ],
+    "genre": "tvdrama",
+    "answer": "Boardwalk Empire",
+    "type": "tv",
+    "character": "Arnold Rothstein",
+    "source": "https://en.wikiquote.org/wiki/Boardwalk_Empire"
+  },
+  {
+    "quote": "It wasn't a mistake, it was policy: it's what you do. You're a military-industrial complex papered over by a constitution.",
+    "year": 2023,
+    "options": [
+      "Heroes",
+      "The Practice",
+      "The Diplomat",
+      "Severance"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Diplomat",
+    "type": "tv",
+    "character": "Callum",
+    "source": "https://en.wikiquote.org/wiki/The_Diplomat_(American_TV_series)"
+  },
+  {
+    "quote": "You never appreciate your lizard stepmom until she becomes a sexy pirate.",
+    "year": 2018,
+    "options": [
+      "Mad",
+      "Disenchantment",
+      "Schitt's Creek",
+      "30 Rock"
+    ],
+    "genre": "sitcom",
+    "answer": "Disenchantment",
+    "type": "tv",
+    "character": "Bean",
+    "source": "https://en.wikiquote.org/wiki/Disenchantment_(TV_series)"
+  },
+  {
+    "quote": "So tragically young So tragically small Eh... This thing had it comin'!",
+    "year": 2018,
+    "options": [
+      "The Brady Bunch",
+      "Modern Family",
+      "Disenchantment",
+      "Happy's Place"
+    ],
+    "genre": "sitcom",
+    "answer": "Disenchantment",
+    "type": "tv",
+    "character": "Attendant",
+    "source": "https://en.wikiquote.org/wiki/Disenchantment_(TV_series)"
+  },
+  {
+    "quote": "Before we begin, you must all be warned. Nothing here is vegetarian. Bon appetit.",
+    "year": 2013,
+    "options": [
+      "Mad Men",
+      "Alias",
+      "Hannibal",
+      "The Twilight Zone"
+    ],
+    "genre": "tvdrama",
+    "answer": "Hannibal",
+    "type": "tv",
+    "character": "Hannibal Lecter",
+    "source": "https://en.wikiquote.org/wiki/Hannibal_(TV_series)"
+  },
+  {
+    "quote": "They're gonna do me, Ronnie. I love this fucking job, and they're gonna do me.",
+    "year": 2002,
+    "options": [
+      "Downton Abbey",
+      "The Wire",
+      "Breaking Bad",
+      "Boardwalk Empire"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Wire",
+    "type": "tv",
+    "character": "McNulty",
+    "source": "https://en.wikiquote.org/wiki/The_Wire"
+  },
+  {
+    "quote": "And you're religion I think is bullshit - just another excuse for fucking around.",
+    "year": 2006,
+    "options": [
+      "Hannibal",
+      "Big Love",
+      "Judging Amy",
+      "Heroes"
+    ],
+    "genre": "tvdrama",
+    "answer": "Big Love",
+    "type": "tv",
+    "character": "Marilyn",
+    "source": "https://en.wikiquote.org/wiki/Big_Love"
+  },
+  {
+    "quote": "Look at those cheekbones. I could cut myself slapping that face. Would you like me to try?",
+    "year": 2010,
+    "options": [
+      "Little House on the Prairie",
+      "The Witcher",
+      "The West Wing",
+      "Sherlock"
+    ],
+    "genre": "tvdrama",
+    "answer": "Sherlock",
+    "type": "tv",
+    "character": "Irene Adler",
+    "source": "https://en.wikiquote.org/wiki/Sherlock_(TV_series)"
+  },
+  {
+    "quote": "I hate everything! I hate cats, I hate this day. I'm going to bed...which I hate!",
+    "year": 2001,
+    "options": [
+      "The Fairly OddParents",
+      "Top Cat",
+      "Star Trek: The Animated Series",
+      "Adventures of the Gummi Bears"
+    ],
+    "genre": "cartoon",
+    "answer": "The Fairly OddParents",
+    "type": "tv",
+    "character": "Wanda",
+    "source": "https://en.wikiquote.org/wiki/The_Fairly_OddParents"
+  },
+  {
+    "quote": "I can't compete with your mother's turkey Ray, the woman has giblets in her blood!",
+    "year": 1996,
+    "options": [
+      "Scrubs",
+      "Home Movies",
+      "Everybody Loves Raymond",
+      "The Brady Bunch"
+    ],
+    "genre": "sitcom",
+    "answer": "Everybody Loves Raymond",
+    "type": "tv",
+    "character": "Debra",
+    "source": "https://en.wikiquote.org/wiki/Everybody_Loves_Raymond"
+  },
+  {
+    "quote": "Your hair looks great. What's under it – not so great.",
+    "year": 1988,
+    "options": [
+      "China Beach",
+      "Lost",
+      "The Wire",
+      "Succession"
+    ],
+    "genre": "tvdrama",
+    "answer": "China Beach",
+    "type": "tv",
+    "character": "Laurette",
+    "source": "https://en.wikiquote.org/wiki/China_Beach"
+  },
+  {
+    "quote": "How is this a sixteen hundred dollar piece of clothing? It doesn't even have pockets!",
+    "year": 2023,
+    "options": [
+      "The Gilded Age",
+      "St. Elsewhere",
+      "The Diplomat",
+      "Billions"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Diplomat",
+    "type": "tv",
+    "character": "Kate Wyler",
+    "source": "https://en.wikiquote.org/wiki/The_Diplomat_(American_TV_series)"
+  },
+  {
+    "quote": "Lady, at this point I wouldn't give you $1000 if you were Nancy Reagan herself.",
+    "year": 2006,
+    "options": [
+      "Big Love",
+      "The Diplomat",
+      "House",
+      "Peaky Blinders"
+    ],
+    "genre": "tvdrama",
+    "answer": "Big Love",
+    "type": "tv",
+    "character": "Bill",
+    "source": "https://en.wikiquote.org/wiki/Big_Love"
+  },
+  {
+    "quote": "I see ye changed your wardrobe. Got tired o' wearin' your granny's jammies, did ya?",
+    "year": 2001,
+    "options": [
+      "Samurai Jack",
+      "VeggieTales",
+      "Green Eggs and Ham",
+      "Teenage Mutant Ninja Turtles"
+    ],
+    "genre": "cartoon",
+    "answer": "Samurai Jack",
+    "type": "tv",
+    "character": "The Scotsman",
+    "source": "https://en.wikiquote.org/wiki/Samurai_Jack"
+  },
+  {
+    "quote": "If it gets any more saccharine in there, I'm going to put a finger down my throat.",
+    "year": 1994,
+    "options": [
+      "Gargoyles",
+      "Arthur",
+      "King of the Hill",
+      "DuckTales"
+    ],
+    "genre": "cartoon",
+    "answer": "Gargoyles",
+    "type": "tv",
+    "character": "Anton Sevarius",
+    "source": "https://en.wikiquote.org/wiki/Gargoyles_(TV_series)"
+  },
+  {
+    "quote": "Ray's gonna be a cyborg over my dead body! Or preferably his! But somebody's!",
+    "year": 2009,
+    "options": [
+      "King of the Hill",
+      "The Transformers",
+      "Gravity Falls",
+      "Archer"
+    ],
+    "genre": "cartoon",
+    "answer": "Archer",
+    "type": "tv",
+    "character": "Archer",
+    "source": "https://en.wikiquote.org/wiki/Archer_(2009_TV_series)"
+  },
+  {
+    "quote": "Dewey, you're not allowed to have a dog, remember? We want you to be miserable.",
+    "year": 2000,
+    "options": [
+      "Curb Your Enthusiasm",
+      "Married... with Children",
+      "Malcolm in the Middle",
+      "Drawn Together"
+    ],
+    "genre": "sitcom",
+    "answer": "Malcolm in the Middle",
+    "type": "tv",
+    "character": "Lois",
+    "source": "https://en.wikiquote.org/wiki/Malcolm_in_the_Middle"
+  },
+  {
+    "quote": "In many ways, the fire was the blessing of her life.",
+    "year": 1959,
+    "options": [
+      "Ghost Whisperer",
+      "The Twilight Zone",
+      "Sherlock",
+      "True Detective"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Twilight Zone",
+    "type": "tv",
+    "character": "Miss Frank",
+    "source": "https://en.wikiquote.org/wiki/The_Twilight_Zone_(1959_TV_series)"
+  },
+  {
+    "quote": "Ahead of you, a difficult path there is, Padawan. A Jedi, you may yet be.",
+    "year": 2014,
+    "options": [
+      "Dexter's Laboratory",
+      "Star Wars Rebels",
+      "Star vs. the Forces of Evil",
+      "Star Trek: The Animated Series"
+    ],
+    "genre": "cartoon",
+    "answer": "Star Wars Rebels",
+    "type": "tv",
+    "character": "Yoda",
+    "source": "https://en.wikiquote.org/wiki/Star_Wars_Rebels"
+  },
+  {
+    "quote": "You know that shampoo that says \"no more tears\" on the bottle? There's tears.",
+    "year": 1996,
+    "options": [
+      "That '70s Show",
+      "Scrubs",
+      "Modern Family",
+      "Everybody Loves Raymond"
+    ],
+    "genre": "sitcom",
+    "answer": "Everybody Loves Raymond",
+    "type": "tv",
+    "character": "Robert",
+    "source": "https://en.wikiquote.org/wiki/Everybody_Loves_Raymond"
+  },
+  {
+    "quote": "Don't tell me you're too afraid to fight a Scorpion?",
+    "year": 2025,
+    "options": [
+      "Batman: The Animated Series",
+      "Beavis and Butt-head",
+      "Your Friendly Neighborhood Spider-Man",
+      "Adventures of the Gummi Bears"
+    ],
+    "genre": "cartoon",
+    "answer": "Your Friendly Neighborhood Spider-Man",
+    "type": "tv",
+    "character": "Scorpion",
+    "source": "https://en.wikiquote.org/wiki/Your_Friendly_Neighborhood_Spider-Man"
+  },
+  {
+    "quote": "Your show's about to have a long intermission, Music Meister. Twenty years to life!",
+    "year": 2008,
+    "options": [
+      "Batman: The Animated Series",
+      "Batman: The Brave and the Bold",
+      "Batman Beyond",
+      "Green Eggs and Ham"
+    ],
+    "genre": "cartoon",
+    "answer": "Batman: The Brave and the Bold",
+    "type": "tv",
+    "character": "Batman",
+    "source": "https://en.wikiquote.org/wiki/Batman%3A_The_Brave_and_the_Bold"
+  },
+  {
+    "quote": "First rule of politics, kiddo: Never let the truth get in the way of a good story.",
+    "year": 2010,
+    "options": [
+      "Star Trek: The Next Generation",
+      "The Strain",
+      "Six Feet Under",
+      "Boardwalk Empire"
+    ],
+    "genre": "tvdrama",
+    "answer": "Boardwalk Empire",
+    "type": "tv",
+    "character": "Nucky Thompson",
+    "source": "https://en.wikiquote.org/wiki/Boardwalk_Empire"
+  },
+  {
+    "quote": "(after stabbing Degra) The crew of that ship are the last Xindi you'll ever betray.",
+    "year": 2001,
+    "options": [
+      "Star Trek: Enterprise",
+      "The Gilded Age",
+      "Touched by an Angel",
+      "Dexter"
+    ],
+    "genre": "tvdrama",
+    "answer": "Star Trek: Enterprise",
+    "type": "tv",
+    "character": "Commander Dolim",
+    "source": "https://en.wikiquote.org/wiki/Star_Trek%3A_Enterprise"
+  },
+  {
+    "quote": "Windom Earle's mind is like a diamond. It's cold, and hard, and brilliant.",
+    "year": 1990,
+    "options": [
+      "Star Trek: Deep Space Nine",
+      "Twin Peaks",
+      "Dexter",
+      "Little House on the Prairie"
+    ],
+    "genre": "tvdrama",
+    "answer": "Twin Peaks",
+    "type": "tv",
+    "character": "Dale Cooper",
+    "source": "https://en.wikiquote.org/wiki/Twin_Peaks"
+  },
+  {
+    "quote": "Being a journalist these days is a straight ticket to the unemployment line.",
+    "year": 2006,
+    "options": [
+      "Breaking Bad",
+      "The Practice",
+      "The Man in the High Castle",
+      "Dexter"
+    ],
+    "genre": "tvdrama",
+    "answer": "Dexter",
+    "type": "tv",
+    "character": "Christine",
+    "source": "https://en.wikiquote.org/wiki/Dexter_(TV_series)"
+  },
+  {
+    "quote": "(about Xena) She just wants to write her name across history in big bloody letters.",
+    "year": 1995,
+    "options": [
+      "Little House on the Prairie",
+      "Hercules: The Legendary Journeys",
+      "Ghost Whisperer",
+      "True Detective"
+    ],
+    "genre": "tvdrama",
+    "answer": "Hercules: The Legendary Journeys",
+    "type": "tv",
+    "character": "Villager",
+    "source": "https://en.wikiquote.org/wiki/Hercules%3A_The_Legendary_Journeys"
+  },
+  {
+    "quote": "Just as I thought. A ticklish tree. Come on, and stay away from the trees.",
+    "year": 2004,
+    "options": [
+      "Batman Beyond",
+      "Arthur",
+      "Samurai Jack",
+      "The Backyardigans"
+    ],
+    "genre": "cartoon",
+    "answer": "The Backyardigans",
+    "type": "tv",
+    "character": "Austin",
+    "source": "https://en.wikiquote.org/wiki/The_Backyardigans"
+  },
+  {
+    "quote": "There are two things Bundys don't do: we don't eat vegetables and we don't tap.",
+    "year": 1987,
+    "options": [
+      "Married... with Children",
+      "The Brady Bunch",
+      "Brooklyn Nine-Nine",
+      "Night Court"
+    ],
+    "genre": "sitcom",
+    "answer": "Married... with Children",
+    "type": "tv",
+    "character": "Al",
+    "source": "https://en.wikiquote.org/wiki/Married..._with_Children"
+  },
+  {
+    "quote": "\"Dear Diary, still on the bloody island. Today I swallowed a bug. Love, Claire.\"",
+    "year": 2004,
+    "options": [
+      "Dexter",
+      "The Man in the High Castle",
+      "Severance",
+      "Lost"
+    ],
+    "genre": "tvdrama",
+    "answer": "Lost",
+    "type": "tv",
+    "character": "Charlie Pace",
+    "source": "https://en.wikiquote.org/wiki/Lost_(TV_series)"
+  },
+  {
+    "quote": "Well, you're not helping. You know what? We just plead guilty. How do you put up with her?",
+    "year": 2023,
+    "options": [
+      "The Big Bang Theory",
+      "Drawn Together",
+      "Disenchantment",
+      "Night Court"
+    ],
+    "genre": "sitcom",
+    "answer": "Night Court",
+    "type": "tv",
+    "character": "Dan Fielding",
+    "source": "https://en.wikiquote.org/wiki/Night_Court_(2023_TV_series)"
+  },
+  {
+    "quote": "Oh, Octi! ...I'm going to find whoever did this to you, and THEY WILL PAY!",
+    "year": 2016,
+    "options": [
+      "Winx Club",
+      "Green Eggs and Ham",
+      "Samurai Jack",
+      "The Powerpuff Girls"
+    ],
+    "genre": "cartoon",
+    "answer": "The Powerpuff Girls",
+    "type": "tv",
+    "character": "Bubbles",
+    "source": "https://en.wikiquote.org/wiki/The_Powerpuff_Girls"
+  },
+  {
+    "quote": "I'm Doctor Horny, and you know what that means; I love poon-tang... but enough about your Mom!",
+    "year": 2005,
+    "options": [
+      "That '70s Show",
+      "Brooklyn Nine-Nine",
+      "Squidbillies",
+      "The Golden Girls"
+    ],
+    "genre": "sitcom",
+    "answer": "Squidbillies",
+    "type": "tv",
+    "character": "Dr. Horny",
+    "source": "https://en.wikiquote.org/wiki/Squidbillies"
+  },
+  {
+    "quote": "I don't know how you expect me to love you when you so clearly hate yourself.",
+    "year": 2014,
+    "options": [
+      "Star Trek: The Animated Series",
+      "Your Friendly Neighborhood Spider-Man",
+      "BoJack Horseman",
+      "Avatar: The Last Airbender"
+    ],
+    "genre": "cartoon",
+    "answer": "BoJack Horseman",
+    "type": "tv",
+    "character": "Princess Carolyn",
+    "source": "https://en.wikiquote.org/wiki/BoJack_Horseman"
+  },
+  {
+    "quote": "Marshmallows are for team players, Dylan. They don't just hand them out.",
+    "year": 2022,
+    "options": [
+      "Wild, Wild West",
+      "Severance",
+      "Hercules: The Legendary Journeys",
+      "Six Feet Under"
+    ],
+    "genre": "tvdrama",
+    "answer": "Severance",
+    "type": "tv",
+    "character": "Seth Milchick",
+    "source": "https://en.wikiquote.org/wiki/Severance_(TV_series)"
+  },
+  {
+    "quote": "As the earthlings say \"Fat chance Fathead!\"",
+    "year": 2009,
+    "options": [
+      "Teenage Mutant Ninja Turtles",
+      "The Transformers",
+      "Batman: The Brave and the Bold",
+      "Big City Greens"
+    ],
+    "genre": "cartoon",
+    "answer": "The Transformers",
+    "type": "tv",
+    "character": "Optimus Prime",
+    "source": "https://en.wikiquote.org/wiki/The_Transformers_(TV_series)"
+  },
+  {
+    "quote": "Look at your shiny new coat. Have you been adding cod liver oil to your diet?",
+    "year": 1993,
+    "options": [
+      "The Nanny",
+      "Welcome Back, Kotter",
+      "Doug",
+      "Nicky, Ricky, Dicky & Dawn"
+    ],
+    "genre": "sitcom",
+    "answer": "The Nanny",
+    "type": "tv",
+    "character": "Niles",
+    "source": "https://en.wikiquote.org/wiki/The_Nanny"
+  },
+  {
+    "quote": "Where the fuck are all the dinosaurs?! What did they do to all the dinosaurs?!",
+    "year": 2020,
+    "options": [
+      "Solar Opposites",
+      "Happy Days",
+      "Married... with Children",
+      "Harvey Birdman, Attorney at Law"
+    ],
+    "genre": "sitcom",
+    "answer": "Solar Opposites",
+    "type": "tv",
+    "character": "Korvo",
+    "source": "https://en.wikiquote.org/wiki/Solar_Opposites"
+  },
+  {
+    "quote": "I'm not here to kill Nazis. I'm here because I need answers, and I'm not leaving until I get them.",
+    "year": 2015,
+    "options": [
+      "The Wire",
+      "Fringe",
+      "The Man in the High Castle",
+      "Ghost Whisperer"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Man in the High Castle",
+    "type": "tv",
+    "character": "Juliana Crain",
+    "source": "https://en.wikiquote.org/wiki/The_Man_in_the_High_Castle_(TV_series)"
+  },
+  {
+    "quote": "If you drop a hammer on your foot, it's hardly useful to get mad at the hammer.",
+    "year": 1987,
+    "options": [
+      "Severance",
+      "Star Trek: The Next Generation",
+      "House",
+      "Heroes"
+    ],
+    "genre": "tvdrama",
+    "answer": "Star Trek: The Next Generation",
+    "type": "tv",
+    "character": "Riker",
+    "source": "https://en.wikiquote.org/wiki/Star_Trek%3A_The_Next_Generation"
+  },
+  {
+    "quote": "Whoever said 'getting there is half the fun' never rode in a class eight probe.",
+    "year": 1987,
+    "options": [
+      "Star Trek: The Next Generation",
+      "Dexter",
+      "MacGyver",
+      "Judging Amy"
+    ],
+    "genre": "tvdrama",
+    "answer": "Star Trek: The Next Generation",
+    "type": "tv",
+    "character": "K'Ehleyr",
+    "source": "https://en.wikiquote.org/wiki/Star_Trek%3A_The_Next_Generation"
+  },
+  {
+    "quote": "I could not, with a razor to my throat, be less interested in being your family.",
+    "year": 2022,
+    "options": [
+      "Big Love",
+      "Severance",
+      "Breaking Bad",
+      "China Beach"
+    ],
+    "genre": "tvdrama",
+    "answer": "Severance",
+    "type": "tv",
+    "character": "Helly R.",
+    "source": "https://en.wikiquote.org/wiki/Severance_(TV_series)"
+  },
+  {
+    "quote": "Who the hell is Hugo and how's he got a 160 million dollars to leave to his mom?",
+    "year": 2004,
+    "options": [
+      "The Diplomat",
+      "Sherlock",
+      "Lost",
+      "The Twilight Zone"
+    ],
+    "genre": "tvdrama",
+    "answer": "Lost",
+    "type": "tv",
+    "character": "James \"Sawyer\" Ford",
+    "source": "https://en.wikiquote.org/wiki/Lost_(TV_series)"
+  },
+  {
+    "quote": "Oh no, what am I gonna do? It looks like I'm gonna end up as lion stew!",
+    "year": 1993,
+    "options": [
+      "Justice League Unlimited",
+      "We Bare Bears",
+      "VeggieTales",
+      "The Adventures of Rocky and Bullwinkle and Friends"
+    ],
+    "genre": "cartoon",
+    "answer": "VeggieTales",
+    "type": "tv",
+    "character": "Daniel (Larry)",
+    "source": "https://en.wikiquote.org/wiki/VeggieTales"
+  },
+  {
+    "quote": "I'm sure he'll use his share of the reward to pay an outstanding restaurant bill.",
+    "year": 1961,
+    "options": [
+      "Batman Beyond",
+      "The Transformers",
+      "Top Cat",
+      "Rugrats"
+    ],
+    "genre": "cartoon",
+    "answer": "Top Cat",
+    "type": "tv",
+    "character": "Officer Dibble",
+    "source": "https://en.wikiquote.org/wiki/Top_Cat"
+  },
+  {
+    "quote": "Kitty Kat, make me some mac and cheese. Not the spiral kind, that makes me dizzy.",
+    "year": 2015,
+    "options": [
+      "F Is for Family",
+      "The Nanny",
+      "Nicky, Ricky, Dicky & Dawn",
+      "Modern Family"
+    ],
+    "genre": "sitcom",
+    "answer": "F Is for Family",
+    "type": "tv",
+    "character": "Vic",
+    "source": "https://en.wikiquote.org/wiki/F_Is_for_Family"
+  },
+  {
+    "quote": "Please don't make fun of me. It's cost me all I've got to say these things.",
+    "year": 2010,
+    "options": [
+      "The Diplomat",
+      "Legion",
+      "Downton Abbey",
+      "Touched by an Angel"
+    ],
+    "genre": "tvdrama",
+    "answer": "Downton Abbey",
+    "type": "tv",
+    "character": "Branson",
+    "source": "https://en.wikiquote.org/wiki/Downton_Abbey"
+  },
+  {
+    "quote": "Are you a whore? Because if you're not, you're in the wrong place.",
+    "year": 2013,
+    "options": [
+      "Peaky Blinders",
+      "The Twilight Zone",
+      "The West Wing",
+      "Succession"
+    ],
+    "genre": "tvdrama",
+    "answer": "Peaky Blinders",
+    "type": "tv",
+    "character": "Thomas",
+    "source": "https://en.wikiquote.org/wiki/Peaky_Blinders_(TV_series)"
+  },
+  {
+    "quote": "It is usually best to admit mistakes when they occur, and to seek to restore honor.",
+    "year": 2005,
+    "options": [
+      "VeggieTales",
+      "Avatar: The Last Airbender",
+      "Rugrats",
+      "Archer"
+    ],
+    "genre": "cartoon",
+    "answer": "Avatar: The Last Airbender",
+    "type": "tv",
+    "character": "Iroh",
+    "source": "https://en.wikiquote.org/wiki/Avatar%3A_The_Last_Airbender"
+  },
+  {
+    "quote": "Stupid babies. They'll believe anything. Hey, what's this? I'M TURNING INTO A CHICKEN!",
+    "year": 1991,
+    "options": [
+      "Green Eggs and Ham",
+      "Gargoyles",
+      "Rugrats",
+      "Teenage Mutant Ninja Turtles"
+    ],
+    "genre": "cartoon",
+    "answer": "Rugrats",
+    "type": "tv",
+    "character": "Angelica",
+    "source": "https://en.wikiquote.org/wiki/Rugrats"
+  },
+  {
+    "quote": "Relax Jim, I'm not going to haunt the girl...I just want to get to know her.",
+    "year": 2005,
+    "options": [
+      "Ghost Whisperer",
+      "The Strain",
+      "The Diplomat",
+      "Charmed"
+    ],
+    "genre": "tvdrama",
+    "answer": "Ghost Whisperer",
+    "type": "tv",
+    "character": "Faith",
+    "source": "https://en.wikiquote.org/wiki/Ghost_Whisperer"
+  },
+  {
+    "quote": "I don't want to kill you, Dr. Lecter. Not now that I finally find you interesting.",
+    "year": 2013,
+    "options": [
+      "MacGyver",
+      "The Man in the High Castle",
+      "Big Love",
+      "Hannibal"
+    ],
+    "genre": "tvdrama",
+    "answer": "Hannibal",
+    "type": "tv",
+    "character": "Will Graham",
+    "source": "https://en.wikiquote.org/wiki/Hannibal_(TV_series)"
+  },
+  {
+    "quote": "Oh great, I'm doomed to be a decrepit twenty-eight-year-old hag!",
+    "year": 1987,
+    "options": [
+      "Teenage Mutant Ninja Turtles",
+      "Green Eggs and Ham",
+      "Justice League Unlimited",
+      "Steven Universe"
+    ],
+    "genre": "cartoon",
+    "answer": "Teenage Mutant Ninja Turtles",
+    "type": "tv",
+    "character": "April",
+    "source": "https://en.wikiquote.org/wiki/Teenage_Mutant_Ninja_Turtles_(1987_TV_series)"
+  },
+  {
+    "quote": "Want to stay... But... Can't stop! Going to form! Can't stop! Going to form! Help! Help! Help!",
+    "year": 2013,
+    "options": [
+      "Steven Universe",
+      "Gravity Falls",
+      "Winx Club",
+      "Justice League Unlimited"
+    ],
+    "genre": "cartoon",
+    "answer": "Steven Universe",
+    "type": "tv",
+    "character": "The Cluster",
+    "source": "https://en.wikiquote.org/wiki/Steven_Universe"
+  },
+  {
+    "quote": "(together) Happy birthday to you. Happy birthday to you. Happy birthday, dear Maggie. Happy birthday to you.",
+    "year": 2000,
+    "options": [
+      "The IT Crowd",
+      "Modern Family",
+      "Laverne & Shirley",
+      "Going Dutch"
+    ],
+    "genre": "sitcom",
+    "answer": "Going Dutch",
+    "type": "tv",
+    "character": "All",
+    "source": "https://en.wikiquote.org/wiki/Going_Dutch_(TV_series)"
+  },
+  {
+    "quote": "Those goddamned cunt shit dumbass piss fuck meatball dick cock motherfuckers!",
+    "year": 2004,
+    "options": [
+      "Mad",
+      "Moral Orel",
+      "The Big Bang Theory",
+      "Drawn Together"
+    ],
+    "genre": "sitcom",
+    "answer": "Drawn Together",
+    "type": "tv",
+    "character": "Foxxy",
+    "source": "https://en.wikiquote.org/wiki/Drawn_Together"
+  },
+  {
+    "quote": "It's got to be here, fellas, it's got to be here! Keep looking... and keep digging!",
+    "year": 1961,
+    "options": [
+      "Top Cat",
+      "X-Men '97",
+      "BoJack Horseman",
+      "The Fairly OddParents"
+    ],
+    "genre": "cartoon",
+    "answer": "Top Cat",
+    "type": "tv",
+    "character": "Top Cat",
+    "source": "https://en.wikiquote.org/wiki/Top_Cat"
+  },
+  {
+    "quote": "I'd like to welcome you all to the bi-annual... Ha ha ha! Bi! Sebben & Sebben Board of Director's meeting.",
+    "year": 1944,
+    "options": [
+      "Harvey Birdman, Attorney at Law",
+      "Disenchantment",
+      "Modern Family",
+      "The Big Bang Theory"
+    ],
+    "genre": "sitcom",
+    "answer": "Harvey Birdman, Attorney at Law",
+    "type": "tv",
+    "character": "Phil",
+    "source": "https://en.wikiquote.org/wiki/Harvey_Birdman%2C_Attorney_at_Law"
+  },
+  {
+    "quote": "Master Fisto, in these matters, trust your insight, we do. May the Force be with you.",
+    "year": 2003,
+    "options": [
+      "Hey Arnold!",
+      "Star Wars: Clone Wars",
+      "Pinky and the Brain",
+      "Winx Club"
+    ],
+    "genre": "cartoon",
+    "answer": "Star Wars: Clone Wars",
+    "type": "tv",
+    "character": "Yoda",
+    "source": "https://en.wikiquote.org/wiki/Star_Wars%3A_Clone_Wars_(2003_TV_series)"
+  },
+  {
+    "quote": "Icky things? Oh, yuck! I just remembered a nail apartment back in the city. Ciao!",
+    "year": 1987,
+    "options": [
+      "Teenage Mutant Ninja Turtles",
+      "Winx Club",
+      "Adventure Time",
+      "Avatar: The Last Airbender"
+    ],
+    "genre": "cartoon",
+    "answer": "Teenage Mutant Ninja Turtles",
+    "type": "tv",
+    "character": "Irma",
+    "source": "https://en.wikiquote.org/wiki/Teenage_Mutant_Ninja_Turtles_(1987_TV_series)"
+  },
+  {
+    "quote": "Only one chance. I just hope we've bought Egon enough time. SLIMER! PIZZA!",
+    "year": 1984,
+    "options": [
+      "Beavis and Butt-head",
+      "The Adventures of Rocky and Bullwinkle and Friends",
+      "The Real Ghostbusters",
+      "BoJack Horseman"
+    ],
+    "genre": "cartoon",
+    "answer": "The Real Ghostbusters",
+    "type": "tv",
+    "character": "Ray Stantz",
+    "source": "https://en.wikiquote.org/wiki/The_Real_Ghostbusters"
+  },
+  {
+    "quote": "Remember Dad, we're talking man-to-man, not kid-to-man man-to-man, but man-to-man, man-to-man.",
+    "year": 1969,
+    "options": [
+      "The Brady Bunch",
+      "Brooklyn Nine-Nine",
+      "Curb Your Enthusiasm",
+      "30 Rock"
+    ],
+    "genre": "sitcom",
+    "answer": "The Brady Bunch",
+    "type": "tv",
+    "character": "Greg",
+    "source": "https://en.wikiquote.org/wiki/The_Brady_Bunch"
+  },
+  {
+    "quote": "Go on, go on, I didn't miss a wor... Where did he go?",
+    "year": 1959,
+    "options": [
+      "DuckTales",
+      "The Backyardigans",
+      "Young Justice",
+      "The Adventures of Rocky and Bullwinkle and Friends"
+    ],
+    "genre": "cartoon",
+    "answer": "The Adventures of Rocky and Bullwinkle and Friends",
+    "type": "tv",
+    "character": "Boris",
+    "source": "https://en.wikiquote.org/wiki/The_Adventures_of_Rocky_and_Bullwinkle_and_Friends"
+  },
+  {
+    "quote": "Some people are meant to be with people, and others, like me, are just different.",
+    "year": 2002,
+    "options": [
+      "Ultimate Spider-Man",
+      "Your Friendly Neighborhood Spider-Man",
+      "We Bare Bears",
+      "Hey Arnold!"
+    ],
+    "genre": "cartoon",
+    "answer": "Hey Arnold!",
+    "type": "tv",
+    "character": "Pigeon Man",
+    "source": "https://en.wikiquote.org/wiki/Hey_Arnold!"
+  },
+  {
+    "quote": "I'm gonna make a good living. Plus, I'll practically never hit you or nothin'...",
+    "year": 1976,
+    "options": [
+      "Home Movies",
+      "Brooklyn Nine-Nine",
+      "Laverne & Shirley",
+      "Happy's Place"
+    ],
+    "genre": "sitcom",
+    "answer": "Laverne & Shirley",
+    "type": "tv",
+    "character": "Lenny",
+    "source": "https://en.wikiquote.org/wiki/Laverne_%26_Shirley"
+  },
+  {
+    "quote": "I've got a wife, two kids and 10 finance companies to support. How am I supposed to pay my bills?",
+    "year": 1962,
+    "options": [
+      "The Jetsons",
+      "Justice League Unlimited",
+      "Adventure Time",
+      "The Fairly OddParents"
+    ],
+    "genre": "cartoon",
+    "answer": "The Jetsons",
+    "type": "tv",
+    "character": "George Jetson",
+    "source": "https://en.wikiquote.org/wiki/The_Jetsons"
+  },
+  {
+    "quote": "What the hell kind of country is this where I can only hate a man if he's white?",
+    "year": 1997,
+    "options": [
+      "Adventure Time",
+      "King of the Hill",
+      "Pinky and the Brain",
+      "Gargoyles"
+    ],
+    "genre": "cartoon",
+    "answer": "King of the Hill",
+    "type": "tv",
+    "character": "Hank Hill",
+    "source": "https://en.wikiquote.org/wiki/King_of_the_Hill"
+  },
+  {
+    "quote": "An entire city, screaming in fear... I wonder if we'll be able to hear it...",
+    "year": 1989,
+    "options": [
+      "ThunderCats",
+      "Steven Universe",
+      "Batman: The Animated Series",
+      "Adventures of the Gummi Bears"
+    ],
+    "genre": "cartoon",
+    "answer": "Batman: The Animated Series",
+    "type": "tv",
+    "character": "Scarecrow",
+    "source": "https://en.wikiquote.org/wiki/Batman%3A_The_Animated_Series"
+  },
+  {
+    "quote": "Mrs. Johnson's bag has six puppies. Mr. Peterson's bag has minus four puppies...",
+    "year": 1997,
+    "options": [
+      "King of the Hill",
+      "Rugrats",
+      "Animaniacs",
+      "VeggieTales"
+    ],
+    "genre": "cartoon",
+    "answer": "King of the Hill",
+    "type": "tv",
+    "character": "Bobby",
+    "source": "https://en.wikiquote.org/wiki/King_of_the_Hill"
+  },
+  {
+    "quote": "To Cousin Kyle, who taught me to burn CDs and download stuff off the Internet!",
+    "year": 1999,
+    "options": [
+      "The Witcher",
+      "Better Call Saul",
+      "Intelligence",
+      "Judging Amy"
+    ],
+    "genre": "tvdrama",
+    "answer": "Judging Amy",
+    "type": "tv",
+    "character": "Lauren",
+    "source": "https://en.wikiquote.org/wiki/Judging_Amy"
+  },
+  {
+    "quote": "We must secure the secrets of the temple, for even now, our enemies move against us.",
+    "year": 2014,
+    "options": [
+      "Justice League Unlimited",
+      "Star vs. the Forces of Evil",
+      "Star Wars Rebels",
+      "Gravity Falls"
+    ],
+    "genre": "cartoon",
+    "answer": "Star Wars Rebels",
+    "type": "tv",
+    "character": "Emperor Palpatine",
+    "source": "https://en.wikiquote.org/wiki/Star_Wars_Rebels"
+  },
+  {
+    "quote": "Just because you're an angel doesn't mean you can't kick some ass now and again.",
+    "year": 1998,
+    "options": [
+      "Legion",
+      "The Man in the High Castle",
+      "The Practice",
+      "Charmed"
+    ],
+    "genre": "tvdrama",
+    "answer": "Charmed",
+    "type": "tv",
+    "character": "Ramus",
+    "source": "https://en.wikiquote.org/wiki/Charmed_(TV_series)"
+  },
+  {
+    "quote": "You know, when I was a kid, I got a black eye for Christmas and I said thank you.",
+    "year": 2002,
+    "options": [
+      "George Lopez",
+      "Malcolm in the Middle",
+      "Squidbillies",
+      "Welcome Back, Kotter"
+    ],
+    "genre": "sitcom",
+    "answer": "George Lopez",
+    "type": "tv",
+    "character": "Benny",
+    "source": "https://en.wikiquote.org/wiki/George_Lopez_(TV_series)"
+  },
+  {
+    "quote": "Forget the 'takes a village' crap. The village is out of order. The child needs parents.",
+    "year": 1997,
+    "options": [
+      "Fringe",
+      "Twin Peaks",
+      "Ghost Whisperer",
+      "The Practice"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Practice",
+    "type": "tv",
+    "character": "Social Worker",
+    "source": "https://en.wikiquote.org/wiki/The_Practice"
+  },
+  {
+    "quote": "The wilderness is my home sweet home. I wasn't born on this Earth just to stay alive, I was born to be alive.",
+    "year": 2014,
+    "options": [
+      "We Bare Bears",
+      "Ultimate Spider-Man",
+      "The Wild Thornberrys",
+      "Star Trek: The Animated Series"
+    ],
+    "genre": "cartoon",
+    "answer": "We Bare Bears",
+    "type": "tv",
+    "character": "Badger",
+    "source": "https://en.wikiquote.org/wiki/We_Bare_Bears"
+  },
+  {
+    "quote": "Rules are meaningful only if people agree to follow them. Otherwise, they're just words.",
+    "year": 1985,
+    "options": [
+      "ThunderCats",
+      "Hey Arnold!",
+      "Pinky and the Brain",
+      "Adventure Time"
+    ],
+    "genre": "cartoon",
+    "answer": "ThunderCats",
+    "type": "tv",
+    "character": "Tygra",
+    "source": "https://en.wikiquote.org/wiki/ThunderCats_(1985_TV_Series)"
+  },
+  {
+    "quote": "There is room for only one richest, most powerful man in the world. And that is Dr Zin!",
+    "year": 1964,
+    "options": [
+      "Winx Club",
+      "Batman: The Animated Series",
+      "Jonny Quest",
+      "Your Friendly Neighborhood Spider-Man"
+    ],
+    "genre": "cartoon",
+    "answer": "Jonny Quest",
+    "type": "tv",
+    "character": "Kasim",
+    "source": "https://en.wikiquote.org/wiki/Jonny_Quest_(TV_series)"
+  },
+  {
+    "quote": "You know, if you turn your lips inside out, you can look like Jimmy Carter.",
+    "year": 1996,
+    "options": [
+      "ThunderCats",
+      "Star Wars Rebels",
+      "Avatar: The Last Airbender",
+      "Dexter's Laboratory"
+    ],
+    "genre": "cartoon",
+    "answer": "Dexter's Laboratory",
+    "type": "tv",
+    "character": "Koosalagoopagoop",
+    "source": "https://en.wikiquote.org/wiki/Dexter's_Laboratory"
+  },
+  {
+    "quote": "Look, I promised my brother that I'd be a hero. Don't make me a liar. Not today.",
+    "year": 2006,
+    "options": [
+      "Heroes",
+      "Firefly",
+      "The West Wing",
+      "Star Trek: Enterprise"
+    ],
+    "genre": "tvdrama",
+    "answer": "Heroes",
+    "type": "tv",
+    "character": "Peter",
+    "source": "https://en.wikiquote.org/wiki/Heroes_(TV_series)"
+  },
+  {
+    "quote": "Move it! Time is money. Or it would be if I were paying you.",
+    "year": 1985,
+    "options": [
+      "BoJack Horseman",
+      "Adventures of the Gummi Bears",
+      "Hey Arnold!",
+      "The Powerpuff Girls"
+    ],
+    "genre": "cartoon",
+    "answer": "Adventures of the Gummi Bears",
+    "type": "tv",
+    "character": "Duke Igthorn",
+    "source": "https://en.wikiquote.org/wiki/Adventures_of_the_Gummi_Bears"
+  },
+  {
+    "quote": "When you see Indians, be careful. When you don't see any Indians, be twice as careful.",
+    "year": 2009,
+    "options": [
+      "Twin Peaks",
+      "Fringe",
+      "The Unit",
+      "The West Wing"
+    ],
+    "genre": "tvdrama",
+    "answer": "The Unit",
+    "type": "tv",
+    "character": "Bob Brown",
+    "source": "https://en.wikiquote.org/wiki/The_Unit"
+  },
+  {
+    "quote": "Come on, I'm not MTV material. Hell, I'm barely WB material.",
+    "year": 1999,
+    "options": [
+      "Mission Hill",
+      "The Brady Bunch",
+      "I Love Lucy",
+      "Home Movies"
+    ],
+    "genre": "sitcom",
+    "answer": "Mission Hill",
+    "type": "tv",
+    "character": "Andy",
+    "source": "https://en.wikiquote.org/wiki/Mission_Hill_(TV_series)"
+  },
+  {
+    "quote": "\"You and me, other girls, other chimps, sounds like fun!\"",
+    "year": 1998,
+    "options": [
+      "DuckTales",
+      "Young Justice",
+      "The Wild Thornberrys",
+      "Jonny Quest"
+    ],
+    "genre": "cartoon",
+    "answer": "The Wild Thornberrys",
+    "type": "tv",
+    "character": "Darwin",
+    "source": "https://en.wikiquote.org/wiki/The_Wild_Thornberrys"
+  },
+  {
+    "quote": "When I get my hands on you, you'll regret the day you were carved!",
+    "year": 1985,
+    "options": [
+      "Adventures of the Gummi Bears",
+      "Top Cat",
+      "Pinky and the Brain",
+      "Teenage Mutant Ninja Turtles"
+    ],
+    "genre": "cartoon",
+    "answer": "Adventures of the Gummi Bears",
+    "type": "tv",
+    "character": "Princess Calla",
+    "source": "https://en.wikiquote.org/wiki/Adventures_of_the_Gummi_Bears"
+  },
+  {
+    "quote": "Now, here to talk about your feelings is your new school psychiatrist, Dr. Floss.",
+    "year": 1993,
+    "options": [
+      "Beavis and Butt-head",
+      "The New Scooby-Doo Movies",
+      "Dungeons & Dragons",
+      "Star Trek: The Animated Series"
+    ],
+    "genre": "cartoon",
+    "answer": "Beavis and Butt-head",
+    "type": "tv",
+    "character": "Buzzcutt",
+    "source": "https://en.wikiquote.org/wiki/Beavis_and_Butt-head"
+  },
+  {
+    "quote": "He was crowdin' me, and I don't know him. I hit people that crowd me I don't know.",
+    "year": 2002,
+    "options": [
+      "Intelligence",
+      "Heroes",
+      "House",
+      "Firefly"
+    ],
+    "genre": "tvdrama",
+    "answer": "Firefly",
+    "type": "tv",
+    "character": "Jayne",
+    "source": "https://en.wikiquote.org/wiki/Firefly_(TV_series)"
   }
 ]
