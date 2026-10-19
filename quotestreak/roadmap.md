@@ -13,9 +13,6 @@
 One major version per milestone. Each one ships on the web first (deploy the same day), then iOS and Mac in the next store batch. Only one store build is in review at a time, so native majors queue and go out together. A milestone is done when it is live, tested, and its line is checked here.
 
 ### Era 1: a deeper game (2 to 10)
-- [x] **v2 Daily Quote.** One shared puzzle a day, the same for everyone, a day streak, and a spoiler-free share card.
-- [x] **v3 Hints.** Reveal the year, then the first letter; each hint halves the points.
-- [x] **v4 Type it.** Answer by typing with forgiving matching instead of four choices.
 - [ ] **v5 1,000 lines.** Grow the bank to 1,000 verified quotes with year, character and source on every line.
 - [ ] **v6 TV.** A television category: sitcoms, dramas, cartoons.
 - [ ] **v7 Games.** A video game category.
@@ -130,9 +127,6 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [ ] **v98 Certified access.** A full outside accessibility audit.
 - [ ] **v99 The book.** Whitepaper two and a public roadmap page.
 - [ ] **v100 Quotestreak 100.** Ten thousand verified quotes, a live event, and Quip's birthday.
-
-## Brand refresh (2026-10-18)
-- [x] 1.3.0 submitted 2026-10-18 on iOS and Mac with the new brand, screenshots, privacy labels for accounts and new review notes. Waiting for review.
 
 ## TODO, next time you are at a real Mac
 
