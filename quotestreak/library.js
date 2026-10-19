@@ -1,4 +1,4 @@
-// Pack library (v45), guest packs (v82). Classic script after packs.js and clubs.js (uses its rpc). Approved community
+// Pack library (v45), guest packs (v82). Classic script after packs.js and season-ui.js (uses its rpc). Approved community
 // packs, newest or most played; playing one sets the #pack= hash, which packs.js plays. Packs are
 // sent from the maker and wait for the owner's review; the owner sees the queue here, nobody else.
 const libEsc = (t) => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);

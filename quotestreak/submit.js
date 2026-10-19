@@ -1,4 +1,4 @@
-// Submissions (v72). Classic script after clubs.js (uses its rpc). A signed-in player suggests a line,
+// Submissions (v72). Classic script after season-ui.js (uses its rpc). A signed-in player suggests a line,
 // where it is from and where it is quoted; it waits in jaybulb-api for the owner, who reviews the queue
 // here. Approved lines reach the bank through scripts/pull-submissions.mjs, never straight from a player.
 // The panel's markup lives here, not in play.html, which is at the size limit.

@@ -18,8 +18,6 @@ window.quotableBadge = (event, d = {}) => {
   } else if (event === 'game') {
     s.games++;
     if (d.speed) s.bestSpeed = Math.max(s.bestSpeed, d.score); else s.bestScore = Math.max(s.bestScore, d.score);
-    if (d.cup) s.cups++;
-    if (d.perfectCup) s.perfectCup++;
   } else if (event === 'daily') s.dailyStreak = Math.max(s.dailyStreak, d.streak);
   else if (event === 'duelWin') s.duelWins++;
   else if (event === 'challenge') s.challenges++;

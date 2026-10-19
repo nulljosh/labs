@@ -125,18 +125,6 @@
           <form id="friend-form"><input id="friend-input" placeholder="Friend's code" maxlength="9" autocomplete="off" autocapitalize="characters" spellcheck="false"><button id="friend-add">Add</button></form>
           <ol id="friend-list"></ol>
         </div>
-        <div id="club">
-          <h3>Club</h3>
-          <div id="club-none">
-            <form id="club-create"><input id="club-name" placeholder="New club name" maxlength="30"><button>Create</button></form>
-            <form id="club-join"><input id="club-code" placeholder="Club code" maxlength="6" autocapitalize="characters"><button>Join</button></form>
-          </div>
-          <div id="club-mine" class="hidden">
-            <p id="club-head" class="prompt"></p>
-            <ol id="club-members"></ol>
-            <button id="club-leave" class="link">Leave club</button>
-          </div>
-        </div>
         <button id="auth-logout">Sign out</button>
         <button id="auth-delete">Delete account</button>
       </div>
@@ -152,7 +140,6 @@
     <div id="leaderboard" class="panel hidden">
       <h2 id="lb-title">Leaders</h2>
       <button id="lb-friends" class="link hidden">Friends only</button>
-      <button id="lb-clubs" class="link">Clubs</button>
       <ol id="lb-list"></ol>
       <button id="lb-close">Close</button>
     </div>
@@ -197,7 +184,6 @@
       <button id="start-speed">Speed Round (10s)</button>
       <button id="start-daily">Daily Quote</button>
       <button id="start-duel">Live duel</button>
-      <button id="start-cup">Weekly cup</button>
       <button id="start-pass">Pass and play</button>
       <button id="start-party">Big screen</button>
       <button id="start-pack">Make a pack</button>
@@ -213,7 +199,6 @@
       <button id="stats-btn">Stats</button>
       <button id="start-watchlist">Watchlist</button>
       <button id="season-btn">Season</button>
-      <button id="start-champions">Champions</button>
       <button id="lb-btn">Leaderboard</button>
     </div>
 
@@ -241,13 +226,6 @@
       <p id="badge-count" class="prompt"></p>
       <div id="badge-grid"></div>
       <button id="badges-back">Back</button>
-    </div>
-
-    <div id="champions" class="panel hidden">
-      <h2 id="champions-title">Champions</h2>
-      <p class="prompt">Last season's top eight, live duels you can watch.</p>
-      <div id="champions-body"></div>
-      <button id="champions-back">Back</button>
     </div>
 
     <div id="season" class="panel hidden">
@@ -332,15 +310,6 @@
       <button id="pass-back">Back</button>
     </div>
 
-    <div id="cup" class="panel hidden">
-      <h2 id="cup-title">Weekly cup</h2>
-      <p id="cup-msg" class="prompt"></p>
-      <div id="cup-bracket"></div>
-      <ol id="cup-list"></ol>
-      <button id="cup-play">Play this week's ten</button>
-      <button id="cup-back">Back</button>
-    </div>
-
     <div id="watch" class="panel hidden">
       <h2>Watching duel <span id="watch-code"></span></h2>
       <div id="watch-body"></div>
@@ -380,7 +349,6 @@
   <script src="match.js"></script>
   <script src="difficulty.js"></script>
   <script src="challenge.js"></script>
-  <script src="cup.js"></script>
   <script src="badges.js"></script>
   <script src="stats.js"></script>
   <script src="misquotes.js"></script>
@@ -406,9 +374,6 @@
   <script src="voice.js"></script>
   <script src="duel-client.js"></script>
   <script src="spectate.js"></script>
-  <script src="cup-ui.js"></script>
-  <script src="newsletter.js"></script>
-  <script src="clubs.js"></script>
   <script src="badges-ui.js"></script>
   <script src="dress.js"></script>
   <script src="stats-ui.js"></script>
@@ -417,7 +382,6 @@
   <script src="event.js"></script>
   <script src="season-ui.js"></script>
   <script src="yearly.js"></script>
-  <script src="champions.js"></script>
   <script src="practice.js"></script>
   <script src="suggest.js"></script>
   <script src="watchlist.js"></script>
@@ -429,7 +393,6 @@
   <script src="shelves.js"></script>
   <script src="submit.js"></script>
   <script src="moderation.js"></script>
-  <script src="halloffame.js"></script>
   <script src="offline.js"></script>
   <script type="module" src="auth.js"></script>
   <script src="i18n.js"></script>

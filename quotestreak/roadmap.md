@@ -21,8 +21,8 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v11 Challenge link.** Send ten quotes to a friend; they play the same ten and see your score.
 - [x] **v12 Live duels.** Real-time one on one through a Durable Object lobby.
 - [x] **v13 Friends.** Add friends and see a friends-only leaderboard.
-- [x] **v14 Weekly cup.** A bracket tournament every week.
-- [x] **v15 Clubs.** Teams with a shared score and a club board.
+- [x] **v14 Weekly cup.** Built, then removed on 2026-10-19: it needs a crowd the game does not have yet.
+- [x] **v15 Clubs.** Built, then removed on 2026-10-19: it needs a crowd the game does not have yet.
 - [x] **v16 Badges.** Fifty achievements drawn in Quip's style.
 - [x] **v17 Stats.** Accuracy by genre and decade, best streaks, a history graph.
 - [x] **v18 Share cards.** A generated image per game with the right Quip pose.
@@ -60,10 +60,10 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v44 Custom packs.** Build a quote pack and share it by link.
 - [x] **v45 Pack library.** Browse and play moderated community packs.
 - [x] **v46 Classroom.** Literature and speech packs with a teacher view.
-- [x] **v47 Stream mode.** Twitch chat votes on the answer.
+- [x] **v47 Stream mode.** Built, then removed on 2026-10-19: it needs a crowd the game does not have yet.
 - [ ] **v48 Discord.** A Discord Activity. *Waiting on a Discord developer application.*
 - [x] **v49 iMessage.** Play a round inside a conversation.
-- [x] **v50 Champions.** A live tournament of season winners.
+- [x] **v50 Champions.** Built, then removed on 2026-10-19: it needs a crowd the game does not have yet.
 
 ### Era 6: know more (51 to 60)
 - [x] **v51 The story.** After each answer, a card on the scene and why the line stuck.
@@ -107,7 +107,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v83 Invite links.** A landing page for every challenge.
 - [x] **v84 Press kit.** Brand kit two with video and screenshots.
 - [x] **v85 Embed.** A daily-quote widget for any website.
-- [x] **v86 Newsletter.** The daily quote by email, opt in.
+- [x] **v86 Newsletter.** Built, then removed on 2026-10-19: it needs a crowd the game does not have yet.
 - [x] **v87 Fair play.** Scores checked on the server.
 - [x] **v88 Moderation.** Tools for packs, names and clubs.
 - [ ] **v89 Supporter pack.** An optional one-dollar cosmetic pack, nothing locked. *Waiting on payments: a $1 web checkout and a $0.99 in-app purchase need setting up first.*
@@ -120,7 +120,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v94 Motion and sound.** A written motion system and a sound kit.
 - [x] **v95 Quip lives.** Quip reacts everywhere, drawn in code.
 - [x] **v96 Archive.** Every past daily quote playable.
-- [x] **v97 Hall of fame.** The best runs ever, kept forever.
+- [x] **v97 Hall of fame.** Built, then removed on 2026-10-19: it needs a crowd the game does not have yet.
 - [ ] **v98 Certified access.** A full outside accessibility audit. *Waiting on an outside auditor. The internal WCAG 2.2 pass is done and its fixes are live (docs/ACCESSIBILITY.md).*
 - [x] **v99 The book.** Whitepaper two and a public roadmap page.
 - [x] **v100 Quotestreak 100.** Ten thousand verified quotes and Quip's birthday.

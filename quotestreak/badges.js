@@ -24,9 +24,6 @@
     { id: 'miss-100', title: '100 misses and still here', pose: 'oops', tier: 'silver', test: s => s.wrong >= 100 },
     ...[1, 5].map((n, i) => ({ id: `duel-${n}`, title: n === 1 ? 'Win a live duel' : `Win ${n} live duels`, pose: 'cheer', tier: tier(i + 1), test: s => s.duelWins >= n })),
     { id: 'challenge', title: 'Send a challenge link', pose: 'idle', tier: 'bronze', test: s => s.challenges >= 1 },
-    { id: 'cup', title: 'Play a weekly cup', pose: 'idle', tier: 'bronze', test: s => s.cups >= 1 },
-    { id: 'cup-4', title: 'Play four weekly cups', pose: 'streak', tier: 'silver', test: s => s.cups >= 4 },
-    { id: 'perfect-cup', title: 'All ten right in a cup', pose: 'streak', tier: 'gold', test: s => s.perfectCup >= 1 },
   ];
   const empty = () => ({ right: 0, wrong: 0, bestStreak: 0, games: 0, bestScore: 0, bestSpeed: 0, dailyStreak: 0, genres: {}, decades: {}, typed: 0, cleanStreak: 0, hintWins: 0, duelWins: 0, challenges: 0, cups: 0, perfectCup: 0 });
   const unlocked = (s) => LIST.filter(b => b.test({ ...empty(), ...s })).map(b => b.id);

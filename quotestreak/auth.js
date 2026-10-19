@@ -2,7 +2,7 @@
 import { createClient } from './spark.js';
 
 const sb = createClient('https://api.jaybulb.com');
-// Other scripts (clubs.js) call RPCs through this session and hear about sign-in changes.
+// Other scripts call RPCs through this session (window.quotableRpc) and hear about sign-in changes.
 window.quotableRpc = (fn, args) => sb.rpc(fn, args);
 // Google, friends and delete are live (origin on jaybulb-signin, RPCs in jaybulb-api).
 // Web Apple: quotestreak.jaybulb.com/play is a return URL on Services ID com.heyitsmejosh.websignin.
@@ -142,7 +142,7 @@ window.quotableSubmitScore = async (score, mode, run = [], way = 'classic') => {
   if (token) await sb.rpc('quotestreak_submit_score', { token, score, run, way, name: displayName(user).slice(0, 24) });
 };
 
-// Best score per player for a mode, best first (the weekly cup reads its board through this).
+// Best score per player for a mode, best first .
 window.quotableBoard = async (mode) => {
   const { data } = await sb.from('quotestreak_leaderboard').select('name,score').eq('mode', mode).order('score', { ascending: false }).limit(50);
   return data || [];

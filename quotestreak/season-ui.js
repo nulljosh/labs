@@ -1,12 +1,14 @@
-// Seasons screen. Classic script after clubs.js (uses its rpc) and stats-ui.js: it wraps
+// Seasons screen. Classic script after stats-ui.js: it wraps
 // window.quotableBadge so each normal game updates this season's local best and, on a new tier,
 // shows the medal. The ladder itself comes from jaybulb-api (quotestreak_season).
+// RPCs through auth.js's session (window.quotableRpc); library.js, submit.js and moderation.js use it too.
+const rpc = (fn, args = {}) => window.quotableRpc ? window.quotableRpc(fn, args) : Promise.resolve({ error: { message: 'Sign in first.' } });
 const SEASON_KEY = 'quotestreak_seasons';
 const seasonBests = () => { try { return JSON.parse(localStorage.getItem(SEASON_KEY)) || {}; } catch { return {}; } };
 const seasonMedal = (t, id) => Badges.svg({ title: `${Season.name(id)} ${t.id}`, pose: t.pose, tier: t.id }, true);
 const prevEvent = window.quotableBadge;
 window.quotableBadge = (event, d = {}) => {
-  if (event === 'game' && !d.speed && !d.cup) {
+  if (event === 'game' && !d.speed) {
     const id = Season.of().id, before = Season.tier(seasonBests()[id] || 0), after = Season.record(seasonBests(), d.score);
     try { localStorage.setItem(SEASON_KEY, JSON.stringify(after)); } catch {}
     const t = Season.tier(after[id]);

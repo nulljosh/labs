@@ -27,8 +27,6 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `packs.js` | Custom packs: the maker, and playing a pack from its link (#pack=, deflated base64url) (v44) |
 | `library.js` | Pack library: approved community packs, sending a pack in, and the owner's review queue (v45) |
 | `classroom.js` | Classroom packs (speeches, Shakespeare, first lines) and the teacher's CSV results (v46) |
-| `stream.html`, `stream.js` | Stream mode: Twitch chat votes, read anonymously from the public chat socket (v47) |
-| `champions.js` | Champions: last season's top eight in a bracket of live duels, scores reported by both players (v50) |
 | `practice.js` | Practice: missed lines on a Leitner schedule (1, 3, 7, 21 days) (v61) |
 | `suggest.js` | Suggestions from the player's own stats on the end screen (v62) |
 | `watchlist.js` | Watchlist: missed films and shows, export to Letterboxd CSV (v63) |
@@ -36,9 +34,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `settings.js` | Settings panel and synthesized sound |
 | `story.js` | The story card: the title's Wikipedia summary after an answer, holding the game while open (v51) |
 | `spectate.js` | `?watch=CODE`, a read-only view of a duel |
-| `cup.js`, `cup-ui.js` | The weekly cup bracket |
-| `clubs.js` | Clubs and the club board |
-| `badges.js`, `badges-ui.js` | Fifty badges, toasts, the Badges screen |
+| `badges.js`, `badges-ui.js` | Forty-seven badges, toasts, the Badges screen |
 | `stats.js`, `stats-ui.js` | Hit rates by genre and decade, the history graph |
 | `sharecard.js` | The share card image |
 | `yearly.js` | Year in quotes: a tally per calendar year and its recap card (v65) |
@@ -50,7 +46,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `webmcp.js` | Agent tools, see `API.md` |
 | `sw.js` | Offline cache. Bump `quotestreak-vNN` every release |
 
-Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `cup`, `badges`, `stats`, `sharecard`, `season`, `modes`, `passplay`, `party`, `packs`, `classroom`, `stream`, `champions`, `story`, `practice`, `family`, `suggest`, `watchlist`, `taste`, `yearly`) work in Node too and each has a `*.test.js` next to it.
+Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `badges`, `stats`, `sharecard`, `season`, `modes`, `passplay`, `party`, `packs`, `classroom`, `story`, `practice`, `family`, `suggest`, `watchlist`, `taste`, `yearly`) work in Node too and each has a `*.test.js` next to it.
 
 `scripts/build-site.sh` copies an explicit file list into `dist/`. A new script has to be added there or it 404s in production.
 

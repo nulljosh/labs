@@ -5,7 +5,7 @@ Where Quotestreak stands against WCAG 2.2 AA, for the outside audit (v98) to sta
 ## What is tested on every release
 - axe-core over every screen, light and dark (`scripts/axe-check.mjs`): 0 violations.
 - Keyboard only: Tab reaches every control with a visible focus ring, Enter starts a round, keys 1 to 4 answer.
-- Reflow at 320 CSS pixels: no sideways scrolling on the menu, a round, Settings, Offline packs, Suggest a line and the Hall of fame.
+- Reflow at 320 CSS pixels: no sideways scrolling on the menu, a round, Settings, Offline packs and Suggest a line.
 - Target size: every control is at least 24 by 24 pixels, or sits inside a larger label.
 
 ## How the game meets it

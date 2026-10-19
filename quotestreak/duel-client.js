@@ -43,7 +43,6 @@ function duelResult() {
     : `You scored ${score}. Waiting for your friend to finish…`;
   if ((duel.theirDone || duel.left) && score > duel.them) window.quotableBadge?.('duelWin');
   if (duel.theirDone || duel.left) {
-    if (duel.theirDone) window.quotableDuelDone?.(score, duel.them);   // champions.js reports a bracket match
     duel.ws.close(); duel = null; history.replaceState(null, '', location.pathname);
   }
 }

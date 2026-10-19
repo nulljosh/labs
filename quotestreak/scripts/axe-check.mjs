@@ -23,7 +23,7 @@ try {
   await p.waitForTimeout(1200); await p.click('#end-btn'); await run('end');
   await p.click('#restart'); await p.click('#settings-btn'); await run('settings'); await p.click('#settings-close');
   for (const [btn, close] of [['#badges-btn', '#badges-back'], ['#stats-btn', '#stats-back'], ['#season-btn', '#season-back'], ['#start-pack', '#pack-back']]) { await p.click(btn); await p.waitForTimeout(300); await run(btn); await p.click(close); }
-  await p.goto(`http://localhost:${srv.address().port}/index.html`); await p.waitForTimeout(1000); await run('landing'); for (const pg of ['buzz', 'party', 'stream', 'privacy']) { await p.goto(`http://localhost:${srv.address().port}/${pg}.html`); await p.waitForTimeout(800); await run(pg); }
+  await p.goto(`http://localhost:${srv.address().port}/index.html`); await p.waitForTimeout(1000); await run('landing'); for (const pg of ['buzz', 'party', 'privacy']) { await p.goto(`http://localhost:${srv.address().port}/${pg}.html`); await p.waitForTimeout(800); await run(pg); }
   for (const v of all.values()) console.log(`[${v.impact}] ${v.id}: ${v.help} (${v.screens.join(',')})\n   ${v.nodes.join('\n   ')}`);
   console.log(all.size, 'kinds of violation');
 } finally { await b.close(); srv.close(); }

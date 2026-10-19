@@ -19,7 +19,6 @@ let run = [];          // {qid, pts} for each question this game, for the challe
 let duel = null;       // {ws, code, them, theirDone, done} during a live duel
 let lives = null;      // marathon (v30): misses left, null in every other game
 let nextTimer = null;  // the pause after an answer; story.js holds it while a story card is open
-let cupRound = null;   // this week's ten cup quotes while the cup is being played (cup-ui.js)
 const $ = (id) => document.getElementById(id);
 
 
@@ -67,7 +66,7 @@ fetch(`${API}/rpc/quotestreak_stats`, { method: 'POST', body: '{}' }).then(r => 
 const tally = (q, ok) => fetch(`${API}/rpc/quotestreak_answer`, { method: 'POST', body: JSON.stringify({ qid: Difficulty.qid(q.quote), ok }), keepalive: true }).catch(() => {});
 
 // v100: quotes-more.json, the extended bank, joins `quotes` after first paint, or first when a
-// challenge, duel or watch link may name its lines. `core` stays as loaded for Daily, cup and show.
+// challenge, duel or watch link may name its lines. `core` stays as loaded for the Daily and archive.
 const more = () => fetch('quotes-more.json').then(r => r.json()).then(x => (quotes.push(...x), x)).catch(() => []);
 const needMore = /[?&](c|duel|watch)=/.test(location.search);
 fetch('quotes.json').then(r => r.json()).then(async data => {
@@ -115,15 +114,14 @@ function startGame(speed) {
     && (level === 'all' || Difficulty.level(q, stats) === level)));
   if (!pool.length) pool = shuffle(quotes.filter(q => genre === 'all' || q.genre === genre));  // an empty pairing plays the genre
   const mode = $('mode').value;  // Era 3 ways to guess (modes.js); friend modes below stay classic
-  lives = mode === 'marathon' && !challenge && !duel && !cupRound ? 3 : null;
+  lives = mode === 'marathon' && !challenge && !duel ? 3 : null;
   if (mode !== 'classic') pool = Modes.pool(mode, pool, quotes);
   if (!pool.length) pool = Modes.pool(mode, shuffle(quotes), quotes);
   if (window.quotableFamily) pool = pool.filter(Family.ok).length ? pool.filter(Family.ok) : shuffle(quotes.filter(Family.ok));  // v60
   if (challenge) pool = [...challenge.quotes].reverse();  // nextQuestion pops from the end
   if (duel?.quotes) pool = [...duel.quotes].reverse();
-  if (cupRound) pool = [...cupRound].reverse();
   updateStats();
-  if (!duel && !challenge) window.quotableGameToken?.(cupRound ? `cup-${Cup.weekKey()}` : speed ? 'speed' : 'normal');   // fair play (v87)
+  if (!duel && !challenge) window.quotableGameToken?.(speed ? 'speed' : 'normal');   // fair play (v87)
   modeSelect.classList.add('hidden');
   endEl.classList.add('hidden');
   gameEl.classList.remove('hidden');
@@ -276,16 +274,15 @@ function endGame() {
   $('quip-end').src = `brand/quip-${best ? 'cheer' : score > 0 ? 'idle' : 'oops'}${dark}.svg`;
   localStorage.setItem(HIGH_KEY, high);
   $('final-score').textContent = `Final score: ${score} · High score: ${high}`;
-  if (!cupRound && !duel && !challenge && !window.quotableOffBoard) window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal', run, typeMode ? 'typed' : $('mode').value);
+  if (!duel && !challenge && !window.quotableOffBoard) window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal', run, typeMode ? 'typed' : $('mode').value);
   if (challenge) {
     $('final-score').textContent = Challenge.verdict(score, challenge.score, challenge.name);
     challenge = null;
     history.replaceState(null, '', location.pathname);  // Play Again starts a normal game
   }
   $('challenge-btn').classList.toggle('hidden', !run.length || speedMode || !!duel);
-  window.quotableBadge?.('game', { score, speed: speedMode, cup: !!cupRound, perfectCup: !!cupRound && run.length === Cup.SIZE && run.every(r => r.pts > 0) });
+  window.quotableBadge?.('game', { score, speed: speedMode });
   if (duel?.quotes) { duel.done = true; duelSend({ type: 'done', score }); duelResult(); }
-  if (cupRound) cupFinish(score);
 }
 
 

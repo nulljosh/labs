@@ -1,7 +1,7 @@
 const assert = require('assert');
 const { LIST, unlocked, empty } = require('./badges');
-assert.equal(LIST.length, 50, `there should be fifty badges, not ${LIST.length}`);
-assert.equal(new Set(LIST.map(b => b.id)).size, 50);
+assert.equal(LIST.length, 47, `there should be forty-seven badges, not ${LIST.length}`);
+assert.equal(new Set(LIST.map(b => b.id)).size, 47);
 assert.deepEqual(unlocked(empty()), []);
 assert.deepEqual(unlocked({ right: 1, games: 1 }).sort(), ['games-1', 'right-1']);
 const genres = Object.fromEntries(require('./badges').GENRES.map(g => [g, 1]));

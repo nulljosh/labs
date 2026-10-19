@@ -31,17 +31,15 @@ Or the show, the game, the song or the book. 14,434 lines across 16 genres, from
 
 **Daily Quote.** One line a day, the same for everyone, with a day streak.
 
-**Play with people.** Send a friend your ten quotes as a challenge link, duel live, watch someone else's duel, enter the weekly cup, join a club, add friends and see a friends-only leaderboard.
+**Play with people.** Send a friend your ten quotes as a challenge link, duel live, watch someone else's duel, add friends and see a friends-only leaderboard.
 
-**Keep score.** Fifty badges drawn around Quip, the mascot. Stats by genre and decade with a graph of your last fifty games. A share card for every game, a taste card of the genres and decades you play, and your year in quotes. A ranked season every quarter, with a Quip medal for each tier you reach, and a Champions bracket for the top eight that anyone can watch.
+**Keep score.** Forty-seven badges drawn around Quip, the mascot. Stats by genre and decade with a graph of your last fifty games. A share card for every game, a taste card of the genres and decades you play, and your year in quotes. A ranked season every quarter, with a Quip medal for each tier you reach, and a Champions bracket for the top eight that anyone can watch.
 
 **Siri.** "Give me a quote from Quotestreak" reads today's line; "Start a speed round in Quotestreak" opens straight into one.
 
 **Handoff.** Start a game on your iPhone and pick it up on your Mac at the same question.
 
 **Make a pack.** Write your own lines, family sayings or inside jokes, and share them as a link. The whole pack lives in the link; nothing is stored. Send a pack to the library and, once it's reviewed, anyone can play it.
-
-**Stream mode.** Add /stream to your Twitch stream as a browser source and chat votes on every line.
 
 **Pass and play.** Up to eight people on one phone, taking turns.
 

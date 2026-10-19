@@ -48,7 +48,7 @@ addEventListener('keydown', (e) => {
 
 // Family mode (v60, family.js): only kid-safe lines, a poster wall to match, and no Daily, Duel,
 // Cup or other shared modes that deal everyone the same unfiltered lines.
-const SHARED = ['start-daily', 'start-duel', 'start-cup', 'start-party', 'start-library', 'start-champions'];
+const SHARED = ['start-daily', 'start-duel', 'start-party', 'start-library'];
 const familyOn = () => { try { return localStorage.getItem('quotestreak_family') === 'true'; } catch { return false; } };
 function applyFamily() {
   window.quotableFamily = familyOn();

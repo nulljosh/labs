@@ -14,7 +14,7 @@ A line, four choices, or a text box. More than a dozen ways to guess turn the sa
 
 ## Shared clocks, no server state
 
-The Daily Quote walks a fixed shuffle of the bank, one line per UTC day, the same in every browser, in the widget and in the API. The weekly cup and the weekly new-release pack work the same way: a seed from the date picks the lines, and each browser works out the live question from the time, corrected by the server's clock. Nothing drives them. Live duels and party games relay through Durable Objects that keep nothing once the room empties.
+The Daily Quote walks a fixed shuffle of the bank, one line per UTC day, the same in every browser, in the widget and in the API. The weekly new-release pack works the same way: a seed from the date picks the lines, and each browser works out the live question from the time, corrected by the server's clock. Nothing drives it. Live duels and party games relay through Durable Objects that keep nothing once the room empties.
 
 ## Fair scores
 
