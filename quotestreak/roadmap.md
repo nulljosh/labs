@@ -34,7 +34,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v22 Finish the line.** Fill in the missing word.
 - [x] **v23 Misquotes.** Spot the famous line everyone gets wrong.
 - [x] **v24 Timeline.** Which of four came out first?
-- [ ] **v25 Poster reveal.** A blurred poster sharpens until you name it.
+- [x] **v25 Poster reveal.** A blurred poster sharpens until you name it.
 - [ ] **v26 Album reveal.** The same for album covers.
 - [ ] **v27 Name the year.** Guess the release year, closer scores more.
 - [ ] **v28 Quip reads it.** On-device speech reads each quote aloud.

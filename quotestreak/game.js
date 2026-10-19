@@ -177,6 +177,7 @@ function nextQuestion() {
     optionsEl.appendChild(btn);
   });
   preloadArt(current.art);
+  window.quotableShown?.(current);  // reveal.js draws a poster or cover question
   if (speedMode) startTimer();
 }
 
@@ -240,7 +241,7 @@ function choose(opt, btn) {
     beep(180, 0.25);
   }
   if (current.character) feedbackEl.textContent += ` · ${[current.character, current.year].filter(Boolean).join(', ')}`;
-  if (!current.plain) tally(current, correct);  // a timeline question is not one quote
+  if (!current.plain && !current.image) tally(current, correct);  // timelines and reveals aren't one quote
   run.push({ qid: Difficulty.qid(current.quote), pts });
   duelSend({ type: 'answer', score, i: run.length, name: window.quotableDisplayName?.() });
   window.quotableBadge?.('answer', { q: current, correct, typed: typeMode, hints: hintsUsed, streak });
@@ -280,7 +281,7 @@ function updateStats() {
 function endGame() {
   gameEl.classList.add('hidden');
   endEl.classList.remove('hidden');
-  document.body.classList.remove('speed');
+  document.body.classList.remove('speed', 'revealing');
   const prev = parseInt(localStorage.getItem(HIGH_KEY) || '0', 10);
   const high = Math.max(score, prev);
   if (score > prev) requestAnimationFrame(() => burst($('final-score'), 80));

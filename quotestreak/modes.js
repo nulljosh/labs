@@ -58,10 +58,18 @@
     }
     return out;
   }
+  // v25 Poster reveal, v26 Album reveal: the art itself is the question, blurred until it sharpens
+  // (reveal.js). One question per title; TMDB art is a poster, iTunes art is an album cover.
+  function reveal(list, kind, rand) {
+    const seen = new Set();
+    return shuffle(list.filter(q => q.art && q.art.includes(kind === 'poster' ? 'tmdb' : 'mzstatic') && !seen.has(q.answer) && seen.add(q.answer)), rand)
+      .map(q => ({ ...q, image: q.art, square: kind === 'album', prompt: kind === 'poster' ? 'Name the movie from the poster.' : 'Name the artist from the cover.' }));
+  }
   // A game's questions. Most modes reshape the filtered bank; misquotes (v23) bring their own set.
   const Mis = typeof module !== 'undefined' ? require('./misquotes') : root.Misquotes;
   const pool = (mode, list, all, rand = Math.random) => mode === 'misquote' ? shuffle(Mis.questions(), rand)
     : mode === 'timeline' ? timeline(list, rand)
+    : mode === 'poster' || mode === 'album' ? reveal(list, mode, rand)
     : list.map(q => build(mode, q, all, rand)).filter(Boolean);
   const api = { build, pool };
   if (typeof module !== 'undefined') module.exports = api; else root.Modes = api;

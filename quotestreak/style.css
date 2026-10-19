@@ -304,3 +304,9 @@ button.link { background: none; box-shadow: none; color: var(--text); text-decor
 /* The leaderboard opens from the menu and the end screen alike, so it floats over both instead of stacking above them. */
 #leaderboard { position: fixed; inset: 0; margin: auto; width: min(480px, calc(100vw - 32px)); height: fit-content; max-height: 80vh; overflow-y: auto; z-index: 50; box-shadow: 0 12px 48px rgba(0,0,0,0.35); }
 li.note { list-style: none; text-align: center; color: var(--muted); }  /* an empty board says so, unnumbered */
+/* Poster and album reveal: blurred art that sharpens over about the length of a speed round */
+#reveal { display: block; height: min(44vh, 360px); aspect-ratio: 2 / 3; object-fit: cover; margin: 0 auto 20px; border-radius: 12px; clip-path: inset(0 round 12px); filter: blur(28px); }
+#reveal.sq { aspect-ratio: 1; height: min(36vh, 300px); }
+#reveal.sharpen { filter: blur(0); transition: filter 9s cubic-bezier(0.3, 0, 0.6, 1); }
+#reveal.sharp { filter: none; transition: filter 0.3s; }
+body.revealing #backdrop { visibility: hidden; }

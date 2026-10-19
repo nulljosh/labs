@@ -50,4 +50,12 @@ for (const t of tl) {
   assert(t.options.every(o => !/^[A-D](, [A-D])*$/.test(o)));
 }
 assert.equal(pool('timeline', bank.slice(0, 3), bank, rand).length, 0, 'three lines make no timeline');
-console.log('modes ok', playable, fin, mq.length, tl.length);
+
+// Poster reveal
+const po = pool('poster', bank, bank, rand);
+assert(po.length > 100, `only ${po.length} posters`);
+assert.equal(new Set(po.map(p => p.answer)).size, po.length, 'one question per title');
+assert(po.every(p => p.image.includes('tmdb') && p.options.includes(p.answer) && !p.square));
+const al = pool('album', bank, bank, rand);
+assert(al.length > 30 && al.every(a => a.square && a.image.includes('mzstatic')), `${al.length} covers`);
+console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length);
