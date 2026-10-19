@@ -18,7 +18,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v10 Real difficulty.** Easy, medium and hard, ranked from what players actually get right.
 
 ### Era 2: play with people (11 to 20)
-- [ ] **v11 Challenge link.** Send ten quotes to a friend; they play the same ten and see your score.
+- [x] **v11 Challenge link.** Send ten quotes to a friend; they play the same ten and see your score.
 - [ ] **v12 Live duels.** Real-time one on one through a Durable Object lobby.
 - [ ] **v13 Friends.** Add friends and see a friends-only leaderboard.
 - [ ] **v14 Weekly cup.** A bracket tournament every week.
