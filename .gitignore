@@ -24,6 +24,7 @@
 !journal/
 !toroid/
 !quotestreak/
+!curvely/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
