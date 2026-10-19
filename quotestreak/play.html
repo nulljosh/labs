@@ -79,6 +79,7 @@
       <select id="genre">
         <option value="all">All genres</option>
       </select>
+      <label class="check"><input type="checkbox" id="type-toggle"> Type answers</label>
       <button id="start-normal">Play</button>
       <button id="start-speed">Speed Round (10s)</button>
       <button id="start-daily">Daily Quote</button>
@@ -97,6 +98,7 @@
       <p id="prompt" class="prompt"></p>
       <blockquote id="quote"></blockquote>
       <div id="options" class="options"></div>
+      <form id="type-form" class="hidden"><input id="type-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your answer"><button id="type-go">Answer</button></form>
       <p id="hint" class="prompt"></p>
       <button id="hint-btn" class="secondary">Hint</button>
       <p id="feedback"></p>
@@ -122,6 +124,7 @@
     </div>
   </main>
   <script src="hints.js"></script>
+  <script src="match.js"></script>
   <script src="daily.js"></script>
   <script src="game.js"></script>
   <script type="module" src="auth.js"></script>

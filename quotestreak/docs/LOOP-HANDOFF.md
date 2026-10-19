@@ -10,7 +10,7 @@ Work down "Road to v100" in `roadmap.md`, one major version per tick. Each miles
 - Store builds need `-allowProvisioningUpdates` and automatic export signing; the old manual Mac profile lacks Sign in with Apple.
 
 ## Next, in order
-1. v4 Type it, then down the list. (v2 Daily and v3 Hints are live on the web; hints.js is web-only so far, native port rides the next store batch.)
+1. v5 1,000 lines, then down the list. (v2 to v4 live on the web; hints.js, match.js and the typed mode are web-only so far.) (v2 Daily and v3 Hints are live on the web; hints.js is web-only so far, native port rides the next store batch.)
 3. When 1.3.0 clears review, cut the next store build with every native change since, new screenshots if the UI moved, and What's New in the house voice.
 
 ## Restart prompt
