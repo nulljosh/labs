@@ -81,7 +81,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v61 Practice.** Missed quotes come back until you know them.
 - [x] **v62 Suggestions.** Know 80s action? Try 80s comedy.
 - [x] **v63 Watchlist.** Movies you missed saved to a list you can export.
-- [ ] **v64 Taste card.** Your genres and decades on one card.
+- [x] **v64 Taste card.** Your genres and decades on one card.
 - [ ] **v65 Year in quotes.** An end-of-year recap.
 - [ ] **v66 Dress Quip.** Hats and outfits, always on brand.
 - [ ] **v67 Themes.** Marquee, noir and drive-in, each within the brand.

@@ -394,5 +394,11 @@
  "Show": "Phim bộ",
  "Remove": "Xóa",
  "Export for Letterboxd": "Xuất cho Letterboxd",
- "Copy the list": "Sao chép danh sách"
+ "Copy the list": "Sao chép danh sách",
+ "My taste in lines": "Gu câu thoại của tôi",
+ "{n} answered, {n}% right": "Đã trả lời {n}, đúng {n}%",
+ "{n}% right": "Đúng {n}%",
+ "Best decade: the {n}s": "Thập niên giỏi nhất: thập niên {n}",
+ "Share my taste card": "Chia sẻ thẻ gu của tôi",
+ "Answer ten lines first": "Hãy trả lời mười câu trước"
 }

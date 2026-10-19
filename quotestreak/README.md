@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80" height="80" alt="Quotestreak icon">
 
-![version](https://img.shields.io/badge/version-63.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-64.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Here's the line. Name the movie.
 
@@ -33,7 +33,7 @@ Or the show, the game, the song or the book. 1,597 lines across 15 genres, from 
 
 **Play with people.** Send a friend your ten quotes as a challenge link, duel live, watch someone else's duel, enter the weekly cup, join a club, add friends and see a friends-only leaderboard.
 
-**Keep score.** Fifty badges drawn around Quip, the mascot. Stats by genre and decade with a graph of your last fifty games. A share card for every game. A ranked season every quarter, with a Quip medal for each tier you reach, and a Champions bracket for the top eight that anyone can watch.
+**Keep score.** Fifty badges drawn around Quip, the mascot. Stats by genre and decade with a graph of your last fifty games. A share card for every game, and a taste card of the genres and decades you play. A ranked season every quarter, with a Quip medal for each tier you reach, and a Champions bracket for the top eight that anyone can watch.
 
 **Siri.** "Give me a quote from Quotestreak" reads today's line; "Start a speed round in Quotestreak" opens straight into one.
 

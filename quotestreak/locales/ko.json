@@ -394,5 +394,11 @@
  "Show": "쇼",
  "Remove": "삭제",
  "Export for Letterboxd": "Letterboxd용으로 내보내기",
- "Copy the list": "목록 복사"
+ "Copy the list": "목록 복사",
+ "My taste in lines": "나의 대사 취향",
+ "{n} answered, {n}% right": "{n}개 답변, {n}% 정답",
+ "{n}% right": "{n}% 정답",
+ "Best decade: the {n}s": "최고의 연대: {n}년대",
+ "Share my taste card": "취향 카드 공유",
+ "Answer ten lines first": "먼저 대사 10개에 답하세요"
 }

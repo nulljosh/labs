@@ -394,5 +394,11 @@
  "Show": "Serial",
  "Remove": "Hapus",
  "Export for Letterboxd": "Ekspor untuk Letterboxd",
- "Copy the list": "Salin daftar"
+ "Copy the list": "Salin daftar",
+ "My taste in lines": "Seleraku dalam kutipan",
+ "{n} answered, {n}% right": "{n} dijawab, {n}% benar",
+ "{n}% right": "{n}% benar",
+ "Best decade: the {n}s": "Dekade terbaik: {n}-an",
+ "Share my taste card": "Bagikan kartu seleraku",
+ "Answer ten lines first": "Jawab sepuluh kutipan dulu"
 }

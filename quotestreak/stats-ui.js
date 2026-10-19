@@ -24,3 +24,13 @@ $('stats-btn').onclick = () => {
   $('stats').classList.remove('hidden');
 };
 $('stats-back').onclick = () => { $('stats').classList.add('hidden'); modeSelect.classList.remove('hidden'); };
+
+// The taste card (v64, taste.js): the same sharing path as the score card in game.js.
+$('taste-share').onclick = async () => {
+  const s = Taste.summary(statsLoad());
+  if (!s) { $('taste-share').textContent = 'Answer ten lines first'; return setTimeout(() => { $('taste-share').textContent = 'Share my taste card'; }, 1800); }
+  const blob = await Taste.draw(s, (k) => window.I18N ? I18N.t(label(k)) : label(k));
+  const files = blob ? [new File([blob], 'quotestreak-taste.png', { type: 'image/png' })] : [];
+  if (files.length && navigator.canShare?.({ files })) return navigator.share({ files }).catch(() => {});
+  if (blob) Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'quotestreak-taste.png' }).click();
+};

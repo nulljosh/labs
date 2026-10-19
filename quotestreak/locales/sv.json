@@ -394,5 +394,11 @@
  "Show": "Serie",
  "Remove": "Ta bort",
  "Export for Letterboxd": "Exportera till Letterboxd",
- "Copy the list": "Kopiera listan"
+ "Copy the list": "Kopiera listan",
+ "My taste in lines": "Min smak i repliker",
+ "{n} answered, {n}% right": "{n} besvarade, {n} % rätt",
+ "{n}% right": "{n} % rätt",
+ "Best decade: the {n}s": "Bästa decenniet: {n}-talet",
+ "Share my taste card": "Dela mitt smakkort",
+ "Answer ten lines first": "Svara på tio repliker först"
 }

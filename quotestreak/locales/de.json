@@ -394,5 +394,11 @@
  "Show": "Serie",
  "Remove": "Entfernen",
  "Export for Letterboxd": "Für Letterboxd exportieren",
- "Copy the list": "Liste kopieren"
+ "Copy the list": "Liste kopieren",
+ "My taste in lines": "Mein Geschmack in Zitaten",
+ "{n} answered, {n}% right": "{n} beantwortet, {n} % richtig",
+ "{n}% right": "{n} % richtig",
+ "Best decade: the {n}s": "Bestes Jahrzehnt: die {n}er",
+ "Share my taste card": "Meine Geschmackskarte teilen",
+ "Answer ten lines first": "Beantworte zuerst zehn Zitate"
 }

@@ -402,5 +402,11 @@
  "Show": "Série",
  "Remove": "Retirer",
  "Export for Letterboxd": "Exporter pour Letterboxd",
- "Copy the list": "Copier la liste"
+ "Copy the list": "Copier la liste",
+ "My taste in lines": "Mes goûts en répliques",
+ "{n} answered, {n}% right": "{n} réponses, {n} % justes",
+ "{n}% right": "{n} % justes",
+ "Best decade: the {n}s": "Meilleure décennie : les années {n}",
+ "Share my taste card": "Partager ma carte de goûts",
+ "Answer ten lines first": "Réponds d’abord à dix répliques"
 }

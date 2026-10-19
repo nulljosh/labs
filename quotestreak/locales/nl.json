@@ -394,5 +394,11 @@
  "Show": "Serie",
  "Remove": "Verwijderen",
  "Export for Letterboxd": "Exporteren voor Letterboxd",
- "Copy the list": "Lijst kopiëren"
+ "Copy the list": "Lijst kopiëren",
+ "My taste in lines": "Mijn smaak in quotes",
+ "{n} answered, {n}% right": "{n} beantwoord, {n}% goed",
+ "{n}% right": "{n}% goed",
+ "Best decade: the {n}s": "Beste decennium: de jaren {n}",
+ "Share my taste card": "Mijn smaakkaart delen",
+ "Answer ten lines first": "Beantwoord eerst tien quotes"
 }

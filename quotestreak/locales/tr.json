@@ -394,5 +394,11 @@
  "Show": "Dizi",
  "Remove": "Kaldır",
  "Export for Letterboxd": "Letterboxd için dışa aktar",
- "Copy the list": "Listeyi kopyala"
+ "Copy the list": "Listeyi kopyala",
+ "My taste in lines": "Replik zevkim",
+ "{n} answered, {n}% right": "{n} cevap, %{n} doğru",
+ "{n}% right": "%{n} doğru",
+ "Best decade: the {n}s": "En iyi on yıl: {n}'ler",
+ "Share my taste card": "Zevk kartımı paylaş",
+ "Answer ten lines first": "Önce on replik cevapla"
 }

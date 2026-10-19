@@ -1,0 +1,10 @@
+const assert = require('assert');
+const { summary } = require('./taste');
+assert.equal(summary({ genres: { action: [2, 3] }, decades: {} }), null, 'under ten answers: no card yet');
+const s = summary({ genres: { action: [8, 10], comedy: [3, 6], drama: [9, 12], book: [1, 1] }, decades: { 1980: [9, 10], 1990: [5, 8], 1970: [3, 3] } });
+assert.equal(s.total, 29);
+assert.equal(s.right, 21);
+assert.deepEqual(s.top.map(g => g.key), ['drama', 'action', 'comedy', 'book'], 'most played first');
+assert.equal(s.top[0].pct, 75);
+assert.equal(s.decade, 1980, 'best decade by hit rate, five answers at least');
+console.log('taste ok');

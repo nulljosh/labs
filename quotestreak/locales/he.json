@@ -394,5 +394,11 @@
  "Show": "סדרה",
  "Remove": "הסרה",
  "Export for Letterboxd": "ייצוא ל-Letterboxd",
- "Copy the list": "העתקת הרשימה"
+ "Copy the list": "העתקת הרשימה",
+ "My taste in lines": "הטעם שלי בציטוטים",
+ "{n} answered, {n}% right": "{n} תשובות, {n}% נכונות",
+ "{n}% right": "{n}% נכונות",
+ "Best decade: the {n}s": "העשור הטוב ביותר: שנות ה-{n}",
+ "Share my taste card": "שיתוף כרטיס הטעם שלי",
+ "Answer ten lines first": "ענה קודם על עשרה ציטוטים"
 }

@@ -394,5 +394,11 @@
  "Show": "مسلسل",
  "Remove": "إزالة",
  "Export for Letterboxd": "تصدير إلى Letterboxd",
- "Copy the list": "نسخ القائمة"
+ "Copy the list": "نسخ القائمة",
+ "My taste in lines": "ذوقي في العبارات",
+ "{n} answered, {n}% right": "{n} إجابة، {n}٪ صحيحة",
+ "{n}% right": "{n}٪ صحيحة",
+ "Best decade: the {n}s": "أفضل عقد: {n}",
+ "Share my taste card": "شارك بطاقة ذوقي",
+ "Answer ten lines first": "أجب عن عشر عبارات أولًا"
 }

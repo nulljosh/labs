@@ -394,5 +394,11 @@
  "Show": "番組",
  "Remove": "削除",
  "Export for Letterboxd": "Letterboxd 用に書き出す",
- "Copy the list": "リストをコピー"
+ "Copy the list": "リストをコピー",
+ "My taste in lines": "私のセリフの好み",
+ "{n} answered, {n}% right": "{n}問に回答、正解率{n}%",
+ "{n}% right": "正解率{n}%",
+ "Best decade: the {n}s": "得意な年代：{n}年代",
+ "Share my taste card": "好みカードをシェア",
+ "Answer ten lines first": "まず10問に答えよう"
 }

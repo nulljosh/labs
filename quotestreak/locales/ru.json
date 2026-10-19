@@ -394,5 +394,11 @@
  "Show": "Сериал",
  "Remove": "Убрать",
  "Export for Letterboxd": "Экспорт для Letterboxd",
- "Copy the list": "Скопировать список"
+ "Copy the list": "Скопировать список",
+ "My taste in lines": "Мой вкус в цитатах",
+ "{n} answered, {n}% right": "{n} ответов, {n}% верно",
+ "{n}% right": "{n}% верно",
+ "Best decade: the {n}s": "Лучшее десятилетие: {n}-е",
+ "Share my taste card": "Поделиться карточкой вкуса",
+ "Answer ten lines first": "Сначала ответьте на десять цитат"
 }

@@ -396,5 +396,11 @@
  "Show": "剧集",
  "Remove": "移除",
  "Export for Letterboxd": "导出到 Letterboxd",
- "Copy the list": "复制清单"
+ "Copy the list": "复制清单",
+ "My taste in lines": "我的台词品味",
+ "{n} answered, {n}% right": "答了 {n} 题，正确率 {n}%",
+ "{n}% right": "正确率 {n}%",
+ "Best decade: the {n}s": "最强年代：{n} 年代",
+ "Share my taste card": "分享我的品味卡",
+ "Answer ten lines first": "先答 10 题"
 }
