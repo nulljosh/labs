@@ -1,1 +1,6 @@
-{"schemaVersion":1,"dataUsages":[{"dataProtections":["DATA_NOT_COLLECTED"]}]}
+{"schemaVersion":1,"dataUsages":[
+ {"category":"USER_ID","purposes":["APP_FUNCTIONALITY"],"dataProtections":["DATA_LINKED_TO_YOU"]},
+ {"category":"NAME","purposes":["APP_FUNCTIONALITY"],"dataProtections":["DATA_LINKED_TO_YOU"]},
+ {"category":"EMAIL_ADDRESS","purposes":["APP_FUNCTIONALITY"],"dataProtections":["DATA_LINKED_TO_YOU"]},
+ {"category":"GAMEPLAY_CONTENT","purposes":["APP_FUNCTIONALITY"],"dataProtections":["DATA_LINKED_TO_YOU"]}
+]}

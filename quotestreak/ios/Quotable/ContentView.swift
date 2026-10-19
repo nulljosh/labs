@@ -26,9 +26,20 @@ struct ContentView: View {
             .background { Backdrop(quotes: game.quotes, paused: game.phase == .playing && game.speedMode).ignoresSafeArea() }
             .background(Theme.canvas)
             .font(.quip(.body))
+            .tint(Theme.accentStroke)   // the genre picker and toolbar, not system blue
             .navigationTitle("Quotestreak")
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
+            #if DEBUG
+            // Store screenshots: `-shot question|reveal|speed` opens straight onto that screen.
+            .onAppear {
+                switch UserDefaults.standard.string(forKey: "shot") {
+                case "question", "reveal": game.start(genre: nil, speed: false)
+                case "speed": game.start(genre: nil, speed: true)
+                default: break
+                }
+            }
             #endif
             .sheet(isPresented: $showAccount) { AccountSheet() }
             .sheet(isPresented: $showBoard) { LeaderboardSheet(speed: game.speedMode) }
@@ -189,7 +200,7 @@ private struct RoundView: View {
             }
             Spacer(minLength: 0)
         }
-        .frame(maxWidth: 560)   // a reading column, not edge to edge on a wide Mac window
+        .frame(maxWidth: 560 * Theme.padScale)   // a reading column, not edge to edge on a wide Mac window
         .padding(24)
         .frame(maxWidth: .infinity)
         .animation(.default, value: game.current)
@@ -204,7 +215,14 @@ private struct RoundView: View {
         .overlay { if let burst { ConfettiView(burst: burst).id(burst.start) } }
         .background { ArtFlash(url: flashedArt, cached: art.image(for: flashedArt)).ignoresSafeArea().animation(.easeInOut(duration: 0.25), value: flashedArt) }
         .onChange(of: game.current) { _, quote in art.prefetch(quote?.art) }
-        .onAppear { art.prefetch(game.current?.art) }
+        .onAppear {
+            art.prefetch(game.current?.art)
+            #if DEBUG
+            if UserDefaults.standard.string(forKey: "shot") == "reveal", let right = game.current?.answer {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { answer(right) }
+            }
+            #endif
+        }
     }
 
     /// game.js fades the movie poster / album art in as the background on a correct answer.
@@ -236,6 +254,9 @@ private struct RoundView: View {
     }
 
     private func advanceAfterDelay() {
+        #if DEBUG
+        if UserDefaults.standard.string(forKey: "shot") == "reveal" { return }   // hold the reveal for the screenshot
+        #endif
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
             guard game.phase == .playing else { return }
             game.nextQuestion()
@@ -496,7 +517,7 @@ private struct Quip: View {
     var body: some View {
         Image("quip-\(pose)")
             .resizable().scaledToFit()
-            .frame(width: 112, height: 112)
+            .frame(width: 112 * Theme.padScale, height: 112 * Theme.padScale)
             .offset(y: up ? -6 : 0)
             .rotationEffect(.degrees(up ? -2 : 0))
             .accessibilityHidden(true)
