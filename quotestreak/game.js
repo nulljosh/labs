@@ -261,7 +261,7 @@ function endGame() {
   $('quip-end').src = `brand/quip-${score > prev ? 'cheer' : score > 0 ? 'idle' : 'oops'}${dark}.svg`;
   localStorage.setItem(HIGH_KEY, high);
   $('final-score').textContent = `Final score: ${score} · High score: ${high}`;
-  if (!cupRound && !duel && !challenge) window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal');
+  if (!cupRound && !duel && !challenge && !window.quotablePassPlay) window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal');
   if (challenge) {
     $('final-score').textContent = Challenge.verdict(score, challenge.score, challenge.name);
     challenge = null;

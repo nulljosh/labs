@@ -140,6 +140,7 @@
       <button id="start-daily">Daily Quote</button>
       <button id="start-duel">Live duel</button>
       <button id="start-cup">Weekly cup</button>
+      <button id="start-pass">Pass and play</button>
       <button id="badges-btn">Badges</button>
       <button id="stats-btn">Stats</button>
       <button id="season-btn">Season</button>
@@ -186,6 +187,21 @@
       <h2>Stats</h2>
       <div id="stats-body"></div>
       <button id="stats-back">Back</button>
+    </div>
+
+    <div id="pass" class="panel hidden">
+      <h2>Pass and play</h2>
+      <p class="prompt">Up to eight people, one device. Take turns, one line each.</p>
+      <div id="pass-names"></div>
+      <button id="pass-add" class="link">Add a player</button>
+      <select id="pass-rounds" aria-label="Turns each">
+        <option value="3">3 turns each</option>
+        <option value="5" selected>5 turns each</option>
+        <option value="10">10 turns each</option>
+      </select>
+      <p id="pass-msg" class="prompt"></p>
+      <button id="pass-go">Start</button>
+      <button id="pass-back">Back</button>
     </div>
 
     <div id="cup" class="panel hidden">
@@ -257,6 +273,7 @@
   <script src="badges-ui.js"></script>
   <script src="stats-ui.js"></script>
   <script src="season-ui.js"></script>
+  <script src="passplay.js"></script>
   <script type="module" src="auth.js"></script>
   <script src="webmcp.js"></script>
   <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>

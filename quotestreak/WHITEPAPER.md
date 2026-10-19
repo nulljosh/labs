@@ -1,6 +1,6 @@
 # Quotestreak Technical Whitepaper
 
-**v40.0.0** | October 2026
+**v41.0.0** | October 2026
 
 Here's the line. Name where it came from. Quotestreak is a guessing game for lines from movies, TV, games, songs and books. It runs as a static site on Cloudflare Pages and as a native SwiftUI app on iPhone, iPad, Mac and Apple Watch. Two small Workers sit behind it: one relays live duels, one holds accounts and scores.
 

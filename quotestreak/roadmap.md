@@ -54,7 +54,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v40 Handoff and sync.** Start on the phone, finish on the Mac.
 
 ### Era 5: parties (41 to 50)
-- [ ] **v41 Pass and play.** Up to eight players on one device.
+- [x] **v41 Pass and play.** Up to eight players on one device.
 - [ ] **v42 Room codes.** Phones join a big-screen game with a four-letter code.
 - [ ] **v43 Quiz night.** Rounds, a host screen and a final scoreboard.
 - [ ] **v44 Custom packs.** Build a quote pack and share it by link.
