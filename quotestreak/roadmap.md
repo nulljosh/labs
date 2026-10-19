@@ -13,7 +13,7 @@
 One major version per milestone. Each one ships on the web first (deploy the same day), then iOS and Mac in the next store batch. Only one store build is in review at a time, so native majors queue and go out together. A milestone is done when it is live, tested, and its line is checked here.
 
 ### Era 1: a deeper game (2 to 10)
-- [ ] **v5 1,000 lines.** Grow the bank to 1,000 verified quotes with year, character and source on every line.
+- [x] **v5 1,000 lines.** Grow the bank to 1,000 verified quotes with year, character and source on every line.
 - [ ] **v6 TV.** A television category: sitcoms, dramas, cartoons.
 - [ ] **v7 Games.** A video game category.
 - [ ] **v8 First lines.** Name the book from its opening sentence.
