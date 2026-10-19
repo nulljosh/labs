@@ -4,7 +4,7 @@
 Work down "Road to v100" in `roadmap.md`, one major version per tick. Each milestone ships on the web the same day (`sh scripts/build-site.sh` then `wrangler pages deploy`), gets its line checked, and bumps the web version. Native work rides along in the shared SwiftUI files and goes to the App Store in batches, because only one build can be in review at a time. `docs/FEATURES.md` explains every feature since v58; `/roadmap` is the public page built from `roadmap.md`.
 
 ## Where things stand
-- Web is at v100. Quotestreak 100 is live: a bank of 14,434 Wikiquote lines (the core stays fixed and the extra lines load after the first round), Quip's birthday hat, a banner for the first live show, and fair play checks answers against both banks. 86 of 93 milestones are shipped; the seven open ones wait on someone else.
+- Road to v100 is done. Quotestreak 100 (commit c62dd99eb) is live: a bank of 14,434 Wikiquote lines (the core stays fixed and the extra lines load after the first round), Quip's birthday hat, a banner for the first live show, and fair play checks answers against both banks. QA is clean on production.
 - 1.3.0 is WAITING_FOR_REVIEW on iOS and Mac (submitted 2026-10-18). The next store build carries a large native batch: widget, watch daily, Live Activity duels, tvOS party host, visionOS wall, Siri, Handoff, iMessage, Cloudflare accounts, iCloud best score, fair-play runs, the anime genre, the sound kit, invite links.
 - jaybulb-api checks fair-play answers against both Quotestreak banks (shipped 2026-10-19).
 - Store builds need `-allowProvisioningUpdates` and automatic export signing. The iCloud capability was added to bundle YDHCC4J3S2 on 2026-10-19, so fetch fresh profiles before the next archive.
@@ -17,8 +17,9 @@ Work down "Road to v100" in `roadmap.md`, one major version per tick. Each miles
 - The iMessage extension needs its icon set before it can ship. The daily email still owes one real signup to see it land.
 
 ## Next, in order
-1. When 1.3.0 clears, batch the native changes into the next App Store build, with fresh provisioning profiles.
-2. The seven blocked milestones move when Joshua unblocks them.
+1. Blocked milestones, waiting on Joshua: v36, v37, v38, v48, v89, v90 and v98 (see above).
+2. The native batch rides the next App Store build, once 1.3.0 clears. Fetch fresh provisioning profiles first.
+3. The one-word rename hunt for the app, not yet probed.
 
 ## Restart prompt
 ```
