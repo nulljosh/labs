@@ -5,7 +5,7 @@ seamark is a small MIT-licensed coordinate/curve/expression library published as
 ## Setup
 
 ```
-git clone https://github.com/nulljosh/seamark.git
+git clone https://github.com/nulljosh/labs.git
 cd seamark
 npm install
 ```

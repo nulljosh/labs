@@ -2,7 +2,7 @@
 
 # Homeward
 
-![version](https://img.shields.io/badge/version-v0.1.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fhomeward-black?logo=github)](https://github.com/nulljosh/homeward)
+![version](https://img.shields.io/badge/version-v0.1.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fhomeward-black?logo=github)](https://github.com/nulljosh/labs/tree/main/homeward)
 
 **Live:** https://homeward.jaybulb.com
 

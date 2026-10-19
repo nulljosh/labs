@@ -10,7 +10,7 @@
 ### Build the City That Never Sleeps
 
 ![version](https://img.shields.io/badge/version-v1.3.1-blue) ![license](https://img.shields.io/badge/license-MIT-green)
-[![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fnyc-black?logo=github)](https://github.com/nulljosh/nyc)
+[![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fnyc-black?logo=github)](https://github.com/nulljosh/labs/tree/main/nyc)
 
 Build a factory in the middle of Manhattan. Mine, smelt, assemble, and watch the chain hum.
 

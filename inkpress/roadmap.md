@@ -133,7 +133,7 @@ Pages exist and are pushed (`web/`: `index.html`, `privacy.html`, `support.html`
 Everything below is account setup that needs Cloudflare and GitHub credentials, all
 of it is doable from a phone browser, no terminal required.
 
-- [ ] **Add the two repo secrets.** github.com/nulljosh/inkpress > Settings > Secrets and
+- [ ] **Add the two repo secrets.** github.com/nulljosh/labs/tree/main/inkpress > Settings > Secrets and
   variables > Actions: `CLOUDFLARE_API_TOKEN` (My Profile > API Tokens > Create, template
   "Edit Cloudflare Workers", or a custom token with Account > Cloudflare Pages > Edit) and
   `CLOUDFLARE_ACCOUNT_ID` (right-hand sidebar of any Cloudflare dashboard page).

@@ -2,7 +2,7 @@
 
 # Inkpress
 
-![version](https://img.shields.io/badge/version-1.0.2-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Finkpress-black?logo=github)](https://github.com/nulljosh/inkpress)
+![version](https://img.shields.io/badge/version-1.0.2-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Finkpress-black?logo=github)](https://github.com/nulljosh/labs/tree/main/inkpress)
 
 All your feeds, one timeline. An RSS and Atom reader for iOS, macOS, and Apple Watch.
 
@@ -18,7 +18,7 @@ Live on the [App Store](https://apps.apple.com/app/id6787759999). Landing page a
 </p>
 
 This repo split from `journal` on 2026-07-21 and now holds only the iOS app. The blog
-lives at [github.com/nulljosh/journal](https://github.com/nulljosh/journal). Inkpress
+lives at [github.com/nulljosh/labs/tree/main/journal](https://github.com/nulljosh/labs/tree/main/journal). Inkpress
 subscribes to its `feed.xml` by default, like any other feed. No code is shared.
 
 <img src="progress.svg" width="460">

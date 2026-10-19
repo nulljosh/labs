@@ -2,7 +2,7 @@
 
 # Hormuz
 
-![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fhormuz-black?logo=github)](https://github.com/nulljosh/hormuz)
+![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fhormuz-black?logo=github)](https://github.com/nulljosh/labs/tree/main/hormuz)
 
 This started as a joke. The Strait of Hormuz never closes, so here is a site that always says open. Then in February 2026 it closed, and the joke was wrong. Now the site counts ships and tells the truth.
 

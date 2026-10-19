@@ -2,13 +2,13 @@
 
 # Journal
 
-![version](https://img.shields.io/badge/version-v2.4.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fjournal-black?logo=github)](https://github.com/nulljosh/journal)
+![version](https://img.shields.io/badge/version-v2.4.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fjournal-black?logo=github)](https://github.com/nulljosh/labs/tree/main/journal)
 
 My journal. A Jekyll blog, a few big entries a year.
 Live at [journal.jaybulb.com](https://journal.jaybulb.com).
 
 Split out of `inkpress` on 2026-07-21. This is the blog only. The Inkpress iOS app,
-a general RSS reader, lives at [github.com/nulljosh/inkpress](https://github.com/nulljosh/inkpress)
+a general RSS reader, lives at [github.com/nulljosh/labs/tree/main/inkpress](https://github.com/nulljosh/labs/tree/main/inkpress)
 and can subscribe to this blog's `feed.xml` like any other feed. That is the whole
 connection.
 

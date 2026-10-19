@@ -3,7 +3,7 @@
 ## Setup
 
 ```
-git clone https://github.com/nulljosh/quotestreak.git
+git clone https://github.com/nulljosh/labs.git
 cd quotestreak
 open Package.swift   # or the .xcodeproj/.xcworkspace, if present
 ```

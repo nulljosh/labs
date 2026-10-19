@@ -2,7 +2,7 @@
 
 # Fieldbook
 
-![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Ffieldbook-black?logo=github)](https://github.com/nulljosh/fieldbook)
+![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Ffieldbook-black?logo=github)](https://github.com/nulljosh/labs/tree/main/fieldbook)
 
 Nobody ever shows you the whole map. School hands you a few rooms and never the floor plan. You can finish a degree and still not know what topology is, or that the kidney sets your blood pressure, or that most physicists study materials. That's the gap.
 

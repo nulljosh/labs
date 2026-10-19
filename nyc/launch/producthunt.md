@@ -13,7 +13,7 @@ Pricing: $0.99 on the App Store. Free on web.
 Links
 Web: https://nyc.jaybulb.com
 App Store: https://apps.apple.com/app/id6782618198
-GitHub: https://github.com/nulljosh/nyc
+GitHub: https://github.com/nulljosh/labs/tree/main/nyc
 
 ## First comment
 

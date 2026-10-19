@@ -23,7 +23,7 @@ A SQLite notebook keeps hypotheses, source-labelled observations, and revisions.
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and Git. The pinned public reference is already included, so analysis works without a model, account, or network after dependency installation.
 
 ```sh
-git clone https://github.com/nulljosh/evidna
+git clone https://github.com/nulljosh/labs/tree/main/evidna
 cd evidna
 uv sync --locked
 uv run evidna.py analyze

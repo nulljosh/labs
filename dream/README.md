@@ -2,7 +2,7 @@
 
 # Dream
 
-![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fdream-black?logo=github)](https://github.com/nulljosh/dream)
+![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fdream-black?logo=github)](https://github.com/nulljosh/labs/tree/main/dream)
 
 
 Write down a dream, get back what it might mean.

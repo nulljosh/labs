@@ -13,7 +13,7 @@ Pricing: $0.99 on the App Store. Free on web.
 Links
 Web: https://wiretext.jaybulb.com
 App Store: https://apps.apple.com/app/id6794988951
-GitHub: https://github.com/nulljosh/blockframe
+GitHub: https://github.com/nulljosh/labs/tree/main/blockframe
 
 ## First comment
 
