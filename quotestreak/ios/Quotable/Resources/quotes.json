@@ -23591,5 +23591,369 @@
     "type": "game",
     "character": "Connor",
     "source": "https://en.wikiquote.org/wiki/Detroit%3A_Become_Human"
+  },
+  {
+    "quote": "It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.",
+    "options": [
+      "Pride and Prejudice",
+      "Great Expectations",
+      "Uncle Tom's Cabin",
+      "Around the World in Eighty Days"
+    ],
+    "genre": "book",
+    "answer": "Pride and Prejudice",
+    "type": "book",
+    "character": "Jane Austen",
+    "source": "https://www.gutenberg.org/ebooks/1342"
+  },
+  {
+    "quote": "In the late summer of that year we lived in a house in a village that looked across the river and the plain to the mountains.",
+    "options": [
+      "Twenty Thousand Leagues Under the Sea",
+      "Sense and Sensibility",
+      "Great Expectations",
+      "A Farewell to Arms"
+    ],
+    "genre": "book",
+    "answer": "A Farewell to Arms",
+    "type": "book",
+    "character": "Ernest Hemingway",
+    "source": "https://www.gutenberg.org/ebooks/75201"
+  },
+  {
+    "quote": "“Are we rising again?” “No. On the contrary.”",
+    "options": [
+      "Jane Eyre",
+      "Uncle Tom's Cabin",
+      "The Mysterious Island",
+      "The Count of Monte Cristo"
+    ],
+    "genre": "book",
+    "answer": "The Mysterious Island",
+    "type": "book",
+    "character": "Jules Verne",
+    "source": "https://www.gutenberg.org/ebooks/1268"
+  },
+  {
+    "quote": "Mrs. Ferrars died on the night of the 16th–17th September—a Thursday.",
+    "options": [
+      "The Murder of Roger Ackroyd",
+      "The Three Musketeers",
+      "The Picture of Dorian Gray",
+      "Pride and Prejudice"
+    ],
+    "genre": "book",
+    "answer": "The Murder of Roger Ackroyd",
+    "type": "book",
+    "character": "Agatha Christie",
+    "source": "https://www.gutenberg.org/ebooks/69087"
+  },
+  {
+    "quote": "The studio was filled with the rich odour of roses, and when the light summer wind stirred amidst the trees of the garden, there came through the open door the heavy scent of the lilac, or the more delicate perfume of the pink-flowering thorn.",
+    "options": [
+      "Crime and Punishment",
+      "Jane Eyre",
+      "The Picture of Dorian Gray",
+      "Twenty Thousand Leagues Under the Sea"
+    ],
+    "genre": "book",
+    "answer": "The Picture of Dorian Gray",
+    "type": "book",
+    "character": "Oscar Wilde",
+    "source": "https://www.gutenberg.org/ebooks/174"
+  },
+  {
+    "quote": "In 1815, M. Charles-François-Bienvenu Myriel was Bishop of D—— He was an old man of about seventy-five years of age; he had occupied the see of D—— since 1806.",
+    "options": [
+      "Les Misérables",
+      "Northanger Abbey",
+      "David Copperfield",
+      "The Picture of Dorian Gray"
+    ],
+    "genre": "book",
+    "answer": "Les Misérables",
+    "type": "book",
+    "character": "Victor Hugo",
+    "source": "https://www.gutenberg.org/ebooks/135"
+  },
+  {
+    "quote": "The family of Dashwood had long been settled in Sussex.",
+    "options": [
+      "The Murder of Roger Ackroyd",
+      "Pride and Prejudice",
+      "Sense and Sensibility",
+      "The Three Musketeers"
+    ],
+    "genre": "book",
+    "answer": "Sense and Sensibility",
+    "type": "book",
+    "character": "Jane Austen",
+    "source": "https://www.gutenberg.org/ebooks/161"
+  },
+  {
+    "quote": "There was no possibility of taking a walk that day.",
+    "options": [
+      "Jane Eyre",
+      "The Mysterious Island",
+      "The Count of Monte Cristo",
+      "Little Women"
+    ],
+    "genre": "book",
+    "answer": "Jane Eyre",
+    "type": "book",
+    "character": "Charlotte Brontë",
+    "source": "https://www.gutenberg.org/ebooks/1260"
+  },
+  {
+    "quote": "When Mary Lennox was sent to Misselthwaite Manor to live with her uncle everybody said she was the most disagreeable-looking child ever seen.",
+    "options": [
+      "The Secret Garden",
+      "Moby Dick",
+      "A Farewell to Arms",
+      "David Copperfield"
+    ],
+    "genre": "book",
+    "answer": "The Secret Garden",
+    "type": "book",
+    "character": "Frances Hodgson Burnett",
+    "source": "https://www.gutenberg.org/ebooks/113"
+  },
+  {
+    "quote": "On the 24th of February, 1815, the look-out at Notre-Dame de la Garde signalled the three-master, the Pharaon from Smyrna, Trieste, and Naples.",
+    "options": [
+      "The Secret Garden",
+      "The Count of Monte Cristo",
+      "Little Women",
+      "Sense and Sensibility"
+    ],
+    "genre": "book",
+    "answer": "The Count of Monte Cristo",
+    "type": "book",
+    "character": "Alexandre Dumas",
+    "source": "https://www.gutenberg.org/ebooks/1184"
+  },
+  {
+    "quote": "Mr. Phileas Fogg lived, in 1872, at No. 7, Saville Row, Burlington Gardens, the house in which Sheridan died in 1814.",
+    "options": [
+      "A Farewell to Arms",
+      "Around the World in Eighty Days",
+      "The Three Musketeers",
+      "The Mysterious Island"
+    ],
+    "genre": "book",
+    "answer": "Around the World in Eighty Days",
+    "type": "book",
+    "character": "Jules Verne",
+    "source": "https://www.gutenberg.org/ebooks/103"
+  },
+  {
+    "quote": "On the first Monday of the month of April, 1625, the market town of Meung, in which the author of Romance of the Rose was born, appeared to be in as perfect a state of revolution as if the Huguenots had just made a second La Rochelle of it.",
+    "options": [
+      "The Count of Monte Cristo",
+      "The Three Musketeers",
+      "Les Misérables",
+      "The Picture of Dorian Gray"
+    ],
+    "genre": "book",
+    "answer": "The Three Musketeers",
+    "type": "book",
+    "character": "Alexandre Dumas",
+    "source": "https://www.gutenberg.org/ebooks/1257"
+  },
+  {
+    "quote": "It was four o’clock when the ceremony was over and the carriages began to arrive.",
+    "options": [
+      "The Jungle",
+      "Through the Looking-Glass",
+      "A Farewell to Arms",
+      "Moby Dick"
+    ],
+    "genre": "book",
+    "answer": "The Jungle",
+    "type": "book",
+    "character": "Upton Sinclair",
+    "source": "https://www.gutenberg.org/ebooks/140"
+  },
+  {
+    "quote": "Late in the afternoon of a chilly day in February, two gentlemen were sitting alone over their wine, in a well-furnished dining parlor, in the town of P——, in Kentucky.",
+    "options": [
+      "Through the Looking-Glass",
+      "Uncle Tom's Cabin",
+      "Great Expectations",
+      "The Picture of Dorian Gray"
+    ],
+    "genre": "book",
+    "answer": "Uncle Tom's Cabin",
+    "type": "book",
+    "character": "Harriet Beecher Stowe",
+    "source": "https://www.gutenberg.org/ebooks/203"
+  },
+  {
+    "quote": "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
+    "options": [
+      "Crime and Punishment",
+      "The Mysterious Island",
+      "The Jungle",
+      "Moby Dick"
+    ],
+    "genre": "book",
+    "answer": "Moby Dick",
+    "type": "book",
+    "character": "Herman Melville",
+    "source": "https://www.gutenberg.org/ebooks/2701"
+  },
+  {
+    "quote": "On an exceptionally hot evening early in July a young man came out of the garret in which he lodged in S. Place and walked slowly, as though in hesitation, towards K. bridge.",
+    "options": [
+      "Anna Karenina",
+      "The Three Musketeers",
+      "Les Misérables",
+      "Crime and Punishment"
+    ],
+    "genre": "book",
+    "answer": "Crime and Punishment",
+    "type": "book",
+    "character": "Fyodor Dostoyevsky",
+    "source": "https://www.gutenberg.org/ebooks/2554"
+  },
+  {
+    "quote": "Dorothy lived in the midst of the great Kansas prairies, with Uncle Henry, who was a farmer, and Aunt Em, who was the farmer’s wife.",
+    "options": [
+      "The Wonderful Wizard of Oz",
+      "Anna Karenina",
+      "The Secret Garden",
+      "The Jungle"
+    ],
+    "genre": "book",
+    "answer": "The Wonderful Wizard of Oz",
+    "type": "book",
+    "character": "L. Frank Baum",
+    "source": "https://www.gutenberg.org/ebooks/55"
+  },
+  {
+    "quote": "Whether I shall turn out to be the hero of my own life, or whether that station will be held by anybody else, these pages must show.",
+    "options": [
+      "The Mysterious Island",
+      "David Copperfield",
+      "The Picture of Dorian Gray",
+      "Through the Looking-Glass"
+    ],
+    "genre": "book",
+    "answer": "David Copperfield",
+    "type": "book",
+    "character": "Charles Dickens",
+    "source": "https://www.gutenberg.org/ebooks/766"
+  },
+  {
+    "quote": "Happy families are all alike; every unhappy family is unhappy in its own way.",
+    "options": [
+      "The Count of Monte Cristo",
+      "Anna Karenina",
+      "A Farewell to Arms",
+      "The Picture of Dorian Gray"
+    ],
+    "genre": "book",
+    "answer": "Anna Karenina",
+    "type": "book",
+    "character": "Leo Tolstoy",
+    "source": "https://www.gutenberg.org/ebooks/1399"
+  },
+  {
+    "quote": "In the year 1878 I took my degree of Doctor of Medicine of the University of London, and proceeded to Netley to go through the course prescribed for surgeons in the army.",
+    "options": [
+      "A Study in Scarlet",
+      "Uncle Tom's Cabin",
+      "The Picture of Dorian Gray",
+      "The Wonderful Wizard of Oz"
+    ],
+    "genre": "book",
+    "answer": "A Study in Scarlet",
+    "type": "book",
+    "character": "Arthur Conan Doyle",
+    "source": "https://www.gutenberg.org/ebooks/244"
+  },
+  {
+    "quote": "One thing was certain, that the white kitten had had nothing to do with it:—it was the black kitten’s fault entirely.",
+    "options": [
+      "Crime and Punishment",
+      "Sense and Sensibility",
+      "Through the Looking-Glass",
+      "A Study in Scarlet"
+    ],
+    "genre": "book",
+    "answer": "Through the Looking-Glass",
+    "type": "book",
+    "character": "Lewis Carroll",
+    "source": "https://www.gutenberg.org/ebooks/12"
+  },
+  {
+    "quote": "No one who had ever seen Catherine Morland in her infancy would have supposed her born to be an heroine.",
+    "options": [
+      "Northanger Abbey",
+      "Crime and Punishment",
+      "The Secret Garden",
+      "The Picture of Dorian Gray"
+    ],
+    "genre": "book",
+    "answer": "Northanger Abbey",
+    "type": "book",
+    "character": "Jane Austen",
+    "source": "https://www.gutenberg.org/ebooks/121"
+  },
+  {
+    "quote": "My father’s family name being Pirrip, and my Christian name Philip, my infant tongue could make of both names nothing longer or more explicit than Pip.",
+    "options": [
+      "Great Expectations",
+      "The Mysterious Island",
+      "A Study in Scarlet",
+      "Around the World in Eighty Days"
+    ],
+    "genre": "book",
+    "answer": "Great Expectations",
+    "type": "book",
+    "character": "Charles Dickens",
+    "source": "https://www.gutenberg.org/ebooks/1400"
+  },
+  {
+    "quote": "“Christmas won’t be Christmas without any presents,” grumbled Jo, lying on the rug.",
+    "options": [
+      "Les Misérables",
+      "Twenty Thousand Leagues Under the Sea",
+      "Little Women",
+      "A Farewell to Arms"
+    ],
+    "genre": "book",
+    "answer": "Little Women",
+    "type": "book",
+    "character": "Louisa May Alcott",
+    "source": "https://www.gutenberg.org/ebooks/514"
+  },
+  {
+    "quote": "The year 1866 was signalised by a remarkable incident, a mysterious and puzzling phenomenon, which doubtless no one has yet forgotten.",
+    "options": [
+      "Twenty Thousand Leagues Under the Sea",
+      "Great Expectations",
+      "The Jungle",
+      "Northanger Abbey"
+    ],
+    "genre": "book",
+    "answer": "Twenty Thousand Leagues Under the Sea",
+    "type": "book",
+    "character": "Jules Verne",
+    "source": "https://www.gutenberg.org/ebooks/164"
+  },
+  {
+    "quote": "London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln’s Inn Hall.",
+    "options": [
+      "The Murder of Roger Ackroyd",
+      "The Secret Garden",
+      "Moby Dick",
+      "Bleak House"
+    ],
+    "genre": "book",
+    "answer": "Bleak House",
+    "type": "book",
+    "character": "Charles Dickens",
+    "source": "https://www.gutenberg.org/ebooks/1023"
   }
 ]
