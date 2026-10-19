@@ -33,7 +33,7 @@ function handle(m) {
   else if (m.type === 'question') {
     picked = null;
     $('buzz-board').innerHTML = '';
-    status(`Question ${m.n} of ${m.total}`);
+    status(`${m.label ? `${m.label} \u00b7 ` : ''}Question ${m.n} of ${m.total}`);
     $('buzz-options').innerHTML = '';
     for (const o of m.options) {
       const b = document.createElement('button');
@@ -60,5 +60,8 @@ function handle(m) {
     const top = (m.scores || [])[0];
     status(top ? (top.id === me ? 'You won!' : `${top.name} won.`) : 'Game over.');
     board(m.scores || []);
+  } else if (m.type === 'between') {
+    $('buzz-options').innerHTML = '';
+    status(`Round ${m.n} of ${m.of}: ${m.title}. Eyes on the screen.`);
   } else if (m.type === 'screen-left') status('The screen left the game.');
 }

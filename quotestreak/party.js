@@ -1,21 +1,29 @@
-// Room codes (v42): the big-screen host in a browser, the web twin of tvos/PartyHost.swift. It opens a
+// Room codes (v42) and Quiz night (v43): the big-screen host in a browser, the web twin of tvos/PartyHost.swift. It opens a
 // party room (duel/worker.js, Party), shows a code, and phones join at /buzz. Ten quotes; a right
 // answer is worth 10 and the fastest right answer 5 more. score() is pure, for party.test.js.
 (function (root) {
   const ROUNDS = 10, SECONDS = 15;
+  // Quiz night (v43): four themed rounds of five. Themes come from what the bank has enough of.
+  const THEMES = [['movie', 'Movies'], ['tv', 'TV'], ['game', 'Games'], ['music', 'Music'], ['book', 'First lines']];
+  function plan(bank, night, rand = Math.random) {
+    const deal = (list, n) => list.map(q => [rand(), q]).sort((a, b) => a[0] - b[0]).slice(0, n).map(x => x[1]);
+    if (!night) return [{ title: '', quotes: deal(bank, ROUNDS) }];
+    const themes = THEMES.filter(([t]) => bank.filter(q => q.type === t).length >= 5);
+    return deal(themes, 4).map(([t, title]) => ({ title, quotes: deal(bank.filter(q => q.type === t), 5) }));
+  }
   // Points for one question: every right buzz gets 10, the fastest right one 5 more.
   function score(answer, buzzes) {
     const right = buzzes.filter(b => b.option === answer).sort((a, b) => a.at - b.at);
     return Object.fromEntries(right.map((b, i) => [b.id, 10 + (i === 0 ? 5 : 0)]));
   }
-  const api = { ROUNDS, SECONDS, score };
+  const api = { ROUNDS, SECONDS, score, plan };
   if (typeof module !== 'undefined') { module.exports = api; return; }
 
   const $ = (id) => document.getElementById(id);
   const esc = (t) => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
   const code = Array.from({ length: 4 }, () => 'ABCDEFGHJKLMNPQRSTUVWXYZ'[Math.floor(Math.random() * 24)]).join('');
   const players = new Map();   // id -> {name, score, buzz, at, gained}
-  let bank = [], deck = [], round = 0, current = null, options = [], askedAt = 0, stage = 'lobby', clock = null;
+  let bank = [], rounds = [], ri = 0, qi = 0, asked = 0, current = null, options = [], askedAt = 0, stage = 'lobby', clock = null;
 
   $('party-code').textContent = code;
   $('party-url').textContent = `${location.host}/buzz`;
@@ -36,21 +44,34 @@
   fetch('quotes.json').then(r => r.json()).then(d => { bank = d; });
 
   const standings = () => [...players.entries()].map(([id, p]) => ({ id, ...p })).sort((a, b) => b.score - a.score);
+  const total = () => rounds.reduce((n, r) => n + r.quotes.length, 0);
   function start() {
     if (!players.size || !bank.length) return;
-    deck = [...bank].sort(() => Math.random() - 0.5).slice(0, ROUNDS);
-    round = 0;
+    rounds = plan(bank, $('party-night').checked);
+    ri = qi = asked = 0;
     for (const p of players.values()) p.score = 0;
-    next();
+    rounds.length > 1 ? between() : next();
+  }
+  // Quiz night: the standings so far and the round coming up, until the host moves on.
+  function between() {
+    clearInterval(clock);
+    stage = 'between';
+    send({ type: 'between', title: rounds[ri].title, n: ri + 1, of: rounds.length });
+    draw();
   }
   function next() {
-    if (round >= deck.length) return finish();
-    current = deck[round++];
+    if (qi >= rounds[ri].quotes.length) {
+      ri++; qi = 0;
+      if (ri >= rounds.length) return finish();
+      return between();
+    }
+    current = rounds[ri].quotes[qi++];
+    asked++;
     options = [...current.options].sort(() => Math.random() - 0.5);
     for (const p of players.values()) { p.buzz = null; p.gained = 0; }
     askedAt = Date.now();
     stage = 'question';
-    send({ type: 'question', n: round, total: deck.length, options });
+    send({ type: 'question', n: asked, total: total(), label: rounds[ri].title, options });
     clearInterval(clock);
     clock = setInterval(() => { if (Date.now() - askedAt >= SECONDS * 1000) reveal(); else draw(); }, 250);
     draw();
@@ -74,33 +95,41 @@
     const chips = [...players.values()].map(p => `<span class="chip${p.buzz && stage === 'question' ? ' in' : ''}">${esc(p.name)}</span>`).join('');
     $('party-lobby').classList.toggle('hidden', stage !== 'lobby');
     $('party-round').classList.toggle('hidden', stage !== 'question' && stage !== 'reveal');
+    $('party-between').classList.toggle('hidden', stage !== 'between');
     $('party-over').classList.toggle('hidden', stage !== 'over');
     if (stage === 'lobby') {
       $('party-players').innerHTML = chips || '<span class="prompt">Nobody yet.</span>';
       $('party-start').disabled = !players.size;
       $('party-start').textContent = players.size ? 'Start the game' : 'Waiting for players';
+    } else if (stage === 'between') {
+      $('party-round-title').textContent = `Round ${ri + 1} of ${rounds.length}: ${rounds[ri].title}`;
+      $('party-standings').innerHTML = ri ? standings().map(p => `<li>${esc(p.name)} \u2014 ${p.score}</li>`).join('') : '';
+      $('party-go').textContent = ri ? 'Next round' : 'Start round one';
     } else if (stage !== 'over') {
-      $('party-n').textContent = `Question ${round} of ${deck.length}`;
+      const r = rounds[ri], last = qi === r.quotes.length && ri === rounds.length - 1;
+      $('party-n').textContent = `${r.title ? `${r.title} \u00b7 ` : ''}Question ${asked} of ${total()}`;
       $('party-clock').textContent = stage === 'question' ? Math.max(0, Math.ceil(SECONDS - (Date.now() - askedAt) / 1000)) : '';
       $('party-quote').textContent = `“${current.quote}”`;
       $('party-options').innerHTML = options.map(o => `<div class="${stage === 'reveal' && o === current.answer ? 'right' : ''}">${esc(o)}</div>`).join('');
       $('party-who').innerHTML = stage === 'question' ? chips
         : standings().map(p => `<span class="chip${p.gained ? ' up' : ''}">${esc(p.name)} ${p.score}${p.gained ? ` +${p.gained}` : ''}</span>`).join('');
-      $('party-next').textContent = stage === 'question' ? 'Show the answer' : round === deck.length ? 'See who won' : 'Next question';
+      $('party-next').textContent = stage === 'question' ? 'Show the answer' : last ? 'See who won' : qi === r.quotes.length ? 'End of the round' : 'Next question';
     } else {
       const s = standings();
-      $('party-winner').textContent = s.length ? `${s[0].name} wins` : 'Game over';
-      $('party-final').innerHTML = s.map(p => `<li>${esc(p.name)} — ${p.score}</li>`).join('');
+      const tied = s.filter(p => s.length && p.score === s[0].score);
+      $('party-winner').textContent = !s.length ? 'Game over' : tied.length > 1 ? `A tie at ${s[0].score}` : `${s[0].name} wins`;
+      $('party-final').innerHTML = s.map((p, i) => `<li class="p${i + 1}">${esc(p.name)} — ${p.score}</li>`).join('');
     }
   }
   $('party-start').onclick = start;
   $('party-next').onclick = () => (stage === 'question' ? reveal() : next());
   $('party-again').onclick = start;
+  $('party-go').onclick = next;
   // A remote or keyboard: Enter or Space moves the game on.
   addEventListener('keydown', (e) => {
     if (e.key !== 'Enter' && e.key !== ' ') return;
     e.preventDefault();
-    if (stage === 'lobby') start(); else if (stage === 'over') start(); else $('party-next').click();
+    if (stage === 'lobby' || stage === 'over') start(); else if (stage === 'between') next(); else $('party-next').click();
   });
   draw();
 })(this);
