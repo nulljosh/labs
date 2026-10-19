@@ -43,7 +43,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **toroid** | Game of Life on a torus · 6806324937 |
 | **nyc** | Times Square city sim (NYC Survive) · 6782618198 |
 | **bcgd** | Garage-door site, ships as **Doorstock** · 6791106082 |
-| **litigate** | Litigation tool, private, no landing on purpose · 6787857503 |
+| **atticus** (ex-litigate) | Litigation tool, private. Landing at atticus.jaybulb.com; Pages project, litigate.jaybulb.com, bundle id and litigate:// scheme keep the old names · 6787857503 |
 | **homeqi** | Feng shui home assessment (web, iOS reader-only) |
 | **homeward** | Lost/found pets, web + iOS + KMP |
 | **homeroom** (ex-lec) | Private D2L quiz app |
