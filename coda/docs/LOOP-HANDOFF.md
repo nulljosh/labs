@@ -27,5 +27,4 @@ Work down "Road to v100" in `roadmap.md`, one major version per tick. Each miles
 ```
 
 ## Open from the Coda rename (2026-10-19)
-- Apple Sign in: coda.jaybulb.com and https://coda.jaybulb.com/play are entered in the shared Services ID (com.heyitsmejosh.websignin, filed under the old Spine app ID; leave that) but not saved. Joshua will click Done, Continue, Save. Google origin is saved.
 - App Store listing name flips to Coda after 1.3.0 clears review (probe first).
