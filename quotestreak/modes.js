@@ -115,8 +115,10 @@
   // A game's questions. Most modes reshape the filtered bank; misquotes (v23) bring their own set.
   const Mis = typeof module !== 'undefined' ? require('./misquotes') : root.Misquotes;
   const Imp = typeof module !== 'undefined' ? require('./improv') : root.Improv;
+  const Phr = typeof module !== 'undefined' ? require('./phrases') : root.Phrases;
   const pool = (mode, list, all, rand = Math.random) => mode === 'misquote' ? shuffle(Mis.questions(), rand)
     : mode === 'improv' ? shuffle(Imp.questions(), rand)
+    : mode === 'phrase' ? shuffle(Phr.questions(rand), rand)
     : mode === 'timeline' ? timeline(list, rand)
     : mode === 'poster' || mode === 'album' ? reveal(list, mode, rand)
     : mode === 'year' ? year(list, rand)

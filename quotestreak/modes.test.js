@@ -101,4 +101,11 @@ const ab = pool('record', bank, bank, rand);
 assert(ab.length > 80, `${ab.length} album questions`);
 assert(ab.every(q => q.options.length === 4 && new Set(q.options).size === 4 && q.options.includes(q.answer)));
 assert.equal(build('record', bank.find(q => q.song === 'Bohemian Rhapsody'), bank, rand).answer, 'A Night at the Opera');
-console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length, ma.length, im.length, di.length, ac.length, ab.length);
+
+// Phrases: the word shown plainly, four different works, the meaning in the reveal
+const ph = pool('phrase', [], bank, rand);
+assert(ph.length >= 15, `${ph.length} phrases`);
+assert(ph.every(q => q.plain && q.options.length === 4 && new Set(q.options).size === 4 && q.options.includes(q.answer) && / means ./.test(q.character)));
+assert(!ph.some(q => q.plain === 'gaslight' || q.plain === 'Pollyanna'), 'a word inside its own title answers itself');
+assert.equal(ph.find(q => q.plain === 'muggle').answer, 'Harry Potter and the Philosopher\u2019s Stone');
+console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length, ma.length, im.length, di.length, ac.length, ab.length, ph.length);

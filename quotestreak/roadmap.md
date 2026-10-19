@@ -71,7 +71,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v53 Actor mode.** Name who delivered it.
 - [x] **v54 Director mode.** Name who directed it.
 - [x] **v55 Album and year.** Deeper music questions.
-- [ ] **v56 Phrases.** Lines that entered everyday speech, with their origins from Wordroot.
+- [x] **v56 Phrases.** Lines that entered everyday speech, with their origins from Wordroot.
 - [ ] **v57 Original languages.** French, Spanish, German, Japanese and Korean films in their own words.
 - [ ] **v58 Twenty languages.** The whole interface, with fonts that cover every script.
 - [ ] **v59 Access for all.** VoiceOver play, Switch Control, the largest text sizes and a high-contrast theme.
