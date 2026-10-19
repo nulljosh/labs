@@ -101,6 +101,7 @@
       <button id="start-normal">Play</button>
       <button id="start-speed">Speed Round (10s)</button>
       <button id="start-daily">Daily Quote</button>
+      <button id="start-duel">Live duel</button>
       <button id="lb-btn">Leaderboard</button>
     </div>
 
@@ -121,6 +122,14 @@
       <button id="hint-btn" class="secondary">Hint</button>
       <button id="end-btn" class="link">End game</button>
       <p id="feedback"></p>
+    </div>
+
+    <div id="duel-wait" class="panel hidden">
+      <h2>Live duel</h2>
+      <p id="duel-msg" class="prompt">Send this link to a friend. The duel starts when they open it.</p>
+      <p id="duel-link" class="prompt"></p>
+      <button id="duel-copy">Copy link</button>
+      <button id="duel-cancel">Cancel</button>
     </div>
 
     <div id="daily-end" class="panel hidden">
@@ -149,6 +158,8 @@
   <script src="challenge.js"></script>
   <script src="daily.js"></script>
   <script src="game.js"></script>
+  <script src="duel-client.js"></script>
+  <script src="art.js"></script>
   <script type="module" src="auth.js"></script>
   <script src="webmcp.js"></script>
   <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>
