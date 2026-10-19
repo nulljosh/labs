@@ -533,5 +533,9 @@
  "The hall is out of reach right now.": "殿堂に今はつながりません。",
  "Speed Round": "スピードラウンド",
  "A former player": "元プレイヤー",
- "Roadmap": "ロードマップ"
+ "Roadmap": "ロードマップ",
+ "Happy birthday, Quip.": "お誕生日おめでとう、Quip。",
+ "Happy birthday, Quip. {n} today.": "お誕生日おめでとう、Quip。今日で{n}歳。",
+ "Quotestreak 100: the first live show, {x}. Twelve questions, everyone at once.": "Quotestreak 100：初めてのライブショー、{x}。12問、全員同時に。",
+ "Get ready": "準備する"
 }

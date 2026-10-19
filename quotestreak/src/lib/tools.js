@@ -10,7 +10,9 @@
 // in the bundle; a KV or D1 round trip would add latency and a binding to maintain for a
 // file that changes when someone edits the repo.
 
-import quotes from '../../quotes.json' with { type: 'json' };
+import core from '../../quotes.json' with { type: 'json' };
+import more from '../../quotes-more.json' with { type: 'json' };
+const quotes = [...core, ...more];   // v100: the extended bank too; the daily still walks the core alone
 import Daily from '../../daily.js';   // the same walk the game uses, so the API's daily is the game's
 
 const MAX_LIMIT = 50, MAX_PAGE = 200;
@@ -128,7 +130,7 @@ export function callTool(name, args = {}) {
 
     case 'daily_quote': {
       const day = Daily.dayNumber();
-      const q = Daily.quoteFor(day, quotes);
+      const q = Daily.quoteFor(day, core);
       const { answer, character, source, ...hidden } = shape(q);
       return { day, next_in_seconds: Math.ceil(Daily.msUntilNext() / 1000), ...(args.reveal === true || args.reveal === 'true' ? shape(q) : hidden) };
     }

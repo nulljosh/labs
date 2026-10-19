@@ -26,3 +26,7 @@
 .setting-row > span { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
 #settings-btn { min-width: 32px; min-height: 32px; }
 input[type="checkbox"] { width: 20px; height: 20px; }
+/* Quotestreak 100 (v100): the event and birthday notes at the top of the menu. */
+.event { margin: 0 0 16px; padding: 12px 14px; border-radius: 14px; box-shadow: inset 0 0 0 2px var(--accent-deep); }
+.event-note { margin: 0 0 8px; font-weight: 600; }
+#event-join { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--accent-deep); }

@@ -2,6 +2,8 @@
 import assert from 'node:assert/strict';
 import { callTool, ToolError } from './tools.js';
 import quotes from '../../quotes.json' with { type: 'json' };
+import more from '../../quotes-more.json' with { type: 'json' };
+const all = [...quotes, ...more];
 
 const genres = callTool('list_genres');
 assert.ok(genres.total > 0);
@@ -32,8 +34,8 @@ assert.equal(d.quote, Daily.quoteFor(Daily.dayNumber(), quotes).quote);
 assert.equal(d.answer, undefined);
 assert.ok(callTool('daily_quote', { reveal: 'true' }).answer);
 const page = callTool('list_quotes', { offset: 100, limit: 200 });
-assert.equal(page.total, quotes.length);
-assert.equal(page.results[0].quote, quotes[100].quote);
+assert.equal(page.total, all.length, 'the API serves both banks (v100)');
+assert.equal(page.results[0].quote, all[100].quote);
 assert.equal(page.results.length, 200);
 assert.throws(() => callTool('list_quotes', { limit: 500 }), ToolError);
 console.log('tools ok');

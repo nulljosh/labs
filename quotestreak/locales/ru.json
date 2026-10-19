@@ -533,5 +533,9 @@
  "The hall is out of reach right now.": "Зал славы сейчас недоступен.",
  "Speed Round": "Блиц",
  "A former player": "Бывший игрок",
- "Roadmap": "Дорожная карта"
+ "Roadmap": "Дорожная карта",
+ "Happy birthday, Quip.": "С днём рождения, Квип.",
+ "Happy birthday, Quip. {n} today.": "С днём рождения, Квип. Сегодня {n}.",
+ "Quotestreak 100: the first live show, {x}. Twelve questions, everyone at once.": "Quotestreak 100: первое шоу в прямом эфире, {x}. Двенадцать вопросов, все одновременно.",
+ "Get ready": "Приготовиться"
 }

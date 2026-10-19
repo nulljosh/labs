@@ -1,4 +1,5 @@
 let quotes = [];
+let core = [];         // the core bank: date-seeded picks read this (v100)
 let pool = [];
 let current = null;
 let score = 0;
@@ -65,8 +66,14 @@ fetch(`${API}/rpc/quotestreak_stats`, { method: 'POST', body: '{}' }).then(r => 
   .then(rows => { if (Array.isArray(rows)) stats = Object.fromEntries(rows.map(r => [r.qid, r])); }).catch(() => {});
 const tally = (q, ok) => fetch(`${API}/rpc/quotestreak_answer`, { method: 'POST', body: JSON.stringify({ qid: Difficulty.qid(q.quote), ok }), keepalive: true }).catch(() => {});
 
-fetch('quotes.json').then(r => r.json()).then(data => {
+// v100: quotes-more.json, the extended bank, joins `quotes` after first paint, or first when a
+// challenge, duel or watch link may name its lines. `core` stays as loaded for Daily, cup and show.
+const more = () => fetch('quotes-more.json').then(r => r.json()).then(x => (quotes.push(...x), x)).catch(() => []);
+const needMore = /[?&](c|duel|watch)=/.test(location.search);
+fetch('quotes.json').then(r => r.json()).then(async data => {
   quotes = data;
+  core = data.slice();
+  if (needMore) await more(); else setTimeout(more, 1500);
   const genreSelect = $('genre');
   [...new Set(data.map(q => q.genre))].sort().forEach(g => {
     const opt = document.createElement('option');
@@ -320,7 +327,7 @@ function startDaily() {
   speedMode = false;
   score = 0;
   streak = 0;
-  pool = [Daily.quoteFor(day, quotes)];
+  pool = [Daily.quoteFor(day, core)];
   updateStats();
   modeSelect.classList.add('hidden');
   endEl.classList.add('hidden');

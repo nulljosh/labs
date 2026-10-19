@@ -535,5 +535,9 @@
  "The hall is out of reach right now.": "名人堂暂时无法访问。",
  "Speed Round": "快速回合",
  "A former player": "一位前玩家",
- "Roadmap": "路线图"
+ "Roadmap": "路线图",
+ "Happy birthday, Quip.": "Quip，生日快乐。",
+ "Happy birthday, Quip. {n} today.": "Quip，生日快乐。今天 {n} 岁。",
+ "Quotestreak 100: the first live show, {x}. Twelve questions, everyone at once.": "Quotestreak 100：首场直播竞猜，{x}。十二道题，所有人同时作答。",
+ "Get ready": "做好准备"
 }

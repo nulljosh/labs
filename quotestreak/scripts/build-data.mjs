@@ -6,7 +6,7 @@
 // Run by scripts/build-site.sh; node scripts/build-data.mjs [outDir] to run it alone.
 import fs from 'fs';
 const here = (p) => new URL(p, import.meta.url).pathname;
-const bank = JSON.parse(fs.readFileSync(here('../quotes.json'), 'utf8'));
+const bank = [...JSON.parse(fs.readFileSync(here('../quotes.json'), 'utf8')), ...JSON.parse(fs.readFileSync(here('../quotes-more.json'), 'utf8'))];   // v100: both banks
 
 export function openLines(bank) {
   return bank.filter(q => q.type !== 'music' && /^https:\/\/(en\.wikiquote\.org|www\.gutenberg\.org)\//.test(q.source || ''))

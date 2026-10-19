@@ -37,7 +37,7 @@ def eye(x, y, kind):
 # Outfits (v66): flat ink and yellow like Quip itself, drawn in the figure's frame so they lean with it.
 # Hats and headphones take the limb ink so they read on the dark ground; bowtie and shades sit on
 # the yellow and stay ink. The ball's top sits at (256, 198); the cowlick rises to the right, so hats sit left of it.
-OUTFITS = ("bowtie", "headphones", "beret", "tophat", "shades", "mortarboard")
+OUTFITS = ("bowtie", "headphones", "beret", "tophat", "shades", "mortarboard", "partyhat")
 
 
 def outfit(name, cx, cy, r, ink):
@@ -69,6 +69,12 @@ def outfit(name, cx, cy, r, ink):
         return (f'<path d="M{x - 92},{top - 6} L{x},{top - 46} L{x + 92},{top - 6} L{x},{top + 30} Z" fill="{ink}"/>'
                 f'<rect x="{x - 46}" y="{top}" width="92" height="30" rx="8" fill="{ink}"/>'
                 f'<path d="M{x},{top - 8} L{x + 70},{top + 10} L{x + 70},{top + 60}" stroke="{YELLOW}" stroke-width="7" fill="none" stroke-linecap="round"/>')
+    if name == "partyhat":   # v100: Quip's birthday, October 18; worn by everyone's Quip that day
+        x = cx - 58
+        rot = f'transform="rotate(-14 {x} {top})"'
+        return (f'<path d="M{x - 46},{top + 8} L{x},{top - 118} L{x + 46},{top + 8} Z" fill="{ink}" {rot}/>'
+                f'<path d="M{x - 31},{top - 34} L{x + 31},{top - 34} M{x - 17},{top - 72} L{x + 17},{top - 72}" stroke="{YELLOW}" stroke-width="12" {rot}/>'
+                f'<circle cx="{x}" cy="{top - 122}" r="16" fill="#ff6fae" {rot}/>')
     return ""
 
 

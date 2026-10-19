@@ -533,5 +533,9 @@
  "The hall is out of reach right now.": "지금은 명예의 전당에 연결할 수 없어요.",
  "Speed Round": "스피드 라운드",
  "A former player": "이전 플레이어",
- "Roadmap": "로드맵"
+ "Roadmap": "로드맵",
+ "Happy birthday, Quip.": "생일 축하해, Quip.",
+ "Happy birthday, Quip. {n} today.": "생일 축하해, Quip. 오늘로 {n}살.",
+ "Quotestreak 100: the first live show, {x}. Twelve questions, everyone at once.": "Quotestreak 100: 첫 라이브 쇼, {x}. 12문제, 모두 동시에.",
+ "Get ready": "준비하기"
 }

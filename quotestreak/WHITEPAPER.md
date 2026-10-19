@@ -1,12 +1,12 @@
 # Quotestreak Technical Whitepaper
 
-**v99.0.0** | October 2026
+**v100.0.0** | October 2026
 
 Here's the line. Name where it came from. Quotestreak is a guessing game for lines from films, TV, games, songs and books. It is a static site on Cloudflare Pages and a native SwiftUI app on iPhone, iPad, Mac, Apple Watch, Apple TV and Vision Pro. Two small Workers sit behind it: one runs live rooms, one holds accounts and scores. This is the second edition, written at v99.
 
 ## The bank
 
-`quotes.json` holds 1,697 lines in 16 genres. 272 were typed in by hand at the start; the rest were harvested from Wikiquote, Wikipedia and Wikidata, and book openings from Project Gutenberg. Since v71 every line without a source was checked against its title's Wikiquote page: a line counts when 80 percent of its five-word runs appear there. That check caught ten bad lines, among them a soup ad filed under Twins, and they were replaced. 1,472 lines now carry the page they were checked against, shown on the reveal. Directors, actors, ratings, albums and seasons come from Wikidata, matched on title and year. New films, sports calls, speeches and stand-up live in their own files, so adding them never reshuffles the Daily.
+`quotes.json` holds 1,697 lines in 16 genres. 272 were typed in by hand at the start; the rest were harvested from Wikiquote, Wikipedia and Wikidata, and book openings from Project Gutenberg. Since v71 every line without a source was checked against its title's Wikiquote page: a line counts when 80 percent of its five-word runs appear there. That check caught ten bad lines, among them a soup ad filed under Twins, and they were replaced. 1,472 lines now carry the page they were checked against, shown on the reveal. Directors, actors, ratings, albums and seasons come from Wikidata, matched on title and year. New films, sports calls, speeches and stand-up live in their own files, so adding them never reshuffles the Daily. Since v100 a second bank, `quotes-more.json`, adds 12,737 more lines, 14,434 in all: every film, show and game page on Wikiquote from 1930 on, up to a few lines each, with the same filters (no slurs, no stage directions, no line that names its own title). It loads after the first round. The Daily, the cup, the show and the archive keep drawing from the core bank alone.
 
 ## The guess
 

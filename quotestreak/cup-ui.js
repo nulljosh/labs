@@ -43,7 +43,7 @@ function cupFinish(score) {
 $('start-cup').onclick = () => showCup();
 $('cup-back').onclick = () => { $('cup').classList.add('hidden'); modeSelect.classList.remove('hidden'); };
 $('cup-play').onclick = () => {
-  cupRound = Cup.quotes(Cup.weekKey(), quotes, Daily.seededShuffle);
+  cupRound = Cup.quotes(Cup.weekKey(), core, Daily.seededShuffle);
   $('cup').classList.add('hidden');
   $('type-toggle').checked = false;
   startGame(false);

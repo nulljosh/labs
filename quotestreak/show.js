@@ -103,7 +103,7 @@
     modeSelect.classList.add('hidden');
     $('show').classList.remove('hidden');
     start = practice ? (start || now() + 3000) : next(now());
-    lines = pick(key(start), quotes, Daily.seededShuffle);   // the whole bank: family mode hides the show, like the cup
+    lines = pick(key(start), core, Daily.seededShuffle);   // the whole bank: family mode hides the show, like the cup
     if (!practice) window.quotableGameToken?.(mode());   // fair play (v87): the token's clock starts here
     clearInterval(timer);
     timer = setInterval(tick, 250);

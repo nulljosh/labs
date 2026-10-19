@@ -1,0 +1,11 @@
+import assert from 'assert';
+import { junk, build } from './merge-more.mjs';
+assert(junk('Roooooaaaaaaarrrrr! said the boy in the mask.'));
+assert(junk('Tom Hanks as Forrest Gump'));
+assert(junk('and then we went home, all of us.'));
+assert(!junk('Now that we know who you are, I know who I am.'));
+const films = ['Alpha', 'Bravo', 'Charlie', 'Delta'].map(answer => ({ answer, genre: 'drama', lines: [{ quote: `A perfectly ordinary line about ${answer === 'Alpha' ? 'Alpha' : 'nothing'} at all, take ${answer.length}${answer[1]}.`, character: 'X' }] }));
+const out = build([], films);
+assert.equal(out.length, 3, 'a line naming its own title is dropped');
+for (const q of out) assert(q.options.includes(q.answer) && new Set(q.options).size === 4);
+console.log('merge-more ok');

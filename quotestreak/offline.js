@@ -21,7 +21,7 @@
     status(have.length ? `Saved for offline: ${have.map(label).join(', ')}` : 'Nothing saved yet.');
   }
   // The game's own files, as this page loaded them, so a cold start on a plane still opens.
-  const shell = () => [location.pathname, 'quotes.json', 'world-data.json', 'icon.svg',
+  const shell = () => [location.pathname, 'quotes.json', 'quotes-more.json', 'world-data.json', 'icon.svg',
     ...(I18N.lang === 'en' ? [] : [`locales/${I18N.lang}.json`]),
     ...[...document.scripts].map(s => s.src).filter(Boolean),
     ...[...document.querySelectorAll('link[rel=stylesheet]')].map(l => l.href), 'brand/tokens.css', 'brand/jaybulb-tokens.css', 'features.css',

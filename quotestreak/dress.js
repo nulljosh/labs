@@ -36,6 +36,7 @@
     ? `<option value="${o.id}"${o.id === wear ? ' selected' : ''}>${o.title}</option>`
     : `<option value="${o.id}" disabled>${o.title}, ${o.badges} badges to unlock</option>`).join('');
   sel.onchange = () => { wear = sel.value; try { localStorage.setItem(KEY, wear); } catch {} all(); };
+  root.Dress.wearFor = (w) => { wear = w; all(); };   // a day's costume (event.js), not saved
   all();
   new MutationObserver((list) => list.forEach(m => dress(m.target)))
     .observe(document.body, { subtree: true, attributes: true, attributeFilter: ['src', 'srcset'] });

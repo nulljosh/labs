@@ -39,7 +39,7 @@
     $('archive').classList.add('hidden');
     window.quotableOffBoard = true;
     startGame(false);
-    pool = [{ ...Daily.quoteFor(playing, quotes), noTally: true }];
+    pool = [{ ...Daily.quoteFor(playing, core), noTally: true }];
     nextQuestion();
   };
   const before = window.quotableBadge;
