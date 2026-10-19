@@ -519,5 +519,6 @@
  "Rename": "Rinomina",
  "{n} scores": "{n} punteggi",
  "{x} · {n} members": "{x} · {n} membri",
- "pick another name": "scegli un altro nome"
+ "pick another name": "scegli un altro nome",
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Questo link porta badge, statistiche, serie e impostazioni da un altro dispositivo. Non si perde nulla: i contatori tengono il valore più alto, gli elenchi si uniscono e questo dispositivo mantiene le sue impostazioni."
 }

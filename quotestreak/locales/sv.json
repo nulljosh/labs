@@ -519,5 +519,6 @@
  "Rename": "Byt namn",
  "{n} scores": "{n} resultat",
  "{x} · {n} members": "{x} · {n} medlemmar",
- "pick another name": "välj ett annat namn"
+ "pick another name": "välj ett annat namn",
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Länken tar med märken, statistik, sviter och inställningar från en annan enhet. Inget går förlorat: räknare behåller det högsta, listor slås ihop och den här enheten behåller sina inställningar."
 }

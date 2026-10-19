@@ -519,5 +519,6 @@
  "Rename": "Yeniden adlandır",
  "{n} scores": "{n} skor",
  "{x} · {n} members": "{x} · {n} üye",
- "pick another name": "başka bir ad seç"
+ "pick another name": "başka bir ad seç",
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Bu bağlantı başka bir cihazdan rozetleri, istatistikleri, serileri ve ayarları getirir. Hiçbir şey kaybolmaz: sayaçlar büyük olanı tutar, listeler birleşir ve bu cihaz kendi ayarlarını korur."
 }

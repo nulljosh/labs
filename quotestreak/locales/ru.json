@@ -519,5 +519,6 @@
  "Rename": "Переименовать",
  "{n} scores": "{n} результатов",
  "{x} · {n} members": "{x} · {n} участников",
- "pick another name": "выберите другое имя"
+ "pick another name": "выберите другое имя",
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Эта ссылка переносит значки, статистику, серии и настройки с другого устройства. Ничего не теряется: счётчики берут большее значение, списки объединяются, а настройки этого устройства остаются."
 }

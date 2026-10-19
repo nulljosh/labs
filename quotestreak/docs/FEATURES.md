@@ -58,3 +58,9 @@ Scores are checked on the server (jaybulb-api `src/qs-fairplay.js`). A game take
 
 ## Moderation (v88)
 jaybulb-api (`src/qs-moderation.js`) checks every public text a player writes: a rude club name or pack title is refused ("pick another name"), a rude board name still scores but shows as Player. The word list is short (slurs and the worst words), matched as whole words after folding look-alike characters, so Scunthorpe and class pass. The owner gets a Moderation button (`moderation.js`, hidden for everyone else) listing board names and clubs, each with Rename. Packs and suggested lines already wait in the owner's review queues (v45, v72).
+
+## Fast (v91)
+Cold start on production went from about 400 ms to about 240 ms (navigation to a playable menu, measured with a fresh cache; about 230 to 320 ms at 4x CPU throttle). The shared jaybulb tokens were a cross-origin `@import` that held every script until ~300 ms; they are now `brand/jaybulb-tokens.css`, refreshed from jaybulb.com at each build with the last good copy committed, and the CSS chain is preloaded. The bank ships minified and preloaded from the head; the poster wall decodes async at low priority. The 53 scripts stay separate on purpose: one bundle would let a single feature that throws on an old browser take the whole game down.
+
+## Sync that never loses (v92)
+A transfer link now merges instead of replacing (`transfer.js` `combine`): best score and every counter keep the larger, accuracy pairs keep each side's larger count, lists (watchlist) join one of each, the daily streak keeps the later day, profiles join with this device's player still active, and this device keeps its own settings while missing ones come over. Native keeps the larger best score through iCloud on every sync.

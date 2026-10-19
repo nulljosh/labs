@@ -519,5 +519,6 @@
  "Rename": "Đổi tên",
  "{n} scores": "{n} điểm số",
  "{x} · {n} members": "{x} · {n} thành viên",
- "pick another name": "chọn tên khác"
+ "pick another name": "chọn tên khác",
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Liên kết này mang huy hiệu, thống kê, chuỗi thắng và cài đặt từ thiết bị khác. Không mất gì cả: số đếm giữ giá trị lớn hơn, danh sách được gộp, và thiết bị này giữ cài đặt của nó."
 }

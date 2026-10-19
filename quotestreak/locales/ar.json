@@ -519,5 +519,6 @@
  "Rename": "إعادة تسمية",
  "{n} scores": "{n} نتائج",
  "{x} · {n} members": "{x} · {n} أعضاء",
- "pick another name": "اختر اسمًا آخر"
+ "pick another name": "اختر اسمًا آخر",
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "يحمل هذا الرابط الشارات والإحصاءات والسلاسل والإعدادات من جهاز آخر. لا يضيع شيء: العدادات تحتفظ بالأكبر، والقوائم تُدمج، ويحتفظ هذا الجهاز بإعداداته."
 }

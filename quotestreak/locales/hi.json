@@ -519,5 +519,6 @@
  "Rename": "नाम बदलें",
  "{n} scores": "{n} स्कोर",
  "{x} · {n} members": "{x} · {n} सदस्य",
- "pick another name": "कोई और नाम चुनें"
+ "pick another name": "कोई और नाम चुनें",
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "यह लिंक दूसरे डिवाइस से बैज, आँकड़े, लगातार जीत और सेटिंग्स लाता है। कुछ नहीं खोता: गिनती में बड़ा मान रहता है, सूचियाँ जुड़ जाती हैं, और यह डिवाइस अपनी सेटिंग्स रखता है।"
 }

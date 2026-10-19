@@ -519,5 +519,6 @@
  "Rename": "名前を変更",
  "{n} scores": "{n}件のスコア",
  "{x} · {n} members": "{x} · メンバー{n}人",
- "pick another name": "別の名前にしてください"
+ "pick another name": "別の名前にしてください",
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "このリンクは別のデバイスからバッジ、成績、連続記録、設定を持ってきます。何も失われません。数値は大きいほうを残し、リストはまとめられ、このデバイスの設定はそのままです。"
 }

@@ -11,4 +11,15 @@ assert.deepStrictEqual(unpack(pack({ sb_token: 'x', quotable_high_score: 5 })), 
 assert.strictEqual(merge({ quotable_high_score: '300' }, mine).quotable_high_score, '300', 'the higher best score wins');
 assert.strictEqual(merge({ quotable_high_score: '30' }, mine).quotable_high_score, '120');
 assert.strictEqual(merge({}, mine).quotestreak_badges, mine.quotestreak_badges);
+// v92: nothing is lost either way.
+const { combine } = require('./transfer');
+const j = JSON.stringify, P = JSON.parse;
+assert.deepStrictEqual(P(combine('quotestreak_badges', j({ right: 50, genres: { action: 3 } }), j({ right: 20, wrong: 4, genres: { action: 9, pop: 1 } }))), { right: 50, wrong: 4, genres: { action: 9, pop: 1 } }, 'badge counters keep the larger');
+assert.deepStrictEqual(P(combine('quotestreak_stats', j({ genres: { action: [3, 5] }, history: [{ score: 1 }] }), j({ genres: { action: [4, 4], pop: [1, 1] }, history: [{ score: 2 }, { score: 3 }] }))), { genres: { action: [4, 5], pop: [1, 1] }, history: [{ score: 2 }, { score: 3 }] });
+assert.strictEqual(P(combine('quotestreak_watchlist', j([{ title: 'Jaws', year: 1975, kind: 'movie', added: 1 }]), j([{ title: 'Jaws', year: 1975, kind: 'movie', added: 2 }, { title: 'Heat', year: 1995, kind: 'movie', added: 3 }]))).length, 2, 'lists join, one of each');
+assert.strictEqual(P(combine('quotable_daily_streak', j({ lastDay: 9, count: 2 }), j({ lastDay: 7, count: 6 }))).lastDay, 9, 'the later day wins');
+assert.strictEqual(combine('quotestreak_look', 'noir', 'drivein'), 'noir', "this device's settings stay");
+assert.strictEqual(combine('quotestreak_look', null, 'drivein'), 'drivein', 'a missing setting comes over');
+assert.strictEqual(P(combine('quotestreak_profiles', j({ active: 'Mia', list: { Mia: {} } }), j({ active: 'Dad', list: { Dad: { x: 1 } } }))).active, 'Mia');
+assert.deepStrictEqual(Object.keys(merge({ quotable_high_score: '9' }, { quotestreak_badges: '{}' })).sort(), ['quotable_high_score', 'quotestreak_badges'], 'local-only keys stay');
 console.log('transfer ok');

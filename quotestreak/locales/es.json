@@ -519,5 +519,6 @@
  "Rename": "Renombrar",
  "{n} scores": "{n} puntuaciones",
  "{x} · {n} members": "{x} · {n} miembros",
- "pick another name": "elige otro nombre"
+ "pick another name": "elige otro nombre",
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Este enlace trae insignias, estadísticas, rachas y ajustes de otro dispositivo. No se pierde nada: los contadores se quedan con el mayor, las listas se unen y este dispositivo mantiene sus ajustes."
 }

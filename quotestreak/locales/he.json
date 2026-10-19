@@ -519,5 +519,6 @@
  "Rename": "שינוי שם",
  "{n} scores": "{n} תוצאות",
  "{x} · {n} members": "{x} · {n} חברים",
- "pick another name": "בחרו שם אחר"
+ "pick another name": "בחרו שם אחר",
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "הקישור מביא תגים, סטטיסטיקות, רצפים והגדרות ממכשיר אחר. שום דבר לא הולך לאיבוד: מונים שומרים את הגבוה, רשימות מתאחדות, והמכשיר הזה שומר על ההגדרות שלו."
 }
