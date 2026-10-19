@@ -1,0 +1,27 @@
+<svg width="800" height="120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) { --text: #ffffff; --border: #444444; }
+      }
+      @media (prefers-color-scheme: light) {
+        :root:not([data-theme="dark"]) { --text: #000000; --border: #cccccc; }
+      }
+      :root[data-theme="light"] { --text: #000000; --border: #cccccc; }
+      :root[data-theme="dark"] { --text: #ffffff; --border: #444444; }
+    </style>
+  </defs>
+  <rect width="800" height="120" fill="none"/>
+  <g stroke="var(--text)" stroke-width="2" fill="none">
+    <!-- Shield shape symbolizing security -->
+    <path d="M 200 30 L 200 70 Q 200 100 250 110 Q 300 100 300 70 L 300 30 Z" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Checkmark inside shield -->
+    <path d="M 235 70 L 250 85 L 275 60" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Lock symbolizing fixes -->
+    <circle cx="450" cy="70" r="30" stroke-width="2"/>
+    <path d="M 425 70 L 425 50 Q 425 35 450 35 Q 475 35 475 50 L 475 70" stroke-linecap="round"/>
+    <line x1="450" y1="80" x2="450" y2="95" stroke-linecap="round"/>
+  </g>
+  <text x="150" y="115" font-family="system-ui, -apple-system" font-size="14" fill="var(--text)" opacity="0.6">Security audit • Two critical fixes</text>
+</svg>

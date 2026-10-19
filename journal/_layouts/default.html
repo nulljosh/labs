@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  {%- seo -%}
+  {% if page.layout == "post" %}<meta property="og:image" content="{{ site.url }}/assets/og/{{ page.path | split: "/" | last | replace: ".md", ".png" }}"><meta name="twitter:card" content="summary_large_image">{% endif %}
+  {%- feed_meta -%}
+
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#fcfcfb">
+
+  <link rel="stylesheet" href="https://jaybulb.com/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  {% include theme-script.html %}
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+  <main class="page-content" aria-label="Content">
+    {{ content }}
+    {% include theme-toggle.html %}
+  </main>
+  <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>
+</body>
+</html>
