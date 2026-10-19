@@ -19,7 +19,7 @@ What moves, and why:
 - The right answer pulses green and throws confetti from the button; every fifth in a row throws more. The wrong answer shakes once, red. Colour carries the meaning, motion only points at it.
 - The score and streak bump when they change.
 - The art flashes behind the board for under a second after a right answer.
-- Quip bobs on the menu and end screens, never during a question.
+- Quip bobs on the menu and end screens. In the round a small live Quip (v95) only blinks and reacts to answers; he never moves across the board.
 - The landing page's poster wall drifts. The game's wall is still, because a moving wall behind a ten-second clock fights the clock.
 - Album and poster reveals unblur over seven seconds. That is the game, not decoration, so it stays even with reduced motion.
 

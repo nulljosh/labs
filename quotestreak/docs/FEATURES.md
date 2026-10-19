@@ -70,3 +70,6 @@ See `docs/AUDIT.md`: escaping checked at every markup sink, security headers and
 
 ## Motion and sound (v94)
 `docs/MOTION.md` writes the system down: three motion speeds and one curve as tokens in `brand/tokens.css`, used by the game's animations; a global reduced-motion rule (the seven-second reveal is exempt, since it is the game); and a sound kit, `sound.js`, of six named cues (right, streak, wrong, tick, badge, over) that replace the two raw beeps.
+
+## Quip lives (v95)
+`quip-live.js` draws Quip in code, a line-for-line port of `brand/mascot.py`; its test checks all eight pose files match byte for byte, so the brand can't drift. A small Quip sits in the round card's corner: he blinks while you think (not with reduced motion), cheers a right answer, leans in on every fifth in a row, sweats a miss, and goes wide-eyed in a speed round's last three seconds. Outfits stay on the image Quips.
