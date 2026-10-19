@@ -5,7 +5,7 @@
 const THEMES = {
   tonchi:    { name: "Tonchi",          accent: "#5B9BD5", match: ["tonchi", "lexly", "lingo"] },
   intake:    { name: "Intake",          accent: "#5B9BD5", match: ["intake", "healstack", "dose"] },
-  litigate:  { name: "Litigate",        accent: "#1F3A5F", match: ["litigate"] },
+  atticus:   { name: "Atticus",         accent: "#2B3550", match: ["atticus", "litigate", "docket"], icon: "https://atticus.jaybulb.com/apple-touch-icon.png", paper: "white" },
   homeward:  { name: "Homeward",        accent: "#FF851B", match: ["homeward", "pets"] },
   bookrank:  { name: "Bookrank",        accent: "#5B9BD5", match: ["bookrank"], icon: "https://bookrank.jaybulb.com/icon-192.png" },
   bcgd:      { name: "BC Garage Doors", accent: "#B4661C", match: ["bcgd", "doorstock"] },
@@ -16,6 +16,12 @@ const THEMES = {
   glyphbox:  { name: "Glyphbox",        accent: "#1D4ED8", match: ["glyphbox", "wiretext"], icon: "https://glyphbox.jaybulb.com/icon-192.png" },
 };
 const DEFAULT = { name: "Jaybulb", accent: "#111111" };
+
+// Sheet palettes. "house" is the cream default; an app whose brand is white paper opts into "white".
+const PAPERS = {
+  house: { bg: "#F4EEE3", sheet: "#FBF8F1", rule: "#E2D9C6", ink: "#1A1814", mute: "#6F675C", dbg: "#14120F", dsheet: "#1D1A16", drule: "#2E2A24", dink: "#F4EEE3", dmute: "#A59C8C" },
+  white: { bg: "#F5F5F7", sheet: "#FFFFFF", rule: "#E5E5EA", ink: "#1D1D1F", mute: "#6E6E73", dbg: "#000000", dsheet: "#1C1C1E", drule: "#2C2C2E", dink: "#F5F5F7", dmute: "#A1A1A6" },
+};
 
 const SUBJECT = {
   signup: "Confirm your email",
@@ -55,23 +61,24 @@ function ink(hex) {
 const life = (type) => type === "subscribe" ? "This link expires in 48 hours." : "This link works once and expires in one hour.";
 
 function html(t, type, link, token) {
+  const P = PAPERS[t.paper] || PAPERS.house;
   const title = SUBJECT[type] || "Continue";
   const ctaLabel = type === "welcome" ? `Open ${t.name}` : title;
   const cta = type === "reauthentication"
     ? `<p style="font-size:30px;letter-spacing:8px;font-weight:600;margin:28px 0">${token}</p>`
     : `<p style="margin:28px 0"><a href="${link}" style="display:inline-block;background:${t.accent};color:${ink(t.accent)};text-decoration:none;font-weight:600;font-size:16px;padding:13px 26px;border-radius:999px">${ctaLabel}</a></p>`;
   const fallback = type === "reauthentication" || type === "welcome" ? "" :
-    `<p class="mute" style="font-size:13px;line-height:1.55;color:#6F675C;margin:0 0 24px">${life(type)}</p>`;
+    `<p class="mute" style="font-size:13px;line-height:1.55;color:${P.mute};margin:0 0 24px">${life(type)}</p>`;
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark"><title>${title} · ${t.name}</title>
-<style>@media (prefers-color-scheme:dark){body,.bg{background:#14120F!important}.sheet{background:#1D1A16!important;border-color:#2E2A24!important}.rule{border-color:#2E2A24!important}.ink{color:#F4EEE3!important}.mute{color:#A59C8C!important}}</style></head>
-<body class="bg" style="margin:0;background:#F4EEE3;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;color:#1A1814;-webkit-font-smoothing:antialiased">
+<style>@media (prefers-color-scheme:dark){body,.bg{background:${P.dbg}!important}.sheet{background:${P.dsheet}!important;border-color:${P.drule}!important}.rule{border-color:${P.drule}!important}.ink{color:${P.dink}!important}.mute{color:${P.dmute}!important}}</style></head>
+<body class="bg" style="margin:0;background:${P.bg};font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;color:${P.ink};-webkit-font-smoothing:antialiased">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:40px 16px">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="sheet" style="max-width:520px;background:#FBF8F1;border:1px solid #E2D9C6;border-radius:14px"><tr><td style="padding:36px 32px">
-<p class="ink" style="font-size:15px;font-weight:600;letter-spacing:.01em;margin:0 0 28px;color:#1A1814">${t.icon ? `<img src="${t.icon}" width="28" height="28" alt="" style="vertical-align:middle;border-radius:7px;margin-right:10px;border:0">` : ""}<span style="vertical-align:middle">${t.name}</span></p>
-<h1 class="ink" style="font-size:28px;line-height:1.15;font-weight:600;letter-spacing:-.02em;margin:0 0 14px;color:#1A1814">${title}</h1>
-<p class="ink" style="font-size:16px;line-height:1.55;margin:0;color:#1A1814">${BODY[type] || ""}</p>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="sheet" style="max-width:520px;background:${P.sheet};border:1px solid ${P.rule};border-radius:14px"><tr><td style="padding:36px 32px">
+<p class="ink" style="font-size:15px;font-weight:600;letter-spacing:.01em;margin:0 0 28px;color:${P.ink}">${t.icon ? `<img src="${t.icon}" width="28" height="28" alt="" style="vertical-align:middle;border-radius:7px;margin-right:10px;border:0">` : ""}<span style="vertical-align:middle">${t.name}</span></p>
+<h1 class="ink" style="font-size:28px;line-height:1.15;font-weight:600;letter-spacing:-.02em;margin:0 0 14px;color:${P.ink}">${title}</h1>
+<p class="ink" style="font-size:16px;line-height:1.55;margin:0;color:${P.ink}">${BODY[type] || ""}</p>
 ${cta}${fallback}
-<p class="mute rule" style="font-size:13px;line-height:1.55;color:#6F675C;margin:0;border-top:1px solid #E2D9C6;padding-top:18px">Sent by ${t.name}.</p>
+<p class="mute rule" style="font-size:13px;line-height:1.55;color:${P.mute};margin:0;border-top:1px solid ${P.rule};padding-top:18px">Sent by ${t.name}.</p>
 </td></tr></table></td></tr></table></body></html>`;
 }
 

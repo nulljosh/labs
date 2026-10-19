@@ -255,19 +255,12 @@ test("the confirm link cannot be pointed anywhere: an r parameter is ignored", a
   assert.equal(home.headers.get("location"), `${ORIGIN}/#subscribed`);
 });
 
-test("jaybulb.com is not ours until someone owns it: no CORS, no redirect, no old tokens", async () => {
+test("jaybulb.com is ours (bought 2026-10-11): it gets CORS, lookalikes still do not", async () => {
   const res = await signup({ email: "a@example.com" }, { Origin: "https://jaybulb.com" });
-  assert.equal(res.status, 403);
-  assert.equal(res.headers.get("access-control-allow-origin"), null);
-  assert.equal((await signup({ email: "a@example.com" }, { Origin: "https://login.jaybulb.com" })).status, 403);
-  for (const ret of ["https://login.jaybulb.com/reset-password", "https://jaybulb.com/phish"]) {
-    const nav = await signup({ email: "b@example.com", return: ret }, { "Sec-Fetch-Mode": "navigate" });
-    assert.equal(nav.headers.get("location"), `${ORIGIN}#signed-up`);
-  }
-  assert.equal(emails.length, 2);
-  const done = await confirm(tokenFrom(emails[0]));
-  assert.equal(done.headers.get("location"), `${ORIGIN}/#subscribed`);
-  for (const o of ["https://evilheyitsmejosh.com", "https://heyitsmejosh.com.evil.example", "https://sub.nulljosh.github.io", "http://heyitsmejosh.com"]) {
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get("access-control-allow-origin"), "https://jaybulb.com");
+  for (const o of ["https://evilheyitsmejosh.com", "https://heyitsmejosh.com.evil.example", "https://sub.nulljosh.github.io", "http://heyitsmejosh.com",
+                   "https://eviljaybulb.com", "https://jaybulb.com.evil.example", "http://jaybulb.com"]) {
     assert.equal((await signup({ email: "c@example.com" }, { Origin: o })).status, 403, o);
   }
   assert.equal((await signup({ email: "d@example.com" }, { Origin: "https://nulljosh.github.io" })).status, 200);
