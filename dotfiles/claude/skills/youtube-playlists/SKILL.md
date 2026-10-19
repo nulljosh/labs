@@ -6,7 +6,7 @@ description: Clear out YouTube Watch Later by sorting it into playlists, summari
 # YouTube Watch Later cleanup
 
 Goal state: Watch Later empty, no leftover temp playlists, one summary file per theme in `~/Library/Mobile Documents/com~apple~CloudDocs/YouTube Summaries/`.
-For a single video or playlist summary, use summarize-youtube instead.
+For a single video or playlist summary, use content-summaries (summarize-youtube mode) instead.
 
 ## Read (no Chrome needed)
 `uvx --prerelease allow --from "yt-dlp[default]" yt-dlp --flat-playlist --cookies-from-browser chrome --print "%(id)s|%(title)s|%(channel)s" ":ytwatchlater"`; same for `https://www.youtube.com/feed/playlists`. The Data API returns Watch Later empty, so cookies are the way. Never export the cookie jar to a file (auto mode blocks it); pass `--cookies-from-browser chrome` inline.
