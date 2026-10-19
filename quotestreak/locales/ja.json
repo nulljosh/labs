@@ -520,5 +520,10 @@
  "{n} scores": "{n}件のスコア",
  "{x} · {n} members": "{x} · メンバー{n}人",
  "pick another name": "別の名前にしてください",
- "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "このリンクは別のデバイスからバッジ、成績、連続記録、設定を持ってきます。何も失われません。数値は大きいほうを残し、リストはまとめられ、このデバイスの設定はそのままです。"
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "このリンクは別のデバイスからバッジ、成績、連続記録、設定を持ってきます。何も失われません。数値は大きいほうを残し、リストはまとめられ、このデバイスの設定はそのままです。",
+ "Past dailies": "過去の今日の一言",
+ "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "これまでの今日の一言すべて。その日、全員に出たのと同じセリフです。遊んでも連続記録は変わりません。",
+ "{x} · right": "{x} · 正解",
+ "{x} · missed": "{x} · 不正解",
+ "Past dailies show up here from tomorrow.": "過去の一言は明日からここに並びます。"
 }

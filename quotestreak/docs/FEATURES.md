@@ -73,3 +73,6 @@ See `docs/AUDIT.md`: escaping checked at every markup sink, security headers and
 
 ## Quip lives (v95)
 `quip-live.js` draws Quip in code, a line-for-line port of `brand/mascot.py`; its test checks all eight pose files match byte for byte, so the brand can't drift. A small Quip sits in the round card's corner: he blinks while you think (not with reduced motion), cheers a right answer, leans in on every fifth in a row, sweats a miss, and goes wide-eyed in a speed round's last three seconds. Outfits stay on the image Quips.
+
+## Archive (v96)
+Past dailies (`archive.js`, from the Daily result screen) lists every Daily Quote so far, newest first, each the same line everyone got that day (`Daily.quoteFor`). Playing one never touches the daily streak, the board or the difficulty tally; the archive keeps its own right or missed per day. Day one has no past, so the list fills from 2026-10-20. Wrappers of `window.quotableBadge` must load after `badges-ui.js`, which sets the base hook; archive.js first loaded before it and was silently dropped.

@@ -520,5 +520,10 @@
  "{n} scores": "{n} תוצאות",
  "{x} · {n} members": "{x} · {n} חברים",
  "pick another name": "בחרו שם אחר",
- "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "הקישור מביא תגים, סטטיסטיקות, רצפים והגדרות ממכשיר אחר. שום דבר לא הולך לאיבוד: מונים שומרים את הגבוה, רשימות מתאחדות, והמכשיר הזה שומר על ההגדרות שלו."
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "הקישור מביא תגים, סטטיסטיקות, רצפים והגדרות ממכשיר אחר. שום דבר לא הולך לאיבוד: מונים שומרים את הגבוה, רשימות מתאחדות, והמכשיר הזה שומר על ההגדרות שלו.",
+ "Past dailies": "ציטוטים יומיים קודמים",
+ "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "כל ציטוטי היום עד עכשיו, אותו ציטוט שכולם קיבלו באותו יום. משחק בהם לא נוגע ברצף שלך.",
+ "{x} · right": "{x} · נכון",
+ "{x} · missed": "{x} · פספוס",
+ "Past dailies show up here from tomorrow.": "ציטוטים קודמים יופיעו כאן החל ממחר."
 }

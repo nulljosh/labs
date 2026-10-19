@@ -520,5 +520,10 @@
  "{n} scores": "{n} scores",
  "{x} · {n} members": "{x} · {n} leden",
  "pick another name": "kies een andere naam",
- "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Deze link brengt badges, statistieken, reeksen en instellingen van een ander apparaat mee. Er gaat niets verloren: tellers houden de hoogste waarde, lijsten worden samengevoegd en dit apparaat houdt zijn eigen instellingen."
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Deze link brengt badges, statistieken, reeksen en instellingen van een ander apparaat mee. Er gaat niets verloren: tellers houden de hoogste waarde, lijsten worden samengevoegd en dit apparaat houdt zijn eigen instellingen.",
+ "Past dailies": "Eerdere dagcitaten",
+ "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "Elk dagcitaat tot nu toe, dezelfde zin die iedereen die dag kreeg. Er een spelen raakt je reeks niet.",
+ "{x} · right": "{x} · goed",
+ "{x} · missed": "{x} · fout",
+ "Past dailies show up here from tomorrow.": "Eerdere dagcitaten verschijnen hier vanaf morgen."
 }

@@ -119,7 +119,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v93 Audit.** Security and privacy review, start to finish.
 - [x] **v94 Motion and sound.** A written motion system and a sound kit.
 - [x] **v95 Quip lives.** Quip reacts everywhere, drawn in code.
-- [ ] **v96 Archive.** Every past daily quote playable.
+- [x] **v96 Archive.** Every past daily quote playable.
 - [ ] **v97 Hall of fame.** The best runs ever, kept forever.
 - [ ] **v98 Certified access.** A full outside accessibility audit.
 - [ ] **v99 The book.** Whitepaper two and a public roadmap page.

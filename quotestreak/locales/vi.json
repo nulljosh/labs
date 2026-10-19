@@ -520,5 +520,10 @@
  "{n} scores": "{n} điểm số",
  "{x} · {n} members": "{x} · {n} thành viên",
  "pick another name": "chọn tên khác",
- "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Liên kết này mang huy hiệu, thống kê, chuỗi thắng và cài đặt từ thiết bị khác. Không mất gì cả: số đếm giữ giá trị lớn hơn, danh sách được gộp, và thiết bị này giữ cài đặt của nó."
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Liên kết này mang huy hiệu, thống kê, chuỗi thắng và cài đặt từ thiết bị khác. Không mất gì cả: số đếm giữ giá trị lớn hơn, danh sách được gộp, và thiết bị này giữ cài đặt của nó.",
+ "Past dailies": "Câu nói hằng ngày trước đây",
+ "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "Mọi câu nói hằng ngày cho đến nay, cùng một câu mọi người nhận hôm đó. Chơi lại không ảnh hưởng chuỗi của bạn.",
+ "{x} · right": "{x} · đúng",
+ "{x} · missed": "{x} · sai",
+ "Past dailies show up here from tomorrow.": "Các câu trước đây sẽ xuất hiện ở đây từ ngày mai."
 }

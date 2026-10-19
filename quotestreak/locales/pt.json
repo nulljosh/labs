@@ -520,5 +520,10 @@
  "{n} scores": "{n} pontuações",
  "{x} · {n} members": "{x} · {n} membros",
  "pick another name": "escolha outro nome",
- "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Este link traz medalhas, estatísticas, sequências e ajustes de outro aparelho. Nada se perde: contadores ficam com o maior, listas se juntam e este aparelho mantém seus ajustes."
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Este link traz medalhas, estatísticas, sequências e ajustes de outro aparelho. Nada se perde: contadores ficam com o maior, listas se juntam e este aparelho mantém seus ajustes.",
+ "Past dailies": "Frases do dia anteriores",
+ "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "Todas as frases do dia até agora, a mesma para todos naquele dia. Jogar uma não mexe na sua sequência.",
+ "{x} · right": "{x} · acertou",
+ "{x} · missed": "{x} · errou",
+ "Past dailies show up here from tomorrow.": "As frases anteriores aparecem aqui a partir de amanhã."
 }

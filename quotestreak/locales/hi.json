@@ -520,5 +520,10 @@
  "{n} scores": "{n} स्कोर",
  "{x} · {n} members": "{x} · {n} सदस्य",
  "pick another name": "कोई और नाम चुनें",
- "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "यह लिंक दूसरे डिवाइस से बैज, आँकड़े, लगातार जीत और सेटिंग्स लाता है। कुछ नहीं खोता: गिनती में बड़ा मान रहता है, सूचियाँ जुड़ जाती हैं, और यह डिवाइस अपनी सेटिंग्स रखता है।"
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "यह लिंक दूसरे डिवाइस से बैज, आँकड़े, लगातार जीत और सेटिंग्स लाता है। कुछ नहीं खोता: गिनती में बड़ा मान रहता है, सूचियाँ जुड़ जाती हैं, और यह डिवाइस अपनी सेटिंग्स रखता है।",
+ "Past dailies": "पिछले दैनिक उद्धरण",
+ "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "अब तक के सभी दैनिक उद्धरण, उस दिन सबको मिली वही पंक्ति। इन्हें खेलने से आपकी लगातार जीत पर असर नहीं पड़ता।",
+ "{x} · right": "{x} · सही",
+ "{x} · missed": "{x} · चूक",
+ "Past dailies show up here from tomorrow.": "पिछले उद्धरण कल से यहाँ दिखेंगे।"
 }

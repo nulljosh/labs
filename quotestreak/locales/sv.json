@@ -520,5 +520,10 @@
  "{n} scores": "{n} resultat",
  "{x} · {n} members": "{x} · {n} medlemmar",
  "pick another name": "välj ett annat namn",
- "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Länken tar med märken, statistik, sviter och inställningar från en annan enhet. Inget går förlorat: räknare behåller det högsta, listor slås ihop och den här enheten behåller sina inställningar."
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "Länken tar med märken, statistik, sviter och inställningar från en annan enhet. Inget går förlorat: räknare behåller det högsta, listor slås ihop och den här enheten behåller sina inställningar.",
+ "Past dailies": "Tidigare dagens citat",
+ "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "Varje dagens citat hittills, samma replik som alla fick den dagen. Att spela ett rör inte din svit.",
+ "{x} · right": "{x} · rätt",
+ "{x} · missed": "{x} · miss",
+ "Past dailies show up here from tomorrow.": "Tidigare citat dyker upp här från och med i morgon."
 }

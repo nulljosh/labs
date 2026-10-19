@@ -522,5 +522,10 @@
  "{n} scores": "{n} 条成绩",
  "{x} · {n} members": "{x} · {n} 名成员",
  "pick another name": "请换个名字",
- "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "此链接会带来另一台设备上的徽章、统计、连胜和设置。什么都不会丢：计数保留较大的，列表合并，这台设备保留自己的设置。"
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "此链接会带来另一台设备上的徽章、统计、连胜和设置。什么都不会丢：计数保留较大的，列表合并，这台设备保留自己的设置。",
+ "Past dailies": "往日的每日一句",
+ "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "至今所有的每日一句，当天所有人看到的都是同一句。玩旧的不会影响你的连胜。",
+ "{x} · right": "{x} · 答对",
+ "{x} · missed": "{x} · 答错",
+ "Past dailies show up here from tomorrow.": "往日的每日一句从明天起会出现在这里。"
 }

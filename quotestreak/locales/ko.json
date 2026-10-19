@@ -520,5 +520,10 @@
  "{n} scores": "점수 {n}개",
  "{x} · {n} members": "{x} · 회원 {n}명",
  "pick another name": "다른 이름을 골라 주세요",
- "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "이 링크는 다른 기기의 배지, 기록, 연속 기록, 설정을 가져와요. 아무것도 잃지 않아요. 숫자는 큰 쪽을 남기고, 목록은 합치고, 이 기기의 설정은 그대로예요."
+ "This link carries badges, stats, streaks and settings from another device. Nothing is lost: counts keep the larger, lists join, and this device keeps its own settings.": "이 링크는 다른 기기의 배지, 기록, 연속 기록, 설정을 가져와요. 아무것도 잃지 않아요. 숫자는 큰 쪽을 남기고, 목록은 합치고, 이 기기의 설정은 그대로예요.",
+ "Past dailies": "지난 오늘의 대사",
+ "Every Daily Quote so far, the same line everyone got that day. Playing one doesn't touch your streak.": "지금까지의 오늘의 대사 전부, 그날 모두가 받은 같은 대사예요. 플레이해도 연속 기록에는 영향이 없어요.",
+ "{x} · right": "{x} · 정답",
+ "{x} · missed": "{x} · 오답",
+ "Past dailies show up here from tomorrow.": "지난 대사는 내일부터 여기에 나와요."
 }
