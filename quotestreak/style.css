@@ -67,6 +67,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  justify-content: safe center;  /* tall panels (timelines, long quotes) start at the top instead of overflowing out of reach */
 }
 .panel {
   background: var(--panel);
@@ -302,3 +303,4 @@ button.link { background: none; box-shadow: none; color: var(--text); text-decor
 #season-shelf figure { margin: 0; width: 72px; font-size: 0.75rem; }
 /* The leaderboard opens from the menu and the end screen alike, so it floats over both instead of stacking above them. */
 #leaderboard { position: fixed; inset: 0; margin: auto; width: min(480px, calc(100vw - 32px)); height: fit-content; max-height: 80vh; overflow-y: auto; z-index: 50; box-shadow: 0 12px 48px rgba(0,0,0,0.35); }
+li.note { list-style: none; text-align: center; color: var(--muted); }  /* an empty board says so, unnumbered */

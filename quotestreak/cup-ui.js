@@ -7,13 +7,13 @@ async function showCup(msg = '') {
   endEl.classList.add('hidden');
   $('cup').classList.remove('hidden');
   const played = localStorage.getItem(CUP_KEY) === Cup.weekKey();
-  $('cup-title').textContent = `Weekly cup, ${Cup.weekKey().replace('-W', ' week ')}`;
+  $('cup-title').textContent = 'This week\u2019s cup';
   $('cup-msg').textContent = msg || (played ? 'You have played this week. The cup resets on Monday (UTC).'
     : window.quotableSignedIn?.() ? 'Ten quotes, one go, same for everyone this week.' : 'Sign in to put your cup score on the board.');
   $('cup-play').classList.toggle('hidden', played);
   const rows = window.quotableBoard ? await window.quotableBoard(cupMode()) : [];
   const ol = $('cup-list');
-  ol.innerHTML = rows.length ? '' : '<li>No cup scores yet this week.</li>';
+  ol.innerHTML = rows.length ? '' : '<li class="note">No cup scores yet this week.</li>';
   rows.slice(0, 20).forEach(r => { const li = document.createElement('li'); li.textContent = `${r.name} \u2014 ${r.score}`; ol.appendChild(li); });
   const names = ['Quarterfinals', 'Semifinals', 'Final'];
   const rounds = Cup.bracket(rows);

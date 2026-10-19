@@ -149,7 +149,7 @@ window.quotableShowLeaderboard = async (mode) => {
   const ol = $('lb-list');
   ol.innerHTML = '';
   if (error) { ol.innerHTML = `<li>${error.message}</li>`; return; }
-  if (!data.length) ol.innerHTML = '<li>No scores yet. Sign in and play!</li>';
+  if (!data.length) ol.innerHTML = '<li class="note">No scores yet. Sign in and play!</li>';
   for (const r of data) {
     const li = document.createElement('li');
     li.textContent = `${r.name} — ${r.score}`;

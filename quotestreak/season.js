@@ -20,6 +20,8 @@
     const id = of(date).id;
     return { ...bests, [id]: Math.max(bests[id] || 0, score) };
   };
-  const api = { TIERS, of, tier, next, daysLeft, record };
+  // "2026-Q4" reads as "Fall 2026" (northern seasons, the quarter each one mostly fills).
+  const name = (id) => `${['Winter', 'Spring', 'Summer', 'Fall'][+id.slice(-1) - 1]} ${id.slice(0, 4)}`;
+  const api = { TIERS, of, tier, next, daysLeft, record, name };
   if (typeof module !== 'undefined') module.exports = api; else root.Season = api;
 })(this);

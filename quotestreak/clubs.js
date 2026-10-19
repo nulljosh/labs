@@ -36,7 +36,7 @@ document.getElementById('lb-clubs').onclick = async () => {
   const ol = document.getElementById('lb-list');
   ol.innerHTML = '';
   if (error) { ol.innerHTML = `<li>${error.message}</li>`; return; }
-  if (!data.length) ol.innerHTML = '<li>No clubs yet. Start one in your account.</li>';
+  if (!data.length) ol.innerHTML = '<li class="note">No clubs yet. Start one in your account.</li>';
   for (const c of data) {
     const li = document.createElement('li');
     li.textContent = `${c.name} \u2014 ${c.total} (${c.members} ${c.members === 1 ? 'player' : 'players'})`;

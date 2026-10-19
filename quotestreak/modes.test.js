@@ -38,4 +38,16 @@ for (const m of mq) {
   assert.notEqual(m.answer, m.display);
 }
 assert.equal(pool('who', [q], bank, rand).length, 1);
-console.log('modes ok', playable, fin, mq.length);
+
+// Timeline: four titles, the answer is the oldest, no letters or codes anywhere
+const tl = pool('timeline', bank, bank, rand);
+assert.equal(tl.length, 20);
+for (const t of tl) {
+  assert.equal(new Set(t.options).size, 4);
+  assert(t.options.includes(t.answer));
+  const later = t.character.match(/\((\d{4})\)/g).map(y => +y.slice(1, 5)), first = +t.character.match(/came out in (\d{4})/)[1];
+  assert(later.every(y => y > first), t.character);
+  assert(t.options.every(o => !/^[A-D](, [A-D])*$/.test(o)));
+}
+assert.equal(pool('timeline', bank.slice(0, 3), bank, rand).length, 0, 'three lines make no timeline');
+console.log('modes ok', playable, fin, mq.length, tl.length);

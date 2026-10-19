@@ -12,4 +12,5 @@ assert.equal(next(260).id, 'gold');
 assert.equal(next(500), null);
 const r = record(record({}, 120, d), 80, d);
 assert.deepEqual(r, { '2026-Q4': 120 }, 'keeps the best, not the latest');
+assert.equal(require('./season').name('2026-Q4'), 'Fall 2026');
 console.log('season ok');

@@ -156,7 +156,7 @@ function nextQuestion() {
   genreBadge.textContent = label(current.genre);
   genreBadge.style.background = g.color;
   genreBadge.style.setProperty('--badge-text', g.text);
-  quoteEl.textContent = `\u201C${current.display || current.quote}\u201D`;  // curly, so Quip Sans draws the logo's marks
+  quoteEl.textContent = current.plain || `\u201C${current.display || current.quote}\u201D`;  // curly, so Quip Sans draws the logo's marks
   quoteEl.style.animation = 'none';
   void quoteEl.offsetWidth;
   quoteEl.style.animation = '';
@@ -238,7 +238,7 @@ function choose(opt, btn) {
     beep(180, 0.25);
   }
   if (current.character) feedbackEl.textContent += ` · ${[current.character, current.year].filter(Boolean).join(', ')}`;
-  tally(current, correct);
+  if (!current.plain) tally(current, correct);  // a timeline question is not one quote
   run.push({ qid: Difficulty.qid(current.quote), pts });
   duelSend({ type: 'answer', score, i: run.length, name: window.quotableDisplayName?.() });
   window.quotableBadge?.('answer', { q: current, correct, typed: typeMode, hints: hintsUsed, streak });

@@ -39,10 +39,29 @@
     },
   };
   const build = (mode, q, all, rand = Math.random) => (BUILD[mode] ? BUILD[mode](q, all, rand) : q);
+  // v24 Timeline: which of four came out first? Four titles at least three years apart; the reveal
+  // gives every year so the player learns the order.
+  function timeline(list, rand) {
+    const dated = shuffle(list.filter(q => q.year && q.type !== 'music'), rand), out = [];
+    while (dated.length >= 4 && out.length < 20) {
+      const four = [dated.pop()];
+      for (let i = dated.length - 1; i >= 0 && four.length < 4; i--)
+        if (four.every(t => Math.abs(t.year - dated[i].year) >= 3 && t.answer !== dated[i].answer)) four.push(dated.splice(i, 1)[0]);
+      if (four.length < 4) continue;
+      const first = [...four].sort((x, y) => x.year - y.year)[0];
+      out.push({
+        ...first, quote: four.map(t => t.quote).join(' | '), year: null, art: null,
+        genre: 'timeline', plain: 'Which came out first?', prompt: 'Oldest wins.', options: shuffle(four.map(t => t.answer), rand),
+        character: `it came out in ${first.year}; then ${[...four].sort((x, y) => x.year - y.year).slice(1).map(t => `${t.answer} (${t.year})`).join(', ')}`,
+        hints: [`It came out in the ${Math.floor(first.year / 10) * 10}s`, `It starts with ${first.answer[0]}`],
+      });
+    }
+    return out;
+  }
   // A game's questions. Most modes reshape the filtered bank; misquotes (v23) bring their own set.
   const Mis = typeof module !== 'undefined' ? require('./misquotes') : root.Misquotes;
-  const pool = (mode, list, all, rand = Math.random) => mode === 'misquote'
-    ? shuffle(Mis.questions(), rand)
+  const pool = (mode, list, all, rand = Math.random) => mode === 'misquote' ? shuffle(Mis.questions(), rand)
+    : mode === 'timeline' ? timeline(list, rand)
     : list.map(q => build(mode, q, all, rand)).filter(Boolean);
   const api = { build, pool };
   if (typeof module !== 'undefined') module.exports = api; else root.Modes = api;

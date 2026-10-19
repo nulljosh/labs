@@ -7,3 +7,4 @@ assert.equal(hintText({ answer: 'queen' }, 2), 'Starts with Q');
 assert.deepEqual([0, 1, 2].map(n => points(10, n)), [10, 5, 2]);
 assert.equal(points(1, 2), 1);
 console.log('hints ok');
+assert.equal(require('./hints').hintText({ answer: 'x', hints: ['one', 'two'] }, 2), 'two');
