@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80" height="80" alt="Quotestreak icon">
 
-![version](https://img.shields.io/badge/version-79.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-80.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Here's the line. Name the movie.
 
@@ -67,7 +67,7 @@ Tests: `for t in *.test.js; do node $t; done`
 
 ## Docs
 
-[Architecture](docs/ARCHITECTURE.md) · [API and agent tools](docs/API.md) · [Whitepaper](WHITEPAPER.md) · [Roadmap](roadmap.md)
+[Architecture](docs/ARCHITECTURE.md) · [API and agent tools](docs/API.md) · [Open data](docs/DATA.md) · [Whitepaper](WHITEPAPER.md) · [Roadmap](roadmap.md)
 
 <img src="architecture.svg" width="600">
 

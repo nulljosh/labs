@@ -99,7 +99,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v77 Anime.** An anime category.
 - [x] **v78 Stand-up.** Comedy specials and podcasts.
 - [x] **v79 Open API.** The quote of the day and the bank through /api and /mcp.
-- [ ] **v80 Open data.** Publish the verified metadata where the licence allows.
+- [x] **v80 Open data.** Publish the verified metadata where the licence allows.
 
 ### Era 9: a show (81 to 90)
 - [ ] **v81 Live show.** A global quiz at a set time every week.

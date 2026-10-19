@@ -1,0 +1,14 @@
+import assert from 'assert';
+import fs from 'fs';
+import { openLines, titles } from './build-data.mjs';
+const bank = JSON.parse(fs.readFileSync(new URL('../quotes.json', import.meta.url), 'utf8'));
+const lines = openLines(bank);
+assert(lines.length > 1000);
+assert(!lines.some(l => l.type === 'music'), 'no lyrics');
+assert(lines.every(l => l.source.startsWith('https://') && l.license), 'every line credits its page');
+const lyric = bank.find(q => q.type === 'music');
+assert(!lines.some(l => l.quote === lyric.quote));
+const t = titles(bank);
+assert.strictEqual(t.reduce((n, x) => n + x.lines, 0), bank.length, 'every bank line counted once');
+assert(!JSON.stringify(t).includes(lyric.quote), 'titles carry no text');
+console.log('build-data ok');
