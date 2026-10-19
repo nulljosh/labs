@@ -2,9 +2,9 @@
 import { createClient } from './spark.js';
 
 const sb = createClient('https://api.jaybulb.com');
-// Off until the backend RPCs are deployed and quotestreak.jaybulb.com is registered with Apple
-// (Services ID return URL) and Google (jaybulb-signin origin). Flip to true, then deploy.
-const SOCIAL = false;
+// Google, friends and delete are live (origin on jaybulb-signin, RPCs in jaybulb-api).
+// Web Apple waits until quotestreak.jaybulb.com/play is a return URL on the Services ID.
+const SOCIAL = true, WEB_APPLE = false;
 const $ = (id) => document.getElementById(id);
 let user = null;
 
@@ -21,7 +21,8 @@ function render() {
 
 // Apple and Google hand back an id token; jaybulb-api verifies it and opens a session.
 // Web client ids are public (not secrets); the Worker checks them as audiences.
-for (const id of ['auth-apple', 'auth-google', 'friends']) $(id).classList.toggle('hidden', !SOCIAL);
+for (const id of ['auth-google', 'friends']) $(id).classList.toggle('hidden', !SOCIAL);
+$('auth-apple').classList.toggle('hidden', !WEB_APPLE);
 const APPLE_ID = 'com.heyitsmejosh.websignin';
 const GOOGLE_ID = '337798947774-he7noqsqk3epo00ic06ibpom75p3tr3h.apps.googleusercontent.com';
 const loadScript = (src) => new Promise((ok, no) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = no; document.head.append(s); });
