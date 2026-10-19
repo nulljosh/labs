@@ -94,7 +94,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v72 Submissions.** Players suggest quotes through a review queue.
 - [x] **v73 New releases.** A pack of recent films every week.
 - [x] **v74 Seasons of film.** Halloween, holiday and summer packs.
-- [ ] **v75 Sports.** Famous commentary calls.
+- [x] **v75 Sports.** Famous commentary calls.
 - [ ] **v76 Speeches.** History in its own words.
 - [ ] **v77 Anime.** An anime category.
 - [ ] **v78 Stand-up.** Comedy specials and podcasts.
