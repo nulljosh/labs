@@ -32,13 +32,13 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **quotestreak** | Quote guessing game, no backend · 6804394619 |
 | **inkpress** | Multi-feed RSS reader · 6787759999 |
 | **sidewise** | RSS bias API + reader · 6806028670 |
-| **plain** | Plain text editor, iOS + macOS + CLI |
-| **madobe** (ex-lucarne) | WebKit browser, one SwiftUI file |
+| **plaintxt** | Plain text editor, iOS + macOS + CLI |
+| **blackcomb** (ex-madobe, ex-lucarne) | WebKit browser: start page, reading list, Float, Pair, site rules. Bundle ID `com.nulljosh.lucarne` and Worker name `madobe` stay · 6809355192 |
 | **airwell** (ex-windgate) | Guided breathing. Folder is `breathe` · 6810806058 |
 | **curbfind** | Craigslist browser, every platform · 6809031662 |
 | **atlin** (ex-brick, ex-roost) | Real rentals on a map, deal-ranked, 27 languages. Bundle ID still `com.nulljosh.brick`, Pages project still `roost` (neither can be renamed) · 6824157219 |
 | **hamurapi** (ex-hamurabi) | 1968 Hamurabi with a drawn city. Bundle ID and Worker still `hamurabi` · 6819131590 |
-| **toroid** | Game of Life on a torus. Folder is `conway` · 6806324937 |
+| **toroid** | Game of Life on a torus · 6806324937 |
 | **nyc** | Times Square city sim (NYC Survive) · 6782618198 |
 | **bcgd** | Garage-door site, ships as **Doorstock** · 6791106082 |
 | **litigate** | Litigation tool, private, no landing on purpose · 6787857503 |
@@ -62,8 +62,8 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 ### Big projects
 | Repo | What |
 |---|---|
-| **joshuatree** | From-scratch i386 and Pi 4 OS: desktop, Wi-Fi, HTTPS browser, Samantha relay. (`jt-picker2` is a stray copy) |
-| **turing** | Pipeline for small on-device language models. First model: Samantha. (`turing-v4` is a stray copy) |
+| **joshuatree** | From-scratch i386 and Pi 4 OS: desktop, Wi-Fi, HTTPS browser, Samantha relay. |
+| **turing** | Pipeline for small on-device language models. First model: Samantha. |
 | **plank** | Small compiled language, one Python file. `homebrew-plank` is its tap |
 | **vancouvervice** | GTA-style game in the real Vancouver, Unreal 5 |
 | **conveyer** | Claude plays Factorio, now Game Dev Tycoon |
@@ -82,7 +82,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **dotfiles** | Shell configs, skills |
 
 ### Small or local-only
-`secretary` (Claude + Twilio phone secretary), `hackrange` (security dojo, private), `monocode`, `slicehack`, `logans-frenchies` (client pitch, private), `bbgd` (client site), `bank`, `canlii-app`, `credis`, `hessian4`, `erdos-targets`, `agent-101`, `bonsai-agent`, `xreader`, `video-speed-ext`, `launch` (post drafts), `runs`, `nimble-scratch`, `scratch-*`. Helpers: `scripts/`, `_external/` (read-only checkouts, never push).
+`secretary` (Claude + Twilio phone secretary), `hackrange` (security dojo, private), `slicehack`, `logans-frenchies` (client pitch, private), `bbgd` (client site), `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch` (post drafts), `runs`. Old experiments and stray copies live in `_attic/` (gitignored, never push). Helpers: `scripts/`, `_external/` (read-only checkouts, never push).
 
 Gone. Don't mention them: systems, beep, missing-pets, abraham, code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay, plan.
 
