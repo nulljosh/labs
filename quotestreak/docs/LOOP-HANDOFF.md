@@ -10,7 +10,7 @@ Work down "Road to v100" in `roadmap.md`, one major version per tick. Each miles
 - Store builds need `-allowProvisioningUpdates` and automatic export signing; the old manual Mac profile lacks Sign in with Apple.
 
 ## Next, in order
-1. v6 TV, then down the list. Reuse scripts/harvest-wikiquote.mjs with a TV category. (v2 to v4 live on the web; hints.js, match.js and the typed mode are web-only so far.) (v2 Daily and v3 Hints are live on the web; hints.js is web-only so far, native port rides the next store batch.)
+1. v7 Games, then down the list. v2 to v6 are live on the web. Accounts and friends are built on Cloudflare (web + native) but wait on Joshua's go for the D1 table and the jaybulb-api deploy, plus Google origin and Apple return URL registration; flip SOCIAL in auth.js after.
 3. When 1.3.0 clears review, cut the next store build with every native change since, new screenshots if the UI moved, and What's New in the house voice.
 
 ## Restart prompt

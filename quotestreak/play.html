@@ -63,10 +63,12 @@
       </div>
       <div id="auth-signed" class="hidden">
         <p id="auth-who"></p>
-        <h3>Friends</h3>
-        <p id="friend-code" class="prompt"></p>
-        <form id="friend-form"><input id="friend-input" placeholder="Friend's code" maxlength="9" autocomplete="off" autocapitalize="characters" spellcheck="false"><button id="friend-add">Add</button></form>
-        <ol id="friend-list"></ol>
+        <div id="friends">
+          <h3>Friends</h3>
+          <p id="friend-code" class="prompt"></p>
+          <form id="friend-form"><input id="friend-input" placeholder="Friend's code" maxlength="9" autocomplete="off" autocapitalize="characters" spellcheck="false"><button id="friend-add">Add</button></form>
+          <ol id="friend-list"></ol>
+        </div>
         <button id="auth-logout">Sign out</button>
         <button id="auth-delete">Delete account</button>
       </div>
