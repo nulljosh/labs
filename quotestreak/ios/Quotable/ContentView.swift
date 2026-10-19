@@ -91,7 +91,7 @@ private struct MenuView: View {
             Picker("Genre", selection: $genre) {
                 Text(LocalizedStringKey(Self.allGenres)).tag(Self.allGenres)
                 ForEach(game.genres, id: \.self) { g in
-                    Text(g.capitalized).tag(g)
+                    Text(Theme.label(for: g)).tag(g)
                 }
             }
             .pickerStyle(.menu)
@@ -165,7 +165,7 @@ private struct RoundView: View {
 
             if let quote = game.current {
                 let badge = Theme.badge(for: quote.genre)
-                Text(quote.genre.capitalized)
+                Text(Theme.label(for: quote.genre))
                     .font(.quip(.caption, weight: .bold))
                     .padding(.horizontal, 10).padding(.vertical, 5)
                     .background(badge.background, in: Capsule())

@@ -68,8 +68,16 @@ enum Theme {
         case "hiphop":  return (Color(hex: "2e8b57"), .white)
         case "rnb":     return (Color(hex: "b8860b"), .black)
         case "country": return (Color(hex: "8b5a2b"), .white)
+        case "sitcom":  return (Color(hex: "4cc9f0"), .black)
+        case "tvdrama": return (Color(hex: "1d3557"), .white)
+        case "cartoon": return (Color(hex: "f4a261"), .black)
         default:        return (accent, onAccent)
         }
+    }
+
+    /// Badge and menu text for a genre key, mirroring LABELS in game.js.
+    static func label(for genre: String) -> String {
+        ["scifi": "Sci-fi", "hiphop": "Hip-hop", "rnb": "R&B", "tvdrama": "TV drama"][genre] ?? genre.capitalized
     }
 }
 

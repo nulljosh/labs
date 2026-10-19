@@ -48,7 +48,7 @@ export function createClient(url, _anonKey, opts = {}) {
     async getUser() { if (!(await fresh())) return fail("not signed in", 401); return raw("GET", "/auth/user"); },
     async signInWithPassword({ email, password }) { return startSession(await raw("POST", "/auth/token?grant_type=password", { email, password }, false)); },
     async signUp({ email, password, options = {} }) { return raw("POST", "/auth/signup", { email, password, data: options.data, redirect_to: options.emailRedirectTo }, false).then((r) => (r.error ? r : { data: { user: r.data, session: null }, error: null })); },
-    async signInWithIdToken({ provider, token, nonce }) { return startSession(await raw("POST", "/auth/token?grant_type=id_token", { provider, id_token: token, nonce }, false)); },
+    async signInWithIdToken({ provider, token, nonce, full_name }) { return startSession(await raw("POST", "/auth/token?grant_type=id_token", { provider, id_token: token, nonce, full_name }, false)); },
     async signInWithOAuth() { return fail("Social sign-in is not available on this build yet. Use email.", 501); },
     async resetPasswordForEmail(email, options = {}) { return raw("POST", "/auth/recover", { email, redirect_to: options.redirectTo }, false); },
     async updateUser({ password, data }) {
