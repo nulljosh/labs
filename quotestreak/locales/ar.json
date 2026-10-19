@@ -482,5 +482,15 @@
  "Anime": "أنمي",
  "Name the anime from the quote.": "خمّن الأنمي من العبارة.",
  "Stand-up": "كوميديا الوقوف",
- "Which comic said it?": "أي كوميدي قالها؟"
+ "Which comic said it?": "أي كوميدي قالها؟",
+ "Live show": "العرض المباشر",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "يبدأ العرض التالي {x}، بعد {x}. اثنا عشر سؤالًا، في الثانية نفسها للجميع.",
+ "{n} days": "{n} أيام",
+ "{n} hours": "{n} ساعات",
+ "{n} minutes": "{n} دقائق",
+ "a minute": "دقيقة",
+ "{n} seconds": "{n} ثوانٍ",
+ "The answer": "الإجابة",
+ "Score {n}": "النقاط: {n}",
+ "That's the show. You scored {n}.": "انتهى العرض. أحرزت {n}."
 }

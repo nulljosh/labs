@@ -482,5 +482,15 @@
  "Anime": "Anime",
  "Name the anime from the quote.": "Gissa animen utifrån repliken.",
  "Stand-up": "Ståuppkomik",
- "Which comic said it?": "Vilken komiker sa det?"
+ "Which comic said it?": "Vilken komiker sa det?",
+ "Live show": "Liveshow",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "Nästa show börjar {x}, om {x}. Tolv frågor, samma sekund för alla.",
+ "{n} days": "{n} dagar",
+ "{n} hours": "{n} timmar",
+ "{n} minutes": "{n} minuter",
+ "a minute": "en minut",
+ "{n} seconds": "{n} sekunder",
+ "The answer": "Svaret",
+ "Score {n}": "Poäng: {n}",
+ "That's the show. You scored {n}.": "Det var showen. Du fick {n} poäng."
 }

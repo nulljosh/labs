@@ -482,5 +482,15 @@
  "Anime": "एनीमे",
  "Name the anime from the quote.": "संवाद से एनीमे पहचानें।",
  "Stand-up": "स्टैंड-अप",
- "Which comic said it?": "यह किस कॉमेडियन ने कहा?"
+ "Which comic said it?": "यह किस कॉमेडियन ने कहा?",
+ "Live show": "लाइव शो",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "अगला शो {x} शुरू होगा, {x} में। बारह सवाल, सबके लिए एक ही पल में।",
+ "{n} days": "{n} दिन",
+ "{n} hours": "{n} घंटे",
+ "{n} minutes": "{n} मिनट",
+ "a minute": "एक मिनट",
+ "{n} seconds": "{n} सेकंड",
+ "The answer": "जवाब",
+ "Score {n}": "स्कोर: {n}",
+ "That's the show. You scored {n}.": "शो खत्म। आपका स्कोर {n}।"
 }

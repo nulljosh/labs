@@ -490,5 +490,15 @@
  "Anime": "Anime",
  "Name the anime from the quote.": "Trouvez l’anime d’après la réplique.",
  "Stand-up": "Stand-up",
- "Which comic said it?": "Quel humoriste l’a dit ?"
+ "Which comic said it?": "Quel humoriste l’a dit ?",
+ "Live show": "Quiz en direct",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "Le prochain quiz commence {x}, dans {x}. Douze questions, à la même seconde pour tout le monde.",
+ "{n} days": "{n} jours",
+ "{n} hours": "{n} heures",
+ "{n} minutes": "{n} minutes",
+ "a minute": "une minute",
+ "{n} seconds": "{n} secondes",
+ "The answer": "La réponse",
+ "Score {n}": "Score : {n}",
+ "That's the show. You scored {n}.": "C’est fini. Vous avez marqué {n}."
 }

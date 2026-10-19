@@ -482,5 +482,15 @@
  "Anime": "애니메이션",
  "Name the anime from the quote.": "대사로 애니메이션을 맞혀 보세요.",
  "Stand-up": "스탠드업",
- "Which comic said it?": "어느 코미디언이 한 말일까요?"
+ "Which comic said it?": "어느 코미디언이 한 말일까요?",
+ "Live show": "라이브 쇼",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "다음 쇼는 {x}에 시작해요. {x} 남았어요. 12문제, 모두에게 같은 순간에.",
+ "{n} days": "{n}일",
+ "{n} hours": "{n}시간",
+ "{n} minutes": "{n}분",
+ "a minute": "1분",
+ "{n} seconds": "{n}초",
+ "The answer": "정답",
+ "Score {n}": "점수 {n}",
+ "That's the show. You scored {n}.": "쇼가 끝났어요. 점수는 {n}점이에요."
 }

@@ -482,5 +482,15 @@
  "Anime": "Anime",
  "Name the anime from the quote.": "Indovina l’anime dalla battuta.",
  "Stand-up": "Stand-up",
- "Which comic said it?": "Quale comico l’ha detto?"
+ "Which comic said it?": "Quale comico l’ha detto?",
+ "Live show": "Show dal vivo",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "Il prossimo show inizia {x}, tra {x}. Dodici domande, nello stesso secondo per tutti.",
+ "{n} days": "{n} giorni",
+ "{n} hours": "{n} ore",
+ "{n} minutes": "{n} minuti",
+ "a minute": "un minuto",
+ "{n} seconds": "{n} secondi",
+ "The answer": "La risposta",
+ "Score {n}": "Punti: {n}",
+ "That's the show. You scored {n}.": "Lo show è finito. Hai fatto {n} punti."
 }

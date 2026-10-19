@@ -482,5 +482,15 @@
  "Anime": "Аниме",
  "Name the anime from the quote.": "Угадайте аниме по цитате.",
  "Stand-up": "Стендап",
- "Which comic said it?": "Какой комик это сказал?"
+ "Which comic said it?": "Какой комик это сказал?",
+ "Live show": "Прямой эфир",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "Следующее шоу начнётся {x}, через {x}. Двенадцать вопросов, для всех в одну и ту же секунду.",
+ "{n} days": "{n} дн.",
+ "{n} hours": "{n} ч",
+ "{n} minutes": "{n} мин",
+ "a minute": "минуту",
+ "{n} seconds": "{n} с",
+ "The answer": "Ответ",
+ "Score {n}": "Счёт: {n}",
+ "That's the show. You scored {n}.": "Шоу окончено. Ваш счёт: {n}."
 }

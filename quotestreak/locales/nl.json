@@ -482,5 +482,15 @@
  "Anime": "Anime",
  "Name the anime from the quote.": "Raad de anime aan de hand van het citaat.",
  "Stand-up": "Stand-up",
- "Which comic said it?": "Welke komiek zei het?"
+ "Which comic said it?": "Welke komiek zei het?",
+ "Live show": "Liveshow",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "De volgende show begint {x}, over {x}. Twaalf vragen, voor iedereen op dezelfde seconde.",
+ "{n} days": "{n} dagen",
+ "{n} hours": "{n} uur",
+ "{n} minutes": "{n} minuten",
+ "a minute": "een minuut",
+ "{n} seconds": "{n} seconden",
+ "The answer": "Het antwoord",
+ "Score {n}": "Score: {n}",
+ "That's the show. You scored {n}.": "Dat was de show. Je scoorde {n}."
 }

@@ -482,5 +482,15 @@
  "Anime": "アニメ",
  "Name the anime from the quote.": "セリフからアニメを当てよう。",
  "Stand-up": "スタンダップ",
- "Which comic said it?": "どのコメディアンの言葉？"
+ "Which comic said it?": "どのコメディアンの言葉？",
+ "Live show": "ライブショー",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "次のショーは{x}開始、あと{x}。12問、全員が同じ瞬間に。",
+ "{n} days": "{n}日",
+ "{n} hours": "{n}時間",
+ "{n} minutes": "{n}分",
+ "a minute": "1分",
+ "{n} seconds": "{n}秒",
+ "The answer": "正解",
+ "Score {n}": "スコア {n}",
+ "That's the show. You scored {n}.": "ショー終了。スコアは{n}。"
 }

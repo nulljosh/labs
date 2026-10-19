@@ -482,5 +482,15 @@
  "Anime": "Anime",
  "Name the anime from the quote.": "Đoán anime từ câu thoại.",
  "Stand-up": "Hài độc thoại",
- "Which comic said it?": "Danh hài nào đã nói câu này?"
+ "Which comic said it?": "Danh hài nào đã nói câu này?",
+ "Live show": "Đố vui trực tiếp",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "Chương trình tiếp theo bắt đầu {x}, còn {x}. Mười hai câu hỏi, cùng một giây cho mọi người.",
+ "{n} days": "{n} ngày",
+ "{n} hours": "{n} giờ",
+ "{n} minutes": "{n} phút",
+ "a minute": "một phút",
+ "{n} seconds": "{n} giây",
+ "The answer": "Đáp án",
+ "Score {n}": "Điểm {n}",
+ "That's the show. You scored {n}.": "Chương trình kết thúc. Bạn được {n} điểm."
 }

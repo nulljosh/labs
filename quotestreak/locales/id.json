@@ -482,5 +482,15 @@
  "Anime": "Anime",
  "Name the anime from the quote.": "Tebak anime dari kutipannya.",
  "Stand-up": "Stand-up",
- "Which comic said it?": "Komedian mana yang mengatakannya?"
+ "Which comic said it?": "Komedian mana yang mengatakannya?",
+ "Live show": "Kuis langsung",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "Kuis berikutnya mulai {x}, {x} lagi. Dua belas pertanyaan, di detik yang sama untuk semua.",
+ "{n} days": "{n} hari",
+ "{n} hours": "{n} jam",
+ "{n} minutes": "{n} menit",
+ "a minute": "semenit",
+ "{n} seconds": "{n} detik",
+ "The answer": "Jawabannya",
+ "Score {n}": "Skor {n}",
+ "That's the show. You scored {n}.": "Kuis selesai. Skormu {n}."
 }

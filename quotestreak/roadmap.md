@@ -102,7 +102,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v80 Open data.** Publish the verified metadata where the licence allows.
 
 ### Era 9: a show (81 to 90)
-- [ ] **v81 Live show.** A global quiz at a set time every week.
+- [x] **v81 Live show.** A global quiz at a set time every week.
 - [ ] **v82 Guest packs.** Featured packs from creators.
 - [ ] **v83 Invite links.** A landing page for every challenge.
 - [ ] **v84 Press kit.** Brand kit two with video and screenshots.

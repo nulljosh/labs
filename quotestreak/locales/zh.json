@@ -484,5 +484,15 @@
  "Anime": "动漫",
  "Name the anime from the quote.": "根据台词猜动漫。",
  "Stand-up": "单口喜剧",
- "Which comic said it?": "这是哪位喜剧演员说的？"
+ "Which comic said it?": "这是哪位喜剧演员说的？",
+ "Live show": "直播竞猜",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "下一场将于{x}开始，还有{x}。十二道题，所有人同一秒作答。",
+ "{n} days": "{n} 天",
+ "{n} hours": "{n} 小时",
+ "{n} minutes": "{n} 分钟",
+ "a minute": "一分钟",
+ "{n} seconds": "{n} 秒",
+ "The answer": "答案",
+ "Score {n}": "得分 {n}",
+ "That's the show. You scored {n}.": "本场结束，你得了 {n} 分。"
 }

@@ -482,5 +482,15 @@
  "Anime": "Anime",
  "Name the anime from the quote.": "Replikten animeyi bil.",
  "Stand-up": "Stand-up",
- "Which comic said it?": "Bunu hangi komedyen söyledi?"
+ "Which comic said it?": "Bunu hangi komedyen söyledi?",
+ "Live show": "Canlı yarışma",
+ "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "Sonraki yarışma {x} başlıyor, {x} sonra. On iki soru, herkes için aynı saniyede.",
+ "{n} days": "{n} gün",
+ "{n} hours": "{n} saat",
+ "{n} minutes": "{n} dakika",
+ "a minute": "bir dakika",
+ "{n} seconds": "{n} saniye",
+ "The answer": "Cevap",
+ "Score {n}": "Puan: {n}",
+ "That's the show. You scored {n}.": "Yarışma bitti. {n} puan aldın."
 }
