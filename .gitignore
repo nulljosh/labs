@@ -10,6 +10,7 @@
 !swing/
 !evidna/
 !plan/
+!hormuz/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
