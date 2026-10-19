@@ -1,0 +1,57 @@
+# Seamark Technical Whitepaper
+
+**v0.3.0** | September 2026
+
+A chart on a web page usually has no API behind it: the numbers only exist as
+pixels in an SVG or a screenshot, invisible to anything that isn't a human
+eye. Seamark reads the numbers out of a chart or diagram that a web page only
+shows as a picture. It looks at what a page draws, not what it stores, because
+for a third-party embed that's the only thing available. Useful
+for SVG charts, third-party embeds, visual checks, and browser agents that
+must act on what a page shows. Library plus demo apps on every platform. Live
+at [seamark.heyitsmejosh.com](https://seamark.heyitsmejosh.com).
+
+## The coordinate problem
+
+A browser graphic is measured in four rulers at once: SVG user units, page
+pixels, the iframe it sits in, and your screenshot. Mixing two gives a
+plausible wrong number, which is worse than an obviously wrong one because
+nothing flags it. `src/coords.js` makes every conversion explicit:
+`makeDataSpace(originPx, unitPx)` returns `toData` and `toPx` and nothing is
+ever converted implicitly, so a coordinate always carries the ruler it came from.
+
+## Modules
+
+| File | Does |
+|---|---|
+| `coords.js` | data space, page and frame offsets, screenshot scale |
+| `curve.js` | `samplePath`, `crossings`, `fitCircle`, `family` |
+| `expr.js` | compare formulas numerically at several points |
+| `dom.js` | pick the visible iframe, pin labels to shapes, plan drags, click so frameworks accept it, walk a React fiber tree, wait for an element, type into a field, match tile text, read a word bank |
+
+`samplePath` walks an SVG path with `getPointAtLength` and maps through the
+data space. `crossings` finds sign changes against a level. `fitCircle` is a
+least-squares fit from a partial arc. `family` classifies linear, quadratic
+or exponential by testing first and second differences and ratios, or returns
+null.
+
+`expr.js` exists because `x(x+8)` and `x²+8x` agree at exactly the first
+point anyone tests, so equality is checked at several.
+
+## Ports
+
+Each app carries its own engine port with tests beside it, so nothing depends
+on a web view, and a native app doesn't have to embed a browser just to reuse
+this logic.
+
+- **Web**: `src/` bundled to `public/seamark.js`. `npm test` runs 20 tests.
+  Also published as [`@nulljosh/seamark`](https://www.npmjs.com/package/@nulljosh/seamark) on npm.
+- **iPhone, iPad, Mac**: SwiftUI in `ios/`, `Engine.swift`.
+- **Android, Windows, Linux**: Compose Multiplatform in `kmp/`, `Engine.kt`.
+  Desktop packages as MSI, DEB or DMG. Android needs JDK 17.
+
+Six languages: English, Spanish, French, German, Japanese, Chinese.
+
+## License
+
+MIT 2026, Joshua Trommel
