@@ -39,7 +39,7 @@ Or the show, the game, the song or the book. 1,624 lines across 15 genres, from 
 
 **Party.** Put it on a big screen, the Apple TV or any browser at /party, and everyone plays on their own phone: type the code, tap your answer, the screen keeps score. Phones need no app, just the browser. Quiz night makes it four themed rounds with the standings between them. Classroom packs (Shakespeare, famous speeches, first lines of novels) turn it into a lesson, with every student's results ready to paste into a gradebook.
 
-**Everywhere.** Web, iPhone, iPad, Mac, Apple TV, Apple Watch and Vision Pro, where the poster wall surrounds you. The next app update adds a Daily Quote widget for the home screen, lock screen and Mac desktop, the Daily Quote on the watch, and live duels on the phone with both scores on the lock screen. One account on every platform: email, Apple or Google.
+**Everywhere.** Web, iPhone, iPad, Mac, Apple TV, Apple Watch and Vision Pro, where the poster wall surrounds you. The next app update adds a Daily Quote widget for the home screen, lock screen and Mac desktop, the Daily Quote on the watch, and live duels on the phone with both scores on the lock screen, and a round of five you can play right inside iMessage. One account on every platform: email, Apple or Google.
 
 <img src="progress.svg" width="460">
 

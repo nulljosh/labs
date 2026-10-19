@@ -55,10 +55,12 @@ Live duels (v33): `Duel.swift` speaks the same room protocol as `duel-client.js`
 
 Siri (v39): `Intents.swift` has two App Intents ("Give me a quote", "Start a speed round") and the App Shortcuts phrases; the speed round reaches ContentView through the `quotestreak_launch` default. Handoff (v40): ContentView publishes `Game.handoff` (unanswered quote ids, score, streak) as an NSUserActivity of type `com.heyitsmejosh.quotable.game` (listed in each Info.plist) and `Game.resume` picks it up; duels are not handed off.
 
+iMessage (v49): `ios/Messages/` is a Messages extension (`QuotableMessages`, bundle `.messages`). Play five lines, send the score as a bubble whose link is the web challenge link (`ChallengeLink.swift`, the Swift twin of challenge.js); tapping a friend's bubble plays the same lines. The store needs an iMessage app icon set before this ships.
+
 Self-check (no XCTest, no framework):
 
 ```
-node scripts/daily-expect.mjs > /tmp/daily.json && swiftc -o /tmp/quotablecheck ios/Quotable/Quote.swift ios/Quotable/Game.swift ios/Quotable/SharedStore.swift ios/Quotable/Daily.swift ios/Checks/main.swift && /tmp/quotablecheck quotes.json /tmp/daily.json
+node scripts/daily-expect.mjs > /tmp/daily.json && swiftc -o /tmp/quotablecheck ios/Quotable/Quote.swift ios/Quotable/Game.swift ios/Quotable/SharedStore.swift ios/Quotable/Daily.swift ios/Quotable/ChallengeLink.swift ios/Checks/main.swift && /tmp/quotablecheck quotes.json /tmp/daily.json
 ```
 
 It checks that the Swift Daily Quote matches `daily.js` day for day, and validates the whole quote bank (4 unique options, answer present, no duplicate quotes, movies have years) and the scoring paths (streaks, the speed multiplier, timeout-as-miss).

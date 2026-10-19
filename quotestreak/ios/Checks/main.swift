@@ -1,7 +1,7 @@
 // Quote-bank + scoring self-check. The only non-trivial logic in the app.
 //
 //   node scripts/daily-expect.mjs > /tmp/daily.json && swiftc -o /tmp/quotablecheck ios/Quotable/Quote.swift ios/Quotable/Game.swift \
-//     ios/Quotable/SharedStore.swift ios/Quotable/Daily.swift ios/Checks/main.swift && /tmp/quotablecheck quotes.json /tmp/daily.json
+//     ios/Quotable/SharedStore.swift ios/Quotable/Daily.swift ios/Quotable/ChallengeLink.swift ios/Checks/main.swift && /tmp/quotablecheck quotes.json /tmp/daily.json
 
 import Foundation
 
@@ -102,6 +102,13 @@ let mac = Game(quotes: quotes)
 mac.resume(phone.handoff as [AnyHashable: Any])
 check(mac.current == phone.current && mac.score == 10 && mac.streak == 1 && mac.phase == .playing, "handoff resumed somewhere else")
 check(mac.pool.count == min(199, phone.pool.count), "handoff kept the rest of the deck")
+
+// iMessage challenges speak the web's challenge link both ways.
+let link = ChallengeLink(qids: ["0a1b2c3d", "deadbeef"], score: 30, name: "Ann Lee")
+check(ChallengeLink(url: link.url) == link, "challenge link round trip")
+let fromWeb = ChallengeLink(url: URL(string: "https://quotestreak.jaybulb.com/play?c=0a1b2c3d.nothex!.deadbeef&s=20&n=Your+friend")!)
+check(fromWeb?.qids == ["0a1b2c3d", "deadbeef"] && fromWeb?.score == 20 && fromWeb?.name == "Your friend", "web challenge link decoded")
+check(ChallengeLink(url: URL(string: "https://quotestreak.jaybulb.com/play")!) == nil, "a plain play link is no challenge")
 
 // The Daily Quote matches daily.js day for day (the widget and the web show the same line).
 struct Expected: Decodable { let day: Int; let quote: String; let options: [String] }

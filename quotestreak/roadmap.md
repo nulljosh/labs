@@ -61,8 +61,8 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v45 Pack library.** Browse and play moderated community packs.
 - [x] **v46 Classroom.** Literature and speech packs with a teacher view.
 - [x] **v47 Stream mode.** Twitch chat votes on the answer.
-- [ ] **v48 Discord.** A Discord Activity.
-- [ ] **v49 iMessage.** Play a round inside a conversation.
+- [ ] **v48 Discord.** A Discord Activity. Blocked on Joshua: a Discord Activity needs an application in his Discord developer account.
+- [x] **v49 iMessage.** Play a round inside a conversation.
 - [ ] **v50 Champions.** A live tournament of season winners.
 
 ### Era 6: know more (51 to 60)

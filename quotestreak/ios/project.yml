@@ -43,6 +43,7 @@ targets:
         CODE_SIGN_ENTITLEMENTS: Quotable.entitlements
     dependencies:
       - target: QuotableWidget
+      - target: QuotableMessages
 
   QuotableWidget:
     type: app-extension
@@ -67,6 +68,34 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.quotable.widget
+        DEVELOPMENT_TEAM: QMM486NPYC
+        CODE_SIGN_STYLE: Automatic
+
+  QuotableMessages:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Messages/MessagesViewController.swift
+      - path: Quotable/Game.swift
+      - path: Quotable/SharedStore.swift
+      - path: Quotable/Quote.swift
+      - path: Quotable/Theme.swift
+      - path: Quotable/ChallengeLink.swift
+      - path: Quotable/Resources/quotes.json
+        buildPhase: resources
+      - path: ../fonts
+        buildPhase: resources
+        includes: ["*.ttf"]
+    info:
+      path: Messages/Info.plist
+      properties:
+        CFBundleDisplayName: Quotestreak
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.message-payload-provider
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).MessagesViewController
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.quotable.messages
         DEVELOPMENT_TEAM: QMM486NPYC
         CODE_SIGN_STYLE: Automatic
 
