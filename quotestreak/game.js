@@ -12,6 +12,7 @@ const DAILY_KEY = 'quotable_daily';            // {day, correct, answer} for the
 const DAILY_STREAK_KEY = 'quotable_daily_streak';  // {lastDay, count}
 let dailyMode = false;
 let hintsUsed = 0;
+let typeMode = false;
 const SFX_ON_KEY = 'quotable_sfx_on';
 const SFX_VOL_KEY = 'quotable_sfx_vol';
 
@@ -125,6 +126,7 @@ function shuffle(arr) {
 }
 
 function startGame(speed) {
+  typeMode = $('type-toggle').checked;
   speedMode = speed;
   score = 0;
   streak = 0;
@@ -156,8 +158,10 @@ function nextQuestion() {
   $('hint').textContent = '';
   $('hint-btn').classList.remove('hidden');
   optionsEl.innerHTML = '';
+  $('type-form').classList.toggle('hidden', !typeMode);
+  if (typeMode) { $('type-input').value = ''; $('type-input').disabled = false; $('type-input').focus(); }
   promptEl.textContent = current.type === 'music' ? 'Guess the artist from the lyric.' : 'Guess the movie from the quote.';
-  (dailyMode ? current.options : shuffle(current.options)).forEach(opt => {  // the daily board is the same for everyone
+  if (!typeMode) (dailyMode ? current.options : shuffle(current.options)).forEach(opt => {  // the daily board is the same for everyone
     const btn = document.createElement('button');
     btn.textContent = opt;
     btn.onclick = () => choose(opt, btn);
@@ -166,6 +170,11 @@ function nextQuestion() {
   preloadArt(current.art);
   if (speedMode) startTimer();
 }
+
+$('type-form').onsubmit = (e) => {
+  e.preventDefault();
+  if (current && !$('type-input').disabled && $('type-input').value.trim()) choose($('type-input').value, null);
+};
 
 $('hint-btn').onclick = () => {
   if (!current || hintsUsed >= Hints.MAX) return;
@@ -195,7 +204,8 @@ function updateRing() {
 function choose(opt, btn) {
   clearInterval(timer);
   $('hint-btn').classList.add('hidden');
-  const correct = opt === current.answer;
+  const correct = typeMode ? opt !== null && Match.ok(opt, current.answer) : opt === current.answer;
+  $('type-input').disabled = true;
   [...optionsEl.children].forEach(b => {
     if (b.textContent === current.answer) b.classList.add('correct');
     else if (b === btn) b.classList.add('wrong');
@@ -209,7 +219,7 @@ function choose(opt, btn) {
     const milestone = streak % 5 === 0;
     feedbackEl.textContent = milestone ? `${streak} in a row! +${pts}` : `Correct! +${pts}`;
     beep(660, 0.15);
-    burst(btn, milestone ? 60 : 24);
+    burst(btn || $('type-input'), milestone ? 60 : 24);
     bump($('streak'));
   } else {
     streak = 0;
@@ -322,6 +332,7 @@ function startDaily() {
   const day = Daily.dayNumber(), played = readJSON(DAILY_KEY);
   if (played && played.day === day) return showDailyResult();
   dailyMode = true;
+  typeMode = false;
   speedMode = false;
   score = 0;
   streak = 0;

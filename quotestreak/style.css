@@ -242,3 +242,10 @@ input[type="text"], input[type="email"], input[type="password"] {
 @media (prefers-reduced-motion: reduce) { .quip { animation: none; } }
 
 .daily-streak { font-weight: 700; font-size: 1.15rem; margin: 4px 0; }
+
+/* Type it: the answer field and its submit, plus the mode checkbox on the menu */
+#type-form { display: flex; gap: 8px; }
+#type-input { flex: 1; font: inherit; font-size: 1.05rem; padding: 14px 16px; border: 0; border-radius: 12px; background: var(--bg); color: var(--text); box-shadow: inset 0 0 0 1px var(--border); }
+#type-input:focus { outline: 2px solid var(--accent-deep); }
+#type-form button { margin: 0; }
+.check { display: block; margin: 8px 0; color: var(--text); }
