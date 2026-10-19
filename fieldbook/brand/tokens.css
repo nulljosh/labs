@@ -1,0 +1,7 @@
+/* Fieldbook brand tokens. The accent is the only colour this app owns; spacing, radii and type come from the shared system. */
+:root {
+  --accent: #0f7a4a;
+  --accent-light: #40c08a;
+  --accent-deep: #0f7a4a;
+  --accent-ring: color-mix(in srgb, #0f7a4a 30%, transparent);
+}

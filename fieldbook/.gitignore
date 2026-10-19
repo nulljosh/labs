@@ -1,0 +1,5 @@
+.asc/artifacts/
+.asc/web-review/
+.build/
+.DS_Store
+*.xcodeproj/

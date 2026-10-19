@@ -1,0 +1,16 @@
+name = "fieldbook"
+compatibility_date = "2025-01-01"
+
+[assets]
+directory = "."
+
+[[routes]]
+pattern = "fieldbook.heyitsmejosh.com"
+custom_domain = true
+
+[[routes]]
+pattern = "fieldbook.jaybulb.com"
+custom_domain = true
+
+[observability]
+enabled = true
