@@ -79,4 +79,10 @@ for (const y of yr.slice(0, 300)) {
 const ma = pool('marathon', [], bank, rand).reverse();
 assert.equal(ma.length, bank.length);
 assert.equal(new Set(ma.slice(0, 15).map(q => q.genre)).size, 15, 'the first fifteen are fifteen genres');
-console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length, ma.length);
+
+// Said or written: two answers, both kinds present, every line with its reason
+const im = pool('improv', [], bank, rand);
+assert(im.length >= 16);
+assert(im.every(q => q.options.length === 2 && q.options.includes(q.answer) && q.character.length > 20));
+assert.equal(new Set(im.map(q => q.answer)).size, 2);
+console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length, ma.length, im.length);

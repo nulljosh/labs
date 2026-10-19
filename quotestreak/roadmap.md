@@ -67,7 +67,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 
 ### Era 6: know more (51 to 60)
 - [x] **v51 The story.** After each answer, a card on the scene and why the line stuck.
-- [ ] **v52 Said or written.** Which famous lines were improvised.
+- [x] **v52 Said or written.** Which famous lines were improvised.
 - [ ] **v53 Actor mode.** Name who delivered it.
 - [ ] **v54 Director mode.** Name who directed it.
 - [ ] **v55 Album and year.** Deeper music questions.

@@ -9,6 +9,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | File | Owns |
 |---|---|
 | `game.js` | The loop: load the bank, filters, rounds, scoring, streaks, speed clock, daily, end screen |
+| `improv.js` | Said or written: famous lines that were improvised or scripted, with the documented reason (v52) |
 | `misquotes.js` | Famous misquotes and the real lines (v23) |
 | `modes.js` | Era 3 ways to guess: each mode turns a bank entry into a question (`display`, `prompt`, `answer`, `options`) |
 | `hints.js`, `match.js` | Hints, and forgiving matching for typed answers |
