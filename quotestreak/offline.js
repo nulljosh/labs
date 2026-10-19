@@ -24,7 +24,7 @@
   const shell = () => [location.pathname, 'quotes.json', 'world-data.json', 'icon.svg',
     ...(I18N.lang === 'en' ? [] : [`locales/${I18N.lang}.json`]),
     ...[...document.scripts].map(s => s.src).filter(Boolean),
-    ...[...document.querySelectorAll('link[rel=stylesheet]')].map(l => l.href), 'brand/tokens.css', 'features.css', 'https://jaybulb.com/tokens.css',
+    ...[...document.querySelectorAll('link[rel=stylesheet]')].map(l => l.href), 'brand/tokens.css', 'brand/jaybulb-tokens.css', 'features.css',
     ...['idle', 'cheer', 'oops', 'streak'].flatMap(p => [`brand/quip-${p}.svg`, `brand/quip-${p}-dark.svg`]),   // medals use these too
     ...['Regular', 'Medium', 'Semibold', 'Bold'].map(w => `/fonts/QuipSans-${w}.woff2`),
     ...[...document.querySelectorAll('img.quip')].map(i => i.currentSrc || i.src)];

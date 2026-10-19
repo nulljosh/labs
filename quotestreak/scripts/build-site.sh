@@ -9,9 +9,12 @@ cp auth.js spark.js daily.js hints.js match.js difficulty.js challenge.js cup.js
    manifest.webmanifest quotes.json vibe.json icon.svg icon-192.png icon-512.png \
    icon-512-maskable.png architecture.svg favicon.svg favicon-32.png apple-touch-icon.png dist/
 cp -R locales fonts dist/
-mkdir -p dist/brand && cp brand/index.html brand/tokens.css brand/mark.svg brand/icon-1024.png brand/quip-*.svg dist/brand/ && cp -R brand/outfits brand/press dist/brand/
+# The shared jaybulb tokens, refreshed each build when online; the committed copy is the fallback (v91).
+curl -fsS --max-time 10 https://jaybulb.com/tokens.css -o brand/jaybulb-tokens.css.new && mv brand/jaybulb-tokens.css.new brand/jaybulb-tokens.css || rm -f brand/jaybulb-tokens.css.new
+mkdir -p dist/brand && cp brand/index.html brand/tokens.css brand/jaybulb-tokens.css brand/mark.svg brand/icon-1024.png brand/quip-*.svg dist/brand/ && cp -R brand/outfits brand/press dist/brand/
 mkdir -p dist/screenshots
 cp -R screenshots/web dist/screenshots/
+node -e "const f='dist/quotes.json',fs=require('fs');fs.writeFileSync(f,JSON.stringify(JSON.parse(fs.readFileSync(f))))"   # v91: the bank ships minified
 node scripts/build-data.mjs dist/data   # v80 open data, rebuilt from quotes.json every build
 printf '/data/*\n  Access-Control-Allow-Origin: *\n' > dist/_headers
 echo "built dist/"

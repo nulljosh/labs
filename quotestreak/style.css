@@ -1,4 +1,4 @@
-@import url("https://jaybulb.com/tokens.css");
+@import url("brand/jaybulb-tokens.css");   /* the shared jaybulb tokens, served from here (v91): a cross-origin import held up every script */
 @import url("brand/tokens.css");
 @import url("features.css");   /* rules for v72 on, split out at the size limit */
 :root{--panel:var(--bg2);--panel2:var(--color-code-bg);--link:var(--text);--muted:var(--text2);--good:var(--right);--bad:var(--wrong);}

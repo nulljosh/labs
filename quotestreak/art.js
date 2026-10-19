@@ -28,6 +28,8 @@ function buildBackdrop(data) {
     for (let r = 0; r < per * 2; r++) {
       const a = shuffled[(c * per + r % per) % shuffled.length];
       const img = new Image();
+      img.decoding = 'async';          // v91: the wall never holds up the first paint or the clock
+      img.fetchPriority = 'low';
       img.src = a.url;
       img.alt = '';
       img.referrerPolicy = 'no-referrer';

@@ -114,7 +114,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [ ] **v90 Store in twenty languages.** Localized listings and screenshots. *Waiting on review: iOS and Mac 1.3.0 are WAITING_FOR_REVIEW, which locks the listings. Do it with the next version, once the native batch (widget, watch, duels, iCloud, anime) is in the build it describes.*
 
 ### Era 10: the hundred (91 to 100)
-- [ ] **v91 Fast.** Cold start under 300 ms and a smooth wall on old devices.
+- [x] **v91 Fast.** Cold start under 300 ms and a smooth wall on old devices.
 - [ ] **v92 Sync that never loses.** Conflict handling across every device.
 - [ ] **v93 Audit.** Security and privacy review, start to finish.
 - [ ] **v94 Motion and sound.** A written motion system and a sound kit.

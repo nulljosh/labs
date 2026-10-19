@@ -23,6 +23,13 @@
   const api = { pick, pack, unpack, merge };
   if (typeof module !== 'undefined') { module.exports = api; return; }
 
+  // The incoming panel's markup lives here, not in play.html, which is at the size limit.
+  modeSelect.insertAdjacentHTML('beforebegin', `<div id="transfer-in" class="panel hidden">
+      <h2>Bring your progress over?</h2>
+      <p class="prompt">This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.</p>
+      <button id="transfer-yes">Bring it over</button>
+      <button id="transfer-no" class="secondary">Not now</button>
+    </div>`);
   const mine = () => pick(Object.keys(localStorage).map(k => [k, localStorage.getItem(k)]));
   $('transfer-copy').onclick = async () => {
     const link = `${location.origin}${location.pathname}#sync=${pack(mine())}`;
