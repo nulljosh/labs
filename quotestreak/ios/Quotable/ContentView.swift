@@ -23,7 +23,7 @@ struct ContentView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background { Backdrop(quotes: game.quotes).ignoresSafeArea() }
+            .background { Backdrop(quotes: game.quotes, paused: game.phase == .playing && game.speedMode).ignoresSafeArea() }
             .background(Theme.canvas)
             .navigationTitle("Quotestreak")
             #if os(iOS)
@@ -51,6 +51,8 @@ struct ContentView: View {
                     ToolbarItem(placement: .primaryAction) {
                         Label("\(game.streak)", systemImage: "flame.fill")
                             .labelStyle(.titleAndIcon)
+                            .contentTransition(.numericText())
+                            .symbolEffect(.bounce, value: game.streak)
                             .foregroundStyle(game.streak > 0 ? .orange : .secondary)
                     }
                 }
@@ -141,6 +143,7 @@ private struct RoundView: View {
     @State private var flashedArt: URL?
     @State private var flashToken = 0
     @State private var art = ArtLoader()
+    @State private var burst: Burst?
 
     private let clock = Timer.publish(every: Game.tickInterval, on: .main, in: .common).autoconnect()
 
@@ -182,7 +185,9 @@ private struct RoundView: View {
                 }
 
                 if let correct = game.lastWasCorrect {
-                    Text(correct ? "Correct! +\(game.lastPoints)" : "Nope — it was \u{201C}\(quote.answer)\u{201D}")
+                    Text(correct
+                         ? (game.streak % 5 == 0 ? "\(game.streak) in a row! +\(game.lastPoints)" : "Correct! +\(game.lastPoints)")
+                         : "Nope, it was \u{201C}\(quote.answer)\u{201D}")
                         .font(.headline)
                         .foregroundStyle(correct ? .green : .red)
                 }
@@ -199,6 +204,7 @@ private struct RoundView: View {
                 advanceAfterDelay()
             }
         }
+        .overlay { if let burst { ConfettiView(burst: burst).id(burst.start) } }
         .background { ArtFlash(url: flashedArt, cached: art.image(for: flashedArt)).ignoresSafeArea().animation(.easeInOut(duration: 0.25), value: flashedArt) }
         .onChange(of: game.current) { _, quote in art.prefetch(quote?.art) }
         .onAppear { art.prefetch(game.current?.art) }
@@ -209,6 +215,7 @@ private struct RoundView: View {
         if sfxOn {
             correct ? Sound.correct(volume: sfxVolume / 100) : Sound.wrong(volume: sfxVolume / 100)
         }
+        if correct { burst = Burst(count: game.streak % 5 == 0 ? 60 : 24) }
         guard correct, let url = game.current?.art else { return }
         flashedArt = url
         // Back-to-back correct answers: the previous dismiss is still pending and would
@@ -300,6 +307,9 @@ private struct GameOverView: View {
             Spacer()
             Text("Game Over").font(.largeTitle.bold())
             Text("Final score: \(game.score) · High score: \(game.highScore)").font(.title3)
+            if game.score > 0 && game.score == game.highScore {
+                Text("New high score!").font(.headline).foregroundStyle(Theme.accent)
+            }
             Button("Play Again") { game.backToMenu() }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
@@ -308,6 +318,7 @@ private struct GameOverView: View {
             Spacer()
         }
         .padding(28)
+        .overlay { if game.score > 0 && game.score == game.highScore { ConfettiView(burst: Burst(count: 80)) } }
         .task { await Account.shared.submit(score: game.score, speed: game.speedMode) }
     }
 }
@@ -377,7 +388,10 @@ final class ArtLoader {
 /// the whole game. Static on purpose — the speed round is a timed attention task.
 private struct Backdrop: View {
     let quotes: [Quote]
+    /// Frozen during the speed round, like the web's body.speed: motion there fights the clock.
+    var paused = false
     @Environment(\.colorScheme) private var scheme
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     private struct Tile: Identifiable {
         let id: URL
@@ -403,23 +417,82 @@ private struct Backdrop: View {
             let per = Int((geo.size.height / 140).rounded(.up)) + 1
             if all.count >= 8 {
                 let shuffled = all.shuffledStably(seed: "backdrop")
-                HStack(alignment: .top, spacing: 8) {
-                    ForEach(0..<cols, id: \.self) { c in
-                        VStack(spacing: 8) {
-                            ForEach(0..<per, id: \.self) { r in
-                                let t = shuffled[(c * per + r) % shuffled.count]
-                                AsyncImage(url: t.id) { $0.resizable().scaledToFill() } placeholder: { Color.clear }
-                                    .aspectRatio(t.square ? 1 : 2 / 3, contentMode: .fit)
-                                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                let tileW = (geo.size.width - 16 - 8 * CGFloat(cols - 1)) / CGFloat(cols)
+                TimelineView(.animation(minimumInterval: 1 / 30, paused: paused || reduceMotion)) { tl in
+                    let now = tl.date.timeIntervalSinceReferenceDate
+                    HStack(alignment: .top, spacing: 8) {
+                        ForEach(0..<cols, id: \.self) { c in
+                            let col = (0..<per).map { shuffled[(c * per + $0) % shuffled.count] }
+                            // Doubled, so shifting by one copy's height loops seamlessly (the web's -50%).
+                            let loop = col.reduce(0) { $0 + tileW * ($1.square ? 1 : 1.5) + 8 }
+                            let phase = (now / (80 + Double(c) * 13)).truncatingRemainder(dividingBy: 1)
+                            VStack(spacing: 8) {
+                                ForEach(Array((col + col).enumerated()), id: \.offset) { _, t in
+                                    AsyncImage(url: t.id) { $0.resizable().scaledToFill() } placeholder: { Color.clear }
+                                        .frame(width: tileW, height: tileW * (t.square ? 1 : 1.5))
+                                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                                }
                             }
+                            .offset(y: -loop * (c.isMultiple(of: 2) ? phase : 1 - phase))
                         }
                     }
+                    .padding(8)
                 }
-                .padding(8)
-                .opacity(scheme == .dark ? 0.22 : 0.14)
+                // Lower than the web's 0.22/0.14: native text sits on the wall with no card behind it.
+                .opacity(scheme == .dark ? 0.1 : 0.08)
             }
         }
         .allowsHitTesting(false)
         .accessibilityHidden(true)
+    }
+}
+
+struct Burst {
+    let count: Int
+    let start = Date()
+}
+
+/// Port of the web confetti: pieces fly out from the middle, fall, and fade, over 1.1s.
+private struct ConfettiView: View {
+    let burst: Burst
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var done = false
+
+    private static let colors: [Color] = [Theme.accent, Color(hex: "ffd23f"), Color(hex: "ff6fae"), Color(hex: "34c759"), Color(hex: "ff6b35")]
+    private struct Piece { let dx, dy, spin: Double; let color: Color }
+
+    private var pieces: [Piece] {
+        var rng = SeededGenerator(seed: "\(burst.start.timeIntervalSinceReferenceDate)")
+        let reach = burst.count > 30 ? 260.0 : 160.0
+        return (0..<burst.count).map { i in
+            let a = Double.random(in: 0..<(2 * .pi), using: &rng)
+            let d = 80 + Double.random(in: 0..<reach, using: &rng)
+            return Piece(dx: cos(a) * d, dy: sin(a) * d - 60, spin: .random(in: -2 * .pi...2 * .pi, using: &rng),
+                         color: Self.colors[i % Self.colors.count])
+        }
+    }
+
+    var body: some View {
+        if !reduceMotion && !done {
+            let all = pieces
+            TimelineView(.animation) { tl in
+                let t = min(1, tl.date.timeIntervalSince(burst.start) / 1.1)
+                Canvas { ctx, size in
+                    guard t < 1 else { return }
+                    let ease = 1 - pow(1 - t, 3)
+                    ctx.opacity = t < 0.7 ? 1 : (1 - t) / 0.3
+                    for p in all {
+                        var c = ctx
+                        c.translateBy(x: size.width / 2 + p.dx * ease, y: size.height / 2 + p.dy * ease + 140 * t * t)
+                        c.rotate(by: .radians(p.spin * ease))
+                        c.fill(Path(roundedRect: CGRect(x: -5, y: -7, width: 10, height: 14), cornerRadius: 2), with: .color(p.color))
+                    }
+                }
+            }
+            .allowsHitTesting(false)
+            .accessibilityHidden(true)
+            // Drop the view once it has played, or TimelineView keeps ticking at 60fps for nothing.
+            .task { try? await Task.sleep(for: .seconds(1.2)); done = true }
+        }
     }
 }
