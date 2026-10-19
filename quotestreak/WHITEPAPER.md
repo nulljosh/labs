@@ -1,40 +1,36 @@
 # Quotestreak Technical Whitepaper
 
-**v97.0.0** | October 2026
+**v99.0.0** | October 2026
 
-Here's the line. Name where it came from. Quotestreak is a guessing game for lines from movies, TV, games, songs and books. It runs as a static site on Cloudflare Pages and as a native SwiftUI app on iPhone, iPad, Mac and Apple Watch. Two small Workers sit behind it: one relays live duels, one holds accounts and scores.
+Here's the line. Name where it came from. Quotestreak is a guessing game for lines from films, TV, games, songs and books. It is a static site on Cloudflare Pages and a native SwiftUI app on iPhone, iPad, Mac, Apple Watch, Apple TV and Vision Pro. Two small Workers sit behind it: one runs live rooms, one holds accounts and scores. This is the second edition, written at v99.
+
+## The bank
+
+`quotes.json` holds 1,697 lines in 16 genres. 272 were typed in by hand at the start; the rest were harvested from Wikiquote, Wikipedia and Wikidata, and book openings from Project Gutenberg. Since v71 every line without a source was checked against its title's Wikiquote page: a line counts when 80 percent of its five-word runs appear there. That check caught ten bad lines, among them a soup ad filed under Twins, and they were replaced. 1,472 lines now carry the page they were checked against, shown on the reveal. Directors, actors, ratings, albums and seasons come from Wikidata, matched on title and year. New films, sports calls, speeches and stand-up live in their own files, so adding them never reshuffles the Daily.
 
 ## The guess
 
-`quotes.json` holds 1,697 lines in 16 genres. 272 were written by hand. The rest were harvested: film, TV and game lines from Wikiquote, kept only when the title's Wikipedia article is well read, and book openings read straight off Project Gutenberg's most downloaded novels. Each harvested line keeps its character and its source link.
+A line, four choices, or a text box. More than a dozen ways to guess turn the same bank into new questions: who said it, which album, finish the line, the real line behind a misquote, a timeline, a blurred poster. Hints halve the points. The speed round pays for speed. Difficulty is measured: every answer is tallied per line, and after ten plays the real hit rate sorts it.
 
-A round shows a line and four choices, or a text box when typing is on. Typed answers forgive case, punctuation and small typos. Hints cost points. The speed round puts ten seconds on the clock and pays more for faster answers. Difficulty is measured, not guessed: every answer is counted per quote in D1, and once a line has ten plays its real hit rate sorts it into easy, medium or hard.
+## Shared clocks, no server state
 
-The Daily Quote walks a fixed shuffle of the bank, one line per UTC day, so everyone gets the same one.
+The Daily Quote walks a fixed shuffle of the bank, one line per UTC day, the same in every browser, in the widget and in the API. The weekly cup, the Sunday live show and the weekly new-release pack work the same way: a seed from the date picks the lines, and each browser works out the live question from the time, corrected by the server's clock. Nothing drives them. Live duels and party games relay through Durable Objects that keep nothing once the room empties.
 
-## Playing with people
+## Fair scores
 
-A challenge link encodes ten quote ids and a score in the URL. The friend plays the same ten.
-
-Live duels run through `quotestreak-duel`, a Worker with one Durable Object per four-letter room. The room relays messages between two players and does no scoring; the pages do that. Hibernation keeps idle rooms free. Spectators join the same room read-only and get a full snapshot of both players after every move.
-
-The weekly cup seeds a bracket from that week's ten quotes. Friends, clubs and leaderboards live in jaybulb-api, the shared Worker on D1 at api.jaybulb.com. A friend code is the first eight hex digits of a user id; adding one links both people.
+A game takes a signed token when it starts and hands in its run when it ends: each line, each pick, each point. The server refuses a forged or reused token, a pace faster than the game can go, points the board can't award, and in classic rounds any point for a wrong answer. Only then does a score reach the board, and the ten best ever stay in the hall of fame for good.
 
 ## On the device
 
-High score, badges and stats never leave the browser or the phone. Fifty badges are computed from a small bag of counters. Stats keep hit rates by genre and decade and the last fifty scores. A share card is drawn on a canvas with the Quip pose that fits the game.
+High score, badges, stats, profiles and offline packs stay in the browser or on the phone. A transfer link carries them to another device inside the link itself and merges without losing anything: counts keep the larger, lists join. The apps keep the best score in iCloud.
 
-## Accounts
+## Everywhere
 
-Email and password, Sign in with Apple, and Google, on every platform, all against jaybulb-api. No Supabase. Deleting an account removes scores, friend links and club membership.
-
-## Native
-
-`Game.swift` is the game loop with no SwiftUI imports, so it runs headless under `ios/Checks/main.swift`. macOS builds from the same four sources. The Watch reads the iPhone's last game from an App Group.
+Twenty languages, right to left included, translated from one English string table. Axe finds nothing on any screen, light or dark; keyboard play, 320-pixel reflow and reduced motion are tested every release. The bank's open parts are published at `/data/` (CC BY-SA for Wikiquote lines, CC0 for facts), the daily and the bank are on `/api` and `/mcp`, and `/embed` puts the Daily Quote on any site.
 
 ## Security and privacy
 
-No analytics. Scores and accounts are the only things stored on a server. Duel rooms hold no history once both players leave.
+Every static page sends a script policy and the usual hardening headers. Cloudflare Web Analytics counts page views without cookies; there is no other tracking and no ads. An account holds an email, a name, scores, friends and a club, and deleting it removes them. The daily email is opt in, confirmed by a button, and one tap to leave. See `docs/AUDIT.md` and `docs/ACCESSIBILITY.md`.
 
 ## License
 

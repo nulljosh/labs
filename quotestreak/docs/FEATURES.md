@@ -79,3 +79,6 @@ Past dailies (`archive.js`, from the Daily result screen) lists every Daily Quot
 
 ## Hall of fame (v97)
 The ten best runs ever on the Classic and Speed Round boards (`halloffame.js`, jaybulb-api `quotestreak_hall`). A run gets in only after the server has checked it (v87) and it beats the current tenth; it is kept for good. Deleting an account keeps the run but renames it "A former player" and drops the user id, so nothing personal stays. Moderation renames carry into the hall. It starts empty: no scores existed on the new board before fair play.
+
+## The book (v99)
+`WHITEPAPER.md` is in its second edition, rewritten at v99 for the game as it is now: the checked bank, the ways to guess, shared clocks with no server state, fair scores, the device, the languages and open data, security and privacy. `/roadmap` is the public roadmap, built from `roadmap.md`'s Road to v100 section on every deploy (`scripts/build-roadmap.mjs`), filled dots for live milestones, notes under the blocked ones.

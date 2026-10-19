@@ -15,6 +15,7 @@ mkdir -p dist/brand && cp brand/index.html brand/tokens.css brand/jaybulb-tokens
 mkdir -p dist/screenshots
 cp -R screenshots/web dist/screenshots/
 node -e "const f='dist/quotes.json',fs=require('fs');fs.writeFileSync(f,JSON.stringify(JSON.parse(fs.readFileSync(f))))"   # v91: the bank ships minified
+node scripts/build-roadmap.mjs dist/roadmap.html   # v99 public roadmap
 node scripts/build-data.mjs dist/data   # v80 open data, rebuilt from quotes.json every build
 # v93 security headers for every static page (Functions such as /embed and /c set their own).
 cat > dist/_headers <<'HEADERS'
