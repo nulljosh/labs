@@ -4,7 +4,7 @@
 
 Here's the line. Name the movie.
 
-Or the show, the game, the song or the book. 1,624 lines across 15 genres, from the 1930s to now, with a clock if you want one and a friend to beat if you have one. Dad's idea.
+Or the show, the game, the song or the book. 1,597 lines across 15 genres, from the 1930s to now, with a clock if you want one and a friend to beat if you have one. Dad's idea.
 
 **[quotestreak.jaybulb.com →](https://quotestreak.jaybulb.com)** · **[Play →](https://quotestreak.jaybulb.com/play)**
 
