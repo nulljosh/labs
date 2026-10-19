@@ -20,6 +20,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `speak.js` | Read quotes aloud with on-device speech (v28) |
 | `voice.js` | Answer by voice: listens and picks the option you say (v29) |
 | `buzz.html`, `buzz.js` | The phone buzzer for party games on a big screen (v34) |
+| `party.html`, `party.js` | The big-screen host in a browser, the web twin of tvos/PartyHost.swift (v42) |
 | `passplay.js` | Pass and play: turns for two to eight people on one device (v41) |
 | `settings.js` | Settings panel and synthesized sound |
 | `spectate.js` | `?watch=CODE`, a read-only view of a duel |
@@ -34,7 +35,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `webmcp.js` | Agent tools, see `API.md` |
 | `sw.js` | Offline cache. Bump `quotestreak-vNN` every release |
 
-Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `cup`, `badges`, `stats`, `sharecard`, `season`, `modes`, `passplay`) work in Node too and each has a `*.test.js` next to it.
+Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `cup`, `badges`, `stats`, `sharecard`, `season`, `modes`, `passplay`, `party`) work in Node too and each has a `*.test.js` next to it.
 
 `scripts/build-site.sh` copies an explicit file list into `dist/`. A new script has to be added there or it 404s in production.
 

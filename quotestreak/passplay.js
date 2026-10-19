@@ -27,6 +27,7 @@
     modeSelect.classList.add('hidden');
     $('pass').classList.remove('hidden');
   };
+  $('start-party').onclick = () => { location.href = 'party'; };   // v42: this device becomes the big screen
   $('pass-add').onclick = () => { if (document.querySelectorAll('.pass-name').length < MAX) $('pass-names').insertAdjacentHTML('beforeend', nameRow()); };
   $('pass-back').onclick = () => { $('pass').classList.add('hidden'); modeSelect.classList.remove('hidden'); };
   $('pass-go').onclick = () => {
