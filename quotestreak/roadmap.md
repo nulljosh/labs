@@ -121,7 +121,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v95 Quip lives.** Quip reacts everywhere, drawn in code.
 - [x] **v96 Archive.** Every past daily quote playable.
 - [x] **v97 Hall of fame.** The best runs ever, kept forever.
-- [ ] **v98 Certified access.** A full outside accessibility audit.
+- [ ] **v98 Certified access.** A full outside accessibility audit. *Needs an outside auditor (Joshua to hire). Ready for them: docs/ACCESSIBILITY.md, the WCAG 2.2 pass (keyboard, 320 px reflow, target size) and its three fixes are live.*
 - [ ] **v99 The book.** Whitepaper two and a public roadmap page.
 - [ ] **v100 Quotestreak 100.** Ten thousand verified quotes, a live event, and Quip's birthday.
 

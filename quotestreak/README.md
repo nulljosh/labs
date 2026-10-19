@@ -67,7 +67,7 @@ Tests: `for t in *.test.js; do node $t; done`
 
 ## Docs
 
-[Architecture](docs/ARCHITECTURE.md) · [API and agent tools](docs/API.md) · [Open data](docs/DATA.md) · [Audit](docs/AUDIT.md) · [Whitepaper](WHITEPAPER.md) · [Roadmap](roadmap.md)
+[Architecture](docs/ARCHITECTURE.md) · [API and agent tools](docs/API.md) · [Open data](docs/DATA.md) · [Audit](docs/AUDIT.md) · [Accessibility](docs/ACCESSIBILITY.md) · [Whitepaper](WHITEPAPER.md) · [Roadmap](roadmap.md)
 
 <img src="architecture.svg" width="600">
 
