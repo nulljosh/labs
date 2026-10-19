@@ -16,6 +16,7 @@ let typeMode = false;
 let challenge = null;   // {quotes, score, name} when playing a friend's link
 let run = [];          // {qid, pts} for each question this game, for the challenge link
 let duel = null;       // {ws, code, them, theirDone, done} during a live duel
+let lives = null;      // marathon (v30): misses left, null in every other game
 let cupRound = null;   // this week's ten cup quotes while the cup is being played (cup-ui.js)
 const $ = (id) => document.getElementById(id);
 
@@ -105,6 +106,7 @@ function startGame(speed) {
     && (level === 'all' || Difficulty.level(q, stats) === level)));
   if (!pool.length) pool = shuffle(quotes.filter(q => genre === 'all' || q.genre === genre));  // an empty pairing plays the genre
   const mode = $('mode').value;  // Era 3 ways to guess (modes.js); friend modes below stay classic
+  lives = mode === 'marathon' && !challenge && !duel && !cupRound ? 3 : null;
   if (mode !== 'classic') pool = Modes.pool(mode, pool, quotes);
   if (!pool.length) pool = Modes.pool(mode, shuffle(quotes), quotes);
   if (challenge) pool = [...challenge.quotes].reverse();  // nextQuestion pops from the end
@@ -206,6 +208,7 @@ function choose(opt, btn) {
     bump($('streak'));
   } else {
     streak = 0;
+    if (lives) lives--;
     feedbackEl.textContent = `Nope, it was "${current.answer}"`;
     beep(180, 0.25);
   }
@@ -216,7 +219,7 @@ function choose(opt, btn) {
   window.quotableBadge?.('answer', { q: current, correct, typed: typeMode, hints: hintsUsed, streak });
   updateStats();
   if (dailyMode) recordDaily(correct);
-  setTimeout(dailyMode ? finishDaily : nextQuestion, 1100);
+  setTimeout(dailyMode ? finishDaily : lives === 0 ? endGame : nextQuestion, 1100);
 }
 
 // Confetti from the picked answer, in the round's genre colour plus the accent.
@@ -243,7 +246,7 @@ function bump(el) {
 }
 
 function updateStats() {
-  $('score').textContent = duel?.quotes ? `You: ${score} · Them: ${duel.them}${duel.left ? ' (left)' : ''}` : `Score: ${score}`;
+  $('score').textContent = duel?.quotes ? `You: ${score} · Them: ${duel.them}${duel.left ? ' (left)' : ''}` : `Score: ${score}${lives !== null ? ` · ${lives} ${lives === 1 ? 'life' : 'lives'}` : ''}`;
   $('streak').textContent = `Streak: ${streak}`;
 }
 
@@ -304,6 +307,7 @@ function startDaily() {
   const day = Daily.dayNumber(), played = readJSON(DAILY_KEY);
   if (played && played.day === day) return showDailyResult();
   dailyMode = true;
+  lives = null;
   typeMode = false;
   speedMode = false;
   score = 0;

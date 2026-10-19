@@ -81,12 +81,21 @@
     prompt: `What year did ${q.answer} come out?`,
     hints: [`It's from the ${Math.floor(q.year / 10) * 10}s`, `The ${PART[q.year % 10]} ${Math.floor(q.year / 10) * 10}s`],
   }));
+  // v30 Marathon: the whole bank, one genre after another in turn, until three misses (game.js).
+  function marathon(all, rand) {
+    const by = {};
+    for (const q of shuffle(all, rand)) (by[q.genre] = by[q.genre] || []).push(q);
+    const lanes = shuffle(Object.values(by), rand), out = [];
+    for (let i = 0; out.length < all.length; i++) for (const lane of lanes) if (lane[i]) out.push(lane[i]);
+    return out.reverse();  // game.js pops from the end
+  }
   // A game's questions. Most modes reshape the filtered bank; misquotes (v23) bring their own set.
   const Mis = typeof module !== 'undefined' ? require('./misquotes') : root.Misquotes;
   const pool = (mode, list, all, rand = Math.random) => mode === 'misquote' ? shuffle(Mis.questions(), rand)
     : mode === 'timeline' ? timeline(list, rand)
     : mode === 'poster' || mode === 'album' ? reveal(list, mode, rand)
     : mode === 'year' ? year(list, rand)
+    : mode === 'marathon' ? marathon(all, rand)
     : list.map(q => build(mode, q, all, rand)).filter(Boolean);
   const api = { build, pool };
   if (typeof module !== 'undefined') module.exports = api; else root.Modes = api;

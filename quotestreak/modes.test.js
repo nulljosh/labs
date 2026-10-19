@@ -74,4 +74,9 @@ for (const y of yr.slice(0, 300)) {
   if (+y.answer < thisYear - 12) assert(y.options.every(o => y.options.every(p => p === o || Math.abs(+o - +p) >= 3)), y.options.join());
   assert(!y.prompt.includes(y.answer));
 }
-console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length);
+
+// Marathon: the whole bank, genres taking turns
+const ma = pool('marathon', [], bank, rand).reverse();
+assert.equal(ma.length, bank.length);
+assert.equal(new Set(ma.slice(0, 15).map(q => q.genre)).size, 15, 'the first fifteen are fifteen genres');
+console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length, ma.length);
