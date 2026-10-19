@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://inkpress.jaybulb.com/sitemap.xml

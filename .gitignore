@@ -29,6 +29,7 @@
 !hamurapi/
 !bcgd/
 !nyc/
+!inkpress/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
