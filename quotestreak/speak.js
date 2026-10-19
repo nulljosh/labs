@@ -1,4 +1,4 @@
-// Quip reads it (v28). Classic script after yearpick.js: when "Read quotes aloud" is on in Settings,
+// Quip reads it (v28). Classic script after reveal.js: when "Read quotes aloud" is on in Settings,
 // every line is spoken with the device's own speech voice (speechSynthesis, nothing leaves the device).
 // Poster, album and timeline questions have no line to read; an answer cuts the reading short.
 const SPEAK_KEY = 'quotestreak_speak';

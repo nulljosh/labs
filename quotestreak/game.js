@@ -186,8 +186,7 @@ function updateRing() {
 function choose(opt, btn) {
   clearInterval(timer);
   $('hint-btn').classList.add('hidden');
-  const near = current.near?.(opt);  // name the year: 0 to 10 for how close the guess was (modes.js)
-  const correct = near !== undefined ? near > 0 : typeMode ? opt !== null && Match.ok(opt, current.answer) : opt === current.answer;
+  const correct = typeMode ? opt !== null && Match.ok(opt, current.answer) : opt === current.answer;
   $('type-input').disabled = true;
   [...optionsEl.children].forEach(b => {
     if (b.textContent === current.answer) b.classList.add('correct');
@@ -198,10 +197,10 @@ function choose(opt, btn) {
   if (correct) {
     flashArt(current.art);
     streak++;
-    pts = Hints.points((near || 10) * (speedMode ? Math.max(1, Math.ceil(timeLeft)) : 1), hintsUsed);
+    pts = Hints.points(10 * (speedMode ? Math.max(1, Math.ceil(timeLeft)) : 1), hintsUsed);
     score += pts;
     const milestone = streak % 5 === 0;
-    feedbackEl.textContent = milestone ? `${streak} in a row! +${pts}` : near < 10 ? `Close! +${pts}` : `Correct! +${pts}`;
+    feedbackEl.textContent = milestone ? `${streak} in a row! +${pts}` : `Correct! +${pts}`;
     beep(660, 0.15);
     burst(btn || $('type-input'), milestone ? 60 : 24);
     bump($('streak'));

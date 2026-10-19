@@ -36,9 +36,9 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v24 Timeline.** Which of four came out first?
 - [x] **v25 Poster reveal.** A blurred poster sharpens until you name it.
 - [x] **v26 Album reveal.** The same for album covers.
-- [x] **v27 Name the year.** Guess the release year, closer scores more.
+- [x] **v27 Name the year.** Pick the release year from four.
 - [x] **v28 Quip reads it.** On-device speech reads each quote aloud.
-- [ ] **v29 Answer out loud.** Voice answers for hands-free play.
+- [x] **v29 Answer out loud.** Voice answers for hands-free play.
 - [ ] **v30 Marathon.** One long run through every genre with three lives.
 
 ### Era 4: every screen (31 to 40)

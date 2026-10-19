@@ -17,8 +17,8 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `challenge.js` | Ten-quote challenge links |
 | `duel-client.js` | Live duels over `/duel/ws` |
 | `reveal.js` | Poster and album reveal: the blurred art that sharpens |
-| `yearpick.js` | Name the year: the year slider |
 | `speak.js` | Read quotes aloud with on-device speech (v28) |
+| `voice.js` | Answer by voice: listens and picks the option you say (v29) |
 | `settings.js` | Settings panel and synthesized sound |
 | `spectate.js` | `?watch=CODE`, a read-only view of a duel |
 | `cup.js`, `cup-ui.js` | The weekly cup bracket |

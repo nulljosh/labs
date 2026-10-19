@@ -59,13 +59,19 @@ assert(po.every(p => p.image.includes('tmdb') && p.options.includes(p.answer) &&
 const al = pool('album', bank, bank, rand);
 assert(al.length > 30 && al.every(a => a.square && a.image.includes('mzstatic')), `${al.length} covers`);
 
-// Name the year
+// Name the year: four years, the right one among them, no future years; every year in range ends
+const thisYear = new Date().getFullYear();
+for (let y0 = 1900; y0 <= thisYear; y0++) {
+  const o = pool('year', [{ year: y0, answer: 'X', quote: 'q', options: [] }], bank, rand)[0].options;
+  assert.equal(new Set(o).size, 4, `${y0}: ${o}`);
+}
 const yr = pool('year', bank, bank, rand);
 assert(yr.length > 1000);
-const y0 = yr[0], real = +y0.answer;
-assert.equal(y0.near(String(real)), 10);
-assert.equal(y0.near(String(real + 2)), 6);
-assert.equal(y0.near(String(real - 5)), 0);
-assert.equal(y0.near(null), 0, 'a timeout scores nothing');
-assert(!y0.prompt.includes(y0.answer), 'the prompt never gives the year');
+for (const y of yr.slice(0, 300)) {
+  assert.equal(new Set(y.options).size, 4);
+  assert(y.options.includes(y.answer));
+  assert(y.options.every(o => +o <= thisYear), y.options.join());
+  if (+y.answer < thisYear - 12) assert(y.options.every(o => y.options.every(p => p === o || Math.abs(+o - +p) >= 3)), y.options.join());
+  assert(!y.prompt.includes(y.answer));
+}
 console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length);

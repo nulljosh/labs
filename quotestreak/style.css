@@ -310,7 +310,4 @@ li.note { list-style: none; text-align: center; color: var(--muted); }  /* an em
 #reveal.sharpen { filter: blur(0); transition: filter 7s cubic-bezier(0.2, 0.6, 0.4, 1); }  /* shapes in a second, title by about five */
 #reveal.sharp { filter: none; transition: filter 0.3s; }
 body.revealing #backdrop { visibility: hidden; }
-/* Name the year: one big year over a full-width slider */
-#yearpick { display: grid; gap: 16px; justify-items: center; margin: 8px 0 4px; }
-#year-out { font-size: 3rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
-#year-range { width: 100%; accent-color: var(--accent-deep); height: 32px; }
+#heard { margin: 12px 0 0; }

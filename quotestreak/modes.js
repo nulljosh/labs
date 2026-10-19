@@ -65,12 +65,20 @@
     return shuffle(list.filter(q => q.art && q.art.includes(kind === 'poster' ? 'tmdb' : 'mzstatic') && !seen.has(q.answer) && seen.add(q.answer)), rand)
       .map(q => ({ ...q, image: q.art, square: kind === 'album', prompt: kind === 'poster' ? 'Name the movie from the poster.' : 'Name the artist from the cover.' }));
   }
-  // v27 Name the year: the line and its title; drag to the year (yearpick.js). Dead on scores 10,
-  // each year off costs 2, five or more off scores nothing.
+  // v27 Name the year: the line and its title, four years to pick from. The wrong years sit
+  // three to twelve years either side and at least three apart, so the decade alone doesn't settle it.
   const PART = ['early', 'early', 'early', 'mid', 'mid', 'mid', 'mid', 'late', 'late', 'late'];
+  // Greedy over a shuffled list of every allowed year, so it always ends; if spacing can't fit three
+  // (a very recent year), it settles for any distinct ones.
+  function yearChoices(y, rand) {
+    const now = new Date().getFullYear(), out = [y];
+    const cands = shuffle([...Array(10)].flatMap((_, i) => [y - 3 - i, y + 3 + i]).filter(c => c <= now && c >= 1900), rand);
+    for (const gap of [3, 1]) for (const c of cands) if (out.length < 4 && out.every(o => Math.abs(o - c) >= gap)) out.push(c);
+    return shuffle(out.map(String), rand);
+  }
   const year = (list, rand) => shuffle(list.filter(q => q.year), rand).map(q => ({
-    ...q, yearPick: true, answer: String(q.year), options: [], year: null, character: `${q.answer}, ${q.year}`,
-    prompt: `What year did ${q.answer} come out?`, near: (opt) => Math.max(0, 10 - 2 * Math.abs(+opt - q.year)),
+    ...q, answer: String(q.year), options: yearChoices(q.year, rand), year: null, character: q.answer,
+    prompt: `What year did ${q.answer} come out?`,
     hints: [`It's from the ${Math.floor(q.year / 10) * 10}s`, `The ${PART[q.year % 10]} ${Math.floor(q.year / 10) * 10}s`],
   }));
   // A game's questions. Most modes reshape the filtered bank; misquotes (v23) bring their own set.

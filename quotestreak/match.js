@@ -20,6 +20,17 @@
     if (!g) return false;
     return close(g, norm(answer)) || (answer.includes(':') && close(g, norm(answer.split(':')[0])));
   }
-  const api = { ok, norm };
+  // Answer out loud (v29): which option did the player say? Each heard phrase (the recognizer's
+  // best guesses) is tried as the whole answer, then as a sentence that contains one option.
+  function pick(heard, options) {
+    for (const h of heard) {
+      const exact = options.find(o => ok(h, o));
+      if (exact) return exact;
+      const said = ` ${norm(h)} `, inside = options.filter(o => norm(o) && said.includes(` ${norm(o)} `));
+      if (inside.length === 1) return inside[0];
+    }
+    return null;
+  }
+  const api = { ok, norm, pick };
   if (typeof module !== 'undefined') module.exports = api; else root.Match = api;
 })(this);
