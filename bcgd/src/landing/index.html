@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doorstock — inventory and jobs for garage-door pros</title>
+<meta name="apple-itunes-app" content="app-id=6791106082">
+<meta name="description" content="Track parts on the truck and jobs on the books. Offline, no account, no cloud. Native on macOS, plus a browser dashboard.">
+<meta name="theme-color" content="#B4661C">
+<meta property="og:title" content="Doorstock — inventory and jobs for garage-door pros">
+<meta property="og:description" content="Track parts on the truck and jobs on the books. Offline, no account, no cloud.">
+<meta property="og:type" content="website">
+<link rel="icon" href="icon.svg">
+<style>
+:root {
+  --accent: #B4661C;
+  --link: #a05b19;
+  --accent-soft: #f8f0e7;
+  --bg: #ffffff;
+  --bg2: #f7f7f8;
+  --text: #1c1d22;
+  --text2: #5c5f6a;
+  --border: #e6e7ea;
+  --font-body: -apple-system, BlinkMacSystemFont, system-ui, 'Helvetica Neue', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111111;
+    --link: #bc7533; --bg2: #1a1a1a; --text: #e8e8f0;
+    --text2: rgba(232,232,240,0.60); --border: rgba(232,232,240,0.10);
+    --accent-soft: #241a12;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111111; --bg2: #1a1a1a; --text: #e8e8f0;
+  --text2: rgba(232,232,240,0.60); --border: rgba(232,232,240,0.10);
+  --accent-soft: #241a12;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  background: var(--accent-soft); padding: 5.5rem 0 4.5rem; text-align: center;
+}
+.hero .container { position: relative; z-index: 2; }
+/* ponytail: the backdrop is a garage door -- slats in CSS, no images, no JS */
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--text) 6%, transparent) 0 2px,
+    transparent 2px 46px,
+    color-mix(in srgb, var(--text) 3%, transparent) 46px 48px);
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(ellipse 40% 46% at 50% 45%, color-mix(in srgb, var(--accent-soft) 88%, transparent) 0%, transparent 100%);
+}
+.hero-icon { width: 88px; height: 88px; border-radius: 20px; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); margin: 1.25rem 0 0.75rem; letter-spacing: -0.02em; }
+.hero p { font-size: 1.15rem; color: var(--text2); max-width: 34rem; margin: 0 auto; }
+.buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+.btn { display: inline-block; padding: 0.7rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.98rem; border: 1px solid transparent; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-outline { border-color: var(--border); color: var(--text); background: var(--bg); }
+.features { padding: 4rem 0; }
+h2 { font-size: 1.75rem; text-align: center; margin: 0 0 2.5rem; letter-spacing: -0.01em; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }
+.feature { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
+.feature h3 { margin: 0 0 0.5rem; font-size: 1.05rem; }
+.feature p { margin: 0; color: var(--text2); font-size: 0.95rem; }
+.closing { padding: 4rem 0 4.5rem; text-align: center; background: var(--bg2); border-top: 1px solid var(--border); }
+.closing p { color: var(--text2); max-width: 32rem; margin: 0 auto; }
+.closing h2 { margin-bottom: 1rem; }
+footer { padding: 2.5rem 0 3.5rem; text-align: center; font-size: 0.9rem; color: var(--text2); }
+footer a { color: var(--text2); }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="container">
+    <img class="hero-icon" src="icon.svg" alt="Doorstock icon" width="88" height="88">
+    <h1>Doorstock</h1>
+    <p>Inventory and jobs for garage-door pros. Know what is on the truck and what is booked this week, without running a whole field-service platform to find out.</p>
+    <div class="buttons">
+      <a href="https://apps.apple.com/app/id6791106082" class="btn btn-primary">Mac App Store</a>
+      <a href="https://bcgd-dashboard.jaybulb.com" class="btn btn-outline">Open the dashboard</a>
+    </div>
+  </div>
+</section>
+<section class="features">
+  <div class="container">
+    <h2>Built for a truck, not a boardroom</h2>
+    <div class="grid">
+      <div class="feature"><h3>Parts by category</h3><p>Springs, rollers, hinges, openers, seals. Quick quantity controls, so counting stock takes seconds.</p></div>
+      <div class="feature"><h3>Low-stock thresholds</h3><p>Set a floor per part and see everything that needs reordering at a glance.</p></div>
+      <div class="feature"><h3>A jobs pipeline</h3><p>Lead, Quote, Scheduled, Complete, Paid. Five stages, nothing to configure.</p></div>
+      <div class="feature"><h3>Seeded and editable</h3><p>Starts from a list of industry-standard part types, then becomes your own list as you edit it.</p></div>
+      <div class="feature"><h3>Offline by design</h3><p>No account, no sign-in, no network requests. Everything stays on your device.</p></div>
+      <div class="feature"><h3>Also in the browser</h3><p>The same inventory and pipeline run at the web dashboard when you are back at the desk.</p></div>
+    </div>
+  </div>
+</section>
+<section class="closing">
+  <div class="container">
+    <h2>From a real shop</h2>
+    <p>Doorstock started as the back office for a garage-door business. That side of it is still running at <a href="https://bcgd.jaybulb.com">bcgd.jaybulb.com</a> — the booking, pricing and service pages the app keeps stocked.</p>
+    <div class="buttons"><a href="https://apps.apple.com/app/id6791106082" class="btn btn-primary">Get Doorstock</a></div>
+  </div>
+</section>
+
+<style>
+#install-anywhere{padding:5rem 0;border-top:1px solid color-mix(in srgb, currentColor 14%, transparent);}
+#install-anywhere .xp-wrap{max-width:960px;margin:0 auto;padding:0 1.5rem;}
+#install-anywhere h2{font-size:clamp(1.6rem,3.4vw,2.4rem);margin:0 0 .6rem;letter-spacing:-.02em;}
+#install-anywhere .xp-lead{max-width:46ch;margin:0 0 2.5rem;opacity:.7;line-height:1.55;}
+#install-anywhere .xp-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+#install-anywhere .xp-card{background:color-mix(in srgb, currentColor 4%, transparent);border:1px solid color-mix(in srgb, currentColor 14%, transparent);border-radius:12px;padding:1.25rem;display:flex;flex-direction:column;gap:.5rem;}
+#install-anywhere .xp-card h3{margin:0;font-size:1rem;letter-spacing:-.01em;}
+#install-anywhere .xp-card p{margin:0;font-size:.9rem;line-height:1.5;opacity:.7;flex:1;}
+#install-anywhere .xp-card a{margin-top:.5rem;font-size:.875rem;font-weight:500;color:var(--accent,currentColor);text-decoration:none;}
+#install-anywhere .xp-card a:hover{text-decoration:underline;}
+</style>
+
+<section id="install-anywhere">
+  <div class="xp-wrap">
+    <h2>Install it anywhere.</h2>
+    <p class="xp-lead">Doorstock runs on every platform. On Windows, Linux and Android it installs straight from the browser &mdash; no store, no download, no runtime. It gets a real window, its own icon, and keeps working offline.</p>
+    <div class="xp-grid">
+    <div class="xp-card">
+      <h3>iPhone &amp; iPad</h3>
+      <p>A native app, not a wrapped web page.</p>
+      <a href="https://apps.apple.com/app/id6791106082">App Store &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Mac</h3>
+      <p>Native, universal binary. Runs on Apple silicon and Intel.</p>
+      <a href="https://apps.apple.com/app/id6791106082">App Store &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Windows</h3>
+      <p>Open the web app in Edge or Chrome, then <strong>Install Doorstock</strong> from the address bar. It lands in the Start Menu like any other app.</p>
+      <a href="https://bcgd.jaybulb.com">Open &amp; install &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Android</h3>
+      <p>Open the web app in Chrome, then <strong>Add to Home screen</strong>. Full screen, no browser chrome, works offline.</p>
+      <a href="https://bcgd.jaybulb.com">Open &amp; install &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Linux</h3>
+      <p>Same as Windows &mdash; install the web app from Chrome or Chromium and it runs in its own window.</p>
+      <a href="https://bcgd.jaybulb.com">Open &amp; install &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Web</h3>
+      <p>Nothing to install. The same app, in any modern browser.</p>
+      <a href="https://bcgd.jaybulb.com">Open the web app &rarr;</a>
+    </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container"><p>Built by Joshua. <a href="mailto:trommatic@icloud.com">Support</a> · <a href="https://bcgd.jaybulb.com/privacy">Privacy</a></p></div></footer>
+<style>
+html.js .reveal{opacity:0;transform:translateY(20px)}
+html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
+@media (prefers-reduced-motion: reduce){html.js .reveal{opacity:1!important;transform:none!important;transition:none!important}}
+html.js .hero::before{transform:translateY(var(--py,0px))}
+</style>
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    var targets = document.querySelectorAll('section.features .feature, .xp-card, section.closing');
+    targets.forEach(function(el){ el.classList.add('reveal'); });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+    }, {threshold: 0.15});
+    targets.forEach(function(el){ io.observe(el); });
+  }
+  if (!reduced) {
+    var hero = document.querySelector('.hero');
+    if (hero) {
+      var ticking = false;
+      window.addEventListener('scroll', function(){
+        if (!ticking) {
+          requestAnimationFrame(function(){
+            hero.style.setProperty('--py', ((window.scrollY || 0) * 0.35) + 'px');
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, {passive: true});
+    }
+  }
+})();
+</script>
+</body>
+</html>

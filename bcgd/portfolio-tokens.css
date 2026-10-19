@@ -1,0 +1,23 @@
+/*
+ * Portfolio vibe reference — extracted from https://jaybulb.com (2026-07-07)
+ * Minimal sage restyle (tokens-sage.css). Reference only; apply manually.
+ *
+ * Fonts: Inter 400–500 (body/headings, weight 460), Newsreader italic (accents)
+ * @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400..500&family=Newsreader:ital,opsz,wght@1,6..72,400..500&display=swap');
+ * Live shared tokens: https://jaybulb.com/tokens.css
+ */
+:root {
+    --vibe-bg: #fdfdfc;
+    --vibe-text: #111111;
+    --vibe-headings: #111111;
+    --vibe-link: #111111;               /* underline, offset 3px */
+    --vibe-font: Inter, -apple-system, system-ui, sans-serif;
+    --vibe-accent-font: -apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif; /* italic */
+    --vibe-font-size: 14px;
+    --vibe-font-weight: 460;
+    --vibe-line-height: 1.7;
+    --vibe-letter-spacing: -0.09px;
+    --vibe-container-max: 582px;
+    --vibe-container-padding: 80px 20px 96px;
+    /* effects: none — no border-radius, no box-shadows */
+}
