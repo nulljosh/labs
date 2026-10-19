@@ -65,11 +65,20 @@
     return shuffle(list.filter(q => q.art && q.art.includes(kind === 'poster' ? 'tmdb' : 'mzstatic') && !seen.has(q.answer) && seen.add(q.answer)), rand)
       .map(q => ({ ...q, image: q.art, square: kind === 'album', prompt: kind === 'poster' ? 'Name the movie from the poster.' : 'Name the artist from the cover.' }));
   }
+  // v27 Name the year: the line and its title; drag to the year (yearpick.js). Dead on scores 10,
+  // each year off costs 2, five or more off scores nothing.
+  const PART = ['early', 'early', 'early', 'mid', 'mid', 'mid', 'mid', 'late', 'late', 'late'];
+  const year = (list, rand) => shuffle(list.filter(q => q.year), rand).map(q => ({
+    ...q, yearPick: true, answer: String(q.year), options: [], year: null, character: `${q.answer}, ${q.year}`,
+    prompt: `What year did ${q.answer} come out?`, near: (opt) => Math.max(0, 10 - 2 * Math.abs(+opt - q.year)),
+    hints: [`It's from the ${Math.floor(q.year / 10) * 10}s`, `The ${PART[q.year % 10]} ${Math.floor(q.year / 10) * 10}s`],
+  }));
   // A game's questions. Most modes reshape the filtered bank; misquotes (v23) bring their own set.
   const Mis = typeof module !== 'undefined' ? require('./misquotes') : root.Misquotes;
   const pool = (mode, list, all, rand = Math.random) => mode === 'misquote' ? shuffle(Mis.questions(), rand)
     : mode === 'timeline' ? timeline(list, rand)
     : mode === 'poster' || mode === 'album' ? reveal(list, mode, rand)
+    : mode === 'year' ? year(list, rand)
     : list.map(q => build(mode, q, all, rand)).filter(Boolean);
   const api = { build, pool };
   if (typeof module !== 'undefined') module.exports = api; else root.Modes = api;

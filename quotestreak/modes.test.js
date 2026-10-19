@@ -58,4 +58,14 @@ assert.equal(new Set(po.map(p => p.answer)).size, po.length, 'one question per t
 assert(po.every(p => p.image.includes('tmdb') && p.options.includes(p.answer) && !p.square));
 const al = pool('album', bank, bank, rand);
 assert(al.length > 30 && al.every(a => a.square && a.image.includes('mzstatic')), `${al.length} covers`);
-console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length);
+
+// Name the year
+const yr = pool('year', bank, bank, rand);
+assert(yr.length > 1000);
+const y0 = yr[0], real = +y0.answer;
+assert.equal(y0.near(String(real)), 10);
+assert.equal(y0.near(String(real + 2)), 6);
+assert.equal(y0.near(String(real - 5)), 0);
+assert.equal(y0.near(null), 0, 'a timeout scores nothing');
+assert(!y0.prompt.includes(y0.answer), 'the prompt never gives the year');
+console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length);

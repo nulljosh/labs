@@ -305,8 +305,12 @@ button.link { background: none; box-shadow: none; color: var(--text); text-decor
 #leaderboard { position: fixed; inset: 0; margin: auto; width: min(480px, calc(100vw - 32px)); height: fit-content; max-height: 80vh; overflow-y: auto; z-index: 50; box-shadow: 0 12px 48px rgba(0,0,0,0.35); }
 li.note { list-style: none; text-align: center; color: var(--muted); }  /* an empty board says so, unnumbered */
 /* Poster and album reveal: blurred art that sharpens over about the length of a speed round */
-#reveal { display: block; height: min(44vh, 360px); aspect-ratio: 2 / 3; object-fit: cover; margin: 0 auto 20px; border-radius: 12px; clip-path: inset(0 round 12px); filter: blur(28px); }
+#reveal { display: block; height: min(44vh, 360px); aspect-ratio: 2 / 3; object-fit: cover; margin: 0 auto 20px; border-radius: 12px; clip-path: inset(0 round 12px); filter: blur(10px); }
 #reveal.sq { aspect-ratio: 1; height: min(36vh, 300px); }
-#reveal.sharpen { filter: blur(0); transition: filter 9s cubic-bezier(0.3, 0, 0.6, 1); }
+#reveal.sharpen { filter: blur(0); transition: filter 7s cubic-bezier(0.2, 0.6, 0.4, 1); }  /* shapes in a second, title by about five */
 #reveal.sharp { filter: none; transition: filter 0.3s; }
 body.revealing #backdrop { visibility: hidden; }
+/* Name the year: one big year over a full-width slider */
+#yearpick { display: grid; gap: 16px; justify-items: center; margin: 8px 0 4px; }
+#year-out { font-size: 3rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
+#year-range { width: 100%; accent-color: var(--accent-deep); height: 32px; }

@@ -17,39 +17,8 @@ let challenge = null;   // {quotes, score, name} when playing a friend's link
 let run = [];          // {qid, pts} for each question this game, for the challenge link
 let duel = null;       // {ws, code, them, theirDone, done} during a live duel
 let cupRound = null;   // this week's ten cup quotes while the cup is being played (cup-ui.js)
-const SFX_ON_KEY = 'quotable_sfx_on';
-const SFX_VOL_KEY = 'quotable_sfx_vol';
-
 const $ = (id) => document.getElementById(id);
 
-let audioCtx = null;
-function beep(freq, duration) {
-  if ($('sfx-toggle') && !$('sfx-toggle').checked) return;
-  const vol = ($('sfx-volume') ? $('sfx-volume').value : 60) / 100;
-  if (vol <= 0) return;
-  audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
-  const osc = audioCtx.createOscillator();
-  const gain = audioCtx.createGain();
-  osc.frequency.value = freq;
-  gain.gain.value = vol * 0.2;
-  osc.connect(gain).connect(audioCtx.destination);
-  osc.start();
-  osc.stop(audioCtx.currentTime + duration);
-}
-
-function initSettings() {
-  const toggle = $('sfx-toggle');
-  const volume = $('sfx-volume');
-  toggle.checked = localStorage.getItem(SFX_ON_KEY) !== 'false';
-  volume.value = localStorage.getItem(SFX_VOL_KEY) || '60';
-  toggle.onchange = () => localStorage.setItem(SFX_ON_KEY, toggle.checked);
-  volume.oninput = () => localStorage.setItem(SFX_VOL_KEY, volume.value);
-  $('hints-toggle').checked = localStorage.getItem('quotestreak_hints') === 'true';  // off unless the player turns them on
-  $('hints-toggle').onchange = () => localStorage.setItem('quotestreak_hints', $('hints-toggle').checked);
-  $('settings-btn').onclick = () => $('settings').classList.remove('hidden');
-  $('settings-close').onclick = () => $('settings').classList.add('hidden');
-}
-initSettings();
 
 const modeSelect = $('mode-select');
 const gameEl = $('game');
@@ -217,7 +186,8 @@ function updateRing() {
 function choose(opt, btn) {
   clearInterval(timer);
   $('hint-btn').classList.add('hidden');
-  const correct = typeMode ? opt !== null && Match.ok(opt, current.answer) : opt === current.answer;
+  const near = current.near?.(opt);  // name the year: 0 to 10 for how close the guess was (modes.js)
+  const correct = near !== undefined ? near > 0 : typeMode ? opt !== null && Match.ok(opt, current.answer) : opt === current.answer;
   $('type-input').disabled = true;
   [...optionsEl.children].forEach(b => {
     if (b.textContent === current.answer) b.classList.add('correct');
@@ -228,10 +198,10 @@ function choose(opt, btn) {
   if (correct) {
     flashArt(current.art);
     streak++;
-    pts = Hints.points(10 * (speedMode ? Math.max(1, Math.ceil(timeLeft)) : 1), hintsUsed);
+    pts = Hints.points((near || 10) * (speedMode ? Math.max(1, Math.ceil(timeLeft)) : 1), hintsUsed);
     score += pts;
     const milestone = streak % 5 === 0;
-    feedbackEl.textContent = milestone ? `${streak} in a row! +${pts}` : `Correct! +${pts}`;
+    feedbackEl.textContent = milestone ? `${streak} in a row! +${pts}` : near < 10 ? `Close! +${pts}` : `Correct! +${pts}`;
     beep(660, 0.15);
     burst(btn || $('type-input'), milestone ? 60 : 24);
     bump($('streak'));
