@@ -9,7 +9,7 @@ struct ChallengeLink: Equatable {
     var name: String?
 
     var url: URL {
-        var c = URLComponents(string: "https://quotestreak.jaybulb.com/c")!   // the invite landing (v83), which hands off to /play
+        var c = URLComponents(string: "https://coda.jaybulb.com/c")!   // the invite landing (v83), which hands off to /play
         c.queryItems = [URLQueryItem(name: "c", value: qids.prefix(Self.size).joined(separator: ".")), URLQueryItem(name: "s", value: String(score))]
         if let name, !name.isEmpty { c.queryItems?.append(URLQueryItem(name: "n", value: String(name.prefix(24)))) }
         return c.url!

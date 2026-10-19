@@ -1,4 +1,4 @@
-# Quotestreak API
+# Coda API
 
 Three surfaces: WebMCP tools that play the game in the visitor's browser, a read-only HTTP and MCP API over the quote bank, and the duel socket. Accounts and scores go through jaybulb-api (`POST https://api.jaybulb.com/rpc/quotestreak_*`), documented there.
 
@@ -59,20 +59,20 @@ and withholding it would only stop an agent from checking its own guess.
 
 ## Duel socket
 
-`wss://quotestreak.jaybulb.com/duel/ws?room=ABCD` joins a duel as a player (two at most, a third gets 409). Every message is relayed to the other player: `start {qids}`, `answer {score, i, name}`, `done {score}`. The room sends `joined {host}`, `opponent` and `left`.
+`wss://coda.jaybulb.com/duel/ws?room=ABCD` joins a duel as a player (two at most, a third gets 409). Every message is relayed to the other player: `start {qids}`, `answer {score, i, name}`, `done {score}`. The room sends `joined {host}`, `opponent` and `left`.
 
 Add `&watch=1` to spectate. Spectators can't send. They get `state {qids, players: [{host, name, score, i, done}]}` on join and after every move.
 
 ## Party socket
 
-`wss://quotestreak.jaybulb.com/duel/party?room=ABCD&role=host` is the big screen (one per room); `&name=Sam` instead is a phone (eight at most). Phones send `buzz {option}`; the screen gets `players`, `join {id, name}`, `buzz {id, option, at}` and `leave {id}`. Whatever the screen sends goes to every phone, or to one with `to: id`: the TV sends `question {n, total, options}`, `reveal {answer, scores}` and `over {scores}`. Phones get `hello {id, screen}` on joining and `screen-left` if the screen goes.
+`wss://coda.jaybulb.com/duel/party?room=ABCD&role=host` is the big screen (one per room); `&name=Sam` instead is a phone (eight at most). Phones send `buzz {option}`; the screen gets `players`, `join {id, name}`, `buzz {id, option, at}` and `leave {id}`. Whatever the screen sends goes to every phone, or to one with `to: id`: the TV sends `question {n, total, options}`, `reveal {answer, scores}` and `over {scores}`. Phones get `hello {id, screen}` on joining and `screen-left` if the screen goes.
 
 ## Embed
 
 Put today's Daily Quote on any page:
 
 ```html
-<iframe src="https://quotestreak.jaybulb.com/embed" width="360" height="420" style="border:0" title="Quotestreak Daily Quote"></iframe>
+<iframe src="https://coda.jaybulb.com/embed" width="360" height="420" style="border:0" title="Coda Daily Quote"></iframe>
 ```
 
 It is rendered by `functions/embed.js` from the game's own daily walk, so it matches `/play` and `/api/daily`. A pick shows right or wrong in place; the link opens the full game. Add `?theme=dark` or `?theme=light` to fix the scheme; otherwise it follows the visitor's. It follows their language too.

@@ -5,7 +5,7 @@ const sb = createClient('https://api.jaybulb.com');
 // Other scripts call RPCs through this session (window.quotableRpc) and hear about sign-in changes.
 window.quotableRpc = (fn, args) => sb.rpc(fn, args);
 // Google, friends and delete are live (origin on jaybulb-signin, RPCs in jaybulb-api).
-// Web Apple: quotestreak.jaybulb.com/play is a return URL on Services ID com.heyitsmejosh.websignin.
+// Web Apple: coda.jaybulb.com/play is a return URL on Services ID com.heyitsmejosh.websignin.
 const SOCIAL = true, WEB_APPLE = true;
 const $ = (id) => document.getElementById(id);
 let user = null;

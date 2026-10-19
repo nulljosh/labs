@@ -1,10 +1,10 @@
 import CoreImage.CIFilterBuiltins
 import SwiftUI
 
-/// Quotestreak on Apple TV (v34): a living-room game. The TV shows the line and the scores; everyone
-/// plays on their own phone at quotestreak.jaybulb.com/buzz with the code on screen (PartyHost.swift).
+/// Coda on Apple TV (v34): a living-room game. The TV shows the line and the scores; everyone
+/// plays on their own phone at coda.jaybulb.com/buzz with the code on screen (PartyHost.swift).
 @main
-struct QuotestreakTV: App {
+struct CodaTV: App {
     var body: some Scene {
         WindowGroup { PartyScreen() }
     }
@@ -36,7 +36,7 @@ private struct Lobby: View {
     var body: some View {
         HStack(spacing: 80) {
             VStack(alignment: .leading, spacing: 28) {
-                Text("Quotestreak").font(.quip(.largeTitle, weight: .bold))
+                Text("Coda").font(.quip(.largeTitle, weight: .bold))
                 Text("Grab your phones. Open \(host.joinURL.host() ?? "")/buzz and type the code.")
                     .font(.quip(.title3)).foregroundStyle(.secondary)
                 Text(host.code).font(.quip(.largeTitle, weight: .bold)).kerning(24).foregroundStyle(Theme.accentStroke)

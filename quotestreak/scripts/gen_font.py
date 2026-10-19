@@ -1,5 +1,5 @@
 """Quip Sans: Hanken Grotesk (marcologous/hanken-grotesk, SIL Open Font License 1.1, no reserved name), renamed,
-with its curly quote marks redrawn as the Quotestreak mark: a round ball with a long sweeping tail.
+with its curly quote marks redrawn as the Coda mark: a round ball with a long sweeping tail.
 
 Hanken Grotesk sits between Helvetica's grotesk, SF's screen clarity and Lato's warmth, which is the brief
 (Joshua, 2026-10-18). Same method as turing's Samantha Sans: pinned release, renamed, OFL shipped beside the fonts,

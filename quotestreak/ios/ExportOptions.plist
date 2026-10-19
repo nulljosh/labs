@@ -11,7 +11,7 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>com.heyitsmejosh.quotable</key>
-		<string>Quotestreak AppStore</string>
+		<string>Coda AppStore</string>
 	</dict>
 	<key>destination</key>
 	<string>export</string>

@@ -21,7 +21,7 @@ data class Quote(
 
 // Reads the same static quotes.json the web app ships. quotestreak has no
 // backend, so there is nothing else to port.
-class QuotestreakClient(private val baseUrl: String = "https://quotestreak.jaybulb.com") {
+class CodaClient(private val baseUrl: String = "https://coda.jaybulb.com") {
     private val http = HttpClient {
         install(ContentNegotiation) { json(Json { ignoreUnknownKeys = true }) }
     }

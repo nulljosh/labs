@@ -1,4 +1,4 @@
-# Quotestreak
+# Coda
 
 Quote guessing game: movies, TV, games, songs, books. Static site on Cloudflare Pages plus native SwiftUI. Two Workers behind it: `duel/` (live duels and spectators, Durable Objects) and the shared jaybulb-api (accounts, scores, friends, clubs, hit rates). Badges, stats and high score stay on the device.
 
@@ -29,14 +29,14 @@ The hero wall is the one sanctioned exception to the standing "no gradients" rul
 `play.html` has its own `#backdrop` mosaic of the same artwork, built by `buildBackdrop()` in `game.js` off the quotes.json fetch that is already there, do not add a second fetch. Two deliberate differences from the hero wall: it is **static**, because the speed round is a timed attention task and drifting posters behind a 10-second clock fight the clock; and it holds legibility with low opacity alone (0.14 light / 0.22 dark) rather than a scrim, so the game UI keeps its flat backgrounds and the no-gradients rule stays intact there. Tune those two numbers if real artwork reads too busy. It sits at `z-index: -2`, below `#art-flash` at `-1`, so the answer-reveal flash still lands on top.
 
 ## Brand (2026-10-18)
-`brand/BRAND.md` is the rulebook, `brand/index.html` the live kit (quotestreak.jaybulb.com/brand/). The short version:
+`brand/BRAND.md` is the rulebook, `brand/index.html` the live kit (coda.jaybulb.com/brand/). The short version:
 
 - **Colour:** marquee yellow `#ffcc00` on night ink. Red and green are reserved for wrong and right, which is why the old red brand and the stray blue UI accent are both gone. Text on yellow is always ink. One yellow primary per screen; secondary actions are outlined.
-- **Icon:** two opening quote marks on a streak (speed lines), yellow on an ink tile. `Quotestreak.icon` (Icon Composer) is the app icon on iOS and macOS (`ASSETCATALOG_COMPILER_APPICON_NAME: Quotestreak`); the asset catalogs only hold a flattened fallback. Regenerate everything with the brand skill's `make_brand.py`, never by hand. **The tail stays longer than the ball**: a short tail reads as a speech bubble, wedges read as a pause button. Keep the HTML wordmark in the topbar; the mark alone does not name the product.
+- **Icon:** two opening quote marks on a streak (speed lines), yellow on an ink tile. `Coda.icon` (Icon Composer) is the app icon on iOS and macOS (`ASSETCATALOG_COMPILER_APPICON_NAME: Coda`); the asset catalogs only hold a flattened fallback. Regenerate everything with the brand skill's `make_brand.py`, never by hand. **The tail stays longer than the ball**: a short tail reads as a speech bubble, wedges read as a pause button. Keep the HTML wordmark in the topbar; the mark alone does not name the product.
 - **Quip**, the mascot: the mark come to life. `brand/mascot.py` writes four poses (idle, cheer, oops, streak), a `-dark` twin of each with cream limbs, and `brand/Quip.xcassets` (switches by appearance). On the web, pick the twin with `<picture>` or `data-theme`. Outfits (v66): `mascot.py` also writes `brand/outfits/quip-{pose}-{outfit}{,-dark}.svg` (six outfits, unlocked by badges); `dress.js` swaps the chosen one into every Quip by rewriting src/srcset, so new Quip images need no extra code. Hats take the limb ink; bowtie and shades stay ink on the yellow.
 - **Themes (v67):** Marquee (default), Noir (wall and reveal flash in black and white) and Drive-in (always night, brighter wall). The head script in `play.html` sets `data-look` and `data-theme` before paint, so changing it reloads; yellow stays the one colour in every theme.
 - **Quip Sans** is the face, on purpose (Joshua asked for a custom face 2026-10-18, overriding the fleet's system-font rule for this app). `scripts/gen_font.py` builds it from Hanken Grotesk (OFL): renamed, curly quotes redrawn as the mark, figures made proportional. Run `--check` after any change. Web loads it from `brand/tokens.css`; the apps register the bundled TTFs at first use (`Theme.fontsRegistered`) and use `Font.quip(...)`. There is no italic, so quotes are upright Semibold.
-- The built app is **Quotestreak.app** (`PRODUCT_NAME`); target, scheme and bundle ids keep the Quotable name. If the Dock shows an old icon after a rebuild, that is LaunchServices caching the bundle id: `lsregister -f` the new app.
+- The built app is **Coda.app** (`PRODUCT_NAME`); target, scheme and bundle ids keep the Quotable name. If the Dock shows an old icon after a rebuild, that is LaunchServices caching the bundle id: `lsregister -f` the new app.
 
 All icons must be **opaque, no alpha channel** (ITMS-90717). A new icon reaches the store only with a new build.
 
@@ -53,7 +53,7 @@ Cloudflare Pages: `sh scripts/build-site.sh` then `npx wrangler pages deploy`. D
 
 Answer buttons deliberately use `.allowsHitTesting(false)` rather than `.disabled(true)` after a pick, a disabled button renders its tint washed out, which hides the green/red reveal.
 
-`ios/Widget/QuotestreakWidget.swift` (v31) is a WidgetKit extension on iOS (small, medium, lock screen) and macOS (small, medium), target `QuotableWidget`, bundle `com.heyitsmejosh.quotable.widget`. It bundles its own `quotes.json` and works the day's line out with `Daily.swift`, a bit-for-bit port of `daily.js` (mulberry32 with UInt32 wrapping for Math.imul), so it needs no app group. It never shows the answer.
+`ios/Widget/CodaWidget.swift` (v31) is a WidgetKit extension on iOS (small, medium, lock screen) and macOS (small, medium), target `QuotableWidget`, bundle `com.heyitsmejosh.quotable.widget`. It bundles its own `quotes.json` and works the day's line out with `Daily.swift`, a bit-for-bit port of `daily.js` (mulberry32 with UInt32 wrapping for Math.imul), so it needs no app group. It never shows the answer.
 
 Live duels (v33): `Duel.swift` speaks the same room protocol as `duel-client.js` over `URLSessionWebSocketTask`, so the apps and the web duel each other; `DuelViews.swift` is the start/join sheet. On iPhone each duel runs as a Live Activity (`DuelActivity.swift` attributes, drawn by `DuelLiveActivity` in the widget extension; `NSSupportsLiveActivities` in Info.plist). Duel scores stay off the leaderboard, like the web.
 
@@ -70,11 +70,11 @@ node scripts/daily-expect.mjs > /tmp/daily.json && swiftc -o /tmp/quotablecheck 
 It checks that the Swift Daily Quote matches `daily.js` day for day, and validates the whole quote bank (4 unique options, answer present, no duplicate quotes, movies have years) and the scoring paths (streaks, the speed multiplier, timeout-as-miss).
 
 ## App Store
-Listed as **Quotestreak** (app id `6804394619`, bundle `com.heyitsmejosh.quotable`), "Quotable", "Quotely", "Quipster", "Recite" and "Cueline" are all taken by other accounts.
+Renamed Quotestreak to **Coda** on 2026-10-19. The store listing (app id `6804394619`, bundle `com.heyitsmejosh.quotable`) still says Quotestreak until 1.3.0 clears review; then probe Coda with asc-name-creator and rename it. The folder, the Pages project (`quotestreak`), `quotestreak_*` storage keys, RPCs and tables, and the `quotestreak-duel` Worker keep the old name on purpose: renaming them wipes players' data or breaks the API. quotestreak.jaybulb.com still serves the site. "Quotable", "Quotely", "Quipster", "Recite" and "Cueline" are all taken by other accounts.
 
-**The product is Quotestreak everywhere** (2026-08-28). The web game used to keep the Quotable name while only the store listing was Quotestreak; that split is gone, every user-facing string on the site now reads Quotestreak. Three things deliberately still say "quotable" and must NOT be renamed:
+**The product is Coda everywhere** (2026-08-28). The web game used to keep the Quotable name while only the store listing was Coda; that split is gone, every user-facing string on the site now reads Coda. Three things deliberately still say "quotable" and must NOT be renamed:
 
-- The live domain is `quotestreak.jaybulb.com` (Cloudflare Pages). `quotable.heyitsmejosh.com` lapsed with the old domain on 2026-10-13.
+- The live domain is `coda.jaybulb.com` (Cloudflare Pages). `quotable.heyitsmejosh.com` lapsed with the old domain on 2026-10-13.
 - `quotable_high_score`, `quotable_sfx_on`, `quotable_sfx_vol`, localStorage keys on players' machines. Renaming them silently wipes every existing high score and sound setting.
 - `window.quotable*`: the globals `webmcp.js` binds to. Renaming breaks the agent tools for nothing.
 

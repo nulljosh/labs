@@ -1,4 +1,4 @@
-"""Quip, the Quotestreak mascot: the logo's opening quote mark come to life. The ball is the body, the tail is
+"""Quip, the Coda mascot: the logo's opening quote mark come to life. The ball is the body, the tail is
 its cowlick. Flat two-tone (marquee yellow, night ink), no text, four poses.
 
     python3 brand/mascot.py   # writes brand/quip-{pose}.svg, a -dark twin for dark grounds, and brand/Quip.xcassets

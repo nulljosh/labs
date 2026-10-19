@@ -1,8 +1,8 @@
 {
   "description": "Guess the movie from the quote, or the artist from the lyric. 272 lines across ten genres: action, comedy, drama, sci-fi, classics, pop, rock, hip-hop, R&B and country.\n\nPlay at your own pace and build a streak, four choices a quote. Or take the Speed Round: ten seconds on the clock, and the faster you answer the bigger the multiplier.\n\nEvery right answer throws confetti and fills the screen with the movie poster or album art. Every fifth in a row throws more.\n\nPick one genre or shuffle the whole bank. The quotes ship inside the app, so it plays offline. No ads, no tracking. An account is optional and only puts your best score on the global leaderboard.",
   "keywords": "quote,trivia,movie,film,quiz,lyrics,music,guess,game,cinema,song,puzzle",
-  "marketingUrl": "https://quotestreak.jaybulb.com",
+  "marketingUrl": "https://coda.jaybulb.com",
   "promotionalText": "Name that line. Beat your streak.",
-  "supportUrl": "https://quotestreak.jaybulb.com",
+  "supportUrl": "https://coda.jaybulb.com",
   "whatsNew": "A whole new look: marquee yellow, a new icon, and Quip, our quote-mark mascot.\n\nConfetti on every right answer, a bigger burst every fifth in a row, and a drifting wall of posters behind the game.\n\nA new typeface, Quip Sans, where every quote mark is our logo.\n\nOn Mac, answers are now proper cards.\n\nSign in with Apple or Google, if you like, to put your best score on the global leaderboard."
 }

@@ -249,7 +249,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.quotable;
-				PRODUCT_NAME = Quotestreak;
+				PRODUCT_NAME = Coda;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
@@ -268,7 +268,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.quotable;
-				PRODUCT_NAME = Quotestreak;
+				PRODUCT_NAME = Coda;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 			};

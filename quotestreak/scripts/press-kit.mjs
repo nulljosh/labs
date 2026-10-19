@@ -4,7 +4,7 @@ import fs from 'fs'; import { execFileSync } from 'child_process';
 // npm i playwright-core somewhere, copy this there and run: node press-kit.mjs [site] [outDir]
 // Needs ffmpeg for the video. Every badge is pre-earned so no toast lands in a shot, and rounds play
 // in family mode so no sworn line lands in a shot either.
-const site = process.argv[2] || 'https://quotestreak.jaybulb.com';
+const site = process.argv[2] || 'https://coda.jaybulb.com';
 const out = process.argv[3] || new URL('../brand/press', import.meta.url).pathname;
 fs.mkdirSync(out, { recursive: true });
 const genres = Object.fromEntries(['action', 'comedy', 'drama', 'scifi', 'classic', 'pop', 'rock', 'hiphop', 'rnb', 'country', 'sitcom', 'tvdrama', 'cartoon', 'game', 'book'].map(g => [g, 50]));

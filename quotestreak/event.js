@@ -1,4 +1,4 @@
-// Quotestreak 100 (v100): Quip's birthday and the live event. On October 18 (UTC), the day the brand
+// Coda 100 (v100): Quip's birthday and the live event. On October 18 (UTC), the day the brand
 // and Quip were made in 2026, every Quip wears a party hat and the menu says so, with confetti.
 // The show has its own menu button; a banner for it pushed Play off a phone screen, so there isn't one.
 // ?birthday shows the birthday any day. Classic script after dress.js; event.test.js

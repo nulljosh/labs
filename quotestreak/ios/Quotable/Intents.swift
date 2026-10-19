@@ -9,15 +9,15 @@ struct DailyQuoteIntent: AppIntent {
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         guard let (q, _) = Daily.quote(for: Daily.dayNumber(), in: Quote.loadBundled()) else {
-            return .result(dialog: "Open Quotestreak for today's line.")
+            return .result(dialog: "Open Coda for today's line.")
         }
-        return .result(dialog: "\u{201C}\(q.quote)\u{201D} \(q.prompt) Open Quotestreak to answer.")
+        return .result(dialog: "\u{201C}\(q.quote)\u{201D} \(q.prompt) Open Coda to answer.")
     }
 }
 
 struct SpeedRoundIntent: AppIntent {
     static let title: LocalizedStringResource = "Start a speed round"
-    static let description = IntentDescription("Opens Quotestreak straight into a ten-second speed round.")
+    static let description = IntentDescription("Opens Coda straight into a ten-second speed round.")
     static let openAppWhenRun = true
 
     @MainActor
@@ -28,7 +28,7 @@ struct SpeedRoundIntent: AppIntent {
     }
 }
 
-struct QuotestreakShortcuts: AppShortcutsProvider {
+struct CodaShortcuts: AppShortcutsProvider {
     static var appShortcuts: [AppShortcut] {
         AppShortcut(intent: DailyQuoteIntent(), phrases: ["Give me a quote from \(.applicationName)", "\(.applicationName) daily quote"],
                     shortTitle: "Daily Quote", systemImageName: "quote.opening")

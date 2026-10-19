@@ -29,7 +29,7 @@ import ActivityKit
     private var activity: Activity<DuelAttributes>?
     #endif
 
-    var link: URL { URL(string: "https://quotestreak.jaybulb.com/play?duel=\(code)")! }
+    var link: URL { URL(string: "https://coda.jaybulb.com/play?duel=\(code)")! }
     var settled: Bool { stage == .finished && (theirDone || left) }
 
     init(code: String? = nil, bank: [Quote]) {
@@ -40,7 +40,7 @@ import ActivityKit
     static func isCode(_ s: String) -> Bool { s.count == 4 && s.allSatisfy { $0.isLetter && $0.isASCII } }
 
     func connect() {
-        socket = URLSession.shared.webSocketTask(with: URL(string: "wss://quotestreak.jaybulb.com/duel/ws?room=\(code)")!)
+        socket = URLSession.shared.webSocketTask(with: URL(string: "wss://coda.jaybulb.com/duel/ws?room=\(code)")!)
         socket?.resume()
         receive()
     }

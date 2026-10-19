@@ -291,7 +291,7 @@ $('challenge-btn').onclick = () => {
   window.quotableBadge?.('challenge');
   const first = run.slice(0, Challenge.SIZE);
   const url = `${location.origin}/c?${Challenge.encode(first.map(r => r.qid), first.reduce((n, r) => n + r.pts, 0), window.quotableDisplayName?.())}`;
-  const text = `I scored ${first.reduce((n, r) => n + r.pts, 0)} on these ${first.length} Quotestreak lines. Your turn: ${url}`;
+  const text = `I scored ${first.reduce((n, r) => n + r.pts, 0)} on these ${first.length} Coda lines. Your turn: ${url}`;
   if (navigator.share) navigator.share({ text });
   else navigator.clipboard.writeText(text).then(() => {
     $('challenge-btn').textContent = 'Link copied';
@@ -387,7 +387,7 @@ $('restart').onclick = () => {
 };
 // The share card (sharecard.js) goes out as a file where the browser can share one, else it downloads.
 $('share').onclick = async () => {
-  const text = `I scored ${score} on Quotestreak! Can you beat me? https://quotestreak.jaybulb.com`;
+  const text = `I scored ${score} on Coda! Can you beat me? https://coda.jaybulb.com`;
   const blob = await ShareCard.draw({ score, high: parseInt(localStorage.getItem(HIGH_KEY) || '0', 10), run, speed: speedMode });
   const files = blob ? [new File([blob], 'quotestreak.png', { type: 'image/png' })] : [];
   if (files.length && navigator.canShare?.({ files })) return navigator.share({ files, text }).catch(() => {});

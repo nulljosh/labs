@@ -31,7 +31,7 @@ if (process.argv[1]?.endsWith('build-data.mjs')) {
   fs.mkdirSync(out, { recursive: true });
   const lines = openLines(bank), facts = titles(bank);
   const manifest = {
-    name: 'Quotestreak open data', updated: new Date().toISOString().slice(0, 10), about: 'https://quotestreak.jaybulb.com/play',
+    name: 'Coda open data', updated: new Date().toISOString().slice(0, 10), about: 'https://coda.jaybulb.com/play',
     files: {
       'lines.json': { count: lines.length, license: 'CC BY-SA 4.0 for Wikiquote lines (credit the source page on each line); public domain for Project Gutenberg first lines' },
       'titles.json': { count: facts.length, license: 'CC0 1.0: facts about each title, mostly from Wikidata' },

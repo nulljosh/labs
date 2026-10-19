@@ -38,5 +38,5 @@ test('the share text names the day, the result and the link', () => {
   const t = Daily.shareText(7, true, 3);
   assert.match(t, /Daily #7/);
   assert.match(t, /Day streak: 3/);
-  assert.match(t, /quotestreak\.jaybulb\.com\/play\?daily/);
+  assert.match(t, /coda\.jaybulb\.com\/play\?daily/);
 });

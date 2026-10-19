@@ -8,4 +8,4 @@ Built as a Swift TUI plus a plain-JS web build and native iOS/Mac apps, no backe
 
 Free everywhere. Feedback on the genre mix and the speed round pacing welcome.
 
-https://quotestreak.jaybulb.com
+https://coda.jaybulb.com

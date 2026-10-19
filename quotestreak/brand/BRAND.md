@@ -1,13 +1,13 @@
-# Quotestreak brand kit and design system
+# Coda brand kit and design system
 
-A quote mark on a streak. Quotestreak is a quick, loud game, so the brand is a cinema marquee: yellow light on night ink. Green and red belong to right and wrong, so the brand never uses them.
+A quote mark on a streak. Coda is a quick, loud game, so the brand is a cinema marquee: yellow light on night ink. Green and red belong to right and wrong, so the brand never uses them.
 
-The live kit is at `brand/index.html` (quotestreak.jaybulb.com/brand/).
+The live kit is at `brand/index.html` (coda.jaybulb.com/brand/).
 
 ## The mark
 Two opening quote marks, ball low and tail sweeping up, leaning forward with three speed lines behind them. Marquee yellow on a night-ink tile. No text, no outline, no emblem.
 
-- `../Quotestreak.icon` is the source of truth (Icon Composer), wired into the iOS and macOS targets as the app icon. The asset catalogs hold a flattened fallback.
+- `../Coda.icon` is the source of truth (Icon Composer), wired into the iOS and macOS targets as the app icon. The asset catalogs hold a flattened fallback.
 - `../icon.svg` is the flat copy for READMEs (80 px). `icon-1024.png` is the App Store icon, no alpha. `icon-tile.svg` is the square master the web icons are cut from.
 - `mark.svg` is the glyph alone in `currentColor`.
 - The tail is always longer than the ball. A short tail reads as a speech bubble, a wedge reads as a pause button.

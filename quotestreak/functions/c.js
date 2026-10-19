@@ -11,13 +11,13 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`)
 export function page(search) {
   const ch = Challenge.decode(search, quotes, Difficulty.qid);
   const play = `/play${search}`;
-  const title = ch ? `${ch.name} scored ${ch.score} on Quotestreak. Your turn.` : 'Quotestreak';
+  const title = ch ? `${ch.name} scored ${ch.score} on Coda. Your turn.` : 'Coda';
   const line = ch ? ch.quotes[0].quote : 'Here’s the line. Name the movie, show, game, song or book.';
   const desc = ch ? `${ch.quotes.length} lines, one go. Can you beat ${ch.score}? It starts with: “${line}”` : line;
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
-<meta property="og:image" content="https://quotestreak.jaybulb.com/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://coda.jaybulb.com/og.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/brand/tokens.css">
 <style>
 :root{--ink:#15161a;--bg:#fff;--muted:#6e6e73}

@@ -1,6 +1,6 @@
 # Product Hunt
 
-Name: Quotestreak
+Name: Coda
 
 Tagline (33): Name that line. Beat your streak.
 
@@ -11,13 +11,13 @@ Topics: Games, Music, Entertainment
 Pricing: Free.
 
 Links
-Web: https://quotestreak.jaybulb.com
+Web: https://coda.jaybulb.com
 App Store: https://apps.apple.com/app/id6804394619
 GitHub: https://github.com/nulljosh/labs/tree/main/quotestreak
 
 ## First comment
 
-Hi, I'm Josh, I built Quotestreak.
+Hi, I'm Josh, I built Coda.
 
 A trivia game with one mechanic: here is a line, where is it from. Movies and music, ten genres, four choices, build a streak. Speed round if you want pressure, leaderboard if you want a fight. No backend on the native apps, so it works on a plane.
 

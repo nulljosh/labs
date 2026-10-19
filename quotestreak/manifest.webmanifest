@@ -1,6 +1,6 @@
 {
-  "name": "Quotestreak",
-  "short_name": "Quotestreak",
+  "name": "Coda",
+  "short_name": "Coda",
   "description": "Guess the author. One quote a day.",
   "start_url": "/",
   "scope": "/",

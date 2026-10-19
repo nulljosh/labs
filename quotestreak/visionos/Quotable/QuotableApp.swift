@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Quotestreak on Apple Vision Pro (v35): the whole game in a window, built from the same sources as
+/// Coda on Apple Vision Pro (v35): the whole game in a window, built from the same sources as
 /// iPhone and Mac, plus the poster wall as a space you stand inside (PosterWall.swift).
 @main
 struct QuotableApp: App {

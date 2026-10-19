@@ -5,12 +5,12 @@ import SwiftUI
 /// fields from `Game.swift` (`score`, `streak`, `highScore`) — nothing here
 /// is invented to fill space.
 struct StreakGlance: View {
-    @State private var summary: QuotestreakSummary = .empty
+    @State private var summary: CodaSummary = .empty
 
     var body: some View {
         ScrollView {
             VStack(spacing: 10) {
-                Text("Quotestreak")
+                Text("Coda")
                     .font(.headline)
                     .foregroundStyle(.secondary)
 

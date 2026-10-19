@@ -51,7 +51,7 @@ compose.desktop {
                 org.jetbrains.compose.desktop.application.dsl.TargetFormat.Deb,
                 org.jetbrains.compose.desktop.application.dsl.TargetFormat.Dmg,
             )
-            packageName = "Quotestreak"
+            packageName = "Coda"
             packageVersion = "1.0.0"
             description = "Guess the movie or the artist from the quote."
             linux { iconFile.set(project.file("icons/icon.png")) }

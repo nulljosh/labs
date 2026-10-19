@@ -1,6 +1,6 @@
 # Architecture
 
-Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behind them: `quotestreak-duel` for live duels and spectators, and the shared `jaybulb-api` for accounts, scores, friends, clubs and per-quote hit rates. See `architecture.svg`.
+Coda is a static web game plus native SwiftUI apps. Two Workers sit behind them: `quotestreak-duel` for live duels and spectators, and the shared `jaybulb-api` for accounts, scores, friends, clubs and per-quote hit rates. See `architecture.svg`.
 
 ## Web
 
@@ -52,9 +52,9 @@ Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `badges`, `s
 
 ## Workers
 
-`duel/worker.js` routes `quotestreak.jaybulb.com/duel/*` to a Durable Object per room. Players are tagged `player` (two at most), spectators `watch`. Each player's score, question and name ride on the socket attachment, so hibernation loses nothing. A second class, `Party`, at `/duel/party`, routes one big screen and up to eight phones: buzzes go to the screen, questions and reveals go to the phones. Deploy with `cd duel && npx wrangler deploy`.
+`duel/worker.js` routes `coda.jaybulb.com/duel/*` to a Durable Object per room. Players are tagged `player` (two at most), spectators `watch`. Each player's score, question and name ride on the socket attachment, so hibernation loses nothing. A second class, `Party`, at `/duel/party`, routes one big screen and up to eight phones: buzzes go to the screen, questions and reveals go to the phones. Deploy with `cd duel && npx wrangler deploy`.
 
-jaybulb-api lives in its own folder. The Quotestreak tables are `quotestreak_scores`, `_friends`, `_stats`, `_clubs` and `_club_members`, with RPCs under `POST /rpc/quotestreak_*`.
+jaybulb-api lives in its own folder. The Coda tables are `quotestreak_scores`, `_friends`, `_stats`, `_clubs` and `_club_members`, with RPCs under `POST /rpc/quotestreak_*`.
 
 ## Native
 

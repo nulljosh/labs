@@ -24,6 +24,6 @@
   "Nope — it was \"{s}\"": { "en": "Nope — it was \"{s}\"", "fr": "Non — c'était « {s} »", "zh": "", "pa": "" },
   "Haptics": { "en": "Haptics", "fr": "Retour haptique", "zh": "", "pa": "" },
   "High score: {n}": { "en": "High score: {n}", "fr": "Meilleur score : {n}", "zh": "", "pa": "" },
-  "Quotestreak": { "en": "Quotestreak", "fr": "Quotestreak", "zh": "Quotestreak", "pa": "Quotestreak" },
+  "Coda": { "en": "Coda", "fr": "Coda", "zh": "Coda", "pa": "Coda" },
   "Final score: {n1} · High score: {n2}": { "en": "Final score: {n1} · High score: {n2}", "fr": "Score final : {n1} · Meilleur score : {n2}", "zh": "", "pa": "" }
 }

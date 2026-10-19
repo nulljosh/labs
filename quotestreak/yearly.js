@@ -64,7 +64,7 @@
       x.fillStyle = '#f5f5f7'; x.font = font(700, 96); x.fillText(n, X, Y);
       x.fillStyle = '#a1a1aa'; x.font = font(500, 36); x.fillText(l, X, Y + 52);
     });
-    x.fillStyle = '#ffcc00'; x.font = font(600, 34); x.fillText('quotestreak.jaybulb.com', 80, 1010);
+    x.fillStyle = '#ffcc00'; x.font = font(600, 34); x.fillText('coda.jaybulb.com', 80, 1010);
     const blob = await new Promise(res => c.toBlob(res, 'image/png'));
     const files = blob ? [new File([blob], `quotestreak-${yr}.png`, { type: 'image/png' })] : [];
     if (files.length && navigator.canShare?.({ files })) return navigator.share({ files }).catch(() => {});

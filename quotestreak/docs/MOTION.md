@@ -1,6 +1,6 @@
-# Quotestreak motion and sound
+# Coda motion and sound
 
-Motion and sound in Quotestreak say one thing each: you got it, you didn't, keep going. They never decorate a timed question. This is the system; `brand/tokens.css` and `sound.js` hold the values.
+Motion and sound in Coda say one thing each: you got it, you didn't, keep going. They never decorate a timed question. This is the system; `brand/tokens.css` and `sound.js` hold the values.
 
 ## Motion
 

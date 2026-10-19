@@ -32,7 +32,7 @@ struct ContentView: View {
             .background(Theme.canvas)
             .font(.quip(.body))
             .tint(Theme.accentStroke)   // the genre picker and toolbar, not system blue
-            .navigationTitle("Quotestreak")
+            .navigationTitle("Coda")
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
             #endif
@@ -50,7 +50,7 @@ struct ContentView: View {
             .onAppear { takeLaunch() }
             // Handoff: a game in progress shows up on your other devices; picking it up there resumes it.
             .userActivity(Game.handoffType, isActive: game.phase == .playing && duel == nil) { activity in
-                activity.title = "Quotestreak game"
+                activity.title = "Coda game"
                 activity.isEligibleForHandoff = true
                 activity.addUserInfoEntries(from: game.handoff)
             }
@@ -401,7 +401,7 @@ private struct GameOverView: View {
             }
             Button("Play Again") { game.backToMenu() }
                 .buttonStyle(PrimaryButtonStyle())
-            ShareLink(item: "I scored \(game.score) on Quotestreak! Can you beat me? https://quotestreak.jaybulb.com")
+            ShareLink(item: "I scored \(game.score) on Coda! Can you beat me? https://coda.jaybulb.com")
             Spacer()
         }
         .padding(28)

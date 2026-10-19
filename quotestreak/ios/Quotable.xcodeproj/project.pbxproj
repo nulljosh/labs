@@ -11,7 +11,7 @@
 		1BE347D13257220639AE1B73 /* QuipSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EA5ECE0E096B28ACBDF8FBA /* QuipSans-Regular.ttf */; };
 		2071D5C2988CAEE90B8626D6 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC86FADC9B12722F80D8A322 /* Sound.swift */; };
 		21BB588AF5A28878EB2812F7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DEE5D3B5B21818E95B52B2 /* Account.swift */; };
-		2387A1EF8B5F035F17E4E6C5 /* QuotestreakWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A7452099D0CAD5844021F4 /* QuotestreakWidget.swift */; };
+		2387A1EF8B5F035F17E4E6C5 /* CodaWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A7452099D0CAD5844021F4 /* CodaWidget.swift */; };
 		25E14564B3E93892E0ACDB27 /* Duel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D5C94901206E797A9D9489 /* Duel.swift */; };
 		2E29339E8EF696C8DE96D9BC /* SharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6F9F3D1E7095C33B65A0AC /* SharedStore.swift */; };
 		357FCB301F6277A72C43E2EC /* DuelActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1537B08CDD9E3F2CD9B9BE5 /* DuelActivity.swift */; };
@@ -34,7 +34,7 @@
 		7DFF7D7B40A63846C0C2A765 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC408E6EFA84328599CCE6 /* Quote.swift */; };
 		9052B6EDC706E598BA480D49 /* QuipSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C6D28F0644B70870BD65AAA /* QuipSans-Bold.ttf */; };
 		91ED4E7C01FF874DE14A48A7 /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2366C44BE0D1172C1F730F23 /* Daily.swift */; };
-		945CA5730B08BC490FF50CF0 /* Quotestreak.icon in Resources */ = {isa = PBXBuildFile; fileRef = 20DD4CD996C0C91CF08C183A /* Quotestreak.icon */; };
+		945CA5730B08BC490FF50CF0 /* Coda.icon in Resources */ = {isa = PBXBuildFile; fileRef = 20DD4CD996C0C91CF08C183A /* Coda.icon */; };
 		9880B1E177D472A0C32F459B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FACB4D1E162790952E8FA9 /* Game.swift */; };
 		9C95094235697340846AFFB1 /* QuotableMessages.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3D4D1662E2DB18A71D8D06FE /* QuotableMessages.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9FAC897B0788EE6F31DFE2F3 /* quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = 5128DA1479B038DECC148F85 /* quotes.json */; };
@@ -94,7 +94,7 @@
 		0AC0BE836F69E3802264672C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1A6F9F3D1E7095C33B65A0AC /* SharedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStore.swift; sourceTree = "<group>"; };
 		1C6D28F0644B70870BD65AAA /* QuipSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuipSans-Bold.ttf"; sourceTree = "<group>"; };
-		20DD4CD996C0C91CF08C183A /* Quotestreak.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = Quotestreak.icon; sourceTree = "<group>"; };
+		20DD4CD996C0C91CF08C183A /* Coda.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = Coda.icon; sourceTree = "<group>"; };
 		2366C44BE0D1172C1F730F23 /* Daily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily.swift; sourceTree = "<group>"; };
 		2784FB3C2743E5A56677BD01 /* QuipSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuipSans-Medium.ttf"; sourceTree = "<group>"; };
 		29DEE5D3B5B21818E95B52B2 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		79F8EC3C7A160FCFC18D8CD9 /* AccountViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViews.swift; sourceTree = "<group>"; };
 		9566DC9A29E4E95441094609 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		964C23D71F8E22F6308CA6D7 /* DuelViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelViews.swift; sourceTree = "<group>"; };
-		B0A7452099D0CAD5844021F4 /* QuotestreakWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotestreakWidget.swift; sourceTree = "<group>"; };
+		B0A7452099D0CAD5844021F4 /* CodaWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodaWidget.swift; sourceTree = "<group>"; };
 		B8FACB4D1E162790952E8FA9 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		C4AFD0F64F5A760073FEFB89 /* QuipSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuipSans-Semibold.ttf"; sourceTree = "<group>"; };
 		D102FB318FB417C8EBBE69C0 /* Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intents.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		05649987A99EFFA527BBBD2E /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				B0A7452099D0CAD5844021F4 /* QuotestreakWidget.swift */,
+				B0A7452099D0CAD5844021F4 /* CodaWidget.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -222,7 +222,7 @@
 		F8606E9FCB1669ED39B4C415 /* quotestreak */ = {
 			isa = PBXGroup;
 			children = (
-				20DD4CD996C0C91CF08C183A /* Quotestreak.icon */,
+				20DD4CD996C0C91CF08C183A /* Coda.icon */,
 			);
 			name = quotestreak;
 			path = ..;
@@ -360,7 +360,7 @@
 				4C5F1EE28BBC44D4BB5F3009 /* QuipSans-Medium.ttf in Resources */,
 				1BE347D13257220639AE1B73 /* QuipSans-Regular.ttf in Resources */,
 				DFC0C995510776A72E63FFF7 /* QuipSans-Semibold.ttf in Resources */,
-				945CA5730B08BC490FF50CF0 /* Quotestreak.icon in Resources */,
+				945CA5730B08BC490FF50CF0 /* Coda.icon in Resources */,
 				B7217E2DA4D5DF9CD42659BC /* quotes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,7 +422,7 @@
 				91ED4E7C01FF874DE14A48A7 /* Daily.swift in Sources */,
 				357FCB301F6277A72C43E2EC /* DuelActivity.swift in Sources */,
 				B956F9614126752E27454D7A /* Quote.swift in Sources */,
-				2387A1EF8B5F035F17E4E6C5 /* QuotestreakWidget.swift in Sources */,
+				2387A1EF8B5F035F17E4E6C5 /* CodaWidget.swift in Sources */,
 				CF700F9ABAA2F7F1FF80B830 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,7 +545,7 @@
 		AE64ECED9E17649B09060DE1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = Quotestreak;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Coda;
 				CODE_SIGN_ENTITLEMENTS = Quotable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -557,7 +557,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.quotable;
-				PRODUCT_NAME = Quotestreak;
+				PRODUCT_NAME = Coda;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -566,7 +566,7 @@
 		B1DBEF5C9D9B2DF9614CF12E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = Quotestreak;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Coda;
 				CODE_SIGN_ENTITLEMENTS = Quotable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -578,7 +578,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.quotable;
-				PRODUCT_NAME = Quotestreak;
+				PRODUCT_NAME = Coda;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

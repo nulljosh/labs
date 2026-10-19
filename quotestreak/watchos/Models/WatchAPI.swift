@@ -1,7 +1,7 @@
 import Foundation
 
 /// Named `WatchAPI` to match the talli/sparkjar watch companions, but
-/// Quotestreak's iOS app has no backend to call (root CLAUDE.md: "Static
+/// Coda's iOS app has no backend to call (root CLAUDE.md: "Static
 /// site, no build step, no backend" — profiles/accounts are explicitly
 /// "deferred, not yet implemented"). There is nothing to authenticate
 /// against, so unlike talli/sparkjar this holds no `apiToken` and there is
@@ -26,11 +26,11 @@ final class WatchAPI: @unchecked Sendable {
     /// watch app was paired, so the Watch view can prompt the user to open
     /// the app on their phone instead of showing fabricated zeros as if they
     /// were live data.
-    func fetchSummary() -> QuotestreakSummary {
+    func fetchSummary() -> CodaSummary {
         guard let defaults, let updated = defaults.object(forKey: "shared_updated_at") as? Double else {
             return .empty
         }
-        return QuotestreakSummary(
+        return CodaSummary(
             score: defaults.integer(forKey: "shared_score"),
             streak: defaults.integer(forKey: "shared_streak"),
             highScore: defaults.integer(forKey: "shared_high_score"),

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01C1E3B9C9AB0B3F58115A88 /* Quotestreak.icon in Resources */ = {isa = PBXBuildFile; fileRef = 29E5D4E5A5E061E85A4EF225 /* Quotestreak.icon */; };
+		01C1E3B9C9AB0B3F58115A88 /* Coda.icon in Resources */ = {isa = PBXBuildFile; fileRef = 29E5D4E5A5E061E85A4EF225 /* Coda.icon */; };
 		0E2425AEB4306411BC176193 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452A5BA9B530C47EBF1D7A3 /* Quote.swift */; };
 		21F94F3756E7AF0741D5D225 /* QuipSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E066B842BA8B257FB19095EF /* QuipSans-Semibold.ttf */; };
 		2538D7286D943F6E4E6C5DE0 /* PosterWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC2F5556AE54A217908FE3E /* PosterWall.swift */; };
@@ -36,7 +36,7 @@
 		0141A0A589D51803F7AF94A7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		21017DF518CC9530601231C5 /* Daily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily.swift; sourceTree = "<group>"; };
 		2452A5BA9B530C47EBF1D7A3 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
-		29E5D4E5A5E061E85A4EF225 /* Quotestreak.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = Quotestreak.icon; sourceTree = "<group>"; };
+		29E5D4E5A5E061E85A4EF225 /* Coda.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = Coda.icon; sourceTree = "<group>"; };
 		31EBFFBD18BC6639FC865DAD /* QuotableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotableApp.swift; sourceTree = "<group>"; };
 		3F21D74EFF587EB150D8CB26 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		4B4C034607A6C6C7971D57D6 /* Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intents.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		BC93D448406ABD861B9E53D7 /* quotestreak */ = {
 			isa = PBXGroup;
 			children = (
-				29E5D4E5A5E061E85A4EF225 /* Quotestreak.icon */,
+				29E5D4E5A5E061E85A4EF225 /* Coda.icon */,
 			);
 			name = quotestreak;
 			path = ..;
@@ -220,7 +220,7 @@
 				934EFF124308E85623DC29F8 /* QuipSans-Medium.ttf in Resources */,
 				7BA72762007237063BAEF25F /* QuipSans-Regular.ttf in Resources */,
 				21F94F3756E7AF0741D5D225 /* QuipSans-Semibold.ttf in Resources */,
-				01C1E3B9C9AB0B3F58115A88 /* Quotestreak.icon in Resources */,
+				01C1E3B9C9AB0B3F58115A88 /* Coda.icon in Resources */,
 				A81A4C9C2EF310D5A2CCFC7D /* quotes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,7 +313,7 @@
 		8D6C39905CFDD1AD98883767 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = Quotestreak;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Coda;
 				CODE_SIGN_ENTITLEMENTS = ../ios/Quotable.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QMM486NPYC;
@@ -323,7 +323,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.quotable;
-				PRODUCT_NAME = Quotestreak;
+				PRODUCT_NAME = Coda;
 				SDKROOT = xros;
 				TARGETED_DEVICE_FAMILY = 7;
 			};
@@ -332,7 +332,7 @@
 		E1507F8A7C03B4779AC697EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = Quotestreak;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Coda;
 				CODE_SIGN_ENTITLEMENTS = ../ios/Quotable.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QMM486NPYC;
@@ -342,7 +342,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.quotable;
-				PRODUCT_NAME = Quotestreak;
+				PRODUCT_NAME = Coda;
 				SDKROOT = xros;
 				TARGETED_DEVICE_FAMILY = 7;
 			};

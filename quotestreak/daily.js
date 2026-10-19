@@ -46,7 +46,7 @@
   const currentStreak = (s, today) => (s && s.lastDay >= today - 1 ? s.count : 0);
 
   const shareText = (day, correct, streak) =>
-    `Quotestreak Daily #${day}\n${correct ? 'Got it.' : 'Missed it.'} Day streak: ${streak}\nhttps://quotestreak.jaybulb.com/play?daily`;
+    `Coda Daily #${day}\n${correct ? 'Got it.' : 'Missed it.'} Day streak: ${streak}\nhttps://coda.jaybulb.com/play?daily`;
 
   const Daily = { dayNumber, msUntilNext, quoteFor, nextStreak, currentStreak, shareText, seededShuffle };
   if (typeof module !== 'undefined') module.exports = Daily;

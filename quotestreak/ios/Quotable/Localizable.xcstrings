@@ -425,31 +425,31 @@
         }
       }
     },
-    "Quotestreak": {
+    "Coda": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quotestreak"
+            "value": "Coda"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quotestreak"
+            "value": "Coda"
           }
         },
         "zh": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quotestreak"
+            "value": "Coda"
           }
         },
         "pa": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quotestreak"
+            "value": "Coda"
           }
         }
       }

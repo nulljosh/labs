@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 
 // brand/tokens.css: marquee yellow for the primary action, ink text on it, cream ground.
 @Composable
-fun QuotestreakTheme(content: @Composable () -> Unit) =
+fun CodaTheme(content: @Composable () -> Unit) =
     MaterialTheme(
         colorScheme = lightColorScheme(
             primary = Color(0xFFFFCC00), onPrimary = Color(0xFF15161A),
@@ -35,7 +35,7 @@ fun QuotestreakTheme(content: @Composable () -> Unit) =
     )
 
 @Composable
-fun AppScreen(client: QuotestreakClient = QuotestreakClient()) {
+fun AppScreen(client: CodaClient = CodaClient()) {
     var quotes by remember { mutableStateOf<List<Quote>>(emptyList()) }
     var loading by remember { mutableStateOf(true) }
     var error by remember { mutableStateOf<String?>(null) }
@@ -67,7 +67,7 @@ fun AppScreen(client: QuotestreakClient = QuotestreakClient()) {
 
     Surface {
         Column(Modifier.fillMaxSize().padding(24.dp)) {
-            Text("Quotestreak", style = MaterialTheme.typography.headlineMedium)
+            Text("Coda", style = MaterialTheme.typography.headlineMedium)
             Text("Streak: $streak", modifier = Modifier.padding(top = 4.dp))
             when {
                 loading -> CircularProgressIndicator(Modifier.padding(top = 24.dp))

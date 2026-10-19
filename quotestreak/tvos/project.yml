@@ -24,13 +24,13 @@ targets:
     info:
       path: Quotable/Info.plist
       properties:
-        CFBundleDisplayName: Quotestreak
+        CFBundleDisplayName: Coda
         UILaunchScreen: {}
         LSApplicationCategoryType: public.app-category.trivia-games
         ITSAppUsesNonExemptEncryption: false
     settings:
       base:
-        PRODUCT_NAME: Quotestreak
+        PRODUCT_NAME: Coda
         # Same bundle id as iOS: Apple TV joins the universal purchase.
         PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.quotable
         DEVELOPMENT_TEAM: QMM486NPYC

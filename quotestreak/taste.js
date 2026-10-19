@@ -32,7 +32,7 @@
       x.fillStyle = '#ffcc00'; x.fillRect(80, y + 22, Math.max(8, (SIZE - 160) * g.share), 22);
     });
     if (s.decade) { x.fillStyle = '#f5f5f7'; x.font = font(600, 40); x.fillText(T(`Best decade: the ${s.decade}s`), 80, 920); }
-    x.fillStyle = '#ffcc00'; x.font = font(600, 34); x.fillText('quotestreak.jaybulb.com', 80, 1010);
+    x.fillStyle = '#ffcc00'; x.font = font(600, 34); x.fillText('coda.jaybulb.com', 80, 1010);
     return new Promise(res => c.toBlob(res, 'image/png'));
   }
   const api = { summary, draw, SIZE };

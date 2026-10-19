@@ -1,4 +1,4 @@
-// Quotestreak in twenty languages (v58). locales/<code>.json maps each English interface string to its
+// Coda in twenty languages (v58). locales/<code>.json maps each English interface string to its
 // translation; the English is the key, so no markup needs ids. Every text node, placeholder and
 // aria-label on the page is translated when it appears, including text the game sets later
 // (a MutationObserver), so the game code stays in English. Templates carry {n} for a number and {x}

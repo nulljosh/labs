@@ -1,6 +1,6 @@
-# Quotestreak accessibility
+# Coda accessibility
 
-Where Quotestreak stands against WCAG 2.2 AA, for the outside audit (v98) to start from. Checked 2026-10-19 on the web game.
+Where Coda stands against WCAG 2.2 AA, for the outside audit (v98) to start from. Checked 2026-10-19 on the web game.
 
 ## What is tested on every release
 - axe-core over every screen, light and dark (`scripts/axe-check.mjs`): 0 violations.

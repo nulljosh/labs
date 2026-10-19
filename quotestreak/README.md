@@ -1,4 +1,4 @@
-<img src="icon.svg" width="80" height="80" alt="Quotestreak icon">
+<img src="icon.svg" width="80" height="80" alt="Coda icon">
 
 ![version](https://img.shields.io/badge/version-100.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
@@ -6,7 +6,7 @@ Here's the line. Name the movie.
 
 Or the show, the game, the song or the book. 14,434 lines across 16 genres, from the 1930s to now, with a clock if you want one and a friend to beat if you have one. Dad's idea.
 
-**[quotestreak.jaybulb.com →](https://quotestreak.jaybulb.com)** · **[Play →](https://quotestreak.jaybulb.com/play)**
+**[coda.jaybulb.com →](https://coda.jaybulb.com)** · **[Play →](https://coda.jaybulb.com/play)**
 
 <p>
 <img src="screenshots/web/02-menu.jpg" width="49%">
@@ -35,7 +35,7 @@ Or the show, the game, the song or the book. 14,434 lines across 16 genres, from
 
 **Keep score.** Forty-seven badges drawn around Quip, the mascot. Stats by genre and decade with a graph of your last fifty games. A share card for every game, a taste card of the genres and decades you play, and your year in quotes. A ranked season every quarter, with a Quip medal for each tier you reach, and a Champions bracket for the top eight that anyone can watch.
 
-**Siri.** "Give me a quote from Quotestreak" reads today's line; "Start a speed round in Quotestreak" opens straight into one.
+**Siri.** "Give me a quote from Coda" reads today's line; "Start a speed round in Coda" opens straight into one.
 
 **Handoff.** Start a game on your iPhone and pick it up on your Mac at the same question.
 
@@ -65,7 +65,7 @@ Tests: `for t in *.test.js; do node $t; done`
 
 ## Docs
 
-[Architecture](docs/ARCHITECTURE.md) · [API and agent tools](docs/API.md) · [Open data](docs/DATA.md) · [Audit](docs/AUDIT.md) · [Accessibility](docs/ACCESSIBILITY.md) · [Whitepaper](WHITEPAPER.md) · [Roadmap](roadmap.md) ([live](https://quotestreak.jaybulb.com/roadmap))
+[Architecture](docs/ARCHITECTURE.md) · [API and agent tools](docs/API.md) · [Open data](docs/DATA.md) · [Audit](docs/AUDIT.md) · [Accessibility](docs/ACCESSIBILITY.md) · [Whitepaper](WHITEPAPER.md) · [Roadmap](roadmap.md) ([live](https://coda.jaybulb.com/roadmap))
 
 <img src="architecture.svg" width="600">
 

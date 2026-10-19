@@ -49,7 +49,7 @@
     const pack = { title: $('pack-title').value.trim(), lines: parse($('pack-text').value) };
     if (answers(pack.lines).length < 4) return ($('pack-msg').textContent = 'A pack needs four different answers.');
     const url = `${location.origin}/play#pack=${await encode(pack)}`;
-    if (navigator.share) navigator.share({ title: pack.title || 'Quotestreak pack', url }).catch(() => {});
+    if (navigator.share) navigator.share({ title: pack.title || 'Coda pack', url }).catch(() => {});
     else navigator.clipboard?.writeText(url).then(() => { $('pack-msg').textContent = 'Link copied. Anyone who opens it plays your pack.'; }, () => {});
     $('pack-link').href = url;
     $('pack-link').classList.remove('hidden');

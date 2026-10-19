@@ -20,7 +20,7 @@ targets:
     platform: iOS
     sources:
       - path: Quotable
-      - path: ../Quotestreak.icon
+      - path: ../Coda.icon
       - path: ../brand/Quip.xcassets
         buildPhase: resources
       - path: ../fonts
@@ -30,12 +30,12 @@ targets:
         buildPhase: resources
     settings:
       base:
-        PRODUCT_NAME: Quotestreak   # the built app is Quotestreak.app; target and scheme keep the old name
+        PRODUCT_NAME: Coda   # the built app is Coda.app; target and scheme keep the old name
         PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.quotable
         INFOPLIST_FILE: Quotable/Info.plist
         GENERATE_INFOPLIST_FILE: NO
         TARGETED_DEVICE_FAMILY: "1,2"
-        ASSETCATALOG_COMPILER_APPICON_NAME: Quotestreak
+        ASSETCATALOG_COMPILER_APPICON_NAME: Coda
         DEVELOPMENT_TEAM: QMM486NPYC
         CODE_SIGN_STYLE: Automatic
         # Without an entitlements file the signed bundle carries no
@@ -49,7 +49,7 @@ targets:
     type: app-extension
     platform: iOS
     sources:
-      - path: Widget/QuotestreakWidget.swift
+      - path: Widget/CodaWidget.swift
       - path: Quotable/Quote.swift
       - path: Quotable/Daily.swift
       - path: Quotable/Theme.swift
@@ -62,7 +62,7 @@ targets:
     info:
       path: Widget/Info-iOS.plist
       properties:
-        CFBundleDisplayName: Quotestreak
+        CFBundleDisplayName: Coda
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
     settings:
@@ -89,7 +89,7 @@ targets:
     info:
       path: Messages/Info.plist
       properties:
-        CFBundleDisplayName: Quotestreak
+        CFBundleDisplayName: Coda
         NSExtension:
           NSExtensionPointIdentifier: com.apple.message-payload-provider
           NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).MessagesViewController

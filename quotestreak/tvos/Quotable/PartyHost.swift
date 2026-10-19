@@ -2,7 +2,7 @@ import Foundation
 import Observation
 
 /// The big-screen side of a party game (v34). The TV opens a party room (duel/worker.js, Party),
-/// shows a code, and phones join it from quotestreak.jaybulb.com/buzz. The TV deals ten quotes, sends
+/// shows a code, and phones join it from coda.jaybulb.com/buzz. The TV deals ten quotes, sends
 /// each question's options to the phones, collects their buzzes and keeps score: a right answer is
 /// worth 10, and the fastest right answer 5 more.
 @MainActor @Observable final class PartyHost {
@@ -33,13 +33,13 @@ import Observation
     private var askedAt = Date()
     private var socket: URLSessionWebSocketTask?
 
-    var joinURL: URL { URL(string: "https://quotestreak.jaybulb.com/buzz?room=\(code)")! }
+    var joinURL: URL { URL(string: "https://coda.jaybulb.com/buzz?room=\(code)")! }
     var standings: [Player] { players.sorted { $0.score > $1.score } }
 
     init(bank: [Quote]) { self.bank = bank }
 
     func connect() {
-        socket = URLSession.shared.webSocketTask(with: URL(string: "wss://quotestreak.jaybulb.com/duel/party?room=\(code)&role=host")!)
+        socket = URLSession.shared.webSocketTask(with: URL(string: "wss://coda.jaybulb.com/duel/party?room=\(code)&role=host")!)
         socket?.resume()
         connected = true
         receive()

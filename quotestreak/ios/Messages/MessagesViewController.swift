@@ -1,7 +1,7 @@
 import Messages
 import SwiftUI
 
-/// Quotestreak in iMessage (v49): play five lines in the conversation and send your score as a
+/// Coda in iMessage (v49): play five lines in the conversation and send your score as a
 /// challenge bubble; tapping a friend's bubble plays the same five and answers with yours. The bubble's
 /// link is the web's challenge link, so it also opens in any browser.
 final class MessagesViewController: MSMessagesAppViewController {
@@ -55,7 +55,7 @@ final class MessagesViewController: MSMessagesAppViewController {
     func sendScore() {
         let qids = playedIds
         let layout = MSMessageTemplateLayout()
-        layout.caption = "Quotestreak: \(game.score) on \(qids.count) lines"
+        layout.caption = "Coda: \(game.score) on \(qids.count) lines"
         layout.subcaption = challenge.map { ChallengeLink.verdict(mine: game.score, theirs: $0.score, name: "them") } ?? "Can you beat it?"
         let message = MSMessage(session: MSSession())
         message.layout = layout

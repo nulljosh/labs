@@ -62,7 +62,7 @@ final class Account {
         // Access tokens last an hour; refresh once and retry before giving up.
         if code == 401, authed, await refresh() { return try await call(method, path, body, authed: true) }
         guard code < 300 else {
-            throw NSError(domain: "Quotestreak", code: code, userInfo: [NSLocalizedDescriptionKey: (try? JSONDecoder().decode(Failure.self, from: data))?.error ?? "Something went wrong"])
+            throw NSError(domain: "Coda", code: code, userInfo: [NSLocalizedDescriptionKey: (try? JSONDecoder().decode(Failure.self, from: data))?.error ?? "Something went wrong"])
         }
         return data
     }
@@ -100,14 +100,14 @@ final class Account {
 
     func signUp(email: String, password: String, name: String) async {
         await run {
-            _ = try await self.call("POST", "/auth/signup", ["email": email, "password": password, "data": ["name": String(name.prefix(24))], "redirect_to": "https://quotestreak.jaybulb.com/play"])
+            _ = try await self.call("POST", "/auth/signup", ["email": email, "password": password, "data": ["name": String(name.prefix(24))], "redirect_to": "https://coda.jaybulb.com/play"])
             self.notice = "Check your email to confirm your account, then sign in."
         }
     }
 
     func recover(email: String) async {
         await run {
-            _ = try await self.call("POST", "/auth/recover", ["email": email, "redirect_to": "https://quotestreak.jaybulb.com/play"])
+            _ = try await self.call("POST", "/auth/recover", ["email": email, "redirect_to": "https://coda.jaybulb.com/play"])
             self.notice = "If that email has an account, a reset link is on its way."
         }
     }

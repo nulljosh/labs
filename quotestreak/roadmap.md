@@ -1,4 +1,4 @@
-# Quotestreak Roadmap
+# Coda Roadmap
 
 - [ ] Verify iPad layout visually on simulator -- 2026-09-02. `TARGETED_DEVICE_FAMILY = "1,2"`
   already set; iOS `ContentView` uses `NavigationStack` with flexible frames throughout
@@ -123,7 +123,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v97 Hall of fame.** Built, then removed on 2026-10-19: it needs a crowd the game does not have yet.
 - [ ] **v98 Certified access.** A full outside accessibility audit. *Waiting on an outside auditor. The internal WCAG 2.2 pass is done and its fixes are live (docs/ACCESSIBILITY.md).*
 - [x] **v99 The book.** Whitepaper two and a public roadmap page.
-- [x] **v100 Quotestreak 100.** Ten thousand verified quotes and Quip's birthday.
+- [x] **v100 Coda 100.** Ten thousand verified quotes and Quip's birthday.
 
 ## TODO, next time you are at a real Mac
 

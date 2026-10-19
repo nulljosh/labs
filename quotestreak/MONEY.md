@@ -1,6 +1,6 @@
-# Quotestreak Money
+# Coda Money
 
-How Quotestreak makes money. The fleet-wide ledger is `GTM.md` in the Code root.
+How Coda makes money. The fleet-wide ledger is `GTM.md` in the Code root.
 
 ## Price
 
@@ -22,6 +22,6 @@ Do not build it until the game shows 1,000 monthly players. Ads at zero users ea
 
 Not applicable yet.
 
-Anyone who got Quotestreak while it was free keeps it free. Only new customers pay.
+Anyone who got Coda while it was free keeps it free. Only new customers pay.
 
 *ASC 6804394619. Set 2026-09-20.*

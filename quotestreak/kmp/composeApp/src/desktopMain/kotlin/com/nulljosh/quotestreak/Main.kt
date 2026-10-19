@@ -8,9 +8,9 @@ import androidx.compose.ui.window.rememberWindowState
 fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
-        title = "Quotestreak",
+        title = "Coda",
         state = rememberWindowState(width = 1040.dp, height = 720.dp),
     ) {
-        QuotestreakTheme { AppScreen() }
+        CodaTheme { AppScreen() }
     }
 }

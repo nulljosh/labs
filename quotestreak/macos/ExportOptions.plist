@@ -13,7 +13,7 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>com.heyitsmejosh.quotable</key>
-		<string>Quotestreak Mac AppStore</string>
+		<string>Coda Mac AppStore</string>
 	</dict>
 	<key>destination</key>
 	<string>upload</string>

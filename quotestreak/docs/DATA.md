@@ -1,8 +1,8 @@
-# Quotestreak open data
+# Coda open data
 
 The parts of the quote bank we are allowed to pass on, rebuilt from `quotes.json` on every deploy by `scripts/build-data.mjs`.
 
-- `https://quotestreak.jaybulb.com/data/index.json` says what is there and how many.
+- `https://coda.jaybulb.com/data/index.json` says what is there and how many.
 - `/data/lines.json` has 1,572 lines with their title, type, year, character and source page. Lines from Wikiquote are CC BY-SA 4.0: credit the page in `source` and share alike. First lines of books come from Project Gutenberg and are public domain.
 - `/data/titles.json` has one row per film, show, game, song and book: year, genre, director, actors, rating, seasons and albums, with how many lines each has. These are facts, mostly from Wikidata, and are CC0.
 

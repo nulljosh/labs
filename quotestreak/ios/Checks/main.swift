@@ -106,9 +106,9 @@ check(mac.pool.count == min(199, phone.pool.count), "handoff kept the rest of th
 // iMessage challenges speak the web's challenge link both ways.
 let link = ChallengeLink(qids: ["0a1b2c3d", "deadbeef"], score: 30, name: "Ann Lee")
 check(ChallengeLink(url: link.url) == link, "challenge link round trip")
-let fromWeb = ChallengeLink(url: URL(string: "https://quotestreak.jaybulb.com/play?c=0a1b2c3d.nothex!.deadbeef&s=20&n=Your+friend")!)
+let fromWeb = ChallengeLink(url: URL(string: "https://coda.jaybulb.com/play?c=0a1b2c3d.nothex!.deadbeef&s=20&n=Your+friend")!)
 check(fromWeb?.qids == ["0a1b2c3d", "deadbeef"] && fromWeb?.score == 20 && fromWeb?.name == "Your friend", "web challenge link decoded")
-check(ChallengeLink(url: URL(string: "https://quotestreak.jaybulb.com/play")!) == nil, "a plain play link is no challenge")
+check(ChallengeLink(url: URL(string: "https://coda.jaybulb.com/play")!) == nil, "a plain play link is no challenge")
 
 // The Daily Quote matches daily.js day for day (the widget and the web show the same line).
 struct Expected: Decodable { let day: Int; let quote: String; let options: [String] }

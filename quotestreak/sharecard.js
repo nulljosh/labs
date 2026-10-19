@@ -6,7 +6,7 @@
   const bestRun = (run) => run.reduce(([best, cur], r) => (cur = r.pts > 0 ? cur + 1 : 0, [Math.max(best, cur), cur]), [0, 0])[0];
   const pose = ({ score, high, run }) => score > 0 && score >= high ? 'cheer' : bestRun(run) >= 5 ? 'streak' : score > 0 ? 'idle' : 'oops';
   const caption = ({ score, high, run, speed }) => [
-    speed ? 'Speed round' : 'Quotestreak',
+    speed ? 'Speed round' : 'Coda',
     `${run.filter(r => r.pts > 0).length} of ${run.length} right · best run ${bestRun(run)}`,
     score > 0 && score >= high ? 'New high score' : `High score ${high}`,
   ];
@@ -35,7 +35,7 @@
     x.fillText(high, SIZE / 2, 960);
     x.fillStyle = '#ffcc00';
     x.font = font(600, 36);
-    x.fillText('quotestreak.jaybulb.com', SIZE / 2, 1040);
+    x.fillText('coda.jaybulb.com', SIZE / 2, 1040);
     return new Promise(res => c.toBlob(res, 'image/png'));
   }
   const api = { bestRun, pose, caption, draw, SIZE };

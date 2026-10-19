@@ -1,4 +1,4 @@
-# Quotestreak security and privacy audit (v93, 2026-10-19)
+# Coda security and privacy audit (v93, 2026-10-19)
 
 A pass over the web game, its Pages Functions and the jaybulb-api routes it uses. What was checked, what changed, what is left.
 

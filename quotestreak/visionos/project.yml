@@ -34,7 +34,7 @@ targets:
       - path: Quotable
       - path: ../ios/Quotable/Resources
         buildPhase: resources
-      - path: ../Quotestreak.icon
+      - path: ../Coda.icon
       - path: ../brand/Quip.xcassets
         buildPhase: resources
       - path: ../fonts
@@ -43,7 +43,7 @@ targets:
     info:
       path: Quotable/Info.plist
       properties:
-        CFBundleDisplayName: Quotestreak
+        CFBundleDisplayName: Coda
         LSApplicationCategoryType: public.app-category.trivia-games
         ITSAppUsesNonExemptEncryption: false
         NSUserActivityTypes: [com.heyitsmejosh.quotable.game]
@@ -52,10 +52,10 @@ targets:
           UIApplicationPreferredDefaultSceneSessionRole: UIWindowSceneSessionRoleApplication
     settings:
       base:
-        PRODUCT_NAME: Quotestreak
+        PRODUCT_NAME: Coda
         # Same bundle id as iOS: Vision Pro joins the universal purchase.
         PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.quotable
-        ASSETCATALOG_COMPILER_APPICON_NAME: Quotestreak
+        ASSETCATALOG_COMPILER_APPICON_NAME: Coda
         DEVELOPMENT_TEAM: QMM486NPYC
         CODE_SIGN_STYLE: Automatic
         CODE_SIGN_ENTITLEMENTS: ../ios/Quotable.entitlements

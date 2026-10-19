@@ -25,7 +25,7 @@ if (process.argv[1]?.endsWith('build-roadmap.mjs')) {
   const out = process.argv[2] || new URL('../dist/roadmap.html', import.meta.url).pathname;
   const { html, done, total } = render(md);
   fs.writeFileSync(out, `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quotestreak roadmap</title><meta name="description" content="The road to Quotestreak 100: ${done} of ${total} milestones shipped.">
+<title>Coda roadmap</title><meta name="description" content="The road to Coda 100: ${done} of ${total} milestones shipped.">
 <link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/brand/jaybulb-tokens.css"><link rel="stylesheet" href="/brand/tokens.css">
 <style>
 :root{--ink:#15161a;--bg:#fff;--muted:#6e6e73;--line:#e5e5ea}
@@ -41,7 +41,7 @@ li.done::before{background:#ffcc00;box-shadow:inset 0 0 0 2px #ffcc00}
 small{display:block;font-size:.85rem;margin-top:4px}
 a{color:var(--ink)}
 </style></head><body><main>
-<p><a href="/">Quotestreak</a></p>
+<p><a href="/">Coda</a></p>
 <h1>The road to 100</h1>
 <p class="meter">${done} of ${total} milestones shipped. A filled dot is live; an empty one is next.</p>
 ${html}

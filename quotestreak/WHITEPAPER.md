@@ -1,8 +1,8 @@
-# Quotestreak Technical Whitepaper
+# Coda Technical Whitepaper
 
 **v100.0.0** | October 2026
 
-Here's the line. Name where it came from. Quotestreak is a guessing game for lines from films, TV, games, songs and books. It is a static site on Cloudflare Pages and a native SwiftUI app on iPhone, iPad, Mac, Apple Watch, Apple TV and Vision Pro. Two small Workers sit behind it: one runs live rooms, one holds accounts and scores. This is the second edition, written at v99.
+Here's the line. Name where it came from. Coda is a guessing game for lines from films, TV, games, songs and books. It is a static site on Cloudflare Pages and a native SwiftUI app on iPhone, iPad, Mac, Apple Watch, Apple TV and Vision Pro. Two small Workers sit behind it: one runs live rooms, one holds accounts and scores. This is the second edition, written at v99.
 
 ## The bank
 

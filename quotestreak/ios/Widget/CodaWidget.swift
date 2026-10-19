@@ -67,7 +67,7 @@ struct DailyView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                 }
             } else {
-                Text("Open Quotestreak for today's line.").font(.quip(.footnote))
+                Text("Open Coda for today's line.").font(.quip(.footnote))
             }
         }
         .containerBackground(for: .widget) { Theme.canvas }
@@ -75,16 +75,16 @@ struct DailyView: View {
 }
 
 @main
-struct QuotestreakWidgets: WidgetBundle {
+struct CodaWidgets: WidgetBundle {
     var body: some Widget {
-        QuotestreakWidget()
+        CodaWidget()
         #if os(iOS)
         DuelLiveActivity()
         #endif
     }
 }
 
-struct QuotestreakWidget: Widget {
+struct CodaWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "DailyQuote", provider: DailyProvider()) { DailyView(entry: $0) }
             .configurationDisplayName("Daily Quote")

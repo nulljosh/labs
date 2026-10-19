@@ -2,7 +2,7 @@ import Foundation
 
 /// Mirrors game state into the shared App Group container
 /// (`group.com.heyitsmejosh.quotable`) so the watchOS companion can show a
-/// summary without its own network layer — Quotestreak has no backend (see
+/// summary without its own network layer — Coda has no backend (see
 /// root CLAUDE.md). Called from `Game.swift` whenever score, streak, or
 /// phase change.
 enum SharedStore {

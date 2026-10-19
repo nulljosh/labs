@@ -1,11 +1,11 @@
 import Foundation
 
 /// Mirrors the keys `SharedStore.swift` writes into the shared App Group
-/// container on the iPhone (`group.com.heyitsmejosh.quotable`). Quotestreak
+/// container on the iPhone (`group.com.heyitsmejosh.quotable`). Coda
 /// has no backend — see root CLAUDE.md ("Static site, no build step, no
 /// backend") — so this struct describes the on-device sync payload, not a
 /// server response.
-struct QuotestreakSummary: Equatable {
+struct CodaSummary: Equatable {
     var score: Int
     var streak: Int
     var highScore: Int
@@ -13,7 +13,7 @@ struct QuotestreakSummary: Equatable {
     var phase: String
     var updatedAt: Date?
 
-    static let empty = QuotestreakSummary(score: 0, streak: 0, highScore: 0, phase: "menu", updatedAt: nil)
+    static let empty = CodaSummary(score: 0, streak: 0, highScore: 0, phase: "menu", updatedAt: nil)
 
     var hasSynced: Bool { updatedAt != nil }
 

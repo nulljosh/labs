@@ -1,4 +1,4 @@
-/* Quotestreak design system. Marquee yellow is the only colour this app owns; green and red stay reserved
+/* Coda design system. Marquee yellow is the only colour this app owns; green and red stay reserved
    for right and wrong. The ground is white on light and night ink on dark, Apple-plain: this file overrides the
    shared jaybulb tokens' cream paper (2026-10-18, Joshua: "make it white again"). Spacing and radii still come
    from the shared jaybulb tokens.css, which every page loads first. */
