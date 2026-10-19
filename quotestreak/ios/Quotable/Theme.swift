@@ -72,13 +72,14 @@ enum Theme {
         case "tvdrama": return (Color(hex: "1d3557"), .white)
         case "cartoon": return (Color(hex: "f4a261"), .black)
         case "game":    return (Color(hex: "577590"), .white)
+        case "book":    return (Color(hex: "6d4c41"), .white)
         default:        return (accent, onAccent)
         }
     }
 
     /// Badge and menu text for a genre key, mirroring LABELS in game.js.
     static func label(for genre: String) -> String {
-        ["scifi": "Sci-fi", "hiphop": "Hip-hop", "rnb": "R&B", "tvdrama": "TV drama", "game": "Games"][genre] ?? genre.capitalized
+        ["scifi": "Sci-fi", "hiphop": "Hip-hop", "rnb": "R&B", "tvdrama": "TV drama", "game": "Games", "book": "First lines"][genre] ?? genre.capitalized
     }
 }
 

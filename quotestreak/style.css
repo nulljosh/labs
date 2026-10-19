@@ -19,6 +19,7 @@
   --g-tvdrama: #1d3557; --g-tvdrama-text: #fff;
   --g-cartoon: #f4a261; --g-cartoon-text: #111;
   --g-game: #577590; --g-game-text: #fff;
+  --g-book: #6d4c41; --g-book-text: #fff;
 }
 * { box-sizing: border-box; }
 html, body { height: 100%; }

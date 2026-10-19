@@ -8,8 +8,8 @@ const quotes = require('./quotes.json');
 
 // Kept in sync by hand with the GENRES map in game.js. An unlisted genre falls back to a
 // grey badge rather than failing, so nothing else would catch a typo here.
-const GENRES = ['action', 'comedy', 'drama', 'scifi', 'classic', 'pop', 'rock', 'hiphop', 'rnb', 'country', 'sitcom', 'tvdrama', 'cartoon', 'game'];
-const TYPES = ['movie', 'music', 'tv', 'game'];
+const GENRES = ['action', 'comedy', 'drama', 'scifi', 'classic', 'pop', 'rock', 'hiphop', 'rnb', 'country', 'sitcom', 'tvdrama', 'cartoon', 'game', 'book'];
+const TYPES = ['movie', 'music', 'tv', 'game', 'book'];
 
 test('the deck is non-empty', () => {
   assert.ok(Array.isArray(quotes));
