@@ -24,7 +24,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v14 Weekly cup.** A bracket tournament every week.
 - [x] **v15 Clubs.** Teams with a shared score and a club board.
 - [x] **v16 Badges.** Fifty achievements drawn in Quip's style.
-- [ ] **v17 Stats.** Accuracy by genre and decade, best streaks, a history graph.
+- [x] **v17 Stats.** Accuracy by genre and decade, best streaks, a history graph.
 - [ ] **v18 Share cards.** A generated image per game with the right Quip pose.
 - [ ] **v19 Spectate.** Watch a live duel.
 - [ ] **v20 Seasons.** A ranked ladder each quarter with cosmetic Quip rewards.

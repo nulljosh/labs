@@ -1,0 +1,15 @@
+const assert = require('assert');
+const { empty, record, rows, graph, KEEP } = require('./stats');
+const s = empty();
+record(s, 'answer', { q: { genre: 'action', year: 1994 }, correct: true });
+record(s, 'answer', { q: { genre: 'action', year: 1999 }, correct: false });
+record(s, 'answer', { q: { genre: 'book' }, correct: true });
+assert.deepEqual(rows(s.genres), [{ key: 'action', right: 1, seen: 2, pct: 50 }, { key: 'book', right: 1, seen: 1, pct: 100 }]);
+assert.deepEqual(s.decades, { 1990: [1, 2] }, 'no year means no decade');
+assert.equal(graph(s.history, 100, 40), '');
+for (let i = 0; i < KEEP + 5; i++) record(s, 'game', { score: i });
+assert.equal(s.history.length, KEEP);
+assert.equal(s.history[0].score, 5);
+const pts = graph([{ score: 0 }, { score: 10 }], 100, 40);
+assert.equal(pts, '0,40 100,0');
+console.log('stats ok');
