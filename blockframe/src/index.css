@@ -1,0 +1,94 @@
+@import './tokens.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Everything below maps this app's older variable names onto the shared
+   Jaybulb tokens. Nothing here may re-declare a colour the design system
+   already owns — that shadowing is what made the app stop matching the
+   other projects. Add a mapping, never a new palette. */
+:root {
+  /* ponytail: --font/--font-mono are aliases, not new fonts. The app used
+     var(--font) in 7 places and no stylesheet ever defined it, so those
+     elements silently rendered in the browser default (serif). */
+  --font: var(--font-body);
+  --font-mono: var(--font-code);
+
+  --surface: var(--color-bg2);
+  --surface2: var(--color-hairline);
+  --border2: var(--color-hairline);
+  --muted: var(--color-secondary);
+  --subtle: var(--color-soft);
+  --accent-dim: var(--bulb-deep);
+  --accent-muted: rgba(217, 119, 87, 0.14);
+}
+
+/* ponytail: Blockframe-only override of the shared Jaybulb tokens. This app tracks
+   its own iOS app (warm paper + terracotta), not the estate's yellow-on-white --
+   the deliberate exception to the "never shadow the design system" rule above.
+   Canonical --color-* names only: tokens.css defines --bg/--text/--accent by
+   reference, so every alias follows for free. */
+:root {
+  --color-bg:        #FAF9F5;
+  --color-bg2:       #F0EEE6;   /* canvas ground; read at draw time by Canvas.jsx */
+  --color-text:      #191919;
+  --color-secondary: rgba(25, 25, 25, 0.55);
+  --color-soft:      rgba(25, 25, 25, 0.70);
+  --color-hairline:  #E3DFD4;
+  --color-code-bg:   #F0EEE6;
+  --bulb:            #D97757;   /* drives --accent + --accent-dot */
+  --bulb-deep:       #B45F42;   /* hover / active */
+
+  --radius:    10px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --rule: 1px solid var(--color-hairline);
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border2);
+  border-radius: var(--radius-sm);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-soft);
+}
+
+/* Dark: the same warm palette with ink and paper swapped. Without this, the
+   theme toggle falls back to Jaybulb's dark block and the yellow returns. */
+:root[data-theme="dark"] {
+  --color-bg:        #1F1E1D;
+  --color-bg2:       #262624;
+  --color-text:      #F5F4EF;
+  --color-secondary: rgba(245, 244, 239, 0.55);
+  --color-soft:      rgba(245, 244, 239, 0.72);
+  --color-hairline:  rgba(245, 244, 239, 0.14);
+  --color-code-bg:   #262624;
+  --bulb:            #E08A6B;
+  --bulb-deep:       #C96A4A;
+}
