@@ -26,7 +26,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **patois** (ex-tonchi, ex-lexly). Folder is `tonchi` | Gamified learning, 165 courses · 6783501611 (6783501927 is a stray dupe) |
 | **intake** (ex-healstack) | Health/supplement tracker. Store name and Pages project still `healstack` |
 | **thinkpond** (ex-hikko, ex-sparkjar). Folder is `hikko` | Idea forum. Pages project still `sparkjar` · 6785162492 |
-| **mailbag** (ex-hagaki, siftbox, pare, sieve) | Inbox zero in one button. Store listing and API host still say Hagaki · 6811141466 |
+| **mailbag** (ex-hagaki, siftbox, pare, sieve) | Inbox zero in one button. Store listing renamed Mailbag and resubmitted 2026-10-18; Google callback still on hagaki.jaybulb.com · 6811141466 |
 | **bookrank** | Book summaries, listen feature |
 | **curvely** | Equation grapher · 6794988370 |
 | **blockprint** (ex-blockframe, ex-wiretext). Own repo, not in labs | Sketch a screen in plain text. Domain, Pages project and bundle ID still `wiretext` · 6794988951 |
