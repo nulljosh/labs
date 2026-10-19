@@ -19,7 +19,9 @@ const ENDPOINTS = {
   'GET /api/genres': 'Genres and media types, with counts.',
   'GET /api/random?genre=&type=': 'One random quote with its options and answer.',
   'GET /api/search?q=&limit=&genre=&type=': 'Quotes matching a query.',
-  'POST /mcp': 'Model Context Protocol, JSON-RPC. Same three tools.',
+  'GET /api/daily?reveal=': "Today's Daily Quote; the answer only with reveal=true.",
+  'GET /api/quotes?offset=&limit=&genre=&type=': 'The whole bank, a page at a time.',
+  'POST /mcp': 'Model Context Protocol, JSON-RPC. The same tools.',
 };
 
 export async function onRequest({ request }) {
@@ -29,9 +31,9 @@ export async function onRequest({ request }) {
   const url = new URL(request.url);
   const path = url.pathname.replace(/\/+$/, '');
   const p = url.searchParams;
-  const args = { genre: p.get('genre'), type: p.get('type'), q: p.get('q'), limit: p.get('limit') };
+  const args = { genre: p.get('genre'), type: p.get('type'), q: p.get('q'), limit: p.get('limit'), offset: p.get('offset'), reveal: p.get('reveal') };
 
-  const routes = { '/api/genres': 'list_genres', '/api/random': 'random_quote', '/api/search': 'search_quotes' };
+  const routes = { '/api/genres': 'list_genres', '/api/random': 'random_quote', '/api/search': 'search_quotes', '/api/daily': 'daily_quote', '/api/quotes': 'list_quotes' };
   const tool = routes[path];
   if (!tool) {
     if (path === '/api') return json({ endpoints: ENDPOINTS, tools: TOOL_NAMES });
@@ -40,7 +42,9 @@ export async function onRequest({ request }) {
 
   try {
     // A random pick must not be cached, or every caller in an hour gets the same quote.
-    return json(callTool(tool, args), 200, tool === 'random_quote' ? 'no-store' : undefined);
+    // The daily changes at midnight UTC, so it is cached only until then.
+    const out = callTool(tool, args);
+    return json(out, 200, tool === 'random_quote' ? 'no-store' : tool === 'daily_quote' ? `public, max-age=${Math.min(3600, out.next_in_seconds)}` : undefined);
   } catch (err) {
     if (err instanceof ToolError) return json({ error: err.message, tool }, 400);
     throw err;

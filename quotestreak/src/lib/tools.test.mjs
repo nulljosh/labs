@@ -23,3 +23,17 @@ assert.throws(() => callTool('random_quote', { genre: 'action', type: 'book' }),
 assert.equal(callTool('nope'), null);
 
 console.log('tools: ok');
+
+// v79: the API's daily is the game's daily, and it keeps the answer back unless asked.
+import { createRequire } from 'node:module';
+const Daily = createRequire(import.meta.url)('../../daily.js');
+const d = callTool('daily_quote');
+assert.equal(d.quote, Daily.quoteFor(Daily.dayNumber(), quotes).quote);
+assert.equal(d.answer, undefined);
+assert.ok(callTool('daily_quote', { reveal: 'true' }).answer);
+const page = callTool('list_quotes', { offset: 100, limit: 200 });
+assert.equal(page.total, quotes.length);
+assert.equal(page.results[0].quote, quotes[100].quote);
+assert.equal(page.results.length, 200);
+assert.throws(() => callTool('list_quotes', { limit: 500 }), ToolError);
+console.log('tools ok');

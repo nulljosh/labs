@@ -11,8 +11,9 @@
 // file that changes when someone edits the repo.
 
 import quotes from '../../quotes.json' with { type: 'json' };
+import Daily from '../../daily.js';   // the same walk the game uses, so the API's daily is the game's
 
-const MAX_LIMIT = 50;
+const MAX_LIMIT = 50, MAX_PAGE = 200;
 const DEFAULT_LIMIT = 10;
 
 export class ToolError extends Error {}
@@ -28,6 +29,8 @@ const shape = (q) => ({
   genre: q.genre,
   type: q.type,
   art: q.art,
+  character: q.character,
+  source: q.source,
 });
 
 export const GENRES = [...new Set(quotes.map((q) => q.genre))].sort();
@@ -73,6 +76,23 @@ export const TOOLS = [
     inputSchema: { type: 'object', properties: filterProps },
   },
   {
+    name: 'daily_quote',
+    description: "Today's Daily Quote, the same one every player gets (UTC day). The answer is held back unless reveal is true.",
+    inputSchema: { type: 'object', properties: { reveal: { type: 'boolean', description: 'Include the answer. Default false.' } } },
+  },
+  {
+    name: 'list_quotes',
+    description: `The whole bank, a page at a time, in a fixed order. Up to ${MAX_PAGE} per page.`,
+    inputSchema: {
+      type: 'object',
+      properties: {
+        offset: { type: 'integer', description: 'Where to start. Default 0.' },
+        limit: { type: 'integer', description: `Page size, 1-${MAX_PAGE}. Default 100.` },
+        ...filterProps,
+      },
+    },
+  },
+  {
     name: 'search_quotes',
     description: 'Quotes whose text, answer or options match a query.',
     inputSchema: {
@@ -104,6 +124,22 @@ export function callTool(name, args = {}) {
       // entries); saying so beats returning `undefined` and 500ing one line later.
       if (!pool.length) throw new ToolError('No quotes match that combination of filters.');
       return shape(pool[Math.floor(Math.random() * pool.length)]);
+    }
+
+    case 'daily_quote': {
+      const day = Daily.dayNumber();
+      const q = Daily.quoteFor(day, quotes);
+      const { answer, character, source, ...hidden } = shape(q);
+      return { day, next_in_seconds: Math.ceil(Daily.msUntilNext() / 1000), ...(args.reveal === true || args.reveal === 'true' ? shape(q) : hidden) };
+    }
+
+    case 'list_quotes': {
+      const pool = filtered(args);
+      const offset = args.offset === undefined || args.offset === null || args.offset === '' ? 0 : Number(args.offset);
+      const limit = args.limit === undefined || args.limit === null || args.limit === '' ? 100 : Number(args.limit);
+      if (!Number.isInteger(offset) || offset < 0) throw new ToolError('offset must be a whole number, 0 or more');
+      if (!Number.isInteger(limit) || limit < 1 || limit > MAX_PAGE) throw new ToolError(`limit must be a whole number between 1 and ${MAX_PAGE}`);
+      return { total: pool.length, offset, results: pool.slice(offset, offset + limit).map(shape) };
     }
 
     case 'search_quotes': {

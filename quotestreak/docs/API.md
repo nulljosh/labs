@@ -42,13 +42,17 @@ different behaviour. `quotes.json` is imported into the bundle.
 | `/api/genres` | Genres and media types, with counts. |
 | `/api/random?genre=&type=` | One random quote, its options and the answer. |
 | `/api/search?q=&limit=&genre=&type=` | Quotes matching a query, with a `total`. |
+| `/api/daily?reveal=` | Today's Daily Quote (the game's own walk, `daily.js`), with `day` and `next_in_seconds`. The answer, character and source only with `reveal=true`. Cached until midnight UTC at most. |
+| `/api/quotes?offset=&limit=&genre=&type=` | The whole bank in a fixed order, up to 200 per page, with `total`. |
 
 `/api/random` is `no-store`; everything else is cached for an hour. An unknown genre or type
 is a 400 naming the valid values, not a silent empty result.
 
 ### MCP
 
-`POST /mcp`, JSON-RPC, stateless. Tools: `list_genres`, `random_quote`, `search_quotes`.
+`POST /mcp`, JSON-RPC, stateless. Tools: `list_genres`, `random_quote`, `daily_quote`, `list_quotes`, `search_quotes`.
+
+Every quote carries `character` and `source` (the page it was checked against) where the bank has them.
 
 The answer ships with the question on purpose: `quotes.json` is public on the site anyway,
 and withholding it would only stop an agent from checking its own guess.
