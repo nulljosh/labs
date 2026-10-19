@@ -28,6 +28,7 @@
 !blockframe/
 !hamurapi/
 !bcgd/
+!nyc/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
