@@ -99,7 +99,7 @@ Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28 and again on 2026-10-05. R
 - No emojis in any UI. No demo accounts for screenshots. Use the gitignored `.env`.
 
 ## Repo standard (nimble is the reference)
-- `README.md`: `icon.svg` at 80px, H1, version / MIT / GitHub badges, live link, Features.
+- `README.md`: `icon.svg` at 80px, version / MIT badges (tests too where CI runs), live link, Features. No H1, no banner image, no GitHub badge (Joshua, 2026-10-16; nimble is the model).
 - `LICENSE` (MIT 2026 Joshua Trommel), `SECURITY.md`, `CLAUDE.md`, `WHITEPAPER.md`, `architecture.svg`, `icon.svg`. `AGENTS.md` is a symlink to `CLAUDE.md`.
 - `WHITEPAPER.md`: H1 `<Name> Technical Whitepaper`, `**vX** | Month Year`, one-paragraph summary, core mechanic first, MIT footer, about 40 to 60 lines. Write it before the first push.
 - `.github/workflows/test.yml` where tests exist. GitHub description, homepage, topics set.
