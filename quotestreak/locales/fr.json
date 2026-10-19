@@ -511,5 +511,14 @@
  "Take the challenge": "Relever le défi",
  "Not quite. It was {x}.": "Presque. C’était {x}.",
  "Play more on Quotestreak": "Jouer davantage sur Quotestreak",
- "Quotestreak · Daily Quote #{n}": "Quotestreak · Citation du jour nº {n}"
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · Citation du jour nº {n}",
+ "Your email": "Votre e-mail",
+ "Email me the daily quote": "M’envoyer la citation du jour",
+ "One email a day. Unsubscribe in one tap.": "Un e-mail par jour. Désinscription en un geste.",
+ "Could not reach the server. Try again in a minute.": "Serveur injoignable. Réessayez dans une minute.",
+ "You already get the daily quote.": "Vous recevez déjà la citation du jour.",
+ "Check your inbox for a confirm link.": "Un lien de confirmation vous attend dans votre boîte mail.",
+ "Too many tries. Wait a minute.": "Trop d’essais. Patientez une minute.",
+ "that email doesn't look right": "cette adresse semble incorrecte",
+ "That didn’t work.": "Ça n’a pas marché."
 }

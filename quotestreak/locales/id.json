@@ -503,5 +503,14 @@
  "Take the challenge": "Terima tantangan",
  "Not quite. It was {x}.": "Belum tepat. Jawabannya {x}.",
  "Play more on Quotestreak": "Main lagi di Quotestreak",
- "Quotestreak · Daily Quote #{n}": "Quotestreak · Kutipan Harian #{n}"
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · Kutipan Harian #{n}",
+ "Your email": "Email kamu",
+ "Email me the daily quote": "Kirimi aku kutipan harian",
+ "One email a day. Unsubscribe in one tap.": "Satu email sehari. Berhenti dengan sekali ketuk.",
+ "Could not reach the server. Try again in a minute.": "Server tidak terjangkau. Coba lagi semenit lagi.",
+ "You already get the daily quote.": "Kamu sudah menerima kutipan harian.",
+ "Check your inbox for a confirm link.": "Cek kotak masukmu untuk tautan konfirmasi.",
+ "Too many tries. Wait a minute.": "Terlalu banyak percobaan. Tunggu semenit.",
+ "that email doesn't look right": "email itu sepertinya salah",
+ "That didn’t work.": "Tidak berhasil."
 }

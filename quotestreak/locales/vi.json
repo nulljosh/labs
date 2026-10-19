@@ -503,5 +503,14 @@
  "Take the challenge": "Nhận thử thách",
  "Not quite. It was {x}.": "Chưa đúng. Đáp án là {x}.",
  "Play more on Quotestreak": "Chơi thêm trên Quotestreak",
- "Quotestreak · Daily Quote #{n}": "Quotestreak · Câu nói hôm nay #{n}"
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · Câu nói hôm nay #{n}",
+ "Your email": "Email của bạn",
+ "Email me the daily quote": "Gửi tôi câu nói hôm nay qua email",
+ "One email a day. Unsubscribe in one tap.": "Mỗi ngày một email. Hủy đăng ký chỉ với một chạm.",
+ "Could not reach the server. Try again in a minute.": "Không kết nối được máy chủ. Thử lại sau một phút.",
+ "You already get the daily quote.": "Bạn đã nhận câu nói hôm nay rồi.",
+ "Check your inbox for a confirm link.": "Kiểm tra hộp thư để lấy liên kết xác nhận.",
+ "Too many tries. Wait a minute.": "Thử quá nhiều lần. Chờ một phút.",
+ "that email doesn't look right": "email đó có vẻ không đúng",
+ "That didn’t work.": "Không thành công."
 }

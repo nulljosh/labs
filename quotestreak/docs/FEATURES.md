@@ -49,3 +49,6 @@ The brand kit page has a Press section: a fact paragraph, a 15-second gameplay v
 
 ## Embed (v85)
 `/embed` is today's Daily Quote as an iframe card (`functions/embed.js`), playable in place, cached until midnight UTC, `frame-ancestors *`. The snippet is in `docs/API.md` and on the brand page's Press section.
+
+## Daily quote by email (v86)
+The Daily result screen has an opt-in form (`newsletter.js`). jaybulb-api (`src/qs-newsletter.js`) stores the address as pending and mails a confirm link; the link opens a page with a button and only that POST turns mail on, so link scanners can't sign anyone up. Links are HMACs of the address; nothing secret is stored. One confirm mail per address per hour, and the subscribe call shares the per-IP auth limiter. The send rides the daily jobs call that atlin's GitHub Actions makes at 16:00 UTC (the Cloudflare account is out of free cron triggers): if that workflow stops, so does the mail. At most 90 a day (Resend's free tier); move to a Resend broadcast past a few hundred. `test/qs-newsletter.mjs` in jaybulb-api checks the whole flow against `wrangler dev`. Still owed: one real signup to see the mail land.

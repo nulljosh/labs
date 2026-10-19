@@ -503,5 +503,14 @@
  "Take the challenge": "도전하기",
  "Not quite. It was {x}.": "아쉬워요. 정답은 {x}예요.",
  "Play more on Quotestreak": "Quotestreak에서 더 플레이하기",
- "Quotestreak · Daily Quote #{n}": "Quotestreak · 오늘의 대사 #{n}"
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · 오늘의 대사 #{n}",
+ "Your email": "이메일",
+ "Email me the daily quote": "오늘의 대사를 이메일로 받기",
+ "One email a day. Unsubscribe in one tap.": "하루 한 통. 한 번 탭으로 구독 취소.",
+ "Could not reach the server. Try again in a minute.": "서버에 연결할 수 없어요. 1분 뒤 다시 시도하세요.",
+ "You already get the daily quote.": "이미 오늘의 대사를 받고 있어요.",
+ "Check your inbox for a confirm link.": "받은편지함에서 확인 링크를 확인하세요.",
+ "Too many tries. Wait a minute.": "시도가 너무 많아요. 1분 기다리세요.",
+ "that email doesn't look right": "이메일 주소가 올바르지 않아 보여요",
+ "That didn’t work.": "실패했어요."
 }

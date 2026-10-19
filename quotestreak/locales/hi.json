@@ -503,5 +503,14 @@
  "Take the challenge": "चुनौती स्वीकारें",
  "Not quite. It was {x}.": "लगभग। यह {x} था।",
  "Play more on Quotestreak": "Quotestreak पर और खेलें",
- "Quotestreak · Daily Quote #{n}": "Quotestreak · आज का उद्धरण #{n}"
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · आज का उद्धरण #{n}",
+ "Your email": "आपका ईमेल",
+ "Email me the daily quote": "मुझे रोज़ का उद्धरण ईमेल करें",
+ "One email a day. Unsubscribe in one tap.": "दिन में एक ईमेल। एक टैप में सदस्यता छोड़ें।",
+ "Could not reach the server. Try again in a minute.": "सर्वर से संपर्क नहीं हुआ। एक मिनट में फिर कोशिश करें।",
+ "You already get the daily quote.": "आपको रोज़ का उद्धरण पहले से मिल रहा है।",
+ "Check your inbox for a confirm link.": "पुष्टि लिंक के लिए अपना इनबॉक्स देखें।",
+ "Too many tries. Wait a minute.": "बहुत ज़्यादा कोशिशें। एक मिनट रुकें।",
+ "that email doesn't look right": "यह ईमेल सही नहीं लगता",
+ "That didn’t work.": "यह नहीं हुआ।"
 }

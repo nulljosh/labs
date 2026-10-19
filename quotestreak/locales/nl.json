@@ -503,5 +503,14 @@
  "Take the challenge": "Ga de uitdaging aan",
  "Not quite. It was {x}.": "Net niet. Het was {x}.",
  "Play more on Quotestreak": "Speel meer op Quotestreak",
- "Quotestreak · Daily Quote #{n}": "Quotestreak · Citaat van de dag #{n}"
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · Citaat van de dag #{n}",
+ "Your email": "Je e-mail",
+ "Email me the daily quote": "Mail me het citaat van de dag",
+ "One email a day. Unsubscribe in one tap.": "Eén e-mail per dag. Afmelden met één tik.",
+ "Could not reach the server. Try again in a minute.": "De server is niet bereikbaar. Probeer het over een minuut opnieuw.",
+ "You already get the daily quote.": "Je krijgt het citaat van de dag al.",
+ "Check your inbox for a confirm link.": "Kijk in je inbox voor een bevestigingslink.",
+ "Too many tries. Wait a minute.": "Te veel pogingen. Wacht een minuut.",
+ "that email doesn't look right": "dat e-mailadres klopt niet",
+ "That didn’t work.": "Dat lukte niet."
 }

@@ -503,5 +503,14 @@
  "Take the challenge": "挑戦する",
  "Not quite. It was {x}.": "惜しい。正解は{x}。",
  "Play more on Quotestreak": "Quotestreakでもっと遊ぶ",
- "Quotestreak · Daily Quote #{n}": "Quotestreak · 今日の一言 #{n}"
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · 今日の一言 #{n}",
+ "Your email": "メールアドレス",
+ "Email me the daily quote": "今日の一言をメールで受け取る",
+ "One email a day. Unsubscribe in one tap.": "1日1通。ワンタップで配信停止。",
+ "Could not reach the server. Try again in a minute.": "サーバーに接続できません。1分後にもう一度。",
+ "You already get the daily quote.": "すでに今日の一言を受け取っています。",
+ "Check your inbox for a confirm link.": "確認リンクをメールで送りました。",
+ "Too many tries. Wait a minute.": "試行回数が多すぎます。1分待ってください。",
+ "that email doesn't look right": "メールアドレスが正しくないようです",
+ "That didn’t work.": "うまくいきませんでした。"
 }

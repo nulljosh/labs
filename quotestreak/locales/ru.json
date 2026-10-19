@@ -503,5 +503,14 @@
  "Take the challenge": "Принять вызов",
  "Not quite. It was {x}.": "Почти. Это было {x}.",
  "Play more on Quotestreak": "Играть дальше в Quotestreak",
- "Quotestreak · Daily Quote #{n}": "Quotestreak · Цитата дня № {n}"
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · Цитата дня № {n}",
+ "Your email": "Ваш e-mail",
+ "Email me the daily quote": "Присылать цитату дня",
+ "One email a day. Unsubscribe in one tap.": "Одно письмо в день. Отписка в одно касание.",
+ "Could not reach the server. Try again in a minute.": "Сервер недоступен. Попробуйте через минуту.",
+ "You already get the daily quote.": "Вы уже получаете цитату дня.",
+ "Check your inbox for a confirm link.": "Проверьте почту: там ссылка для подтверждения.",
+ "Too many tries. Wait a minute.": "Слишком много попыток. Подождите минуту.",
+ "that email doesn't look right": "адрес выглядит неверно",
+ "That didn’t work.": "Не получилось."
 }

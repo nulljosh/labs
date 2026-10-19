@@ -503,5 +503,14 @@
  "Take the challenge": "Anta utmaningen",
  "Not quite. It was {x}.": "Inte riktigt. Det var {x}.",
  "Play more on Quotestreak": "Spela mer på Quotestreak",
- "Quotestreak · Daily Quote #{n}": "Quotestreak · Dagens citat nr {n}"
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · Dagens citat nr {n}",
+ "Your email": "Din e-post",
+ "Email me the daily quote": "Mejla mig dagens citat",
+ "One email a day. Unsubscribe in one tap.": "Ett mejl om dagen. Avsluta med ett tryck.",
+ "Could not reach the server. Try again in a minute.": "Kunde inte nå servern. Försök igen om en minut.",
+ "You already get the daily quote.": "Du får redan dagens citat.",
+ "Check your inbox for a confirm link.": "Kolla inkorgen efter en bekräftelselänk.",
+ "Too many tries. Wait a minute.": "För många försök. Vänta en minut.",
+ "that email doesn't look right": "den e-postadressen ser inte rätt ut",
+ "That didn’t work.": "Det fungerade inte."
 }

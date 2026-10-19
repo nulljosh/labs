@@ -6,3 +6,8 @@
 #show-quote { font-size: 1.3rem; font-weight: 600; margin: 12px 0; }
 #show-score { margin-top: 16px; }
 .library-list li.featured b::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-deep); margin-right: 6px; vertical-align: middle; }
+/* Daily quote by email (v86): one row, outlined, under the Daily result. */
+.news { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 16px 0 8px; }
+.news input { flex: 1 1 200px; min-width: 0; font: inherit; padding: 12px 14px; border: 0; border-radius: 12px; background: var(--bg); color: var(--text); box-shadow: inset 0 0 0 1px var(--border); }
+.news button { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--accent-deep); }
+.news p { flex-basis: 100%; margin: 4px 0 0; }

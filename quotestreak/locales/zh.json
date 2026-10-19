@@ -505,5 +505,14 @@
  "Take the challenge": "接受挑战",
  "Not quite. It was {x}.": "差一点。答案是 {x}。",
  "Play more on Quotestreak": "在 Quotestreak 继续玩",
- "Quotestreak · Daily Quote #{n}": "Quotestreak · 每日一句 #{n}"
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · 每日一句 #{n}",
+ "Your email": "你的邮箱",
+ "Email me the daily quote": "把每日一句发到我的邮箱",
+ "One email a day. Unsubscribe in one tap.": "每天一封。一键退订。",
+ "Could not reach the server. Try again in a minute.": "无法连接服务器。请一分钟后再试。",
+ "You already get the daily quote.": "你已经在接收每日一句了。",
+ "Check your inbox for a confirm link.": "请查收邮箱里的确认链接。",
+ "Too many tries. Wait a minute.": "尝试次数过多，请稍等一分钟。",
+ "that email doesn't look right": "这个邮箱看起来不对",
+ "That didn’t work.": "没有成功。"
 }

@@ -503,5 +503,14 @@
  "Take the challenge": "اقبل التحدي",
  "Not quite. It was {x}.": "ليس تمامًا. كانت {x}.",
  "Play more on Quotestreak": "العب المزيد على Quotestreak",
- "Quotestreak · Daily Quote #{n}": "Quotestreak · اقتباس اليوم رقم {n}"
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · اقتباس اليوم رقم {n}",
+ "Your email": "بريدك الإلكتروني",
+ "Email me the daily quote": "أرسل لي اقتباس اليوم",
+ "One email a day. Unsubscribe in one tap.": "بريد واحد يوميًا. ألغِ الاشتراك بلمسة واحدة.",
+ "Could not reach the server. Try again in a minute.": "تعذّر الوصول إلى الخادم. حاول بعد دقيقة.",
+ "You already get the daily quote.": "أنت تتلقى اقتباس اليوم بالفعل.",
+ "Check your inbox for a confirm link.": "تحقّق من بريدك للعثور على رابط التأكيد.",
+ "Too many tries. Wait a minute.": "محاولات كثيرة. انتظر دقيقة.",
+ "that email doesn't look right": "يبدو البريد الإلكتروني غير صحيح",
+ "That didn’t work.": "لم ينجح ذلك."
 }

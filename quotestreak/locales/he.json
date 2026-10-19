@@ -503,5 +503,14 @@
  "Take the challenge": "קבלו את האתגר",
  "Not quite. It was {x}.": "כמעט. זה היה {x}.",
  "Play more on Quotestreak": "לשחק עוד ב־Quotestreak",
- "Quotestreak · Daily Quote #{n}": "Quotestreak · ציטוט היום מס׳ {n}"
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · ציטוט היום מס׳ {n}",
+ "Your email": "האימייל שלך",
+ "Email me the daily quote": "שלחו לי את ציטוט היום",
+ "One email a day. Unsubscribe in one tap.": "מייל אחד ביום. ביטול בנגיעה אחת.",
+ "Could not reach the server. Try again in a minute.": "אין חיבור לשרת. נסו שוב בעוד דקה.",
+ "You already get the daily quote.": "את/ה כבר מקבל/ת את ציטוט היום.",
+ "Check your inbox for a confirm link.": "חפשו בתיבת הדואר קישור לאישור.",
+ "Too many tries. Wait a minute.": "יותר מדי ניסיונות. חכו דקה.",
+ "that email doesn't look right": "האימייל לא נראה תקין",
+ "That didn’t work.": "זה לא עבד."
 }
