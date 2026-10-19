@@ -25,7 +25,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **notate** (ex-voxprint) | On-device transcription, WhisperKit. Xcode targets and Pages project still say Voxprint · 6782604262 |
 | **patois** (ex-tonchi, ex-lexly). Folder is `tonchi` | Gamified learning, 165 courses · 6783501611 (6783501927 is a stray dupe) |
 | **intake** (ex-healstack) | Health/supplement tracker. Store name and Pages project still `healstack` |
-| **thinkpond** (ex-hikko, ex-sparkjar). Folder is `hikko` | Idea forum. Pages project still `sparkjar` · 6785162492 |
+| **melete** (ex-thinkpond, ex-hikko, ex-sparkjar). Folder is `melete` | Idea feed, named for the Muse of thought. Pages project still `sparkjar`; thinkpond. and hikko. hosts still serve · 6785162492 |
 | **mailbag** (ex-hagaki, siftbox, pare, sieve) | Inbox zero in one button. Store listing renamed Mailbag and resubmitted 2026-10-18; Google callback still on hagaki.jaybulb.com · 6811141466 |
 | **bookrank** | Book summaries, listen feature |
 | **curvely** | Equation grapher · 6794988370 |
@@ -118,7 +118,7 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 ## Gotchas
 - `heyitsmejosh.com` lapsed 2026-10-13 on purpose. Everything lives at `<name>.jaybulb.com`. Native apps still hardcode the old host until their next build.
 - `npm i <pkg> --save-dev` on a pinned dep upgrades it silently. Edit package.json by hand and diff the lockfile.
-- Stripe is live on epiphany, intake, thinkpond and talli. It cannot unlock in-app features under App Review, that needs IAP.
+- Stripe is live on epiphany, intake, melete and talli. It cannot unlock in-app features under App Review, that needs IAP.
 - Social sign-in is blocked on console registrations. The code is done.
 - `mole clean` needs a real TTY for sudo. Run it yourself.
 

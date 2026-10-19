@@ -12,7 +12,7 @@ const THEMES = {
   brick:     { name: "Brick",           accent: "#2E7D32", match: ["brick", "roost"] },
   stanza:    { name: "Co-Stanza",       accent: "#171717", match: ["stanza"] },
   quotestreak: { name: "Quotestreak",   accent: "#5B9BD5", match: ["quotestreak", "quotable"] },
-  thinkpond: { name: "Thinkpond",       accent: "#4d7c45", match: ["spark", "hikko", "thinkpond"], icon: "https://thinkpond.jaybulb.com/icon-192.png" },
+  thinkpond: { name: "Melete",          accent: "#4d7c45", match: ["spark", "hikko", "thinkpond", "melete"], icon: "https://melete.jaybulb.com/icon-192.png" },
   glyphbox:  { name: "Glyphbox",        accent: "#1D4ED8", match: ["glyphbox", "wiretext"], icon: "https://glyphbox.jaybulb.com/icon-192.png" },
 };
 const DEFAULT = { name: "Jaybulb", accent: "#111111" };
