@@ -146,4 +146,25 @@ window.quotableShowLeaderboard = async (mode) => {
     ol.appendChild(li);
   }
   $('lb-title').textContent = mode === 'speed' ? 'Speed Round leaders' : 'Leaders';
+  lbMode = mode;
+  $('lb-friends').classList.toggle('hidden', !(SOCIAL && user));
+  $('lb-friends').textContent = 'Friends only';
+};
+
+// Friends-only board (v13): you and your friends, ranked by best score in this mode.
+let lbMode = 'normal';
+$('lb-friends').onclick = async () => {
+  if ($('lb-friends').textContent !== 'Friends only') return window.quotableShowLeaderboard(lbMode);
+  const { data, error } = await sb.rpc('quotestreak_friends');
+  const ol = $('lb-list');
+  ol.innerHTML = '';
+  if (error) { ol.innerHTML = `<li>${error.message}</li>`; return; }
+  for (const f of data.sort((x, y) => y[lbMode] - x[lbMode])) {
+    const li = document.createElement('li');
+    li.textContent = `${f.me ? 'You' : f.name} — ${f[lbMode]}`;
+    ol.appendChild(li);
+  }
+  if (data.length < 2) ol.insertAdjacentHTML('beforeend', '<li>Add friends by code in your account.</li>');
+  $('lb-title').textContent = 'Friends';
+  $('lb-friends').textContent = 'Everyone';
 };

@@ -20,7 +20,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 ### Era 2: play with people (11 to 20)
 - [x] **v11 Challenge link.** Send ten quotes to a friend; they play the same ten and see your score.
 - [x] **v12 Live duels.** Real-time one on one through a Durable Object lobby.
-- [ ] **v13 Friends.** Add friends and see a friends-only leaderboard.
+- [x] **v13 Friends.** Add friends and see a friends-only leaderboard.
 - [ ] **v14 Weekly cup.** A bracket tournament every week.
 - [ ] **v15 Clubs.** Teams with a shared score and a club board.
 - [ ] **v16 Badges.** Fifty achievements drawn in Quip's style.
