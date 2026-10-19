@@ -1,0 +1,11 @@
+const assert = require('assert');
+const { bestRun, pose, caption } = require('./sharecard');
+const r = (...pts) => pts.map(p => ({ pts: p }));
+assert.equal(bestRun(r(10, 10, 0, 10, 10, 10)), 3);
+assert.equal(bestRun([]), 0);
+assert.equal(pose({ score: 50, high: 50, run: r(10) }), 'cheer', 'a new high cheers');
+assert.equal(pose({ score: 50, high: 90, run: r(10, 10, 10, 10, 10) }), 'streak');
+assert.equal(pose({ score: 10, high: 90, run: r(10, 0) }), 'idle');
+assert.equal(pose({ score: 0, high: 0, run: r(0) }), 'oops', 'zero is never a new high');
+assert.deepEqual(caption({ score: 20, high: 90, run: r(10, 0, 10), speed: true }), ['Speed round', '2 of 3 right · best run 1', 'High score 90']);
+console.log('sharecard ok');

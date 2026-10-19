@@ -392,13 +392,16 @@ $('restart').onclick = () => {
   endEl.classList.add('hidden');
   modeSelect.classList.remove('hidden');
 };
-$('share').onclick = () => {
+// The share card (sharecard.js) goes out as a file where the browser can share one, else it downloads.
+$('share').onclick = async () => {
   const text = `I scored ${score} on Quotestreak! Can you beat me? https://quotestreak.jaybulb.com`;
-  if (navigator.share) navigator.share({ text });
-  else navigator.clipboard.writeText(text).then(() => {
-    $('share').textContent = 'Copied!';
-    setTimeout(() => { $('share').textContent = 'Share Score'; }, 1500);
-  });
+  const blob = await ShareCard.draw({ score, high: parseInt(localStorage.getItem(HIGH_KEY) || '0', 10), run, speed: speedMode });
+  const files = blob ? [new File([blob], 'quotestreak.png', { type: 'image/png' })] : [];
+  if (files.length && navigator.canShare?.({ files })) return navigator.share({ files, text }).catch(() => {});
+  if (blob) Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'quotestreak.png' }).click();
+  navigator.clipboard?.writeText(text).catch(() => {});
+  $('share').textContent = 'Card saved';
+  setTimeout(() => { $('share').textContent = 'Share Score'; }, 1500);
 };
 
 // Exports for webmcp.js — read-only accessors + the existing handlers themselves.
