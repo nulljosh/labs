@@ -116,7 +116,7 @@ select {
   font-family: inherit;
 }
 /* secondary actions: an outline, so Play (or Play Again) stays the one bright button */
-#start-speed, #start-daily, #lb-btn, #share, #lb-btn-end, #lb-close, #daily-back, #hint-btn, #auth-apple, #auth-logout, #auth-signup, #auth-forgot, #account-close, #challenge-btn, #start-duel, #duel-cancel, #start-cup, #cup-back { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--accent-deep); }
+#start-speed, #start-daily, #lb-btn, #share, #lb-btn-end, #lb-close, #daily-back, #hint-btn, #auth-apple, #auth-logout, #auth-signup, #auth-forgot, #account-close, #challenge-btn, #start-duel, #duel-cancel, #start-cup, #cup-back, #badges-btn, #badges-back { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--accent-deep); }
 button:active { transform: scale(0.96); }
 blockquote {
   font-size: 1.5rem;
@@ -275,3 +275,10 @@ button.link { background: none; box-shadow: none; color: var(--text); text-decor
 #club-create input, #club-join input { flex: 1; font: inherit; padding: 12px 14px; border: 0; border-radius: 12px; background: var(--bg); color: var(--text); box-shadow: inset 0 0 0 1px var(--border); }
 #club-create button, #club-join button { margin: 0; }
 #club-members { text-align: left; padding-left: 1.4em; }
+#badge-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 12px; margin: 12px 0; }
+#badge-grid figure { margin: 0; text-align: center; }
+#badge-grid figcaption { font-size: 0.75rem; line-height: 1.2; margin-top: 4px; }
+.medal { width: 64px; height: 64px; }
+.medal.locked { filter: grayscale(1); opacity: 0.3; }
+.badge-toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; background: #16161d; color: #fff; font-weight: 600; z-index: 10; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.badge-toast .medal { width: 40px; height: 40px; }

@@ -2,7 +2,7 @@
 
 # Quotestreak
 
-![version](https://img.shields.io/badge/version-15.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fquotestreak-black?logo=github)](https://github.com/nulljosh/labs/tree/main/quotestreak)
+![version](https://img.shields.io/badge/version-16.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fquotestreak-black?logo=github)](https://github.com/nulljosh/labs/tree/main/quotestreak)
 
 Here's the line. Name the movie.
 

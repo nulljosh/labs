@@ -117,6 +117,7 @@
       <button id="start-daily">Daily Quote</button>
       <button id="start-duel">Live duel</button>
       <button id="start-cup">Weekly cup</button>
+      <button id="badges-btn">Badges</button>
       <button id="lb-btn">Leaderboard</button>
     </div>
 
@@ -137,6 +138,13 @@
       <button id="hint-btn" class="secondary">Hint</button>
       <button id="end-btn" class="link">End game</button>
       <p id="feedback"></p>
+    </div>
+
+    <div id="badges" class="panel hidden">
+      <h2>Badges</h2>
+      <p id="badge-count" class="prompt"></p>
+      <div id="badge-grid"></div>
+      <button id="badges-back">Back</button>
     </div>
 
     <div id="cup" class="panel hidden">
@@ -181,12 +189,14 @@
   <script src="difficulty.js"></script>
   <script src="challenge.js"></script>
   <script src="cup.js"></script>
+  <script src="badges.js"></script>
   <script src="daily.js"></script>
   <script src="game.js"></script>
   <script src="duel-client.js"></script>
   <script src="art.js"></script>
   <script src="cup-ui.js"></script>
   <script src="clubs.js"></script>
+  <script src="badges-ui.js"></script>
   <script type="module" src="auth.js"></script>
   <script src="webmcp.js"></script>
   <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>

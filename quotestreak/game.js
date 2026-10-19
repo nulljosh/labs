@@ -236,6 +236,7 @@ function choose(opt, btn) {
   tally(current, correct);
   run.push({ qid: Difficulty.qid(current.quote), pts });
   duelSend({ type: 'answer', score });
+  window.quotableBadge?.('answer', { q: current, correct, typed: typeMode, hints: hintsUsed, streak });
   updateStats();
   if (dailyMode) recordDaily(correct);
   setTimeout(dailyMode ? finishDaily : nextQuestion, 1100);
@@ -287,6 +288,7 @@ function endGame() {
     history.replaceState(null, '', location.pathname);  // Play Again starts a normal game
   }
   $('challenge-btn').classList.toggle('hidden', !run.length || speedMode || !!duel);
+  window.quotableBadge?.('game', { score, speed: speedMode, cup: !!cupRound, perfectCup: !!cupRound && run.length === Cup.SIZE && run.every(r => r.pts > 0) });
   if (duel?.quotes) { duel.done = true; duelSend({ type: 'done', score }); duelResult(); }
   if (cupRound) cupFinish(score);
 }
@@ -294,6 +296,7 @@ function endGame() {
 
 // Ten quotes of this run (or fewer if it ended early) and the points earned on them.
 $('challenge-btn').onclick = () => {
+  window.quotableBadge?.('challenge');
   const first = run.slice(0, Challenge.SIZE);
   const url = `${location.origin}/play?${Challenge.encode(first.map(r => r.qid), first.reduce((n, r) => n + r.pts, 0), window.quotableDisplayName?.())}`;
   const text = `I scored ${first.reduce((n, r) => n + r.pts, 0)} on these ${first.length} Quotestreak lines. Your turn: ${url}`;
@@ -342,6 +345,7 @@ function recordDaily(correct) {
   const day = Daily.dayNumber();
   localStorage.setItem(DAILY_KEY, JSON.stringify({ day, correct, answer: current.answer }));
   localStorage.setItem(DAILY_STREAK_KEY, JSON.stringify(Daily.nextStreak(readJSON(DAILY_STREAK_KEY), day, correct)));
+  window.quotableBadge?.('daily', { streak: Daily.currentStreak(readJSON(DAILY_STREAK_KEY), day) });
 }
 
 function finishDaily() {

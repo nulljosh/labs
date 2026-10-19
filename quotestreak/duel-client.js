@@ -40,6 +40,7 @@ function duelResult() {
   $('final-score').textContent = duel.theirDone || duel.left
     ? Challenge.verdict(score, duel.them, 'Your friend') + (duel.left && !duel.theirDone ? ' They left early.' : '')
     : `You scored ${score}. Waiting for your friend to finish…`;
+  if ((duel.theirDone || duel.left) && score > duel.them) window.quotableBadge?.('duelWin');
   if (duel.theirDone || duel.left) { duel.ws.close(); duel = null; history.replaceState(null, '', location.pathname); }
 }
 $('start-duel').onclick = () => openDuel(Array.from({ length: 4 }, () => 'ABCDEFGHJKLMNPQRSTUVWXYZ'[Math.floor(Math.random() * 24)]).join(''));
