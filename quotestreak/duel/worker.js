@@ -7,9 +7,11 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const room = (url.searchParams.get("room") || "").toUpperCase();
-    if (url.pathname !== "/duel/ws" || !/^[A-Z]{4}$/.test(room)) return new Response("not found", { status: 404 });
+    const party = url.pathname === "/duel/party";
+    if ((url.pathname !== "/duel/ws" && !party) || !/^[A-Z]{4}$/.test(room)) return new Response("not found", { status: 404 });
     if (request.headers.get("Upgrade") !== "websocket") return new Response("expected a websocket", { status: 426 });
-    return env.ROOMS.get(env.ROOMS.idFromName(room)).fetch(request);
+    const ns = party ? env.PARTIES : env.ROOMS;
+    return ns.get(ns.idFromName(room)).fetch(request);
   },
 };
 
@@ -64,5 +66,51 @@ export class Room {
     for (const p of left) p.send(JSON.stringify({ type: "left" }));
     await this.tellWatchers(ws);
     if (!left.length) await this.state.storage.deleteAll();  // the code can be reused for a new duel
+  }
+}
+
+// v34: a party room. One host (the Apple TV, later any big screen) and up to eight players on their
+// phones. The host runs the game and scores it; the room only routes: players' buzzes go to the host,
+// the host's questions and reveals go to every player. Hibernation keeps idle parties free.
+//   /duel/party?room=ABCD&role=host            the big screen
+//   /duel/party?room=ABCD&name=Sam             a phone
+export class Party {
+  constructor(state) { this.state = state; }
+
+  async fetch(request) {
+    const q = new URL(request.url).searchParams;
+    const host = q.get("role") === "host";
+    if (host && this.state.getWebSockets("host").length) return new Response("this room already has a screen", { status: 409 });
+    if (!host && this.state.getWebSockets("player").length >= 8) return new Response("room full", { status: 409 });
+    const [client, server] = Object.values(new WebSocketPair());
+    this.state.acceptWebSocket(server, [host ? "host" : "player"]);
+    if (host) server.send(JSON.stringify({ type: "players", players: this.players() }));
+    else {
+      const id = crypto.randomUUID().slice(0, 8), name = (q.get("name") || "Player").trim().slice(0, 20) || "Player";
+      server.serializeAttachment({ id, name });
+      server.send(JSON.stringify({ type: "hello", id, screen: this.state.getWebSockets("host").length > 0 }));
+      this.toHost({ type: "join", id, name });
+    }
+    return new Response(null, { status: 101, webSocket: client });
+  }
+
+  players() { return this.state.getWebSockets("player").map(p => p.deserializeAttachment()); }
+  toHost(m) { for (const h of this.state.getWebSockets("host")) h.send(JSON.stringify(m)); }
+
+  webSocketMessage(ws, msg) {
+    if (typeof msg !== "string" || msg.length > 8000) return;
+    let m;
+    try { m = JSON.parse(msg); } catch { return; }
+    if (this.state.getTags(ws).includes("host")) {
+      // The host talks to everyone, or to one player with `to`.
+      for (const p of this.state.getWebSockets("player")) if (!m.to || p.deserializeAttachment().id === m.to) p.send(msg);
+    } else if (m.type === "buzz") {
+      this.toHost({ type: "buzz", id: ws.deserializeAttachment().id, option: String(m.option).slice(0, 200), at: Date.now() });
+    }
+  }
+
+  webSocketClose(ws) {
+    if (this.state.getTags(ws).includes("host")) for (const p of this.state.getWebSockets("player")) p.send(JSON.stringify({ type: "screen-left" }));
+    else this.toHost({ type: "leave", id: ws.deserializeAttachment().id });
   }
 }

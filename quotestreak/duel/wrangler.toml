@@ -10,6 +10,14 @@ routes = [{ pattern = "quotestreak.jaybulb.com/duel/*", zone_name = "jaybulb.com
 name = "ROOMS"
 class_name = "Room"
 
+[[durable_objects.bindings]]
+name = "PARTIES"
+class_name = "Party"
+
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["Room"]
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["Party"]

@@ -19,6 +19,8 @@ enum Theme {
     static var canvas: Color {
         #if os(macOS)
         Color(nsColor: .windowBackgroundColor)
+        #elseif os(tvOS)
+        Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? UIColor(Color(hex: "0f1013")) : .white })  // brand/tokens.css grounds
         #else
         Color(uiColor: .systemBackground)
         #endif
@@ -103,6 +105,13 @@ extension Font {
         case .largeTitle: 30; case .title: 24; case .title2: 21; case .title3: 17
         case .headline, .body: 14; case .callout: 13; case .subheadline: 12
         case .footnote, .caption, .caption2: 11; default: 14
+        }
+        #elseif os(tvOS)
+        switch style {
+        // tvOS's own text scale: read from the sofa, three metres away
+        case .largeTitle: 76; case .title: 57; case .title2: 48; case .title3: 38
+        case .headline: 38; case .body: 29; case .callout: 31; case .subheadline: 29
+        case .footnote: 23; case .caption: 25; case .caption2: 23; default: 29
         }
         #else
         let base: CGFloat = switch style {

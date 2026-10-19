@@ -19,6 +19,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `reveal.js` | Poster and album reveal: the blurred art that sharpens |
 | `speak.js` | Read quotes aloud with on-device speech (v28) |
 | `voice.js` | Answer by voice: listens and picks the option you say (v29) |
+| `buzz.html`, `buzz.js` | The phone buzzer for party games on a big screen (v34) |
 | `settings.js` | Settings panel and synthesized sound |
 | `spectate.js` | `?watch=CODE`, a read-only view of a duel |
 | `cup.js`, `cup-ui.js` | The weekly cup bracket |
@@ -38,7 +39,7 @@ Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `cup`, `badg
 
 ## Workers
 
-`duel/worker.js` routes `quotestreak.jaybulb.com/duel/*` to a Durable Object per room. Players are tagged `player` (two at most), spectators `watch`. Each player's score, question and name ride on the socket attachment, so hibernation loses nothing. Deploy with `cd duel && npx wrangler deploy`.
+`duel/worker.js` routes `quotestreak.jaybulb.com/duel/*` to a Durable Object per room. Players are tagged `player` (two at most), spectators `watch`. Each player's score, question and name ride on the socket attachment, so hibernation loses nothing. A second class, `Party`, at `/duel/party`, routes one big screen and up to eight phones: buzzes go to the screen, questions and reveals go to the phones. Deploy with `cd duel && npx wrangler deploy`.
 
 jaybulb-api lives in its own folder. The Quotestreak tables are `quotestreak_scores`, `_friends`, `_stats`, `_clubs` and `_club_members`, with RPCs under `POST /rpc/quotestreak_*`.
 
