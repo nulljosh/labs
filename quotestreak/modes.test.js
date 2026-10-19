@@ -26,4 +26,16 @@ assert(f.options.includes(f.answer));
 assert(f.options.every(o => Math.abs(o.length - f.answer.length) <= 1));
 const fin = bank.slice(0, 300).filter(x => build('finish', x, bank, rand)).length;
 assert(fin > 250, `only ${fin} of 300 finish lines`);
-console.log('modes ok', playable, fin);
+
+// Misquotes
+const { pool } = require('./modes');
+const mq = pool('misquote', [], bank, rand);
+assert(mq.length >= 15);
+for (const m of mq) {
+  assert.equal(m.options.length, 4, m.answer);
+  assert.equal(new Set(m.options).size, 4, `duplicate option in ${m.character}`);
+  assert(m.options.includes(m.answer) && m.options.includes(m.display), m.character);
+  assert.notEqual(m.answer, m.display);
+}
+assert.equal(pool('who', [q], bank, rand).length, 1);
+console.log('modes ok', playable, fin, mq.length);

@@ -134,8 +134,8 @@ function startGame(speed) {
     && (level === 'all' || Difficulty.level(q, stats) === level)));
   if (!pool.length) pool = shuffle(quotes.filter(q => genre === 'all' || q.genre === genre));  // an empty pairing plays the genre
   const mode = $('mode').value;  // Era 3 ways to guess (modes.js); friend modes below stay classic
-  if (mode !== 'classic') pool = pool.map(q => Modes.build(mode, q, quotes)).filter(Boolean);
-  if (!pool.length) pool = shuffle(quotes).map(q => Modes.build(mode, q, quotes)).filter(Boolean);
+  if (mode !== 'classic') pool = Modes.pool(mode, pool, quotes);
+  if (!pool.length) pool = Modes.pool(mode, shuffle(quotes), quotes);
   if (challenge) pool = [...challenge.quotes].reverse();  // nextQuestion pops from the end
   if (duel?.quotes) pool = [...duel.quotes].reverse();
   if (cupRound) pool = [...cupRound].reverse();

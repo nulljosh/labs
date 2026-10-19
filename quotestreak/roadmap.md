@@ -32,7 +32,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 ### Era 3: new ways to guess (21 to 30)
 - [x] **v21 Who said it.** Name the character, not the movie.
 - [x] **v22 Finish the line.** Fill in the missing word.
-- [ ] **v23 Misquotes.** Spot the famous line everyone gets wrong.
+- [x] **v23 Misquotes.** Spot the famous line everyone gets wrong.
 - [ ] **v24 Timeline.** Put three quotes in order of release.
 - [ ] **v25 Poster reveal.** A blurred poster sharpens until you name it.
 - [ ] **v26 Album reveal.** The same for album covers.

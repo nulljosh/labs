@@ -39,6 +39,11 @@
     },
   };
   const build = (mode, q, all, rand = Math.random) => (BUILD[mode] ? BUILD[mode](q, all, rand) : q);
-  const api = { build };
+  // A game's questions. Most modes reshape the filtered bank; misquotes (v23) bring their own set.
+  const Mis = typeof module !== 'undefined' ? require('./misquotes') : root.Misquotes;
+  const pool = (mode, list, all, rand = Math.random) => mode === 'misquote'
+    ? shuffle(Mis.questions(), rand)
+    : list.map(q => build(mode, q, all, rand)).filter(Boolean);
+  const api = { build, pool };
   if (typeof module !== 'undefined') module.exports = api; else root.Modes = api;
 })(this);
