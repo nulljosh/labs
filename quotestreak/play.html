@@ -12,7 +12,7 @@
   mq.addEventListener('change', e => document.documentElement.dataset.theme = e.matches ? 'light' : 'dark');
 </script>
   <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#5B9BD5">
+  <meta name="theme-color" content="#15161a">
   <link rel="apple-touch-icon" href="/icon-192.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <style>.embed .topbar .brand{display:none}</style>
@@ -74,6 +74,7 @@
     </div>
 
     <div id="mode-select" class="panel">
+      <picture><source srcset="brand/quip-idle-dark.svg" media="(prefers-color-scheme: dark)"><img class="quip" src="brand/quip-idle.svg" alt="" width="128" height="128"></picture>
       <p>Guess the movie or artist from the quote.</p>
       <select id="genre">
         <option value="all">All genres</option>
@@ -99,6 +100,7 @@
     </div>
 
     <div id="end" class="panel hidden">
+      <img id="quip-end" class="quip" src="brand/quip-cheer.svg" alt="" width="128" height="128">
       <h2>Game Over</h2>
       <p id="final-score"></p>
       <button id="restart">Play Again</button>

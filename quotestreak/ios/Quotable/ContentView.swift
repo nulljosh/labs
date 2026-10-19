@@ -25,6 +25,7 @@ struct ContentView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background { Backdrop(quotes: game.quotes, paused: game.phase == .playing && game.speedMode).ignoresSafeArea() }
             .background(Theme.canvas)
+            .font(.quip(.body))
             .navigationTitle("Quotestreak")
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
@@ -46,7 +47,7 @@ struct ContentView: View {
                 }
                 if game.phase == .playing {
                     ToolbarItem(placement: .primaryAction) {
-                        Text("\(game.score)").monospacedDigit().foregroundStyle(Theme.accent).bold()
+                        Text("\(game.score)").font(.quip(.headline, weight: .bold)).contentTransition(.numericText())
                     }
                     ToolbarItem(placement: .primaryAction) {
                         Label("\(game.streak)", systemImage: "flame.fill")
@@ -70,8 +71,9 @@ private struct MenuView: View {
     var body: some View {
         VStack(spacing: 24) {
             Spacer()
+            Quip(pose: "idle")
             Text("Guess the movie or artist from the quote.")
-                .font(.title3)
+                .font(.quip(.title3, weight: .medium))
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
 
@@ -85,15 +87,13 @@ private struct MenuView: View {
 
             VStack(spacing: 12) {
                 Button("Play") { game.start(genre: selectedGenre, speed: false) }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(PrimaryButtonStyle())
                 Button("Speed Round (10s)") { game.start(genre: selectedGenre, speed: true) }
-                    .buttonStyle(.bordered)
+                    .buttonStyle(SecondaryButtonStyle())
             }
-            .controlSize(.large)
-            .tint(Theme.accent)
 
             if game.highScore > 0 {
-                Text("High score: \(game.highScore)").font(.footnote).foregroundStyle(.secondary)
+                Text("High score: \(game.highScore)").font(.quip(.footnote)).foregroundStyle(.secondary)
             }
             Spacer()
         }
@@ -149,20 +149,21 @@ private struct RoundView: View {
 
     var body: some View {
         VStack(spacing: 20) {
+            Spacer(minLength: 0)
             if game.speedMode { TimerRing(timeLeft: game.timeLeft) }
 
             if let quote = game.current {
                 let badge = Theme.badge(for: quote.genre)
                 Text(quote.genre.capitalized)
-                    .font(.caption.bold())
+                    .font(.quip(.caption, weight: .bold))
                     .padding(.horizontal, 10).padding(.vertical, 5)
                     .background(badge.background, in: Capsule())
                     .foregroundStyle(badge.foreground)
 
-                Text(LocalizedStringKey(quote.prompt)).font(.subheadline.bold()).foregroundStyle(.secondary)
+                Text(LocalizedStringKey(quote.prompt)).font(.quip(.subheadline, weight: .semibold)).foregroundStyle(.secondary)
 
                 Text("\u{201C}\(quote.quote)\u{201D}")
-                    .font(.title2.italic())
+                    .font(.quip(.title2, weight: .semibold))
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .id(quote.id)
@@ -170,14 +171,8 @@ private struct RoundView: View {
 
                 VStack(spacing: 10) {
                     ForEach(quote.options.shuffledStably(seed: quote.id), id: \.self) { option in
-                        Button { answer(option) } label: {
-                            Text(option)
-                                .frame(maxWidth: .infinity)
-                                .foregroundStyle(foreground(for: option, answer: quote.answer))
-                        }
-                        .buttonStyle(.bordered)
-                        .controlSize(.large)
-                        .tint(tint(for: option, answer: quote.answer))
+                        Button { answer(option) } label: { Text(option) }
+                        .buttonStyle(AnswerButtonStyle(state: state(for: option, answer: quote.answer)))
                         // Not .disabled(): a disabled button renders its tint washed out,
                         // which hides the green/red answer reveal.
                         .allowsHitTesting(!game.isAnswered)
@@ -188,13 +183,15 @@ private struct RoundView: View {
                     Text(correct
                          ? (game.streak % 5 == 0 ? "\(game.streak) in a row! +\(game.lastPoints)" : "Correct! +\(game.lastPoints)")
                          : "Nope, it was \u{201C}\(quote.answer)\u{201D}")
-                        .font(.headline)
+                        .font(.quip(.headline, weight: .bold))
                         .foregroundStyle(correct ? .green : .red)
                 }
             }
-            Spacer()
+            Spacer(minLength: 0)
         }
+        .frame(maxWidth: 560)   // a reading column, not edge to edge on a wide Mac window
         .padding(24)
+        .frame(maxWidth: .infinity)
         .animation(.default, value: game.current)
         .sensoryFeedback(.success, trigger: game.lastWasCorrect) { _, new in hapticsOn && new == true }
         .sensoryFeedback(.error, trigger: game.lastWasCorrect) { _, new in hapticsOn && new == false }
@@ -227,17 +224,10 @@ private struct RoundView: View {
         }
     }
 
-    private func tint(for option: String, answer: String) -> Color {
-        guard game.isAnswered else { return Theme.accent }
-        if option == answer { return .green }
-        return option == game.pickedAnswer ? .red : .gray
-    }
-
-    private func foreground(for option: String, answer: String) -> Color {
-        guard game.isAnswered else { return Theme.accent }
-        if option == answer { return .primary }
-        if option == game.pickedAnswer { return .red }
-        return .secondary
+    private func state(for option: String, answer: String) -> AnswerButtonStyle.State {
+        guard game.isAnswered else { return .open }
+        if option == answer { return .right }
+        return option == game.pickedAnswer ? .wrong : .spent
     }
 
     private func answer(_ option: String) {
@@ -291,9 +281,9 @@ private struct TimerRing: View {
             Circle().stroke(.quaternary, lineWidth: 6)
             Circle()
                 .trim(from: 0, to: max(0, timeLeft / Game.timeLimit))
-                .stroke(Theme.accent, style: .init(lineWidth: 6, lineCap: .round))
+                .stroke(Theme.accentStroke, style: .init(lineWidth: 6, lineCap: .round))
                 .rotationEffect(.degrees(-90))
-            Text("\(Int(timeLeft.rounded(.up)))").font(.headline).monospacedDigit()
+            Text("\(Int(timeLeft.rounded(.up)))").font(.quip(.headline, weight: .bold))
         }
         .frame(width: 64, height: 64)
     }
@@ -301,24 +291,24 @@ private struct TimerRing: View {
 
 private struct GameOverView: View {
     let game: Game
+    private var newHigh: Bool { game.score > 0 && game.score == game.highScore }
 
     var body: some View {
         VStack(spacing: 20) {
             Spacer()
-            Text("Game Over").font(.largeTitle.bold())
-            Text("Final score: \(game.score) · High score: \(game.highScore)").font(.title3)
-            if game.score > 0 && game.score == game.highScore {
-                Text("New high score!").font(.headline).foregroundStyle(Theme.accent)
+            Quip(pose: newHigh ? "cheer" : game.score > 0 ? "idle" : "oops")
+            Text("Game Over").font(.quip(.largeTitle, weight: .bold))
+            Text("Final score: \(game.score) · High score: \(game.highScore)").font(.quip(.title3))
+            if newHigh {
+                Text("New high score!").font(.quip(.headline, weight: .bold)).foregroundStyle(Theme.accentStroke)
             }
             Button("Play Again") { game.backToMenu() }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
-                .tint(Theme.accent)
+                .buttonStyle(PrimaryButtonStyle())
             ShareLink(item: "I scored \(game.score) on Quotestreak! Can you beat me? https://quotable.jaybulb.com")
             Spacer()
         }
         .padding(28)
-        .overlay { if game.score > 0 && game.score == game.highScore { ConfettiView(burst: Burst(count: 80)) } }
+        .overlay { if newHigh { ConfettiView(burst: Burst(count: 80)) } }
         .task { await Account.shared.submit(score: game.score, speed: game.speedMode) }
     }
 }
@@ -458,7 +448,7 @@ private struct ConfettiView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var done = false
 
-    private static let colors: [Color] = [Theme.accent, Color(hex: "ffd23f"), Color(hex: "ff6fae"), Color(hex: "34c759"), Color(hex: "ff6b35")]
+    private static let colors: [Color] = [Theme.accent, .white, Color(hex: "ff6fae"), Color(hex: "34c759"), Color(hex: "ff6b35")]
     private struct Piece { let dx, dy, spin: Double; let color: Color }
 
     private var pieces: [Piece] {
@@ -494,5 +484,25 @@ private struct ConfettiView: View {
             // Drop the view once it has played, or TimelineView keeps ticking at 60fps for nothing.
             .task { try? await Task.sleep(for: .seconds(1.2)); done = true }
         }
+    }
+}
+
+/// Quip, the mascot (brand/Quip.xcassets, drawn by brand/mascot.py), with a gentle bob.
+private struct Quip: View {
+    let pose: String
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var up = false
+
+    var body: some View {
+        Image("quip-\(pose)")
+            .resizable().scaledToFit()
+            .frame(width: 112, height: 112)
+            .offset(y: up ? -6 : 0)
+            .rotationEffect(.degrees(up ? -2 : 0))
+            .accessibilityHidden(true)
+            .onAppear {
+                guard !reduceMotion else { return }
+                withAnimation(.easeInOut(duration: 1.2).repeatForever(autoreverses: true)) { up = true }
+            }
     }
 }
