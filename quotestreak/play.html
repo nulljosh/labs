@@ -119,6 +119,7 @@
       <button id="start-cup">Weekly cup</button>
       <button id="badges-btn">Badges</button>
       <button id="stats-btn">Stats</button>
+      <button id="season-btn">Season</button>
       <button id="lb-btn">Leaderboard</button>
     </div>
 
@@ -146,6 +147,16 @@
       <p id="badge-count" class="prompt"></p>
       <div id="badge-grid"></div>
       <button id="badges-back">Back</button>
+    </div>
+
+    <div id="season" class="panel hidden">
+      <h2 id="season-title">Season</h2>
+      <div id="season-me"></div>
+      <h3>Ladder</h3>
+      <p id="season-rank" class="prompt"></p>
+      <ol id="season-ladder"></ol>
+      <div id="season-shelf"></div>
+      <button id="season-back">Back</button>
     </div>
 
     <div id="stats" class="panel hidden">
@@ -205,6 +216,7 @@
   <script src="cup.js"></script>
   <script src="badges.js"></script>
   <script src="stats.js"></script>
+  <script src="season.js"></script>
   <script src="sharecard.js"></script>
   <script src="daily.js"></script>
   <script src="game.js"></script>
@@ -215,6 +227,7 @@
   <script src="clubs.js"></script>
   <script src="badges-ui.js"></script>
   <script src="stats-ui.js"></script>
+  <script src="season-ui.js"></script>
   <script type="module" src="auth.js"></script>
   <script src="webmcp.js"></script>
   <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>

@@ -1,0 +1,15 @@
+const assert = require('assert');
+const { of, tier, next, daysLeft, record } = require('./season');
+const d = new Date('2026-10-18T12:00:00Z');
+assert.deepEqual(of(d), { id: '2026-Q4', start: '2026-10-01T00:00:00.000Z', end: '2027-01-01T00:00:00.000Z' });
+assert.equal(of(new Date('2026-03-31T23:59:59Z')).id, '2026-Q1');
+assert.equal(of(new Date('2026-04-01T00:00:00Z')).id, '2026-Q2');
+assert.equal(daysLeft(d), 75);
+assert.equal(tier(99), null);
+assert.equal(tier(100).id, 'bronze');
+assert.equal(tier(9999).id, 'gold');
+assert.equal(next(260).id, 'gold');
+assert.equal(next(500), null);
+const r = record(record({}, 120, d), 80, d);
+assert.deepEqual(r, { '2026-Q4': 120 }, 'keeps the best, not the latest');
+console.log('season ok');

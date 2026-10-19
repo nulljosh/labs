@@ -27,7 +27,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v17 Stats.** Accuracy by genre and decade, best streaks, a history graph.
 - [x] **v18 Share cards.** A generated image per game with the right Quip pose.
 - [x] **v19 Spectate.** Watch a live duel.
-- [ ] **v20 Seasons.** A ranked ladder each quarter with cosmetic Quip rewards.
+- [x] **v20 Seasons.** A ranked ladder each quarter with cosmetic Quip rewards.
 
 ### Era 3: new ways to guess (21 to 30)
 - [ ] **v21 Who said it.** Name the character, not the movie.
