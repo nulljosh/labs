@@ -3,7 +3,7 @@ import Foundation
 /// One entry of `quotes.json`. The schema is shared verbatim with the web game —
 /// do not diverge it; `CLAUDE.md` requires the same file in both places.
 struct Quote: Decodable, Identifiable, Equatable {
-    enum Kind: String, Decodable { case movie, music }
+    enum Kind: String, Decodable { case movie, music, tv }
 
     let quote: String
     let answer: String
@@ -17,7 +17,11 @@ struct Quote: Decodable, Identifiable, Equatable {
 
     /// Prompt text, mirroring `game.js` nextQuestion().
     var prompt: String {
-        type == .music ? "Guess the artist from the lyric." : "Guess the movie from the quote."
+        switch type {
+        case .music: "Guess the artist from the lyric."
+        case .tv: "Guess the show from the quote."
+        case .movie: "Guess the movie from the quote."
+        }
     }
 
     static func loadBundled() -> [Quote] {

@@ -68,7 +68,14 @@ const GENRES = {
   hiphop: { color: 'var(--g-hiphop)', text: 'var(--g-hiphop-text)' },
   rnb: { color: 'var(--g-rnb)', text: 'var(--g-rnb-text)' },
   country: { color: 'var(--g-country)', text: 'var(--g-country-text)' },
+  sitcom: { color: 'var(--g-sitcom)', text: 'var(--g-sitcom-text)' },
+  tvdrama: { color: 'var(--g-tvdrama)', text: 'var(--g-tvdrama-text)' },
+  cartoon: { color: 'var(--g-cartoon)', text: 'var(--g-cartoon-text)' },
 };
+// Genre keys that do not read well capitalized. Mirrored by Theme.label(for:) in Swift.
+const LABELS = { scifi: 'Sci-fi', hiphop: 'Hip-hop', rnb: 'R&B', tvdrama: 'TV drama' };
+const label = (g) => LABELS[g] || g[0].toUpperCase() + g.slice(1);
+const PROMPTS = { music: 'Guess the artist from the lyric.', tv: 'Guess the show from the quote.', movie: 'Guess the movie from the quote.' };
 
 fetch('quotes.json').then(r => r.json()).then(data => {
   quotes = data;
@@ -76,7 +83,7 @@ fetch('quotes.json').then(r => r.json()).then(data => {
   [...new Set(data.map(q => q.genre))].sort().forEach(g => {
     const opt = document.createElement('option');
     opt.value = g;
-    opt.textContent = g[0].toUpperCase() + g.slice(1);
+    opt.textContent = label(g);
     genreSelect.appendChild(opt);
   });
   buildBackdrop(data);
@@ -146,7 +153,7 @@ function nextQuestion() {
   if (pool.length === 0) return endGame();
   current = pool.pop();
   const g = GENRES[current.genre] || { color: 'var(--accent)', text: '#fff' };
-  genreBadge.textContent = current.genre;
+  genreBadge.textContent = label(current.genre);
   genreBadge.style.background = g.color;
   genreBadge.style.setProperty('--badge-text', g.text);
   quoteEl.textContent = `\u201C${current.quote}\u201D`;  // curly, so Quip Sans draws the logo's marks
@@ -160,7 +167,7 @@ function nextQuestion() {
   optionsEl.innerHTML = '';
   $('type-form').classList.toggle('hidden', !typeMode);
   if (typeMode) { $('type-input').value = ''; $('type-input').disabled = false; $('type-input').focus(); }
-  promptEl.textContent = current.type === 'music' ? 'Guess the artist from the lyric.' : 'Guess the movie from the quote.';
+  promptEl.textContent = PROMPTS[current.type] || PROMPTS.movie;
   if (!typeMode) (dailyMode ? current.options : shuffle(current.options)).forEach(opt => {  // the daily board is the same for everyone
     const btn = document.createElement('button');
     btn.textContent = opt;
