@@ -384,5 +384,7 @@
  "Language": "언어",
  "Practice": "연습",
  "Practice ({n} to go)": "연습 ({n}개 남음)",
- "Nothing to practice yet. Missed lines land here.": "아직 연습할 것이 없어요. 틀린 대사가 여기에 모여요."
+ "Nothing to practice yet. Missed lines land here.": "아직 연습할 것이 없어요. 틀린 대사가 여기에 모여요.",
+ "You know {x}. Try {x}?": "{x}는 잘 아시네요. {x}도 해볼까요?",
+ "Try it": "해보기"
 }

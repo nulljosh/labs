@@ -384,5 +384,7 @@
  "Language": "Idioma",
  "Practice": "Practicar",
  "Practice ({n} to go)": "Practicar (quedan {n})",
- "Nothing to practice yet. Missed lines land here.": "Aún no hay nada que practicar. Aquí llegan las frases que fallas."
+ "Nothing to practice yet. Missed lines land here.": "Aún no hay nada que practicar. Aquí llegan las frases que fallas.",
+ "You know {x}. Try {x}?": "Dominas {x}. ¿Probamos {x}?",
+ "Try it": "Probar"
 }

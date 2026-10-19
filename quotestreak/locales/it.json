@@ -384,5 +384,7 @@
  "Language": "Lingua",
  "Practice": "Allenamento",
  "Practice ({n} to go)": "Allenamento ({n} da ripassare)",
- "Nothing to practice yet. Missed lines land here.": "Ancora niente da ripassare. Le battute sbagliate finiscono qui."
+ "Nothing to practice yet. Missed lines land here.": "Ancora niente da ripassare. Le battute sbagliate finiscono qui.",
+ "You know {x}. Try {x}?": "Conosci bene {x}. Provi {x}?",
+ "Try it": "Prova"
 }

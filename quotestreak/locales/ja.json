@@ -384,5 +384,7 @@
  "Language": "言語",
  "Practice": "練習",
  "Practice ({n} to go)": "練習（残り{n}）",
- "Nothing to practice yet. Missed lines land here.": "まだ練習するものはありません。間違えたセリフがここに集まります。"
+ "Nothing to practice yet. Missed lines land here.": "まだ練習するものはありません。間違えたセリフがここに集まります。",
+ "You know {x}. Try {x}?": "{x}は得意ですね。{x}にも挑戦してみる？",
+ "Try it": "やってみる"
 }

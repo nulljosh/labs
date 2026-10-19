@@ -384,5 +384,7 @@
  "Language": "Språk",
  "Practice": "Öva",
  "Practice ({n} to go)": "Öva ({n} kvar)",
- "Nothing to practice yet. Missed lines land here.": "Inget att öva på än. Missade repliker hamnar här."
+ "Nothing to practice yet. Missed lines land here.": "Inget att öva på än. Missade repliker hamnar här.",
+ "You know {x}. Try {x}?": "Du kan {x}. Testa {x}?",
+ "Try it": "Testa"
 }

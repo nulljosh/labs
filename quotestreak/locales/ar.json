@@ -384,5 +384,7 @@
  "Language": "اللغة",
  "Practice": "تدريب",
  "Practice ({n} to go)": "تدريب (متبقٍّ {n})",
- "Nothing to practice yet. Missed lines land here.": "لا شيء للتدرّب عليه بعد. تصل هنا العبارات التي أخطأتها."
+ "Nothing to practice yet. Missed lines land here.": "لا شيء للتدرّب عليه بعد. تصل هنا العبارات التي أخطأتها.",
+ "You know {x}. Try {x}?": "أنت تعرف {x}. ما رأيك في {x}؟",
+ "Try it": "جرّبها"
 }

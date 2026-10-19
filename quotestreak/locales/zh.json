@@ -386,5 +386,7 @@
  "Language": "语言",
  "Practice": "练习",
  "Practice ({n} to go)": "练习（还剩 {n} 条）",
- "Nothing to practice yet. Missed lines land here.": "还没有要练习的内容。答错的台词会出现在这里。"
+ "Nothing to practice yet. Missed lines land here.": "还没有要练习的内容。答错的台词会出现在这里。",
+ "You know {x}. Try {x}?": "你很懂{x}。试试{x}？",
+ "Try it": "试试看"
 }

@@ -384,5 +384,7 @@
  "Language": "भाषा",
  "Practice": "अभ्यास",
  "Practice ({n} to go)": "अभ्यास ({n} बाकी)",
- "Nothing to practice yet. Missed lines land here.": "अभी अभ्यास के लिए कुछ नहीं है। छूटी हुई पंक्तियाँ यहाँ आती हैं।"
+ "Nothing to practice yet. Missed lines land here.": "अभी अभ्यास के लिए कुछ नहीं है। छूटी हुई पंक्तियाँ यहाँ आती हैं।",
+ "You know {x}. Try {x}?": "आप {x} जानते हैं। {x} आज़माएँ?",
+ "Try it": "आज़माएँ"
 }

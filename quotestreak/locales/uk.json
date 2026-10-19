@@ -384,5 +384,7 @@
  "Language": "Мова",
  "Practice": "Тренування",
  "Practice ({n} to go)": "Тренування (залишилось {n})",
- "Nothing to practice yet. Missed lines land here.": "Поки нічого повторювати. Сюди потрапляють репліки, які ви не вгадали."
+ "Nothing to practice yet. Missed lines land here.": "Поки нічого повторювати. Сюди потрапляють репліки, які ви не вгадали.",
+ "You know {x}. Try {x}?": "Ви добре знаєте {x}. Спробуєте {x}?",
+ "Try it": "Спробувати"
 }

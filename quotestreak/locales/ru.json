@@ -384,5 +384,7 @@
  "Language": "Язык",
  "Practice": "Тренировка",
  "Practice ({n} to go)": "Тренировка (осталось {n})",
- "Nothing to practice yet. Missed lines land here.": "Пока нечего повторять. Сюда попадают реплики, которые вы не угадали."
+ "Nothing to practice yet. Missed lines land here.": "Пока нечего повторять. Сюда попадают реплики, которые вы не угадали.",
+ "You know {x}. Try {x}?": "Вы хорошо знаете {x}. Попробуете {x}?",
+ "Try it": "Попробовать"
 }

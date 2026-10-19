@@ -79,7 +79,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 
 ### Era 7: it learns you (61 to 70)
 - [x] **v61 Practice.** Missed quotes come back until you know them.
-- [ ] **v62 Suggestions.** Know 80s action? Try 80s comedy.
+- [x] **v62 Suggestions.** Know 80s action? Try 80s comedy.
 - [ ] **v63 Watchlist.** Movies you missed saved to a list you can export.
 - [ ] **v64 Taste card.** Your genres and decades on one card.
 - [ ] **v65 Year in quotes.** An end-of-year recap.

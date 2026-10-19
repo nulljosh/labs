@@ -384,5 +384,7 @@
  "Language": "שפה",
  "Practice": "תרגול",
  "Practice ({n} to go)": "תרגול (נותרו {n})",
- "Nothing to practice yet. Missed lines land here.": "עדיין אין מה לתרגל. שורות שפספסת מגיעות לכאן."
+ "Nothing to practice yet. Missed lines land here.": "עדיין אין מה לתרגל. שורות שפספסת מגיעות לכאן.",
+ "You know {x}. Try {x}?": "אתה מכיר את {x}. אולי {x}?",
+ "Try it": "נסו"
 }

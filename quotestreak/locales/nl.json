@@ -384,5 +384,7 @@
  "Language": "Taal",
  "Practice": "Oefenen",
  "Practice ({n} to go)": "Oefenen (nog {n})",
- "Nothing to practice yet. Missed lines land here.": "Nog niets om te oefenen. Gemiste regels komen hier terecht."
+ "Nothing to practice yet. Missed lines land here.": "Nog niets om te oefenen. Gemiste regels komen hier terecht.",
+ "You know {x}. Try {x}?": "Je kent {x}. Probeer eens {x}?",
+ "Try it": "Probeer het"
 }

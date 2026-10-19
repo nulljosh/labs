@@ -1,0 +1,13 @@
+const assert = require('assert');
+const { suggest } = require('./suggest');
+const G = ['action', 'comedy', 'drama', 'scifi'], D = ['1970', '1980', '1990'];
+const first = () => 0;
+assert.equal(suggest({ genres: {}, decades: {} }, G, D), null, 'nothing to go on');
+assert.equal(suggest({ genres: { action: [3, 4] }, decades: {} }, G, D), null, 'too few answers');
+let s = suggest({ genres: { action: [9, 10] }, decades: { 1980: [8, 10] } }, G, D, first);
+assert.deepEqual(s, { genre: 'comedy', decade: 1980, know: { genre: 'action', decade: 1980 } }, 'know 80s action, try 80s comedy');
+s = suggest({ genres: { action: [3, 10] }, decades: { 1980: [9, 10] } }, G, D, first);
+assert.deepEqual(s, { genre: null, decade: 1970, know: { genre: null, decade: 1980 } }, 'strong decade only: try the next one');
+const all = Object.fromEntries(G.map(g => [g, [9, 10]]));
+assert.equal(suggest({ genres: all, decades: { 1970: [5, 10], 1980: [5, 10], 1990: [5, 10] } }, G, D), null, 'played everything, nothing strong by decade');
+console.log('suggest ok');

@@ -384,5 +384,7 @@
  "Language": "Dil",
  "Practice": "Pratik",
  "Practice ({n} to go)": "Pratik ({n} kaldı)",
- "Nothing to practice yet. Missed lines land here.": "Henüz pratik yapacak bir şey yok. Kaçırdığın replikler buraya gelir."
+ "Nothing to practice yet. Missed lines land here.": "Henüz pratik yapacak bir şey yok. Kaçırdığın replikler buraya gelir.",
+ "You know {x}. Try {x}?": "{x} konusunda iyisin. {x} denesene?",
+ "Try it": "Dene"
 }

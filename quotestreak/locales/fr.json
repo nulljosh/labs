@@ -392,5 +392,7 @@
  "Language": "Langue",
  "Practice": "S’entraîner",
  "Practice ({n} to go)": "S’entraîner ({n} à revoir)",
- "Nothing to practice yet. Missed lines land here.": "Rien à revoir pour l’instant. Les répliques ratées arrivent ici."
+ "Nothing to practice yet. Missed lines land here.": "Rien à revoir pour l’instant. Les répliques ratées arrivent ici.",
+ "You know {x}. Try {x}?": "Tu maîtrises {x}. Et si tu essayais {x} ?",
+ "Try it": "Essayer"
 }

@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80" height="80" alt="Quotestreak icon">
 
-![version](https://img.shields.io/badge/version-61.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-62.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Here's the line. Name the movie.
 
@@ -22,6 +22,8 @@ Or the show, the game, the song or the book. 1,597 lines across 15 genres, from 
 **The story.** After any answer, tap The story for the title's Wikipedia summary and where the line is quoted.
 
 **Practice.** Lines you miss come back on a schedule, a day later, then three, seven and twenty-one, until you know them.
+
+**Suggestions.** Know 80s action? The end screen suggests 80s sci-fi, from your own stats.
 
 **Speed round.** Ten seconds a line. Faster answers pay more.
 
