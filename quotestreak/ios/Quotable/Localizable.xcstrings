@@ -374,19 +374,19 @@
         }
       }
     },
-    "Nope — it was \"%@\"": {
+    "Nope, it was \"%@\"": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nope — it was \"%@\""
+            "value": "Nope, it was \"%@\""
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Non — c'était « %@ »"
+            "value": "Non, c'était « %@ »"
           }
         }
       }
@@ -467,6 +467,40 @@
           "stringUnit": {
             "state": "translated",
             "value": "Score final : %lld · Meilleur score : %lld"
+          }
+        }
+      }
+    },
+    "%lld in a row! +%lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld in a row! +%lld"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld d'affilée ! +%lld"
+          }
+        }
+      }
+    },
+    "New high score!": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New high score!"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouveau record !"
           }
         }
       }

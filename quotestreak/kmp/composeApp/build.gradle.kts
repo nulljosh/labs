@@ -53,7 +53,10 @@ compose.desktop {
             )
             packageName = "Quotestreak"
             packageVersion = "1.0.0"
-            description = "Lost and found pets, posted by neighbours."
+            description = "Guess the movie or the artist from the quote."
+            linux { iconFile.set(project.file("icons/icon.png")) }
+            windows { iconFile.set(project.file("icons/icon.ico")) }
+            macOS { iconFile.set(project.file("icons/icon.icns")) }
         }
     }
 }

@@ -18,11 +18,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+// brand/tokens.css: marquee yellow for the primary action, ink text on it, cream ground.
 @Composable
 fun QuotestreakTheme(content: @Composable () -> Unit) =
-    MaterialTheme(colorScheme = lightColorScheme(), content = content)
+    MaterialTheme(
+        colorScheme = lightColorScheme(
+            primary = Color(0xFFFFCC00), onPrimary = Color(0xFF15161A),
+            background = Color(0xFFF5F0E4), surface = Color(0xFFF5F0E4),
+            onBackground = Color(0xFF15161A), onSurface = Color(0xFF15161A),
+            error = Color(0xFFD70015),
+        ),
+        content = content,
+    )
 
 @Composable
 fun AppScreen(client: QuotestreakClient = QuotestreakClient()) {
