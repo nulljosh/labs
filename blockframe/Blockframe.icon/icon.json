@@ -1,0 +1,46 @@
+{
+  "fill-specializations": [
+    {
+      "value": {
+        "linear-gradient": [
+          "extended-srgb:0.247,0.839,0.541,1.0",
+          "extended-srgb:0.071,0.600,0.353,1.0"
+        ]
+      }
+    },
+    {
+      "appearance": "dark",
+      "value": {
+        "linear-gradient": [
+          "extended-srgb:0.020,0.168,0.099,1.0",
+          "extended-srgb:0.008,0.072,0.042,1.0"
+        ]
+      }
+    }
+  ],
+  "groups": [
+    {
+      "layers": [
+        {
+          "glass": false,
+          "image-name": "glyph.png",
+          "name": "Blockframe"
+        }
+      ],
+      "lighting": "individual",
+      "name": "Blockframe",
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.3
+      },
+      "specular": true,
+      "translucency": {
+        "enabled": false,
+        "value": 0
+      }
+    }
+  ],
+  "supported-platforms": {
+    "squares": "shared"
+  }
+}

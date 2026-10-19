@@ -25,6 +25,7 @@
 !toroid/
 !quotestreak/
 !curvely/
+!blockframe/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
