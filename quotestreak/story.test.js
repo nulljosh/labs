@@ -1,0 +1,10 @@
+const assert = require('assert');
+const { candidates, fits } = require('./story');
+assert.deepEqual(candidates({ type: 'movie', answer: 'Jaws', year: 1975 }), ['Jaws (1975 film)', 'Jaws (film)', 'Jaws']);
+assert.deepEqual(candidates({ type: 'tv', answer: 'Lost', source: 'https://en.wikiquote.org/wiki/Lost_(TV_series)' }), ['Lost (TV series)', 'Lost']);
+assert.deepEqual(candidates({ type: 'music', answer: 'Heart' }), ['Heart (band)', 'Heart (singer)', 'Heart']);
+assert(fits({ type: 'movie' }, '1975 film by Steven Spielberg'));
+assert(!fits({ type: 'movie' }, 'Species of shark'));
+assert(fits({ type: 'music' }, 'British and American rock band'));
+assert(fits({ type: 'game' }, '2012 video game'));
+console.log('story ok');

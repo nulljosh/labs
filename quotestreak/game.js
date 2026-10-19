@@ -17,6 +17,7 @@ let challenge = null;   // {quotes, score, name} when playing a friend's link
 let run = [];          // {qid, pts} for each question this game, for the challenge link
 let duel = null;       // {ws, code, them, theirDone, done} during a live duel
 let lives = null;      // marathon (v30): misses left, null in every other game
+let nextTimer = null;  // the pause after an answer; story.js holds it while a story card is open
 let cupRound = null;   // this week's ten cup quotes while the cup is being played (cup-ui.js)
 const $ = (id) => document.getElementById(id);
 
@@ -219,7 +220,7 @@ function choose(opt, btn) {
   window.quotableBadge?.('answer', { q: current, correct, typed: typeMode, hints: hintsUsed, streak });
   updateStats();
   if (dailyMode) recordDaily(correct);
-  setTimeout(dailyMode ? finishDaily : lives === 0 ? endGame : nextQuestion, 1100);
+  nextTimer = setTimeout(dailyMode ? finishDaily : lives === 0 ? endGame : nextQuestion, 1100);
 }
 
 // Confetti from the picked answer, in the round's genre colour plus the accent.

@@ -66,7 +66,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v50 Champions.** A live tournament of season winners.
 
 ### Era 6: know more (51 to 60)
-- [ ] **v51 The story.** After each answer, a card on the scene and why the line stuck.
+- [x] **v51 The story.** After each answer, a card on the scene and why the line stuck.
 - [ ] **v52 Said or written.** Which famous lines were improvised.
 - [ ] **v53 Actor mode.** Name who delivered it.
 - [ ] **v54 Director mode.** Name who directed it.
