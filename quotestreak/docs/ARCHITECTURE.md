@@ -41,6 +41,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `season.js`, `season-ui.js` | Quarterly seasons: tiers, medals, the ladder (`quotestreak_season` RPC) |
 | `art.js` | The poster backdrop and the answer flash |
 | `auth.js`, `spark.js` | Sign-in, friends, leaderboards against jaybulb-api |
+| `i18n.js`, `locales/`, `i18n/ui.json` | Twenty languages by translating text as it appears (v58) |
 | `webmcp.js` | Agent tools, see `API.md` |
 | `sw.js` | Offline cache. Bump `quotestreak-vNN` every release |
 

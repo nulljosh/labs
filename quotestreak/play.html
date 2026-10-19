@@ -50,6 +50,10 @@
         <input type="checkbox" id="hints-toggle">
       </label>
       <label class="setting-row">
+        <span>Language</span>
+        <select id="lang-select" aria-label="Language" translate="no"></select>
+      </label>
+      <label class="setting-row">
         <span>Sound effects</span>
         <input type="checkbox" id="sfx-toggle">
       </label>
@@ -172,7 +176,7 @@
       </div>
       <span id="genre-badge" class="genre-badge"></span>
       <p id="prompt" class="prompt"></p>
-      <blockquote id="quote"></blockquote>
+      <blockquote id="quote" translate="no" dir="auto"></blockquote>
       <div id="options" class="options"></div>
       <form id="type-form" class="hidden"><input id="type-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your answer"><button id="type-go">Answer</button></form>
       <p id="hint" class="prompt"></p>
@@ -329,6 +333,7 @@
   <script src="packs.js"></script>
   <script src="library.js"></script>
   <script type="module" src="auth.js"></script>
+  <script src="i18n.js"></script>
   <script src="webmcp.js"></script>
   <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>
 </body>
