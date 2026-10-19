@@ -130,10 +130,16 @@ $('auth-logout').onclick = () => sb.auth.signOut();
 
 window.quotableDisplayName = () => (user ? displayName(user).slice(0, 24) : '');
 
-// Called by game.js at game over. Silently no-ops when signed out.
-window.quotableSubmitScore = async (score, mode) => {
+// Fair play (v87): a game takes a signed token from jaybulb-api when it starts and hands in its run
+// (line id, pick, points per question) at the end; the server checks it before the score reaches the
+// board. Both silently no-op when signed out.
+const gameTokens = {};
+window.quotableGameToken = (board) => { if (user) gameTokens[board] = sb.rpc('quotestreak_game_start', { board }).then(r => r.data?.token); };
+window.quotableSubmitScore = async (score, mode, run = [], way = 'classic') => {
   if (!user || score <= 0) return;
-  await sb.from('quotestreak_scores').insert({ user_id: user.id, name: displayName(user).slice(0, 24), score, mode });
+  const token = await gameTokens[mode];
+  delete gameTokens[mode];
+  if (token) await sb.rpc('quotestreak_submit_score', { token, score, run, way, name: displayName(user).slice(0, 24) });
 };
 
 // Best score per player for a mode, best first (the weekly cup reads its board through this).

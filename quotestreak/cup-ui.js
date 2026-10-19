@@ -36,7 +36,7 @@ async function showCup(msg = '') {
 }
 function cupFinish(score) {
   localStorage.setItem(CUP_KEY, Cup.weekKey());
-  window.quotableSubmitScore?.(score, cupMode());
+  window.quotableSubmitScore?.(score, cupMode(), run, 'classic');
   cupRound = null;
   setTimeout(() => showCup(`You scored ${score} in this week's cup.`), 600);
 }

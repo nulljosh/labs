@@ -57,7 +57,12 @@
     if (s.phase === 'over') {
       stage.classList.add('hidden');
       $('show-when').textContent = `That's the show. You scored ${score}.`;
-      if (!sent && !practice) { sent = true; window.quotableSubmitScore?.(score, mode()); setTimeout(board, 1500); }
+      if (!sent && !practice) {
+        sent = true;
+        const run = [...picked].map(([i, p]) => ({ qid: Difficulty.qid(lines[i].quote), pick: p.option, pts: p.pts }));
+        window.quotableSubmitScore?.(score, mode(), run, 'classic');
+        setTimeout(board, 1500);
+      }
       clearInterval(timer);
       return;
     }
@@ -82,8 +87,9 @@
   $('show-options').onclick = (e) => {
     const b = e.target.closest('button'), s = state(start, now());
     if (!b || s.phase !== 'ask' || picked.has(s.i)) return;
-    picked.set(s.i, { option: b.textContent });
-    if (b.textContent === lines[s.i].answer) score += points(s.ms);
+    const pts = b.textContent === lines[s.i].answer ? points(s.ms) : 0;
+    picked.set(s.i, { option: b.textContent, pts });
+    score += pts;
     tick();
   };
   async function board() {
@@ -98,6 +104,7 @@
     $('show').classList.remove('hidden');
     start = practice ? (start || now() + 3000) : next(now());
     lines = pick(key(start), quotes, Daily.seededShuffle);   // the whole bank: family mode hides the show, like the cup
+    if (!practice) window.quotableGameToken?.(mode());   // fair play (v87): the token's clock starts here
     clearInterval(timer);
     timer = setInterval(tick, 250);
     tick();

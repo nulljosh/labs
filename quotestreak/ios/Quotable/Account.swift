@@ -190,9 +190,22 @@ final class Account {
 
     // MARK: Scores
 
-    func submit(score: Int, speed: Bool) async {
-        guard score > 0, let userID else { return }
-        _ = try? await call("POST", "/rest/quotestreak_scores", ["user_id": userID, "name": name, "score": score, "mode": speed ? "speed" : "normal"], authed: true)
+    /// Fair play (v87): a signed token when a game starts, the run handed in at the end, checked by jaybulb-api.
+    private var gameToken: Task<String?, Never>?
+    func beginGame(speed: Bool) {
+        guard userID != nil else { return }
+        gameToken = Task {
+            guard let data = try? await call("POST", "/rpc/quotestreak_game_start", ["board": speed ? "speed" : "normal"], authed: true),
+                  let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return nil }
+            return json["token"] as? String
+        }
+    }
+
+    func submit(score: Int, speed: Bool, run: [Game.RunItem]) async {
+        guard score > 0, userID != nil, let token = await gameToken?.value else { return }
+        gameToken = nil
+        let items = run.map { ["qid": $0.qid, "pick": $0.pick ?? NSNull(), "pts": $0.pts] as [String: Any] }
+        _ = try? await call("POST", "/rpc/quotestreak_submit_score", ["token": token, "score": score, "run": items, "way": "classic", "name": name], authed: true)
     }
 
     func leaderboard(speed: Bool) async -> [Entry] {

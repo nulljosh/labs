@@ -65,6 +65,7 @@ struct ContentView: View {
             // A duel hears every answer and the end of the run; leaving the game-over screen closes it.
             .onChange(of: game.answeredCount) { _, n in if n > 0 { duel?.answered(score: game.score, count: n) } }
             .onChange(of: game.phase) { _, phase in
+                if phase == .playing, duel == nil { Account.shared.beginGame(speed: game.speedMode) }   // fair play (v87)
                 if phase == .over { duel?.finish(score: game.score) }
                 if phase == .menu { duel?.close(); duel = nil }
             }
@@ -405,7 +406,7 @@ private struct GameOverView: View {
         }
         .padding(28)
         .overlay { if newHigh { ConfettiView(burst: Burst(count: 80)) } }
-        .task { if duel == nil { await Account.shared.submit(score: game.score, speed: game.speedMode) } }  // duels stay off the board, like the web
+        .task { if duel == nil { await Account.shared.submit(score: game.score, speed: game.speedMode, run: game.run) } }  // duels stay off the board, like the web
     }
 }
 

@@ -116,6 +116,7 @@ function startGame(speed) {
   if (duel?.quotes) pool = [...duel.quotes].reverse();
   if (cupRound) pool = [...cupRound].reverse();
   updateStats();
+  if (!duel && !challenge) window.quotableGameToken?.(cupRound ? `cup-${Cup.weekKey()}` : speed ? 'speed' : 'normal');   // fair play (v87)
   modeSelect.classList.add('hidden');
   endEl.classList.add('hidden');
   gameEl.classList.remove('hidden');
@@ -217,7 +218,7 @@ function choose(opt, btn) {
   }
   if (current.character) feedbackEl.textContent += ` · ${[current.character, current.year].filter(Boolean).join(', ')}`;
   if (!current.noTally) tally(current, correct);  // timelines, reveals, misquotes and packs aren't one bank quote
-  run.push({ qid: Difficulty.qid(current.quote), pts });
+  run.push({ qid: Difficulty.qid(current.quote), pick: typeMode ? opt : btn?.textContent ?? opt, pts });
   duelSend({ type: 'answer', score, i: run.length, name: window.quotableDisplayName?.() });
   window.quotableBadge?.('answer', { q: current, correct, typed: typeMode, hints: hintsUsed, streak });
   updateStats();
@@ -265,7 +266,7 @@ function endGame() {
   $('quip-end').src = `brand/quip-${best ? 'cheer' : score > 0 ? 'idle' : 'oops'}${dark}.svg`;
   localStorage.setItem(HIGH_KEY, high);
   $('final-score').textContent = `Final score: ${score} · High score: ${high}`;
-  if (!cupRound && !duel && !challenge && !window.quotableOffBoard) window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal');
+  if (!cupRound && !duel && !challenge && !window.quotableOffBoard) window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal', run, typeMode ? 'typed' : $('mode').value);
   if (challenge) {
     $('final-score').textContent = Challenge.verdict(score, challenge.score, challenge.name);
     challenge = null;

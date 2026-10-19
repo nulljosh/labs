@@ -39,6 +39,11 @@ final class Game {
         self.quotes = quotes
     }
 
+    /// Fair play (v87): every question of this game as the server checks it, and when the game began.
+    struct RunItem: Codable, Equatable { var qid: String; var pick: String?; var pts: Int }
+    private(set) var run: [RunItem] = []
+    private(set) var startedAt = Date()
+
     /// Per-quote answer tallies from jaybulb-api, filled in by Account after launch.
     var stats: [String: (plays: Int, correct: Int)] = [:]
 
@@ -47,6 +52,8 @@ final class Game {
         score = 0
         streak = 0
         answeredCount = 0
+        run = []
+        startedAt = Date()
         let byGenre = genre.map { g in quotes.filter { $0.genre == g } } ?? quotes
         let byDecade = decade.map { d in byGenre.filter { $0.year.map { $0 / 10 * 10 } == d } } ?? byGenre
         let byLevel = level.map { l in byDecade.filter { $0.level(stats) == l } } ?? byDecade
@@ -63,6 +70,8 @@ final class Game {
         score = 0
         streak = 0
         answeredCount = 0
+        run = []
+        startedAt = Date()
         pool = fixed.reversed()   // popLast deals from the front
         phase = .playing
         nextQuestion()
@@ -118,6 +127,7 @@ final class Game {
         lastWasCorrect = correct
         answeredCount += 1
         lastPoints = correct ? points : 0
+        run.append(RunItem(qid: current.qid, pick: answer, pts: lastPoints))
         if correct {
             streak += 1
             score += points
