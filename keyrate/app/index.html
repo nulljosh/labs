@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keyrate</title>
+<meta name="description" content="A typing test. Type the words, see your speed.">
+<link rel="icon" href="../icon.svg">
+<link rel="stylesheet" href="https://jaybulb.com/tokens.css">
+<style>
+  :root, :root[data-theme] { --bg: #fff; --bg2: #f6f6f6; }
+  :root { --ok: var(--text, #111); --bad: #c0392b; --dim: var(--text3, #999); }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: var(--bg, #fafafa); color: var(--text, #111);
+    font-family: var(--font-body, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2.5rem; padding: 2rem; box-sizing: border-box;
+  }
+  h1 { font-size: 1rem; font-weight: 600; letter-spacing: .02em; margin: 0; color: var(--text2, #555); }
+  nav { display: flex; gap: .25rem; flex-wrap: wrap; justify-content: center; }
+  nav button {
+    all: unset; cursor: pointer; padding: .3rem .7rem; border-radius: var(--radius-pill, 999px);
+    color: var(--dim); font-size: .9rem;
+  }
+  nav button[aria-pressed="true"] { color: var(--text, #111); background: var(--bg2, #eee); }
+  nav span { color: var(--border, #ddd); padding: .3rem .2rem; }
+  #words {
+    max-width: 52rem; font-size: 1.75rem; line-height: 1.6; height: calc(1.6em * 3); overflow: hidden;
+    display: flex; flex-wrap: wrap; gap: 0 .55em; position: relative; outline: none; cursor: text;
+    transition: opacity .2s;
+  }
+  #words.blur { opacity: .35; filter: blur(3px); }
+  .w { white-space: nowrap; color: var(--dim); }
+  .w.err { text-decoration: underline; text-decoration-color: var(--bad); }
+  .w .ok { color: var(--ok); } .w .bad { color: var(--bad); } .w .extra { color: var(--bad); opacity: .6; }
+  #caret {
+    position: absolute; width: 2px; height: 1.3em; background: var(--accent, #111); border-radius: 1px;
+    transition: left .07s, top .07s; animation: blink 1s steps(2) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  #live { font-size: 1.1rem; color: var(--dim); min-height: 1.5em; }
+  #hint { color: var(--dim); font-size: .85rem; }
+  kbd { font: inherit; border: 1px solid var(--border, #ddd); border-radius: 4px; padding: 0 .35em; }
+  #result { display: none; text-align: center; }
+  #result.show { display: block; }
+  #result .big { font-size: 4rem; font-weight: 600; line-height: 1; }
+  #result .big small { font-size: 1rem; font-weight: 400; color: var(--dim); margin-left: .5rem; }
+  #result dl { display: flex; gap: 2rem; justify-content: center; margin: 1.5rem 0 0; }
+  #result dt { color: var(--dim); font-size: .8rem; } #result dd { margin: 0; font-size: 1.3rem; }
+  #best { color: var(--dim); font-size: .9rem; margin-top: 1rem; }
+  #hist { margin-top: .75rem; }
+  #hist polyline { fill: none; stroke: var(--accent, #111); stroke-width: 1.5; }
+  input#sink { position: absolute; opacity: 0; pointer-events: none; }
+  @media (max-width: 600px) { #words { font-size: 1.3rem; } #result .big { font-size: 3rem; } }
+</style>
+</head>
+<body>
+<h1>Keyrate</h1>
+<nav id="modes">
+  <button data-mode="time" data-n="15">15</button>
+  <button data-mode="time" data-n="30">30</button>
+  <button data-mode="time" data-n="60" aria-pressed="true">60</button>
+  <span>|</span>
+  <button data-mode="words" data-n="25">25 words</button>
+  <button data-mode="words" data-n="50">50 words</button>
+  <button data-mode="quote" data-n="1">quote</button>
+  <span>|</span>
+  <button id="punct" aria-pressed="false" title="Punctuation and numbers">punct</button>
+</nav>
+<div id="live">&nbsp;</div>
+<div id="words" tabindex="0"><span id="caret"></span></div>
+<input id="sink" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Type here">
+<p id="hint">Start typing. <kbd>Tab</kbd> restarts.</p>
+<div id="result">
+  <div class="big"><span id="rWpm"></span><small>wpm</small></div>
+  <dl><div><dt>accuracy</dt><dd id="rAcc"></dd></div><div><dt>raw</dt><dd id="rRaw"></dd></div><div><dt>chars</dt><dd id="rChars"></dd></div></dl>
+  <div id="best"></div>
+  <svg id="hist" width="240" height="40" aria-label="Recent runs" hidden></svg>
+</div>
+
+<script type="module">
+import { stats } from '../score.js'
+
+// Top 200 English words, the same source 10fastfingers and Monkeytype's "english" list draw from.
+const WORDS = `the be of and a to in he have it that for they I with as not on she at by this we you do but from or which one would all will there say who make when can more if no man out other so what time up go about than into could state only new year some take come these know see use get like then first any work now may such give over think most even find day also after way many must look before great back through long where much should well people down own just because good each those feel seem how high too place little world very still nation hand old life tell write become here show house both between need mean call develop under last right move thing general school never same another begin while number part turn real leave might want point form off child few small since against ask late home interest large person end open public follow during present without again hold govern around possible head consider word program problem however lead system set order eye plan run keep face fact group play stand increase early course change help line city put close case force meet once water upon war build hear light unite live every country bring center let side try provide continue name certain power pay result question study woman member until far night always service away report something company week church toward start social room figure nature though young less enough almost read include president nothing yet better big boy cost business value second why clear expect family complete act sense mind experience art next near direct car law industry important girl god several matter usual rather per often kind among white reason action return foot care simple within love human along appear doctor believe speak active student month drive concern best door hope example inform body ever least probable understand reach effect different idea whole control condition field pass fall note special talk particular today measure walk teach low hour type carry rate remain full street easy although record sit determine level local sure receive thus moment spirit train college religion perhaps music grow free cause serve age book board recent sound office cut step class true history position above strong friend necessary add court deal tax support party whether either land material happen education death agree arm mother across quite anything town past view society manage answer break organize half fire lose money stop actual already effort wait department able political learn voice air together shall cover common subject draw short wife treat limit road letter color behind produce send term total university rise century success minute remember purpose test fight watch situation south ship`.split(/\s+/)
+
+// ponytail: a handful of built-in quotes, add a fetch if the list ever feels thin
+const QUOTES = [
+  "The best way to predict the future is to invent it.",
+  "Simplicity is the ultimate sophistication.",
+  "Programs must be written for people to read, and only incidentally for machines to execute.",
+  "Any sufficiently advanced technology is indistinguishable from magic.",
+  "Talk is cheap. Show me the code.",
+  "First, solve the problem. Then, write the code.",
+  "Premature optimization is the root of all evil.",
+  "The only way to learn a new programming language is by writing programs in it.",
+  "Make it work, make it right, make it fast.",
+  "Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.",
+]
+const $ = s => document.querySelector(s)
+const wordsEl = $('#words'), caret = $('#caret'), live = $('#live'), sink = $('#sink'), result = $('#result')
+let mode = 'time', n = 60, target = [], typed = [], start = 0, timer = 0, done = false, punct = false
+
+const decorate = w => {
+  const r = Math.random()
+  if (r < .08) return String(Math.random() * 1000 | 0)
+  if (r < .2) w = w[0].toUpperCase() + w.slice(1)
+  const e = Math.random()
+  return w + (e < .1 ? '.' : e < .2 ? ',' : e < .23 ? '?' : e < .25 ? '!' : '')
+}
+const pick = k => Array.from({ length: k }, () => WORDS[Math.random() * WORDS.length | 0]).map(w => punct ? decorate(w) : w)
+
+function reset() {
+  clearInterval(timer); done = false; start = 0; typed = ['']
+  target = mode === 'quote' ? QUOTES[Math.random() * QUOTES.length | 0].split(' ') : pick(mode === 'words' ? n : 120)
+  if (mode === 'quote') n = target.length
+  result.classList.remove('show'); wordsEl.classList.remove('blur')
+  live.innerHTML = mode === 'time' ? n : `0/${n}`
+  sink.value = ''; render(); sink.focus()
+}
+
+function render() {
+  wordsEl.querySelectorAll('.w').forEach(e => e.remove())
+  const i = typed.length - 1
+  target.forEach((t, k) => {
+    const w = document.createElement('span'); w.className = 'w'
+    const ty = typed[k] ?? ''
+    if (k < i && ty !== t) w.classList.add('err')
+    for (let c = 0; c < Math.max(t.length, ty.length); c++) {
+      const s = document.createElement('span')
+      if (c >= t.length) { s.className = 'extra'; s.textContent = ty[c] }
+      else { s.textContent = t[c]; if (c < ty.length) s.className = ty[c] === t[c] ? 'ok' : 'bad' }
+      w.appendChild(s)
+    }
+    wordsEl.appendChild(w)
+  })
+  // caret + keep the active line at the top of the 3-line window
+  const cur = wordsEl.children[i + 1], chars = cur.children, ci = typed[i].length
+  const ref = chars[Math.min(ci, chars.length - 1)]
+  const r = ref.getBoundingClientRect(), box = wordsEl.getBoundingClientRect()
+  const lineH = parseFloat(getComputedStyle(wordsEl).lineHeight)
+  const row = Math.round((cur.offsetTop) / lineH)
+  wordsEl.scrollTop = Math.max(0, row - 1) * lineH
+  caret.style.left = (ci >= chars.length ? r.right : r.left) - box.left + 'px'
+  caret.style.top = cur.offsetTop - wordsEl.scrollTop + (lineH - r.height * 1.3) / 2 + 'px'
+}
+
+function tick() {
+  const secs = (Date.now() - start) / 1000
+  if (mode === 'time') {
+    live.textContent = Math.max(0, Math.ceil(n - secs))
+    if (secs >= n) finish()
+  } else {
+    live.textContent = `${typed.length - 1}/${n}`
+  }
+}
+
+function finish() {
+  clearInterval(timer); done = true
+  const secs = (Date.now() - start) / 1000
+  const s = stats(typed.filter((w, i) => w || i < typed.length - 1), target, secs)
+  $('#rWpm').textContent = s.wpm; $('#rAcc').textContent = s.accuracy + '%'
+  $('#rRaw').textContent = s.raw; $('#rChars').textContent = `${s.correct}/${s.wrong}`
+  const key = `best:${mode}:${n}`
+  let best = 0; try { best = +localStorage.getItem(key) || 0; if (s.wpm > best) localStorage.setItem(key, best = s.wpm) } catch {}
+  $('#best').textContent = `best ${best} wpm · ${mode === 'time' ? n + 's' : mode === 'quote' ? 'quote' : n + ' words'}`
+  // ponytail: last 30 runs as a sparkline, localStorage only
+  try {
+    const runs = (JSON.parse(localStorage.getItem('runs')) || []).concat(s.wpm).slice(-30)
+    localStorage.setItem('runs', JSON.stringify(runs))
+    const hist = $('#hist'), max = Math.max(...runs, 1), W = 240, H = 40
+    hist.hidden = runs.length < 2
+    hist.innerHTML = `<polyline points="${runs.map((v, i) => `${i / (runs.length - 1) * (W - 4) + 2},${H - 2 - v / max * (H - 4)}`).join(' ')}"/>`
+  } catch {}
+  wordsEl.classList.add('blur'); result.classList.add('show'); live.innerHTML = '&nbsp;'
+}
+
+sink.addEventListener('input', () => {
+  if (done) return
+  if (!start) { start = Date.now(); timer = setInterval(tick, 100) }
+  const v = sink.value
+  if (v.endsWith(' ')) {
+    if (typed.at(-1)) { typed.push(''); if (mode !== 'time' && typed.length > n) return finish() }
+  } else typed[typed.length - 1] = v.slice(0, target[typed.length - 1].length + 8)
+  sink.value = typed.at(-1)
+  if (mode === 'time' && typed.length > target.length - 30) target.push(...pick(60))
+  if (mode !== 'time') tick()
+  render()
+})
+sink.addEventListener('keydown', e => {
+  // backspace at word start jumps to the previous word if it was wrong (Monkeytype behaviour)
+  if (e.key === 'Backspace' && !sink.value && typed.length > 1 && typed.at(-2) !== target[typed.length - 2]) {
+    typed.pop(); sink.value = typed.at(-1); e.preventDefault(); render()
+  }
+})
+document.addEventListener('keydown', e => {
+  if (e.key === 'Tab' || (done && e.key === 'Enter')) { e.preventDefault(); reset() }
+})
+wordsEl.addEventListener('click', () => sink.focus())
+sink.addEventListener('blur', () => { if (!done) wordsEl.classList.add('blur') })
+sink.addEventListener('focus', () => wordsEl.classList.remove('blur'))
+$('#punct').addEventListener('click', e => {
+  punct = !punct; e.currentTarget.setAttribute('aria-pressed', punct); reset(); e.stopPropagation()
+})
+$('#modes').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b || b.id === 'punct') return
+  document.querySelectorAll('#modes button').forEach(x => x.removeAttribute('aria-pressed'))
+  b.setAttribute('aria-pressed', 'true'); mode = b.dataset.mode; n = +b.dataset.n; reset()
+})
+addEventListener('resize', render)
+reset()
+</script>
+</body>
+</html>

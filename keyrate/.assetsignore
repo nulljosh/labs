@@ -1,0 +1,8 @@
+.build
+.git
+.github
+*.md
+*.test.mjs
+LICENSE
+node_modules
+wrangler.toml

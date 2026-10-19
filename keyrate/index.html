@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keyrate — a typing test with nothing attached</title>
+<meta name="description" content="Words appear. You type them. You get one number. No account, no settings page, no build step.">
+<meta property="og:title" content="Keyrate — a typing test with nothing attached">
+<meta property="og:description" content="Words appear. You type them. You get one number.">
+<meta property="og:type" content="website">
+<link rel="icon" href="icon.svg">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="https://jaybulb.com/tokens.css">
+<link rel="stylesheet" href="https://jaybulb.com/landing.css">
+<script defer src="https://jaybulb.com/landing.js" data-shape="bars"></script>
+<style>
+  :root, :root[data-theme] { --bg: #fff; --bg2: #f6f6f6; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+
+
+
+  section { padding: 4rem 0; }
+  .lp-stage { margin-top: 8px; }
+  h2 { font-size: clamp(1.5rem, 3.6vw, 2rem); font-weight: 700; letter-spacing: -.02em; text-align: center; margin-bottom: .6rem; }
+  .lead { text-align: center; color: var(--text2); max-width: 34rem; margin: 0 auto 2.25rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem; }
+  .card h3 { font-size: 1rem; font-weight: 650; margin-bottom: .4rem; }
+  .card p { font-size: .93rem; color: var(--text2); }
+  .card a { display: inline-block; margin-top: .6rem; font-size: .875rem; font-weight: 500; }
+  .card a:hover { text-decoration: underline; }
+  .soon { display: inline-block; margin-top: .6rem; font-size: .8rem; color: var(--text3); }
+  kbd { font: inherit; font-size: .85em; border: 1px solid var(--border); border-radius: 4px; padding: 0 .35em; }
+
+  /* Footer directory: tagline rule, four columns, two-by-two on phones. */
+  footer { padding: 0 0 3rem; text-align: center; font-size: .8125rem; color: var(--text2); }
+  footer .foot-rule { display: flex; align-items: center; gap: 16px; max-width: 880px; margin: 0 auto; padding: 8px 1.5rem 24px; color: var(--text); font-size: .6875rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; }
+  footer .foot-rule::before { content: ""; order: 1; flex: 1; height: 1px; background: var(--border); }
+  footer .foot-rule > :first-child { order: 0; }
+  footer .foot-rule > :last-child { order: 2; }
+  .foot-dir { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 24px; max-width: 880px; margin: 0 auto; padding: 0 1.5rem 28px; text-align: left; }
+  .foot-col h3 { margin: 0 0 8px; font-size: .75rem; font-weight: 600; color: var(--text); letter-spacing: .02em; }
+  .foot-col ul { list-style: none; margin: 0; padding: 0; }
+  .foot-col a { position: relative; display: inline-block; padding: 5px 0; color: var(--text2); text-decoration: none; font-size: .8125rem; line-height: 1.35; }
+  .foot-col a::after { content: ""; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; height: 44px; min-width: 44px; }
+  .foot-col a:hover { color: var(--text); text-decoration: underline; }
+  .foot-bar { max-width: 880px; margin: 0 auto; padding: 18px 1.5rem 0; border-top: 1px solid var(--border); }
+  .foot-meta { margin: 0; color: var(--text2); font-size: .78rem; line-height: 1.9; }
+  .foot-meta a { color: var(--text2); }
+  @media (max-width: 700px) { .foot-dir { grid-template-columns: repeat(2, 1fr); } footer .foot-rule { font-size: .5625rem; letter-spacing: .14em; gap: 10px; } }
+  :focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<main>
+<div class="lp-rule" aria-hidden="true"><span>Keyrate</span><span><a href="https://github.com/nulljosh/keyrate">GitHub</a></span></div>
+<header class="lp-hero">
+  <span class="lp-mark"><img src="icon.svg" alt="" width="56" height="56"></span>
+  <h1>Introducing <span class="brand">Keyrate.</span></h1>
+  <p class="lp-eyebrow">A typing test with nothing attached</p>
+  <p class="lp-lede">Words appear. You type them. You get one number. No account, no settings page, no build step.</p>
+  <div class="lp-cta">
+    <a href="/app" class="lp-btn lp-solid">Start typing</a>
+    <a href="https://github.com/nulljosh/keyrate" class="lp-btn">Source</a>
+  </div>
+</header>
+<div class="lp-stage">
+</div>
+<section id="test" class="lp-reveal">
+  <div class="container">
+    <h2>The test, and only the test</h2>
+    <div class="grid">
+      <div class="card"><h3>One number</h3><p>Words per minute, accuracy, raw speed, characters. Then you are done.</p></div>
+      <div class="card"><h3>Five modes</h3><p>15, 30 or 60 seconds. 25 or 50 words. Or a quote. Punctuation and numbers optional.</p></div>
+      <div class="card"><h3>Keyboard only</h3><p><kbd>Tab</kbd> restarts. Wrong letters go red, backspace fixes them. No mouse needed.</p></div>
+      <div class="card"><h3>Nothing leaves your device</h3><p>Your best score per mode stays in the browser. No account, no tracking, no server.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="platforms" class="lp-reveal">
+  <div class="container">
+    <h2>Every platform</h2>
+    <p class="lead">The web version is live today. Native apps are on the way, and they will be real binaries, not wrapped web pages.</p>
+    <div class="grid">
+      <div class="card"><h3>Web</h3><p>Nothing to install. Any modern browser.</p><a href="/app">Open the test &rarr;</a></div>
+      <div class="card"><h3>iPhone &amp; iPad</h3><p>Native app on the App Store.</p><span class="soon">Coming soon</span></div>
+      <div class="card"><h3>Mac</h3><p>Native app, Apple silicon and Intel.</p><span class="soon">Coming soon</span></div>
+      <div class="card"><h3>Windows</h3><p>Native desktop app.</p><span class="soon">Coming soon</span></div>
+      <div class="card"><h3>Android</h3><p>Native app on Google Play.</p><span class="soon">Coming soon</span></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="foot-rule" aria-hidden="true"><span>Keyrate</span><span>Words appear. You type them.</span></div>
+  <nav class="foot-dir" aria-label="Footer">
+    <div class="foot-col">
+      <h3>Keyrate</h3>
+      <ul>
+        <li><a href="/app">Take the test</a></li>
+        <li><a href="#test">The test</a></li>
+        <li><a href="#platforms">Every platform</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="https://github.com/nulljosh/keyrate/blob/main/score.js" target="_blank" rel="noopener">How it scores</a></li>
+        <li><a href="https://github.com/nulljosh/keyrate/blob/main/roadmap.md" target="_blank" rel="noopener">Roadmap</a></li>
+        <li><a href="https://github.com/nulljosh/keyrate/tree/main/screenshots" target="_blank" rel="noopener">Screenshots</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h3>Developers</h3>
+      <ul>
+        <li><a href="https://github.com/nulljosh/keyrate" target="_blank" rel="noopener">Source</a></li>
+        <li><a href="https://github.com/nulljosh/keyrate/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a></li>
+        <li><a href="https://github.com/nulljosh/keyrate/blob/main/WHITEPAPER.md" target="_blank" rel="noopener">Whitepaper</a></li>
+        <li><a href="https://github.com/nulljosh/keyrate/issues" target="_blank" rel="noopener">Report a bug</a></li>
+        <li><a href="https://jaybulb.com/docs.html#keyrate">Docs</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h3>Project</h3>
+      <ul>
+        <li><a href="https://github.com/nulljosh/keyrate/blob/main/PRIVACY.md" target="_blank" rel="noopener">Privacy</a></li>
+        <li><a href="https://github.com/nulljosh/keyrate/blob/main/LICENSE" target="_blank" rel="noopener">License (MIT)</a></li>
+        <li><a href="https://jaybulb.com">Portfolio</a></li>
+        <li><a href="#">Back to top</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="foot-bar">
+    <p class="foot-meta">Keyrate &middot; MIT License &middot; &copy; 2026 Joshua Trommel &middot; Made with <span class="heart">&hearts;</span> in Vancouver, BC</p>
+  </div>
+</footer>
+</body>
+</html>
