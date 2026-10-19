@@ -5,6 +5,7 @@
 !PROGRESS.md
 !fleet.svg
 !runs/
+!keyrate/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
