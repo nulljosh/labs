@@ -1,0 +1,4 @@
+.git
+*.md
+wrangler.toml
+.asc

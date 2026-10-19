@@ -9,6 +9,7 @@
 !weather/
 !swing/
 !evidna/
+!plan/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
