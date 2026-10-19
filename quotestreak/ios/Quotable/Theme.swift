@@ -36,6 +36,15 @@ enum Theme {
         #endif
     }
 
+    /// iPad is read from further away than a phone, so type, column and Quip all grow by this much.
+    static var padScale: CGFloat {
+        #if os(iOS)
+        UIDevice.current.userInterfaceIdiom == .pad ? 1.3 : 1
+        #else
+        1
+        #endif
+    }
+
     /// Quip Sans (fonts/, built by scripts/gen_font.py) registered from the bundle once, before first use,
     /// so neither Info.plist needs a font list.
     static let fontsRegistered: Void = {
@@ -86,11 +95,12 @@ extension Font {
         case .footnote, .caption, .caption2: 11; default: 14
         }
         #else
-        switch style {
+        let base: CGFloat = switch style {
         case .largeTitle: 34; case .title: 28; case .title2: 22; case .title3: 20
         case .headline, .body: 17; case .callout: 16; case .subheadline: 15
         case .footnote: 13; case .caption: 12; case .caption2: 11; default: 17
         }
+        return base * Theme.padScale
         #endif
     }
 }
@@ -101,7 +111,7 @@ struct PrimaryButtonStyle: ButtonStyle {
         configuration.label
             .font(.quip(.headline, weight: .bold))
             .foregroundStyle(Theme.onAccent)
-            .padding(.horizontal, 28).frame(minHeight: 48)
+            .padding(.horizontal, 28).frame(minHeight: 48 * Theme.padScale)
             .background(Theme.accent, in: Capsule())
             .scaleEffect(configuration.isPressed ? 0.96 : 1)
             .animation(.easeOut(duration: 0.12), value: configuration.isPressed)
@@ -115,7 +125,7 @@ struct SecondaryButtonStyle: ButtonStyle {
         configuration.label
             .font(.quip(.headline, weight: .bold))
             .foregroundStyle(.primary)
-            .padding(.horizontal, 24).frame(minHeight: 48)
+            .padding(.horizontal, 24).frame(minHeight: 48 * Theme.padScale)
             .overlay(Capsule().strokeBorder(Theme.accentStroke, lineWidth: 2))
             .scaleEffect(configuration.isPressed ? 0.96 : 1)
             .animation(.easeOut(duration: 0.12), value: configuration.isPressed)
@@ -139,7 +149,7 @@ struct AnswerButtonStyle: ButtonStyle {
             .font(.quip(.headline, weight: .semibold))
             .foregroundStyle(state == .right || state == .wrong ? Color.white : Color.primary)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 20).frame(minHeight: 52)
+            .padding(.horizontal, 20).frame(minHeight: 52 * Theme.padScale)
             .background(fill, in: RoundedRectangle(cornerRadius: 14))
             .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(.primary.opacity(state == .open ? 0.14 : 0), lineWidth: 1))
             .opacity(state == .spent ? 0.5 : 1)
