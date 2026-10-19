@@ -26,7 +26,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v16 Badges.** Fifty achievements drawn in Quip's style.
 - [x] **v17 Stats.** Accuracy by genre and decade, best streaks, a history graph.
 - [x] **v18 Share cards.** A generated image per game with the right Quip pose.
-- [ ] **v19 Spectate.** Watch a live duel.
+- [x] **v19 Spectate.** Watch a live duel.
 - [ ] **v20 Seasons.** A ranked ladder each quarter with cosmetic Quip rewards.
 
 ### Era 3: new ways to guess (21 to 30)

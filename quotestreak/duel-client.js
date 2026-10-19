@@ -10,6 +10,7 @@ function openDuel(code) {
   duel = { code, them: 0 };
   history.replaceState(null, '', `${location.pathname}?duel=${code}`);
   $('duel-link').textContent = `${location.origin}/play?duel=${code}`;
+  $('duel-watch').textContent = `Spectators: ${location.origin}/play?watch=${code}`;
   $('duel-msg').textContent = 'Send this link to a friend. The duel starts when they open it.';
   modeSelect.classList.add('hidden');
   $('duel-wait').classList.remove('hidden');

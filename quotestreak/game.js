@@ -114,6 +114,8 @@ fetch('quotes.json').then(r => r.json()).then(data => {
   if (challenge) startGame(false);
   const room = new URLSearchParams(location.search).get('duel');
   if (room && /^[A-Za-z]{4}$/.test(room)) openDuel(room.toUpperCase());
+  const watch = new URLSearchParams(location.search).get('watch');
+  if (watch && /^[A-Za-z]{4}$/.test(watch)) openWatch(watch.toUpperCase());
 });
 
 function shuffle(arr) {
@@ -235,7 +237,7 @@ function choose(opt, btn) {
   if (current.character) feedbackEl.textContent += ` · ${[current.character, current.year].filter(Boolean).join(', ')}`;
   tally(current, correct);
   run.push({ qid: Difficulty.qid(current.quote), pts });
-  duelSend({ type: 'answer', score });
+  duelSend({ type: 'answer', score, i: run.length, name: window.quotableDisplayName?.() });
   window.quotableBadge?.('answer', { q: current, correct, typed: typeMode, hints: hintsUsed, streak });
   updateStats();
   if (dailyMode) recordDaily(correct);
