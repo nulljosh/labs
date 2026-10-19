@@ -6,6 +6,7 @@
 !fleet.svg
 !runs/
 !keyrate/
+!weather/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
