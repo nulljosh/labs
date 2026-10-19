@@ -47,9 +47,9 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v33 Live Activities.** Live duels on the apps, with both scores on the lock screen and in the Dynamic Island. (The cup joins it once the apps have the cup.)
 - [x] **v34 Apple TV.** A living-room game with phones as buzzers.
 - [x] **v35 Vision Pro.** The poster wall around you.
-- [ ] **v36 Google Play.** The Android app in the Play Store. Blocked on Joshua: needs his developer account.
-- [ ] **v37 Microsoft Store.** The Windows app in the Store. Blocked on Joshua: needs his developer account.
-- [ ] **v38 Flathub.** The Linux app on Flathub. Blocked on Joshua: the submission is a public pull request from his GitHub.
+- [ ] **v36 Google Play.** The Android app in the Play Store. *Waiting on a Play developer account.*
+- [ ] **v37 Microsoft Store.** The Windows app in the Store. *Waiting on a Microsoft developer account.*
+- [ ] **v38 Flathub.** The Linux app on Flathub. *Waiting on the Flathub submission.*
 - [x] **v39 Siri and Shortcuts.** "Give me a quote" and "start a speed round".
 - [x] **v40 Handoff and sync.** Start on the phone, finish on the Mac.
 
@@ -61,7 +61,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v45 Pack library.** Browse and play moderated community packs.
 - [x] **v46 Classroom.** Literature and speech packs with a teacher view.
 - [x] **v47 Stream mode.** Twitch chat votes on the answer.
-- [ ] **v48 Discord.** A Discord Activity. Blocked on Joshua: a Discord Activity needs an application in his Discord developer account.
+- [ ] **v48 Discord.** A Discord Activity. *Waiting on a Discord developer application.*
 - [x] **v49 iMessage.** Play a round inside a conversation.
 - [x] **v50 Champions.** A live tournament of season winners.
 
@@ -110,8 +110,8 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v86 Newsletter.** The daily quote by email, opt in.
 - [x] **v87 Fair play.** Scores checked on the server.
 - [x] **v88 Moderation.** Tools for packs, names and clubs.
-- [ ] **v89 Supporter pack.** An optional one-dollar cosmetic pack, nothing locked. *Blocked on Joshua: a live $1 Stripe Payment Link (live Stripe writes are his; the checkout still shows the old business name) and a $0.99 App Store IAP. The cosmetics wait for the link.*
-- [ ] **v90 Store in twenty languages.** Localized listings and screenshots. *Waiting on review: iOS and Mac 1.3.0 are WAITING_FOR_REVIEW, which locks the listings. Do it with the next version, once the native batch (widget, watch, duels, iCloud, anime) is in the build it describes.*
+- [ ] **v89 Supporter pack.** An optional one-dollar cosmetic pack, nothing locked. *Waiting on payments: a $1 web checkout and a $0.99 in-app purchase need setting up first.*
+- [ ] **v90 Store in twenty languages.** Localized listings and screenshots. *Waiting on App Review: the listings can change once 1.3.0 is out, with the next version.*
 
 ### Era 10: the hundred (91 to 100)
 - [x] **v91 Fast.** Cold start under 300 ms and a smooth wall on old devices.
@@ -121,7 +121,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v95 Quip lives.** Quip reacts everywhere, drawn in code.
 - [x] **v96 Archive.** Every past daily quote playable.
 - [x] **v97 Hall of fame.** The best runs ever, kept forever.
-- [ ] **v98 Certified access.** A full outside accessibility audit. *Needs an outside auditor (Joshua to hire). Ready for them: docs/ACCESSIBILITY.md, the WCAG 2.2 pass (keyboard, 320 px reflow, target size) and its three fixes are live.*
+- [ ] **v98 Certified access.** A full outside accessibility audit. *Waiting on an outside auditor. The internal WCAG 2.2 pass is done and its fixes are live (docs/ACCESSIBILITY.md).*
 - [x] **v99 The book.** Whitepaper two and a public roadmap page.
 - [ ] **v100 Quotestreak 100.** Ten thousand verified quotes, a live event, and Quip's birthday.
 
