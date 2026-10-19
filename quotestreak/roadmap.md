@@ -90,7 +90,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v70 Family profiles.** Several players on one device.
 
 ### Era 8: the content engine (71 to 80)
-- [ ] **v71 Verified bank.** Every line checked against subtitles, with its source shown.
+- [x] **v71 Verified bank.** Every line checked against subtitles, with its source shown.
 - [ ] **v72 Submissions.** Players suggest quotes through a review queue.
 - [ ] **v73 New releases.** A pack of recent films every week.
 - [ ] **v74 Seasons of film.** Halloween, holiday and summer packs.

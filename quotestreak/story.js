@@ -39,11 +39,21 @@
   link.className = 'link hidden';
   link.textContent = 'The story';
   feedbackEl.after(link);
+  // v71: where the line is quoted, right on the reveal, for every line that has a source.
+  const src = document.createElement('a');
+  src.id = 'source-link';
+  src.className = 'link hidden';
+  src.target = '_blank';
+  src.rel = 'noopener';
+  src.textContent = 'Source';
+  link.after(src);
   let shown = null;
   // Offer the story once the answer is in, for bank lines only (packs and timelines have no one title).
   new MutationObserver(() => {
     const q = current;
     link.classList.toggle('hidden', !(feedbackEl.textContent && q && !q.noTally && q.type !== 'pack'));
+    src.classList.toggle('hidden', !(feedbackEl.textContent && q?.source));
+    if (q?.source) src.href = q.source;
   }).observe(feedbackEl, { childList: true, characterData: true, subtree: true });
 
   link.onclick = async () => {

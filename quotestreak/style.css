@@ -121,7 +121,7 @@ select {
   font-family: inherit;
 }
 /* secondary actions: an outline, so Play (or Play Again) stays the one bright button */
-#start-speed, #start-daily, #lb-btn, #share, #lb-btn-end, #lb-close, #daily-back, #hint-btn, #auth-apple, #auth-logout, #auth-signup, #auth-forgot, #account-close, #challenge-btn, #start-duel, #duel-cancel, #start-cup, #cup-back, #badges-btn, #badges-back, #stats-btn, #stats-back, #watch-back, #season-btn, #season-back, #start-pass, #pass-back, #start-party, #start-pack, #pack-back, #start-library, #library-back, #start-offline, #offline-back, #offline-clear, #transfer-copy, #transfer-no, #player-add, #pack-submit, .library-list button, #start-champions, #champions-back, #start-watchlist, #watchlist-back, #stats-back, #year-btn, #year-back, #watchlist-copy, .champ-match button.secondary { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--accent-deep); }
+#start-speed, #start-daily, #lb-btn, #share, #lb-btn-end, #lb-close, #daily-back, #hint-btn, #auth-apple, #auth-logout, #auth-signup, #auth-forgot, #account-close, #challenge-btn, #start-duel, #duel-cancel, #start-cup, #cup-back, #badges-btn, #badges-back, #stats-btn, #stats-back, #watch-back, #season-btn, #season-back, #start-pass, #pass-back, #start-party, #start-pack, #pack-back, #start-library, #library-back, #start-offline, #offline-back, #offline-clear, #transfer-copy, #transfer-no, #player-add, #start-submit, #submit-back, #pack-submit, .library-list button, #start-champions, #champions-back, #start-watchlist, #watchlist-back, #stats-back, #year-btn, #year-back, #watchlist-copy, .champ-match button.secondary { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--accent-deep); }
 button:active { transform: scale(0.96); }
 blockquote {
   font-size: 1.5rem;
@@ -341,7 +341,8 @@ body.revealing #backdrop { visibility: hidden; }
 #story h3 { margin: 0 0 4px; }
 #story .story-links a { color: var(--text); }
 #story-next { display: block; clear: both; margin: 16px auto 0; }
-#story-link { display: block; margin: 8px auto 0; }
+#story-link, #source-link { display: block; margin: 8px auto 0; width: fit-content; }
+a.link { color: var(--text); font-size: 0.9rem; }
 
 /* Access for all (v59) */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
@@ -366,3 +367,7 @@ body.revealing #backdrop { visibility: hidden; }
 .year-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
 .year-grid dt { font-size: 2.2rem; font-weight: 700; }
 .year-grid dd { margin: 0; color: var(--muted); }
+
+/* Suggest a line (v72): the form stacks full width, like the pack maker. */
+#submit textarea, #submit input, #submit select { display: block; width: 100%; box-sizing: border-box; margin: 8px 0; font: inherit; padding: 12px 14px; border: 0; border-radius: 12px; background: var(--bg); color: var(--text); box-shadow: inset 0 0 0 1px var(--border); }
+.library-list a { color: var(--text); }

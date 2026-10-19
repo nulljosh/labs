@@ -13,7 +13,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
     "director": "Francis Ford Coppola",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/The_Godfather"
   },
   {
     "quote": "May the Force be with you.",
@@ -29,7 +30,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
     "director": "George Lucas",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Star_Wars_(film)"
   },
   {
     "quote": "You're gonna need a bigger boat.",
@@ -45,7 +47,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lxM6kqilAdpdhqUl2biYp5frUxE.jpg",
     "director": "Steven Spielberg",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Jaws_(film)"
   },
   {
     "quote": "Here's looking at you, kid.",
@@ -61,7 +64,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lGCEKlJo2CnWydQj7aamY7s1S7Q.jpg",
     "director": "Michael Curtiz",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Casablanca_(film)"
   },
   {
     "quote": "I'll be back.",
@@ -77,10 +81,11 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/qvktm0BHcnmDpul4Hz01GIazWPr.jpg",
     "director": "James Cameron",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/The_Terminator"
   },
   {
-    "quote": "Life is like a box of chocolates.",
+    "quote": "Stupid is as stupid does.",
     "year": 1994,
     "options": [
       "Forrest Gump",
@@ -93,7 +98,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg",
     "director": "Robert Zemeckis",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Forrest_Gump"
   },
   {
     "quote": "Why so serious?",
@@ -109,7 +115,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
     "director": "Christopher Nolan",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/The_Dark_Knight_(film)"
   },
   {
     "quote": "I see dead people.",
@@ -125,7 +132,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/vOyfUXNFSnaTk7Vk5AjpsKTUWsu.jpg",
     "director": "M. Night Shyamalan",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/The_Sixth_Sense"
   },
   {
     "quote": "You can't handle the truth!",
@@ -140,7 +148,8 @@
     "answer": "A Few Good Men",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/rLOk4z9zL1tTukIYV56P94aZXKk.jpg",
-    "director": "Rob Reiner"
+    "director": "Rob Reiner",
+    "source": "https://en.wikiquote.org/wiki/A_Few_Good_Men"
   },
   {
     "quote": "To infinity and beyond!",
@@ -156,7 +165,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg",
     "director": "John Lasseter",
-    "rating": "G"
+    "rating": "G",
+    "source": "https://en.wikiquote.org/wiki/Toy_Story"
   },
   {
     "quote": "Houston, we have a problem.",
@@ -172,7 +182,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/tVeKscCm2fY1xDXZk8PgnZ87h9S.jpg",
     "director": "Ron Howard",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Apollo_13_(film)"
   },
   {
     "quote": "Say hello to my little friend!",
@@ -188,7 +199,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/iQ5ztdjvteGeboxtmRdXEChJOHh.jpg",
     "director": "Brian De Palma",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Scarface_(1983_film)"
   },
   {
     "quote": "There's no place like home.",
@@ -204,7 +216,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/uCC3j4pV9eOZwzDUWp2ilbcTf1f.jpg",
     "director": "Victor Fleming",
-    "rating": "G"
+    "rating": "G",
+    "source": "https://en.wikiquote.org/wiki/The_Wizard_of_Oz_(1939_film)"
   },
   {
     "quote": "I feel the need — the need for speed.",
@@ -220,7 +233,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/xUuHj3CgmZQ9P2cMaqQs4J0d4Zc.jpg",
     "director": "Tony Scott",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Top_Gun"
   },
   {
     "quote": "My precious.",
@@ -236,7 +250,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg",
     "director": "Peter Jackson",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/The_Lord_of_the_Rings%3A_The_Two_Towers"
   },
   {
     "quote": "Just keep swimming.",
@@ -252,7 +267,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/eHuGQ10FUzK1mdOY69wF5pGgEf5.jpg",
     "director": "Andrew Stanton",
-    "rating": "G"
+    "rating": "G",
+    "source": "https://en.wikiquote.org/wiki/Finding_Nemo"
   },
   {
     "quote": "Roads? Where we're going, we don't need roads.",
@@ -268,7 +284,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg",
     "director": "Robert Zemeckis",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Back_to_the_Future"
   },
   {
     "quote": "Nobody puts Baby in a corner.",
@@ -284,7 +301,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/9Jw6jys7q9gjzVX5zm1z0gC8gY9.jpg",
     "director": "Emile Ardolino",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Dirty_Dancing"
   },
   {
     "quote": "It's alive! It's alive!",
@@ -299,7 +317,8 @@
     "answer": "Frankenstein",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/mu6wHwH0IwCCaEYtpqujuPJYat1.jpg",
-    "director": "James Whale"
+    "director": "James Whale",
+    "source": "https://en.wikiquote.org/wiki/Frankenstein_(1931_film)"
   },
   {
     "quote": "Hasta la vista, baby.",
@@ -315,7 +334,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/jFTVD4XoWQTcg7wdyJKa8PEds5q.jpg",
     "director": "James Cameron",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Terminator_2%3A_Judgment_Day"
   },
   {
     "quote": "You had me at hello.",
@@ -330,7 +350,8 @@
     "answer": "Jerry Maguire",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lABvGN7fDk5ifnwZoxij6G96t2w.jpg",
-    "director": "Cameron Crowe"
+    "director": "Cameron Crowe",
+    "source": "https://en.wikiquote.org/wiki/Jerry_Maguire"
   },
   {
     "quote": "Wax on, wax off.",
@@ -345,7 +366,8 @@
     "answer": "The Karate Kid",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/1mp4ViklKvA0WXXsNvNx0RBuiit.jpg",
-    "director": "John G. Avildsen"
+    "director": "John G. Avildsen",
+    "source": "https://en.wikiquote.org/wiki/The_Karate_Kid"
   },
   {
     "quote": "I am your father.",
@@ -361,7 +383,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
     "director": "Irvin Kershner",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/The_Empire_Strikes_Back"
   },
   {
     "quote": "Say 'what' again. I dare you.",
@@ -377,7 +400,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg",
     "director": "Quentin Tarantino",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Pulp_Fiction"
   },
   {
     "quote": "One does not simply walk into Mordor.",
@@ -393,7 +417,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg",
     "director": "Peter Jackson",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/The_Lord_of_the_Rings%3A_The_Fellowship_of_the_Ring"
   },
   {
     "quote": "Bond. James Bond.",
@@ -409,7 +434,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/9zCOLJmLNst0sCPZlkW1IRoH65E.jpg",
     "director": "Terence Young",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Dr._No_(film)"
   },
   {
     "quote": "Get to the choppa!",
@@ -441,7 +467,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/ekstpH614fwDX8DUln1a2Opz0N8.jpg",
     "director": "Martin Scorsese",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Taxi_Driver"
   },
   {
     "quote": "Frankly, my dear, I don't give a damn.",
@@ -456,7 +483,8 @@
     "answer": "Gone with the Wind",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lNz2Ow0wGCAvzckW7EOjE03KcYv.jpg",
-    "director": "Victor Fleming"
+    "director": "Victor Fleming",
+    "source": "https://en.wikiquote.org/wiki/Gone_with_the_Wind_(film)"
   },
   {
     "quote": "Show me the money!",
@@ -471,7 +499,8 @@
     "answer": "Jerry Maguire",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lABvGN7fDk5ifnwZoxij6G96t2w.jpg",
-    "director": "Cameron Crowe"
+    "director": "Cameron Crowe",
+    "source": "https://en.wikiquote.org/wiki/Jerry_Maguire"
   },
   {
     "quote": "I'm king of the world!",
@@ -501,7 +530,8 @@
     "genre": "classic",
     "answer": "Sherlock Holmes",
     "type": "movie",
-    "art": "https://image.tmdb.org/t/p/w500/xjMwpbxI9JcC7Ck9DDwfV5kJlIQ.jpg"
+    "art": "https://image.tmdb.org/t/p/w500/xjMwpbxI9JcC7Ck9DDwfV5kJlIQ.jpg",
+    "source": "https://en.wikiquote.org/wiki/Sherlock_Holmes"
   },
   {
     "quote": "Keep your friends close, but your enemies closer.",
@@ -517,7 +547,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/sSuQTCZwqKrNBNIsksO9IAUoWP9.jpg",
     "director": "Francis Ford Coppola",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/The_Godfather_Part_II"
   },
   {
     "quote": "There's no crying in baseball!",
@@ -532,7 +563,8 @@
     "answer": "A League of Their Own",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/f9BtX6wYOwJUyfUr4vyeT3COz6m.jpg",
-    "director": "Penny Marshall"
+    "director": "Penny Marshall",
+    "source": "https://en.wikiquote.org/wiki/A_League_of_Their_Own"
   },
   {
     "quote": "This is Sparta!",
@@ -548,7 +580,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/h7Lcio0c9ohxPhSZg42eTlKIVVY.jpg",
     "director": "Zack Snyder",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/300_(film)"
   },
   {
     "quote": "I love the smell of napalm in the morning.",
@@ -564,7 +597,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/gQB8Y5RCMkv2zwzFHbUJX3kAhvA.jpg",
     "director": "Francis Ford Coppola",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Apocalypse_Now"
   },
   {
     "quote": "Snap out of it!",
@@ -580,7 +614,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/2mnVWpvsHEHHnfvLn1NXYVvBGl5.jpg",
     "director": "Norman Jewison",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Moonstruck"
   },
   {
     "quote": "Yippee-ki-yay.",
@@ -596,7 +631,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/7Bjd8kfmDSOzpmhySpEhkUyK2oH.jpg",
     "director": "John McTiernan",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Die_Hard_(film)"
   },
   {
     "quote": "Carpe diem. Seize the day, boys.",
@@ -612,7 +648,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/tNvKkSnnn4Z6RCBThyK1gfCSSvv.jpg",
     "director": "Peter Weir",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Dead_Poets_Society"
   },
   {
     "quote": "Great Scott!",
@@ -628,10 +665,11 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg",
     "director": "Robert Zemeckis",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Back_to_the_Future"
   },
   {
-    "quote": "Is it soup yet?",
+    "quote": "I don't know what the problem is, but I'm sure it can be solved without resorting to violence.",
     "year": 1988,
     "options": [
       "Twins",
@@ -644,7 +682,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/stJx9BQZbXrZnTGf9Erc7d2UMVc.jpg",
     "director": "Ivan Reitman",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Twins_(1988_film)"
   },
   {
     "quote": "Adrian!",
@@ -660,7 +699,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/xSI0dbKLDETwhiVUy6hGE8KXUln.jpg",
     "director": "John G. Avildsen",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Rocky_(film)"
   },
   {
     "quote": "Chewie, we're home.",
@@ -676,7 +716,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/wqnLdwVXoBjKibFRR5U3y0aDUhs.jpg",
     "director": "J. J. Abrams",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Star_Wars%3A_The_Force_Awakens"
   },
   {
     "quote": "Toga! Toga!",
@@ -692,7 +733,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/fWooBbipMRIKeSRhEzmeaDV0T8H.jpg",
     "director": "John Landis",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Animal_House"
   },
   {
     "quote": "It's not a tumor!",
@@ -708,7 +750,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/nKnHWwkXyvhzCYWm3FyRAv3qBrl.jpg",
     "director": "Ivan Reitman",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Kindergarten_Cop"
   },
   {
     "quote": "Fasten your seatbelts. It's going to be a bumpy night.",
@@ -723,7 +766,8 @@
     "answer": "All About Eve",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/blBzZaatPWVuWpXEnPscMA4Xp6m.jpg",
-    "director": "Joseph L. Mankiewicz"
+    "director": "Joseph L. Mankiewicz",
+    "source": "https://en.wikiquote.org/wiki/All_About_Eve"
   },
   {
     "quote": "No, I am your father.",
@@ -739,7 +783,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
     "director": "Irvin Kershner",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/The_Empire_Strikes_Back"
   },
   {
     "quote": "I'll have what she's having.",
@@ -755,7 +800,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/rFOiFUhTMtDetqCGClC9PIgnC1P.jpg",
     "director": "Rob Reiner",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/When_Harry_Met_Sally..."
   },
   {
     "quote": "Life is like a box of chocolates. You never know what you're gonna get.",
@@ -771,7 +817,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg",
     "director": "Robert Zemeckis",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Forrest_Gump"
   },
   {
     "quote": "You talking to me?",
@@ -787,7 +834,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/ekstpH614fwDX8DUln1a2Opz0N8.jpg",
     "director": "Martin Scorsese",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Taxi_Driver"
   },
   {
     "quote": "Yippee-ki-yay, motherf***er.",
@@ -806,7 +854,7 @@
     "rating": "R"
   },
   {
-    "quote": "It ain't over till it's over.",
+    "quote": "Until you did that, I couldn't tell if you were... drunk or dead.",
     "year": 1992,
     "options": [
       "A League of Their Own",
@@ -818,7 +866,8 @@
     "answer": "A League of Their Own",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/f9BtX6wYOwJUyfUr4vyeT3COz6m.jpg",
-    "director": "Penny Marshall"
+    "director": "Penny Marshall",
+    "source": "https://en.wikiquote.org/wiki/A_League_of_Their_Own"
   },
   {
     "quote": "The horror. The horror.",
@@ -834,7 +883,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/gQB8Y5RCMkv2zwzFHbUJX3kAhvA.jpg",
     "director": "Francis Ford Coppola",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Apocalypse_Now"
   },
   {
     "quote": "May the odds be ever in your favor.",
@@ -850,7 +900,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/yXCbOiVDCxO71zI7cuwBRXdftq8.jpg",
     "director": "Gary Ross",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/The_Hunger_Games_(film)"
   },
   {
     "quote": "Why do we fall? So we can learn to pick ourselves up.",
@@ -882,7 +933,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/dXNAPwY7VrqMAo51EKhhCJfaGb5.jpg",
     "director": "Lana Wachowski and Lilly Wachowski",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/The_Matrix_(film)"
   },
   {
     "quote": "I am inevitable.",
@@ -898,7 +950,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg",
     "director": "Anthony Russo and Joe Russo",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Avengers%3A_Endgame"
   },
   {
     "quote": "With great power comes great responsibility.",
@@ -914,7 +967,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/or6XJBVpcEbIkma0V9zshnbEtx4.jpg",
     "director": "Sam Raimi",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Spider-Man_(2002_film)"
   },
   {
     "quote": "Get away from her, you b***h!",
@@ -946,7 +1000,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg",
     "director": "James Cameron",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Titanic_(1997_film)"
   },
   {
     "quote": "I'm walking here! I'm walking here!",
@@ -978,7 +1033,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg",
     "director": "Peter Jackson",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/The_Lord_of_the_Rings%3A_The_Fellowship_of_the_Ring"
   },
   {
     "quote": "Houston, we are go for launch.",
@@ -1009,7 +1065,8 @@
     "answer": "Field of Dreams",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/oeM7nAw6FVFICwUaXKCRkDsKjqO.jpg",
-    "director": "Phil Alden Robinson"
+    "director": "Phil Alden Robinson",
+    "source": "https://en.wikiquote.org/wiki/Field_of_Dreams"
   },
   {
     "quote": "Life finds a way.",
@@ -1025,7 +1082,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/63viWuPfYQjRYLSZSZNq7dglJP5.jpg",
     "director": "Steven Spielberg",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Jurassic_Park_(film)"
   },
   {
     "quote": "Hakuna Matata. It means no worries.",
@@ -1041,7 +1099,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg",
     "director": "Roger Allers",
-    "rating": "G"
+    "rating": "G",
+    "source": "https://en.wikiquote.org/wiki/The_Lion_King"
   },
   {
     "quote": "You can't sit with us!",
@@ -1057,7 +1116,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/2ZkuQXvVhh45uSvkBej4S7Ix1NJ.jpg",
     "director": "Mark Waters",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Mean_Girls_(2004_film)"
   },
   {
     "quote": "That'll do, pig. That'll do.",
@@ -1072,7 +1132,8 @@
     "answer": "Babe",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/zKuQMtnbVTz9DsOnOJmlW71v4qH.jpg",
-    "director": "Chris Noonan"
+    "director": "Chris Noonan",
+    "source": "https://en.wikiquote.org/wiki/Babe_(film)"
   },
   {
     "quote": "Play it, Sam. Play 'As Time Goes By.'",
@@ -1088,7 +1149,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lGCEKlJo2CnWydQj7aamY7s1S7Q.jpg",
     "director": "Michael Curtiz",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Casablanca_(film)"
   },
   {
     "quote": "Louis, I think this is the beginning of a beautiful friendship.",
@@ -1104,7 +1166,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lGCEKlJo2CnWydQj7aamY7s1S7Q.jpg",
     "director": "Michael Curtiz",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Casablanca_(film)"
   },
   {
     "quote": "Go ahead, make my day.",
@@ -1120,7 +1183,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/fSADY0EEM7ntpK5IwumcGS4UNNE.jpg",
     "director": "Clint Eastwood",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Sudden_Impact"
   },
   {
     "quote": "E.T. phone home.",
@@ -1136,7 +1200,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/an0nD6uq6byfxXCfk6lQBzdL2J1.jpg",
     "director": "Steven Spielberg",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/E.T._the_Extra-Terrestrial"
   },
   {
     "quote": "Get to the chopper!",
@@ -1152,7 +1217,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/k3mW4qfJo6SKqe6laRyNGnbB9n5.jpg",
     "director": "John McTiernan",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Predator_(film)"
   },
   {
     "quote": "I want to believe.",
@@ -1184,7 +1250,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/uAR0AWqhQL1hQa69UDEbb2rE5Wx.jpg",
     "director": "Stanley Kubrick",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/The_Shining_(film)"
   },
   {
     "quote": "I drink your milkshake!",
@@ -1200,7 +1267,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/fa0RDkAlCec0STeMNAhPaF89q6U.jpg",
     "director": "Paul Thomas Anderson",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/There_Will_Be_Blood"
   },
   {
     "quote": "It's not who I am underneath, but what I do that defines me.",
@@ -1216,7 +1284,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/sPX89Td70IDDjVr85jdSBb4rWGr.jpg",
     "director": "Christopher Nolan",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Batman_Begins"
   },
   {
     "quote": "My mama always said life was like a box of chocolates.",
@@ -1248,7 +1317,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/gHm96BRW4GoI339rF1vYoYTB6Qe.jpg",
     "director": "Stanley Kubrick",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Dr._Strangelove"
   },
   {
     "quote": "A martini. Shaken, not stirred.",
@@ -1264,10 +1334,11 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/aKNFzaqQgPzsGXnsMc4kJH5hFIV.jpg",
     "director": "Guy Hamilton",
-    "rating": "GP"
+    "rating": "GP",
+    "source": "https://en.wikiquote.org/wiki/Goldfinger_(film)"
   },
   {
-    "quote": "I feel need for speed.",
+    "quote": "It's not the plane, it's the pilot.",
     "year": 2022,
     "options": [
       "Top Gun: Maverick",
@@ -1280,7 +1351,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/n0YuM4f5lvGAP6MAW2kBIzugXnc.jpg",
     "director": "Joseph Kosinski",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Top_Gun%3A_Maverick"
   },
   {
     "quote": "Just when you thought it was safe to go back in the water.",
@@ -1296,10 +1368,11 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/cN3ijEwsn4kBaRuHfcJpAQJbeWe.jpg",
     "director": "Jeannot Szwarc",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Jaws_2"
   },
   {
-    "quote": "Not all those who wander are lost.",
+    "quote": "Fly, you fools!",
     "year": 2001,
     "options": [
       "The Lord of the Rings: The Fellowship of the Ring",
@@ -1312,7 +1385,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg",
     "director": "Peter Jackson",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/The_Lord_of_the_Rings%3A_The_Fellowship_of_the_Ring"
   },
   {
     "quote": "Made it, Ma! Top of the world!",
@@ -1327,7 +1401,8 @@
     "answer": "White Heat",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/v7cPOHKKZI9qChi7HDUxNIhEcLR.jpg",
-    "director": "Raoul Walsh"
+    "director": "Raoul Walsh",
+    "source": "https://en.wikiquote.org/wiki/White_Heat"
   },
   {
     "quote": "I'm as mad as hell, and I'm not going to take this anymore!",
@@ -1343,7 +1418,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/qZomlHsaALUtkFeMDwdYmwS2Pbo.jpg",
     "director": "Sidney Lumet",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Network_(film)"
   },
   {
     "quote": "You're killing me, Smalls.",
@@ -1359,10 +1435,11 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/7PYqz0viEuW8qTvuGinUMjDWMnj.jpg",
     "director": "David M. Evans",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/The_Sandlot"
   },
   {
-    "quote": "I'm gonna need a bigger boat.",
+    "quote": "I'm not going to waste my time arguing with a man who's lining up to be a hot lunch.",
     "year": 1975,
     "options": [
       "Jaws",
@@ -1375,7 +1452,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lxM6kqilAdpdhqUl2biYp5frUxE.jpg",
     "director": "Steven Spielberg",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Jaws_(film)"
   },
   {
     "quote": "Winter is coming.",
@@ -1404,7 +1482,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg",
     "director": "Robert Zemeckis",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Back_to_the_Future"
   },
   {
     "quote": "You've got a friend in me.",
@@ -1420,7 +1499,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg",
     "director": "John Lasseter",
-    "rating": "G"
+    "rating": "G",
+    "source": "https://en.wikiquote.org/wiki/Toy_Story"
   },
   {
     "quote": "To boldly go where no man has gone before.",
@@ -1449,7 +1529,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/uPyLsKl8Z0LOoxeaFXsY5MxhR5s.jpg",
     "director": "Nicholas Meyer",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Star_Trek_II%3A_The_Wrath_of_Khan"
   },
   {
     "quote": "It's a trap!",
@@ -1481,7 +1562,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
     "director": "Irvin Kershner",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/The_Empire_Strikes_Back"
   },
   {
     "quote": "The Dude abides.",
@@ -1497,7 +1579,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/3bv6WAp6BSxxYvB5ozKFUYuRA8C.jpg",
     "director": "Joel Coen and Ethan Coen",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/The_Big_Lebowski"
   },
   {
     "quote": "That's what she said.",
@@ -1541,7 +1624,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
     "director": "Chris Columbus",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Harry_Potter_and_the_Philosopher's_Stone"
   },
   {
     "quote": "After all this time? Always.",
@@ -1573,7 +1657,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg",
     "director": "James Gunn",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Guardians_of_the_Galaxy_(2008_team)"
   },
   {
     "quote": "I can do this all day.",
@@ -1589,7 +1674,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/vSNxAJTlD0r02V9sPYpOjqDZXUK.jpg",
     "director": "Joe Johnston",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Captain_America%3A_The_First_Avenger"
   },
   {
     "quote": "Wakanda forever!",
@@ -1608,7 +1694,7 @@
     "rating": "PG-13"
   },
   {
-    "quote": "It's turned off. Try turning it on.",
+    "quote": "What is this? A center for ants?",
     "year": 2001,
     "options": [
       "Zoolander",
@@ -1620,7 +1706,8 @@
     "answer": "Zoolander",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/qdrbSneHZjJG2Dj0hhBxzzAo4HB.jpg",
-    "director": "Ben Stiller"
+    "director": "Ben Stiller",
+    "source": "https://en.wikiquote.org/wiki/Zoolander"
   },
   {
     "quote": "60% of the time, it works every time.",
@@ -1636,7 +1723,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/mhZIcRePT7U8viFQVjt1ZjYIsR4.jpg",
     "director": "Adam McKay",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Anchorman%3A_The_Legend_of_Ron_Burgundy"
   },
   {
     "quote": "I love lamp.",
@@ -1652,7 +1740,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/mhZIcRePT7U8viFQVjt1ZjYIsR4.jpg",
     "director": "Adam McKay",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Anchorman%3A_The_Legend_of_Ron_Burgundy"
   },
   {
     "quote": "You either die a hero, or you live long enough to see yourself become the villain.",
@@ -1668,7 +1757,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
     "director": "Christopher Nolan",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/The_Dark_Knight_(film)"
   },
   {
     "quote": "Some men just want to watch the world burn.",
@@ -1684,7 +1774,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
     "director": "Christopher Nolan",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/The_Dark_Knight_(film)"
   },
   {
     "quote": "I'll make him an offer he can't refuse.",
@@ -1716,7 +1807,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
     "director": "Francis Ford Coppola",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/The_Godfather"
   },
   {
     "quote": "As you wish.",
@@ -1732,7 +1824,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/2FC9L9MrjBoGHYjYZjdWQdopVYb.jpg",
     "director": "Rob Reiner",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/The_Princess_Bride"
   },
   {
     "quote": "Inconceivable!",
@@ -1748,7 +1841,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/2FC9L9MrjBoGHYjYZjdWQdopVYb.jpg",
     "director": "Rob Reiner",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/The_Princess_Bride_(film)"
   },
   {
     "quote": "Is this the real life? Is this just fantasy?",
@@ -3044,7 +3138,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
     "director": "Frank Darabont",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/The_Shawshank_Redemption"
   },
   {
     "quote": "As far back as I can remember, I always wanted to be a gangster.",
@@ -3060,7 +3155,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/9OkCLM73MIU2CrKZbqiT8Ln1wY2.jpg",
     "director": "Martin Scorsese",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Goodfellas"
   },
   {
     "quote": "Funny how? Like I'm a clown? I amuse you?",
@@ -3091,7 +3187,8 @@
     "answer": "Caddyshack",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lXnNz7zOXCsftMDVoU3VSo0Eioi.jpg",
-    "director": "Harold Ramis"
+    "director": "Harold Ramis",
+    "source": "https://en.wikiquote.org/wiki/Caddyshack"
   },
   {
     "quote": "So I got that goin' for me, which is nice.",
@@ -3106,7 +3203,8 @@
     "answer": "Caddyshack",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lXnNz7zOXCsftMDVoU3VSo0Eioi.jpg",
-    "director": "Harold Ramis"
+    "director": "Harold Ramis",
+    "source": "https://en.wikiquote.org/wiki/Caddyshack"
   },
   {
     "quote": "What we've got here is failure to communicate.",
@@ -3122,7 +3220,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/4ykzTiHKLamh3eZJ8orVICtU2Jp.jpg",
     "director": "Stuart Rosenberg",
-    "rating": "GP"
+    "rating": "GP",
+    "source": "https://en.wikiquote.org/wiki/Cool_Hand_Luke"
   },
   {
     "quote": "This is my rifle. There are many like it, but this one is mine.",
@@ -3137,7 +3236,8 @@
     "answer": "Full Metal Jacket",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/kMKyx1k8hWWscYFnPbnxxN4Eqo4.jpg",
-    "director": "Stanley Kubrick"
+    "director": "Stanley Kubrick",
+    "source": "https://en.wikiquote.org/wiki/Full_Metal_Jacket"
   },
   {
     "quote": "When you have to shoot, shoot. Don't talk.",
@@ -3153,7 +3253,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/bX2xnavhMYjWDoZp1VM6VnU1xwe.jpg",
     "director": "Sergio Leone",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/The_Good%2C_the_Bad_and_the_Ugly"
   },
   {
     "quote": "Are you not entertained?",
@@ -3169,7 +3270,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/wN2xWp1eIwCKOD0BHTcErTBv1Uq.jpg",
     "director": "Ridley Scott",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Gladiator_(2000_film)"
   },
   {
     "quote": "My name is Maximus Decimus Meridius.",
@@ -3185,7 +3287,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/wN2xWp1eIwCKOD0BHTcErTBv1Uq.jpg",
     "director": "Ridley Scott",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Gladiator_(2000_film)"
   },
   {
     "quote": "They may take our lives, but they'll never take our freedom!",
@@ -3200,7 +3303,8 @@
     "answer": "Braveheart",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/or1gBugydmjToAEq7OZY0owwFk.jpg",
-    "director": "Mel Gibson"
+    "director": "Mel Gibson",
+    "source": "https://en.wikiquote.org/wiki/Braveheart"
   },
   {
     "quote": "Earn this.",
@@ -3216,7 +3320,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/uqx37cS8cpHg8U35f9U5IBlrCV3.jpg",
     "director": "Steven Spielberg",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Saving_Private_Ryan"
   },
   {
     "quote": "We're on a mission from God.",
@@ -3232,7 +3337,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/b0hq1d2d7FIvRGNLewKLm79JNTK.jpg",
     "director": "John Landis",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/The_Blues_Brothers"
   },
   {
     "quote": "It's a hundred and six miles to Chicago, we got a full tank of gas, half a pack of cigarettes, it's dark, and we're wearing sunglasses.",
@@ -3264,7 +3370,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
     "director": "Steven Spielberg",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Raiders_of_the_Lost_Ark"
   },
   {
     "quote": "It's not the years, honey. It's the mileage.",
@@ -3280,7 +3387,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
     "director": "Steven Spielberg",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Raiders_of_the_Lost_Ark"
   },
   {
     "quote": "They drew first blood, not me.",
@@ -3296,7 +3404,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/a9sa6ERZCpplbPEO7OMWE763CLD.jpg",
     "director": "Ted Kotcheff",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/First_Blood"
   },
   {
     "quote": "I'm too old for this.",
@@ -3312,7 +3421,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/6gt44oqb4nE8vflPElffeGwsHVl.jpg",
     "director": "Richard Donner",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Lethal_Weapon"
   },
   {
     "quote": "I'm your huckleberry.",
@@ -3328,7 +3438,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/wGFCvylul8iEQhJOKfwZGGvXMzA.jpg",
     "director": "George P. Cosmatos",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Tombstone_(film)"
   },
   {
     "quote": "You're a daisy if you do.",
@@ -3390,7 +3501,8 @@
     "answer": "Rain Man",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/iTNHwO896WKkaoPtpMMS74d8VNi.jpg",
-    "director": "Barry Levinson"
+    "director": "Barry Levinson",
+    "source": "https://en.wikiquote.org/wiki/Rain_Man"
   },
   {
     "quote": "Surely you can't be serious. I am serious. And don't call me Shirley.",
@@ -3406,7 +3518,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/7Q3efxd3AF1vQjlSxnlerSA7RzN.jpg",
     "director": "Jerry Zucker",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Airplane!"
   },
   {
     "quote": "If there's a steady paycheck in it, I'll believe anything you say.",
@@ -3422,7 +3535,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/7E8nLijS9AwwUEPu2oFYOVKhdFA.jpg",
     "director": "Ivan Reitman",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Ghostbusters"
   },
   {
     "quote": "He slimed me.",
@@ -3441,7 +3555,7 @@
     "rating": "PG"
   },
   {
-    "quote": "Badges? We ain't got no badges!",
+    "quote": "Mongo only pawn in game of life.",
     "year": 1974,
     "options": [
       "Blazing Saddles",
@@ -3454,7 +3568,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/vNw1gOEDdYTDeNMuuq8OmiEHrfH.jpg",
     "director": "Mel Brooks",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Blazing_Saddles"
   },
   {
     "quote": "Say hello to my little friend.",
@@ -3470,7 +3585,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/iQ5ztdjvteGeboxtmRdXEChJOHh.jpg",
     "director": "Brian De Palma",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Scarface_(1983_film)"
   },
   {
     "quote": "Just when I thought I was out, they pull me back in.",
@@ -3486,7 +3602,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lm3pQ2QoQ16pextRsmnUbG2onES.jpg",
     "director": "Francis Ford Coppola",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/The_Godfather_Part_III"
   },
   {
     "quote": "Life moves pretty fast. If you don't stop and look around once in a while, you could miss it.",
@@ -3502,10 +3619,11 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/9LTQNCvoLsKXP0LtaKAaYVtRaQL.jpg",
     "director": "John Hughes",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Ferris_Bueller's_Day_Off"
   },
   {
-    "quote": "Don't you forget about me.",
+    "quote": "Does Barry Manilow know that you raid his wardrobe?",
     "year": 1985,
     "options": [
       "The Breakfast Club",
@@ -3517,7 +3635,8 @@
     "answer": "The Breakfast Club",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/gp4zlj7wgbiofLMNsTPndMuO3PN.jpg",
-    "director": "John Hughes"
+    "director": "John Hughes",
+    "source": "https://en.wikiquote.org/wiki/The_Breakfast_Club"
   },
   {
     "quote": "Nobody's perfect.",
@@ -3532,7 +3651,8 @@
     "answer": "Some Like It Hot",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/hVIKyTK13AvOGv7ICmJjK44DTzp.jpg",
-    "director": "Billy Wilder"
+    "director": "Billy Wilder",
+    "source": "https://en.wikiquote.org/wiki/Some_Like_It_Hot"
   },
   {
     "quote": "I coulda been a contender.",
@@ -3547,7 +3667,8 @@
     "answer": "On the Waterfront",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/d4S8LpbCyFJsh1tGgwGQSJdGzKm.jpg",
-    "director": "Elia Kazan"
+    "director": "Elia Kazan",
+    "source": "https://en.wikiquote.org/wiki/On_the_Waterfront"
   },
   {
     "quote": "The greatest trick the devil ever pulled was convincing the world he didn't exist.",
@@ -3562,7 +3683,8 @@
     "answer": "The Usual Suspects",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/99X2SgyFunJFXGAYnDv3sb9pnUD.jpg",
-    "director": "Bryan Singer"
+    "director": "Bryan Singer",
+    "source": "https://en.wikiquote.org/wiki/The_Usual_Suspects"
   },
   {
     "quote": "The first rule is: you do not talk about it.",
@@ -3610,7 +3732,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/uS9m8OBk1A8eM9I042bx8XXpqAq.jpg",
     "director": "Jonathan Demme",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/The_Silence_of_the_Lambs_(film)"
   },
   {
     "quote": "Toto, I've a feeling we're not in Kansas anymore.",
@@ -3626,7 +3749,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/uCC3j4pV9eOZwzDUWp2ilbcTf1f.jpg",
     "director": "Victor Fleming",
-    "rating": "G"
+    "rating": "G",
+    "source": "https://en.wikiquote.org/wiki/The_Wizard_of_Oz_(1939_film)"
   },
   {
     "quote": "Roads? Where we're going we don't need roads.",
@@ -3642,7 +3766,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg",
     "director": "Robert Zemeckis",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Back_to_the_Future"
   },
   {
     "quote": "Every time a bell rings, an angel gets his wings.",
@@ -3658,7 +3783,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/bSqt9rhDZx1Q7UZ86dBPKdNomp2.jpg",
     "director": "Frank Capra",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/It's_a_Wonderful_Life"
   },
   {
     "quote": "Round up the usual suspects.",
@@ -3674,7 +3800,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lGCEKlJo2CnWydQj7aamY7s1S7Q.jpg",
     "director": "Michael Curtiz",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Casablanca_(film)"
   },
   {
     "quote": "I'm walkin' here!",
@@ -3690,7 +3817,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/wNvxBptJChe3A2CSfPmZoXf7ooh.jpg",
     "director": "John Schlesinger",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Midnight_Cowboy"
   },
   {
     "quote": "Attica! Attica!",
@@ -3706,7 +3834,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/mavrhr0ig2aCRR8d48yaxtD5aMQ.jpg",
     "director": "Sidney Lumet",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Dog_Day_Afternoon"
   },
   {
     "quote": "Greed, for lack of a better word, is good.",
@@ -3722,7 +3851,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/2tQYq9ntzn2dEwDIGLBSipYPenv.jpg",
     "director": "Oliver Stone",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Wall_Street_(1987_film)"
   },
   {
     "quote": "Wilson!",
@@ -3767,7 +3897,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
     "director": "Irvin Kershner",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/The_Empire_Strikes_Back"
   },
   {
     "quote": "Game over, man! Game over!",
@@ -3783,7 +3914,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/r1x5JGpyqZU8PYhbs4UcrO1Xb6x.jpg",
     "director": "James Cameron",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Aliens_(film)"
   },
   {
     "quote": "Open the pod bay doors, HAL.",
@@ -3799,7 +3931,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/ve72VxNqjGM69Uky4WTo2bK6rfq.jpg",
     "director": "Stanley Kubrick",
-    "rating": "G"
+    "rating": "G",
+    "source": "https://en.wikiquote.org/wiki/2001%3A_A_Space_Odyssey_(film)"
   },
   {
     "quote": "All those moments will be lost in time, like tears in rain.",
@@ -3815,7 +3948,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/63N9uy8nd9j7Eog2axPQ8lbr3Wj.jpg",
     "director": "Ridley Scott",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Blade_Runner"
   },
   {
     "quote": "They're heeere.",
@@ -3831,7 +3965,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/4eMN3GANH5GG4kXdHkrTZEUuQ9M.jpg",
     "director": "Tobe Hooper",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Poltergeist_(1982_film)"
   },
   {
     "quote": "Hello. My name is Inigo Montoya.",
@@ -3847,7 +3982,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/2FC9L9MrjBoGHYjYZjdWQdopVYb.jpg",
     "director": "Rob Reiner",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/The_Princess_Bride_(film)"
   },
   {
     "quote": "Baby, we were born to run.",
@@ -4798,10 +4934,11 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/tNvKkSnnn4Z6RCBThyK1gfCSSvv.jpg",
     "director": "Peter Weir",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Dead_Poets_Society"
   },
   {
-    "quote": "Say 'hello' to the bad guy.",
+    "quote": "Say good night to the bad guy!",
     "year": 1983,
     "options": [
       "Scarface",
@@ -4814,7 +4951,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/iQ5ztdjvteGeboxtmRdXEChJOHh.jpg",
     "director": "Brian De Palma",
-    "rating": "R"
+    "rating": "R",
+    "source": "https://en.wikiquote.org/wiki/Scarface_(1983_film)"
   },
   {
     "quote": "Of all the gin joints in all the towns in all the world, she walks into mine.",
@@ -4830,7 +4968,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/lGCEKlJo2CnWydQj7aamY7s1S7Q.jpg",
     "director": "Michael Curtiz",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/Casablanca_(film)"
   },
   {
     "quote": "Stella! Hey, Stella!",
@@ -4846,7 +4985,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/aicdlO5vt7z2ARm279eGzJeYCLQ.jpg",
     "director": "Elia Kazan",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/A_Streetcar_Named_Desire_(1951_film)"
   },
   {
     "quote": "Mrs. Robinson, you're trying to seduce me.",
@@ -4861,7 +5001,8 @@
     "answer": "The Graduate",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/8XaDpF0COV1MLsDirJMnxmYc1Wp.jpg",
-    "director": "Mike Nichols"
+    "director": "Mike Nichols",
+    "source": "https://en.wikiquote.org/wiki/The_Graduate"
   },
   {
     "quote": "The stuff that dreams are made of.",
@@ -4892,7 +5033,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg",
     "director": "Robert Zemeckis",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "source": "https://en.wikiquote.org/wiki/Forrest_Gump"
   },
   {
     "quote": "Hakuna matata.",
@@ -4908,7 +5050,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg",
     "director": "Roger Allers",
-    "rating": "G"
+    "rating": "G",
+    "source": "https://en.wikiquote.org/wiki/The_Lion_King"
   },
   {
     "quote": "Why don't you knock it off with them negative waves?",
@@ -4924,7 +5067,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/hleMxFKSC42yT0TClS4G29HV11n.jpg",
     "director": "Brian G. Hutton",
-    "rating": "GP"
+    "rating": "GP",
+    "source": "https://en.wikiquote.org/wiki/Kelly's_Heroes"
   },
   {
     "quote": "Nobody tosses a Dwarf.",
@@ -4955,7 +5099,8 @@
     "answer": "Full Metal Jacket",
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/kMKyx1k8hWWscYFnPbnxxN4Eqo4.jpg",
-    "director": "Stanley Kubrick"
+    "director": "Stanley Kubrick",
+    "source": "https://en.wikiquote.org/wiki/Full_Metal_Jacket"
   },
   {
     "quote": "You're killin' me, Smalls.",
@@ -4971,7 +5116,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/7PYqz0viEuW8qTvuGinUMjDWMnj.jpg",
     "director": "David M. Evans",
-    "rating": "PG"
+    "rating": "PG",
+    "source": "https://en.wikiquote.org/wiki/The_Sandlot"
   },
   {
     "quote": "These go to eleven.",
@@ -5019,7 +5165,8 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/yz4QVqPx3h1hD1DfqqQkCq3rmxW.jpg",
     "director": "Alfred Hitchcock",
-    "rating": "M"
+    "rating": "M",
+    "source": "https://en.wikiquote.org/wiki/Psycho_(1960_film)"
   },
   {
     "quote": "Cause I'm free-fallin'.",
