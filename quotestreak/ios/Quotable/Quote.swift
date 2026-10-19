@@ -3,7 +3,7 @@ import Foundation
 /// One entry of `quotes.json`. The schema is shared verbatim with the web game —
 /// do not diverge it; `CLAUDE.md` requires the same file in both places.
 struct Quote: Decodable, Identifiable, Equatable {
-    enum Kind: String, Decodable { case movie, music, tv }
+    enum Kind: String, Decodable { case movie, music, tv, game }
 
     let quote: String
     let answer: String
@@ -20,6 +20,7 @@ struct Quote: Decodable, Identifiable, Equatable {
         switch type {
         case .music: "Guess the artist from the lyric."
         case .tv: "Guess the show from the quote."
+        case .game: "Guess the game from the quote."
         case .movie: "Guess the movie from the quote."
         }
     }

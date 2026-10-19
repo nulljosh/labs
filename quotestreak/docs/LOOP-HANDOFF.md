@@ -10,7 +10,7 @@ Work down "Road to v100" in `roadmap.md`, one major version per tick. Each miles
 - Store builds need `-allowProvisioningUpdates` and automatic export signing; the old manual Mac profile lacks Sign in with Apple.
 
 ## Next, in order
-1. v7 Games, then down the list. v2 to v6 are live on the web. Accounts: email, Google, friends and delete are live on the web (jaybulb-api, Cloudflare only). Web Apple is live (return URL on Services ID com.heyitsmejosh.websignin, added through Safari since Chrome has no permission on developer.apple.com). Native accounts (Supabase removed) ride the next store build.
+1. v8 First lines, then down the list. v2 to v6 are live on the web. Accounts: email, Google, friends and delete are live on the web (jaybulb-api, Cloudflare only). Web Apple is live (return URL on Services ID com.heyitsmejosh.websignin, added through Safari since Chrome has no permission on developer.apple.com). Native accounts (Supabase removed) ride the next store build.
 3. When 1.3.0 clears review, cut the next store build with every native change since, new screenshots if the UI moved, and What's New in the house voice.
 
 ## Restart prompt
