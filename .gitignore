@@ -16,6 +16,7 @@
 !fieldbook/
 !dream/
 !seamark/
+!costanza/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
