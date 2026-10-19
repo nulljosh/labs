@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80" height="80" alt="Quotestreak icon">
 
-![version](https://img.shields.io/badge/version-72.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-73.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Here's the line. Name the movie.
 

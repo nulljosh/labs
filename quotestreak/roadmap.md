@@ -92,7 +92,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 ### Era 8: the content engine (71 to 80)
 - [x] **v71 Verified bank.** Every line checked against subtitles, with its source shown.
 - [x] **v72 Submissions.** Players suggest quotes through a review queue.
-- [ ] **v73 New releases.** A pack of recent films every week.
+- [x] **v73 New releases.** A pack of recent films every week.
 - [ ] **v74 Seasons of film.** Halloween, holiday and summer packs.
 - [ ] **v75 Sports.** Famous commentary calls.
 - [ ] **v76 Speeches.** History in its own words.

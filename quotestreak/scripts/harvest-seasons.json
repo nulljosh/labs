@@ -1,0 +1,460 @@
+{
+ "Star Wars|1977": [
+  "summer"
+ ],
+ "Jaws|1975": [
+  "halloween",
+  "summer"
+ ],
+ "The Dark Knight|2008": [
+  "summer"
+ ],
+ "Top Gun|1986": [
+  "summer"
+ ],
+ "Back to the Future|1985": [
+  "summer"
+ ],
+ "Frankenstein|1931": [
+  "halloween"
+ ],
+ "Terminator 2: Judgment Day|1991": [
+  "summer"
+ ],
+ "The Karate Kid|1984": [
+  "summer"
+ ],
+ "The Empire Strikes Back|1980": [
+  "summer"
+ ],
+ "Pulp Fiction|1994": [
+  "summer"
+ ],
+ "Predator|1987": [
+  "halloween",
+  "summer"
+ ],
+ "300|2006": [
+  "summer"
+ ],
+ "Die Hard|1988": [
+  "holiday",
+  "summer"
+ ],
+ "When Harry Met Sally...|1989": [
+  "holiday"
+ ],
+ "The Hunger Games|2012": [
+  "summer"
+ ],
+ "Batman Begins|2005": [
+  "summer"
+ ],
+ "The Matrix|1999": [
+  "summer"
+ ],
+ "Spider-Man|2002": [
+  "summer"
+ ],
+ "Aliens|1986": [
+  "summer"
+ ],
+ "Jurassic Park|1993": [
+  "summer"
+ ],
+ "E.T. the Extra-Terrestrial|1982": [
+  "summer"
+ ],
+ "The X-Files|1998": [
+  "summer"
+ ],
+ "The Shining|1980": [
+  "halloween"
+ ],
+ "Top Gun: Maverick|2022": [
+  "summer"
+ ],
+ "Jaws 2|1978": [
+  "halloween",
+  "summer"
+ ],
+ "Star Trek II: The Wrath of Khan|1982": [
+  "summer"
+ ],
+ "Star Wars: Episode VI - Return of the Jedi|1983": [
+  "summer"
+ ],
+ "Guardians of the Galaxy|2014": [
+  "summer"
+ ],
+ "Captain America: The First Avenger|2011": [
+  "summer"
+ ],
+ "Gladiator|2000": [
+  "summer"
+ ],
+ "Braveheart|1995": [
+  "summer"
+ ],
+ "Raiders of the Lost Ark|1981": [
+  "summer"
+ ],
+ "Lethal Weapon|1987": [
+  "holiday",
+  "summer"
+ ],
+ "Ghostbusters|1984": [
+  "halloween"
+ ],
+ "Se7en|1995": [
+  "halloween"
+ ],
+ "The Silence of the Lambs|1991": [
+  "halloween"
+ ],
+ "It's a Wonderful Life|1946": [
+  "holiday"
+ ],
+ "Blade Runner|1982": [
+  "summer"
+ ],
+ "Poltergeist|1982": [
+  "halloween"
+ ],
+ "Psycho|1960": [
+  "halloween"
+ ],
+ "Saw III|2006": [
+  "halloween"
+ ],
+ "Shaun of the Dead|2004": [
+  "halloween"
+ ],
+ "Batman & Robin|1997": [
+  "summer"
+ ],
+ "The NeverEnding Story|1984": [
+  "summer"
+ ],
+ "American Psycho|2000": [
+  "halloween"
+ ],
+ "Superman IV: The Quest for Peace|1987": [
+  "summer"
+ ],
+ "They Live|1988": [
+  "summer"
+ ],
+ "Pacific Rim|2013": [
+  "summer"
+ ],
+ "The Thing|1982": [
+  "halloween",
+  "summer"
+ ],
+ "Capricorn One|1977": [
+  "summer"
+ ],
+ "Van Helsing|2004": [
+  "halloween",
+  "summer"
+ ],
+ "A Bucket of Blood|1959": [
+  "halloween"
+ ],
+ "King Kong|1933": [
+  "halloween"
+ ],
+ "Beetlejuice|1988": [
+  "halloween"
+ ],
+ "The Hudsucker Proxy|1994": [
+  "holiday"
+ ],
+ "Excalibur|1981": [
+  "summer"
+ ],
+ "Indiana Jones and the Kingdom of the Crystal Skull|2008": [
+  "summer"
+ ],
+ "Batman Forever|1995": [
+  "summer"
+ ],
+ "Coma|1978": [
+  "halloween",
+  "summer"
+ ],
+ "The Exorcist|1973": [
+  "halloween"
+ ],
+ "No End In Sight|2007": [
+  "summer"
+ ],
+ "The Fly|1958": [
+  "halloween"
+ ],
+ "Man of Steel|2013": [
+  "summer"
+ ],
+ "The Black Cat|1934": [
+  "halloween"
+ ],
+ "Saw 3D|2010": [
+  "halloween"
+ ],
+ "Alien|1979": [
+  "halloween",
+  "summer"
+ ],
+ "Invasion of the Body Snatchers|1956": [
+  "halloween"
+ ],
+ "Heartbreak Ridge|1986": [
+  "summer"
+ ],
+ "Dawn of the Dead|1978": [
+  "halloween",
+  "summer"
+ ],
+ "The Expendables 2|2012": [
+  "summer"
+ ],
+ "The Lord of the Rings|1978": [
+  "summer"
+ ],
+ "Maniac|1934": [
+  "halloween"
+ ],
+ "The Birds|1963": [
+  "halloween"
+ ],
+ "The Santa Clause 2|2002": [
+  "holiday"
+ ],
+ "Bride of Frankenstein|1935": [
+  "halloween"
+ ],
+ "Labyrinth|1986": [
+  "summer"
+ ],
+ "Alvin and the Chipmunks: The Squeakquel|2009": [
+  "holiday"
+ ],
+ "Christine|1983": [
+  "halloween"
+ ],
+ "Dracula's Daughter|1936": [
+  "halloween"
+ ],
+ "Night of the Living Dead|1968": [
+  "halloween"
+ ],
+ "Miracle on 34th Street|1947": [
+  "holiday"
+ ],
+ "Brazil|1985": [
+  "holiday",
+  "summer"
+ ],
+ "Harry Potter and the Prisoner of Azkaban|2004": [
+  "summer"
+ ],
+ "Scream 4|2011": [
+  "halloween"
+ ],
+ "Collateral|2004": [
+  "summer"
+ ],
+ "The Invisible Man|1933": [
+  "halloween"
+ ],
+ "The Da Vinci Code|2006": [
+  "summer"
+ ],
+ "The Dark Knight Rises|2012": [
+  "summer"
+ ],
+ "Men in Black 3|2012": [
+  "summer"
+ ],
+ "The Mummy|1932": [
+  "halloween"
+ ],
+ "Hellboy II: The Golden Army|2008": [
+  "halloween",
+  "summer"
+ ],
+ "Underworld: Evolution|2006": [
+  "halloween",
+  "summer"
+ ],
+ "Spirit: Stallion of the Cimarron|2002": [
+  "summer"
+ ],
+ "The Lost Boys|1987": [
+  "halloween"
+ ],
+ "Robin Hood: Prince of Thieves|1991": [
+  "summer"
+ ],
+ "The Karate Kid Part II|1986": [
+  "summer"
+ ],
+ "Tenet|2020": [
+  "summer"
+ ],
+ "Zombies on Broadway|1945": [
+  "halloween"
+ ],
+ "The Invisible Ray|1936": [
+  "halloween"
+ ],
+ "Frankenstein Meets the Wolf Man|1943": [
+  "halloween"
+ ],
+ "Alien Resurrection|1997": [
+  "halloween"
+ ],
+ "Rosemary's Baby|1968": [
+  "halloween"
+ ],
+ "Superman II|1980": [
+  "summer"
+ ],
+ "Harry Potter and the Order of the Phoenix|2007": [
+  "summer"
+ ],
+ "Abigail|2024": [
+  "halloween"
+ ],
+ "Dr. Jekyll and Mr. Hyde|1931": [
+  "halloween"
+ ],
+ "Meet the Feebles|1989": [
+  "halloween"
+ ],
+ "It! The Terror from Beyond Space|1958": [
+  "halloween"
+ ],
+ "Altered States|1980": [
+  "halloween"
+ ],
+ "Plan 9 from Outer Space|1957": [
+  "halloween"
+ ],
+ "Misery|1990": [
+  "halloween"
+ ],
+ "Happiest Season|2020": [
+  "holiday"
+ ],
+ "Saw VI|2009": [
+  "halloween"
+ ],
+ "Dogville|2003": [
+  "summer"
+ ],
+ "The Thing from Another World|1951": [
+  "halloween"
+ ],
+ "The Rocky Horror Picture Show|1975": [
+  "halloween",
+  "summer"
+ ],
+ "Spider-Man: Far from Home|2019": [
+  "summer"
+ ],
+ "National Lampoon's Christmas Vacation|1989": [
+  "holiday"
+ ],
+ "Star Wars: Episode II – Attack of the Clones|2002": [
+  "summer"
+ ],
+ "The Ghost Writer|2010": [
+  "summer"
+ ],
+ "Son of Kong|1933": [
+  "halloween"
+ ],
+ "Meet Me in St. Louis|1944": [
+  "holiday"
+ ],
+ "Falling Down|1993": [
+  "summer"
+ ],
+ "Space Jam: A New Legacy|2021": [
+  "summer"
+ ],
+ "The Purge: Election Year|2016": [
+  "halloween"
+ ],
+ "Indiana Jones and the Temple of Doom|1984": [
+  "summer"
+ ],
+ "Scream|2022": [
+  "halloween"
+ ],
+ "Thor: Ragnarok|2017": [
+  "summer"
+ ],
+ "Murders in the Rue Morgue|1932": [
+  "halloween"
+ ],
+ "Harry Potter and the Half-Blood Prince|2009": [
+  "summer"
+ ],
+ "Men in Black|1997": [
+  "summer"
+ ],
+ "Spider-Man: No Way Home|2021": [
+  "summer"
+ ],
+ "Creature from the Black Lagoon|1954": [
+  "halloween"
+ ],
+ "The Little Mermaid|2023": [
+  "summer"
+ ],
+ "The Last Starfighter|1984": [
+  "summer"
+ ],
+ "An American Werewolf in London|1981": [
+  "halloween"
+ ],
+ "Avengers: Infinity War|2018": [
+  "summer"
+ ],
+ "The Crow|1994": [
+  "summer"
+ ],
+ "Scream|1996": [
+  "halloween"
+ ],
+ "How the Grinch Stole Christmas|2000": [
+  "holiday"
+ ],
+ "Suicide Squad|2016": [
+  "summer"
+ ],
+ "Werewolf of London|1935": [
+  "halloween"
+ ],
+ "Speed|1994": [
+  "summer"
+ ],
+ "The Promise|2016": [
+  "summer"
+ ],
+ "Trading Places|1983": [
+  "holiday"
+ ],
+ "The Ghost of Frankenstein|1942": [
+  "halloween"
+ ],
+ "Interview with the Vampire|1994": [
+  "halloween"
+ ],
+ "Carrie|1976": [
+  "halloween"
+ ]
+}

@@ -31,7 +31,10 @@
     "art": "https://image.tmdb.org/t/p/w500/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
     "director": "George Lucas",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Star_Wars_(film)"
+    "source": "https://en.wikiquote.org/wiki/Star_Wars_(film)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "You're gonna need a bigger boat.",
@@ -48,7 +51,11 @@
     "art": "https://image.tmdb.org/t/p/w500/lxM6kqilAdpdhqUl2biYp5frUxE.jpg",
     "director": "Steven Spielberg",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Jaws_(film)"
+    "source": "https://en.wikiquote.org/wiki/Jaws_(film)",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "Here's looking at you, kid.",
@@ -116,7 +123,10 @@
     "art": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
     "director": "Christopher Nolan",
     "rating": "PG-13",
-    "source": "https://en.wikiquote.org/wiki/The_Dark_Knight_(film)"
+    "source": "https://en.wikiquote.org/wiki/The_Dark_Knight_(film)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I see dead people.",
@@ -234,7 +244,10 @@
     "art": "https://image.tmdb.org/t/p/w500/xUuHj3CgmZQ9P2cMaqQs4J0d4Zc.jpg",
     "director": "Tony Scott",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Top_Gun"
+    "source": "https://en.wikiquote.org/wiki/Top_Gun",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "My precious.",
@@ -285,7 +298,10 @@
     "art": "https://image.tmdb.org/t/p/w500/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg",
     "director": "Robert Zemeckis",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Back_to_the_Future"
+    "source": "https://en.wikiquote.org/wiki/Back_to_the_Future",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Nobody puts Baby in a corner.",
@@ -318,7 +334,10 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/mu6wHwH0IwCCaEYtpqujuPJYat1.jpg",
     "director": "James Whale",
-    "source": "https://en.wikiquote.org/wiki/Frankenstein_(1931_film)"
+    "source": "https://en.wikiquote.org/wiki/Frankenstein_(1931_film)",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Hasta la vista, baby.",
@@ -335,7 +354,10 @@
     "art": "https://image.tmdb.org/t/p/w500/jFTVD4XoWQTcg7wdyJKa8PEds5q.jpg",
     "director": "James Cameron",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/Terminator_2%3A_Judgment_Day"
+    "source": "https://en.wikiquote.org/wiki/Terminator_2%3A_Judgment_Day",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "You had me at hello.",
@@ -367,7 +389,10 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/1mp4ViklKvA0WXXsNvNx0RBuiit.jpg",
     "director": "John G. Avildsen",
-    "source": "https://en.wikiquote.org/wiki/The_Karate_Kid"
+    "source": "https://en.wikiquote.org/wiki/The_Karate_Kid",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I am your father.",
@@ -384,7 +409,10 @@
     "art": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
     "director": "Irvin Kershner",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/The_Empire_Strikes_Back"
+    "source": "https://en.wikiquote.org/wiki/The_Empire_Strikes_Back",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Say 'what' again. I dare you.",
@@ -401,7 +429,10 @@
     "art": "https://image.tmdb.org/t/p/w500/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg",
     "director": "Quentin Tarantino",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/Pulp_Fiction"
+    "source": "https://en.wikiquote.org/wiki/Pulp_Fiction",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "One does not simply walk into Mordor.",
@@ -451,7 +482,11 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/k3mW4qfJo6SKqe6laRyNGnbB9n5.jpg",
     "director": "John McTiernan",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "You talkin' to me?",
@@ -581,7 +616,10 @@
     "art": "https://image.tmdb.org/t/p/w500/h7Lcio0c9ohxPhSZg42eTlKIVVY.jpg",
     "director": "Zack Snyder",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/300_(film)"
+    "source": "https://en.wikiquote.org/wiki/300_(film)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I love the smell of napalm in the morning.",
@@ -632,7 +670,11 @@
     "art": "https://image.tmdb.org/t/p/w500/7Bjd8kfmDSOzpmhySpEhkUyK2oH.jpg",
     "director": "John McTiernan",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/Die_Hard_(film)"
+    "source": "https://en.wikiquote.org/wiki/Die_Hard_(film)",
+    "seasons": [
+      "holiday",
+      "summer"
+    ]
   },
   {
     "quote": "Carpe diem. Seize the day, boys.",
@@ -666,7 +708,10 @@
     "art": "https://image.tmdb.org/t/p/w500/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg",
     "director": "Robert Zemeckis",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Back_to_the_Future"
+    "source": "https://en.wikiquote.org/wiki/Back_to_the_Future",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I don't know what the problem is, but I'm sure it can be solved without resorting to violence.",
@@ -784,7 +829,10 @@
     "art": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
     "director": "Irvin Kershner",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/The_Empire_Strikes_Back"
+    "source": "https://en.wikiquote.org/wiki/The_Empire_Strikes_Back",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I'll have what she's having.",
@@ -801,7 +849,10 @@
     "art": "https://image.tmdb.org/t/p/w500/rFOiFUhTMtDetqCGClC9PIgnC1P.jpg",
     "director": "Rob Reiner",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/When_Harry_Met_Sally..."
+    "source": "https://en.wikiquote.org/wiki/When_Harry_Met_Sally...",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "Life is like a box of chocolates. You never know what you're gonna get.",
@@ -851,7 +902,11 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/7Bjd8kfmDSOzpmhySpEhkUyK2oH.jpg",
     "director": "John McTiernan",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "holiday",
+      "summer"
+    ]
   },
   {
     "quote": "Until you did that, I couldn't tell if you were... drunk or dead.",
@@ -901,7 +956,10 @@
     "art": "https://image.tmdb.org/t/p/w500/yXCbOiVDCxO71zI7cuwBRXdftq8.jpg",
     "director": "Gary Ross",
     "rating": "PG-13",
-    "source": "https://en.wikiquote.org/wiki/The_Hunger_Games_(film)"
+    "source": "https://en.wikiquote.org/wiki/The_Hunger_Games_(film)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Why do we fall? So we can learn to pick ourselves up.",
@@ -917,7 +975,10 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/sPX89Td70IDDjVr85jdSBb4rWGr.jpg",
     "director": "Christopher Nolan",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "There is no spoon.",
@@ -934,7 +995,10 @@
     "art": "https://image.tmdb.org/t/p/w500/dXNAPwY7VrqMAo51EKhhCJfaGb5.jpg",
     "director": "Lana Wachowski and Lilly Wachowski",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/The_Matrix_(film)"
+    "source": "https://en.wikiquote.org/wiki/The_Matrix_(film)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I am inevitable.",
@@ -968,7 +1032,10 @@
     "art": "https://image.tmdb.org/t/p/w500/or6XJBVpcEbIkma0V9zshnbEtx4.jpg",
     "director": "Sam Raimi",
     "rating": "PG-13",
-    "source": "https://en.wikiquote.org/wiki/Spider-Man_(2002_film)"
+    "source": "https://en.wikiquote.org/wiki/Spider-Man_(2002_film)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Get away from her, you b***h!",
@@ -984,7 +1051,10 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/r1x5JGpyqZU8PYhbs4UcrO1Xb6x.jpg",
     "director": "James Cameron",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I'm the king of the world!",
@@ -1083,7 +1153,10 @@
     "art": "https://image.tmdb.org/t/p/w500/63viWuPfYQjRYLSZSZNq7dglJP5.jpg",
     "director": "Steven Spielberg",
     "rating": "PG-13",
-    "source": "https://en.wikiquote.org/wiki/Jurassic_Park_(film)"
+    "source": "https://en.wikiquote.org/wiki/Jurassic_Park_(film)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Hakuna Matata. It means no worries.",
@@ -1201,7 +1274,10 @@
     "art": "https://image.tmdb.org/t/p/w500/an0nD6uq6byfxXCfk6lQBzdL2J1.jpg",
     "director": "Steven Spielberg",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/E.T._the_Extra-Terrestrial"
+    "source": "https://en.wikiquote.org/wiki/E.T._the_Extra-Terrestrial",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Get to the chopper!",
@@ -1218,7 +1294,11 @@
     "art": "https://image.tmdb.org/t/p/w500/k3mW4qfJo6SKqe6laRyNGnbB9n5.jpg",
     "director": "John McTiernan",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/Predator_(film)"
+    "source": "https://en.wikiquote.org/wiki/Predator_(film)",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "I want to believe.",
@@ -1234,7 +1314,10 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/yLIw6shz2WC3W3iI0jROsF4B2ha.jpg",
     "director": "Rob Bowman",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Here's Johnny!",
@@ -1251,7 +1334,10 @@
     "art": "https://image.tmdb.org/t/p/w500/uAR0AWqhQL1hQa69UDEbb2rE5Wx.jpg",
     "director": "Stanley Kubrick",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/The_Shining_(film)"
+    "source": "https://en.wikiquote.org/wiki/The_Shining_(film)",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I drink your milkshake!",
@@ -1285,7 +1371,10 @@
     "art": "https://image.tmdb.org/t/p/w500/sPX89Td70IDDjVr85jdSBb4rWGr.jpg",
     "director": "Christopher Nolan",
     "rating": "PG-13",
-    "source": "https://en.wikiquote.org/wiki/Batman_Begins"
+    "source": "https://en.wikiquote.org/wiki/Batman_Begins",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "My mama always said life was like a box of chocolates.",
@@ -1352,7 +1441,10 @@
     "art": "https://image.tmdb.org/t/p/w500/n0YuM4f5lvGAP6MAW2kBIzugXnc.jpg",
     "director": "Joseph Kosinski",
     "rating": "PG-13",
-    "source": "https://en.wikiquote.org/wiki/Top_Gun%3A_Maverick"
+    "source": "https://en.wikiquote.org/wiki/Top_Gun%3A_Maverick",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Just when you thought it was safe to go back in the water.",
@@ -1369,7 +1461,11 @@
     "art": "https://image.tmdb.org/t/p/w500/cN3ijEwsn4kBaRuHfcJpAQJbeWe.jpg",
     "director": "Jeannot Szwarc",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Jaws_2"
+    "source": "https://en.wikiquote.org/wiki/Jaws_2",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "Fly, you fools!",
@@ -1453,7 +1549,11 @@
     "art": "https://image.tmdb.org/t/p/w500/lxM6kqilAdpdhqUl2biYp5frUxE.jpg",
     "director": "Steven Spielberg",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Jaws_(film)"
+    "source": "https://en.wikiquote.org/wiki/Jaws_(film)",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "Winter is coming.",
@@ -1483,7 +1583,10 @@
     "art": "https://image.tmdb.org/t/p/w500/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg",
     "director": "Robert Zemeckis",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Back_to_the_Future"
+    "source": "https://en.wikiquote.org/wiki/Back_to_the_Future",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "You've got a friend in me.",
@@ -1530,7 +1633,10 @@
     "art": "https://image.tmdb.org/t/p/w500/uPyLsKl8Z0LOoxeaFXsY5MxhR5s.jpg",
     "director": "Nicholas Meyer",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Star_Trek_II%3A_The_Wrath_of_Khan"
+    "source": "https://en.wikiquote.org/wiki/Star_Trek_II%3A_The_Wrath_of_Khan",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "It's a trap!",
@@ -1546,7 +1652,10 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/jQYlydvHm3kUix1f8prMucrplhm.jpg",
     "director": "Richard Marquand",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Do or do not, there is no try.",
@@ -1563,7 +1672,10 @@
     "art": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
     "director": "Irvin Kershner",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/The_Empire_Strikes_Back"
+    "source": "https://en.wikiquote.org/wiki/The_Empire_Strikes_Back",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "The Dude abides.",
@@ -1658,7 +1770,10 @@
     "art": "https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg",
     "director": "James Gunn",
     "rating": "PG-13",
-    "source": "https://en.wikiquote.org/wiki/Guardians_of_the_Galaxy_(2008_team)"
+    "source": "https://en.wikiquote.org/wiki/Guardians_of_the_Galaxy_(2008_team)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I can do this all day.",
@@ -1675,7 +1790,10 @@
     "art": "https://image.tmdb.org/t/p/w500/vSNxAJTlD0r02V9sPYpOjqDZXUK.jpg",
     "director": "Joe Johnston",
     "rating": "PG-13",
-    "source": "https://en.wikiquote.org/wiki/Captain_America%3A_The_First_Avenger"
+    "source": "https://en.wikiquote.org/wiki/Captain_America%3A_The_First_Avenger",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Wakanda forever!",
@@ -1758,7 +1876,10 @@
     "art": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
     "director": "Christopher Nolan",
     "rating": "PG-13",
-    "source": "https://en.wikiquote.org/wiki/The_Dark_Knight_(film)"
+    "source": "https://en.wikiquote.org/wiki/The_Dark_Knight_(film)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Some men just want to watch the world burn.",
@@ -1775,7 +1896,10 @@
     "art": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
     "director": "Christopher Nolan",
     "rating": "PG-13",
-    "source": "https://en.wikiquote.org/wiki/The_Dark_Knight_(film)"
+    "source": "https://en.wikiquote.org/wiki/The_Dark_Knight_(film)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I'll make him an offer he can't refuse.",
@@ -3271,7 +3395,10 @@
     "art": "https://image.tmdb.org/t/p/w500/wN2xWp1eIwCKOD0BHTcErTBv1Uq.jpg",
     "director": "Ridley Scott",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/Gladiator_(2000_film)"
+    "source": "https://en.wikiquote.org/wiki/Gladiator_(2000_film)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "My name is Maximus Decimus Meridius.",
@@ -3288,7 +3415,10 @@
     "art": "https://image.tmdb.org/t/p/w500/wN2xWp1eIwCKOD0BHTcErTBv1Uq.jpg",
     "director": "Ridley Scott",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/Gladiator_(2000_film)"
+    "source": "https://en.wikiquote.org/wiki/Gladiator_(2000_film)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "They may take our lives, but they'll never take our freedom!",
@@ -3304,7 +3434,10 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/or1gBugydmjToAEq7OZY0owwFk.jpg",
     "director": "Mel Gibson",
-    "source": "https://en.wikiquote.org/wiki/Braveheart"
+    "source": "https://en.wikiquote.org/wiki/Braveheart",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Earn this.",
@@ -3371,7 +3504,10 @@
     "art": "https://image.tmdb.org/t/p/w500/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
     "director": "Steven Spielberg",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Raiders_of_the_Lost_Ark"
+    "source": "https://en.wikiquote.org/wiki/Raiders_of_the_Lost_Ark",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "It's not the years, honey. It's the mileage.",
@@ -3388,7 +3524,10 @@
     "art": "https://image.tmdb.org/t/p/w500/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
     "director": "Steven Spielberg",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Raiders_of_the_Lost_Ark"
+    "source": "https://en.wikiquote.org/wiki/Raiders_of_the_Lost_Ark",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "They drew first blood, not me.",
@@ -3422,7 +3561,11 @@
     "art": "https://image.tmdb.org/t/p/w500/6gt44oqb4nE8vflPElffeGwsHVl.jpg",
     "director": "Richard Donner",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/Lethal_Weapon"
+    "source": "https://en.wikiquote.org/wiki/Lethal_Weapon",
+    "seasons": [
+      "holiday",
+      "summer"
+    ]
   },
   {
     "quote": "I'm your huckleberry.",
@@ -3536,7 +3679,10 @@
     "art": "https://image.tmdb.org/t/p/w500/7E8nLijS9AwwUEPu2oFYOVKhdFA.jpg",
     "director": "Ivan Reitman",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Ghostbusters"
+    "source": "https://en.wikiquote.org/wiki/Ghostbusters",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "He slimed me.",
@@ -3552,7 +3698,10 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/7E8nLijS9AwwUEPu2oFYOVKhdFA.jpg",
     "director": "Ivan Reitman",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Mongo only pawn in game of life.",
@@ -3716,7 +3865,10 @@
     "type": "movie",
     "art": "https://image.tmdb.org/t/p/w500/191nKfP0ehp3uIvWqgPbFmI4lv9.jpg",
     "director": "David Fincher",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I ate his liver with some fava beans and a nice chianti.",
@@ -3733,7 +3885,10 @@
     "art": "https://image.tmdb.org/t/p/w500/uS9m8OBk1A8eM9I042bx8XXpqAq.jpg",
     "director": "Jonathan Demme",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/The_Silence_of_the_Lambs_(film)"
+    "source": "https://en.wikiquote.org/wiki/The_Silence_of_the_Lambs_(film)",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Toto, I've a feeling we're not in Kansas anymore.",
@@ -3767,7 +3922,10 @@
     "art": "https://image.tmdb.org/t/p/w500/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg",
     "director": "Robert Zemeckis",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Back_to_the_Future"
+    "source": "https://en.wikiquote.org/wiki/Back_to_the_Future",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Every time a bell rings, an angel gets his wings.",
@@ -3784,7 +3942,10 @@
     "art": "https://image.tmdb.org/t/p/w500/bSqt9rhDZx1Q7UZ86dBPKdNomp2.jpg",
     "director": "Frank Capra",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/It's_a_Wonderful_Life"
+    "source": "https://en.wikiquote.org/wiki/It's_a_Wonderful_Life",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "Round up the usual suspects.",
@@ -3898,7 +4059,10 @@
     "art": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
     "director": "Irvin Kershner",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/The_Empire_Strikes_Back"
+    "source": "https://en.wikiquote.org/wiki/The_Empire_Strikes_Back",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Game over, man! Game over!",
@@ -3915,7 +4079,10 @@
     "art": "https://image.tmdb.org/t/p/w500/r1x5JGpyqZU8PYhbs4UcrO1Xb6x.jpg",
     "director": "James Cameron",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/Aliens_(film)"
+    "source": "https://en.wikiquote.org/wiki/Aliens_(film)",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Open the pod bay doors, HAL.",
@@ -3949,7 +4116,10 @@
     "art": "https://image.tmdb.org/t/p/w500/63N9uy8nd9j7Eog2axPQ8lbr3Wj.jpg",
     "director": "Ridley Scott",
     "rating": "R",
-    "source": "https://en.wikiquote.org/wiki/Blade_Runner"
+    "source": "https://en.wikiquote.org/wiki/Blade_Runner",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "They're heeere.",
@@ -3966,7 +4136,10 @@
     "art": "https://image.tmdb.org/t/p/w500/4eMN3GANH5GG4kXdHkrTZEUuQ9M.jpg",
     "director": "Tobe Hooper",
     "rating": "PG",
-    "source": "https://en.wikiquote.org/wiki/Poltergeist_(1982_film)"
+    "source": "https://en.wikiquote.org/wiki/Poltergeist_(1982_film)",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Hello. My name is Inigo Montoya.",
@@ -5166,7 +5339,10 @@
     "art": "https://image.tmdb.org/t/p/w500/yz4QVqPx3h1hD1DfqqQkCq3rmxW.jpg",
     "director": "Alfred Hitchcock",
     "rating": "M",
-    "source": "https://en.wikiquote.org/wiki/Psycho_(1960_film)"
+    "source": "https://en.wikiquote.org/wiki/Psycho_(1960_film)",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Cause I'm free-fallin'.",
@@ -5434,7 +5610,10 @@
     "character": "Amanda Young",
     "source": "https://en.wikiquote.org/wiki/Saw_III",
     "director": "Darren Lynn Bouseman",
-    "actor": "Shawnee Smith"
+    "actor": "Shawnee Smith",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Why would I turn it off? It's my favorite show.",
@@ -5485,7 +5664,10 @@
     "character": "Ed",
     "source": "https://en.wikiquote.org/wiki/Shaun_of_the_Dead",
     "director": "Edgar Wright",
-    "actor": "Nick Frost"
+    "actor": "Nick Frost",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Survival of the fittest, my ass!",
@@ -5552,7 +5734,10 @@
     "character": "Batman / Bruce Wayne",
     "source": "https://en.wikiquote.org/wiki/Batman_%26_Robin_(film)",
     "director": "Joel Schumacher",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Never give up, and good luck will find you.",
@@ -5570,7 +5755,10 @@
     "source": "https://en.wikiquote.org/wiki/The_NeverEnding_Story_(film)",
     "director": "Wolfgang Petersen",
     "actor": "Alan Oppenheimer",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I didn't want to do this, but I'm afraid I'm gonna have to pull rank on you. I'm with the Mattress Police. There are no tags on these mattresses.",
@@ -5845,7 +6033,10 @@
     "source": "https://en.wikiquote.org/wiki/American_Psycho_(film)",
     "director": "Mary Harron",
     "actor": "Christian Bale",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Lenny, I've always considered you the Dutch Elm disease in my family tree.",
@@ -5863,7 +6054,10 @@
     "source": "https://en.wikiquote.org/wiki/Superman_IV%3A_The_Quest_for_Peace",
     "director": "Sidney J. Furie",
     "actor": "Gene Hackman",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Yeah, diarrhea of a nobody. Yeah, I like that.",
@@ -5963,7 +6157,10 @@
     "source": "https://en.wikiquote.org/wiki/They_Live",
     "director": "John Carpenter",
     "actor": "Peter Jason",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Listen. I mean, I'm just a civil service employee. I can't get a hold of the mayor.",
@@ -6134,7 +6331,10 @@
     "source": "https://en.wikiquote.org/wiki/Pacific_Rim_(film)",
     "director": "Guillermo del Toro",
     "actor": "Idris Elba",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Hey, Stupe, that's got gears. It ain't no Ford.",
@@ -6321,7 +6521,11 @@
     "source": "https://en.wikiquote.org/wiki/The_Thing_(1982_film)",
     "director": "John Carpenter",
     "actor": "Richard Masur",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "Today and tomorrow I cast out demons and work cures. On the third day, I will be perfected.",
@@ -6479,7 +6683,10 @@
     "source": "https://en.wikiquote.org/wiki/Capricorn_One",
     "director": "Peter Hyams",
     "actor": "David Doyle",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Oh, I wish something would happen! Nothing ever possibly in the least ever happens here!",
@@ -6566,7 +6773,11 @@
     "source": "https://en.wikiquote.org/wiki/Van_Helsing",
     "director": "Stephen Sommers",
     "actor": "Richard Roxburgh",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "I know it's a rotten job, Brand, but I shouldn't take it so seriously if I were you.",
@@ -6670,7 +6881,10 @@
     "character": "Maxwell H. Brock",
     "source": "https://en.wikiquote.org/wiki/A_Bucket_of_Blood",
     "director": "Roger Corman",
-    "actor": "Julian Burton"
+    "actor": "Julian Burton",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "And the Prophet said, \"And lo, the beast looked upon the face of beauty. And it stayed its hand from killing. And from that day, it was as one dead\".",
@@ -6686,7 +6900,10 @@
     "type": "movie",
     "character": "Others",
     "source": "https://en.wikiquote.org/wiki/King_Kong_(1933_film)",
-    "director": "Merian C. Cooper"
+    "director": "Merian C. Cooper",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "What are they going to do, sue me? They can get in line! I'm not gonna let 'em kill my film!",
@@ -6720,7 +6937,10 @@
     "character": "Betelgeuse/\"Beetlejuice\"",
     "source": "https://en.wikiquote.org/wiki/Beetlejuice",
     "director": "Tim Burton",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Nanelia, the Akira believe that no form ends until all the lives that it has touched are ended, until all the good that it has done is gone.",
@@ -6824,7 +7044,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Hudsucker_Proxy",
     "director": "Joel Coen and Ethan Coen",
     "actor": "Bill Cobbs",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "Merlin, I am the strongest! I am the one! The sword! You promised me the sword!",
@@ -6842,7 +7065,10 @@
     "source": "https://en.wikiquote.org/wiki/Excalibur_(film)",
     "director": "John Boorman",
     "actor": "Gabriel Byrne",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Welcome to Heaven, motherfuckers.",
@@ -6893,7 +7119,10 @@
     "source": "https://en.wikiquote.org/wiki/Indiana_Jones_and_the_Kingdom_of_the_Crystal_Skull",
     "director": "Steven Spielberg",
     "actor": "Harrison Ford",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I'm sure he means every other word he says!",
@@ -7079,7 +7308,10 @@
     "character": "Edward Nygma/The Riddler",
     "source": "https://en.wikiquote.org/wiki/Batman_Forever",
     "director": "Joel Schumacher",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "What d'you do with dead soldiers?",
@@ -7130,7 +7362,11 @@
     "character": "Nurse",
     "source": "https://en.wikiquote.org/wiki/Coma_(1978_film)",
     "director": "Michael Crichton",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "Let's get a move on! Guys' trip waits for no deer!",
@@ -7164,7 +7400,10 @@
     "character": "Regan MacNeil",
     "source": "https://en.wikiquote.org/wiki/The_Exorcist",
     "director": "William Friedkin",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Now, Jabez Stone, as for what you're calling hard luck, we made New England out of it. That and cod fish.",
@@ -7229,7 +7468,10 @@
     "type": "movie",
     "character": "Iraqi men",
     "source": "https://en.wikiquote.org/wiki/No_End_In_Sight",
-    "director": "Charles Ferguson"
+    "director": "Charles Ferguson",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Think of me..think of me fondly when we've said goodbye. Remember me, once in a while please promise me you'll try.",
@@ -7503,7 +7745,10 @@
     "character": "Francois Delambre",
     "source": "https://en.wikiquote.org/wiki/The_Fly_(1958_film)",
     "director": "Kurt Neumann",
-    "actor": "Vincent Price"
+    "actor": "Vincent Price",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "The last thing she said was \"Detective Hoffman.\" Why would she say that? Why did she say your name?",
@@ -7573,7 +7818,10 @@
     "source": "https://en.wikiquote.org/wiki/They_Live",
     "director": "John Carpenter",
     "actor": "Roddy Piper",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "The first one won't kill you, nor the second, not even the third — not until you crawl over here and you kiss my foot!",
@@ -7709,7 +7957,10 @@
     "character": "Lois Lane",
     "source": "https://en.wikiquote.org/wiki/Man_of_Steel_(film)",
     "director": "Zack Snyder",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "That brings out a sort of pear-shaped tone, you see?",
@@ -7743,7 +7994,10 @@
     "character": "Hjalmar Poelzig",
     "source": "https://en.wikiquote.org/wiki/The_Black_Cat_(1934_film)",
     "director": "Edgar G. Ulmer",
-    "actor": "Boris Karloff"
+    "actor": "Boris Karloff",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "But Gelfling all dead! Garthim kill them all! You can't be Gelfling! You look like Gelfling... smell like Gelfling... maybe you are Gelfling!",
@@ -7777,7 +8031,10 @@
     "character": "Jill Tuck",
     "source": "https://en.wikiquote.org/wiki/Saw_3D",
     "director": "Kevin Greutert",
-    "actor": "Besty Russell"
+    "actor": "Besty Russell",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "It's a robot! Ash is a goddamn robot!",
@@ -7794,7 +8051,11 @@
     "character": "Parker",
     "source": "https://en.wikiquote.org/wiki/Alien_(film)",
     "director": "Ridley Scott",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "Hey, Radar! We're landing in our new home! Oceanview, Illinois. Boy, in a few minutes, we'll meet our new bird family -- The Dodos.",
@@ -7828,7 +8089,10 @@
     "character": "Becky Driscoll",
     "source": "https://en.wikiquote.org/wiki/Invasion_of_the_Body_Snatchers_(1956_film)",
     "director": "Don Siegel",
-    "actor": "Dana Wynter"
+    "actor": "Dana Wynter",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "If you want the ultimate rush, you've got to be willing to pay the ultimate price. It's not tragic to die doing what you love.",
@@ -7899,7 +8163,10 @@
     "source": "https://en.wikiquote.org/wiki/Heartbreak_Ridge",
     "director": "Clint Eastwood",
     "actor": "Clint Eastwood",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "We are down to the line, people. DOWN TO THE LINE!",
@@ -7916,7 +8183,11 @@
     "character": "Dr. Millard Rausch",
     "source": "https://en.wikiquote.org/wiki/Dawn_of_the_Dead_(1978_film)",
     "director": "George A. Romero",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "I need that book. I want that book!",
@@ -7969,7 +8240,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Expendables_2",
     "director": "Simon West",
     "actor": "Jean-Claude Van Damme",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "They're all kids in Washington. It's like Bugsy Malone but with real guns.",
@@ -8004,7 +8278,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Lord_of_the_Rings_(1978_film)",
     "director": "Ralph Bakshi",
     "actor": "John Hurt",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Waiter, will you serve the nuts? ... I mean, will you serve the guests the nuts?",
@@ -8038,7 +8315,10 @@
     "character": "Don Maxwell",
     "source": "https://en.wikiquote.org/wiki/Maniac_(1934_film)",
     "director": "Dwain Esper",
-    "actor": "Bill Woods"
+    "actor": "Bill Woods",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Can one man make a difference? There are days when I believe, and others when I have lost all faith.",
@@ -8226,7 +8506,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Birds",
     "director": "Alfred Hitchcock",
     "actor": "Tippi Hedren",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Neil, have you ever actually helped anyone?",
@@ -8243,7 +8526,10 @@
     "character": "Scott",
     "source": "https://en.wikiquote.org/wiki/The_Santa_Clause_2",
     "director": "Michael Lembeck",
-    "actor": "Tim Allen"
+    "actor": "Tim Allen",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "Come on! Let's do this! Together!",
@@ -8261,7 +8547,10 @@
     "source": "https://en.wikiquote.org/wiki/Pacific_Rim_(film)",
     "director": "Guillermo del Toro",
     "actor": "Charlie Hunnam",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "It's in our nature to save them. It's what we do.",
@@ -8295,7 +8584,10 @@
     "character": "Henry Frankenstein",
     "source": "https://en.wikiquote.org/wiki/Bride_of_Frankenstein",
     "director": "James Whale",
-    "actor": "Colin Clive"
+    "actor": "Colin Clive",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I've been on a hot streak. So what? The things I could learn from you.",
@@ -8330,7 +8622,10 @@
     "source": "https://en.wikiquote.org/wiki/Indiana_Jones_and_the_Kingdom_of_the_Crystal_Skull",
     "director": "Steven Spielberg",
     "actor": "Cate Blanchett",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Well, who but a Nazi would deny that Karl Marx was a German because he was a Jew?",
@@ -8399,7 +8694,10 @@
     "character": "Sarah",
     "source": "https://en.wikiquote.org/wiki/Labyrinth_(film)",
     "director": "Jim Henson",
-    "actor": "Jennifer Connelly"
+    "actor": "Jennifer Connelly",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "After living in the USA for more than thirty-five years they called me an undesirable alien. Me. Johnny Rocco. Like I was a dirty Red or something!",
@@ -8449,7 +8747,10 @@
     "character": "Dr. Meirschultz",
     "source": "https://en.wikiquote.org/wiki/Maniac_(1934_film)",
     "director": "Dwain Esper",
-    "actor": "Horace B. Carpenter"
+    "actor": "Horace B. Carpenter",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "The murderer is right in this room. Sitting at this table. You may serve the fish.",
@@ -8553,7 +8854,10 @@
     "character": "Alvin",
     "source": "https://en.wikiquote.org/wiki/Alvin_and_the_Chipmunks%3A_The_Squeakquel",
     "director": "Betty Thomas",
-    "actor": "Justin Long"
+    "actor": "Justin Long",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "Tell your friend to go to the devil...Ten thousand dollars is a lot of money, Ong, just to save some trouble.",
@@ -8673,7 +8977,10 @@
     "character": "Alfred Pennyworth",
     "source": "https://en.wikiquote.org/wiki/Batman_%26_Robin_(film)",
     "director": "Joel Schumacher",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Chivalry is not only dead, it's decomposed.",
@@ -8707,7 +9014,10 @@
     "character": "Bernard",
     "source": "https://en.wikiquote.org/wiki/The_Santa_Clause_2",
     "director": "Michael Lembeck",
-    "actor": "David Krumholtz"
+    "actor": "David Krumholtz",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "Die the way you lived, all of a sudden, that's the way to go. Don't drag it out.",
@@ -8741,7 +9051,10 @@
     "source": "https://en.wikiquote.org/wiki/Christine_(1983_film)",
     "director": "John Carpenter",
     "actor": "Malcolm Danare",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I don't like going in without Pickett. It's like going in with one boot off. I'll wait as long as I can before sending my boys in.",
@@ -8774,7 +9087,10 @@
     "type": "movie",
     "character": "Dr. Garth",
     "source": "https://en.wikiquote.org/wiki/Dracula's_Daughter",
-    "director": "Lambert Hillyer"
+    "director": "Lambert Hillyer",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Congratulations, you're the new mayor of Sodom and Gommorah.",
@@ -8809,7 +9125,10 @@
     "source": "https://en.wikiquote.org/wiki/Night_of_the_Living_Dead",
     "director": "George A. Romero",
     "actor": "Duane Jones",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Oh, that's just how we greet each other.",
@@ -8944,7 +9263,10 @@
     "type": "movie",
     "character": "Mr. Shellhammer",
     "source": "https://en.wikiquote.org/wiki/Miracle_on_34th_Street_(1947_film)",
-    "director": "George Seaton"
+    "director": "George Seaton",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "Well, that's a pipe of a different color.",
@@ -8962,7 +9284,11 @@
     "source": "https://en.wikiquote.org/wiki/Brazil_(1985_film)",
     "director": "Terry Gilliam",
     "actor": "Robert De Niro",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "holiday",
+      "summer"
+    ]
   },
   {
     "quote": "When single shines the triple sun What was sundered and undone Shall be whole, the two made one By Gelfling hand or else by none.",
@@ -9048,7 +9374,10 @@
     "source": "https://en.wikiquote.org/wiki/Harry_Potter_and_the_Prisoner_of_Azkaban_(film)",
     "director": "Alfonso Cuarón",
     "actor": "Michael Gambon",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "You forgot the first rule of remakes, Jill: \"Don't fuck with the original\".",
@@ -9066,7 +9395,10 @@
     "source": "https://en.wikiquote.org/wiki/Scream_4",
     "director": "Wes Craven",
     "actor": "Neve Campbell",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Insolent boy! This slave of fashion, basking in your glory! Ignorant fool! This brave young suitor, sharing in my triumph!",
@@ -9168,7 +9500,10 @@
     "character": "Vincent",
     "source": "https://en.wikiquote.org/wiki/Collateral_(film)",
     "director": "Michael Mann",
-    "actor": "Tom Cruise"
+    "actor": "Tom Cruise",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Ah, Maggie, in the world of advertising, there's no such thing as a lie. There's only the expedient exaggeration. You ought to know that.",
@@ -9305,7 +9640,10 @@
     "character": "Dr. Jack Griffin",
     "source": "https://en.wikiquote.org/wiki/The_Invisible_Man_(film)",
     "director": "James Whale",
-    "actor": "Claude Rains"
+    "actor": "Claude Rains",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I plan to leave you.That way you can tell everyone what takes place here.",
@@ -9615,7 +9953,10 @@
     "character": "Countess Marya Zaleska",
     "source": "https://en.wikiquote.org/wiki/Dracula's_Daughter",
     "director": "Lambert Hillyer",
-    "actor": "Gloria Holden"
+    "actor": "Gloria Holden",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I fall in love too easily, I fall in love too fast.",
@@ -9753,7 +10094,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Da_Vinci_Code_(film)",
     "director": "Ron Howard",
     "actor": "Tom Hanks",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Tomorrow is the anniversary of your death. Are you trying to ruin our holiday?",
@@ -9787,7 +10131,10 @@
     "character": "Selina Kyle/Catwoman",
     "source": "https://en.wikiquote.org/wiki/The_Dark_Knight_Rises",
     "director": "Christopher Nolan",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "That's the first time anyone ever thought enough of you to call you a shark. If you were a good lawyer, you'd be flattered.",
@@ -9822,7 +10169,10 @@
     "source": "https://en.wikiquote.org/wiki/Men_in_Black_3",
     "director": "Barry Sonnenfeld",
     "actor": "Will Smith",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Gentlemen, that's a very sad thing...to be nothing.",
@@ -9856,7 +10206,10 @@
     "character": "Imhotep",
     "source": "https://en.wikiquote.org/wiki/The_Mummy_(1932_film)",
     "director": "Karl Freund",
-    "actor": "Boris Karloff"
+    "actor": "Boris Karloff",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I'd rather be dead than living with you. For all the things you've done, J.J., I know I should hate you. But I don't. I pity you.",
@@ -10010,7 +10363,11 @@
     "character": "Hellboy",
     "source": "https://en.wikiquote.org/wiki/Hellboy_II%3A_The_Golden_Army",
     "director": "Guillermo del Toro",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "One man's tool is another man's weapon.",
@@ -10027,7 +10384,10 @@
     "character": "Bruce Wayne/Batman",
     "source": "https://en.wikiquote.org/wiki/The_Dark_Knight_Rises",
     "director": "Christopher Nolan",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Well, I think that explains it. Anyone could become obsessed with the past with a background like that!",
@@ -10323,7 +10683,10 @@
     "character": "Jeff Denlon",
     "source": "https://en.wikiquote.org/wiki/Saw_III",
     "director": "Darren Lynn Bouseman",
-    "actor": "Angus Macfadyen"
+    "actor": "Angus Macfadyen",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I thought Lycans went back to their Human form when they die.",
@@ -10340,7 +10703,11 @@
     "character": "Michael",
     "source": "https://en.wikiquote.org/wiki/Underworld%3A_Evolution",
     "director": "Len Wiseman",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "Burning gas! That's probably what brought 'em here in the first place!",
@@ -10426,7 +10793,10 @@
     "source": "https://en.wikiquote.org/wiki/Harry_Potter_and_the_Prisoner_of_Azkaban_(film)",
     "director": "Alfonso Cuarón",
     "actor": "Daniel Radcliffe",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Ah, you have this advantage over the soldier, Mr. Graham. You can run away without being a coward.",
@@ -10593,7 +10963,10 @@
     "type": "movie",
     "character": "Dr. Miles Bennell",
     "source": "https://en.wikiquote.org/wiki/Invasion_of_the_Body_Snatchers_(1956_film)",
-    "director": "Don Siegel"
+    "director": "Don Siegel",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "You should not speak with an accent when you know I'm so hungry.",
@@ -10646,7 +11019,10 @@
     "character": "Superman",
     "source": "https://en.wikiquote.org/wiki/Man_of_Steel_(film)",
     "director": "Zack Snyder",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Like my father before me, I became leader of the Cimarron herd. And with that honor came responsibility.",
@@ -10663,7 +11039,10 @@
     "character": "Spirit",
     "source": "https://en.wikiquote.org/wiki/Spirit%3A_Stallion_of_the_Cimarron",
     "director": "Kelly Asbury",
-    "actor": "Matt Damon"
+    "actor": "Matt Damon",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Shall we shag now, or shall we shag later?",
@@ -10714,7 +11093,10 @@
     "character": "Sam Emerson",
     "source": "https://en.wikiquote.org/wiki/The_Lost_Boys",
     "director": "Joel Schumacher",
-    "actor": "Corey Haim"
+    "actor": "Corey Haim",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Can you sleep on your stomach with such big buttons on your pajamas?",
@@ -10952,7 +11334,10 @@
     "character": "Robin of Locksley/Robin Hood",
     "source": "https://en.wikiquote.org/wiki/Robin_Hood%3A_Prince_of_Thieves",
     "director": "Kevin Reynolds",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Daniel-san, never put passion before principle. Even if win, you lose.",
@@ -10969,7 +11354,10 @@
     "character": "Mr. Nariyoshi Miyagi",
     "source": "https://en.wikiquote.org/wiki/The_Karate_Kid_Part_II",
     "director": "John G. Avildsen",
-    "actor": "Pat Morita"
+    "actor": "Pat Morita",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "But you don't know what it can do to two people, Paula, and the woman always gets hurt more than the man.",
@@ -11004,7 +11392,10 @@
     "source": "https://en.wikiquote.org/wiki/Tenet",
     "director": "Christopher Nolan",
     "actor": "Robert Pattinson",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Have them dig a couple of graves for themselves, in case the experiment fails.",
@@ -11021,7 +11412,10 @@
     "character": "Professor Paul Renault",
     "source": "https://en.wikiquote.org/wiki/Zombies_on_Broadway",
     "director": "Gordon Douglas",
-    "actor": "Bela Lugosi"
+    "actor": "Bela Lugosi",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "The Lord said, \"Do whatever you have to do.\" And he didn't say \"Joe, be polite.",
@@ -11159,7 +11553,10 @@
     "character": "Dr. Janos Rukh",
     "source": "https://en.wikiquote.org/wiki/The_Invisible_Ray_(1936_film)",
     "director": "Lambert Hillyer",
-    "actor": "Boris Karloff"
+    "actor": "Boris Karloff",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Sugarpuss, uh, before you go, would you... would you, eh, yum me just once more?",
@@ -11344,7 +11741,10 @@
     "character": "Dr. Frank Mannering",
     "source": "https://en.wikiquote.org/wiki/Frankenstein_Meets_the_Wolf_Man",
     "director": "Roy William Neill",
-    "actor": "Patric Knowles"
+    "actor": "Patric Knowles",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I'd hate to say anything good about that long-winded jackanapes, but he does know the short way to start a war.",
@@ -11379,7 +11779,11 @@
     "source": "https://en.wikiquote.org/wiki/Dawn_of_the_Dead_(1978_film)",
     "director": "George A. Romero",
     "actor": "David Crawford",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "I can kill the first man who so much as whispers a word about giving up. The very first man, so help me, I'll blow his head off!",
@@ -11614,7 +12018,10 @@
     "character": "Annalee Call",
     "source": "https://en.wikiquote.org/wiki/Alien_Resurrection",
     "director": "Jean-Pierre Jeunet",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "It's hard to be a man when you've never had to be.",
@@ -11648,7 +12055,10 @@
     "character": "Carl Denham",
     "source": "https://en.wikiquote.org/wiki/King_Kong_(1933_film)",
     "director": "Merian C. Cooper",
-    "actor": "Robert Armstrong"
+    "actor": "Robert Armstrong",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Hello, Edgar. You're about to play a game. Five lives are in your hands. Follow my instructions exactly.",
@@ -11766,7 +12176,10 @@
     "character": "Rosemary Woodhouse",
     "source": "https://en.wikiquote.org/wiki/Rosemary's_Baby_(film)",
     "director": "Roman Polanski",
-    "actor": "Mia Farrow"
+    "actor": "Mia Farrow",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Being human is a condition that requires a little anaesthesia.",
@@ -11836,7 +12249,10 @@
     "source": "https://en.wikiquote.org/wiki/Superman_II",
     "director": "Richard Donner",
     "actor": "Sarah Douglas",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "If you can't get what you want, you damn well better settle for what you can get.",
@@ -11870,7 +12286,10 @@
     "character": "Dolores Umbridge",
     "source": "https://en.wikiquote.org/wiki/Harry_Potter_and_the_Order_of_the_Phoenix_(film)",
     "director": "David Yates",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Oh, why don't you button up your lip? You're always squawkin' about something. You've got more static than a radio.",
@@ -11905,7 +12324,10 @@
     "source": "https://en.wikiquote.org/wiki/Abigail_(2024_film)",
     "director": "Matt Bettinelli-Olpin",
     "actor": "Alisha Weir",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I grant you, I'm no beauty. But, under this exterior, you'll find the very flower of man. Look at me. Do you suppose I'd let anybody stand in my way?",
@@ -11921,7 +12343,10 @@
     "type": "movie",
     "character": "Mr. Hyde",
     "source": "https://en.wikiquote.org/wiki/Dr._Jekyll_and_Mr._Hyde_(1931_film)",
-    "director": "Rouben Mamoulian"
+    "director": "Rouben Mamoulian",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "You never see unpleasant things, you drift away. I even wonder if you hear me half the time.",
@@ -11989,7 +12414,10 @@
     "character": "2012",
     "source": "https://en.wikiquote.org/wiki/Men_in_Black_3",
     "director": "Barry Sonnenfeld",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Eat lead, you man-stealing slut!",
@@ -12005,7 +12433,10 @@
     "type": "movie",
     "character": "Heidi",
     "source": "https://en.wikiquote.org/wiki/Meet_the_Feebles",
-    "director": "Peter Jackson"
+    "director": "Peter Jackson",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Requiescat In Pace (lit. \"May he/she rest in peace\").",
@@ -12023,7 +12454,11 @@
     "source": "https://en.wikiquote.org/wiki/Van_Helsing",
     "director": "Stephen Sommers",
     "actor": "Hugh Jackman",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "There's only one kind of a monster that uses bullets.",
@@ -12040,7 +12475,10 @@
     "character": "Col. Van Heusen",
     "source": "https://en.wikiquote.org/wiki/It!_The_Terror_from_Beyond_Space",
     "director": "Edward L. Cahn",
-    "actor": "Kim Spalding"
+    "actor": "Kim Spalding",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I'm a strong tree with branches for many birds. I'm good for somethin' in this old world, and I know it, too.",
@@ -12258,7 +12696,10 @@
     "type": "movie",
     "character": "Lakota",
     "source": "https://en.wikiquote.org/wiki/Spirit%3A_Stallion_of_the_Cimarron",
-    "director": "Kelly Asbury"
+    "director": "Kelly Asbury",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Honey, I've got a runner in my pantyhose. I'm not wearing pantyhose.",
@@ -12413,7 +12854,10 @@
     "character": "Eddie Jessup",
     "source": "https://en.wikiquote.org/wiki/Altered_States",
     "director": "Ken Russell",
-    "actor": "William Hurt"
+    "actor": "William Hurt",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Still, a chap ought to look smart in front of the men, don't you think?",
@@ -12514,7 +12958,10 @@
     "type": "movie",
     "character": "One thing's sure",
     "source": "https://en.wikiquote.org/wiki/Plan_9_from_Outer_Space",
-    "director": "Ed Wood"
+    "director": "Ed Wood",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "You know what this place is? It's a slaughterhouse, and I'm the butcher!",
@@ -12547,7 +12994,10 @@
     "character": "Lt. Colonel Peter Willis",
     "source": "https://en.wikiquote.org/wiki/Capricorn_One",
     "director": "Peter Hyams",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "It's lucky for you that I only learned how to write, not read.",
@@ -12599,7 +13049,10 @@
     "character": "Paul Sheldon",
     "source": "https://en.wikiquote.org/wiki/Misery_(film)",
     "director": "Rob Reiner",
-    "actor": "James Caan"
+    "actor": "James Caan",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I am not hiding you. I am hiding me.",
@@ -12616,7 +13069,10 @@
     "character": "Harper",
     "source": "https://en.wikiquote.org/wiki/Happiest_Season",
     "actor": "Mackenzie Davis",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "Their language has an idiosyncrasy of its own. It seems to consist mainly of clicking sounds.",
@@ -12685,7 +13141,11 @@
     "source": "https://en.wikiquote.org/wiki/Brazil_(1985_film)",
     "director": "Terry Gilliam",
     "actor": "Jonathan Pryce",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "holiday",
+      "summer"
+    ]
   },
   {
     "quote": "I didn't expect to see you here so soon.",
@@ -12702,7 +13162,10 @@
     "character": "Jill Tuck",
     "source": "https://en.wikiquote.org/wiki/Saw_VI",
     "director": "Kevin Greutert",
-    "actor": "Betsy Russell"
+    "actor": "Betsy Russell",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "When you pull a gun, kill a man.",
@@ -12770,7 +13233,10 @@
     "type": "movie",
     "character": "Prologue",
     "source": "https://en.wikiquote.org/wiki/Dogville",
-    "director": "Lars von Trier"
+    "director": "Lars von Trier",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Anybody that really is anybody ought to be able to do about as they like in their own town, I should think.",
@@ -12805,7 +13271,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Da_Vinci_Code_(film)",
     "director": "Ron Howard",
     "actor": "Audrey Tautou",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Oh please! You and I both know I'm a phenomenal dancer!",
@@ -12956,7 +13425,10 @@
     "type": "movie",
     "character": "Ned Scott",
     "source": "https://en.wikiquote.org/wiki/The_Thing_from_Another_World",
-    "director": "Christian Nyby"
+    "director": "Christian Nyby",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Those shells can't get through to them. They've put up some sort of electromagnetic covering, a protective blister.",
@@ -12991,7 +13463,10 @@
     "character": "Jareth the Goblin King",
     "source": "https://en.wikiquote.org/wiki/Labyrinth_(film)",
     "director": "Jim Henson",
-    "actor": "David Bowie"
+    "actor": "David Bowie",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Let me just say that if God was a city planner, he would not put a playground next to a sewage system.",
@@ -13042,7 +13517,10 @@
     "character": "Alan Frog",
     "source": "https://en.wikiquote.org/wiki/The_Lost_Boys",
     "director": "Joel Schumacher",
-    "actor": "Jamison Newlander"
+    "actor": "Jamison Newlander",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Zorro, Zorro, Zorro. Can't you get rid of that man?",
@@ -13246,7 +13724,11 @@
     "source": "https://en.wikiquote.org/wiki/The_Rocky_Horror_Picture_Show",
     "director": "Jim Sharman",
     "actor": "Barry Bostwick",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "Men who keep books are never very happy.",
@@ -13281,7 +13763,10 @@
     "source": "https://en.wikiquote.org/wiki/Spider-Man%3A_Far_from_Home",
     "director": "Jon Watts",
     "actor": "Tom Holland",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Well I'm gonna park the cars and get the luggage, and well, I'll be outside for the...season.",
@@ -13297,7 +13782,10 @@
     "type": "movie",
     "character": "Clark W. Griswold",
     "source": "https://en.wikiquote.org/wiki/National_Lampoon's_Christmas_Vacation",
-    "director": "Jeremiah S. Chechik"
+    "director": "Jeremiah S. Chechik",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "It's a blundering world and a very sad one, yet kindness can make it beautiful.",
@@ -13384,7 +13872,10 @@
     "character": "Shaun",
     "source": "https://en.wikiquote.org/wiki/Shaun_of_the_Dead",
     "director": "Edgar Wright",
-    "actor": "Simon Pegg"
+    "actor": "Simon Pegg",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "The City of San Francisco does not pay criminals not to commit crimes. Instead, we pay a police department.",
@@ -13418,7 +13909,10 @@
     "character": "Sato",
     "source": "https://en.wikiquote.org/wiki/The_Karate_Kid_Part_II",
     "director": "John G. Avildsen",
-    "actor": "Danny Kamekona"
+    "actor": "Danny Kamekona",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Ah, Herr Bartlett. And Herr MacDonald. We are together again. You are going to wish you had never put us to so much trouble...",
@@ -13452,7 +13946,10 @@
     "source": "https://en.wikiquote.org/wiki/Star_Wars%3A_Episode_II_%E2%80%93_Attack_of_the_Clones",
     "director": "George Lucas",
     "actor": "Hayden Christensen",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Perhaps I'll write my own memoirs. Ex-Prime Minister's Wife Tells All.",
@@ -13470,7 +13967,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Ghost_Writer",
     "director": "Roman Polanski",
     "actor": "Olivia Williams",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Stick to me, kid, and you'll wear diamonds.",
@@ -13487,7 +13987,10 @@
     "character": "Carl Denham",
     "source": "https://en.wikiquote.org/wiki/Son_of_Kong",
     "director": "Ernest B. Schoedsack",
-    "actor": "Robert Armstrong"
+    "actor": "Robert Armstrong",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "That's it, baby, when you've got it, flaunt it, flaunt it!",
@@ -13521,7 +14024,10 @@
     "character": "Edward \"Hutch\" Hutchins",
     "source": "https://en.wikiquote.org/wiki/Rosemary's_Baby_(film)",
     "director": "Roman Polanski",
-    "actor": "Maurice Evans"
+    "actor": "Maurice Evans",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I think the world has been run long enough by well-meaning professionals. We might give the amateurs a chance now.",
@@ -13744,7 +14250,10 @@
     "character": "Esther Smith",
     "source": "https://en.wikiquote.org/wiki/Meet_Me_in_St._Louis",
     "director": "Vincente Minnelli",
-    "actor": "Judy Garland"
+    "actor": "Judy Garland",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "We are not questioning your authority, sir, but if manners prevent our speaking the truth, we will be without manners.",
@@ -13882,7 +14391,10 @@
     "source": "https://en.wikiquote.org/wiki/Falling_Down",
     "director": "Joel Schumacher",
     "actor": "Robert Duvall",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "One of these days I'm likely to pay you Rawlingses a little visit.",
@@ -13933,7 +14445,10 @@
     "character": "Rose Smith",
     "source": "https://en.wikiquote.org/wiki/Meet_Me_in_St._Louis",
     "director": "Vincente Minnelli",
-    "actor": "Lucille Bremer"
+    "actor": "Lucille Bremer",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "Though ends the first part of the History of the War of the Ring.",
@@ -13950,7 +14465,10 @@
     "character": "Narrator",
     "source": "https://en.wikiquote.org/wiki/The_Lord_of_the_Rings_(1978_film)",
     "director": "Ralph Bakshi",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "We have ways to make men talk.",
@@ -14002,7 +14520,10 @@
     "source": "https://en.wikiquote.org/wiki/Space_Jam%3A_A_New_Legacy",
     "director": "Malcolm D. Lee",
     "actor": "Sonequa Martin-Green",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "It's nights like this, when I miss dating a lesbian...",
@@ -14072,7 +14593,10 @@
     "source": "https://en.wikiquote.org/wiki/Night_of_the_Living_Dead",
     "director": "George A. Romero",
     "actor": "Marilyn Eastman",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Conversation like television set on honeymoon…not necessary.",
@@ -14141,7 +14665,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Purge%3A_Election_Year",
     "director": "James DeMonaco",
     "actor": "Mykelti Williamson",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Oh, Scotty, if you'll turn me loose on this, I'll have this town so deep in tears that they'll be using canoes for taxicabs.",
@@ -14176,7 +14703,10 @@
     "source": "https://en.wikiquote.org/wiki/Indiana_Jones_and_the_Temple_of_Doom",
     "director": "Steven Spielberg",
     "actor": "Harrison Ford",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "They'll probably move at dawn.",
@@ -14212,7 +14742,10 @@
     "source": "https://en.wikiquote.org/wiki/Scream_(2022_film)",
     "director": "Matt Bettinelli-Olpin",
     "actor": "Neve Campbell",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Anyway, fuck it. The battle is over and the war is won.",
@@ -14283,7 +14816,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Ghost_Writer",
     "director": "Roman Polanski",
     "actor": "Tom Wilkinson",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "One man's trash is another man's treasure, my friend, especially if that one man is a rich prick.",
@@ -14333,7 +14869,10 @@
     "character": "Dr. Arthur Carrington",
     "source": "https://en.wikiquote.org/wiki/The_Thing_from_Another_World",
     "director": "Christian Nyby",
-    "actor": "Robert O. Cornthwaite"
+    "actor": "Robert O. Cornthwaite",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Truth! Truth! Everybody keeps hollerin' about the truth. Well, the truth is as dirty as lies.",
@@ -14451,7 +14990,10 @@
     "type": "movie",
     "character": "Mark Hoffman",
     "source": "https://en.wikiquote.org/wiki/Saw_VI",
-    "director": "Kevin Greutert"
+    "director": "Kevin Greutert",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "An Englishman never jokes about a wager, sir.",
@@ -14485,7 +15027,10 @@
     "type": "movie",
     "character": "Baroness Elsa Frankenstein",
     "source": "https://en.wikiquote.org/wiki/Frankenstein_Meets_the_Wolf_Man",
-    "director": "Roy William Neill"
+    "director": "Roy William Neill",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Verily, you would have all of India in your picture. Nay, you would have the book of the jungle to read in my eyes.",
@@ -14569,7 +15114,10 @@
     "source": "https://en.wikiquote.org/wiki/Thor%3A_Ragnarok",
     "director": "Taika Waititi",
     "actor": "Cate Blanchett",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "...If I can plead my case, there's a chance you'll be granted sanctuary. Right now, you'll be killed on sight. I'm not prepared to risk it.",
@@ -14586,7 +15134,11 @@
     "character": "Selene",
     "source": "https://en.wikiquote.org/wiki/Underworld%3A_Evolution",
     "director": "Len Wiseman",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "We've gone on holiday by mistake.",
@@ -14620,7 +15172,10 @@
     "character": "Dr. Mirakle",
     "source": "https://en.wikiquote.org/wiki/Murders_in_the_Rue_Morgue_(1932_film)",
     "director": "Robert Florey",
-    "actor": "Bela Lugosi"
+    "actor": "Bela Lugosi",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Window or aisle, boys? Yeah, we're in deep shit!",
@@ -14655,7 +15210,10 @@
     "character": "Professor McGonagall",
     "source": "https://en.wikiquote.org/wiki/Harry_Potter_and_the_Half-Blood_Prince_(film)",
     "director": "David Yates",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "You sold a reverberating carbonizer with mutate capacity to an unlicensed cephalopoid, Jeebs, you piece of...!",
@@ -14673,7 +15231,10 @@
     "source": "https://en.wikiquote.org/wiki/Men_in_Black_(1997_film)",
     "director": "Barry Sonnenfeld",
     "actor": "Tommy Lee Jones",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Trust me, Peter. When you try to fix people, there are always consequences.",
@@ -14690,7 +15251,10 @@
     "character": "Curt Connors / Lizard",
     "source": "https://en.wikiquote.org/wiki/Spider-Man%3A_No_Way_Home",
     "director": "Jon Watts",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "There is a prince and a great man fallen this day in Israel. I looked your name up, too.",
@@ -14742,7 +15306,10 @@
     "source": "https://en.wikiquote.org/wiki/Creature_from_the_Black_Lagoon",
     "director": "Jack Arnold",
     "actor": "Richard Carlson",
-    "rating": "G"
+    "rating": "G",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "That's how we deal with death. We can't change what it is, so we keep it light until it's time to get dark. And then we get pitch black.",
@@ -14760,7 +15327,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Expendables_2",
     "director": "Simon West",
     "actor": "Sylvester Stallone",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Shit. Fucking missed it. How did I fucking miss it?",
@@ -14812,7 +15382,10 @@
     "character": "Prince Eric",
     "source": "https://en.wikiquote.org/wiki/The_Little_Mermaid_(2023_film)",
     "director": "Rob Marshall",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I did not glue my hat to my head! The hat shrunk! The fibers fused to my hair!",
@@ -14967,7 +15540,10 @@
     "character": "Video Game Attract Mode",
     "source": "https://en.wikiquote.org/wiki/The_Last_Starfighter",
     "director": "Nick Castle",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "A naked American man stole my balloons.",
@@ -14983,7 +15559,10 @@
     "type": "movie",
     "character": "Little boy",
     "source": "https://en.wikiquote.org/wiki/An_American_Werewolf_in_London",
-    "director": "John Landis"
+    "director": "John Landis",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "He doesn't love me. He never loved me. I was never real to him. Nothing in the human experience is real to him.",
@@ -15000,7 +15579,10 @@
     "character": "Emily Jessup",
     "source": "https://en.wikiquote.org/wiki/Altered_States",
     "director": "Ken Russell",
-    "actor": "Blair Brown"
+    "actor": "Blair Brown",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Miss Thompson, if you make a fire, and a rhinoceros sees it he comes and stamps it out. Rhinos do that. It's a most interesting phenomenon.",
@@ -15053,7 +15635,10 @@
     "source": "https://en.wikiquote.org/wiki/Avengers%3A_Infinity_War",
     "director": "Anthony Russo and Joe Russo",
     "actor": "Tom Holland",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "This is all very disorganized.",
@@ -15191,7 +15776,10 @@
     "character": "Queen Jamilla",
     "source": "https://en.wikiquote.org/wiki/Star_Wars%3A_Episode_II_%E2%80%93_Attack_of_the_Clones",
     "director": "George Lucas",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Somehow it just don't seem fittin' for a bridegroom to spend his weddin' night in a tree.",
@@ -15226,7 +15814,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Crow_(1994_film)",
     "director": "Alex Proyas",
     "actor": "Brandon Lee",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I know what I heard. I know what I hear. I know I'm not crazy.",
@@ -15343,7 +15934,10 @@
     "character": "Ann Anderson",
     "source": "https://en.wikiquote.org/wiki/It!_The_Terror_from_Beyond_Space",
     "director": "Edward L. Cahn",
-    "actor": "Shirley Patterson"
+    "actor": "Shirley Patterson",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "However, I am amazed at your calmness. And if you know, Shurik, I’m even tempted to start a scandal.",
@@ -15445,7 +16039,10 @@
     "character": "Bletch",
     "source": "https://en.wikiquote.org/wiki/Meet_the_Feebles",
     "director": "Peter Jackson",
-    "actor": "Peter Vere-Jones"
+    "actor": "Peter Vere-Jones",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Any man who would be a knight and follow a king, follow me!",
@@ -15463,7 +16060,10 @@
     "source": "https://en.wikiquote.org/wiki/Excalibur_(film)",
     "director": "John Boorman",
     "actor": "Nigel Terry",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "There's gotta be a perfectly logical explanation for all this.",
@@ -15481,7 +16081,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Last_Starfighter",
     "director": "Nick Castle",
     "actor": "Lance Guest",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "The city was under attack by land, sea and air. Two days later you wouldn't have known the place. Over one million New Yorkers had joined the club.",
@@ -15718,7 +16321,10 @@
     "character": "Max Duorcher",
     "source": "https://en.wikiquote.org/wiki/Collateral_(film)",
     "director": "Michael Mann",
-    "actor": "Jamie Foxx"
+    "actor": "Jamie Foxx",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "You want to know something, Leslie? If I live to be ninety, I will never figure you out.",
@@ -15802,7 +16408,10 @@
     "character": "Dr. Pretorius",
     "source": "https://en.wikiquote.org/wiki/Bride_of_Frankenstein",
     "director": "James Whale",
-    "actor": "Ernest Thesiger"
+    "actor": "Ernest Thesiger",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I can't keep holding back how I feel about you, Lucy. How I've felt ever since the first day we met. I'm in love with you.",
@@ -15905,7 +16514,10 @@
     "source": "https://en.wikiquote.org/wiki/Scream_(1996_film)",
     "director": "Wes Craven",
     "actor": "Matthew Lillard",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Is that a bannana in your pocket, or are you just glad to see me?",
@@ -15954,7 +16566,10 @@
     "type": "movie",
     "character": "Narrator",
     "source": "https://en.wikiquote.org/wiki/No_End_In_Sight",
-    "director": "Charles Ferguson"
+    "director": "Charles Ferguson",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I would rather have thirty minutes of wonderful than a lifetime of nothing special.",
@@ -16265,7 +16880,10 @@
     "source": "https://en.wikiquote.org/wiki/How_the_Grinch_Stole_Christmas_(2000_film)",
     "director": "Ron Howard",
     "actor": "Anthony Hopkins",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "Myrtle Mae, you have a lot to learn, and I hope you never learn it.",
@@ -16333,7 +16951,11 @@
     "character": "Liz Sherman",
     "source": "https://en.wikiquote.org/wiki/Hellboy_II%3A_The_Golden_Army",
     "director": "Guillermo del Toro",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "halloween",
+      "summer"
+    ]
   },
   {
     "quote": "You gentlemen aren't really trying to kill my son, are you?",
@@ -16383,7 +17005,10 @@
     "type": "movie",
     "character": "Chapter ONE",
     "source": "https://en.wikiquote.org/wiki/Dogville",
-    "director": "Lars von Trier"
+    "director": "Lars von Trier",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "I always did like a man in a uniform. That one fits you grand. Why don't you come up sometime and see me? I'm home every evening.",
@@ -16470,7 +17095,10 @@
     "source": "https://en.wikiquote.org/wiki/Spider-Man%3A_No_Way_Home",
     "director": "Jon Watts",
     "actor": "Jamie Foxx",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Dreams make good stories, but everything important happens when we're awake. 'Cause that's when we make things happen.",
@@ -16540,7 +17168,10 @@
     "character": "Simon",
     "source": "https://en.wikiquote.org/wiki/Alvin_and_the_Chipmunks%3A_The_Squeakquel",
     "director": "Betty Thomas",
-    "actor": "Matthew Gray Gubler"
+    "actor": "Matthew Gray Gubler",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "That's Vitaly, my younger brother. He was as lost as me. He just didn't know it yet.",
@@ -16591,7 +17222,10 @@
     "character": "Ellen Ripley",
     "source": "https://en.wikiquote.org/wiki/Alien_Resurrection",
     "director": "Jean-Pierre Jeunet",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "No matter how bad things get, they can always get worse.",
@@ -16657,7 +17291,10 @@
     "character": "Bobby Dagen",
     "source": "https://en.wikiquote.org/wiki/Saw_3D",
     "director": "Kevin Greutert",
-    "actor": "Sean Patrick Flanery"
+    "actor": "Sean Patrick Flanery",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "I won't rest until Tom Chaney is barking in Hell.",
@@ -16796,7 +17433,10 @@
     "source": "https://en.wikiquote.org/wiki/Indiana_Jones_and_the_Temple_of_Doom",
     "director": "Steven Spielberg",
     "actor": "Kate Capshaw",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "That might be as well to remember. There are more things in Heaven and Earth than are dreamt of in your philosophy.",
@@ -16867,7 +17507,10 @@
     "source": "https://en.wikiquote.org/wiki/Suicide_Squad_(2016_film)",
     "director": "David Ayer",
     "actor": "Viola Davis",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Every King needs a Queen, Rita. I want you to be mine.",
@@ -16919,7 +17562,10 @@
     "type": "movie",
     "character": "Priest",
     "source": "https://en.wikiquote.org/wiki/Werewolf_of_London",
-    "director": "Stuart Walker"
+    "director": "Stuart Walker",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Nobody has a good name in a bad mouth! Nobody has a good name in a silly mouth, either.",
@@ -16971,7 +17617,10 @@
     "source": "https://en.wikiquote.org/wiki/Speed_(1994_film)",
     "director": "Jan de Bont",
     "actor": "Keanu Reeves",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "It’s very hard to keep personal prejudice out of a thing like this. And no matter where you run into it, prejudice obscures the truth.",
@@ -17055,7 +17704,10 @@
     "type": "movie",
     "character": "Cousin Eddie",
     "source": "https://en.wikiquote.org/wiki/National_Lampoon's_Christmas_Vacation",
-    "director": "Jeremiah S. Chechik"
+    "director": "Jeremiah S. Chechik",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "You always charge a guy with a gun! With a knife, you run away.",
@@ -17141,7 +17793,10 @@
     "source": "https://en.wikiquote.org/wiki/Superman_II",
     "director": "Richard Donner",
     "actor": "Terence Stamp",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "She won't stay mad at him for long. She's too much in love. Pretty soon she'll be full of self-reproach. Ha ha! Women are so silly.",
@@ -17208,7 +17863,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Promise_(2016_film)",
     "director": "Terry George",
     "actor": "Oscar Isaac",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Jewels are wonderful things. They have a life of their own.",
@@ -17243,7 +17901,10 @@
     "source": "https://en.wikiquote.org/wiki/Tenet",
     "director": "Christopher Nolan",
     "actor": "John David Washington",
-    "rating": "PG-13"
+    "rating": "PG-13",
+    "seasons": [
+      "summer"
+    ]
   },
   {
     "quote": "Oh, that's ring number four. Only one more to go. Come back! Please! You can't our egg! No!",
@@ -17313,7 +17974,10 @@
     "source": "https://en.wikiquote.org/wiki/The_Hudsucker_Proxy",
     "director": "Joel Coen and Ethan Coen",
     "actor": "Tim Robbins",
-    "rating": "PG"
+    "rating": "PG",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "Mother, don't you think Caroline is old enough to be sent to a good military school?",
@@ -17449,7 +18113,10 @@
     "character": "Louis Winthorpe III",
     "source": "https://en.wikiquote.org/wiki/Trading_Places",
     "director": "John Landis",
-    "actor": "Dan Aykroyd"
+    "actor": "Dan Aykroyd",
+    "seasons": [
+      "holiday"
+    ]
   },
   {
     "quote": "Better death... than a life like this.",
@@ -17466,7 +18133,10 @@
     "character": "Ygor",
     "source": "https://en.wikiquote.org/wiki/The_Ghost_of_Frankenstein",
     "director": "Erle C. Kenton",
-    "actor": "Bela Lugosi"
+    "actor": "Bela Lugosi",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "The world changes, we do not; therein lies the irony that finally kills us.",
@@ -17484,7 +18154,10 @@
     "source": "https://en.wikiquote.org/wiki/Interview_with_the_Vampire_(film)",
     "director": "Neil Jordan",
     "actor": "Antonio Banderas",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "You see, Mr. Scott? In the water, I'm a very skinny lady.",
@@ -17520,7 +18193,10 @@
     "source": "https://en.wikiquote.org/wiki/Carrie_(1976_film)",
     "director": "Brian De Palma",
     "actor": "Sissy Spacek",
-    "rating": "R"
+    "rating": "R",
+    "seasons": [
+      "halloween"
+    ]
   },
   {
     "quote": "Why don't you do us all a favor and shut the fuck up, or I'll sew your pretty mouth shut?",
