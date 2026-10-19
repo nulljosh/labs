@@ -108,4 +108,12 @@ assert(ph.length >= 15, `${ph.length} phrases`);
 assert(ph.every(q => q.plain && q.options.length === 4 && new Set(q.options).size === 4 && q.options.includes(q.answer) && / means ./.test(q.character)));
 assert(!ph.some(q => q.plain === 'gaslight' || q.plain === 'Pollyanna'), 'a word inside its own title answers itself');
 assert.equal(ph.find(q => q.plain === 'muggle').answer, 'Harry Potter and the Philosopher\u2019s Stone');
-console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length, ma.length, im.length, di.length, ac.length, ab.length, ph.length);
+
+// Original languages: four films of the same language, never a dub of an English film
+const wo = pool('world', [], bank, rand);
+assert(wo.length > 100, `${wo.length} world lines`);
+const W = require('./world-data.json');
+const langOf = new Map(W.map(d => [d.answer, d.lang]));
+assert(wo.every(q => q.options.length === 4 && new Set(q.options).size === 4 && q.options.includes(q.answer) && new Set(q.options.map(o => langOf.get(o))).size === 1));
+assert(!wo.some(q => /Godfather|Opera|EuroTrip|Grimm/.test(q.character)), 'dubs of English films stay out');
+console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length, ma.length, im.length, di.length, ac.length, ab.length, ph.length, wo.length);

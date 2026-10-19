@@ -72,7 +72,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v54 Director mode.** Name who directed it.
 - [x] **v55 Album and year.** Deeper music questions.
 - [x] **v56 Phrases.** Lines that entered everyday speech, with their origins from Wordroot.
-- [ ] **v57 Original languages.** French, Spanish, German, Japanese and Korean films in their own words.
+- [x] **v57 Original languages.** Italian and French films in their own words. (Spanish, German, Japanese and Korean wait on enough films on their Wikiquotes.)
 - [ ] **v58 Twenty languages.** The whole interface, with fonts that cover every script.
 - [ ] **v59 Access for all.** VoiceOver play, Switch Control, the largest text sizes and a high-contrast theme.
 - [ ] **v60 Family mode.** A bank safe for kids.
