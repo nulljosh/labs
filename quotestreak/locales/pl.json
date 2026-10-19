@@ -423,5 +423,9 @@
  "Sunglasses": "Okulary przeciwsłoneczne",
  "Top hat": "Cylinder",
  "Mortarboard": "Biret",
- "{x}, {n} badges to unlock": "{x}, odblokowanie przy {n} odznakach"
+ "{x}, {n} badges to unlock": "{x}, odblokowanie przy {n} odznakach",
+ "Theme": "Motyw",
+ "Marquee": "Neon kinowy",
+ "Noir": "Kino noir",
+ "Drive-in": "Kino samochodowe"
 }

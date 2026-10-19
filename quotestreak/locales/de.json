@@ -423,5 +423,9 @@
  "Sunglasses": "Sonnenbrille",
  "Top hat": "Zylinder",
  "Mortarboard": "Doktorhut",
- "{x}, {n} badges to unlock": "{x}, ab {n} Abzeichen"
+ "{x}, {n} badges to unlock": "{x}, ab {n} Abzeichen",
+ "Theme": "Design",
+ "Marquee": "Leuchtreklame",
+ "Noir": "Film noir",
+ "Drive-in": "Autokino"
 }

@@ -423,5 +423,9 @@
  "Sunglasses": "Zonnebril",
  "Top hat": "Hoge hoed",
  "Mortarboard": "Afstudeerhoed",
- "{x}, {n} badges to unlock": "{x}, vrij bij {n} badges"
+ "{x}, {n} badges to unlock": "{x}, vrij bij {n} badges",
+ "Theme": "Thema",
+ "Marquee": "Lichtreclame",
+ "Noir": "Film noir",
+ "Drive-in": "Drive-inbioscoop"
 }

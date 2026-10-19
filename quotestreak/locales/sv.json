@@ -423,5 +423,9 @@
  "Sunglasses": "Solglasögon",
  "Top hat": "Cylinderhatt",
  "Mortarboard": "Studentmössa",
- "{x}, {n} badges to unlock": "{x}, låses upp vid {n} märken"
+ "{x}, {n} badges to unlock": "{x}, låses upp vid {n} märken",
+ "Theme": "Tema",
+ "Marquee": "Biograffasad",
+ "Noir": "Film noir",
+ "Drive-in": "Drive-in-bio"
 }

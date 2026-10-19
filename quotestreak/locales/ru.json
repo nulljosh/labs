@@ -423,5 +423,9 @@
  "Sunglasses": "Солнцезащитные очки",
  "Top hat": "Цилиндр",
  "Mortarboard": "Конфедератка",
- "{x}, {n} badges to unlock": "{x}, откроется при {n} значках"
+ "{x}, {n} badges to unlock": "{x}, откроется при {n} значках",
+ "Theme": "Тема",
+ "Marquee": "Афиша",
+ "Noir": "Нуар",
+ "Drive-in": "Автокинотеатр"
 }

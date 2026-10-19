@@ -423,5 +423,9 @@
  "Sunglasses": "Occhiali da sole",
  "Top hat": "Cilindro",
  "Mortarboard": "Tocco accademico",
- "{x}, {n} badges to unlock": "{x}, si sblocca con {n} badge"
+ "{x}, {n} badges to unlock": "{x}, si sblocca con {n} badge",
+ "Theme": "Tema",
+ "Marquee": "Insegna",
+ "Noir": "Noir",
+ "Drive-in": "Drive-in"
 }

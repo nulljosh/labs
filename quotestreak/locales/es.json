@@ -423,5 +423,9 @@
  "Sunglasses": "Gafas de sol",
  "Top hat": "Sombrero de copa",
  "Mortarboard": "Birrete",
- "{x}, {n} badges to unlock": "{x}, se desbloquea con {n} insignias"
+ "{x}, {n} badges to unlock": "{x}, se desbloquea con {n} insignias",
+ "Theme": "Tema",
+ "Marquee": "Marquesina",
+ "Noir": "Cine negro",
+ "Drive-in": "Autocine"
 }

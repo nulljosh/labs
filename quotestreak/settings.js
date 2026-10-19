@@ -59,3 +59,9 @@ function applyFamily() {
 }
 $('family-toggle').onchange = () => { try { localStorage.setItem('quotestreak_family', $('family-toggle').checked); } catch {} applyFamily(); };
 applyFamily();
+
+// Themes (v67): the head script reads the choice before paint, so a change reloads. Drive-in is night
+// on any system, so the <picture> Quips that follow the system scheme are pointed at their dark twin.
+$('look-select').value = document.documentElement.dataset.look;
+$('look-select').onchange = () => { try { localStorage.setItem('quotestreak_look', $('look-select').value); } catch {} location.reload(); };
+if (document.documentElement.dataset.look === 'drivein') document.querySelectorAll('picture source[media*="dark"]').forEach(s => s.media = 'all');

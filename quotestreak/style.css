@@ -190,6 +190,12 @@ blockquote {
   opacity: 0.14;
 }
 :root[data-theme="dark"] #backdrop { opacity: 0.22; }
+/* Themes (v67). Noir: the wall and the reveal flash in black and white; yellow stays the one colour.
+   Drive-in: always night (play.html), the wall glows brighter like a screen across the lot. */
+:root[data-look="noir"] #backdrop, :root[data-look="noir"] #art-flash { filter: grayscale(1) contrast(1.15); }
+:root[data-look="noir"] #backdrop { opacity: 0.2; }
+:root[data-look="noir"][data-theme="dark"] #backdrop { opacity: 0.3; }
+:root[data-look="drivein"] #backdrop { opacity: 0.5; }
 .bcol { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .bcol img {
   width: 100%;

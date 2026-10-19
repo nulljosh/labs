@@ -423,5 +423,9 @@
  "Sunglasses": "サングラス",
  "Top hat": "シルクハット",
  "Mortarboard": "角帽",
- "{x}, {n} badges to unlock": "{x}（バッジ{n}個で解放）"
+ "{x}, {n} badges to unlock": "{x}（バッジ{n}個で解放）",
+ "Theme": "テーマ",
+ "Marquee": "劇場の看板",
+ "Noir": "ノワール",
+ "Drive-in": "ドライブイン"
 }
