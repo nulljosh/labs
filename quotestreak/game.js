@@ -226,6 +226,7 @@ function choose(opt, btn) {
     feedbackEl.textContent = `Nope, it was "${current.answer}"`;
     beep(180, 0.25);
   }
+  if (current.character) feedbackEl.textContent += ` · ${current.character}, ${current.year}`;
   updateStats();
   if (dailyMode) recordDaily(correct);
   setTimeout(dailyMode ? finishDaily : nextQuestion, 1100);
