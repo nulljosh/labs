@@ -162,8 +162,8 @@ blockquote {
   font-size: 0.9rem; font-weight: 700;
 }
 
-/* Poster/album mosaic behind the game, built from quotes.json by game.js. Deliberately
-   static — the speed round is a timed attention task, so motion here would fight the clock.
+/* Poster/album mosaic behind the game, built from quotes.json by game.js. It drifts like the
+   landing wall, but freezes during the speed round (body.speed): motion there fights the clock.
    Held at a low opacity instead of using a scrim, so the game UI keeps flat backgrounds. */
 #backdrop {
   position: fixed;
@@ -189,6 +189,23 @@ blockquote {
   display: block;
 }
 .bcol img.sq { aspect-ratio: 1/1; }
+.bcol.up   { animation: wall-up   var(--dur) linear infinite; }
+.bcol.down { animation: wall-down var(--dur) linear infinite; }
+body.speed .bcol { animation-play-state: paused; }
+@keyframes wall-up   { from { transform: translateY(0); }    to { transform: translateY(-50%); } }
+@keyframes wall-down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .bcol.up, .bcol.down { animation: none; } }
+
+.confetti {
+  position: fixed; z-index: 20; width: 10px; height: 14px; margin: -7px 0 0 -5px; border-radius: 2px;
+  pointer-events: none; animation: confetti 1.1s cubic-bezier(.2,.7,.3,1) forwards;
+}
+@keyframes confetti {
+  70% { opacity: 1; }
+  to { transform: translate(var(--dx), calc(var(--dy) + 140px)) rotate(var(--rot)); opacity: 0; }
+}
+.bump { display: inline-block; animation: bump 0.35s ease; }
+@keyframes bump { 40% { transform: scale(1.35); } }
 
 #art-flash {
   position: fixed;
