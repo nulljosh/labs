@@ -19,6 +19,7 @@
 !costanza/
 !numen/
 !homeqi/
+!homeward/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
@@ -35,4 +36,3 @@ roost/
 node_modules/
 .next/
 .env.local
-homeward/
