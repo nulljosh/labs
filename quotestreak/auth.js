@@ -133,6 +133,13 @@ window.quotableSubmitScore = async (score, mode) => {
   await sb.from('quotestreak_scores').insert({ user_id: user.id, name: displayName(user).slice(0, 24), score, mode });
 };
 
+// Best score per player for a mode, best first (the weekly cup reads its board through this).
+window.quotableBoard = async (mode) => {
+  const { data } = await sb.from('quotestreak_leaderboard').select('name,score').eq('mode', mode).order('score', { ascending: false }).limit(50);
+  return data || [];
+};
+window.quotableSignedIn = () => !!user;
+
 window.quotableShowLeaderboard = async (mode) => {
   const { data, error } = await sb.from('quotestreak_leaderboard')
     .select('name,score').eq('mode', mode).order('score', { ascending: false }).limit(20);
