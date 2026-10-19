@@ -22,7 +22,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v12 Live duels.** Real-time one on one through a Durable Object lobby.
 - [x] **v13 Friends.** Add friends and see a friends-only leaderboard.
 - [x] **v14 Weekly cup.** A bracket tournament every week.
-- [ ] **v15 Clubs.** Teams with a shared score and a club board.
+- [x] **v15 Clubs.** Teams with a shared score and a club board.
 - [ ] **v16 Badges.** Fifty achievements drawn in Quip's style.
 - [ ] **v17 Stats.** Accuracy by genre and decade, best streaks, a history graph.
 - [ ] **v18 Share cards.** A generated image per game with the right Quip pose.

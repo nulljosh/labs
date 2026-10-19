@@ -2,6 +2,8 @@
 import { createClient } from './spark.js';
 
 const sb = createClient('https://api.jaybulb.com');
+// Other scripts (clubs.js) call RPCs through this session and hear about sign-in changes.
+window.quotableRpc = (fn, args) => sb.rpc(fn, args);
 // Google, friends and delete are live (origin on jaybulb-signin, RPCs in jaybulb-api).
 // Web Apple: quotestreak.jaybulb.com/play is a return URL on Services ID com.heyitsmejosh.websignin.
 const SOCIAL = true, WEB_APPLE = true;
@@ -17,6 +19,7 @@ function render() {
   $('auth-signed').classList.toggle('hidden', !user);
   if (user) { $('auth-who').textContent = `Signed in as ${displayName(user)}`; if (SOCIAL) loadFriends(); }
   $('auth-delete').textContent = 'Delete account';
+  window.quotableOnAuth?.(user);
 }
 
 // Apple and Google hand back an id token; jaybulb-api verifies it and opens a session.
