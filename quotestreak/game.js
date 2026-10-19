@@ -16,6 +16,7 @@ let typeMode = false;
 let challenge = null;   // {quotes, score, name} when playing a friend's link
 let run = [];          // {qid, pts} for each question this game, for the challenge link
 let duel = null;       // {ws, code, them, theirDone, done} during a live duel
+let cupRound = null;   // this week's ten cup quotes while the cup is being played (cup-ui.js)
 const SFX_ON_KEY = 'quotable_sfx_on';
 const SFX_VOL_KEY = 'quotable_sfx_vol';
 
@@ -132,6 +133,7 @@ function startGame(speed) {
   if (!pool.length) pool = shuffle(quotes.filter(q => genre === 'all' || q.genre === genre));  // an empty pairing plays the genre
   if (challenge) pool = [...challenge.quotes].reverse();  // nextQuestion pops from the end
   if (duel?.quotes) pool = [...duel.quotes].reverse();
+  if (cupRound) pool = [...cupRound].reverse();
   updateStats();
   modeSelect.classList.add('hidden');
   endEl.classList.add('hidden');
@@ -278,7 +280,7 @@ function endGame() {
   $('quip-end').src = `brand/quip-${score > prev ? 'cheer' : score > 0 ? 'idle' : 'oops'}${dark}.svg`;
   localStorage.setItem(HIGH_KEY, high);
   $('final-score').textContent = `Final score: ${score} · High score: ${high}`;
-  window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal');
+  if (!cupRound && !duel && !challenge) window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal');
   if (challenge) {
     $('final-score').textContent = Challenge.verdict(score, challenge.score, challenge.name);
     challenge = null;
@@ -286,6 +288,7 @@ function endGame() {
   }
   $('challenge-btn').classList.toggle('hidden', !run.length || speedMode || !!duel);
   if (duel?.quotes) { duel.done = true; duelSend({ type: 'done', score }); duelResult(); }
+  if (cupRound) cupFinish(score);
 }
 
 
