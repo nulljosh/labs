@@ -5,7 +5,7 @@ its cowlick. Flat two-tone (marquee yellow, night ink), no text, four poses.
 """
 import os
 
-YELLOW, INK, CREAM = "#ffcc00", "#15161a", "#f5f0e4"
+YELLOW, INK, SNOW = "#ffcc00", "#15161a", "#f5f5f7"
 K = 0.5523
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -39,7 +39,7 @@ def limb(d, ink=INK):
 
 
 def pose(name, ink=INK):
-    """ink colours the limbs, feet and motion marks: night ink on light grounds, cream on dark ones.
+    """ink colours the limbs, feet and motion marks: night ink on light grounds, soft white on dark ones.
     The face is always ink, since it sits on yellow."""
     cx, cy, r = 256, 330, 132
     parts, tilt, extra = [], 0, ""
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     for name in ("idle", "cheer", "oops", "streak"):
         imageset = os.path.join(catalog, f"quip-{name}.imageset")
         os.makedirs(imageset, exist_ok=True)
-        for suffix, ink in (("", INK), ("-dark", CREAM)):
+        for suffix, ink in (("", INK), ("-dark", SNOW)):
             svg = pose(name, ink)
             for folder in (HERE, imageset):
                 with open(os.path.join(folder, f"quip-{name}{suffix}.svg"), "w") as f:

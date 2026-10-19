@@ -4,18 +4,18 @@
 <script>document.documentElement.classList.add('js')</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quotestreak — guess the movie or the artist from the quote</title>
+<title>Quotestreak</title>
 <meta property="og:url" content="https://quotestreak.jaybulb.com/">
 <link rel="canonical" href="https://quotestreak.jaybulb.com/">
-<meta name="description" content="A quote-guessing game. 272 movie quotes and song lyrics across 10 genres, multiple choice, plus a 10-second speed round with a score multiplier.">
-<meta name="theme-color" content="#f5f0e4">
+<meta name="description" content="Here’s the line. Name the movie, show, game, song or book. 1,624 lines, a speed round, a daily quote, live duels and seasons.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f1013" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Quotestreak - guess the movie or the artist from the quote">
-<meta property="og:description" content="A quote-guessing game. 272 movie quotes and song lyrics across 10 genres, multiple choice, plus a 10-second speed round with a score multiplier.">
+<meta property="og:description" content="Here’s the line. Name the movie, show, game, song or book. 1,624 lines, a speed round, a daily quote, live duels and seasons.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://quotestreak.jaybulb.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Quotestreak — guess the movie or the artist from the quote">
-<meta name="twitter:description" content="A quote-guessing game. 272 movie quotes and song lyrics across 10 genres, multiple choice, plus a 10-second speed round with a score multiplier.">
+<meta name="twitter:description" content="Here’s the line. Name the movie, show, game, song or book. 1,624 lines, a speed round, a daily quote, live duels and seasons.">
 <meta name="twitter:image" content="https://quotestreak.jaybulb.com/og.png">
 <meta name="apple-itunes-app" content="app-id=6804394619">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -206,7 +206,7 @@ a.skip:focus { position:fixed; left:1rem; top:1rem; z-index:99; padding:0.5rem 0
   </script>
   <div class="container">
     <img class="hero-icon" src="icon.svg" alt="Quotestreak icon" width="88" height="88">
-    <h1>Guess the movie or the artist from the quote.</h1>
+    <h1>Here’s the line. Name where it’s from.</h1>
 <div class="demo">
   <div class="device device-iphone" id="demoFrame" data-title="Quotestreak"><div class="device-screen"><iframe id="demoApp" title="Quotestreak, live" loading="lazy" data-src="/play.html?embed"></iframe></div></div>
   <p class="demo-caption">This is the <span id="demoDev">iPhone</span> app, live. Try it.</p>
@@ -397,7 +397,7 @@ fetch('quotes.json').then(function(r) { return r.json(); }).then(function(quotes
     for (var k = 0; k < per; k++) slice.push(art[(c * per + k) % art.length]);  // wraps, so no column comes up short
     slice.concat(slice).forEach(function(a) {       // doubled, so the loop is seamless
       var img = new Image();
-      img.src = a.url; img.alt = ''; img.referrerPolicy = 'no-referrer';
+      img.src = a.url; img.alt = ''; img.referrerPolicy = 'no-referrer'; img.onerror = function () { this.remove(); };
       if (a.square) img.className = 'square';
       col.appendChild(img);
     });

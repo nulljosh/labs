@@ -30,7 +30,7 @@ window.quotableBadge = (event, d = {}) => {
 function badgeToast(b) {
   const t = document.createElement('div');
   t.className = 'badge-toast';
-  t.style.bottom = `${24 + 64 * document.querySelectorAll('.badge-toast').length}px`;  // stack, don't overlap
+  t.style.top = `${12 + 64 * document.querySelectorAll('.badge-toast').length}px`;  // over the topbar, never over answers; stack down
   t.innerHTML = Badges.svg(b, true) + `<span>Badge: ${b.title}</span>`;
   document.body.appendChild(t);
   setTimeout(() => t.remove(), 3200);

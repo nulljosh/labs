@@ -7,7 +7,7 @@ const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
 // Who said it
 const q = bank.find(x => x.type === 'movie' && x.character);
 const w = build('who', q, bank, rand);
-assert.equal(w.answer, q.character);
+assert.equal(w.answer, q.character.replace(/\s*\/\s*/g, ' / '));
 assert.equal(w.quote, q.quote, 'the line stays for quote ids');
 assert.equal(w.options.length, 4);
 assert.equal(new Set(w.options).size, 4);

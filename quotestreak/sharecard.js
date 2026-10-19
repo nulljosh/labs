@@ -26,7 +26,7 @@
     x.fillStyle = '#ffcc00';
     x.font = font(700, 220);
     x.fillText(game.score, SIZE / 2, 740);
-    x.fillStyle = '#f5f0e4';
+    x.fillStyle = '#f5f5f7';
     x.font = font(600, 56);
     x.fillText(title, SIZE / 2, 830);
     x.font = font(500, 44);

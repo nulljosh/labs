@@ -13,14 +13,15 @@
     }
     return out.length === 3 ? shuffle([answer, ...out], rand) : null;
   }
+  const speaker = (c) => c.replace(/\s*\/\s*/g, ' / ').trim();  // "A/B" and "A / B" are one person
   const BUILD = {
     // v21: name the character. Movies, TV and games carry a character; books carry the author.
     who(q, all, rand) {
-      if (!q.character || !['movie', 'tv', 'game'].includes(q.type)) return null;
+      if (!q.character || /narrator/i.test(q.character) || !['movie', 'tv', 'game'].includes(q.type)) return null;
       if (q.quote.toLowerCase().includes(q.character.split(/[\s.]+/).find(w => w.length > 2)?.toLowerCase() ?? '\0')) return null;  // the line names its speaker
-      const chars = (f) => all.filter(o => o.character && o.type === q.type && f(o)).map(o => o.character);
-      const options = pick(q.character, [chars(o => o.answer === q.answer), chars(o => o.genre === q.genre), chars(() => true)], rand);
-      return options && { ...q, answer: q.character, character: q.answer, options, prompt: `Who said it in ${q.answer}?` };
+      const chars = (f) => all.filter(o => o.character && !/narrator/i.test(o.character) && o.type === q.type && f(o)).map(o => speaker(o.character));
+      const options = pick(speaker(q.character), [chars(o => o.answer === q.answer), chars(o => o.genre === q.genre), chars(() => true)], rand);
+      return options && { ...q, answer: speaker(q.character), character: q.answer, options, prompt: `Who said it in ${q.answer}?` };
     },
     // v22: one word of the line is blanked; pick it from four. Distractors are words of about the
     // same length from other lines in the genre, so length alone gives nothing away.

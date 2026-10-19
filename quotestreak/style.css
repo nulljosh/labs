@@ -75,7 +75,7 @@ body {
   text-align: center;
 }
 .prompt { color: var(--muted); font-weight: 600; margin: -8px 0 20px; }
-.hidden { display: none; }
+.hidden { display: none !important; }  /* beats id rules like #type-form { display: flex } */
 .genre-badge {
   display: inline-block;
   padding: 5px 14px;
@@ -280,7 +280,7 @@ button.link { background: none; box-shadow: none; color: var(--text); text-decor
 #badge-grid figcaption { font-size: 0.75rem; line-height: 1.2; margin-top: 4px; }
 .medal { width: 64px; height: 64px; }
 .medal.locked { filter: grayscale(1); opacity: 0.3; }
-.badge-toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; background: #16161d; color: #fff; font-weight: 600; z-index: 10; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.badge-toast { position: fixed; left: 50%; top: 12px; max-width: calc(100vw - 32px); white-space: nowrap; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; background: #16161d; color: #fff; font-weight: 600; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
 .badge-toast .medal { width: 40px; height: 40px; }
 #stats-body h3 { font-size: 1rem; margin: 20px 0 8px; }
 #stats-body table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
@@ -300,3 +300,5 @@ button.link { background: none; box-shadow: none; color: var(--text); text-decor
 #season-ladder { text-align: left; max-width: 360px; margin: 8px auto; }
 #season-shelf { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 12px 0; }
 #season-shelf figure { margin: 0; width: 72px; font-size: 0.75rem; }
+/* The leaderboard opens from the menu and the end screen alike, so it floats over both instead of stacking above them. */
+#leaderboard { position: fixed; inset: 0; margin: auto; width: min(480px, calc(100vw - 32px)); height: fit-content; max-height: 80vh; overflow-y: auto; z-index: 50; box-shadow: 0 12px 48px rgba(0,0,0,0.35); }

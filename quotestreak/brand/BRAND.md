@@ -14,7 +14,7 @@ Two opening quote marks, ball low and tail sweeping up, leaning forward with thr
 - Clear space is one ball's width. Smallest size 16 px; it holds at 29 px.
 
 ## Quip
-The mascot is the mark come to life: the ball is the body, the tail is the cowlick. `mascot.py` draws four poses, each with a `-dark` twin whose limbs are cream instead of ink.
+The mascot is the mark come to life: the ball is the body, the tail is the cowlick. `mascot.py` draws four poses, each with a `-dark` twin whose limbs are soft white (`#f5f5f7`) instead of ink.
 
 | Pose | When |
 |---|---|
@@ -34,9 +34,10 @@ Quip is always yellow with an ink face. Never recolour, outline or stretch Quip,
 | Night ink (tile, dark cards) | `#15161a` to `#2e3039` |
 | Right | `#248a3d` light, `#34c759` dark |
 | Wrong | `#d70015` light, `#ff453a` dark |
-| Ground, surfaces, hairlines | the shared jaybulb tokens (cream `#f5f0e4` light, `#1c1a17` dark) |
+| Ground, surface, hairline (light) | `#ffffff`, `#f5f5f7`, `#e5e5ea` |
+| Ground, surface, hairline (dark) | `#0f1013`, `#1c1d22`, `#2c2d33` |
 
-Yellow is for the one primary action on a screen, the mark, and Quip. Everything else is ink on cream or cream on ink. Yellow text never sits on the light ground; links there are ink with a deep-yellow underline.
+Yellow is for the one primary action on a screen, the mark, and Quip. Everything else is ink on white or white on ink. The ground is white on purpose: the shared jaybulb tokens are cream paper, and `brand/tokens.css` overrides them, because cream under a wall of posters read orange and brown (Joshua, 2026-10-18: "make it white again"). Yellow text never sits on the light ground; links there are ink with a deep-yellow underline.
 
 ## Type
 **Quip Sans**, built by `scripts/gen_font.py` from Hanken Grotesk (SIL OFL 1.1, the license ships in `fonts/OFL.txt`). It sits between Helvetica's grotesk, SF's screen clarity and Lato's warmth. Two things are ours: the curly quotes are redrawn as the mark, so every quote in the game wears the logo, and the figures are proportional.

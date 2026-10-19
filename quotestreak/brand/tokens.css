@@ -1,5 +1,7 @@
 /* Quotestreak design system. Marquee yellow is the only colour this app owns; green and red stay reserved
-   for right and wrong. Ground, surfaces, spacing and radii come from the shared jaybulb tokens.css. */
+   for right and wrong. The ground is white on light and night ink on dark, Apple-plain: this file overrides the
+   shared jaybulb tokens' cream paper (2026-10-18, Joshua: "make it white again"). Spacing and radii still come
+   from the shared jaybulb tokens.css, which every page loads first. */
 @font-face { font-family: "Quip Sans"; src: url("/fonts/QuipSans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Quip Sans"; src: url("/fonts/QuipSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 @font-face { font-family: "Quip Sans"; src: url("/fonts/QuipSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
@@ -15,6 +17,26 @@
   --right: #248a3d;
   --wrong: #d70015;
   --font-brand: "Quip Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* ground: white, a cool grey surface, cool ink. Cool, never warm, so the posters and the yellow carry the colour. */
+  --color-bg: #ffffff;
+  --color-bg2: #f5f5f7;
+  --color-text: #15161a;
+  --color-secondary: rgba(21,22,26,0.6);
+  --color-soft: rgba(21,22,26,0.72);
+  --color-hairline: #e5e5ea;
+  --color-code-bg: #f5f5f7;
+  --text3: rgba(21,22,26,0.34);
+  --color-hairline-strong: var(--accent-deep);
+  --color-underline: rgba(224,168,0,0.6);
+  --color-underline-hover: var(--accent-deep);
+  --glass-bg: rgba(255,255,255,0.92);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 36px rgba(0,0,0,0.12);
 }
-:root[data-theme="dark"] { --accent-deep: #ffcc00; --right: #34c759; --wrong: #ff453a; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --accent-deep: #ffcc00; --right: #34c759; --wrong: #ff453a; } }
+:root[data-theme="dark"] { --accent-deep: #ffcc00; --right: #34c759; --wrong: #ff453a;
+  --color-bg: #0f1013; --color-bg2: #1c1d22; --color-text: #f5f5f7; --color-secondary: rgba(245,245,247,0.6);
+  --color-soft: rgba(245,245,247,0.72); --color-hairline: #2c2d33; --color-code-bg: #1c1d22; --text3: rgba(245,245,247,0.34); --glass-bg: rgba(28,29,34,0.92); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --accent-deep: #ffcc00; --right: #34c759; --wrong: #ff453a;
+  --color-bg: #0f1013; --color-bg2: #1c1d22; --color-text: #f5f5f7; --color-secondary: rgba(245,245,247,0.6);
+  --color-soft: rgba(245,245,247,0.72); --color-hairline: #2c2d33; --color-code-bg: #1c1d22; --text3: rgba(245,245,247,0.34); --glass-bg: rgba(28,29,34,0.92); } }

@@ -30,6 +30,7 @@ function buildBackdrop(data) {
       img.src = a.url;
       img.alt = '';
       img.referrerPolicy = 'no-referrer';
+      img.onerror = () => img.remove();  // a dead art link leaves a gap, never a broken-image box
       if (a.sq) img.className = 'sq';
       col.appendChild(img);
     }
