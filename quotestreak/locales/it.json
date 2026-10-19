@@ -386,5 +386,13 @@
  "Practice ({n} to go)": "Allenamento ({n} da ripassare)",
  "Nothing to practice yet. Missed lines land here.": "Ancora niente da ripassare. Le battute sbagliate finiscono qui.",
  "You know {x}. Try {x}?": "Conosci bene {x}. Provi {x}?",
- "Try it": "Prova"
+ "Try it": "Prova",
+ "Watchlist": "Da vedere",
+ "{n} to watch": "{n} da vedere",
+ "Nothing yet. Titles you can’t name land here.": "Ancora niente. Qui finiscono i titoli che non indovini.",
+ "Film": "Film",
+ "Show": "Serie",
+ "Remove": "Rimuovi",
+ "Export for Letterboxd": "Esporta per Letterboxd",
+ "Copy the list": "Copia la lista"
 }

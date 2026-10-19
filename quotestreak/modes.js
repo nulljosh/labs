@@ -61,7 +61,9 @@
     const options = pick(q.album, [q.albums || [], albums(o => o.genre === q.genre), albums(() => true)], rand);
     return options && { ...q, answer: q.album, options, character: `${q.song} by ${q.answer}, ${q.year}`, year: null, prompt: `Which album is ${q.song} on?` };
   };
-  const build = (mode, q, all, rand = Math.random) => (BUILD[mode] ? BUILD[mode](q, all, rand) : q);
+  // A derived question's answer is a character, person, word or year; `title` keeps the work's name
+  // (the watchlist, v63, saves titles).
+  const build = (mode, q, all, rand = Math.random) => { const out = BUILD[mode] ? BUILD[mode](q, all, rand) : q; return out && out !== q ? { title: q.answer, titleYear: q.year, ...out } : out; };
   // v24 Timeline: which of four came out first? Four titles at least three years apart; the reveal
   // gives every year so the player learns the order.
   function timeline(list, rand) {
@@ -101,7 +103,7 @@
   }
   // A title that carries its own year (Taylor Swift's 1989) would answer itself, so it sits out.
   const year = (list, rand) => shuffle(list.filter(q => q.year && !`${q.answer} ${q.song || ''}`.includes(String(q.year))), rand).map(q => ({
-    ...q, answer: String(q.year), options: yearChoices(q.year, rand), year: null, character: q.answer,
+    ...q, title: q.answer, titleYear: q.year, answer: String(q.year), options: yearChoices(q.year, rand), year: null, character: q.answer,
     prompt: `What year did ${q.answer} come out?`,
     hints: [`It's from the ${Math.floor(q.year / 10) * 10}s`, `The ${PART[q.year % 10]} ${Math.floor(q.year / 10) * 10}s`],
   }));

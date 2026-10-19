@@ -386,5 +386,13 @@
  "Practice ({n} to go)": "تدريب (متبقٍّ {n})",
  "Nothing to practice yet. Missed lines land here.": "لا شيء للتدرّب عليه بعد. تصل هنا العبارات التي أخطأتها.",
  "You know {x}. Try {x}?": "أنت تعرف {x}. ما رأيك في {x}؟",
- "Try it": "جرّبها"
+ "Try it": "جرّبها",
+ "Watchlist": "قائمة المشاهدة",
+ "{n} to watch": "{n} للمشاهدة",
+ "Nothing yet. Titles you can’t name land here.": "لا شيء بعد. تصل هنا العناوين التي لا تعرفها.",
+ "Film": "فيلم",
+ "Show": "مسلسل",
+ "Remove": "إزالة",
+ "Export for Letterboxd": "تصدير إلى Letterboxd",
+ "Copy the list": "نسخ القائمة"
 }

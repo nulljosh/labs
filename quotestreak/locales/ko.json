@@ -386,5 +386,13 @@
  "Practice ({n} to go)": "연습 ({n}개 남음)",
  "Nothing to practice yet. Missed lines land here.": "아직 연습할 것이 없어요. 틀린 대사가 여기에 모여요.",
  "You know {x}. Try {x}?": "{x}는 잘 아시네요. {x}도 해볼까요?",
- "Try it": "해보기"
+ "Try it": "해보기",
+ "Watchlist": "볼 목록",
+ "{n} to watch": "볼 것 {n}개",
+ "Nothing yet. Titles you can’t name land here.": "아직 없어요. 맞히지 못한 작품이 여기에 모여요.",
+ "Film": "영화",
+ "Show": "쇼",
+ "Remove": "삭제",
+ "Export for Letterboxd": "Letterboxd용으로 내보내기",
+ "Copy the list": "목록 복사"
 }

@@ -386,5 +386,13 @@
  "Practice ({n} to go)": "Luyện tập (còn {n})",
  "Nothing to practice yet. Missed lines land here.": "Chưa có gì để luyện. Những câu bạn trả lời sai sẽ xuất hiện ở đây.",
  "You know {x}. Try {x}?": "Bạn rành {x}. Thử {x} nhé?",
- "Try it": "Thử ngay"
+ "Try it": "Thử ngay",
+ "Watchlist": "Danh sách xem",
+ "{n} to watch": "{n} cần xem",
+ "Nothing yet. Titles you can’t name land here.": "Chưa có gì. Những tựa bạn chưa đoán được sẽ ở đây.",
+ "Film": "Phim",
+ "Show": "Phim bộ",
+ "Remove": "Xóa",
+ "Export for Letterboxd": "Xuất cho Letterboxd",
+ "Copy the list": "Sao chép danh sách"
 }

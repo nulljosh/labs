@@ -386,5 +386,13 @@
  "Practice ({n} to go)": "Тренування (залишилось {n})",
  "Nothing to practice yet. Missed lines land here.": "Поки нічого повторювати. Сюди потрапляють репліки, які ви не вгадали.",
  "You know {x}. Try {x}?": "Ви добре знаєте {x}. Спробуєте {x}?",
- "Try it": "Спробувати"
+ "Try it": "Спробувати",
+ "Watchlist": "Переглянути",
+ "{n} to watch": "{n} до перегляду",
+ "Nothing yet. Titles you can’t name land here.": "Поки порожньо. Сюди потрапляють назви, які ви не вгадали.",
+ "Film": "Фільм",
+ "Show": "Серіал",
+ "Remove": "Прибрати",
+ "Export for Letterboxd": "Експорт для Letterboxd",
+ "Copy the list": "Скопіювати список"
 }

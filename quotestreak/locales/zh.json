@@ -388,5 +388,13 @@
  "Practice ({n} to go)": "练习（还剩 {n} 条）",
  "Nothing to practice yet. Missed lines land here.": "还没有要练习的内容。答错的台词会出现在这里。",
  "You know {x}. Try {x}?": "你很懂{x}。试试{x}？",
- "Try it": "试试看"
+ "Try it": "试试看",
+ "Watchlist": "待看清单",
+ "{n} to watch": "{n} 部待看",
+ "Nothing yet. Titles you can’t name land here.": "还没有。答不出的作品会出现在这里。",
+ "Film": "电影",
+ "Show": "剧集",
+ "Remove": "移除",
+ "Export for Letterboxd": "导出到 Letterboxd",
+ "Copy the list": "复制清单"
 }

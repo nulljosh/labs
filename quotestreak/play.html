@@ -172,6 +172,7 @@
       <button id="start-library">Pack library</button>
       <button id="badges-btn">Badges</button>
       <button id="stats-btn">Stats</button>
+      <button id="start-watchlist">Watchlist</button>
       <button id="season-btn">Season</button>
       <button id="start-champions">Champions</button>
       <button id="lb-btn">Leaderboard</button>
@@ -224,6 +225,15 @@
       <h2>Stats</h2>
       <div id="stats-body"></div>
       <button id="stats-back">Back</button>
+    </div>
+
+    <div id="watchlist" class="panel hidden">
+      <h2>Watchlist</h2>
+      <p id="watchlist-count" class="prompt"></p>
+      <ol id="watchlist-list" class="library-list"></ol>
+      <button id="watchlist-csv">Export for Letterboxd</button>
+      <button id="watchlist-copy" class="secondary">Copy the list</button>
+      <button id="watchlist-back">Back</button>
     </div>
 
     <div id="library" class="panel hidden">
@@ -343,6 +353,7 @@
   <script src="champions.js"></script>
   <script src="practice.js"></script>
   <script src="suggest.js"></script>
+  <script src="watchlist.js"></script>
   <script src="passplay.js"></script>
   <script src="packs.js"></script>
   <script src="library.js"></script>

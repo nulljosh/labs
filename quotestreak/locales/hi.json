@@ -386,5 +386,13 @@
  "Practice ({n} to go)": "अभ्यास ({n} बाकी)",
  "Nothing to practice yet. Missed lines land here.": "अभी अभ्यास के लिए कुछ नहीं है। छूटी हुई पंक्तियाँ यहाँ आती हैं।",
  "You know {x}. Try {x}?": "आप {x} जानते हैं। {x} आज़माएँ?",
- "Try it": "आज़माएँ"
+ "Try it": "आज़माएँ",
+ "Watchlist": "देखने की सूची",
+ "{n} to watch": "देखने को {n}",
+ "Nothing yet. Titles you can’t name land here.": "अभी कुछ नहीं। जिन शीर्षकों को आप नहीं पहचान पाते, वे यहाँ आते हैं।",
+ "Film": "फ़िल्म",
+ "Show": "शो",
+ "Remove": "हटाएँ",
+ "Export for Letterboxd": "Letterboxd के लिए एक्सपोर्ट करें",
+ "Copy the list": "सूची कॉपी करें"
 }

@@ -386,5 +386,13 @@
  "Practice ({n} to go)": "Latihan ({n} lagi)",
  "Nothing to practice yet. Missed lines land here.": "Belum ada yang perlu dilatih. Kalimat yang meleset akan muncul di sini.",
  "You know {x}. Try {x}?": "Kamu jago {x}. Coba {x}?",
- "Try it": "Coba"
+ "Try it": "Coba",
+ "Watchlist": "Daftar tonton",
+ "{n} to watch": "{n} untuk ditonton",
+ "Nothing yet. Titles you can’t name land here.": "Belum ada. Judul yang tak bisa kamu tebak muncul di sini.",
+ "Film": "Film",
+ "Show": "Serial",
+ "Remove": "Hapus",
+ "Export for Letterboxd": "Ekspor untuk Letterboxd",
+ "Copy the list": "Salin daftar"
 }

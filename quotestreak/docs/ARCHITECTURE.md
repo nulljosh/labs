@@ -31,6 +31,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `champions.js` | Champions: last season's top eight in a bracket of live duels, scores reported by both players (v50) |
 | `practice.js` | Practice: missed lines on a Leitner schedule (1, 3, 7, 21 days) (v61) |
 | `suggest.js` | Suggestions from the player's own stats on the end screen (v62) |
+| `watchlist.js` | Watchlist: missed films and shows, export to Letterboxd CSV (v63) |
 | `passplay.js` | Pass and play: turns for two to eight people on one device (v41) |
 | `settings.js` | Settings panel and synthesized sound |
 | `story.js` | The story card: the title's Wikipedia summary after an answer, holding the game while open (v51) |
@@ -47,7 +48,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `webmcp.js` | Agent tools, see `API.md` |
 | `sw.js` | Offline cache. Bump `quotestreak-vNN` every release |
 
-Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `cup`, `badges`, `stats`, `sharecard`, `season`, `modes`, `passplay`, `party`, `packs`, `classroom`, `stream`, `champions`, `story`, `practice`, `family`, `suggest`) work in Node too and each has a `*.test.js` next to it.
+Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `cup`, `badges`, `stats`, `sharecard`, `season`, `modes`, `passplay`, `party`, `packs`, `classroom`, `stream`, `champions`, `story`, `practice`, `family`, `suggest`, `watchlist`) work in Node too and each has a `*.test.js` next to it.
 
 `scripts/build-site.sh` copies an explicit file list into `dist/`. A new script has to be added there or it 404s in production.
 

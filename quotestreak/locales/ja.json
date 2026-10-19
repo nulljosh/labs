@@ -386,5 +386,13 @@
  "Practice ({n} to go)": "練習（残り{n}）",
  "Nothing to practice yet. Missed lines land here.": "まだ練習するものはありません。間違えたセリフがここに集まります。",
  "You know {x}. Try {x}?": "{x}は得意ですね。{x}にも挑戦してみる？",
- "Try it": "やってみる"
+ "Try it": "やってみる",
+ "Watchlist": "見たいリスト",
+ "{n} to watch": "見たいもの {n} 件",
+ "Nothing yet. Titles you can’t name land here.": "まだありません。答えられなかった作品がここに集まります。",
+ "Film": "映画",
+ "Show": "番組",
+ "Remove": "削除",
+ "Export for Letterboxd": "Letterboxd 用に書き出す",
+ "Copy the list": "リストをコピー"
 }

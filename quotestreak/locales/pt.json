@@ -386,5 +386,13 @@
  "Practice ({n} to go)": "Praticar (faltam {n})",
  "Nothing to practice yet. Missed lines land here.": "Nada para praticar ainda. As falas que você erra aparecem aqui.",
  "You know {x}. Try {x}?": "Você manda bem em {x}. Que tal {x}?",
- "Try it": "Experimentar"
+ "Try it": "Experimentar",
+ "Watchlist": "Para assistir",
+ "{n} to watch": "{n} para assistir",
+ "Nothing yet. Titles you can’t name land here.": "Nada ainda. Os títulos que você não acerta aparecem aqui.",
+ "Film": "Filme",
+ "Show": "Série",
+ "Remove": "Remover",
+ "Export for Letterboxd": "Exportar para o Letterboxd",
+ "Copy the list": "Copiar a lista"
 }

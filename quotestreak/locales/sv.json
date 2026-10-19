@@ -386,5 +386,13 @@
  "Practice ({n} to go)": "Öva ({n} kvar)",
  "Nothing to practice yet. Missed lines land here.": "Inget att öva på än. Missade repliker hamnar här.",
  "You know {x}. Try {x}?": "Du kan {x}. Testa {x}?",
- "Try it": "Testa"
+ "Try it": "Testa",
+ "Watchlist": "Att se",
+ "{n} to watch": "{n} att se",
+ "Nothing yet. Titles you can’t name land here.": "Inget än. Titlar du inte kan hamnar här.",
+ "Film": "Film",
+ "Show": "Serie",
+ "Remove": "Ta bort",
+ "Export for Letterboxd": "Exportera till Letterboxd",
+ "Copy the list": "Kopiera listan"
 }

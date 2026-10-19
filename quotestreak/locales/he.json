@@ -386,5 +386,13 @@
  "Practice ({n} to go)": "תרגול (נותרו {n})",
  "Nothing to practice yet. Missed lines land here.": "עדיין אין מה לתרגל. שורות שפספסת מגיעות לכאן.",
  "You know {x}. Try {x}?": "אתה מכיר את {x}. אולי {x}?",
- "Try it": "נסו"
+ "Try it": "נסו",
+ "Watchlist": "רשימת צפייה",
+ "{n} to watch": "{n} לצפייה",
+ "Nothing yet. Titles you can’t name land here.": "עדיין כלום. כותרים שלא זיהית מגיעים לכאן.",
+ "Film": "סרט",
+ "Show": "סדרה",
+ "Remove": "הסרה",
+ "Export for Letterboxd": "ייצוא ל-Letterboxd",
+ "Copy the list": "העתקת הרשימה"
 }

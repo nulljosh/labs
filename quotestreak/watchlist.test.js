@@ -1,0 +1,18 @@
+const assert = require('assert');
+const { add, remove, csv, text, key } = require('./watchlist');
+let l = [];
+l = add(l, { type: 'movie', answer: 'Jaws', year: 1975 }, 1);
+l = add(l, { type: 'movie', answer: 'Jaws', year: 1975 }, 2);
+assert.equal(l.length, 1, 'no duplicates');
+l = add(l, { type: 'tv', answer: 'Cheers', year: 1982 }, 3);
+l = add(l, { type: 'music', answer: 'Queen' }, 4);
+l = add(l, { type: 'movie', answer: 'Timeline', noTally: true }, 5);
+assert.deepEqual(l.map(t => t.title), ['Cheers', 'Jaws'], 'films and shows only, newest first, not timeline questions');
+l = add(l, { type: 'movie', answer: 'Crouching Tiger, Hidden "Dragon"', year: 2000 }, 6);
+assert.equal(csv(l), 'Title,Year\n"Crouching Tiger, Hidden ""Dragon""",2000\nJaws,1975', 'Letterboxd CSV, films only, quoted where needed');
+assert.equal(text(remove(l, key({ title: 'Jaws', year: 1975 }))), 'Crouching Tiger, Hidden "Dragon" (2000)\nCheers (1982)');
+const { build } = require('./modes'), bank = require('./quotes.json');
+const src = bank.find(q => q.type === 'movie' && q.director && q.year);
+const w = add([], build('director', src, bank));
+assert.deepEqual([w[0].title, w[0].year], [src.answer, src.year], 'a director question saves the film and its year, not the director');
+console.log('watchlist ok');

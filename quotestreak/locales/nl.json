@@ -386,5 +386,13 @@
  "Practice ({n} to go)": "Oefenen (nog {n})",
  "Nothing to practice yet. Missed lines land here.": "Nog niets om te oefenen. Gemiste regels komen hier terecht.",
  "You know {x}. Try {x}?": "Je kent {x}. Probeer eens {x}?",
- "Try it": "Probeer het"
+ "Try it": "Probeer het",
+ "Watchlist": "Kijklijst",
+ "{n} to watch": "{n} om te kijken",
+ "Nothing yet. Titles you can’t name land here.": "Nog niets. Titels die je niet raadt, komen hier.",
+ "Film": "Film",
+ "Show": "Serie",
+ "Remove": "Verwijderen",
+ "Export for Letterboxd": "Exporteren voor Letterboxd",
+ "Copy the list": "Lijst kopiëren"
 }
