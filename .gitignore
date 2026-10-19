@@ -18,6 +18,7 @@
 !seamark/
 !costanza/
 !numen/
+!homeqi/
 !scripts/
 scripts/*
 !scripts/progress-svg.py

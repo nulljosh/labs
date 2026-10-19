@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		183827FFD8D5B9BF714B3FEA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62192728D5072A8DC2AA56C2 /* Models.swift */; };
+		342F7FF946A6870309C9B387 /* ChapterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B710B0883F590683C7FA833 /* ChapterListView.swift */; };
+		5342D9EC139AD88310C2895B /* AssessmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59DBA7DDB35BA1D358A30B6 /* AssessmentData.swift */; };
+		7182E7DDC1A0FA60D2D3D77B /* AssessmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9EBB4AE691225C8135B577 /* AssessmentView.swift */; };
+		8FE0620106BCA031F3EE7402 /* content.md in Resources */ = {isa = PBXBuildFile; fileRef = 91BE3E36227474CF1EE4C905 /* content.md */; };
+		A022AC77D43741FADC12AB79 /* HomeqiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750CC09032959ACB824239D2 /* HomeqiApp.swift */; };
+		DAA0D251405DB5A31D69DDA9 /* PropertyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672D2292D0A03E7AA6F47A64 /* PropertyStore.swift */; };
+		EE17398B7A431254556D31DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00AE972FDA27D0E1002AEB4 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3B710B0883F590683C7FA833 /* ChapterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListView.swift; sourceTree = "<group>"; };
+		62192728D5072A8DC2AA56C2 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		672D2292D0A03E7AA6F47A64 /* PropertyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyStore.swift; sourceTree = "<group>"; };
+		750CC09032959ACB824239D2 /* HomeqiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeqiApp.swift; sourceTree = "<group>"; };
+		7C9EBB4AE691225C8135B577 /* AssessmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentView.swift; sourceTree = "<group>"; };
+		91BE3E36227474CF1EE4C905 /* content.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = content.md; sourceTree = "<group>"; };
+		A00AE972FDA27D0E1002AEB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A59DBA7DDB35BA1D358A30B6 /* AssessmentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentData.swift; sourceTree = "<group>"; };
+		C0B3F93C430B449AA068AF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DA7F0E557A57B438893D3176 /* Homeqi.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Homeqi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		084180F4C6F231CD3F6EAF0D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA7F0E557A57B438893D3176 /* Homeqi.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		13E08EA429E77B747C269F19 = {
+			isa = PBXGroup;
+			children = (
+				70C75404134ACC343F039E10 /* Homeqi */,
+				084180F4C6F231CD3F6EAF0D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3214F269F82B7193D05ACD6D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B710B0883F590683C7FA833 /* ChapterListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		50BA6C7E31901056E49C1763 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				91BE3E36227474CF1EE4C905 /* content.md */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		70C75404134ACC343F039E10 /* Homeqi */ = {
+			isa = PBXGroup;
+			children = (
+				A59DBA7DDB35BA1D358A30B6 /* AssessmentData.swift */,
+				7C9EBB4AE691225C8135B577 /* AssessmentView.swift */,
+				A00AE972FDA27D0E1002AEB4 /* Assets.xcassets */,
+				750CC09032959ACB824239D2 /* HomeqiApp.swift */,
+				C0B3F93C430B449AA068AF23 /* Info.plist */,
+				62192728D5072A8DC2AA56C2 /* Models.swift */,
+				672D2292D0A03E7AA6F47A64 /* PropertyStore.swift */,
+				50BA6C7E31901056E49C1763 /* Resources */,
+				3214F269F82B7193D05ACD6D /* Views */,
+			);
+			path = Homeqi;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7D677A7A175311941050256C /* Homeqi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FE59A7BFACE03129AF6F145 /* Build configuration list for PBXNativeTarget "Homeqi" */;
+			buildPhases = (
+				4956E757AC42875592D69315 /* Sources */,
+				E369566623C3AD4D9426F29F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Homeqi;
+			packageProductDependencies = (
+			);
+			productName = Homeqi;
+			productReference = DA7F0E557A57B438893D3176 /* Homeqi.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04599AEEA392BDC945719D6C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					7D677A7A175311941050256C = {
+						DevelopmentTeam = QMM486NPYC;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 14DA773843A3EBD02E2672F5 /* Build configuration list for PBXProject "Homeqi" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 13E08EA429E77B747C269F19;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 084180F4C6F231CD3F6EAF0D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7D677A7A175311941050256C /* Homeqi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E369566623C3AD4D9426F29F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE17398B7A431254556D31DE /* Assets.xcassets in Resources */,
+				8FE0620106BCA031F3EE7402 /* content.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4956E757AC42875592D69315 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5342D9EC139AD88310C2895B /* AssessmentData.swift in Sources */,
+				7182E7DDC1A0FA60D2D3D77B /* AssessmentView.swift in Sources */,
+				342F7FF946A6870309C9B387 /* ChapterListView.swift in Sources */,
+				A022AC77D43741FADC12AB79 /* HomeqiApp.swift in Sources */,
+				183827FFD8D5B9BF714B3FEA /* Models.swift in Sources */,
+				DAA0D251405DB5A31D69DDA9 /* PropertyStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		27D5A83D185EEA8353F0EF28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5A8EE14709E8CC258A6B34D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		6E37B5858BCF6AE913C68A8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Homeqi.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Homeqi-macOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				INFOPLIST_FILE = Homeqi/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.homeqi;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F613F72064915C0D4664EA33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Homeqi.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Homeqi-macOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				INFOPLIST_FILE = Homeqi/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.homeqi;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		14DA773843A3EBD02E2672F5 /* Build configuration list for PBXProject "Homeqi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27D5A83D185EEA8353F0EF28 /* Debug */,
+				5A8EE14709E8CC258A6B34D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8FE59A7BFACE03129AF6F145 /* Build configuration list for PBXNativeTarget "Homeqi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E37B5858BCF6AE913C68A8A /* Debug */,
+				F613F72064915C0D4664EA33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04599AEEA392BDC945719D6C /* Project object */;
+}
