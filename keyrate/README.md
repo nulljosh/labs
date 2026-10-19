@@ -2,7 +2,7 @@
 
 # Keyrate
 
-![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fkeyrate-black?logo=github)](https://github.com/nulljosh/keyrate)
+![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fkeyrate-black?logo=github)](https://github.com/nulljosh/labs/tree/main/keyrate)
 
 How fast do you type? Every site that answers wants an account, a theme picker and forty settings before it shows you a number.
 
