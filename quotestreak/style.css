@@ -271,3 +271,7 @@ button.link { background: none; box-shadow: none; color: var(--text); text-decor
 .cup-round h3 { font-size: 0.9rem; margin: 0 0 6px; }
 .cup-round p { margin: 0 0 6px; font-size: 0.9rem; }
 #cup-list { text-align: left; padding-left: 1.4em; }
+#club-create, #club-join { display: flex; gap: 8px; margin-bottom: 8px; }
+#club-create input, #club-join input { flex: 1; font: inherit; padding: 12px 14px; border: 0; border-radius: 12px; background: var(--bg); color: var(--text); box-shadow: inset 0 0 0 1px var(--border); }
+#club-create button, #club-join button { margin: 0; }
+#club-members { text-align: left; padding-left: 1.4em; }
