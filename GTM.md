@@ -15,7 +15,7 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | Blockframe (ASC: Charblock) | iOS 1.1.1, web (wiretext.) | $0.99 | posted 09-21 | none | none | none |
 | Toroid | iOS + Mac 1.0, web | $0.99 | scheduled Tue Oct 6 12:01 AM PT | none | none | none |
 | Plaintxt | Mac 1.0.0, web (plain.) | Free (Joshua 2026-10-01: a text editor should be free) | scheduled Thu Oct 8 12:01 AM PT | none | none | none |
-| Nimble Answers | iOS 1.0.0, Mac 1.0.1, web | Free | scheduled Tue Oct 13 12:01 AM PT | none | none | none |
+| Nimble Answers | iOS 1.0.0, Mac 1.0.1, web | $0.99 apps (decided 2026-10-18, flip pending), web free, Apache 2.0 | scheduled Tue Oct 13 12:01 AM PT | none | none | none |
 | Curbfind | Mac 1.0.0, web | Free | scheduled Tue Oct 20 12:01 AM PT | none | none | none |
 | Litigate | iOS 1.0.3, web | Free | private, not launching (Joshua 2026-10-01) | skip | skip | skip |
 | Healstack | iOS 2.3.5, web | Free + $1 web Stripe | scheduled Tue Oct 27 12:01 AM PT | none | none | none |
@@ -69,7 +69,7 @@ Anyone who downloaded while free keeps it forever. Only new customers pay.
 | **Stripe $1 one-time, web** | Hikko, Healstack | Live, unchanged |
 | **$0.99 upfront, selling the voices** | Bookrank | Since 2026-10-02. The summaries are Joshua's own notes and are not what is sold; the natural ElevenLabs voices are. App Store paid upfront, no IAP. Voice cost is capped at 25k characters a month app-wide in /api/speak. Existing free users keep it |
 | **Free + ads, $0.99 IAP removes them** | Quotestreak | Planned, not built. The only app where ads fit: a daily casual game. Do not build until it shows 1k monthly players. Ads at zero users earn zero and cost a privacy label |
-| **Free, on purpose** | Talli, Litigate, Doorstock, Madobe, Curbfind, Nimble Answers, Lexly | Disability tool, public good, client work, browsers, funnel top. Lexly is the natural subscription app but sits in the 4.3(a) wave; revisit when the appeal lands |
+| **Free, on purpose** | Talli, Litigate, Doorstock, Madobe, Curbfind, Lexly | Disability tool, public good, client work, browsers, funnel top. Lexly is the natural subscription app but sits in the 4.3(a) wave; revisit when the appeal lands |
 
 Orphan IAP records `com.nulljosh.grapher.unlock` and `com.nulljosh.journal.unlock` are MISSING_METADATA with no code behind them. Leave them. Both apps are paid upfront now.
 
