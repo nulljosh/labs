@@ -3,8 +3,8 @@ import { createClient } from './spark.js';
 
 const sb = createClient('https://api.jaybulb.com');
 // Google, friends and delete are live (origin on jaybulb-signin, RPCs in jaybulb-api).
-// Web Apple waits until quotestreak.jaybulb.com/play is a return URL on the Services ID.
-const SOCIAL = true, WEB_APPLE = false;
+// Web Apple: quotestreak.jaybulb.com/play is a return URL on Services ID com.heyitsmejosh.websignin.
+const SOCIAL = true, WEB_APPLE = true;
 const $ = (id) => document.getElementById(id);
 let user = null;
 
