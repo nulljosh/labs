@@ -8,6 +8,7 @@
 !keyrate/
 !weather/
 !swing/
+!evidna/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
