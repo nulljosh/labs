@@ -30,6 +30,9 @@
   #party-final, #party-standings { font-size: clamp(1.4rem, 3vw, 3rem); list-style-position: inside; padding: 0; }
   #party-final .p1 { font-size: 1.4em; font-weight: 700; color: var(--accent-deep); }
   #party-final .p2, #party-final .p3 { font-weight: 600; }
+  #party-final small { font-size: 0.55em; color: var(--muted); font-weight: 400; }
+  #party-pack { font-size: clamp(1rem, 1.6vw, 1.6rem); margin: 0 0 2vh; }
+  #party-copy { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--accent-deep); }
   .party .check { font-size: clamp(1rem, 1.6vw, 1.6rem); margin: 0 0 2vh; }
   .party button { font-size: clamp(1rem, 1.8vw, 1.8rem); padding: 16px 32px; }
 </style>
@@ -41,6 +44,7 @@
       <p class="prompt">Open <b id="party-url"></b> and type this code.</p>
       <div id="party-code"></div>
       <div id="party-players" class="chips"></div>
+      <select id="party-pack" aria-label="What to play"><option value="">Lines from the whole bank</option></select>
       <label class="check"><input type="checkbox" id="party-night"> Quiz night: four themed rounds of five</label>
       <p id="party-status" class="prompt"></p>
       <button id="party-start">Waiting for players</button>
@@ -61,8 +65,10 @@
       <h1 id="party-winner"></h1>
       <ol id="party-final"></ol>
       <button id="party-again">Play again</button>
+      <button id="party-copy" class="secondary">Copy results</button>
     </section>
   </main>
+  <script src="classroom.js"></script>
   <script src="party.js"></script>
 </body>
 </html>

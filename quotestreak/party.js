@@ -5,8 +5,14 @@
   const ROUNDS = 10, SECONDS = 15;
   // Quiz night (v43): four themed rounds of five. Themes come from what the bank has enough of.
   const THEMES = [['movie', 'Movies'], ['tv', 'TV'], ['game', 'Games'], ['music', 'Music'], ['book', 'First lines']];
-  function plan(bank, night, rand = Math.random) {
+  function plan(bank, night, rand = Math.random, pack = null) {
     const deal = (list, n) => list.map(q => [rand(), q]).sort((a, b) => a[0] - b[0]).slice(0, n).map(x => x[1]);
+    // Classroom (v46): a lesson pack, ten of its lines, wrong answers from its other answers.
+    if (pack) {
+      const answers = [...new Set(pack.lines.map(l => l.answer))];
+      const qs = pack.lines.map(l => ({ quote: l.quote, answer: l.answer, options: [l.answer, ...deal(answers.filter(a => a !== l.answer), 3)] }));
+      return [{ title: pack.title, quotes: deal(qs, ROUNDS) }];
+    }
     if (!night) return [{ title: '', quotes: deal(bank, ROUNDS) }];
     const themes = THEMES.filter(([t]) => bank.filter(q => q.type === t).length >= 5);
     return deal(themes, 4).map(([t, title]) => ({ title, quotes: deal(bank.filter(q => q.type === t), 5) }));
@@ -47,9 +53,10 @@
   const total = () => rounds.reduce((n, r) => n + r.quotes.length, 0);
   function start() {
     if (!players.size || !bank.length) return;
-    rounds = plan(bank, $('party-night').checked);
+    const lesson = $('party-pack').value;
+    rounds = plan(bank, $('party-night').checked, Math.random, lesson ? root.Classroom.pack(lesson, bank) : null);
     ri = qi = asked = 0;
-    for (const p of players.values()) p.score = 0;
+    for (const p of players.values()) { p.score = 0; p.right = 0; p.asked = 0; }
     rounds.length > 1 ? between() : next();
   }
   // Quiz night: the standings so far and the round coming up, until the host moves on.
@@ -80,7 +87,7 @@
     if (stage !== 'question') return;
     clearInterval(clock);
     const pts = score(current.answer, [...players.entries()].filter(([, p]) => p.buzz).map(([id, p]) => ({ id, option: p.buzz, at: p.at })));
-    for (const [id, p] of players) { p.gained = pts[id] || 0; p.score += p.gained; }
+    for (const [id, p] of players) { p.gained = pts[id] || 0; p.score += p.gained; p.asked = (p.asked || 0) + 1; p.right = (p.right || 0) + (p.gained ? 1 : 0); }
     stage = 'reveal';
     send({ type: 'reveal', answer: current.answer, scores: standings().map(({ id, name, score }) => ({ id, name, score })) });
     draw();
@@ -118,13 +125,18 @@
       const s = standings();
       const tied = s.filter(p => s.length && p.score === s[0].score);
       $('party-winner').textContent = !s.length ? 'Game over' : tied.length > 1 ? `A tie at ${s[0].score}` : `${s[0].name} wins`;
-      $('party-final').innerHTML = s.map((p, i) => `<li class="p${i + 1}">${esc(p.name)} — ${p.score}</li>`).join('');
+      $('party-final').innerHTML = s.map((p, i) => `<li class="p${i + 1}">${esc(p.name)} — ${p.score}<small> \u00b7 ${p.right || 0} of ${p.asked || 0} right</small></li>`).join('');
     }
   }
   $('party-start').onclick = start;
   $('party-next').onclick = () => (stage === 'question' ? reveal() : next());
   $('party-again').onclick = start;
   $('party-go').onclick = next;
+  // The teacher's view: everyone's results as CSV, for a gradebook.
+  $('party-copy').onclick = () => navigator.clipboard?.writeText(root.Classroom.csv(standings().map(p => ({ name: p.name, right: p.right || 0, asked: p.asked || 0, score: p.score }))))
+    .then(() => { $('party-copy').textContent = 'Results copied'; }, () => {});
+  for (const [id, title] of root.Classroom.LIST) $('party-pack').insertAdjacentHTML('beforeend', `<option value="${id}">Classroom: ${title}</option>`);
+  $('party-pack').onchange = () => { $('party-night').closest('label').classList.toggle('hidden', !!$('party-pack').value); };
   // A remote or keyboard: Enter or Space moves the game on.
   addEventListener('keydown', (e) => {
     if (e.key !== 'Enter' && e.key !== ' ') return;

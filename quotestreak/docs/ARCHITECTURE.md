@@ -23,6 +23,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `party.html`, `party.js` | The big-screen host in a browser, the web twin of tvos/PartyHost.swift (v42) |
 | `packs.js` | Custom packs: the maker, and playing a pack from its link (#pack=, deflated base64url) (v44) |
 | `library.js` | Pack library: approved community packs, sending a pack in, and the owner's review queue (v45) |
+| `classroom.js` | Classroom packs (speeches, Shakespeare, first lines) and the teacher's CSV results (v46) |
 | `passplay.js` | Pass and play: turns for two to eight people on one device (v41) |
 | `settings.js` | Settings panel and synthesized sound |
 | `spectate.js` | `?watch=CODE`, a read-only view of a duel |
@@ -37,7 +38,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `webmcp.js` | Agent tools, see `API.md` |
 | `sw.js` | Offline cache. Bump `quotestreak-vNN` every release |
 
-Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `cup`, `badges`, `stats`, `sharecard`, `season`, `modes`, `passplay`, `party`, `packs`) work in Node too and each has a `*.test.js` next to it.
+Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `cup`, `badges`, `stats`, `sharecard`, `season`, `modes`, `passplay`, `party`, `packs`, `classroom`) work in Node too and each has a `*.test.js` next to it.
 
 `scripts/build-site.sh` copies an explicit file list into `dist/`. A new script has to be added there or it 404s in production.
 

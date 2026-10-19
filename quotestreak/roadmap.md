@@ -59,7 +59,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v43 Quiz night.** Rounds, a host screen and a final scoreboard.
 - [x] **v44 Custom packs.** Build a quote pack and share it by link.
 - [x] **v45 Pack library.** Browse and play moderated community packs.
-- [ ] **v46 Classroom.** Literature and speech packs with a teacher view.
+- [x] **v46 Classroom.** Literature and speech packs with a teacher view.
 - [ ] **v47 Stream mode.** Twitch chat votes on the answer.
 - [ ] **v48 Discord.** A Discord Activity.
 - [ ] **v49 iMessage.** Play a round inside a conversation.
