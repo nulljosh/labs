@@ -492,5 +492,10 @@
  "{n} seconds": "{n} с",
  "The answer": "Відповідь",
  "Score {n}": "Рахунок: {n}",
- "That's the show. You scored {n}.": "Шоу завершено. Ваш рахунок: {n}."
+ "That's the show. You scored {n}.": "Шоу завершено. Ваш рахунок: {n}.",
+ "{n} lines, sixteen genres": "{n} реплік, шістнадцять жанрів",
+ "Feature": "У вибране",
+ "Unfeature": "Прибрати з вибраного",
+ "Featured · by {x} · {n} lines · {n} plays": "Вибране · автор {x} · Реплік: {n} · Зіграно: {n}",
+ "Featured · by {x} · {n} lines · {n} play": "Вибране · автор {x} · Реплік: {n} · Зіграно: {n}"
 }

@@ -492,5 +492,10 @@
  "{n} seconds": "{n} सेकंड",
  "The answer": "जवाब",
  "Score {n}": "स्कोर: {n}",
- "That's the show. You scored {n}.": "शो खत्म। आपका स्कोर {n}।"
+ "That's the show. You scored {n}.": "शो खत्म। आपका स्कोर {n}।",
+ "{n} lines, sixteen genres": "{n} पंक्तियाँ, सोलह शैलियाँ",
+ "Feature": "चुनें",
+ "Unfeature": "चुनिंदा से हटाएँ",
+ "Featured · by {x} · {n} lines · {n} plays": "चुनिंदा · {x} द्वारा · {n} पंक्तियाँ · {n} बार खेला गया",
+ "Featured · by {x} · {n} lines · {n} play": "चुनिंदा · {x} द्वारा · {n} पंक्तियाँ · {n} बार खेला गया"
 }

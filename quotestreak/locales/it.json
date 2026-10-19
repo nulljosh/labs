@@ -343,7 +343,7 @@
  "No packs yet. Make one and send it in.": "Nessun pacchetto per ora. Creane uno e invialo.",
  "Nothing waiting.": "Niente in attesa.",
  "{n} lines · {n} plays": "{n} battute · {n} partite",
- "{n} lines · {n} play": "{n} battuta · {n} partita",
+ "{n} lines · {n} play": "{n} battute · {n} partita",
  "{n} lines": "{n} battute",
  "The line: {x}.": "La battuta: {x}.",
  "Wikipedia": "Wikipedia",
@@ -492,5 +492,10 @@
  "{n} seconds": "{n} secondi",
  "The answer": "La risposta",
  "Score {n}": "Punti: {n}",
- "That's the show. You scored {n}.": "Lo show è finito. Hai fatto {n} punti."
+ "That's the show. You scored {n}.": "Lo show è finito. Hai fatto {n} punti.",
+ "{n} lines, sixteen genres": "{n} battute, sedici generi",
+ "Feature": "Metti in evidenza",
+ "Unfeature": "Togli dall’evidenza",
+ "Featured · by {x} · {n} lines · {n} plays": "In evidenza · di {x} · {n} battute · {n} partite",
+ "Featured · by {x} · {n} lines · {n} play": "In evidenza · di {x} · {n} battute · {n} partita"
 }

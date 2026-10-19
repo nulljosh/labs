@@ -37,3 +37,6 @@ Thirty classic one-liners from thirteen comics (Hedberg, Wright, Dangerfield, Ri
 
 ## Live show (v81)
 `show.js`: every Sunday at 18:00 UTC, twelve questions on one clock (15 seconds to answer, 5 to see the answer). Nothing drives it from a server: each browser works out the live question from the time, corrected by the server's Date header, so late joiners land on the live question. A right answer scores 10 plus up to 10 for speed; the total goes to mode `show-<date>` and the board shows under the panel. The twelve lines are a seeded walk of the whole bank keyed by the date, so the show hides in family mode like the cup. `/play?show=now` runs a practice show at once, off the board.
+
+## Guest packs (v82)
+The owner can feature any approved pack in the Pack library (`quotestreak_feature_pack`, a `featured` column added by ALTER TABLE on 2026-10-19). Featured packs lead the list with a dot and the maker's leaderboard name as the credit. The French, German, Italian and Portuguese "1 play" strings had made the line count singular too; fixed.

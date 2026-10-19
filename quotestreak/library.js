@@ -1,4 +1,4 @@
-// Pack library (v45). Classic script after packs.js and clubs.js (uses its rpc). Approved community
+// Pack library (v45), guest packs (v82). Classic script after packs.js and clubs.js (uses its rpc). Approved community
 // packs, newest or most played; playing one sets the #pack= hash, which packs.js plays. Packs are
 // sent from the maker and wait for the owner's review; the owner sees the queue here, nobody else.
 const libEsc = (t) => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
@@ -7,10 +7,12 @@ let libPacks = new Map();
 async function loadLibrary() {
   const { data } = await rpc('quotestreak_packs', { sort: $('library-sort').value });
   libPacks = new Map((data || []).map(p => [p.id, p]));
-  $('library-list').innerHTML = data?.length
-    ? data.map(p => `<li><span><b>${libEsc(p.title)}</b><small>${p.lines} lines · ${p.plays} play${p.plays === 1 ? '' : 's'}</small></span><button data-play="${p.id}">Play</button></li>`).join('')
-    : `<li class="note">${data ? 'No packs yet. Make one and send it in.' : 'The library is out of reach right now.'}</li>`;
   const queue = await rpc('quotestreak_pack_queue');   // the owner only; everyone else gets forbidden
+  // Guest packs (v82): featured packs lead, credited to their maker; the owner can feature any approved pack.
+  const row = (p) => `<li${p.featured ? ' class="featured"' : ''}><span><b>${libEsc(p.title)}</b><small>${p.featured ? `Featured · by ${libEsc(p.creator || 'a player')} · ` : ''}${p.lines} lines · ${p.plays} play${p.plays === 1 ? '' : 's'}</small></span>`
+    + `${queue.data ? `<button data-feature="${p.id}" data-on="${p.featured ? 0 : 1}" class="secondary">${p.featured ? 'Unfeature' : 'Feature'}</button>` : ''}<button data-play="${p.id}">Play</button></li>`;
+  $('library-list').innerHTML = data?.length ? data.map(row).join('')
+    : `<li class="note">${data ? 'No packs yet. Make one and send it in.' : 'The library is out of reach right now.'}</li>`;
   $('library-queue').classList.toggle('hidden', !queue.data);
   if (queue.data) {
     queue.data.forEach(p => libPacks.set(p.id, p));
@@ -31,6 +33,9 @@ $('library').onclick = async (e) => {
     rpc('quotestreak_pack_play', { id: p.id });
     $('library').classList.add('hidden');
     location.hash = `pack=${p.code}`;   // packs.js picks this up and deals the pack
+  } else if (b.dataset.feature) {
+    await rpc('quotestreak_feature_pack', { id: b.dataset.feature, featured: b.dataset.on === '1' });
+    loadLibrary();
   } else if (b.dataset.ok || b.dataset.no) {
     await rpc('quotestreak_moderate_pack', { id: b.dataset.ok || b.dataset.no, approve: !!b.dataset.ok });
     loadLibrary();

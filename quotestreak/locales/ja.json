@@ -492,5 +492,10 @@
  "{n} seconds": "{n}秒",
  "The answer": "正解",
  "Score {n}": "スコア {n}",
- "That's the show. You scored {n}.": "ショー終了。スコアは{n}。"
+ "That's the show. You scored {n}.": "ショー終了。スコアは{n}。",
+ "{n} lines, sixteen genres": "{n}のセリフ、16ジャンル",
+ "Feature": "おすすめにする",
+ "Unfeature": "おすすめを外す",
+ "Featured · by {x} · {n} lines · {n} plays": "おすすめ · 作成 {x} · {n}フレーズ・{n}回プレイ",
+ "Featured · by {x} · {n} lines · {n} play": "おすすめ · 作成 {x} · {n}フレーズ・{n}回プレイ"
 }

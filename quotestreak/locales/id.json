@@ -492,5 +492,10 @@
  "{n} seconds": "{n} detik",
  "The answer": "Jawabannya",
  "Score {n}": "Skor {n}",
- "That's the show. You scored {n}.": "Kuis selesai. Skormu {n}."
+ "That's the show. You scored {n}.": "Kuis selesai. Skormu {n}.",
+ "{n} lines, sixteen genres": "{n} dialog, enam belas genre",
+ "Feature": "Unggulkan",
+ "Unfeature": "Batalkan unggulan",
+ "Featured · by {x} · {n} lines · {n} plays": "Unggulan · oleh {x} · {n} dialog · {n} kali dimainkan",
+ "Featured · by {x} · {n} lines · {n} play": "Unggulan · oleh {x} · {n} dialog · {n} kali dimainkan"
 }

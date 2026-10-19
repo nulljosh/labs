@@ -492,5 +492,10 @@
  "{n} seconds": "{n} giây",
  "The answer": "Đáp án",
  "Score {n}": "Điểm {n}",
- "That's the show. You scored {n}.": "Chương trình kết thúc. Bạn được {n} điểm."
+ "That's the show. You scored {n}.": "Chương trình kết thúc. Bạn được {n} điểm.",
+ "{n} lines, sixteen genres": "{n} câu thoại, mười sáu thể loại",
+ "Feature": "Làm nổi bật",
+ "Unfeature": "Bỏ nổi bật",
+ "Featured · by {x} · {n} lines · {n} plays": "Nổi bật · của {x} · {n} câu thoại · {n} lượt chơi",
+ "Featured · by {x} · {n} lines · {n} play": "Nổi bật · của {x} · {n} câu thoại · {n} lượt chơi"
 }

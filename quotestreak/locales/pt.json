@@ -343,7 +343,7 @@
  "No packs yet. Make one and send it in.": "Nenhum pacote ainda. Crie um e envie.",
  "Nothing waiting.": "Nada pendente.",
  "{n} lines · {n} plays": "{n} falas · {n} jogos",
- "{n} lines · {n} play": "{n} fala · {n} jogo",
+ "{n} lines · {n} play": "{n} falas · {n} jogo",
  "{n} lines": "{n} falas",
  "The line: {x}.": "A fala: {x}.",
  "Wikipedia": "Wikipedia",
@@ -492,5 +492,10 @@
  "{n} seconds": "{n} segundos",
  "The answer": "A resposta",
  "Score {n}": "Pontos: {n}",
- "That's the show. You scored {n}.": "Fim do show. Você fez {n} pontos."
+ "That's the show. You scored {n}.": "Fim do show. Você fez {n} pontos.",
+ "{n} lines, sixteen genres": "{n} falas, dezesseis gêneros",
+ "Feature": "Destacar",
+ "Unfeature": "Remover destaque",
+ "Featured · by {x} · {n} lines · {n} plays": "Destaque · por {x} · {n} falas · {n} jogos",
+ "Featured · by {x} · {n} lines · {n} play": "Destaque · por {x} · {n} falas · {n} jogo"
 }

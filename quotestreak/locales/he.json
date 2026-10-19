@@ -492,5 +492,10 @@
  "{n} seconds": "{n} שניות",
  "The answer": "התשובה",
  "Score {n}": "ניקוד: {n}",
- "That's the show. You scored {n}.": "זה הסוף. צברת {n}."
+ "That's the show. You scored {n}.": "זה הסוף. צברת {n}.",
+ "{n} lines, sixteen genres": "{n} משפטים, שישה-עשר ז׳אנרים",
+ "Feature": "להמליץ",
+ "Unfeature": "להסיר המלצה",
+ "Featured · by {x} · {n} lines · {n} plays": "מומלץ · מאת {x} · {n} משפטים · {n} משחקים",
+ "Featured · by {x} · {n} lines · {n} play": "מומלץ · מאת {x} · {n} משפטים · {n} משחק"
 }

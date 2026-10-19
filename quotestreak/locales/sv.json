@@ -343,7 +343,7 @@
  "No packs yet. Make one and send it in.": "Inga paket än. Skapa ett och skicka in det.",
  "Nothing waiting.": "Inget väntar.",
  "{n} lines · {n} plays": "{n} repliker · {n} spelningar",
- "{n} lines · {n} play": "{n} replik · {n} spelning",
+ "{n} lines · {n} play": "{n} repliker · {n} spelning",
  "{n} lines": "{n} repliker",
  "The line: {x}.": "Repliken: {x}.",
  "Wikipedia": "Wikipedia",
@@ -492,5 +492,10 @@
  "{n} seconds": "{n} sekunder",
  "The answer": "Svaret",
  "Score {n}": "Poäng: {n}",
- "That's the show. You scored {n}.": "Det var showen. Du fick {n} poäng."
+ "That's the show. You scored {n}.": "Det var showen. Du fick {n} poäng.",
+ "{n} lines, sixteen genres": "{n} repliker, sexton genrer",
+ "Feature": "Lyft fram",
+ "Unfeature": "Ta bort framlyftning",
+ "Featured · by {x} · {n} lines · {n} plays": "Utvalt · av {x} · {n} repliker · {n} spelningar",
+ "Featured · by {x} · {n} lines · {n} play": "Utvalt · av {x} · {n} repliker · {n} spelning"
 }

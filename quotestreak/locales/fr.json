@@ -351,7 +351,7 @@
  "No packs yet. Make one and send it in.": "Aucun paquet pour l’instant. Créez-en un et envoyez-le.",
  "Nothing waiting.": "Rien en attente.",
  "{n} lines · {n} plays": "{n} répliques · {n} parties",
- "{n} lines · {n} play": "{n} réplique · {n} partie",
+ "{n} lines · {n} play": "{n} répliques · {n} partie",
  "{n} lines": "{n} répliques",
  "The line: {x}.": "La réplique : {x}.",
  "Wikipedia": "Wikipedia",
@@ -500,5 +500,10 @@
  "{n} seconds": "{n} secondes",
  "The answer": "La réponse",
  "Score {n}": "Score : {n}",
- "That's the show. You scored {n}.": "C’est fini. Vous avez marqué {n}."
+ "That's the show. You scored {n}.": "C’est fini. Vous avez marqué {n}.",
+ "{n} lines, sixteen genres": "{n} répliques, seize genres",
+ "Feature": "Mettre à la une",
+ "Unfeature": "Retirer de la une",
+ "Featured · by {x} · {n} lines · {n} plays": "À la une · par {x} · {n} répliques · {n} parties",
+ "Featured · by {x} · {n} lines · {n} play": "À la une · par {x} · {n} répliques · {n} partie"
 }

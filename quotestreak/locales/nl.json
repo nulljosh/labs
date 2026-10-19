@@ -343,7 +343,7 @@
  "No packs yet. Make one and send it in.": "Nog geen pakketten. Maak er een en stuur hem in.",
  "Nothing waiting.": "Niets in de wachtrij.",
  "{n} lines · {n} plays": "{n} zinnen · {n} keer gespeeld",
- "{n} lines · {n} play": "{n} zin · {n} keer gespeeld",
+ "{n} lines · {n} play": "{n} zinnen · {n} keer gespeeld",
  "{n} lines": "{n} zinnen",
  "The line: {x}.": "De zin: {x}.",
  "Wikipedia": "Wikipedia",
@@ -492,5 +492,10 @@
  "{n} seconds": "{n} seconden",
  "The answer": "Het antwoord",
  "Score {n}": "Score: {n}",
- "That's the show. You scored {n}.": "Dat was de show. Je scoorde {n}."
+ "That's the show. You scored {n}.": "Dat was de show. Je scoorde {n}.",
+ "{n} lines, sixteen genres": "{n} zinnen, zestien genres",
+ "Feature": "Uitlichten",
+ "Unfeature": "Niet meer uitlichten",
+ "Featured · by {x} · {n} lines · {n} plays": "Uitgelicht · door {x} · {n} zinnen · {n} keer gespeeld",
+ "Featured · by {x} · {n} lines · {n} play": "Uitgelicht · door {x} · {n} zinnen · {n} keer gespeeld"
 }

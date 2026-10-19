@@ -492,5 +492,10 @@
  "{n} seconds": "{n}초",
  "The answer": "정답",
  "Score {n}": "점수 {n}",
- "That's the show. You scored {n}.": "쇼가 끝났어요. 점수는 {n}점이에요."
+ "That's the show. You scored {n}.": "쇼가 끝났어요. 점수는 {n}점이에요.",
+ "{n} lines, sixteen genres": "{n}개의 대사, 16개 장르",
+ "Feature": "추천하기",
+ "Unfeature": "추천 해제",
+ "Featured · by {x} · {n} lines · {n} plays": "추천 · 만든 사람 {x} · 대사 {n}개 · 플레이 {n}회",
+ "Featured · by {x} · {n} lines · {n} play": "추천 · 만든 사람 {x} · 대사 {n}개 · 플레이 {n}회"
 }

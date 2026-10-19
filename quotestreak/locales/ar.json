@@ -492,5 +492,10 @@
  "{n} seconds": "{n} ثوانٍ",
  "The answer": "الإجابة",
  "Score {n}": "النقاط: {n}",
- "That's the show. You scored {n}.": "انتهى العرض. أحرزت {n}."
+ "That's the show. You scored {n}.": "انتهى العرض. أحرزت {n}.",
+ "{n} lines, sixteen genres": "{n} عبارة، ستة عشر نوعاً",
+ "Feature": "ميّز",
+ "Unfeature": "ألغِ التمييز",
+ "Featured · by {x} · {n} lines · {n} plays": "مميّزة · من {x} · {n} عبارة · لُعبت {n} مرة",
+ "Featured · by {x} · {n} lines · {n} play": "مميّزة · من {x} · {n} عبارة · لُعبت {n} مرة"
 }

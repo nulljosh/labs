@@ -1,0 +1,8 @@
+/* Quotestreak: styles for features from v72 on. Imported by style.css. */
+/* Suggest a line (v72): the form stacks full width, like the pack maker. */
+#submit textarea, #submit input, #submit select { display: block; width: 100%; box-sizing: border-box; margin: 8px 0; font: inherit; padding: 12px 14px; border: 0; border-radius: 12px; background: var(--bg); color: var(--text); box-shadow: inset 0 0 0 1px var(--border); }
+.library-list a { color: var(--text); }
+.options button.picked { box-shadow: inset 0 0 0 3px var(--accent-deep); }
+#show-quote { font-size: 1.3rem; font-weight: 600; margin: 12px 0; }
+#show-score { margin-top: 16px; }
+.library-list li.featured b::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-deep); margin-right: 6px; vertical-align: middle; }

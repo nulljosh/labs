@@ -494,5 +494,10 @@
  "{n} seconds": "{n} 秒",
  "The answer": "答案",
  "Score {n}": "得分 {n}",
- "That's the show. You scored {n}.": "本场结束，你得了 {n} 分。"
+ "That's the show. You scored {n}.": "本场结束，你得了 {n} 分。",
+ "{n} lines, sixteen genres": "{n} 句台词，十六种类型",
+ "Feature": "设为精选",
+ "Unfeature": "取消精选",
+ "Featured · by {x} · {n} lines · {n} plays": "精选 · 作者 {x} · {n} 句台词 · 被玩{n}次",
+ "Featured · by {x} · {n} lines · {n} play": "精选 · 作者 {x} · {n} 句台词 · 被玩{n}次"
 }

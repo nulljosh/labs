@@ -492,5 +492,10 @@
  "{n} seconds": "{n} saniye",
  "The answer": "Cevap",
  "Score {n}": "Puan: {n}",
- "That's the show. You scored {n}.": "Yarışma bitti. {n} puan aldın."
+ "That's the show. You scored {n}.": "Yarışma bitti. {n} puan aldın.",
+ "{n} lines, sixteen genres": "{n} replik, on altı tür",
+ "Feature": "Öne çıkar",
+ "Unfeature": "Öne çıkarmayı kaldır",
+ "Featured · by {x} · {n} lines · {n} plays": "Öne çıkan · {x} · {n} replik · {n} oynanma",
+ "Featured · by {x} · {n} lines · {n} play": "Öne çıkan · {x} · {n} replik · {n} oynanma"
 }

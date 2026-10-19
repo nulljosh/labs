@@ -492,5 +492,10 @@
  "{n} seconds": "{n} segundos",
  "The answer": "La respuesta",
  "Score {n}": "Puntos: {n}",
- "That's the show. You scored {n}.": "Fin del concurso. Hiciste {n} puntos."
+ "That's the show. You scored {n}.": "Fin del concurso. Hiciste {n} puntos.",
+ "{n} lines, sixteen genres": "{n} frases, dieciséis géneros",
+ "Feature": "Destacar",
+ "Unfeature": "Quitar destacado",
+ "Featured · by {x} · {n} lines · {n} plays": "Destacado · de {x} · {n} frases · {n} partidas",
+ "Featured · by {x} · {n} lines · {n} play": "Destacado · de {x} · {n} frases · {n} partida"
 }

@@ -492,5 +492,10 @@
  "{n} seconds": "{n} с",
  "The answer": "Ответ",
  "Score {n}": "Счёт: {n}",
- "That's the show. You scored {n}.": "Шоу окончено. Ваш счёт: {n}."
+ "That's the show. You scored {n}.": "Шоу окончено. Ваш счёт: {n}.",
+ "{n} lines, sixteen genres": "{n} реплик, шестнадцать жанров",
+ "Feature": "В избранное",
+ "Unfeature": "Убрать из избранного",
+ "Featured · by {x} · {n} lines · {n} plays": "Избранное · автор {x} · Реплик: {n} · Сыграно: {n}",
+ "Featured · by {x} · {n} lines · {n} play": "Избранное · автор {x} · Реплик: {n} · Сыграно: {n}"
 }
