@@ -53,6 +53,8 @@ Answer buttons deliberately use `.allowsHitTesting(false)` rather than `.disable
 
 Live duels (v33): `Duel.swift` speaks the same room protocol as `duel-client.js` over `URLSessionWebSocketTask`, so the apps and the web duel each other; `DuelViews.swift` is the start/join sheet. On iPhone each duel runs as a Live Activity (`DuelActivity.swift` attributes, drawn by `DuelLiveActivity` in the widget extension; `NSSupportsLiveActivities` in Info.plist). Duel scores stay off the leaderboard, like the web.
 
+Siri (v39): `Intents.swift` has two App Intents ("Give me a quote", "Start a speed round") and the App Shortcuts phrases; the speed round reaches ContentView through the `quotestreak_launch` default. Handoff (v40): ContentView publishes `Game.handoff` (unanswered quote ids, score, streak) as an NSUserActivity of type `com.heyitsmejosh.quotable.game` (listed in each Info.plist) and `Game.resume` picks it up; duels are not handed off.
+
 Self-check (no XCTest, no framework):
 
 ```

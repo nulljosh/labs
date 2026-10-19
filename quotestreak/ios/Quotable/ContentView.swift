@@ -48,6 +48,15 @@ struct ContentView: View {
             #endif
             .task { await Account.shared.loadStats(into: game) }
             .onAppear { takeLaunch() }
+            // Handoff: a game in progress shows up on your other devices; picking it up there resumes it.
+            .userActivity(Game.handoffType, isActive: game.phase == .playing && duel == nil) { activity in
+                activity.title = "Quotestreak game"
+                activity.isEligibleForHandoff = true
+                activity.addUserInfoEntries(from: game.handoff)
+            }
+            .onContinueUserActivity(Game.handoffType) { activity in
+                if let info = activity.userInfo, game.phase != .playing { game.resume(info) }
+            }
             .onChange(of: launch) { _, _ in takeLaunch() }
             .sheet(isPresented: $showAccount) { AccountSheet() }
             .sheet(isPresented: $showBoard) { LeaderboardSheet(speed: game.speedMode) }

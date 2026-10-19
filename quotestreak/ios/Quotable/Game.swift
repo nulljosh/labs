@@ -68,6 +68,31 @@ final class Game {
         nextQuestion()
     }
 
+    // MARK: Handoff (v40): start on the phone, finish on the Mac.
+
+    static let handoffType = "com.heyitsmejosh.quotable.game"
+
+    /// The game in progress, small enough for NSUserActivity: the unanswered quotes by id (current first).
+    var handoff: [String: Any] {
+        let left = (current.map { [$0] } ?? []) + pool.reversed()
+        return ["qids": left.prefix(200).map(\.qid), "score": score, "streak": streak, "speed": speedMode]
+    }
+
+    /// Pick up a game handed off from another device at the question it was on.
+    func resume(_ info: [AnyHashable: Any]) {
+        guard let qids = info["qids"] as? [String], !qids.isEmpty else { return }
+        let byId = Dictionary(quotes.map { ($0.qid, $0) }, uniquingKeysWith: { a, _ in a })
+        let left = qids.compactMap { byId[$0] }
+        guard !left.isEmpty else { return }
+        speedMode = info["speed"] as? Bool ?? false
+        score = info["score"] as? Int ?? 0
+        streak = info["streak"] as? Int ?? 0
+        answeredCount = 0
+        pool = left.reversed()
+        phase = .playing
+        nextQuestion()
+    }
+
     func nextQuestion() {
         pickedAnswer = nil
         lastWasCorrect = nil

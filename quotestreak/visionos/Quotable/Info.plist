@@ -24,6 +24,10 @@
 	<false/>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.trivia-games</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.heyitsmejosh.quotable.game</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationPreferredDefaultSceneSessionRole</key>

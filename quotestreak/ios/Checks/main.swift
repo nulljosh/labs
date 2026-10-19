@@ -93,6 +93,16 @@ check(Quote(quote: "a", answer: "x", options: ["x"], genre: "g", type: .movie, y
 let hardOne = quotes[0]
 check(hardOne.level([hardOne.qid: (plays: 20, correct: 2)]) == "hard", "a 10% hit rate should be hard")
 
+// Handoff: a game handed to another device resumes at the same question, score and streak.
+let phone = Game(quotes: quotes)
+phone.start(genre: nil, speed: false)
+phone.choose(phone.current!.answer)
+phone.nextQuestion()
+let mac = Game(quotes: quotes)
+mac.resume(phone.handoff as [AnyHashable: Any])
+check(mac.current == phone.current && mac.score == 10 && mac.streak == 1 && mac.phase == .playing, "handoff resumed somewhere else")
+check(mac.pool.count == min(199, phone.pool.count), "handoff kept the rest of the deck")
+
 // The Daily Quote matches daily.js day for day (the widget and the web show the same line).
 struct Expected: Decodable { let day: Int; let quote: String; let options: [String] }
 if CommandLine.arguments.count > 2, let raw = FileManager.default.contents(atPath: CommandLine.arguments[2]),

@@ -46,6 +46,7 @@ targets:
         CFBundleDisplayName: Quotestreak
         LSApplicationCategoryType: public.app-category.trivia-games
         ITSAppUsesNonExemptEncryption: false
+        NSUserActivityTypes: [com.heyitsmejosh.quotable.game]
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: true
           UIApplicationPreferredDefaultSceneSessionRole: UIWindowSceneSessionRoleApplication

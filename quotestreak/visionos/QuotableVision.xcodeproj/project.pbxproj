@@ -14,6 +14,7 @@
 		38A1DCF5BBEFAD6A9F4C4CC7 /* DuelViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89578DE1B01C9758041C5164 /* DuelViews.swift */; };
 		401A1BDC7F453EDA076038A6 /* QuipSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0544EB86353665380EDFF4A /* QuipSans-Bold.ttf */; };
 		5F10D1EC94C857625B1DA9E9 /* AccountViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51068C547DC0831BA38B05 /* AccountViews.swift */; };
+		5F4FAE81E9917DA290CEC1AE /* Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4C034607A6C6C7971D57D6 /* Intents.swift */; };
 		75CACBF02E0D3A6215DE6776 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F817FEF450C0893C6B2AEED4 /* ContentView.swift */; };
 		788E4B3FA712F5AE31E3E43A /* QuotableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EBFFBD18BC6639FC865DAD /* QuotableApp.swift */; };
 		79CCF56CB9A056AEFD82E047 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = A93B5AA9DC8926143012FE98 /* OFL.txt */; };
@@ -38,6 +39,7 @@
 		29E5D4E5A5E061E85A4EF225 /* Quotestreak.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = Quotestreak.icon; sourceTree = "<group>"; };
 		31EBFFBD18BC6639FC865DAD /* QuotableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotableApp.swift; sourceTree = "<group>"; };
 		3F21D74EFF587EB150D8CB26 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		4B4C034607A6C6C7971D57D6 /* Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intents.swift; sourceTree = "<group>"; };
 		6C149A7F0E5FF7E57B5151B2 /* SharedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStore.swift; sourceTree = "<group>"; };
 		6D90507E0BB5135FA59FE314 /* Duel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duel.swift; sourceTree = "<group>"; };
 		722772D5D4ECC902AE89B081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				6D90507E0BB5135FA59FE314 /* Duel.swift */,
 				89578DE1B01C9758041C5164 /* DuelViews.swift */,
 				7C770C3A096824A6FC62AEF0 /* Game.swift */,
+				4B4C034607A6C6C7971D57D6 /* Intents.swift */,
 				0141A0A589D51803F7AF94A7 /* Localizable.xcstrings */,
 				2452A5BA9B530C47EBF1D7A3 /* Quote.swift */,
 				6C149A7F0E5FF7E57B5151B2 /* SharedStore.swift */,
@@ -236,6 +239,7 @@
 				C8BA6FA73857D8C5D777574C /* Duel.swift in Sources */,
 				38A1DCF5BBEFAD6A9F4C4CC7 /* DuelViews.swift in Sources */,
 				C18478043D94490DE3AA0CA9 /* Game.swift in Sources */,
+				5F4FAE81E9917DA290CEC1AE /* Intents.swift in Sources */,
 				2538D7286D943F6E4E6C5DE0 /* PosterWall.swift in Sources */,
 				788E4B3FA712F5AE31E3E43A /* QuotableApp.swift in Sources */,
 				0E2425AEB4306411BC176193 /* Quote.swift in Sources */,
