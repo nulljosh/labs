@@ -21,6 +21,7 @@
 !homeqi/
 !homeward/
 !dotfiles/
+!journal/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
