@@ -22,6 +22,7 @@
 !homeward/
 !dotfiles/
 !journal/
+!toroid/
 !scripts/
 scripts/*
 !scripts/progress-svg.py

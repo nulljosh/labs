@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toroid — the Game of Life, on every screen you own</title>
+<meta property="og:image" content="https://toroid.jaybulb.com/og.png">
+<meta property="og:url" content="https://toroid.jaybulb.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://toroid.jaybulb.com/og.png">
+<link rel="canonical" href="https://toroid.jaybulb.com/">
+<meta name="description" content="Conway's Game of Life for web, iPhone, iPad and Mac. Draw a pattern, press play, watch four rules do the rest. No accounts, no network, no ads.">
+<meta name="theme-color" content="#f5f0e4">
+<meta property="og:title" content="Toroid — the Game of Life">
+<meta property="og:description" content="Draw a pattern, press play, watch four rules do the rest. Web, iOS and Mac.">
+<meta property="og:type" content="website">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>
+@import url("https://jaybulb.com/tokens.css");
+@import url("devices.css");
+:root{--accent:var(--clay);--link:var(--clay-deep);}
+@media (prefers-color-scheme: dark){:root{--link:var(--clay);}}
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text); font-family: var(--font-body);
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--link, var(--accent)); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  background: var(--accent-soft); padding: 6rem 0 5rem; text-align: center;
+}
+.hero .container { position: relative; z-index: 2; }
+/* the hero background is a live board seeded with gliders — the product, running */
+#hero-canvas {
+  position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%;
+  opacity: 0.5; pointer-events: none;
+}
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(ellipse at center, var(--accent-soft) 12%, transparent 72%);
+}
+h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1.1; letter-spacing: -0.02em; }
+.tagline { color: var(--text2); font-size: 1.15rem; margin: 1rem auto 2rem; max-width: 30rem; }
+.cta { display: inline-flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+.btn {
+  display: inline-block; padding: 0.7rem 1.5rem; border-radius: 6px;
+  font-weight: 600; border: 1px solid var(--accent); background: var(--accent); color: #fff;
+}
+.btn:hover { text-decoration: none; opacity: 0.9; }
+.btn.ghost { background: transparent; color: var(--link, var(--accent)); }
+
+section { padding: 4rem 0; border-top: 1px solid var(--border); }
+h2 { font-size: 1.5rem; letter-spacing: -0.01em; margin-bottom: 1rem; }
+p + p { margin-top: 1rem; }
+.rules { list-style: none; margin-top: 1rem; }
+.rules li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); color: var(--text2); }
+.rules li b { color: var(--text); }
+.grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 1.5rem; }
+.card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+.card h3 { font-size: 1rem; margin-bottom: 0.35rem; }
+.card p { color: var(--text2); font-size: 0.95rem; }
+footer { border-top: 1px solid var(--border); padding: 2rem 0; color: var(--text2); font-size: 0.9rem; }
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;align-items:start}
+.shots figure{margin:0}
+.shots .device{--device-w:100%;margin:0 auto}
+.shots .device-iphone,.shots .device-android{--device-w:240px}
+.shots figure:has(.device-iphone){display:flex;flex-direction:column;align-items:center}
+.shots figcaption{margin-top:8px;font-size:.9rem;opacity:.7}
+
+html.js .reveal{opacity:0;transform:translateY(20px)}
+html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .6s ease-out,transform .6s ease-out}
+@media (prefers-reduced-motion: reduce){ html.js .reveal{opacity:1;transform:none} }
+@media (prefers-reduced-motion: no-preference){ #hero-canvas{will-change:transform} }
+</style>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+<script>
+// ponytail: UA sniff, good enough for a mockup. iphone is the default. ?embed = app only, for the landing demo frame.
+(function(u,d){d=/Android/.test(u)?'android':/iPhone|iPad/.test(u)?'iphone':/Windows/.test(u)?'windows':/Mac/.test(u)?'mac':'iphone';document.documentElement.dataset.device=d;if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed')})(navigator.userAgent);
+</script>
+<style>
+/* Live demo: the real app in a frame matching the visitor's device (nimble treatment) */
+.demo{margin:2rem auto 0;text-align:center;position:relative;z-index:2}
+.demo .device-screen{aspect-ratio:9/19.5}
+.demo .device-mac .device-screen,.demo .device-windows .device-screen{aspect-ratio:16/10}
+.demo .device-screen iframe{position:absolute;top:0;left:0;border:0;display:block;transform-origin:0 0;width:390px;height:845px;background:#fff}
+.demo .device-mac .device-screen iframe,.demo .device-windows .device-screen iframe{width:1024px;height:640px}
+.demo-caption{font-size:.9rem;opacity:.65;margin:1rem 0 0}
+.embed .demo,.embed footer,.embed nav{display:none!important}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="container">
+    <h1 class="tagline">The Game of Life on every screen you own. Draw a pattern, press play, and let four rules do the rest.</h1>
+<div class="demo">
+  <div class="device device-iphone" id="demoFrame" data-title="Toroid"><div class="device-screen"><iframe id="demoApp" title="Toroid, live" loading="lazy" data-src="play.html?embed"></iframe></div></div>
+  <p class="demo-caption">This is the <span id="demoDev">iPhone</span> app, live. Try it.</p>
+</div>
+<script>
+(function(){var names={iphone:'iPhone',android:'Android',mac:'Mac',windows:'Windows'},dev=document.documentElement.dataset.device,f=document.getElementById('demoFrame'),i=document.getElementById('demoApp');
+if(!names[dev])dev='iphone';f.className='device device-'+dev;document.getElementById('demoDev').textContent=names[dev];
+if(!document.documentElement.classList.contains('embed'))i.src=i.dataset.src;
+function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidth)+')';}fit();addEventListener('resize',fit);})();
+</script>
+
+    <div class="cta">
+      <a class="btn" href="play.html">Play in the browser</a>
+      <a class="btn ghost" href="#rules">How it works</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="rules" class="container reveal">
+    <h2>Four rules, nothing else</h2>
+    <p>Every cell looks at its eight neighbours, and the whole board updates at once. That is the entire game — there is no scoring, no goal and no opponent.</p>
+    <ul class="rules">
+      <li><b>Underpopulation.</b> A live cell with fewer than two live neighbours dies.</li>
+      <li><b>Survival.</b> A live cell with two or three live neighbours lives on.</li>
+      <li><b>Overcrowding.</b> A live cell with more than three live neighbours dies.</li>
+      <li><b>Reproduction.</b> A dead cell with exactly three live neighbours comes alive.</li>
+    </ul>
+    <p>The board wraps at the edges, so a glider that walks off the right side comes back on the left.</p>
+  </section>
+
+  <section class="container reveal">
+    <h2>Everywhere you are</h2>
+    <div class="grid">
+      <div class="card"><h3>Web</h3><p>Nothing to install. Tap cells to draw, drop in a Gosper gun, scrub the speed.</p></div>
+      <div class="card"><h3>iPhone &amp; iPad</h3><p>Drag a finger to paint cells, pinch-free full-screen board, native SwiftUI.</p></div>
+      <div class="card"><h3>Mac</h3><p>The same board in a resizable window, with a keyboard space bar for play and pause.</p></div>
+    </div>
+  </section>
+
+  <section class="container reveal">
+    <h2>What it looks like</h2>
+    <div class="shots">
+      <figure><div class="device device-mac has-chrome"><div class="device-screen"><img src="screenshots/mac-gun.png" alt="Toroid on Mac, a Gosper gun firing gliders" loading="lazy"></div></div><figcaption>Mac. A Gosper gun, 300 generations in.</figcaption></figure>
+      <figure><div class="device device-mac has-chrome"><div class="device-screen"><img src="screenshots/mac-chaos.png" alt="Toroid on Mac, an R-pentomino after 400 generations" loading="lazy"></div></div><figcaption>Mac. An R-pentomino, 400 generations in.</figcaption></figure>
+      <figure><div class="device device-ipad"><div class="device-screen"><img src="screenshots/ipad13-pulsar.png" alt="Toroid on iPad, a pulsar" loading="lazy"></div></div><figcaption>iPad. A pulsar.</figcaption></figure>
+      <figure><div class="device device-iphone"><div class="device-screen"><img src="screenshots/iphone65-gun.png" alt="Toroid on iPhone, a Gosper gun" loading="lazy"></div></div><figcaption>iPhone. A Gosper gun.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="container reveal">
+    <h2>No accounts, no network</h2>
+    <p>Toroid runs entirely on your device. There is no sign-in, no analytics and nothing to collect, because the game is a few hundred lines of arithmetic and never needs to talk to a server.</p>
+  </section>
+</main>
+
+
+<style>
+#install-anywhere{padding:5rem 0;border-top:1px solid color-mix(in srgb, currentColor 14%, transparent);}
+#install-anywhere .xp-wrap{max-width:960px;margin:0 auto;padding:0 1.5rem;}
+#install-anywhere h2{font-size:clamp(1.6rem,3.4vw,2.4rem);margin:0 0 .6rem;letter-spacing:-.02em;}
+#install-anywhere .xp-lead{max-width:46ch;margin:0 0 2.5rem;opacity:.7;line-height:1.55;}
+#install-anywhere .xp-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+#install-anywhere .xp-card{background:color-mix(in srgb, currentColor 4%, transparent);border:1px solid color-mix(in srgb, currentColor 14%, transparent);border-radius:12px;padding:1.25rem;display:flex;flex-direction:column;gap:.5rem;}
+#install-anywhere .xp-card h3{margin:0;font-size:1rem;letter-spacing:-.01em;}
+#install-anywhere .xp-card p{margin:0;font-size:.9rem;line-height:1.5;opacity:.7;flex:1;}
+#install-anywhere .xp-card a{margin-top:.5rem;font-size:.875rem;font-weight:500;color:var(--accent,currentColor);text-decoration:none;}
+#install-anywhere .xp-card a:hover{text-decoration:underline;}
+</style>
+
+<section id="install-anywhere">
+  <div class="xp-wrap">
+    <h2>Install it anywhere.</h2>
+    <p class="xp-lead">Toroid runs on every platform. On Windows, Linux and Android it installs straight from the browser &mdash; no store, no download, no runtime. It gets a real window, its own icon, and keeps working offline.</p>
+    <div class="xp-grid">
+    <div class="xp-card">
+      <h3>iPhone &amp; iPad</h3>
+      <p>A native app, not a wrapped web page.</p>
+      <a href="https://apps.apple.com/app/id6806324937">App Store &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Mac</h3>
+      <p>Native, universal binary. Runs on Apple silicon and Intel.</p>
+      <a href="https://apps.apple.com/app/id6806324937">App Store &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Windows</h3>
+      <p>Open the web app in Edge or Chrome, then <strong>Install Toroid</strong> from the address bar. It lands in the Start Menu like any other app.</p>
+      <a href="https://toroid.jaybulb.com/play.html">Open &amp; install &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Android</h3>
+      <p>Open the web app in Chrome, then <strong>Add to Home screen</strong>. Full screen, no browser chrome, works offline.</p>
+      <a href="https://toroid.jaybulb.com/play.html">Open &amp; install &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Linux</h3>
+      <p>Same as Windows &mdash; install the web app from Chrome or Chromium and it runs in its own window.</p>
+      <a href="https://toroid.jaybulb.com/play.html">Open &amp; install &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Web</h3>
+      <p>Nothing to install. The same app, in any modern browser.</p>
+      <a href="https://toroid.jaybulb.com/play.html">Open the web app &rarr;</a>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- Email capture. Posts to authmail.jaybulb.com/signup (Resend "General" audience). No JS: the Worker 303s back to #signed-up. -->
+<form class="jb-signup" action="https://authmail.jaybulb.com/signup" method="post">
+  <label for="jb-email">New apps and updates, no spam.</label>
+  <input id="jb-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required maxlength="254">
+  <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="jb-hp">
+  <button type="submit">Subscribe</button>
+  <p id="signed-up" class="jb-msg" role="status">You're on the list.</p>
+  <p id="signup-failed" class="jb-msg" role="status">That email didn't work. Try again?</p>
+</form>
+<style>
+.jb-signup{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:460px;margin:40px auto;padding:0 16px;font:inherit;color:inherit}
+.jb-signup label{flex-basis:100%;text-align:center;opacity:.7}
+.jb-signup input[type=email]{flex:1;min-width:200px;padding:10px 12px;border:1px solid currentColor;border-radius:8px;background:transparent;color:inherit;font:inherit}
+.jb-signup button{padding:10px 16px;border:1px solid currentColor;border-radius:8px;background:transparent;color:inherit;font:inherit;cursor:pointer}
+.jb-hp{position:absolute;left:-9999px;width:1px;height:1px}
+.jb-msg{display:none;flex-basis:100%;text-align:center;margin:4px 0 0}
+.jb-msg:target{display:block}
+</style>
+
+<footer><div class="container">Toroid · a Game of Life implementation · <a href="privacy.html">Privacy</a> &middot; <a href="https://jaybulb.com/docs.html#conway">Docs</a></div></footer>
+
+<script src="life.js"></script>
+<script>
+// Hero background: a large sparse board, seeded with gliders so there is always motion.
+(function () {
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+  // The hero board is decoration. If anything about it fails, the page still reads fine
+  // without it, so bail quietly rather than breaking the rest of the scripts.
+  if (!ctx || typeof Life !== 'function') { if (canvas) canvas.style.display = 'none'; return; }
+  const CELL = 14;
+  let life, dpr;
+
+  function seed() {
+    const r = canvas.getBoundingClientRect();
+    if (!r.width || !r.height) return false;
+    dpr = window.devicePixelRatio || 1;
+    canvas.width = r.width * dpr; canvas.height = r.height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    life = new Life(Math.max(8, Math.ceil(r.width / CELL)), Math.max(8, Math.ceil(r.height / CELL)));
+    life.randomize(0.12);
+    for (let i = 0; i < 6; i++) {
+      life.stamp(PATTERNS.Glider,
+        Math.floor(Math.random() * life.cols), Math.floor(Math.random() * life.rows));
+    }
+    return true;
+  }
+
+  function draw() {
+    if (!life) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('color');
+    ctx.globalAlpha = 0.35;
+    for (let y = 0; y < life.rows; y++)
+      for (let x = 0; x < life.cols; x++)
+        if (life.get(x, y)) ctx.fillRect(x * CELL, y * CELL, CELL - 2, CELL - 2);
+    ctx.globalAlpha = 1;
+  }
+
+  let last = 0;
+  function loop(t) {
+    if (!life) { requestAnimationFrame(loop); return; }
+    if (t - last > 220) { life.step(); draw(); last = t; }
+    // a board that has settled is a dead hero: reseed it
+    if (life.generation > 600) seed();
+    requestAnimationFrame(loop);
+  }
+
+  try {
+    seed(); draw();
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      requestAnimationFrame(loop);
+      addEventListener('resize', seed);
+    }
+  } catch (e) {
+    canvas.style.display = 'none';
+    console.error('Toroid hero:', e);
+  }
+})();
+</script>
+  <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>
+
+<script>
+// Scroll-triggered reveal for content sections
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+// Subtle parallax on the hero's live board canvas
+(function () {
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ticking = false;
+  function apply() { canvas.style.transform = 'translateY(' + (window.scrollY * 0.1) + 'px)'; ticking = false; }
+  window.addEventListener('scroll', function () { if (!ticking) { requestAnimationFrame(apply); ticking = true; } }, { passive: true });
+})();
+</script>
+</body>
+</html>

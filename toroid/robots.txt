@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://toroid.jaybulb.com/sitemap.xml
