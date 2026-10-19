@@ -325,7 +325,7 @@ private struct GameOverView: View {
             }
             Button("Play Again") { game.backToMenu() }
                 .buttonStyle(PrimaryButtonStyle())
-            ShareLink(item: "I scored \(game.score) on Quotestreak! Can you beat me? https://quotable.jaybulb.com")
+            ShareLink(item: "I scored \(game.score) on Quotestreak! Can you beat me? https://quotestreak.jaybulb.com")
             Spacer()
         }
         .padding(28)

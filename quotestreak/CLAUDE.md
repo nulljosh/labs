@@ -37,7 +37,7 @@ The hero wall is the one sanctioned exception to the standing "no gradients" rul
 All icons must be **opaque, no alpha channel** (ITMS-90717). A new icon reaches the store only with a new build.
 
 ## Deploy
-GitHub Pages via `.github/workflows/deploy.yml` (Settings → Pages → Source: GitHub Actions).
+Cloudflare Pages: `sh scripts/build-site.sh` then `npx wrangler pages deploy`. A push deploys nothing.
 
 ## iOS
 `ios/`, native SwiftUI, rewritten 2026-08-23 from the old WKWebView shell (a wrapper is a guaranteed Guideline 4.2 rejection; see the 5.6 suspension history). Four files:
@@ -62,7 +62,7 @@ Listed as **Quotestreak** (app id `6804394619`, bundle `com.heyitsmejosh.quotabl
 
 **The product is Quotestreak everywhere** (2026-08-28). The web game used to keep the Quotable name while only the store listing was Quotestreak; that split is gone, every user-facing string on the site now reads Quotestreak. Three things deliberately still say "quotable" and must NOT be renamed:
 
-- `CNAME` / `quotable.heyitsmejosh.com`, the live domain. Changing it is a DNS move, not a rename.
+- The live domain is `quotestreak.jaybulb.com` (Cloudflare Pages). `quotable.heyitsmejosh.com` lapsed with the old domain on 2026-10-13.
 - `quotable_high_score`, `quotable_sfx_on`, `quotable_sfx_vol`, localStorage keys on players' machines. Renaming them silently wipes every existing high score and sound setting.
 - `window.quotable*`: the globals `webmcp.js` binds to. Renaming breaks the agent tools for nothing.
 
