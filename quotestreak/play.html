@@ -81,6 +81,7 @@
       </select>
       <button id="start-normal">Play</button>
       <button id="start-speed">Speed Round (10s)</button>
+      <button id="start-daily">Daily Quote</button>
       <button id="lb-btn">Leaderboard</button>
     </div>
 
@@ -99,6 +100,16 @@
       <p id="feedback"></p>
     </div>
 
+    <div id="daily-end" class="panel hidden">
+      <picture><source id="quip-daily-dark" srcset="brand/quip-cheer-dark.svg" media="(prefers-color-scheme: dark)"><img id="quip-daily" class="quip" src="brand/quip-cheer.svg" alt="" width="128" height="128"></picture>
+      <h2 id="daily-title"></h2>
+      <p id="daily-result"></p>
+      <p id="daily-streak" class="daily-streak"></p>
+      <p id="daily-next" class="prompt"></p>
+      <button id="daily-share">Share</button>
+      <button id="daily-back">Back</button>
+    </div>
+
     <div id="end" class="panel hidden">
       <img id="quip-end" class="quip" src="brand/quip-cheer.svg" alt="" width="128" height="128">
       <h2>Game Over</h2>
@@ -108,6 +119,7 @@
       <button id="lb-btn-end">Leaderboard</button>
     </div>
   </main>
+  <script src="daily.js"></script>
   <script src="game.js"></script>
   <script type="module" src="auth.js"></script>
   <script src="webmcp.js"></script>

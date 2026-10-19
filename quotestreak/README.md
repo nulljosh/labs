@@ -2,11 +2,11 @@
 
 # Quotestreak
 
-![version](https://img.shields.io/badge/version-1.7.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fquotestreak-black?logo=github)](https://github.com/nulljosh/labs/tree/main/quotestreak)
+![version](https://img.shields.io/badge/version-2.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fquotestreak-black?logo=github)](https://github.com/nulljosh/labs/tree/main/quotestreak)
 
 Here's the line. Name the movie.
 
-Multiple choice, or a 10-second speed round that pays more the faster you answer. 272 entries, 178 movie quotes and 94 lyrics, across 10 genres.
+Multiple choice, a 10-second speed round that pays more the faster you answer, or the Daily Quote: one line a day, the same for everyone, with a day streak to keep. 272 entries, 178 movie quotes and 94 lyrics, across 10 genres.
 
 Dad's idea.
 

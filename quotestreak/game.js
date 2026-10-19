@@ -8,6 +8,9 @@ let timer = null;
 let timeLeft = 10;
 const TIME_LIMIT = 10;
 const HIGH_KEY = 'quotable_high_score';
+const DAILY_KEY = 'quotable_daily';            // {day, correct, answer} for the last daily played
+const DAILY_STREAK_KEY = 'quotable_daily_streak';  // {lastDay, count}
+let dailyMode = false;
 const SFX_ON_KEY = 'quotable_sfx_on';
 const SFX_VOL_KEY = 'quotable_sfx_vol';
 
@@ -75,6 +78,8 @@ fetch('quotes.json').then(r => r.json()).then(data => {
     genreSelect.appendChild(opt);
   });
   buildBackdrop(data);
+  updateDailyButton();
+  if (new URLSearchParams(location.search).has('daily')) startDaily();  // share links land on the daily
 });
 
 // Static mosaic of the bank's artwork behind the game. Reuses the fetch above rather than
@@ -148,7 +153,7 @@ function nextQuestion() {
   feedbackEl.textContent = '';
   optionsEl.innerHTML = '';
   promptEl.textContent = current.type === 'music' ? 'Guess the artist from the lyric.' : 'Guess the movie from the quote.';
-  shuffle(current.options).forEach(opt => {
+  (dailyMode ? current.options : shuffle(current.options)).forEach(opt => {  // the daily board is the same for everyone
     const btn = document.createElement('button');
     btn.textContent = opt;
     btn.onclick = () => choose(opt, btn);
@@ -201,7 +206,8 @@ function choose(opt, btn) {
     beep(180, 0.25);
   }
   updateStats();
-  setTimeout(nextQuestion, 1100);
+  if (dailyMode) recordDaily(correct);
+  setTimeout(dailyMode ? finishDaily : nextQuestion, 1100);
 }
 
 // Confetti from the picked answer, in the round's genre colour plus the accent.
@@ -292,6 +298,75 @@ const showLeaderboard = () => {
 $('lb-btn').onclick = showLeaderboard;
 $('lb-btn-end').onclick = showLeaderboard;
 $('lb-close').onclick = () => $('leaderboard').classList.add('hidden');
+
+const readJSON = (key) => { try { return JSON.parse(localStorage.getItem(key)); } catch { return null; } };
+
+function updateDailyButton() {
+  const day = Daily.dayNumber(), played = readJSON(DAILY_KEY);
+  $('start-daily').textContent = played && played.day === day ? `Daily #${day} done` : `Daily Quote #${day}`;
+}
+
+function startDaily() {
+  if (!quotes.length) return;
+  const day = Daily.dayNumber(), played = readJSON(DAILY_KEY);
+  if (played && played.day === day) return showDailyResult();
+  dailyMode = true;
+  speedMode = false;
+  score = 0;
+  streak = 0;
+  pool = [Daily.quoteFor(day, quotes)];
+  updateStats();
+  modeSelect.classList.add('hidden');
+  endEl.classList.add('hidden');
+  timerRing.classList.add('hidden');
+  document.body.classList.remove('speed');
+  gameEl.classList.remove('hidden');
+  nextQuestion();
+}
+
+function recordDaily(correct) {
+  const day = Daily.dayNumber();
+  localStorage.setItem(DAILY_KEY, JSON.stringify({ day, correct, answer: current.answer }));
+  localStorage.setItem(DAILY_STREAK_KEY, JSON.stringify(Daily.nextStreak(readJSON(DAILY_STREAK_KEY), day, correct)));
+}
+
+function finishDaily() {
+  dailyMode = false;
+  gameEl.classList.add('hidden');
+  showDailyResult(true);
+}
+
+function showDailyResult(justPlayed = false) {
+  const day = Daily.dayNumber(), played = readJSON(DAILY_KEY);
+  const days = Daily.currentStreak(readJSON(DAILY_STREAK_KEY), day);
+  const ms = Daily.msUntilNext(), h = Math.floor(ms / 3600000), m = Math.floor((ms % 3600000) / 60000);
+  const pose = played.correct ? 'cheer' : 'oops';
+  $('quip-daily').src = `brand/quip-${pose}.svg`;
+  $('quip-daily-dark').srcset = `brand/quip-${pose}-dark.svg`;
+  $('daily-title').textContent = `Daily #${day}`;
+  $('daily-result').textContent = played.correct ? `Got it: \u201C${played.answer}\u201D` : `It was \u201C${played.answer}\u201D`;
+  $('daily-streak').textContent = `Day streak: ${days}`;
+  $('daily-next').textContent = `Next quote in ${h}h ${m}m`;
+  modeSelect.classList.add('hidden');
+  $('daily-end').classList.remove('hidden');
+  if (justPlayed && played.correct) requestAnimationFrame(() => burst($('daily-title'), days > 0 && days % 5 === 0 ? 80 : 40));
+}
+
+$('start-daily').onclick = startDaily;
+$('daily-back').onclick = () => {
+  $('daily-end').classList.add('hidden');
+  modeSelect.classList.remove('hidden');
+  updateDailyButton();
+};
+$('daily-share').onclick = () => {
+  const day = Daily.dayNumber(), played = readJSON(DAILY_KEY);
+  const text = Daily.shareText(day, played.correct, Daily.currentStreak(readJSON(DAILY_STREAK_KEY), day));
+  if (navigator.share) navigator.share({ text });
+  else navigator.clipboard.writeText(text).then(() => {
+    $('daily-share').textContent = 'Copied';
+    setTimeout(() => { $('daily-share').textContent = 'Share'; }, 1500);
+  });
+};
 
 $('start-normal').onclick = () => startGame(false);
 $('start-speed').onclick = () => startGame(true);
