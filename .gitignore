@@ -27,6 +27,7 @@
 !curvely/
 !blockframe/
 !hamurapi/
+!bcgd/
 !scripts/
 scripts/*
 !scripts/progress-svg.py

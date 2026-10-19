@@ -1,0 +1,33 @@
+// Release automation. Run: asc workflow run ship-ios VERSION:x.y.z
+{
+  "env": {
+    "IOS_APP_ID": "6791106082",
+    "VERSION": "",
+    "SUBMIT": "true"
+  },
+  "before_all": "asc auth status",
+  "workflows": {
+    "ship-ios": {
+      "description": "Bump, archive, upload, submit iOS",
+      "steps": [
+        {
+          "name": "bump",
+          "run": "cd src/ios && asc xcode version edit --version \"$VERSION\" --build-number \"$(date +%Y%m%d%H%M)\""
+        },
+        {
+          "name": "archive",
+          "run": "cd src/ios && asc xcode archive --project BCGD.xcodeproj --scheme BCGD --archive-path ../../.asc/artifacts/BCGD.xcarchive --overwrite --xcodebuild-flag=-skipPackagePluginValidation --xcodebuild-flag=-allowProvisioningUpdates --output json"
+        },
+        {
+          "name": "export",
+          "run": "cd src/ios && asc xcode export --archive-path ../../.asc/artifacts/BCGD.xcarchive --export-options ExportOptions.plist --xcodebuild-flag=-allowProvisioningUpdates --overwrite --ipa-path ../../.asc/artifacts/BCGD.ipa --output json"
+        },
+        {
+          "name": "publish",
+          "if": "SUBMIT",
+          "run": "asc publish appstore --app $IOS_APP_ID --ipa .asc/artifacts/BCGD.ipa --version $VERSION --wait --submit --confirm --output json"
+        }
+      ]
+    }
+  }
+}

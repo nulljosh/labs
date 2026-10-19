@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bcgdGround" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1B5959"/>
+      <stop offset="1" stop-color="#134040"/>
+    </linearGradient>
+    <linearGradient id="bcgdOpening" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A2222"/>
+      <stop offset="1" stop-color="#0E2E2E"/>
+    </linearGradient>
+  </defs>
+  <!-- Brand ground -->
+  <rect width="200" height="200" rx="32" style="fill:url(#bcgdGround)"/>
+  <!-- Garage opening, recessed -->
+  <rect x="30" y="34" width="140" height="136" rx="8" style="fill:url(#bcgdOpening)"/>
+  <rect x="30" y="34" width="140" height="136" rx="8" style="fill:none;stroke:#0A2222;stroke-width:2"/>
+  <!-- Door panels, warm and stepped so the door reads as raised slats -->
+  <rect x="40" y="44" width="120" height="26" rx="4" style="fill:#FAF6EE"/>
+  <!-- Window panes pick up the mid brand tone -->
+  <rect x="50" y="50" width="22" height="14" rx="3" style="fill:#1B5959"/>
+  <rect x="78" y="50" width="22" height="14" rx="3" style="fill:#1B5959"/>
+  <rect x="106" y="50" width="22" height="14" rx="3" style="fill:#1B5959"/>
+  <rect x="134" y="50" width="16" height="14" rx="3" style="fill:#1B5959"/>
+  <rect x="40" y="76" width="120" height="26" rx="4" style="fill:#F1EADD"/>
+  <rect x="40" y="108" width="120" height="26" rx="4" style="fill:#E4DCCB"/>
+  <rect x="40" y="140" width="120" height="26" rx="4" style="fill:#D6CBB6"/>
+  <!-- Shadow line under each slat for depth -->
+  <rect x="40" y="70" width="120" height="2" style="fill:#0A2222;fill-opacity:0.28"/>
+  <rect x="40" y="102" width="120" height="2" style="fill:#0A2222;fill-opacity:0.28"/>
+  <rect x="40" y="134" width="120" height="2" style="fill:#0A2222;fill-opacity:0.28"/>
+  <!-- Handle -->
+  <rect x="90" y="150" width="20" height="5" rx="2.5" style="fill:#134040"/>
+</svg>
