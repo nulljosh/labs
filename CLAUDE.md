@@ -52,7 +52,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **dream** | Dream journal, Workers AI |
 | **cadence** | Commit-history tracker |
 | **numen** | Free-form calculator canvas |
-| **tripwire** | API drift watcher |
+| **tripwire** | API drift and CI-failure watcher |
 | **seamark** | Read values off rendered charts (npm lib) |
 | **keyrate** | Typing test, one file |
 | **weather** | Forecast page, Open-Meteo, one file |
