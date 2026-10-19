@@ -143,6 +143,7 @@
       <button id="start-pass">Pass and play</button>
       <button id="start-party">Big screen</button>
       <button id="start-pack">Make a pack</button>
+      <button id="start-library">Pack library</button>
       <button id="badges-btn">Badges</button>
       <button id="stats-btn">Stats</button>
       <button id="season-btn">Season</button>
@@ -191,6 +192,18 @@
       <button id="stats-back">Back</button>
     </div>
 
+    <div id="library" class="panel hidden">
+      <h2>Pack library</h2>
+      <p class="prompt">Packs other players made, checked before they go up.</p>
+      <select id="library-sort" aria-label="Sort"><option value="new">Newest</option><option value="top">Most played</option></select>
+      <ol id="library-list" class="library-list"></ol>
+      <div id="library-queue" class="hidden">
+        <h3>Waiting for review</h3>
+        <ol id="library-pending" class="library-list"></ol>
+      </div>
+      <button id="library-back">Back</button>
+    </div>
+
     <div id="pack" class="panel hidden">
       <h2>Make a pack</h2>
       <p class="prompt">Your own lines, one per row: the line, a dash, then who said it or where it's from. Share the link and anyone can play it.</p>
@@ -198,6 +211,7 @@
       <textarea id="pack-text" rows="8" placeholder="Clean your room. — Mom&#10;Pass the salt. — Dad&#10;I'm not lost, I'm exploring. — Grandpa&#10;Who ate my yogurt? — Sam"></textarea>
       <p id="pack-msg" class="prompt"></p>
       <button id="pack-share">Share the pack</button>
+      <button id="pack-submit" class="secondary">Send to the library</button>
       <a id="pack-link" class="hidden" href="#">Play it here</a>
       <button id="pack-back">Back</button>
     </div>
@@ -288,6 +302,7 @@
   <script src="season-ui.js"></script>
   <script src="passplay.js"></script>
   <script src="packs.js"></script>
+  <script src="library.js"></script>
   <script type="module" src="auth.js"></script>
   <script src="webmcp.js"></script>
   <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>

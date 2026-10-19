@@ -22,6 +22,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `buzz.html`, `buzz.js` | The phone buzzer for party games on a big screen (v34) |
 | `party.html`, `party.js` | The big-screen host in a browser, the web twin of tvos/PartyHost.swift (v42) |
 | `packs.js` | Custom packs: the maker, and playing a pack from its link (#pack=, deflated base64url) (v44) |
+| `library.js` | Pack library: approved community packs, sending a pack in, and the owner's review queue (v45) |
 | `passplay.js` | Pass and play: turns for two to eight people on one device (v41) |
 | `settings.js` | Settings panel and synthesized sound |
 | `spectate.js` | `?watch=CODE`, a read-only view of a duel |

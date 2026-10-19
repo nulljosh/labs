@@ -58,7 +58,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v42 Room codes.** Phones join a big-screen game with a four-letter code.
 - [x] **v43 Quiz night.** Rounds, a host screen and a final scoreboard.
 - [x] **v44 Custom packs.** Build a quote pack and share it by link.
-- [ ] **v45 Pack library.** Browse and play moderated community packs.
+- [x] **v45 Pack library.** Browse and play moderated community packs.
 - [ ] **v46 Classroom.** Literature and speech packs with a teacher view.
 - [ ] **v47 Stream mode.** Twitch chat votes on the answer.
 - [ ] **v48 Discord.** A Discord Activity.
