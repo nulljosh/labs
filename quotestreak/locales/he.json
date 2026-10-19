@@ -512,5 +512,12 @@
  "Check your inbox for a confirm link.": "חפשו בתיבת הדואר קישור לאישור.",
  "Too many tries. Wait a minute.": "יותר מדי ניסיונות. חכו דקה.",
  "that email doesn't look right": "האימייל לא נראה תקין",
- "That didn’t work.": "זה לא עבד."
+ "That didn’t work.": "זה לא עבד.",
+ "Moderation": "ניהול תוכן",
+ "Rename anything rude. Board names become Player, clubs become A club.": "שנו שם לכל דבר גס. שמות בלוח יהפכו ל־Player, ומועדונים ל־A club.",
+ "Board names": "שמות בלוח",
+ "Rename": "שינוי שם",
+ "{n} scores": "{n} תוצאות",
+ "{x} · {n} members": "{x} · {n} חברים",
+ "pick another name": "בחרו שם אחר"
 }

@@ -109,7 +109,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v85 Embed.** A daily-quote widget for any website.
 - [x] **v86 Newsletter.** The daily quote by email, opt in.
 - [x] **v87 Fair play.** Scores checked on the server.
-- [ ] **v88 Moderation.** Tools for packs, names and clubs.
+- [x] **v88 Moderation.** Tools for packs, names and clubs.
 - [ ] **v89 Supporter pack.** An optional one-dollar cosmetic pack, nothing locked.
 - [ ] **v90 Store in twenty languages.** Localized listings and screenshots.
 

@@ -512,5 +512,12 @@
  "Check your inbox for a confirm link.": "Проверьте почту: там ссылка для подтверждения.",
  "Too many tries. Wait a minute.": "Слишком много попыток. Подождите минуту.",
  "that email doesn't look right": "адрес выглядит неверно",
- "That didn’t work.": "Не получилось."
+ "That didn’t work.": "Не получилось.",
+ "Moderation": "Модерация",
+ "Rename anything rude. Board names become Player, clubs become A club.": "Переименуйте всё грубое. Имена в таблице станут Player, клубы — A club.",
+ "Board names": "Имена в таблице",
+ "Rename": "Переименовать",
+ "{n} scores": "{n} результатов",
+ "{x} · {n} members": "{x} · {n} участников",
+ "pick another name": "выберите другое имя"
 }

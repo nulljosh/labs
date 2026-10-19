@@ -512,5 +512,12 @@
  "Check your inbox for a confirm link.": "पुष्टि लिंक के लिए अपना इनबॉक्स देखें।",
  "Too many tries. Wait a minute.": "बहुत ज़्यादा कोशिशें। एक मिनट रुकें।",
  "that email doesn't look right": "यह ईमेल सही नहीं लगता",
- "That didn’t work.": "यह नहीं हुआ।"
+ "That didn’t work.": "यह नहीं हुआ।",
+ "Moderation": "मॉडरेशन",
+ "Rename anything rude. Board names become Player, clubs become A club.": "जो भी अभद्र हो उसका नाम बदलें। बोर्ड के नाम Player और क्लब A club बन जाएँगे।",
+ "Board names": "बोर्ड के नाम",
+ "Rename": "नाम बदलें",
+ "{n} scores": "{n} स्कोर",
+ "{x} · {n} members": "{x} · {n} सदस्य",
+ "pick another name": "कोई और नाम चुनें"
 }

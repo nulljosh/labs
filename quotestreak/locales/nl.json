@@ -512,5 +512,12 @@
  "Check your inbox for a confirm link.": "Kijk in je inbox voor een bevestigingslink.",
  "Too many tries. Wait a minute.": "Te veel pogingen. Wacht een minuut.",
  "that email doesn't look right": "dat e-mailadres klopt niet",
- "That didn’t work.": "Dat lukte niet."
+ "That didn’t work.": "Dat lukte niet.",
+ "Moderation": "Moderatie",
+ "Rename anything rude. Board names become Player, clubs become A club.": "Hernoem alles wat grof is. Namen op het bord worden Player, clubs A club.",
+ "Board names": "Namen op het bord",
+ "Rename": "Hernoemen",
+ "{n} scores": "{n} scores",
+ "{x} · {n} members": "{x} · {n} leden",
+ "pick another name": "kies een andere naam"
 }

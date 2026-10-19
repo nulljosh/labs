@@ -512,5 +512,12 @@
  "Check your inbox for a confirm link.": "確認リンクをメールで送りました。",
  "Too many tries. Wait a minute.": "試行回数が多すぎます。1分待ってください。",
  "that email doesn't look right": "メールアドレスが正しくないようです",
- "That didn’t work.": "うまくいきませんでした。"
+ "That didn’t work.": "うまくいきませんでした。",
+ "Moderation": "モデレーション",
+ "Rename anything rude. Board names become Player, clubs become A club.": "失礼な名前は変更します。ボードの名前はPlayer、クラブはA clubになります。",
+ "Board names": "ボードの名前",
+ "Rename": "名前を変更",
+ "{n} scores": "{n}件のスコア",
+ "{x} · {n} members": "{x} · メンバー{n}人",
+ "pick another name": "別の名前にしてください"
 }

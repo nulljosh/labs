@@ -11,3 +11,4 @@
 .news input { flex: 1 1 200px; min-width: 0; font: inherit; padding: 12px 14px; border: 0; border-radius: 12px; background: var(--bg); color: var(--text); box-shadow: inset 0 0 0 1px var(--border); }
 .news button { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--accent-deep); }
 .news p { flex-basis: 100%; margin: 4px 0 0; }
+#start-mod, #mod-back { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--accent-deep); }

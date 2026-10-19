@@ -514,5 +514,12 @@
  "Check your inbox for a confirm link.": "请查收邮箱里的确认链接。",
  "Too many tries. Wait a minute.": "尝试次数过多，请稍等一分钟。",
  "that email doesn't look right": "这个邮箱看起来不对",
- "That didn’t work.": "没有成功。"
+ "That didn’t work.": "没有成功。",
+ "Moderation": "审核",
+ "Rename anything rude. Board names become Player, clubs become A club.": "把不雅的名称改掉。排行榜名字会变成 Player，俱乐部会变成 A club。",
+ "Board names": "排行榜名字",
+ "Rename": "重命名",
+ "{n} scores": "{n} 条成绩",
+ "{x} · {n} members": "{x} · {n} 名成员",
+ "pick another name": "请换个名字"
 }

@@ -512,5 +512,12 @@
  "Check your inbox for a confirm link.": "Kolla inkorgen efter en bekräftelselänk.",
  "Too many tries. Wait a minute.": "För många försök. Vänta en minut.",
  "that email doesn't look right": "den e-postadressen ser inte rätt ut",
- "That didn’t work.": "Det fungerade inte."
+ "That didn’t work.": "Det fungerade inte.",
+ "Moderation": "Moderering",
+ "Rename anything rude. Board names become Player, clubs become A club.": "Byt namn på allt som är grovt. Namn på listan blir Player, klubbar A club.",
+ "Board names": "Namn på listan",
+ "Rename": "Byt namn",
+ "{n} scores": "{n} resultat",
+ "{x} · {n} members": "{x} · {n} medlemmar",
+ "pick another name": "välj ett annat namn"
 }

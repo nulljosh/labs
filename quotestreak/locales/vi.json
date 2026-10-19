@@ -512,5 +512,12 @@
  "Check your inbox for a confirm link.": "Kiểm tra hộp thư để lấy liên kết xác nhận.",
  "Too many tries. Wait a minute.": "Thử quá nhiều lần. Chờ một phút.",
  "that email doesn't look right": "email đó có vẻ không đúng",
- "That didn’t work.": "Không thành công."
+ "That didn’t work.": "Không thành công.",
+ "Moderation": "Kiểm duyệt",
+ "Rename anything rude. Board names become Player, clubs become A club.": "Đổi tên mọi thứ thô lỗ. Tên trên bảng thành Player, câu lạc bộ thành A club.",
+ "Board names": "Tên trên bảng",
+ "Rename": "Đổi tên",
+ "{n} scores": "{n} điểm số",
+ "{x} · {n} members": "{x} · {n} thành viên",
+ "pick another name": "chọn tên khác"
 }

@@ -512,5 +512,12 @@
  "Check your inbox for a confirm link.": "Controlla la posta: c’è un link di conferma.",
  "Too many tries. Wait a minute.": "Troppi tentativi. Aspetta un minuto.",
  "that email doesn't look right": "quell’email non sembra corretta",
- "That didn’t work.": "Non ha funzionato."
+ "That didn’t work.": "Non ha funzionato.",
+ "Moderation": "Moderazione",
+ "Rename anything rude. Board names become Player, clubs become A club.": "Rinomina ciò che è volgare. I nomi in classifica diventano Player, i club A club.",
+ "Board names": "Nomi in classifica",
+ "Rename": "Rinomina",
+ "{n} scores": "{n} punteggi",
+ "{x} · {n} members": "{x} · {n} membri",
+ "pick another name": "scegli un altro nome"
 }

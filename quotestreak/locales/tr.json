@@ -512,5 +512,12 @@
  "Check your inbox for a confirm link.": "Onay bağlantısı için gelen kutunu kontrol et.",
  "Too many tries. Wait a minute.": "Çok fazla deneme. Bir dakika bekle.",
  "that email doesn't look right": "bu e-posta doğru görünmüyor",
- "That didn’t work.": "Olmadı."
+ "That didn’t work.": "Olmadı.",
+ "Moderation": "Moderasyon",
+ "Rename anything rude. Board names become Player, clubs become A club.": "Kaba olan her şeyi yeniden adlandır. Tablo adları Player, kulüpler A club olur.",
+ "Board names": "Tablo adları",
+ "Rename": "Yeniden adlandır",
+ "{n} scores": "{n} skor",
+ "{x} · {n} members": "{x} · {n} üye",
+ "pick another name": "başka bir ad seç"
 }

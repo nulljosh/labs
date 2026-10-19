@@ -512,5 +512,12 @@
  "Check your inbox for a confirm link.": "تحقّق من بريدك للعثور على رابط التأكيد.",
  "Too many tries. Wait a minute.": "محاولات كثيرة. انتظر دقيقة.",
  "that email doesn't look right": "يبدو البريد الإلكتروني غير صحيح",
- "That didn’t work.": "لم ينجح ذلك."
+ "That didn’t work.": "لم ينجح ذلك.",
+ "Moderation": "الإشراف",
+ "Rename anything rude. Board names become Player, clubs become A club.": "أعد تسمية أي شيء مسيء. تصبح أسماء اللوحة Player والأندية A club.",
+ "Board names": "أسماء اللوحة",
+ "Rename": "إعادة تسمية",
+ "{n} scores": "{n} نتائج",
+ "{x} · {n} members": "{x} · {n} أعضاء",
+ "pick another name": "اختر اسمًا آخر"
 }

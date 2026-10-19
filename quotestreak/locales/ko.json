@@ -512,5 +512,12 @@
  "Check your inbox for a confirm link.": "받은편지함에서 확인 링크를 확인하세요.",
  "Too many tries. Wait a minute.": "시도가 너무 많아요. 1분 기다리세요.",
  "that email doesn't look right": "이메일 주소가 올바르지 않아 보여요",
- "That didn’t work.": "실패했어요."
+ "That didn’t work.": "실패했어요.",
+ "Moderation": "관리",
+ "Rename anything rude. Board names become Player, clubs become A club.": "무례한 이름은 바꾸세요. 순위표 이름은 Player, 클럽은 A club이 돼요.",
+ "Board names": "순위표 이름",
+ "Rename": "이름 바꾸기",
+ "{n} scores": "점수 {n}개",
+ "{x} · {n} members": "{x} · 회원 {n}명",
+ "pick another name": "다른 이름을 골라 주세요"
 }

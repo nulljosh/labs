@@ -520,5 +520,12 @@
  "Check your inbox for a confirm link.": "Un lien de confirmation vous attend dans votre boîte mail.",
  "Too many tries. Wait a minute.": "Trop d’essais. Patientez une minute.",
  "that email doesn't look right": "cette adresse semble incorrecte",
- "That didn’t work.": "Ça n’a pas marché."
+ "That didn’t work.": "Ça n’a pas marché.",
+ "Moderation": "Modération",
+ "Rename anything rude. Board names become Player, clubs become A club.": "Renommez ce qui est grossier. Les noms du classement deviennent Player, les clubs A club.",
+ "Board names": "Noms du classement",
+ "Rename": "Renommer",
+ "{n} scores": "{n} scores",
+ "{x} · {n} members": "{x} · {n} membres",
+ "pick another name": "choisissez un autre nom"
 }
