@@ -1,0 +1,7 @@
+*.log
+__pycache__/
+*.bak
+state.json
+app/PwnlingoStatus.xcodeproj/
+app/*.xcuserdatad/
+scripts/run.out
