@@ -1,0 +1,14 @@
+const assert = require('assert');
+const { record, recap, empty } = require('./yearly');
+assert.equal(recap(empty()), null, 'nothing played: no recap');
+const day1 = new Date('2026-03-01T10:00:00Z'), day2 = new Date('2026-03-04T10:00:00Z');
+let y = empty();
+y = record(y, 'answer', { correct: true, q: { genre: 'action' }, streak: 1 }, day1);
+y = record(y, 'answer', { correct: true, q: { genre: 'action' }, streak: 2 }, day1);
+y = record(y, 'answer', { correct: false, q: { genre: 'drama' }, streak: 0 }, day2);
+y = record(y, 'answer', { correct: true, q: { genre: 'comedy' }, streak: 1 }, day2);
+y = record(y, 'game', { score: 30 }, day2);
+y = record(y, 'game', { score: 900, speed: true }, day2);
+const r = recap(y);
+assert.deepEqual(r, { answers: 4, right: 3, pct: 75, games: 2, best: 30, streak: 2, days: 2, top: ['action', 'comedy'] });
+console.log('yearly ok');

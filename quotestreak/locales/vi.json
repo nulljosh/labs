@@ -400,5 +400,19 @@
  "{n}% right": "Đúng {n}%",
  "Best decade: the {n}s": "Thập niên giỏi nhất: thập niên {n}",
  "Share my taste card": "Chia sẻ thẻ gu của tôi",
- "Answer ten lines first": "Hãy trả lời mười câu trước"
+ "Answer ten lines first": "Hãy trả lời mười câu trước",
+ "{n} of {n} right · best run {n}": "Đúng {n}/{n} · chuỗi tốt nhất {n}",
+ "New high score": "Kỷ lục mới",
+ "High score {n}": "Kỷ lục {n}",
+ "Your {n} in quotes": "Năm {n} của bạn qua những câu thoại",
+ "Your year in quotes": "Một năm của bạn qua những câu thoại",
+ "lines answered": "câu đã trả lời",
+ "right": "đúng",
+ "day played": "ngày chơi",
+ "days played": "ngày chơi",
+ "best game": "ván hay nhất",
+ "longest streak": "chuỗi dài nhất",
+ "Play a game and your year starts here.": "Chơi một ván và năm của bạn bắt đầu từ đây.",
+ "Most at home in": "Rành nhất:",
+ "Share my year": "Chia sẻ năm của tôi"
 }

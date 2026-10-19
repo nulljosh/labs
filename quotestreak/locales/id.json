@@ -400,5 +400,19 @@
  "{n}% right": "{n}% benar",
  "Best decade: the {n}s": "Dekade terbaik: {n}-an",
  "Share my taste card": "Bagikan kartu seleraku",
- "Answer ten lines first": "Jawab sepuluh kutipan dulu"
+ "Answer ten lines first": "Jawab sepuluh kutipan dulu",
+ "{n} of {n} right · best run {n}": "{n} dari {n} benar · runtunan terbaik {n}",
+ "New high score": "Skor tertinggi baru",
+ "High score {n}": "Skor tertinggi {n}",
+ "Your {n} in quotes": "Tahun {n}-mu dalam kutipan",
+ "Your year in quotes": "Tahunmu dalam kutipan",
+ "lines answered": "kutipan dijawab",
+ "right": "benar",
+ "day played": "hari bermain",
+ "days played": "hari bermain",
+ "best game": "permainan terbaik",
+ "longest streak": "runtunan terpanjang",
+ "Play a game and your year starts here.": "Main sekali dan tahunmu dimulai di sini.",
+ "Most at home in": "Paling jago di:",
+ "Share my year": "Bagikan tahunku"
 }

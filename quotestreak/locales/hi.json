@@ -400,5 +400,19 @@
  "{n}% right": "{n}% सही",
  "Best decade: the {n}s": "सबसे अच्छा दशक: {n} का दशक",
  "Share my taste card": "मेरा पसंद कार्ड शेयर करें",
- "Answer ten lines first": "पहले दस पंक्तियों का जवाब दें"
+ "Answer ten lines first": "पहले दस पंक्तियों का जवाब दें",
+ "{n} of {n} right · best run {n}": "{n} में से {n} सही · सबसे लंबी लय {n}",
+ "New high score": "नया हाई स्कोर",
+ "High score {n}": "हाई स्कोर {n}",
+ "Your {n} in quotes": "उद्धरणों में आपका {n}",
+ "Your year in quotes": "उद्धरणों में आपका साल",
+ "lines answered": "पंक्तियों के जवाब",
+ "right": "सही",
+ "day played": "दिन खेला",
+ "days played": "दिन खेले",
+ "best game": "सबसे अच्छा खेल",
+ "longest streak": "सबसे लंबी लय",
+ "Play a game and your year starts here.": "एक खेल खेलें और आपका साल यहाँ शुरू होगा।",
+ "Most at home in": "सबसे ज़्यादा पसंद:",
+ "Share my year": "मेरा साल शेयर करें"
 }

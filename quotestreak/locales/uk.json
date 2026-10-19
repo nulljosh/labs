@@ -400,5 +400,19 @@
  "{n}% right": "{n}% правильно",
  "Best decade: the {n}s": "Найкраще десятиліття: {n}-ті",
  "Share my taste card": "Поділитися карткою смаку",
- "Answer ten lines first": "Спершу дайте відповідь на десять цитат"
+ "Answer ten lines first": "Спершу дайте відповідь на десять цитат",
+ "{n} of {n} right · best run {n}": "{n} з {n} правильно · найкраща серія {n}",
+ "New high score": "Новий рекорд",
+ "High score {n}": "Рекорд {n}",
+ "Your {n} in quotes": "Ваш {n} рік у цитатах",
+ "Your year in quotes": "Ваш рік у цитатах",
+ "lines answered": "цитат з відповіддю",
+ "right": "правильно",
+ "day played": "день гри",
+ "days played": "днів гри",
+ "best game": "найкраща гра",
+ "longest streak": "найдовша серія",
+ "Play a game and your year starts here.": "Зіграйте партію, і ваш рік почнеться тут.",
+ "Most at home in": "Найкраще знаєте:",
+ "Share my year": "Поділитися роком"
 }

@@ -400,5 +400,19 @@
  "{n}% right": "%{n} doğru",
  "Best decade: the {n}s": "En iyi on yıl: {n}'ler",
  "Share my taste card": "Zevk kartımı paylaş",
- "Answer ten lines first": "Önce on replik cevapla"
+ "Answer ten lines first": "Önce on replik cevapla",
+ "{n} of {n} right · best run {n}": "{n}/{n} doğru · en iyi seri {n}",
+ "New high score": "Yeni rekor",
+ "High score {n}": "Rekor {n}",
+ "Your {n} in quotes": "Repliklerle {n} yılın",
+ "Your year in quotes": "Repliklerle yılın",
+ "lines answered": "cevaplanan replik",
+ "right": "doğru",
+ "day played": "oynanan gün",
+ "days played": "oynanan gün",
+ "best game": "en iyi oyun",
+ "longest streak": "en uzun seri",
+ "Play a game and your year starts here.": "Bir oyun oyna, yılın burada başlasın.",
+ "Most at home in": "En rahat olduğun türler:",
+ "Share my year": "Yılımı paylaş"
 }

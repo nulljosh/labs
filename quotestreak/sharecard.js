@@ -21,7 +21,8 @@
     img.src = `brand/quip-${pose(game)}-dark.svg`;
     await img.decode().catch(() => {});
     if (img.naturalWidth) x.drawImage(img, SIZE / 2 - 220, 70, 440, 440);
-    const [title, line, high] = caption(game);
+    const T = root.I18N ? root.I18N.t : (t) => t;   // canvas text goes through the translator by hand
+    const [title, line, high] = caption(game).map(t => T(t));
     x.textAlign = 'center';
     x.fillStyle = '#ffcc00';
     x.font = font(700, 220);

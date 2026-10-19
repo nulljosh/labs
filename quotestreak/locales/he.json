@@ -400,5 +400,19 @@
  "{n}% right": "{n}% נכונות",
  "Best decade: the {n}s": "העשור הטוב ביותר: שנות ה-{n}",
  "Share my taste card": "שיתוף כרטיס הטעם שלי",
- "Answer ten lines first": "ענה קודם על עשרה ציטוטים"
+ "Answer ten lines first": "ענה קודם על עשרה ציטוטים",
+ "{n} of {n} right · best run {n}": "{n} מתוך {n} נכונות · הרצף הטוב {n}",
+ "New high score": "שיא חדש",
+ "High score {n}": "שיא {n}",
+ "Your {n} in quotes": "שנת {n} שלך בציטוטים",
+ "Your year in quotes": "השנה שלך בציטוטים",
+ "lines answered": "ציטוטים שנענו",
+ "right": "נכונות",
+ "day played": "יום משחק",
+ "days played": "ימי משחק",
+ "best game": "המשחק הטוב ביותר",
+ "longest streak": "הרצף הארוך ביותר",
+ "Play a game and your year starts here.": "שחקו משחק אחד והשנה שלכם מתחילה כאן.",
+ "Most at home in": "הכי בבית ב:",
+ "Share my year": "שיתוף השנה שלי"
 }

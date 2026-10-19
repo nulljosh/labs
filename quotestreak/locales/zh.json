@@ -402,5 +402,19 @@
  "{n}% right": "正确率 {n}%",
  "Best decade: the {n}s": "最强年代：{n} 年代",
  "Share my taste card": "分享我的品味卡",
- "Answer ten lines first": "先答 10 题"
+ "Answer ten lines first": "先答 10 题",
+ "{n} of {n} right · best run {n}": "{n} 题中答对 {n} 题 · 最佳连对 {n}",
+ "New high score": "新纪录",
+ "High score {n}": "最高分 {n}",
+ "Your {n} in quotes": "你的 {n} 年台词回顾",
+ "Your year in quotes": "你的年度台词回顾",
+ "lines answered": "答过的台词",
+ "right": "答对",
+ "day played": "天游玩",
+ "days played": "天游玩",
+ "best game": "最佳一局",
+ "longest streak": "最长连对",
+ "Play a game and your year starts here.": "玩一局，你的这一年就从这里开始。",
+ "Most at home in": "最拿手：",
+ "Share my year": "分享我的年度回顾"
 }

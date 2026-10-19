@@ -400,5 +400,19 @@
  "{n}% right": "{n}% goed",
  "Best decade: the {n}s": "Beste decennium: de jaren {n}",
  "Share my taste card": "Mijn smaakkaart delen",
- "Answer ten lines first": "Beantwoord eerst tien quotes"
+ "Answer ten lines first": "Beantwoord eerst tien quotes",
+ "{n} of {n} right · best run {n}": "{n} van {n} goed · beste reeks {n}",
+ "New high score": "Nieuw record",
+ "High score {n}": "Record {n}",
+ "Your {n} in quotes": "Jouw {n} in quotes",
+ "Your year in quotes": "Jouw jaar in quotes",
+ "lines answered": "quotes beantwoord",
+ "right": "goed",
+ "day played": "dag gespeeld",
+ "days played": "dagen gespeeld",
+ "best game": "beste spel",
+ "longest streak": "langste reeks",
+ "Play a game and your year starts here.": "Speel een potje en je jaar begint hier.",
+ "Most at home in": "Het meest thuis in:",
+ "Share my year": "Mijn jaar delen"
 }

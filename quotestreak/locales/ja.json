@@ -400,5 +400,19 @@
  "{n}% right": "正解率{n}%",
  "Best decade: the {n}s": "得意な年代：{n}年代",
  "Share my taste card": "好みカードをシェア",
- "Answer ten lines first": "まず10問に答えよう"
+ "Answer ten lines first": "まず10問に答えよう",
+ "{n} of {n} right · best run {n}": "{n}問中{n}問正解・最長連続{n}",
+ "New high score": "ハイスコア更新",
+ "High score {n}": "ハイスコア {n}",
+ "Your {n} in quotes": "セリフで振り返る{n}年",
+ "Your year in quotes": "セリフで振り返る1年",
+ "lines answered": "回答したセリフ",
+ "right": "正解",
+ "day played": "日プレイ",
+ "days played": "日プレイ",
+ "best game": "ベストゲーム",
+ "longest streak": "最長連続正解",
+ "Play a game and your year starts here.": "1回遊ぶと、あなたの1年がここから始まります。",
+ "Most at home in": "得意なジャンル：",
+ "Share my year": "1年をシェア"
 }

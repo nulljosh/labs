@@ -400,5 +400,19 @@
  "{n}% right": "{n}٪ صحيحة",
  "Best decade: the {n}s": "أفضل عقد: {n}",
  "Share my taste card": "شارك بطاقة ذوقي",
- "Answer ten lines first": "أجب عن عشر عبارات أولًا"
+ "Answer ten lines first": "أجب عن عشر عبارات أولًا",
+ "{n} of {n} right · best run {n}": "{n} من {n} صحيحة · أفضل سلسلة {n}",
+ "New high score": "رقم قياسي جديد",
+ "High score {n}": "الرقم القياسي {n}",
+ "Your {n} in quotes": "عامك {n} في عبارات",
+ "Your year in quotes": "عامك في عبارات",
+ "lines answered": "عبارة مُجابة",
+ "right": "صحيحة",
+ "day played": "يوم لعب",
+ "days played": "أيام لعب",
+ "best game": "أفضل لعبة",
+ "longest streak": "أطول سلسلة",
+ "Play a game and your year starts here.": "العب جولة وسيبدأ عامك هنا.",
+ "Most at home in": "تتألّق أكثر في:",
+ "Share my year": "شارك عامي"
 }

@@ -400,5 +400,19 @@
  "{n}% right": "{n}% acertadas",
  "Best decade: the {n}s": "Mejor década: los {n}",
  "Share my taste card": "Compartir mi tarjeta de gustos",
- "Answer ten lines first": "Responde diez frases primero"
+ "Answer ten lines first": "Responde diez frases primero",
+ "{n} of {n} right · best run {n}": "{n} de {n} acertadas · mejor racha {n}",
+ "New high score": "Nuevo récord",
+ "High score {n}": "Récord {n}",
+ "Your {n} in quotes": "Tu {n} en frases",
+ "Your year in quotes": "Tu año en frases",
+ "lines answered": "frases respondidas",
+ "right": "acertadas",
+ "day played": "día jugado",
+ "days played": "días jugados",
+ "best game": "mejor partida",
+ "longest streak": "racha más larga",
+ "Play a game and your year starts here.": "Juega una partida y tu año empieza aquí.",
+ "Most at home in": "Donde más brillas:",
+ "Share my year": "Compartir mi año"
 }

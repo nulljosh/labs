@@ -82,7 +82,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v62 Suggestions.** Know 80s action? Try 80s comedy.
 - [x] **v63 Watchlist.** Movies you missed saved to a list you can export.
 - [x] **v64 Taste card.** Your genres and decades on one card.
-- [ ] **v65 Year in quotes.** An end-of-year recap.
+- [x] **v65 Year in quotes.** An end-of-year recap.
 - [ ] **v66 Dress Quip.** Hats and outfits, always on brand.
 - [ ] **v67 Themes.** Marquee, noir and drive-in, each within the brand.
 - [ ] **v68 Offline packs.** Download packs for flights.

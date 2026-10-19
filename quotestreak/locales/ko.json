@@ -400,5 +400,19 @@
  "{n}% right": "{n}% 정답",
  "Best decade: the {n}s": "최고의 연대: {n}년대",
  "Share my taste card": "취향 카드 공유",
- "Answer ten lines first": "먼저 대사 10개에 답하세요"
+ "Answer ten lines first": "먼저 대사 10개에 답하세요",
+ "{n} of {n} right · best run {n}": "{n}개 중 {n}개 정답 · 최고 연속 {n}",
+ "New high score": "최고 점수 경신",
+ "High score {n}": "최고 점수 {n}",
+ "Your {n} in quotes": "대사로 보는 나의 {n}년",
+ "Your year in quotes": "대사로 보는 나의 한 해",
+ "lines answered": "답한 대사",
+ "right": "정답",
+ "day played": "일 플레이",
+ "days played": "일 플레이",
+ "best game": "최고 게임",
+ "longest streak": "최장 연속",
+ "Play a game and your year starts here.": "한 판 하면 당신의 한 해가 여기서 시작돼요.",
+ "Most at home in": "가장 자신 있는 장르:",
+ "Share my year": "나의 한 해 공유"
 }

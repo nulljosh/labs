@@ -41,6 +41,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `badges.js`, `badges-ui.js` | Fifty badges, toasts, the Badges screen |
 | `stats.js`, `stats-ui.js` | Hit rates by genre and decade, the history graph |
 | `sharecard.js` | The share card image |
+| `yearly.js` | Year in quotes: a tally per calendar year and its recap card (v65) |
 | `taste.js` | The taste card: your genres and best decade on one image, translated (v64) |
 | `season.js`, `season-ui.js` | Quarterly seasons: tiers, medals, the ladder (`quotestreak_season` RPC) |
 | `art.js` | The poster backdrop and the answer flash |
@@ -49,7 +50,7 @@ Quotestreak is a static web game plus native SwiftUI apps. Two Workers sit behin
 | `webmcp.js` | Agent tools, see `API.md` |
 | `sw.js` | Offline cache. Bump `quotestreak-vNN` every release |
 
-Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `cup`, `badges`, `stats`, `sharecard`, `season`, `modes`, `passplay`, `party`, `packs`, `classroom`, `stream`, `champions`, `story`, `practice`, `family`, `suggest`, `watchlist`, `taste`) work in Node too and each has a `*.test.js` next to it.
+Pure modules (`daily`, `hints`, `match`, `difficulty`, `challenge`, `cup`, `badges`, `stats`, `sharecard`, `season`, `modes`, `passplay`, `party`, `packs`, `classroom`, `stream`, `champions`, `story`, `practice`, `family`, `suggest`, `watchlist`, `taste`, `yearly`) work in Node too and each has a `*.test.js` next to it.
 
 `scripts/build-site.sh` copies an explicit file list into `dist/`. A new script has to be added there or it 404s in production.
 

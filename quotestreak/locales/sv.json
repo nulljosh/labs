@@ -400,5 +400,19 @@
  "{n}% right": "{n} % rätt",
  "Best decade: the {n}s": "Bästa decenniet: {n}-talet",
  "Share my taste card": "Dela mitt smakkort",
- "Answer ten lines first": "Svara på tio repliker först"
+ "Answer ten lines first": "Svara på tio repliker först",
+ "{n} of {n} right · best run {n}": "{n} av {n} rätt · bästa svit {n}",
+ "New high score": "Nytt rekord",
+ "High score {n}": "Rekord {n}",
+ "Your {n} in quotes": "Ditt {n} i repliker",
+ "Your year in quotes": "Ditt år i repliker",
+ "lines answered": "besvarade repliker",
+ "right": "rätt",
+ "day played": "speldag",
+ "days played": "speldagar",
+ "best game": "bästa omgång",
+ "longest streak": "längsta svit",
+ "Play a game and your year starts here.": "Spela en omgång så börjar ditt år här.",
+ "Most at home in": "Mest hemma i:",
+ "Share my year": "Dela mitt år"
 }
