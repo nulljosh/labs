@@ -13,6 +13,8 @@ const DAILY_STREAK_KEY = 'quotable_daily_streak';  // {lastDay, count}
 let dailyMode = false;
 let hintsUsed = 0;
 let typeMode = false;
+let challenge = null;   // {quotes, score, name} when playing a friend's link
+let run = [];          // {qid, pts} for each question this game, for the challenge link
 const SFX_ON_KEY = 'quotable_sfx_on';
 const SFX_VOL_KEY = 'quotable_sfx_vol';
 
@@ -106,6 +108,8 @@ fetch('quotes.json').then(r => r.json()).then(data => {
   buildBackdrop(data);
   updateDailyButton();
   if (new URLSearchParams(location.search).has('daily')) startDaily();  // share links land on the daily
+  challenge = Challenge.decode(location.search, quotes, Difficulty.qid);
+  if (challenge) startGame(false);
 });
 
 // Static mosaic of the bank's artwork behind the game. Reuses the fetch above rather than
@@ -152,6 +156,7 @@ function shuffle(arr) {
 function startGame(speed) {
   typeMode = $('type-toggle').checked;
   speedMode = speed;
+  run = [];
   score = 0;
   streak = 0;
   const genre = $('genre').value;
@@ -159,6 +164,7 @@ function startGame(speed) {
   pool = shuffle(quotes.filter(q => (genre === 'all' || q.genre === genre) && (decade === 'all' || (q.year && decadeOf(q.year) === +decade))
     && (level === 'all' || Difficulty.level(q, stats) === level)));
   if (!pool.length) pool = shuffle(quotes.filter(q => genre === 'all' || q.genre === genre));  // an empty pairing plays the genre
+  if (challenge) pool = [...challenge.quotes].reverse();  // nextQuestion pops from the end
   updateStats();
   modeSelect.classList.add('hidden');
   endEl.classList.add('hidden');
@@ -197,6 +203,9 @@ function nextQuestion() {
   preloadArt(current.art);
   if (speedMode) startTimer();
 }
+
+// A normal game runs through the whole bank; this ends it on your terms.
+$('end-btn').onclick = () => { clearInterval(timer); endGame(); };
 
 $('type-form').onsubmit = (e) => {
   e.preventDefault();
@@ -238,10 +247,11 @@ function choose(opt, btn) {
     else if (b === btn) b.classList.add('wrong');
     b.disabled = true;
   });
+  let pts = 0;
   if (correct) {
     flashArt(current.art);
     streak++;
-    const pts = Hints.points(10 * (speedMode ? Math.max(1, Math.ceil(timeLeft)) : 1), hintsUsed);
+    pts = Hints.points(10 * (speedMode ? Math.max(1, Math.ceil(timeLeft)) : 1), hintsUsed);
     score += pts;
     const milestone = streak % 5 === 0;
     feedbackEl.textContent = milestone ? `${streak} in a row! +${pts}` : `Correct! +${pts}`;
@@ -255,6 +265,7 @@ function choose(opt, btn) {
   }
   if (current.character) feedbackEl.textContent += ` · ${[current.character, current.year].filter(Boolean).join(', ')}`;
   tally(current, correct);
+  run.push({ qid: Difficulty.qid(current.quote), pts });
   updateStats();
   if (dailyMode) recordDaily(correct);
   setTimeout(dailyMode ? finishDaily : nextQuestion, 1100);
@@ -339,7 +350,25 @@ function endGame() {
   localStorage.setItem(HIGH_KEY, high);
   $('final-score').textContent = `Final score: ${score} · High score: ${high}`;
   window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal');
+  if (challenge) {
+    $('final-score').textContent = Challenge.verdict(score, challenge.score, challenge.name);
+    challenge = null;
+    history.replaceState(null, '', location.pathname);  // Play Again starts a normal game
+  }
+  $('challenge-btn').classList.toggle('hidden', !run.length || speedMode);
 }
+
+// Ten quotes of this run (or fewer if it ended early) and the points earned on them.
+$('challenge-btn').onclick = () => {
+  const first = run.slice(0, Challenge.SIZE);
+  const url = `${location.origin}/play?${Challenge.encode(first.map(r => r.qid), first.reduce((n, r) => n + r.pts, 0), window.quotableDisplayName?.())}`;
+  const text = `I scored ${first.reduce((n, r) => n + r.pts, 0)} on these ${first.length} Quotestreak lines. Your turn: ${url}`;
+  if (navigator.share) navigator.share({ text });
+  else navigator.clipboard.writeText(text).then(() => {
+    $('challenge-btn').textContent = 'Link copied';
+    setTimeout(() => { $('challenge-btn').textContent = 'Challenge a friend'; }, 1500);
+  });
+};
 
 const showLeaderboard = () => {
   $('leaderboard').classList.remove('hidden');

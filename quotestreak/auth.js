@@ -125,6 +125,8 @@ $('auth-newpass').onclick = async () => {
 };
 $('auth-logout').onclick = () => sb.auth.signOut();
 
+window.quotableDisplayName = () => (user ? displayName(user).slice(0, 24) : '');
+
 // Called by game.js at game over. Silently no-ops when signed out.
 window.quotableSubmitScore = async (score, mode) => {
   if (!user || score <= 0) return;
