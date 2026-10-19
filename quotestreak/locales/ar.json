@@ -500,5 +500,8 @@
  "Featured · by {x} · {n} lines · {n} play": "مميّزة · من {x} · {n} عبارة · لُعبت {n} مرة",
  "{x} scored {n} on Quotestreak. Your turn.": "أحرز {x} {n} في Quotestreak. دورك.",
  "{n} lines, one go. Can you beat {n}?": "{n} عبارات، محاولة واحدة. هل تتغلب على {n}؟",
- "Take the challenge": "اقبل التحدي"
+ "Take the challenge": "اقبل التحدي",
+ "Not quite. It was {x}.": "ليس تمامًا. كانت {x}.",
+ "Play more on Quotestreak": "العب المزيد على Quotestreak",
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · اقتباس اليوم رقم {n}"
 }

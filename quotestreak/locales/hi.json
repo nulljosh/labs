@@ -500,5 +500,8 @@
  "Featured · by {x} · {n} lines · {n} play": "चुनिंदा · {x} द्वारा · {n} पंक्तियाँ · {n} बार खेला गया",
  "{x} scored {n} on Quotestreak. Your turn.": "{x} ने Quotestreak पर {n} बनाए। अब आपकी बारी।",
  "{n} lines, one go. Can you beat {n}?": "{n} पंक्तियाँ, एक मौका। क्या आप {n} से आगे निकलेंगे?",
- "Take the challenge": "चुनौती स्वीकारें"
+ "Take the challenge": "चुनौती स्वीकारें",
+ "Not quite. It was {x}.": "लगभग। यह {x} था।",
+ "Play more on Quotestreak": "Quotestreak पर और खेलें",
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · आज का उद्धरण #{n}"
 }

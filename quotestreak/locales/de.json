@@ -500,5 +500,8 @@
  "Featured · by {x} · {n} lines · {n} play": "Empfohlen · von {x} · {n} Zeilen · {n} Spiel",
  "{x} scored {n} on Quotestreak. Your turn.": "{x} hat {n} Punkte bei Quotestreak. Du bist dran.",
  "{n} lines, one go. Can you beat {n}?": "{n} Zeilen, ein Versuch. Schaffst du mehr als {n}?",
- "Take the challenge": "Herausforderung annehmen"
+ "Take the challenge": "Herausforderung annehmen",
+ "Not quite. It was {x}.": "Nicht ganz. Es war {x}.",
+ "Play more on Quotestreak": "Mehr spielen auf Quotestreak",
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · Zitat des Tages Nr. {n}"
 }

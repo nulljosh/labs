@@ -66,3 +66,13 @@ Add `&watch=1` to spectate. Spectators can't send. They get `state {qids, player
 ## Party socket
 
 `wss://quotestreak.jaybulb.com/duel/party?room=ABCD&role=host` is the big screen (one per room); `&name=Sam` instead is a phone (eight at most). Phones send `buzz {option}`; the screen gets `players`, `join {id, name}`, `buzz {id, option, at}` and `leave {id}`. Whatever the screen sends goes to every phone, or to one with `to: id`: the TV sends `question {n, total, options}`, `reveal {answer, scores}` and `over {scores}`. Phones get `hello {id, screen}` on joining and `screen-left` if the screen goes.
+
+## Embed
+
+Put today's Daily Quote on any page:
+
+```html
+<iframe src="https://quotestreak.jaybulb.com/embed" width="360" height="420" style="border:0" title="Quotestreak Daily Quote"></iframe>
+```
+
+It is rendered by `functions/embed.js` from the game's own daily walk, so it matches `/play` and `/api/daily`. A pick shows right or wrong in place; the link opens the full game. Add `?theme=dark` or `?theme=light` to fix the scheme; otherwise it follows the visitor's. It follows their language too.

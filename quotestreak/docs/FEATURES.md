@@ -46,3 +46,6 @@ Challenge links now go to `/c?c=&s=&n=` (`functions/c.js`), a landing page rende
 
 ## Press kit (v84)
 The brand kit page has a Press section: a fact paragraph, a 15-second gameplay video, six screenshots and downloads, all in `brand/press/`. `scripts/press-kit.mjs` regenerates them from the live site (pre-earned badges so no toast lands in a shot, family mode so no sworn line does, the first two seconds of video trimmed). Reviewing its first run caught a junk Riven line and a speaker prefix in Metal Gear; both fixed in the bank.
+
+## Embed (v85)
+`/embed` is today's Daily Quote as an iframe card (`functions/embed.js`), playable in place, cached until midnight UTC, `frame-ancestors *`. The snippet is in `docs/API.md` and on the brand page's Press section.

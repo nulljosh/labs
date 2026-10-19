@@ -500,5 +500,8 @@
  "Featured · by {x} · {n} lines · {n} play": "Nổi bật · của {x} · {n} câu thoại · {n} lượt chơi",
  "{x} scored {n} on Quotestreak. Your turn.": "{x} được {n} điểm trên Quotestreak. Đến lượt bạn.",
  "{n} lines, one go. Can you beat {n}?": "{n} câu thoại, một lượt. Bạn vượt được {n} điểm không?",
- "Take the challenge": "Nhận thử thách"
+ "Take the challenge": "Nhận thử thách",
+ "Not quite. It was {x}.": "Chưa đúng. Đáp án là {x}.",
+ "Play more on Quotestreak": "Chơi thêm trên Quotestreak",
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · Câu nói hôm nay #{n}"
 }

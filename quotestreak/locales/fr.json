@@ -508,5 +508,8 @@
  "Featured · by {x} · {n} lines · {n} play": "À la une · par {x} · {n} répliques · {n} partie",
  "{x} scored {n} on Quotestreak. Your turn.": "{x} a marqué {n} sur Quotestreak. À vous.",
  "{n} lines, one go. Can you beat {n}?": "{n} répliques, un seul essai. Pouvez-vous battre {n} ?",
- "Take the challenge": "Relever le défi"
+ "Take the challenge": "Relever le défi",
+ "Not quite. It was {x}.": "Presque. C’était {x}.",
+ "Play more on Quotestreak": "Jouer davantage sur Quotestreak",
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · Citation du jour nº {n}"
 }

@@ -500,5 +500,8 @@
  "Featured · by {x} · {n} lines · {n} play": "Utvalt · av {x} · {n} repliker · {n} spelning",
  "{x} scored {n} on Quotestreak. Your turn.": "{x} fick {n} poäng i Quotestreak. Din tur.",
  "{n} lines, one go. Can you beat {n}?": "{n} repliker, ett försök. Kan du slå {n}?",
- "Take the challenge": "Anta utmaningen"
+ "Take the challenge": "Anta utmaningen",
+ "Not quite. It was {x}.": "Inte riktigt. Det var {x}.",
+ "Play more on Quotestreak": "Spela mer på Quotestreak",
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · Dagens citat nr {n}"
 }

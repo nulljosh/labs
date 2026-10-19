@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import { createRequire } from 'node:module';
+import { card } from './embed.js';
+const require = createRequire(import.meta.url);
+const Daily = require('../daily.js'), quotes = require('../quotes.json');
+const q = Daily.quoteFor(Daily.dayNumber(), quotes);
+const html = card(null);
+assert.ok(html.includes(`Daily Quote #${Daily.dayNumber()}`));
+for (const o of q.options) assert.ok(html.includes(`<button>${o.replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`)}</button>`), o);
+assert.ok(card('dark').includes('data-theme="dark"'));
+assert.ok(!card('"><script>').includes('"><script>'), 'theme is not echoed');
+console.log('embed ok');

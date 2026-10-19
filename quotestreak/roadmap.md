@@ -106,7 +106,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v82 Guest packs.** Featured packs from creators.
 - [x] **v83 Invite links.** A landing page for every challenge.
 - [x] **v84 Press kit.** Brand kit two with video and screenshots.
-- [ ] **v85 Embed.** A daily-quote widget for any website.
+- [x] **v85 Embed.** A daily-quote widget for any website.
 - [ ] **v86 Newsletter.** The daily quote by email, opt in.
 - [ ] **v87 Fair play.** Scores checked on the server.
 - [ ] **v88 Moderation.** Tools for packs, names and clubs.

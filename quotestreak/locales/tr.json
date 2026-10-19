@@ -500,5 +500,8 @@
  "Featured · by {x} · {n} lines · {n} play": "Öne çıkan · {x} · {n} replik · {n} oynanma",
  "{x} scored {n} on Quotestreak. Your turn.": "{x}, Quotestreak'te {n} puan aldı. Sıra sende.",
  "{n} lines, one go. Can you beat {n}?": "{n} replik, tek şans. {n} puanı geçebilir misin?",
- "Take the challenge": "Meydan okumayı kabul et"
+ "Take the challenge": "Meydan okumayı kabul et",
+ "Not quite. It was {x}.": "Olmadı. Doğrusu {x}.",
+ "Play more on Quotestreak": "Quotestreak'te daha fazla oyna",
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · Günün sözü #{n}"
 }

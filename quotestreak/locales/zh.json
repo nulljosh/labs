@@ -502,5 +502,8 @@
  "Featured · by {x} · {n} lines · {n} play": "精选 · 作者 {x} · {n} 句台词 · 被玩{n}次",
  "{x} scored {n} on Quotestreak. Your turn.": "{x} 在 Quotestreak 得了 {n} 分。轮到你了。",
  "{n} lines, one go. Can you beat {n}?": "{n} 句台词，只有一次机会。你能超过 {n} 分吗？",
- "Take the challenge": "接受挑战"
+ "Take the challenge": "接受挑战",
+ "Not quite. It was {x}.": "差一点。答案是 {x}。",
+ "Play more on Quotestreak": "在 Quotestreak 继续玩",
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · 每日一句 #{n}"
 }

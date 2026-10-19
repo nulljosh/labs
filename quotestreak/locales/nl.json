@@ -500,5 +500,8 @@
  "Featured · by {x} · {n} lines · {n} play": "Uitgelicht · door {x} · {n} zinnen · {n} keer gespeeld",
  "{x} scored {n} on Quotestreak. Your turn.": "{x} scoorde {n} op Quotestreak. Jij bent.",
  "{n} lines, one go. Can you beat {n}?": "{n} zinnen, één poging. Kun jij {n} verslaan?",
- "Take the challenge": "Ga de uitdaging aan"
+ "Take the challenge": "Ga de uitdaging aan",
+ "Not quite. It was {x}.": "Net niet. Het was {x}.",
+ "Play more on Quotestreak": "Speel meer op Quotestreak",
+ "Quotestreak · Daily Quote #{n}": "Quotestreak · Citaat van de dag #{n}"
 }
