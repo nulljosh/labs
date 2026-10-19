@@ -32,6 +32,7 @@ targets:
       - path: ../ios/Quotable/Duel.swift
       - path: ../ios/Quotable/DuelViews.swift
       - path: ../ios/Quotable/Daily.swift
+      - path: ../ios/Quotable/Intents.swift
       - path: ../ios/Quotable/Localizable.xcstrings
         buildPhase: resources
       - path: Quotable/QuotableApp.swift

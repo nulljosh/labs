@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var showSettings = false
     @State private var showDuel = false
     @State private var duel: Duel?
+    @AppStorage("quotestreak_launch") private var launch = ""   // set by SpeedRoundIntent (Siri, Shortcuts)
 
     var body: some View {
         NavigationStack {
@@ -46,6 +47,8 @@ struct ContentView: View {
             }
             #endif
             .task { await Account.shared.loadStats(into: game) }
+            .onAppear { takeLaunch() }
+            .onChange(of: launch) { _, _ in takeLaunch() }
             .sheet(isPresented: $showAccount) { AccountSheet() }
             .sheet(isPresented: $showBoard) { LeaderboardSheet(speed: game.speedMode) }
             .sheet(isPresented: $showSettings) { SettingsSheet(hapticsOn: $hapticsOn, sfxOn: $sfxOn, sfxVolume: $sfxVolume) }
@@ -87,6 +90,15 @@ struct ContentView: View {
                 }
             }
         }
+    }
+}
+
+private extension ContentView {
+    /// A Siri or Shortcuts launch: start what it asked for once, then clear it.
+    func takeLaunch() {
+        guard launch == "speed" else { return }
+        launch = ""
+        if game.phase != .playing { game.start(genre: nil, speed: true) }
     }
 }
 

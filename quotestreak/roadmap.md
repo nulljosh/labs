@@ -47,10 +47,10 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v33 Live Activities.** Live duels on the apps, with both scores on the lock screen and in the Dynamic Island. (The cup joins it once the apps have the cup.)
 - [x] **v34 Apple TV.** A living-room game with phones as buzzers.
 - [x] **v35 Vision Pro.** The poster wall around you.
-- [ ] **v36 Google Play.** The Android app in the Play Store.
-- [ ] **v37 Microsoft Store.** The Windows app in the Store.
-- [ ] **v38 Flathub.** The Linux app on Flathub.
-- [ ] **v39 Siri and Shortcuts.** "Give me a quote" and "start a speed round".
+- [ ] **v36 Google Play.** The Android app in the Play Store. Blocked on Joshua: needs his developer account.
+- [ ] **v37 Microsoft Store.** The Windows app in the Store. Blocked on Joshua: needs his developer account.
+- [ ] **v38 Flathub.** The Linux app on Flathub. Blocked on Joshua: the submission is a public pull request from his GitHub.
+- [x] **v39 Siri and Shortcuts.** "Give me a quote" and "start a speed round".
 - [ ] **v40 Handoff and sync.** Start on the phone, finish on the Mac.
 
 ### Era 5: parties (41 to 50)

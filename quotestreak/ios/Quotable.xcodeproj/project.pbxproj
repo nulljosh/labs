@@ -29,6 +29,7 @@
 		91ED4E7C01FF874DE14A48A7 /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2366C44BE0D1172C1F730F23 /* Daily.swift */; };
 		945CA5730B08BC490FF50CF0 /* Quotestreak.icon in Resources */ = {isa = PBXBuildFile; fileRef = 20DD4CD996C0C91CF08C183A /* Quotestreak.icon */; };
 		A56C739EEFF27FE10CA8E0C8 /* QuotableWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D54101B2FF96FEAAAA76892C /* QuotableWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AF1FCA8D9661425FA1F2DF89 /* Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D102FB318FB417C8EBBE69C0 /* Intents.swift */; };
 		B7217E2DA4D5DF9CD42659BC /* quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = 5128DA1479B038DECC148F85 /* quotes.json */; };
 		B8B4BA1F10F735DE4F09A5F2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FACB4D1E162790952E8FA9 /* Game.swift */; };
 		B956F9614126752E27454D7A /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC408E6EFA84328599CCE6 /* Quote.swift */; };
@@ -89,6 +90,7 @@
 		B0A7452099D0CAD5844021F4 /* QuotestreakWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotestreakWidget.swift; sourceTree = "<group>"; };
 		B8FACB4D1E162790952E8FA9 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		C4AFD0F64F5A760073FEFB89 /* QuipSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuipSans-Semibold.ttf"; sourceTree = "<group>"; };
+		D102FB318FB417C8EBBE69C0 /* Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intents.swift; sourceTree = "<group>"; };
 		D307F023E4118532E949DCA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D54101B2FF96FEAAAA76892C /* QuotableWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = QuotableWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AF29CDFD917165A0271BE6 /* Quip.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Quip.xcassets; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				964C23D71F8E22F6308CA6D7 /* DuelViews.swift */,
 				B8FACB4D1E162790952E8FA9 /* Game.swift */,
 				0AC0BE836F69E3802264672C /* Info.plist */,
+				D102FB318FB417C8EBBE69C0 /* Intents.swift */,
 				09C80DAF89F26D0C3958D4B0 /* Localizable.xcstrings */,
 				64E85168A0A7B3C0D436D4A9 /* QuotableApp.swift */,
 				3BFC408E6EFA84328599CCE6 /* Quote.swift */,
@@ -318,6 +321,7 @@
 				7D7275D2EA443FD0ABF60D58 /* DuelActivity.swift in Sources */,
 				6BA43F860E0509C4DC95E444 /* DuelViews.swift in Sources */,
 				B8B4BA1F10F735DE4F09A5F2 /* Game.swift in Sources */,
+				AF1FCA8D9661425FA1F2DF89 /* Intents.swift in Sources */,
 				508D3BE089EB84B16456089A /* QuotableApp.swift in Sources */,
 				7DFF7D7B40A63846C0C2A765 /* Quote.swift in Sources */,
 				2E29339E8EF696C8DE96D9BC /* SharedStore.swift in Sources */,
