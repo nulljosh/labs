@@ -49,13 +49,15 @@ Cloudflare Pages: `sh scripts/build-site.sh` then `npx wrangler pages deploy`. D
 
 Answer buttons deliberately use `.allowsHitTesting(false)` rather than `.disabled(true)` after a pick, a disabled button renders its tint washed out, which hides the green/red reveal.
 
+`ios/Widget/QuotestreakWidget.swift` (v31) is a WidgetKit extension on iOS (small, medium, lock screen) and macOS (small, medium), target `QuotableWidget`, bundle `com.heyitsmejosh.quotable.widget`. It bundles its own `quotes.json` and works the day's line out with `Daily.swift`, a bit-for-bit port of `daily.js` (mulberry32 with UInt32 wrapping for Math.imul), so it needs no app group. It never shows the answer.
+
 Self-check (no XCTest, no framework):
 
 ```
-swiftc -o /tmp/quotablecheck ios/Quotable/Quote.swift ios/Quotable/Game.swift ios/Quotable/SharedStore.swift ios/Checks/main.swift && /tmp/quotablecheck quotes.json
+node scripts/daily-expect.mjs > /tmp/daily.json && swiftc -o /tmp/quotablecheck ios/Quotable/Quote.swift ios/Quotable/Game.swift ios/Quotable/SharedStore.swift ios/Quotable/Daily.swift ios/Checks/main.swift && /tmp/quotablecheck quotes.json /tmp/daily.json
 ```
 
-It validates the whole quote bank (4 unique options, answer present, no duplicate quotes, movies have years) and the scoring paths (streaks, the speed multiplier, timeout-as-miss).
+It checks that the Swift Daily Quote matches `daily.js` day for day, and validates the whole quote bank (4 unique options, answer present, no duplicate quotes, movies have years) and the scoring paths (streaks, the speed multiplier, timeout-as-miss).
 
 ## App Store
 Listed as **Quotestreak** (app id `6804394619`, bundle `com.heyitsmejosh.quotable`), "Quotable", "Quotely", "Quipster", "Recite" and "Cueline" are all taken by other accounts.

@@ -41,6 +41,33 @@ targets:
         # Without an entitlements file the signed bundle carries no
         # application-identifier while the embedded profile does — ITMS-90886.
         CODE_SIGN_ENTITLEMENTS: Quotable.entitlements
+    dependencies:
+      - target: QuotableWidget
+
+  QuotableWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Widget/QuotestreakWidget.swift
+      - path: Quotable/Quote.swift
+      - path: Quotable/Daily.swift
+      - path: Quotable/Theme.swift
+      - path: Quotable/Resources/quotes.json
+        buildPhase: resources
+      - path: ../fonts
+        buildPhase: resources
+        includes: ["*.ttf"]
+    info:
+      path: Widget/Info-iOS.plist
+      properties:
+        CFBundleDisplayName: Quotestreak
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.quotable.widget
+        DEVELOPMENT_TEAM: QMM486NPYC
+        CODE_SIGN_STYLE: Automatic
 
 schemes:
   Quotable:

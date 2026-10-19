@@ -1,7 +1,7 @@
 // Quote-bank + scoring self-check. The only non-trivial logic in the app.
 //
-//   swiftc -o /tmp/quotablecheck ios/Quotable/Quote.swift ios/Quotable/Game.swift ios/Quotable/SharedStore.swift ios/Checks/main.swift \
-//     && /tmp/quotablecheck quotes.json
+//   node scripts/daily-expect.mjs > /tmp/daily.json && swiftc -o /tmp/quotablecheck ios/Quotable/Quote.swift ios/Quotable/Game.swift \
+//     ios/Quotable/SharedStore.swift ios/Quotable/Daily.swift ios/Checks/main.swift && /tmp/quotablecheck quotes.json /tmp/daily.json
 
 import Foundation
 
@@ -92,5 +92,16 @@ check(dated.current?.year.map { $0 / 10 * 10 } == d, "decade filter dealt the wr
 check(Quote(quote: "a", answer: "x", options: ["x"], genre: "g", type: .movie, year: nil, art: nil, source: nil).qid == "e40c292c", "qid differs from difficulty.js")
 let hardOne = quotes[0]
 check(hardOne.level([hardOne.qid: (plays: 20, correct: 2)]) == "hard", "a 10% hit rate should be hard")
+
+// The Daily Quote matches daily.js day for day (the widget and the web show the same line).
+struct Expected: Decodable { let day: Int; let quote: String; let options: [String] }
+if CommandLine.arguments.count > 2, let raw = FileManager.default.contents(atPath: CommandLine.arguments[2]),
+   let expected = try? JSONDecoder().decode([Expected].self, from: raw) {
+    for e in expected {
+        let got = Daily.quote(for: e.day, in: quotes)
+        check(got?.quote.quote == e.quote && got?.options == e.options, "Daily #\(e.day) differs from daily.js")
+    }
+    check(Daily.dayNumber(Daily.epoch) == 1 && Daily.dayNumber(Daily.epoch.addingTimeInterval(86_399)) == 1, "Daily #1 is the epoch's UTC day")
+}
 
 print("ok — \(checks) checks, \(quotes.count) quotes")

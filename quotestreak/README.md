@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80" height="80" alt="Quotestreak icon">
 
-![version](https://img.shields.io/badge/version-30.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-31.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Here's the line. Name the movie.
 
@@ -27,7 +27,7 @@ Or the show, the game, the song or the book. 1,624 lines across 15 genres, from 
 
 **Keep score.** Fifty badges drawn around Quip, the mascot. Stats by genre and decade with a graph of your last fifty games. A share card for every game. A ranked season every quarter, with a Quip medal for each tier you reach.
 
-**Everywhere.** Web, iPhone, iPad, Mac and Apple Watch. One account on every platform: email, Apple or Google.
+**Everywhere.** Web, iPhone, iPad, Mac and Apple Watch, with a Daily Quote widget for the home screen, lock screen and Mac desktop in the next app update. One account on every platform: email, Apple or Google.
 
 <img src="progress.svg" width="460">
 
