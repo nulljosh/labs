@@ -71,11 +71,12 @@ const GENRES = {
   sitcom: { color: 'var(--g-sitcom)', text: 'var(--g-sitcom-text)' },
   tvdrama: { color: 'var(--g-tvdrama)', text: 'var(--g-tvdrama-text)' },
   cartoon: { color: 'var(--g-cartoon)', text: 'var(--g-cartoon-text)' },
+  game: { color: 'var(--g-game)', text: 'var(--g-game-text)' },
 };
 // Genre keys that do not read well capitalized. Mirrored by Theme.label(for:) in Swift.
-const LABELS = { scifi: 'Sci-fi', hiphop: 'Hip-hop', rnb: 'R&B', tvdrama: 'TV drama' };
+const LABELS = { scifi: 'Sci-fi', hiphop: 'Hip-hop', rnb: 'R&B', tvdrama: 'TV drama', game: 'Games' };
 const label = (g) => LABELS[g] || g[0].toUpperCase() + g.slice(1);
-const PROMPTS = { music: 'Guess the artist from the lyric.', tv: 'Guess the show from the quote.', movie: 'Guess the movie from the quote.' };
+const PROMPTS = { music: 'Guess the artist from the lyric.', tv: 'Guess the show from the quote.', game: 'Guess the game from the quote.', movie: 'Guess the movie from the quote.' };
 
 fetch('quotes.json').then(r => r.json()).then(data => {
   quotes = data;
@@ -405,7 +406,7 @@ $('restart').onclick = () => {
   modeSelect.classList.remove('hidden');
 };
 $('share').onclick = () => {
-  const text = `I scored ${score} on Quotestreak! Can you beat me? https://quotable.jaybulb.com`;
+  const text = `I scored ${score} on Quotestreak! Can you beat me? https://quotestreak.jaybulb.com`;
   if (navigator.share) navigator.share({ text });
   else navigator.clipboard.writeText(text).then(() => {
     $('share').textContent = 'Copied!';

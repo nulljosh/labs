@@ -9,7 +9,7 @@ trivia game about lines everyone half-remembers doesn't need an account, a
 server, or a monetization plan to be fun for thirty seconds at a time. Static
 site, no build step, no backend, because none of those are required to show
 a quote and take a guess. It's Quotestreak everywhere: App Store, repo, web.
-Only the domain (`quotable.heyitsmejosh.com`) and the `quotable_*` localStorage
+Only the domain (`quotestreak.jaybulb.com`) and the `quotable_*` localStorage
 keys still carry the old name. See below.
 
 ## Guessing Engine
