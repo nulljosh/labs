@@ -12,6 +12,8 @@
 
 ## Repos
 
+**`~/Documents/Code` is the `labs` repo.** 25 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, swing, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, quotestreak, curvely, blockframe, hamurapi, bcgd, nyc, inkpress. Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`.
+
 ### Apps
 Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 
@@ -64,7 +66,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 |---|---|
 | **joshuatree** | From-scratch i386 and Pi 4 OS: desktop, Wi-Fi, HTTPS browser, Samantha relay. |
 | **turing** | Pipeline for small on-device language models. First model: Samantha. |
-| **plank** | Small compiled language, one Python file. `homebrew-plank` is its tap |
+| **plank** | Small compiled language, one Python file. `homebrew-tap` is the one tap for plank-lang and nimble |
 | **vancouvervice** | GTA-style game in the real Vancouver, Unreal 5 |
 | **conveyer** | Claude plays Factorio, now Game Dev Tycoon |
 | **cruise** | Duolingo autoplayer, private. The runner must stay up |
