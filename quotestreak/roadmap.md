@@ -95,7 +95,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v73 New releases.** A pack of recent films every week.
 - [x] **v74 Seasons of film.** Halloween, holiday and summer packs.
 - [x] **v75 Sports.** Famous commentary calls.
-- [ ] **v76 Speeches.** History in its own words.
+- [x] **v76 Speeches.** History in its own words.
 - [ ] **v77 Anime.** An anime category.
 - [ ] **v78 Stand-up.** Comedy specials and podcasts.
 - [ ] **v79 Open API.** The quote of the day and the bank through /api and /mcp.
