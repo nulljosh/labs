@@ -16,5 +16,14 @@ mkdir -p dist/screenshots
 cp -R screenshots/web dist/screenshots/
 node -e "const f='dist/quotes.json',fs=require('fs');fs.writeFileSync(f,JSON.stringify(JSON.parse(fs.readFileSync(f))))"   # v91: the bank ships minified
 node scripts/build-data.mjs dist/data   # v80 open data, rebuilt from quotes.json every build
-printf '/data/*\n  Access-Control-Allow-Origin: *\n' > dist/_headers
+# v93 security headers for every static page (Functions such as /embed and /c set their own).
+cat > dist/_headers <<'HEADERS'
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), geolocation=(), payment=(), microphone=(self)
+  Content-Security-Policy: script-src 'self' 'unsafe-inline' https://accounts.google.com https://appleid.cdn-apple.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'
+/data/*
+  Access-Control-Allow-Origin: *
+HEADERS
 echo "built dist/"

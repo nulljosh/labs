@@ -35,7 +35,7 @@ document.getElementById('lb-clubs').onclick = async () => {
   const { data, error } = await rpc('quotestreak_club_board');
   const ol = document.getElementById('lb-list');
   ol.innerHTML = '';
-  if (error) { ol.innerHTML = `<li>${error.message}</li>`; return; }
+  if (error) { ol.innerHTML = '<li></li>'; ol.firstChild.textContent = error.message; return; }   // v93: server text is text
   if (!data.length) ol.innerHTML = '<li class="note">No clubs yet. Start one in your account.</li>';
   for (const c of data) {
     const li = document.createElement('li');

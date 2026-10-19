@@ -116,7 +116,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 ### Era 10: the hundred (91 to 100)
 - [x] **v91 Fast.** Cold start under 300 ms and a smooth wall on old devices.
 - [x] **v92 Sync that never loses.** Conflict handling across every device.
-- [ ] **v93 Audit.** Security and privacy review, start to finish.
+- [x] **v93 Audit.** Security and privacy review, start to finish.
 - [ ] **v94 Motion and sound.** A written motion system and a sound kit.
 - [ ] **v95 Quip lives.** Quip reacts everywhere, drawn in code.
 - [ ] **v96 Archive.** Every past daily quote playable.

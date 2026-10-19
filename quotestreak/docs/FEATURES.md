@@ -64,3 +64,6 @@ Cold start on production went from about 400 ms to about 240 ms (navigation to a
 
 ## Sync that never loses (v92)
 A transfer link now merges instead of replacing (`transfer.js` `combine`): best score and every counter keep the larger, accuracy pairs keep each side's larger count, lists (watchlist) join one of each, the daily streak keeps the later day, profiles join with this device's player still active, and this device keeps its own settings while missing ones come over. Native keeps the larger best score through iCloud on every sync.
+
+## Audit (v93)
+See `docs/AUDIT.md`: escaping checked at every markup sink, security headers and a script CSP on every static page, the answer tally limited to real lines and 120 a minute, and the privacy page brought up to date.

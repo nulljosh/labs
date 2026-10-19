@@ -154,7 +154,7 @@ window.quotableShowLeaderboard = async (mode) => {
     .select('name,score').eq('mode', mode).order('score', { ascending: false }).limit(20);
   const ol = $('lb-list');
   ol.innerHTML = '';
-  if (error) { ol.innerHTML = `<li>${error.message}</li>`; return; }
+  if (error) { ol.innerHTML = '<li></li>'; ol.firstChild.textContent = error.message; return; }   // v93: server text is text
   if (!data.length) ol.innerHTML = '<li class="note">No scores yet. Sign in and play!</li>';
   for (const r of data) {
     const li = document.createElement('li');
@@ -174,7 +174,7 @@ $('lb-friends').onclick = async () => {
   const { data, error } = await sb.rpc('quotestreak_friends');
   const ol = $('lb-list');
   ol.innerHTML = '';
-  if (error) { ol.innerHTML = `<li>${error.message}</li>`; return; }
+  if (error) { ol.innerHTML = '<li></li>'; ol.firstChild.textContent = error.message; return; }   // v93: server text is text
   for (const f of data.sort((x, y) => y[lbMode] - x[lbMode])) {
     const li = document.createElement('li');
     li.textContent = `${f.me ? 'You' : f.name} — ${f[lbMode]}`;
