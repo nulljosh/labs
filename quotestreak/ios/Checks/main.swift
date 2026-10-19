@@ -88,4 +88,9 @@ let d = dated.decades.first!
 dated.start(genre: nil, speed: false, decade: d)
 check(dated.current?.year.map { $0 / 10 * 10 } == d, "decade filter dealt the wrong decade")
 
+// The quote id matches difficulty.js (FNV-1a reference vectors), so web and native share tallies.
+check(Quote(quote: "a", answer: "x", options: ["x"], genre: "g", type: .movie, year: nil, art: nil, source: nil).qid == "e40c292c", "qid differs from difficulty.js")
+let hardOne = quotes[0]
+check(hardOne.level([hardOne.qid: (plays: 20, correct: 2)]) == "hard", "a 10% hit rate should be hard")
+
 print("ok — \(checks) checks, \(quotes.count) quotes")

@@ -15,7 +15,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 ### Era 1: a deeper game (2 to 10)
 - [x] **v8 First lines.** Name the book from its opening sentence.
 - [x] **v9 Decades.** Filter by decade, from the 1930s to now.
-- [ ] **v10 Real difficulty.** Easy, medium and hard, ranked from what players actually get right.
+- [x] **v10 Real difficulty.** Easy, medium and hard, ranked from what players actually get right.
 
 ### Era 2: play with people (11 to 20)
 - [ ] **v11 Challenge link.** Send ten quotes to a friend; they play the same ten and see your score.

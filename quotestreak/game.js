@@ -80,6 +80,13 @@ const label = (g) => LABELS[g] || g[0].toUpperCase() + g.slice(1);
 const decadeOf = (y) => Math.floor(y / 10) * 10;
 const PROMPTS = { music: 'Guess the artist from the lyric.', tv: 'Guess the show from the quote.', game: 'Guess the game from the quote.', book: 'Name the book from its first line.', movie: 'Guess the movie from the quote.' };
 
+// Real difficulty (v10): the tallies are fetched once; answers are posted fire-and-forget.
+const API = 'https://api.jaybulb.com';
+let stats = {};
+fetch(`${API}/rpc/quotestreak_stats`, { method: 'POST', body: '{}' }).then(r => r.json())
+  .then(rows => { if (Array.isArray(rows)) stats = Object.fromEntries(rows.map(r => [r.qid, r])); }).catch(() => {});
+const tally = (q, ok) => fetch(`${API}/rpc/quotestreak_answer`, { method: 'POST', body: JSON.stringify({ qid: Difficulty.qid(q.quote), ok }), keepalive: true }).catch(() => {});
+
 fetch('quotes.json').then(r => r.json()).then(data => {
   quotes = data;
   const genreSelect = $('genre');
@@ -148,8 +155,9 @@ function startGame(speed) {
   score = 0;
   streak = 0;
   const genre = $('genre').value;
-  const decade = $('decade').value;
-  pool = shuffle(quotes.filter(q => (genre === 'all' || q.genre === genre) && (decade === 'all' || (q.year && decadeOf(q.year) === +decade))));
+  const decade = $('decade').value, level = $('difficulty').value;
+  pool = shuffle(quotes.filter(q => (genre === 'all' || q.genre === genre) && (decade === 'all' || (q.year && decadeOf(q.year) === +decade))
+    && (level === 'all' || Difficulty.level(q, stats) === level)));
   if (!pool.length) pool = shuffle(quotes.filter(q => genre === 'all' || q.genre === genre));  // an empty pairing plays the genre
   updateStats();
   modeSelect.classList.add('hidden');
@@ -246,6 +254,7 @@ function choose(opt, btn) {
     beep(180, 0.25);
   }
   if (current.character) feedbackEl.textContent += ` · ${[current.character, current.year].filter(Boolean).join(', ')}`;
+  tally(current, correct);
   updateStats();
   if (dailyMode) recordDaily(correct);
   setTimeout(dailyMode ? finishDaily : nextQuestion, 1100);
