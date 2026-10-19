@@ -441,5 +441,11 @@
  "Bring your progress over?": "Ta med dina framsteg hit?",
  "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Länken tar med märken, statistik, sviter och inställningar från en annan enhet. De ersätter det som finns här; det högsta rekordet behålls.",
  "Bring it over": "Ta med",
- "Not now": "Inte nu"
+ "Not now": "Inte nu",
+ "Player": "Spelare",
+ "Player 1": "Spelare 1",
+ "Name": "Namn",
+ "New player's name": "Den nya spelarens namn",
+ "Add player": "Lägg till spelare",
+ "Playing as {x}": "Spelar: {x}"
 }

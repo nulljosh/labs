@@ -43,6 +43,14 @@
     <div id="settings" class="panel hidden">
       <h2>Settings</h2>
       <label class="setting-row">
+        <span>Player</span>
+        <select id="player-select"></select>
+      </label>
+      <div class="setting-row">
+        <input id="player-name" maxlength="24" placeholder="Name" aria-label="New player's name">
+        <button id="player-add" class="secondary">Add player</button>
+      </div>
+      <label class="setting-row">
         <span>Read quotes aloud</span>
         <input type="checkbox" id="speak-toggle">
       </label>
@@ -156,6 +164,7 @@
     <div id="mode-select" class="panel">
       <picture><source srcset="brand/quip-idle-dark.svg" media="(prefers-color-scheme: dark)"><img class="quip" src="brand/quip-idle.svg" alt="" width="128" height="128"></picture>
       <p>Guess the movie, show, game, song or book from the line.</p>
+      <p id="player-now" class="prompt hidden"></p>
       <p id="family-note" class="prompt hidden">Family mode: only lines that are safe for kids.</p>
       <select id="mode" aria-label="Way to guess">
         <option value="classic">Name the source</option>
@@ -387,6 +396,7 @@
   <script src="game.js"></script>
   <script src="settings.js"></script>
   <script src="transfer.js"></script>
+  <script src="profiles.js"></script>
   <script src="reveal.js"></script>
   <script src="story.js"></script>
   <script src="speak.js"></script>

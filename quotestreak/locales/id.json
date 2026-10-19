@@ -441,5 +441,11 @@
  "Bring your progress over?": "Bawa progresmu ke sini?",
  "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Tautan ini membawa lencana, statistik, rentetan, dan pengaturan dari perangkat lain. Semuanya menggantikan yang ada di sini; skor terbaik yang lebih tinggi tetap.",
  "Bring it over": "Bawa ke sini",
- "Not now": "Nanti saja"
+ "Not now": "Nanti saja",
+ "Player": "Pemain",
+ "Player 1": "Pemain 1",
+ "Name": "Nama",
+ "New player's name": "Nama pemain baru",
+ "Add player": "Tambah pemain",
+ "Playing as {x}": "Bermain sebagai {x}"
 }

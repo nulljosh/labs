@@ -441,5 +441,11 @@
  "Bring your progress over?": "İlerlemeni buraya taşıyalım mı?",
  "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Bu bağlantı başka bir cihazdan rozetleri, istatistikleri, serileri ve ayarları getirir. Buradakilerin yerine geçer; daha yüksek rekor kalır.",
  "Bring it over": "Taşı",
- "Not now": "Şimdi değil"
+ "Not now": "Şimdi değil",
+ "Player": "Oyuncu",
+ "Player 1": "Oyuncu 1",
+ "Name": "Ad",
+ "New player's name": "Yeni oyuncunun adı",
+ "Add player": "Oyuncu ekle",
+ "Playing as {x}": "Oynayan: {x}"
 }

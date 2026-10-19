@@ -87,7 +87,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v67 Themes.** Marquee, noir and drive-in, each within the brand.
 - [x] **v68 Offline packs.** Download packs for flights.
 - [x] **v69 Sync without an account.** iCloud for players who never sign in.
-- [ ] **v70 Family profiles.** Several players on one device.
+- [x] **v70 Family profiles.** Several players on one device.
 
 ### Era 8: the content engine (71 to 80)
 - [ ] **v71 Verified bank.** Every line checked against subtitles, with its source shown.

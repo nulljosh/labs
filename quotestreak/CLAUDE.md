@@ -14,6 +14,9 @@ Plain HTML/CSS/JS, classic scripts sharing top-level bindings, one file per feat
 ## Sync without an account (v69)
 Native: `SharedStore.cloudHigh` keeps the best score in iCloud key-value storage (`com.apple.developer.ubiquity-kvstore-identifier`, shared id `$(TeamIdentifierPrefix)com.heyitsmejosh.quotable` on iOS, macOS and visionOS), higher score wins. The iCloud capability was added to bundle id YDHCC4J3S2 on 2026-10-19, so the next archive needs fresh provisioning profiles (`asc signing fetch`). Web: `transfer.js` puts every `quotable_*`/`quotestreak_*` key in a `#sync=` link (the hash never reaches a server); opening it asks first, replaces, and keeps the higher best score.
 
+## Family profiles (v70)
+`profiles.js` keeps several players on one browser. The active player's progress stays in the usual keys, so nothing else changes; switching files those keys under `quotestreak_profiles`, restores the other player's, and reloads. Sound, language, theme, contrast and offline packs belong to the device; family mode belongs to the player. Web only for now.
+
 ## Access (v59)
 `scripts/axe-check.mjs` runs axe-core over every screen of `dist/`, light and dark; keep it at 0 violations. The question and the result are `aria-live`; keys 1 to 4 answer; High contrast (Settings, or the system's Increase Contrast) swaps to pure ink and white with no poster wall. Yellow as text on the light ground uses `--accent-text` (#8a6412), never `--accent-deep`, which fails contrast. Native: the round scrolls at the largest Dynamic Type sizes, the timer ring reads as one value, revealed answers say right or wrong.
 

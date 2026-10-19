@@ -441,5 +441,11 @@
  "Bring your progress over?": "अपनी प्रगति यहाँ लाएँ?",
  "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "यह लिंक दूसरे डिवाइस से बैज, आँकड़े, लगातार जीत और सेटिंग्स लाता है। ये यहाँ की चीज़ों की जगह लेंगे; ऊँचा सर्वश्रेष्ठ स्कोर बना रहेगा।",
  "Bring it over": "ले आएँ",
- "Not now": "अभी नहीं"
+ "Not now": "अभी नहीं",
+ "Player": "खिलाड़ी",
+ "Player 1": "खिलाड़ी 1",
+ "Name": "नाम",
+ "New player's name": "नए खिलाड़ी का नाम",
+ "Add player": "खिलाड़ी जोड़ें",
+ "Playing as {x}": "खेल रहे हैं: {x}"
 }

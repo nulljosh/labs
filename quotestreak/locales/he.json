@@ -441,5 +441,11 @@
  "Bring your progress over?": "להעביר לכאן את ההתקדמות שלך?",
  "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "הקישור מביא תגים, סטטיסטיקות, רצפים והגדרות ממכשיר אחר. הם מחליפים את מה שיש כאן; השיא הגבוה יותר נשאר.",
  "Bring it over": "להעביר",
- "Not now": "לא עכשיו"
+ "Not now": "לא עכשיו",
+ "Player": "שחקן",
+ "Player 1": "שחקן 1",
+ "Name": "שם",
+ "New player's name": "שם השחקן החדש",
+ "Add player": "הוספת שחקן",
+ "Playing as {x}": "משחק/ת: {x}"
 }

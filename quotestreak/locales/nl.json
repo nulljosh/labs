@@ -441,5 +441,11 @@
  "Bring your progress over?": "Je voortgang hierheen halen?",
  "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Deze link brengt badges, statistieken, reeksen en instellingen van een ander apparaat mee. Ze vervangen wat hier staat; de hoogste topscore blijft.",
  "Bring it over": "Hierheen halen",
- "Not now": "Niet nu"
+ "Not now": "Niet nu",
+ "Player": "Speler",
+ "Player 1": "Speler 1",
+ "Name": "Naam",
+ "New player's name": "Naam van de nieuwe speler",
+ "Add player": "Speler toevoegen",
+ "Playing as {x}": "Speler: {x}"
 }

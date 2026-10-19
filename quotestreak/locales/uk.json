@@ -441,5 +441,11 @@
  "Bring your progress over?": "Перенести ваш прогрес?",
  "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Це посилання переносить значки, статистику, серії й налаштування з іншого пристрою. Вони замінять те, що є тут; лишається вищий рекорд.",
  "Bring it over": "Перенести",
- "Not now": "Не зараз"
+ "Not now": "Не зараз",
+ "Player": "Гравець",
+ "Player 1": "Гравець 1",
+ "Name": "Ім’я",
+ "New player's name": "Ім’я нового гравця",
+ "Add player": "Додати гравця",
+ "Playing as {x}": "Грає: {x}"
 }

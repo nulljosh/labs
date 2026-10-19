@@ -441,5 +441,11 @@
  "Bring your progress over?": "進行状況を引き継ぎますか？",
  "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "このリンクは別のデバイスからバッジ、成績、連続記録、設定を持ってきます。ここにあるものは置き換わりますが、高いほうのベストスコアは残ります。",
  "Bring it over": "引き継ぐ",
- "Not now": "今はしない"
+ "Not now": "今はしない",
+ "Player": "プレイヤー",
+ "Player 1": "プレイヤー1",
+ "Name": "名前",
+ "New player's name": "新しいプレイヤーの名前",
+ "Add player": "プレイヤーを追加",
+ "Playing as {x}": "プレイ中：{x}"
 }

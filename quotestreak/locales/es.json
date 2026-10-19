@@ -441,5 +441,11 @@
  "Bring your progress over?": "¿Traer tu progreso?",
  "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Este enlace trae insignias, estadísticas, rachas y ajustes de otro dispositivo. Sustituyen lo que hay en este; se queda la mejor puntuación más alta.",
  "Bring it over": "Traerlo",
- "Not now": "Ahora no"
+ "Not now": "Ahora no",
+ "Player": "Jugador",
+ "Player 1": "Jugador 1",
+ "Name": "Nombre",
+ "New player's name": "Nombre del nuevo jugador",
+ "Add player": "Añadir jugador",
+ "Playing as {x}": "Juega {x}"
 }

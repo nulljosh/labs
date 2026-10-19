@@ -443,5 +443,11 @@
  "Bring your progress over?": "要把进度带过来吗？",
  "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "此链接会带来另一台设备上的徽章、统计、连胜和设置，并替换这台设备上的内容；较高的最佳成绩会保留。",
  "Bring it over": "带过来",
- "Not now": "暂不"
+ "Not now": "暂不",
+ "Player": "玩家",
+ "Player 1": "玩家 1",
+ "Name": "名字",
+ "New player's name": "新玩家的名字",
+ "Add player": "添加玩家",
+ "Playing as {x}": "当前玩家：{x}"
 }

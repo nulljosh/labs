@@ -441,5 +441,11 @@
  "Bring your progress over?": "Mang tiến trình của bạn sang đây?",
  "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Liên kết này mang huy hiệu, thống kê, chuỗi thắng và cài đặt từ thiết bị khác. Chúng thay cho dữ liệu ở đây; điểm cao nhất lớn hơn được giữ lại.",
  "Bring it over": "Mang sang",
- "Not now": "Để sau"
+ "Not now": "Để sau",
+ "Player": "Người chơi",
+ "Player 1": "Người chơi 1",
+ "Name": "Tên",
+ "New player's name": "Tên người chơi mới",
+ "Add player": "Thêm người chơi",
+ "Playing as {x}": "Đang chơi: {x}"
 }
