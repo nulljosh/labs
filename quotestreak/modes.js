@@ -22,6 +22,20 @@
       const options = pick(q.character, [chars(o => o.answer === q.answer), chars(o => o.genre === q.genre), chars(() => true)], rand);
       return options && { ...q, answer: q.character, character: q.answer, options, prompt: `Who said it in ${q.answer}?` };
     },
+    // v22: one word of the line is blanked; pick it from four. Distractors are words of about the
+    // same length from other lines in the genre, so length alone gives nothing away.
+    finish(q, all, rand) {
+      const words = q.quote.match(/[A-Za-z']+/g) || [];
+      const cands = [...new Set(words.filter(w => w.length >= 5 && !w.includes("'")).map(w => w.toLowerCase()))];
+      if (!cands.length || q.type === 'music' && words.length < 4) return null;
+      const word = cands[Math.floor(rand() * cands.length)], own = new Set(words.map(w => w.toLowerCase()));  // no distractor already in the line
+      const near = (f) => all.filter(o => o !== q && f(o)).flatMap(o => o.quote.match(/[A-Za-z]+/g) || [])
+        .map(w => w.toLowerCase()).filter(w => Math.abs(w.length - word.length) <= 1 && w.length >= 5 && !own.has(w));
+      const options = pick(word, [near(o => o.genre === q.genre).slice(0, 200), near(() => true).slice(0, 400)], rand);
+      if (!options) return null;
+      const display = q.quote.replace(new RegExp(`\\b${word}\\b`, 'gi'), '_____');
+      return { ...q, answer: word, character: [q.character, q.answer].filter(Boolean).join(', '), options, display, prompt: `Finish the line from ${q.answer}.` };
+    },
   };
   const build = (mode, q, all, rand = Math.random) => (BUILD[mode] ? BUILD[mode](q, all, rand) : q);
   const api = { build };

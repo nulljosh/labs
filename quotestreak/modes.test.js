@@ -17,4 +17,13 @@ assert.equal(build('who', bank.find(x => x.type === 'music'), bank, rand), null,
 const playable = bank.filter(x => build('who', x, bank, rand)).length;
 assert(playable > 1000, `only ${playable} who-said-it lines`);
 assert.equal(build('classic', q, bank), q);
-console.log('modes ok', playable);
+
+// Finish the line
+const f = build('finish', q, bank, rand);
+assert(f.display.includes('_____') && !f.display.toLowerCase().includes(` ${f.answer} `), f.display);
+assert.equal(f.options.length, 4);
+assert(f.options.includes(f.answer));
+assert(f.options.every(o => Math.abs(o.length - f.answer.length) <= 1));
+const fin = bank.slice(0, 300).filter(x => build('finish', x, bank, rand)).length;
+assert(fin > 250, `only ${fin} of 300 finish lines`);
+console.log('modes ok', playable, fin);
