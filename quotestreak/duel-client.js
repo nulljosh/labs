@@ -42,7 +42,10 @@ function duelResult() {
     ? Challenge.verdict(score, duel.them, 'Your friend') + (duel.left && !duel.theirDone ? ' They left early.' : '')
     : `You scored ${score}. Waiting for your friend to finish…`;
   if ((duel.theirDone || duel.left) && score > duel.them) window.quotableBadge?.('duelWin');
-  if (duel.theirDone || duel.left) { duel.ws.close(); duel = null; history.replaceState(null, '', location.pathname); }
+  if (duel.theirDone || duel.left) {
+    if (duel.theirDone) window.quotableDuelDone?.(score, duel.them);   // champions.js reports a bracket match
+    duel.ws.close(); duel = null; history.replaceState(null, '', location.pathname);
+  }
 }
 $('start-duel').onclick = () => openDuel(Array.from({ length: 4 }, () => 'ABCDEFGHJKLMNPQRSTUVWXYZ'[Math.floor(Math.random() * 24)]).join(''));
 $('duel-copy').onclick = () => navigator.clipboard.writeText($('duel-link').textContent).then(() => {
