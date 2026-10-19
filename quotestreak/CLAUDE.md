@@ -19,19 +19,16 @@ The hero wall is the one sanctioned exception to the standing "no gradients" rul
 
 `play.html` has its own `#backdrop` mosaic of the same artwork, built by `buildBackdrop()` in `game.js` off the quotes.json fetch that is already there, do not add a second fetch. Two deliberate differences from the hero wall: it is **static**, because the speed round is a timed attention task and drifting posters behind a 10-second clock fight the clock; and it holds legibility with low opacity alone (0.14 light / 0.22 dark) rather than a scrim, so the game UI keeps its flat backgrounds and the no-gradients rule stays intact there. Tune those two numbers if real artwork reads too busy. It sits at `z-index: -2`, below `#art-flash` at `-1`, so the answer-reveal flash still lands on top.
 
-## Icon
-`icon.svg` is **pure geometry, no `<text>`, no font dependency** (2026-08-28). It is two opening quote marks drawn as paths on a dark rounded square, matching the orientation of the icon already live on the App Store.
+## Brand (2026-10-18)
+`brand/BRAND.md` is the rulebook, `brand/index.html` the live kit (quotestreak.jaybulb.com/brand/). The short version:
 
-**The tail must stay longer than the ball.** A first attempt used a big ball (r34) with a short 38-unit tail and read as two speech bubbles, not punctuation. The shipped glyph inverts that, ball r24 (48 tall), tail 56, and reads as a quote mark all the way down to 20px. Two other approaches were tried and rejected: tapered slanted wedges (reads as a pause button, which is what the original Menlo `"` looked like), and quote-marks-over-text-lines (unmistakable but busy, and needs a second colour).
+- **Colour:** marquee yellow `#ffcc00` on night ink. Red and green are reserved for wrong and right, which is why the old red brand and the stray blue UI accent are both gone. Text on yellow is always ink. One yellow primary per screen; secondary actions are outlined.
+- **Icon:** two opening quote marks on a streak (speed lines), yellow on an ink tile. `Quotestreak.icon` (Icon Composer) is the app icon on iOS and macOS (`ASSETCATALOG_COMPILER_APPICON_NAME: Quotestreak`); the asset catalogs only hold a flattened fallback. Regenerate everything with the brand skill's `make_brand.py`, never by hand. **The tail stays longer than the ball**: a short tail reads as a speech bubble, wedges read as a pause button. Keep the HTML wordmark in the topbar; the mark alone does not name the product.
+- **Quip**, the mascot: the mark come to life. `brand/mascot.py` writes four poses (idle, cheer, oops, streak), a `-dark` twin of each with cream limbs, and `brand/Quip.xcassets` (switches by appearance). On the web, pick the twin with `<picture>` or `data-theme`.
+- **Quip Sans** is the face, on purpose (Joshua asked for a custom face 2026-10-18, overriding the fleet's system-font rule for this app). `scripts/gen_font.py` builds it from Hanken Grotesk (OFL): renamed, curly quotes redrawn as the mark, figures made proportional. Run `--check` after any change. Web loads it from `brand/tokens.css`; the apps register the bundled TTFs at first use (`Theme.fontsRegistered`) and use `Font.quip(...)`. There is no italic, so quotes are upright Semibold.
+- The built app is **Quotestreak.app** (`PRODUCT_NAME`); target, scheme and bundle ids keep the Quotable name. If the Dock shows an old icon after a rebuild, that is LaunchServices caching the bundle id: `lsregister -f` the new app.
 
-It used to set a `"` glyph and the word `QUOTE` in Menlo as two `<text>` elements. That is why the v1.5.1 note below says the lettering renders ~4px tall at icon size, that specific reasoning is now moot, but **its conclusion still stands: keep the HTML wordmark in the topbar.** A bare quote mark does not name the product, so the mark and the wordmark ship together. Do not drop the wordmark and do not put text back in the icon.
-
-App icons are generated from `icon.svg`, not hand-exported (hand-exporting is what left the old shipped iOS icon floating in the top third of its canvas):
-
-- iOS `ios/Assets.xcassets/AppIcon.appiconset/AppIcon.png`, 1024, **square, corners NOT rounded**; iOS applies its own mask, so baked corners would be double-rounded.
-- macOS `macos/Assets.xcassets/AppIcon.appiconset/icon_{16,32,64,128,256,512,1024}.png`, rounded corners baked in, which macOS expects.
-
-All of them must be **opaque, no alpha channel**, Apple rejects an app icon carrying one (ITMS-90717). Regenerating them here changes only the repo; the store listings keep the old icon until a new build is submitted.
+All icons must be **opaque, no alpha channel** (ITMS-90717). A new icon reaches the store only with a new build.
 
 ## Deploy
 GitHub Pages via `.github/workflows/deploy.yml` (Settings → Pages → Source: GitHub Actions).
