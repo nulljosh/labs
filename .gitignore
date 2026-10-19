@@ -12,6 +12,7 @@
 !plan/
 !hormuz/
 !tripwire/
+!cadence/
 !scripts/
 scripts/*
 !scripts/progress-svg.py

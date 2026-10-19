@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadence</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+/* Portfolio look (tokens-lovefrom): #fafafa on #0f0f0f ink, hairlines, no radius, no shadows, system sans */
+    :root{--bg:#fafafa;--text:#000;--text-secondary:rgba(0,0,0,.7);--text-tertiary:rgba(0,0,0,.5);--border:rgba(0,0,0,.08);
+      --cell0:rgba(0,0,0,.05);--cell1:rgba(0,0,0,.2);--cell2:rgba(0,0,0,.4);--cell3:rgba(0,0,0,.65);--cell4:#000;
+      --ease:cubic-bezier(.22,1,.36,1);--spring:var(--ease);
+      --font:-apple-system,BlinkMacSystemFont,system-ui,'Helvetica Neue',Helvetica,Arial,sans-serif}
+    @media (prefers-color-scheme: dark){:root{--bg:#0f0f0f;--text:#fafafa;--text-secondary:rgba(250,250,250,.7);--text-tertiary:rgba(250,250,250,.5);--border:rgba(250,250,250,.1);
+      --cell0:rgba(250,250,250,.06);--cell1:rgba(250,250,250,.22);--cell2:rgba(250,250,250,.4);--cell3:rgba(250,250,250,.65);--cell4:#fafafa}}
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      font-weight: 400;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100dvh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 3rem) 4rem;
+    }
+
+    /* FadeUp */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: no-preference) { .wordmark { will-change: transform; } }
+
+    /* Header */
+    header { margin-bottom: clamp(3rem, 6vw, 5rem); }
+
+    .wordmark {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 200;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1.05;
+      margin-bottom: 0.75rem;
+    }
+
+    .sub {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .streak-badge {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 0;
+      padding: 3px 10px;
+    }
+
+    /* Section label */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-tertiary);
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+
+    section { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+
+    /* Stats row */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-cell {
+      padding: 1.25rem 0;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding-right: 1.5rem;
+      transition: opacity 0.3s ease-out;
+    }
+
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell:hover { opacity: 0.6; }
+
+    .stat-num {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 200;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      font-weight: 500;
+    }
+
+    .repo-breakdown {
+      list-style: none;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    .repo-breakdown li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.3rem 0;
+      font-size: 0.8125rem;
+      color: var(--text-tertiary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .repo-breakdown li span:first-child { color: var(--text-secondary); }
+    .repo-breakdown li span:last-child { font-variant-numeric: tabular-nums; }
+
+    /* Chart */
+    .chart-wrap {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    canvas { max-height: 160px; }
+
+    /* Heatmap */
+    .heatmap-wrap {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    .heatmap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    .heatmap-cell {
+      width: 11px;
+      height: 11px;
+      border-radius: 0;
+      background: var(--cell0);
+      transition: transform 0.15s var(--spring), opacity 0.15s;
+    }
+
+    .heatmap-cell:hover { transform: scale(1.5); opacity: 0.8; }
+    .heatmap-cell.l1 { background: var(--cell1); }
+    .heatmap-cell.l2 { background: var(--cell2); }
+    .heatmap-cell.l3 { background: var(--cell3); }
+    .heatmap-cell.l4 { background: var(--cell4); }
+
+    /* Project list */
+    .proj-list {
+      list-style: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .proj-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      transition: opacity 0.3s ease-out, transform 0.2s var(--spring);
+    }
+
+    .proj-row:hover { opacity: 0.6; transform: translateX(4px); }
+
+    .proj-name {
+      color: var(--text);
+      font-weight: 500;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .proj-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      flex-shrink: 0;
+      font-size: 0.875rem;
+    }
+
+    .proj-commits {
+      color: var(--text);
+      font-weight: 500;
+      min-width: 3ch;
+      text-align: right;
+    }
+
+    .proj-ago { color: var(--text-tertiary); white-space: nowrap; }
+
+    .status-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 0;
+      background: var(--text-tertiary);
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    .status-dot.active { background: var(--text-secondary); }
+
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .proj-meta { gap: 0.75rem; }
+      .proj-ago { display: none; }
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0 12px;
+      border-top: 1px solid var(--border);
+      color: var(--text-tertiary);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+    footer a {
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    footer a:hover { color: var(--text); }
+  </style>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Cadence">
+    <meta property="og:title" content="Cadence">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="https://cadence.jaybulb.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cadence">
+    <meta name="twitter:description" content="">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="fade-up">
+      <div class="wordmark">Cadence</div>
+      <div class="sub">
+        <span id="date-line">code activity</span>
+        <span class="streak-badge" id="streak-badge">-- day streak</span>
+      </div>
+    </header>
+
+    <section class="fade-up" style="transition-delay:0.05s">
+      <span class="section-label">Stats</span>
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-num" id="stat-total">--</div>
+          <div class="stat-label">Commits 30d</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num" id="stat-projects">--</div>
+          <div class="stat-label">Repos</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num" id="stat-best">--</div>
+          <div class="stat-label">Best Day</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num" id="stat-streak">--</div>
+          <div class="stat-label">Streak</div>
+        </div>
+      </div>
+      <ul class="repo-breakdown" id="repo-breakdown"></ul>
+    </section>
+
+    <section class="fade-up" style="transition-delay:0.1s">
+      <span class="section-label">Commit Activity</span>
+      <div class="chart-wrap">
+        <canvas id="commitChart"></canvas>
+      </div>
+    </section>
+
+    <section class="fade-up" style="transition-delay:0.15s">
+      <span class="section-label">Activity Grid</span>
+      <div class="heatmap-wrap">
+        <div class="heatmap" id="heatmap"></div>
+      </div>
+    </section>
+
+    <section class="fade-up" style="transition-delay:0.2s">
+      <span class="section-label">Projects</span>
+      <ul class="proj-list" id="proj-list"></ul>
+    </section>
+
+
+<style>
+#install-anywhere{padding:5rem 0;border-top:1px solid color-mix(in srgb, currentColor 14%, transparent);}
+#install-anywhere .xp-wrap{max-width:960px;margin:0 auto;padding:0 1.5rem;}
+#install-anywhere h2{font-size:clamp(1.6rem,3.4vw,2.4rem);margin:0 0 .6rem;letter-spacing:-.02em;}
+#install-anywhere .xp-lead{max-width:46ch;margin:0 0 2.5rem;opacity:.7;line-height:1.55;}
+#install-anywhere .xp-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+#install-anywhere .xp-card{background:color-mix(in srgb, currentColor 4%, transparent);border:1px solid color-mix(in srgb, currentColor 14%, transparent);border-radius:var(--radius);padding:1.25rem;display:flex;flex-direction:column;gap:.5rem;}
+#install-anywhere .xp-card h3{margin:0;font-size:1rem;letter-spacing:-.01em;}
+#install-anywhere .xp-card p{margin:0;font-size:.9rem;line-height:1.5;opacity:.7;flex:1;}
+#install-anywhere .xp-card a{margin-top:.5rem;font-size:.875rem;font-weight:500;color:var(--accent,currentColor);text-decoration:none;}
+#install-anywhere .xp-card a:hover{text-decoration:underline;}
+</style>
+
+<section id="install-anywhere">
+  <div class="xp-wrap">
+    <h2>Install it anywhere.</h2>
+    <p class="xp-lead">Cadence runs on every platform. On Windows, Linux and Android it installs straight from the browser &mdash; no store, no download, no runtime. It gets a real window, its own icon, and keeps working offline.</p>
+    <div class="xp-grid">
+    <div class="xp-card">
+      <h3>iPhone &amp; iPad</h3>
+      <p>A native SwiftUI app.</p>
+    </div>
+    <div class="xp-card">
+      <h3>Mac</h3>
+      <p>Native, universal binary. Runs on Apple silicon and Intel.</p>
+    </div>
+    <div class="xp-card">
+      <h3>Windows</h3>
+      <p>Open the web app in Edge or Chrome, then <strong>Install Cadence</strong> from the address bar. It lands in the Start Menu like any other app.</p>
+      <a href="https://cadence.jaybulb.com">Open &amp; install &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Android</h3>
+      <p>Open the web app in Chrome, then <strong>Add to Home screen</strong>. Full screen, no browser chrome, works offline.</p>
+      <a href="https://cadence.jaybulb.com">Open &amp; install &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Linux</h3>
+      <p>Same as Windows &mdash; install the web app from Chrome or Chromium and it runs in its own window.</p>
+      <a href="https://cadence.jaybulb.com">Open &amp; install &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Web</h3>
+      <p>Nothing to install. The same app, in any modern browser.</p>
+      <a href="https://cadence.jaybulb.com">Open the web app &rarr;</a>
+    </div>
+    </div>
+  </div>
+</section>
+
+    <footer>
+      <span>MIT 2026 Joshua Trommel</span>
+      <a href="https://github.com/nulljosh/cadence" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/nulljosh/cadence/blob/main/docs/API.md" target="_blank" rel="noopener">API</a>
+    </footer>
+
+  </div>
+
+  <script src="webmcp.js"></script>
+  <script>
+    const API = '';
+
+    // FadeUp observer
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    // Subtle parallax on the wordmark, off under reduced motion
+    (function () {
+      const wordmark = document.querySelector('.wordmark');
+      if (!wordmark || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      let ticking = false;
+      function apply() { wordmark.style.transform = 'translateY(' + (window.scrollY * 0.05) + 'px)'; ticking = false; }
+      window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(apply); ticking = true; } }, { passive: true });
+    })();
+
+    function mk(tag, cls, text) {
+      const e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (text !== undefined) e.textContent = text;
+      return e;
+    }
+
+    function fmtNum(n) { return n.toLocaleString(); }
+
+    async function load() {
+      const [stats, heatmap, projects] = await Promise.all([
+        fetch(API+'/api/stats').then(r=>r.json()),
+        fetch(API+'/api/heatmap').then(r=>r.json()),
+        fetch(API+'/api/projects').then(r=>r.json()),
+      ]);
+
+      // Date line
+      const now = new Date();
+      document.getElementById('date-line').textContent =
+        now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).toLowerCase();
+
+      // Stats
+      document.getElementById('stat-total').textContent = fmtNum(stats.total30);
+      document.getElementById('stat-projects').textContent = stats.activeProjects;
+      document.getElementById('stat-best').textContent = stats.bestDay;
+      document.getElementById('stat-streak').textContent = stats.streak;
+      document.getElementById('streak-badge').textContent = stats.streak + '-day streak';
+
+      // Per-repo breakdown (top 5)
+      const breakdown = document.getElementById('repo-breakdown');
+      Object.entries(stats.perRepo || {})
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5)
+        .forEach(([name, count]) => {
+          const li = mk('li');
+          li.appendChild(mk('span', null, name));
+          li.appendChild(mk('span', null, count + (count === 1 ? ' commit' : ' commits')));
+          breakdown.appendChild(li);
+        });
+
+      // Chart
+      const labels = [], data = [];
+      for (let i = 29; i >= 0; i--) {
+        const d = new Date(now); d.setDate(d.getDate() - i);
+        const key = d.toISOString().slice(0, 10);
+        labels.push(d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+        data.push(stats.daily[key] || 0);
+      }
+      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const accentRgb = dark ? '250,250,250' : '0,0,0';
+      const gridColor = dark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.04)';
+      const tickColor = dark ? 'rgba(237,235,232,0.3)' : 'rgba(0,0,0,0.4)';
+      const uiFont = getComputedStyle(document.body).fontFamily;
+      new Chart(document.getElementById('commitChart'), {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            data,
+            backgroundColor: `rgba(${accentRgb},0.15)`,
+            borderColor: `rgba(${accentRgb},0.5)`,
+            borderWidth: 1,
+            borderRadius: 3,
+            hoverBackgroundColor: `rgba(${accentRgb},0.3)`
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: dark ? '#1e1d1c' : '#f4f3f1',
+              borderColor: dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)',
+              borderWidth: 1,
+              titleColor: tickColor,
+              bodyColor: dark ? '#edebe8' : '#1a1a18',
+              callbacks: { label: ctx => ' ' + ctx.raw + ' commits' }
+            }
+          },
+          scales: {
+            x: { grid: { color: gridColor }, ticks: { color: tickColor, font: { size: 10, family: uiFont }, maxTicksLimit: 8 } },
+            y: { grid: { color: gridColor }, ticks: { color: tickColor, font: { size: 10, family: uiFont } } }
+          }
+        }
+      });
+
+      // Heatmap
+      const hm = document.getElementById('heatmap');
+      const max = Math.max(...Object.values(heatmap), 1);
+      for (let i = 364; i >= 0; i--) {
+        const d = new Date(now); d.setDate(d.getDate() - i);
+        const key = d.toISOString().slice(0, 10);
+        const count = heatmap[key] || 0;
+        const ratio = count / max;
+        const level = count === 0 ? '' : ratio < 0.25 ? 'l1' : ratio < 0.5 ? 'l2' : ratio < 0.75 ? 'l3' : 'l4';
+        const cell = mk('div', 'heatmap-cell' + (level ? ' ' + level : ''));
+        cell.title = key + ': ' + count + ' commits';
+        hm.appendChild(cell);
+      }
+
+      // Projects
+      const list = document.getElementById('proj-list');
+      projects.forEach(p => {
+        const li = mk('li', 'proj-row');
+        const name = mk('span', 'proj-name', p.name);
+        const meta = mk('div', 'proj-meta');
+        const dot = mk('span', 'status-dot' + (p.status === 'active' ? ' active' : ''));
+        const label = String(p.commits30);
+        const commits = mk('span', 'proj-commits', label);
+        const ago = mk('span', 'proj-ago', p.lastCommitAgo);
+        meta.appendChild(dot);
+        meta.appendChild(commits);
+        meta.appendChild(ago);
+        li.appendChild(name);
+        li.appendChild(meta);
+        list.appendChild(li);
+      });
+    }
+
+    load();
+  </script>
+  <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>
+</body>
+</html>
