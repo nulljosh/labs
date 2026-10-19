@@ -35,7 +35,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **inkpress** | Multi-feed RSS reader · 6787759999 |
 | **sidewise** | RSS bias API + reader · 6806028670 |
 | **plaintxt** | Plain text editor, iOS + macOS + CLI |
-| **blackcomb** (ex-madobe, ex-lucarne) | WebKit browser: start page, reading list, Float, Pair, site rules. Bundle ID `com.nulljosh.lucarne` and Worker name `madobe` stay · 6809355192 |
+| **blackcomb** (ex-madobe, ex-lucarne) | WebKit browser: start page, reading list, Float, Pair, site rules. Mac automation built and held until the Mac review clears. Bundle ID `com.nulljosh.lucarne` and Worker name `madobe` stay · 6809355192 |
 | **airwell** (ex-windgate) | Guided breathing. Folder is `breathe` · 6810806058 |
 | **curbfind** | Craigslist browser, every platform · 6809031662 |
 | **atlin** (ex-brick, ex-roost) | Real rentals on a map, deal-ranked, 27 languages. Bundle ID still `com.nulljosh.brick`, Pages project still `roost` (neither can be renamed) · 6824157219 |
