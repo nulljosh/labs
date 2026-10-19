@@ -23,6 +23,7 @@
 !dotfiles/
 !journal/
 !toroid/
+!quotestreak/
 !scripts/
 scripts/*
 !scripts/progress-svg.py

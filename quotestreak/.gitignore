@@ -1,0 +1,8 @@
+.env
+
+# Build artifacts
+.asc/artifacts/
+.DS_Store
+.asc/web-review/
+dist/
+.build/

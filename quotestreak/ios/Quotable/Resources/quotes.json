@@ -1,0 +1,3705 @@
+[
+  {
+    "quote": "I'm gonna make him an offer he can't refuse.",
+    "year": 1972,
+    "options": [
+      "The Godfather",
+      "Goodfellas",
+      "Scarface",
+      "Casino"
+    ],
+    "genre": "drama",
+    "answer": "The Godfather",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
+  },
+  {
+    "quote": "May the Force be with you.",
+    "year": 1977,
+    "options": [
+      "Star Trek",
+      "Star Wars",
+      "Dune",
+      "The Last Starfighter"
+    ],
+    "genre": "scifi",
+    "answer": "Star Wars",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg"
+  },
+  {
+    "quote": "You're gonna need a bigger boat.",
+    "year": 1975,
+    "options": [
+      "Jaws",
+      "The Perfect Storm",
+      "Deep Blue Sea",
+      "Titanic"
+    ],
+    "genre": "action",
+    "answer": "Jaws",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lxM6kqilAdpdhqUl2biYp5frUxE.jpg"
+  },
+  {
+    "quote": "Here's looking at you, kid.",
+    "year": 1942,
+    "options": [
+      "Casablanca",
+      "Gone with the Wind",
+      "Roman Holiday",
+      "An American in Paris"
+    ],
+    "genre": "classic",
+    "answer": "Casablanca",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lGCEKlJo2CnWydQj7aamY7s1S7Q.jpg"
+  },
+  {
+    "quote": "I'll be back.",
+    "year": 1984,
+    "options": [
+      "Predator",
+      "RoboCop",
+      "The Terminator",
+      "Total Recall"
+    ],
+    "genre": "scifi",
+    "answer": "The Terminator",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/qvktm0BHcnmDpul4Hz01GIazWPr.jpg"
+  },
+  {
+    "quote": "Life is like a box of chocolates.",
+    "year": 1994,
+    "options": [
+      "Forrest Gump",
+      "Rain Man",
+      "Big",
+      "Cast Away"
+    ],
+    "genre": "drama",
+    "answer": "Forrest Gump",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg"
+  },
+  {
+    "quote": "Why so serious?",
+    "year": 2008,
+    "options": [
+      "Joker",
+      "The Dark Knight",
+      "Batman Begins",
+      "Watchmen"
+    ],
+    "genre": "action",
+    "answer": "The Dark Knight",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+  },
+  {
+    "quote": "I see dead people.",
+    "year": 1999,
+    "options": [
+      "The Sixth Sense",
+      "Signs",
+      "The Others",
+      "Poltergeist"
+    ],
+    "genre": "drama",
+    "answer": "The Sixth Sense",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/vOyfUXNFSnaTk7Vk5AjpsKTUWsu.jpg"
+  },
+  {
+    "quote": "You can't handle the truth!",
+    "year": 1992,
+    "options": [
+      "A Few Good Men",
+      "The Firm",
+      "Primal Fear",
+      "12 Angry Men"
+    ],
+    "genre": "drama",
+    "answer": "A Few Good Men",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/rLOk4z9zL1tTukIYV56P94aZXKk.jpg"
+  },
+  {
+    "quote": "To infinity and beyond!",
+    "year": 1995,
+    "options": [
+      "Toy Story",
+      "A Bug's Life",
+      "Cars",
+      "Up"
+    ],
+    "genre": "comedy",
+    "answer": "Toy Story",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg"
+  },
+  {
+    "quote": "Houston, we have a problem.",
+    "year": 1995,
+    "options": [
+      "Gravity",
+      "Apollo 13",
+      "The Martian",
+      "Interstellar"
+    ],
+    "genre": "drama",
+    "answer": "Apollo 13",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/tVeKscCm2fY1xDXZk8PgnZ87h9S.jpg"
+  },
+  {
+    "quote": "Say hello to my little friend!",
+    "year": 1983,
+    "options": [
+      "Scarface",
+      "Carlito's Way",
+      "The Untouchables",
+      "Heat"
+    ],
+    "genre": "action",
+    "answer": "Scarface",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/iQ5ztdjvteGeboxtmRdXEChJOHh.jpg"
+  },
+  {
+    "quote": "There's no place like home.",
+    "year": 1939,
+    "options": [
+      "Alice in Wonderland",
+      "The Wizard of Oz",
+      "Peter Pan",
+      "Mary Poppins"
+    ],
+    "genre": "classic",
+    "answer": "The Wizard of Oz",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/uCC3j4pV9eOZwzDUWp2ilbcTf1f.jpg"
+  },
+  {
+    "quote": "I feel the need — the need for speed.",
+    "year": 1986,
+    "options": [
+      "Days of Thunder",
+      "Top Gun",
+      "The Fast and the Furious",
+      "Speed"
+    ],
+    "genre": "action",
+    "answer": "Top Gun",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/xUuHj3CgmZQ9P2cMaqQs4J0d4Zc.jpg"
+  },
+  {
+    "quote": "My precious.",
+    "year": 2002,
+    "options": [
+      "The Hobbit",
+      "The Lord of the Rings: The Two Towers",
+      "Willow",
+      "Eragon"
+    ],
+    "genre": "scifi",
+    "answer": "The Lord of the Rings: The Two Towers",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
+  },
+  {
+    "quote": "Just keep swimming.",
+    "year": 2003,
+    "options": [
+      "Finding Nemo",
+      "Shark Tale",
+      "The Little Mermaid",
+      "Moana"
+    ],
+    "genre": "comedy",
+    "answer": "Finding Nemo",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/eHuGQ10FUzK1mdOY69wF5pGgEf5.jpg"
+  },
+  {
+    "quote": "Roads? Where we're going, we don't need roads.",
+    "year": 1985,
+    "options": [
+      "Back to the Future",
+      "Doc Hollywood",
+      "Field of Dreams",
+      "The Time Machine"
+    ],
+    "genre": "scifi",
+    "answer": "Back to the Future",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg"
+  },
+  {
+    "quote": "Nobody puts Baby in a corner.",
+    "year": 1987,
+    "options": [
+      "Footloose",
+      "Flashdance",
+      "Dirty Dancing",
+      "Grease"
+    ],
+    "genre": "drama",
+    "answer": "Dirty Dancing",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/9Jw6jys7q9gjzVX5zm1z0gC8gY9.jpg"
+  },
+  {
+    "quote": "It's alive! It's alive!",
+    "year": 1931,
+    "options": [
+      "Frankenstein",
+      "Dracula",
+      "The Mummy",
+      "The Wolf Man"
+    ],
+    "genre": "classic",
+    "answer": "Frankenstein",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/mu6wHwH0IwCCaEYtpqujuPJYat1.jpg"
+  },
+  {
+    "quote": "Hasta la vista, baby.",
+    "year": 1991,
+    "options": [
+      "Terminator 2: Judgment Day",
+      "The Terminator",
+      "Predator 2",
+      "RoboCop 2"
+    ],
+    "genre": "scifi",
+    "answer": "Terminator 2: Judgment Day",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/jFTVD4XoWQTcg7wdyJKa8PEds5q.jpg"
+  },
+  {
+    "quote": "You had me at hello.",
+    "year": 1996,
+    "options": [
+      "Jerry Maguire",
+      "As Good as It Gets",
+      "Notting Hill",
+      "You've Got Mail"
+    ],
+    "genre": "drama",
+    "answer": "Jerry Maguire",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lABvGN7fDk5ifnwZoxij6G96t2w.jpg"
+  },
+  {
+    "quote": "Wax on, wax off.",
+    "year": 1984,
+    "options": [
+      "Rocky",
+      "The Karate Kid",
+      "Best of the Best",
+      "Bloodsport"
+    ],
+    "genre": "action",
+    "answer": "The Karate Kid",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/1mp4ViklKvA0WXXsNvNx0RBuiit.jpg"
+  },
+  {
+    "quote": "I am your father.",
+    "year": 1980,
+    "options": [
+      "Return of the Jedi",
+      "The Empire Strikes Back",
+      "A New Hope",
+      "The Phantom Menace"
+    ],
+    "genre": "scifi",
+    "answer": "The Empire Strikes Back",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg"
+  },
+  {
+    "quote": "Say 'what' again. I dare you.",
+    "year": 1994,
+    "options": [
+      "Reservoir Dogs",
+      "Pulp Fiction",
+      "Kill Bill",
+      "Jackie Brown"
+    ],
+    "genre": "action",
+    "answer": "Pulp Fiction",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg"
+  },
+  {
+    "quote": "One does not simply walk into Mordor.",
+    "year": 2001,
+    "options": [
+      "The Hobbit",
+      "The Lord of the Rings: The Fellowship of the Ring",
+      "Willow",
+      "Excalibur"
+    ],
+    "genre": "scifi",
+    "answer": "The Lord of the Rings: The Fellowship of the Ring",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg"
+  },
+  {
+    "quote": "Bond. James Bond.",
+    "year": 1962,
+    "options": [
+      "Dr. No",
+      "Goldfinger",
+      "Skyfall",
+      "Casino Royale"
+    ],
+    "genre": "action",
+    "answer": "Dr. No",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/9zCOLJmLNst0sCPZlkW1IRoH65E.jpg"
+  },
+  {
+    "quote": "Get to the choppa!",
+    "year": 1987,
+    "options": [
+      "Predator",
+      "Commando",
+      "The Running Man",
+      "Total Recall"
+    ],
+    "genre": "action",
+    "answer": "Predator",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/k3mW4qfJo6SKqe6laRyNGnbB9n5.jpg"
+  },
+  {
+    "quote": "You talkin' to me?",
+    "year": 1976,
+    "options": [
+      "Taxi Driver",
+      "Raging Bull",
+      "Mean Streets",
+      "Goodfellas"
+    ],
+    "genre": "drama",
+    "answer": "Taxi Driver",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/ekstpH614fwDX8DUln1a2Opz0N8.jpg"
+  },
+  {
+    "quote": "Frankly, my dear, I don't give a damn.",
+    "year": 1939,
+    "options": [
+      "Gone with the Wind",
+      "Casablanca",
+      "Rebecca",
+      "The Philadelphia Story"
+    ],
+    "genre": "classic",
+    "answer": "Gone with the Wind",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lNz2Ow0wGCAvzckW7EOjE03KcYv.jpg"
+  },
+  {
+    "quote": "Show me the money!",
+    "year": 1996,
+    "options": [
+      "Jerry Maguire",
+      "Wall Street",
+      "The Wolf of Wall Street",
+      "Boiler Room"
+    ],
+    "genre": "drama",
+    "answer": "Jerry Maguire",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lABvGN7fDk5ifnwZoxij6G96t2w.jpg"
+  },
+  {
+    "quote": "I'm king of the world!",
+    "year": 1997,
+    "options": [
+      "Titanic",
+      "The Perfect Storm",
+      "Master and Commander",
+      "Poseidon"
+    ],
+    "genre": "drama",
+    "answer": "Titanic",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
+  },
+  {
+    "quote": "Elementary, my dear Watson.",
+    "year": 1929,
+    "options": [
+      "Sherlock Holmes",
+      "Knives Out",
+      "Murder on the Orient Express",
+      "Clue"
+    ],
+    "genre": "classic",
+    "answer": "Sherlock Holmes",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/xjMwpbxI9JcC7Ck9DDwfV5kJlIQ.jpg"
+  },
+  {
+    "quote": "Keep your friends close, but your enemies closer.",
+    "year": 1974,
+    "options": [
+      "The Godfather Part II",
+      "The Godfather",
+      "Scarface",
+      "Goodfellas"
+    ],
+    "genre": "drama",
+    "answer": "The Godfather Part II",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/sSuQTCZwqKrNBNIsksO9IAUoWP9.jpg"
+  },
+  {
+    "quote": "There's no crying in baseball!",
+    "year": 1992,
+    "options": [
+      "A League of Their Own",
+      "Field of Dreams",
+      "Bull Durham",
+      "Major League"
+    ],
+    "genre": "comedy",
+    "answer": "A League of Their Own",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/f9BtX6wYOwJUyfUr4vyeT3COz6m.jpg"
+  },
+  {
+    "quote": "This is Sparta!",
+    "year": 2006,
+    "options": [
+      "300",
+      "Troy",
+      "Gladiator",
+      "Alexander"
+    ],
+    "genre": "action",
+    "answer": "300",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/h7Lcio0c9ohxPhSZg42eTlKIVVY.jpg"
+  },
+  {
+    "quote": "I love the smell of napalm in the morning.",
+    "year": 1979,
+    "options": [
+      "Apocalypse Now",
+      "Platoon",
+      "Full Metal Jacket",
+      "The Deer Hunter"
+    ],
+    "genre": "drama",
+    "answer": "Apocalypse Now",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/gQB8Y5RCMkv2zwzFHbUJX3kAhvA.jpg"
+  },
+  {
+    "quote": "Snap out of it!",
+    "year": 1987,
+    "options": [
+      "Moonstruck",
+      "Working Girl",
+      "Big",
+      "Broadcast News"
+    ],
+    "genre": "comedy",
+    "answer": "Moonstruck",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/2mnVWpvsHEHHnfvLn1NXYVvBGl5.jpg"
+  },
+  {
+    "quote": "Yippee-ki-yay.",
+    "year": 1988,
+    "options": [
+      "Die Hard",
+      "Lethal Weapon",
+      "Speed",
+      "Predator"
+    ],
+    "genre": "action",
+    "answer": "Die Hard",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/7Bjd8kfmDSOzpmhySpEhkUyK2oH.jpg"
+  },
+  {
+    "quote": "Carpe diem. Seize the day, boys.",
+    "year": 1989,
+    "options": [
+      "Dead Poets Society",
+      "Good Will Hunting",
+      "The Emperor's Club",
+      "School Ties"
+    ],
+    "genre": "drama",
+    "answer": "Dead Poets Society",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/tNvKkSnnn4Z6RCBThyK1gfCSSvv.jpg"
+  },
+  {
+    "quote": "Great Scott!",
+    "year": 1985,
+    "options": [
+      "Back to the Future",
+      "The Time Machine",
+      "Bill & Ted's Excellent Adventure",
+      "Hot Tub Time Machine"
+    ],
+    "genre": "scifi",
+    "answer": "Back to the Future",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg"
+  },
+  {
+    "quote": "Is it soup yet?",
+    "year": 1988,
+    "options": [
+      "Twins",
+      "Kindergarten Cop",
+      "Junior",
+      "Jingle All the Way"
+    ],
+    "genre": "comedy",
+    "answer": "Twins",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/stJx9BQZbXrZnTGf9Erc7d2UMVc.jpg"
+  },
+  {
+    "quote": "Adrian!",
+    "year": 1976,
+    "options": [
+      "Rocky",
+      "Raging Bull",
+      "The Champ",
+      "Cinderella Man"
+    ],
+    "genre": "drama",
+    "answer": "Rocky",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/xSI0dbKLDETwhiVUy6hGE8KXUln.jpg"
+  },
+  {
+    "quote": "Chewie, we're home.",
+    "year": 2015,
+    "options": [
+      "Star Wars: The Force Awakens",
+      "Star Wars",
+      "Rogue One",
+      "The Mandalorian"
+    ],
+    "genre": "scifi",
+    "answer": "Star Wars: The Force Awakens",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/wqnLdwVXoBjKibFRR5U3y0aDUhs.jpg"
+  },
+  {
+    "quote": "Toga! Toga!",
+    "year": 1978,
+    "options": [
+      "National Lampoon's Animal House",
+      "Revenge of the Nerds",
+      "Old School",
+      "Van Wilder"
+    ],
+    "genre": "comedy",
+    "answer": "National Lampoon's Animal House",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/fWooBbipMRIKeSRhEzmeaDV0T8H.jpg"
+  },
+  {
+    "quote": "It's not a tumor!",
+    "year": 1990,
+    "options": [
+      "Kindergarten Cop",
+      "Twins",
+      "Junior",
+      "Jingle All the Way"
+    ],
+    "genre": "comedy",
+    "answer": "Kindergarten Cop",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/nKnHWwkXyvhzCYWm3FyRAv3qBrl.jpg"
+  },
+  {
+    "quote": "Fasten your seatbelts. It's going to be a bumpy night.",
+    "year": 1950,
+    "options": [
+      "All About Eve",
+      "Sunset Boulevard",
+      "Mildred Pierce",
+      "The Bad and the Beautiful"
+    ],
+    "genre": "classic",
+    "answer": "All About Eve",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/blBzZaatPWVuWpXEnPscMA4Xp6m.jpg"
+  },
+  {
+    "quote": "No, I am your father.",
+    "year": 1980,
+    "options": [
+      "The Empire Strikes Back",
+      "Return of the Jedi",
+      "A New Hope",
+      "The Phantom Menace"
+    ],
+    "genre": "scifi",
+    "answer": "The Empire Strikes Back",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg"
+  },
+  {
+    "quote": "I'll have what she's having.",
+    "year": 1989,
+    "options": [
+      "When Harry Met Sally...",
+      "Sleepless in Seattle",
+      "Annie Hall",
+      "Manhattan"
+    ],
+    "genre": "comedy",
+    "answer": "When Harry Met Sally...",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/rFOiFUhTMtDetqCGClC9PIgnC1P.jpg"
+  },
+  {
+    "quote": "Life is like a box of chocolates. You never know what you're gonna get.",
+    "year": 1994,
+    "options": [
+      "Forrest Gump",
+      "Big Fish",
+      "The Green Mile",
+      "Cast Away"
+    ],
+    "genre": "drama",
+    "answer": "Forrest Gump",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg"
+  },
+  {
+    "quote": "You talking to me?",
+    "year": 1976,
+    "options": [
+      "Taxi Driver",
+      "Raging Bull",
+      "Mean Streets",
+      "Serpico"
+    ],
+    "genre": "drama",
+    "answer": "Taxi Driver",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/ekstpH614fwDX8DUln1a2Opz0N8.jpg"
+  },
+  {
+    "quote": "Yippee-ki-yay, motherf***er.",
+    "year": 1988,
+    "options": [
+      "Die Hard",
+      "Lethal Weapon",
+      "Speed",
+      "Con Air"
+    ],
+    "genre": "action",
+    "answer": "Die Hard",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/7Bjd8kfmDSOzpmhySpEhkUyK2oH.jpg"
+  },
+  {
+    "quote": "It ain't over till it's over.",
+    "year": 1992,
+    "options": [
+      "A League of Their Own",
+      "Rocky",
+      "The Sandlot",
+      "Field of Dreams"
+    ],
+    "genre": "comedy",
+    "answer": "A League of Their Own",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/f9BtX6wYOwJUyfUr4vyeT3COz6m.jpg"
+  },
+  {
+    "quote": "The horror. The horror.",
+    "year": 1979,
+    "options": [
+      "Apocalypse Now",
+      "Platoon",
+      "Full Metal Jacket",
+      "The Deer Hunter"
+    ],
+    "genre": "drama",
+    "answer": "Apocalypse Now",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/gQB8Y5RCMkv2zwzFHbUJX3kAhvA.jpg"
+  },
+  {
+    "quote": "May the odds be ever in your favor.",
+    "year": 2012,
+    "options": [
+      "The Hunger Games",
+      "Divergent",
+      "The Maze Runner",
+      "Battle Royale"
+    ],
+    "genre": "action",
+    "answer": "The Hunger Games",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/yXCbOiVDCxO71zI7cuwBRXdftq8.jpg"
+  },
+  {
+    "quote": "Why do we fall? So we can learn to pick ourselves up.",
+    "year": 2005,
+    "options": [
+      "Batman Begins",
+      "The Dark Knight",
+      "Man of Steel",
+      "Kick-Ass"
+    ],
+    "genre": "action",
+    "answer": "Batman Begins",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/sPX89Td70IDDjVr85jdSBb4rWGr.jpg"
+  },
+  {
+    "quote": "There is no spoon.",
+    "year": 1999,
+    "options": [
+      "The Matrix",
+      "Inception",
+      "Dark City",
+      "eXistenZ"
+    ],
+    "genre": "scifi",
+    "answer": "The Matrix",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/dXNAPwY7VrqMAo51EKhhCJfaGb5.jpg"
+  },
+  {
+    "quote": "I am inevitable.",
+    "year": 2019,
+    "options": [
+      "Avengers: Endgame",
+      "Avengers: Infinity War",
+      "Doctor Strange",
+      "Guardians of the Galaxy"
+    ],
+    "genre": "action",
+    "answer": "Avengers: Endgame",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg"
+  },
+  {
+    "quote": "With great power comes great responsibility.",
+    "year": 2002,
+    "options": [
+      "Spider-Man",
+      "X-Men",
+      "Fantastic Four",
+      "Daredevil"
+    ],
+    "genre": "action",
+    "answer": "Spider-Man",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/or6XJBVpcEbIkma0V9zshnbEtx4.jpg"
+  },
+  {
+    "quote": "Get away from her, you b***h!",
+    "year": 1986,
+    "options": [
+      "Aliens",
+      "Alien",
+      "Predator",
+      "The Thing"
+    ],
+    "genre": "scifi",
+    "answer": "Aliens",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/r1x5JGpyqZU8PYhbs4UcrO1Xb6x.jpg"
+  },
+  {
+    "quote": "I'm the king of the world!",
+    "year": 1997,
+    "options": [
+      "Titanic",
+      "The Perfect Storm",
+      "Master and Commander",
+      "Pearl Harbor"
+    ],
+    "genre": "drama",
+    "answer": "Titanic",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
+  },
+  {
+    "quote": "I'm walking here! I'm walking here!",
+    "year": 1969,
+    "options": [
+      "Midnight Cowboy",
+      "Taxi Driver",
+      "The French Connection",
+      "Serpico"
+    ],
+    "genre": "drama",
+    "answer": "Midnight Cowboy",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/wNvxBptJChe3A2CSfPmZoXf7ooh.jpg"
+  },
+  {
+    "quote": "You shall not pass!",
+    "year": 2001,
+    "options": [
+      "The Lord of the Rings: The Fellowship of the Ring",
+      "The Hobbit",
+      "Willow",
+      "Excalibur"
+    ],
+    "genre": "scifi",
+    "answer": "The Lord of the Rings: The Fellowship of the Ring",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg"
+  },
+  {
+    "quote": "Houston, we are go for launch.",
+    "year": 1995,
+    "options": [
+      "Apollo 13",
+      "The Martian",
+      "First Man",
+      "Gravity"
+    ],
+    "genre": "drama",
+    "answer": "Apollo 13",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/tVeKscCm2fY1xDXZk8PgnZ87h9S.jpg"
+  },
+  {
+    "quote": "If you build it, he will come.",
+    "year": 1989,
+    "options": [
+      "Field of Dreams",
+      "The Sandlot",
+      "A League of Their Own",
+      "Bull Durham"
+    ],
+    "genre": "drama",
+    "answer": "Field of Dreams",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/oeM7nAw6FVFICwUaXKCRkDsKjqO.jpg"
+  },
+  {
+    "quote": "Life finds a way.",
+    "year": 1993,
+    "options": [
+      "Jurassic Park",
+      "The Lost World",
+      "King Kong",
+      "Godzilla"
+    ],
+    "genre": "scifi",
+    "answer": "Jurassic Park",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/63viWuPfYQjRYLSZSZNq7dglJP5.jpg"
+  },
+  {
+    "quote": "Hakuna Matata. It means no worries.",
+    "year": 1994,
+    "options": [
+      "The Lion King",
+      "Madagascar",
+      "Tarzan",
+      "Brother Bear"
+    ],
+    "genre": "comedy",
+    "answer": "The Lion King",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg"
+  },
+  {
+    "quote": "You can't sit with us!",
+    "year": 2004,
+    "options": [
+      "Mean Girls",
+      "Clueless",
+      "Legally Blonde",
+      "10 Things I Hate About You"
+    ],
+    "genre": "comedy",
+    "answer": "Mean Girls",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/2ZkuQXvVhh45uSvkBej4S7Ix1NJ.jpg"
+  },
+  {
+    "quote": "That'll do, pig. That'll do.",
+    "year": 1995,
+    "options": [
+      "Babe",
+      "Charlotte's Web",
+      "Chicken Run",
+      "Stuart Little"
+    ],
+    "genre": "comedy",
+    "answer": "Babe",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/zKuQMtnbVTz9DsOnOJmlW71v4qH.jpg"
+  },
+  {
+    "quote": "Play it, Sam. Play 'As Time Goes By.'",
+    "year": 1942,
+    "options": [
+      "Casablanca",
+      "Gone with the Wind",
+      "Rebecca",
+      "Notorious"
+    ],
+    "genre": "classic",
+    "answer": "Casablanca",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lGCEKlJo2CnWydQj7aamY7s1S7Q.jpg"
+  },
+  {
+    "quote": "Louis, I think this is the beginning of a beautiful friendship.",
+    "year": 1942,
+    "options": [
+      "Casablanca",
+      "The Maltese Falcon",
+      "To Have and Have Not",
+      "Key Largo"
+    ],
+    "genre": "classic",
+    "answer": "Casablanca",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lGCEKlJo2CnWydQj7aamY7s1S7Q.jpg"
+  },
+  {
+    "quote": "Go ahead, make my day.",
+    "year": 1983,
+    "options": [
+      "Sudden Impact",
+      "Dirty Harry",
+      "The Enforcer",
+      "Magnum Force"
+    ],
+    "genre": "action",
+    "answer": "Sudden Impact",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/fSADY0EEM7ntpK5IwumcGS4UNNE.jpg"
+  },
+  {
+    "quote": "E.T. phone home.",
+    "year": 1982,
+    "options": [
+      "E.T. the Extra-Terrestrial",
+      "Close Encounters of the Third Kind",
+      "Cocoon",
+      "Flight of the Navigator"
+    ],
+    "genre": "scifi",
+    "answer": "E.T. the Extra-Terrestrial",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/an0nD6uq6byfxXCfk6lQBzdL2J1.jpg"
+  },
+  {
+    "quote": "Get to the chopper!",
+    "year": 1987,
+    "options": [
+      "Predator",
+      "Commando",
+      "The Running Man",
+      "Total Recall"
+    ],
+    "genre": "action",
+    "answer": "Predator",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/k3mW4qfJo6SKqe6laRyNGnbB9n5.jpg"
+  },
+  {
+    "quote": "I want to believe.",
+    "year": 1998,
+    "options": [
+      "The X-Files",
+      "Contact",
+      "Signs",
+      "Fire in the Sky"
+    ],
+    "genre": "scifi",
+    "answer": "The X-Files",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/yLIw6shz2WC3W3iI0jROsF4B2ha.jpg"
+  },
+  {
+    "quote": "Here's Johnny!",
+    "year": 1980,
+    "options": [
+      "The Shining",
+      "Misery",
+      "The Amityville Horror",
+      "Poltergeist"
+    ],
+    "genre": "drama",
+    "answer": "The Shining",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/uAR0AWqhQL1hQa69UDEbb2rE5Wx.jpg"
+  },
+  {
+    "quote": "I drink your milkshake!",
+    "year": 2007,
+    "options": [
+      "There Will Be Blood",
+      "No Country for Old Men",
+      "Blood Diamond",
+      "Giant"
+    ],
+    "genre": "drama",
+    "answer": "There Will Be Blood",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/fa0RDkAlCec0STeMNAhPaF89q6U.jpg"
+  },
+  {
+    "quote": "It's not who I am underneath, but what I do that defines me.",
+    "year": 2005,
+    "options": [
+      "Batman Begins",
+      "The Dark Knight",
+      "V for Vendetta",
+      "The Dark Knight Rises"
+    ],
+    "genre": "action",
+    "answer": "Batman Begins",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/sPX89Td70IDDjVr85jdSBb4rWGr.jpg"
+  },
+  {
+    "quote": "My mama always said life was like a box of chocolates.",
+    "year": 1994,
+    "options": [
+      "Forrest Gump",
+      "Big Fish",
+      "The Green Mile",
+      "The Curious Case of Benjamin Button"
+    ],
+    "genre": "drama",
+    "answer": "Forrest Gump",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg"
+  },
+  {
+    "quote": "You can't fight in here! This is the War Room!",
+    "year": 1964,
+    "options": [
+      "Dr. Strangelove",
+      "Fail Safe",
+      "The Hunt for Red October",
+      "WarGames"
+    ],
+    "genre": "comedy",
+    "answer": "Dr. Strangelove",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/gHm96BRW4GoI339rF1vYoYTB6Qe.jpg"
+  },
+  {
+    "quote": "A martini. Shaken, not stirred.",
+    "year": 1964,
+    "options": [
+      "Goldfinger",
+      "Dr. No",
+      "Thunderball",
+      "You Only Live Twice"
+    ],
+    "genre": "action",
+    "answer": "Goldfinger",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/aKNFzaqQgPzsGXnsMc4kJH5hFIV.jpg"
+  },
+  {
+    "quote": "I feel need for speed.",
+    "year": 2022,
+    "options": [
+      "Top Gun: Maverick",
+      "Top Gun",
+      "Days of Thunder",
+      "Iron Eagle"
+    ],
+    "genre": "action",
+    "answer": "Top Gun: Maverick",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/n0YuM4f5lvGAP6MAW2kBIzugXnc.jpg"
+  },
+  {
+    "quote": "Just when you thought it was safe to go back in the water.",
+    "year": 1978,
+    "options": [
+      "Jaws 2",
+      "Jaws",
+      "Deep Blue Sea",
+      "The Meg"
+    ],
+    "genre": "action",
+    "answer": "Jaws 2",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/cN3ijEwsn4kBaRuHfcJpAQJbeWe.jpg"
+  },
+  {
+    "quote": "Not all those who wander are lost.",
+    "year": 2001,
+    "options": [
+      "The Lord of the Rings: The Fellowship of the Ring",
+      "The Hobbit: An Unexpected Journey",
+      "Willow",
+      "Stardust"
+    ],
+    "genre": "scifi",
+    "answer": "The Lord of the Rings: The Fellowship of the Ring",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg"
+  },
+  {
+    "quote": "Made it, Ma! Top of the world!",
+    "year": 1949,
+    "options": [
+      "White Heat",
+      "The Public Enemy",
+      "Little Caesar",
+      "Angels with Dirty Faces"
+    ],
+    "genre": "classic",
+    "answer": "White Heat",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/v7cPOHKKZI9qChi7HDUxNIhEcLR.jpg"
+  },
+  {
+    "quote": "I'm as mad as hell, and I'm not going to take this anymore!",
+    "year": 1976,
+    "options": [
+      "Network",
+      "All the President's Men",
+      "The China Syndrome",
+      "Wall Street"
+    ],
+    "genre": "drama",
+    "answer": "Network",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/qZomlHsaALUtkFeMDwdYmwS2Pbo.jpg"
+  },
+  {
+    "quote": "You're killing me, Smalls.",
+    "year": 1993,
+    "options": [
+      "The Sandlot",
+      "The Bad News Bears",
+      "Rookie of the Year",
+      "Angels in the Outfield"
+    ],
+    "genre": "comedy",
+    "answer": "The Sandlot",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/7PYqz0viEuW8qTvuGinUMjDWMnj.jpg"
+  },
+  {
+    "quote": "I'm gonna need a bigger boat.",
+    "year": 1975,
+    "options": [
+      "Jaws",
+      "Jurassic Park",
+      "The Meg",
+      "Deep Rising"
+    ],
+    "genre": "action",
+    "answer": "Jaws",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lxM6kqilAdpdhqUl2biYp5frUxE.jpg"
+  },
+  {
+    "quote": "Winter is coming.",
+    "year": 2011,
+    "options": [
+      "Game of Thrones",
+      "The Witcher",
+      "Vikings",
+      "The Last Kingdom"
+    ],
+    "genre": "drama",
+    "answer": "Game of Thrones",
+    "type": "movie"
+  },
+  {
+    "quote": "Why don't you make like a tree and get outta here.",
+    "year": 1985,
+    "options": [
+      "Back to the Future",
+      "Teen Wolf",
+      "Weird Science",
+      "The Goonies"
+    ],
+    "genre": "comedy",
+    "answer": "Back to the Future",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg"
+  },
+  {
+    "quote": "You've got a friend in me.",
+    "year": 1995,
+    "options": [
+      "Toy Story",
+      "Toy Story 2",
+      "A Bug's Life",
+      "Monsters, Inc."
+    ],
+    "genre": "comedy",
+    "answer": "Toy Story",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg"
+  },
+  {
+    "quote": "To boldly go where no man has gone before.",
+    "year": 1966,
+    "options": [
+      "Star Trek",
+      "Star Trek II: The Wrath of Khan",
+      "Star Wars",
+      "Lost in Space"
+    ],
+    "genre": "scifi",
+    "answer": "Star Trek",
+    "type": "movie"
+  },
+  {
+    "quote": "Live long and prosper.",
+    "year": 1982,
+    "options": [
+      "Star Trek II: The Wrath of Khan",
+      "Star Trek",
+      "Star Trek: The Motion Picture",
+      "Star Trek III: The Search for Spock"
+    ],
+    "genre": "scifi",
+    "answer": "Star Trek II: The Wrath of Khan",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/uPyLsKl8Z0LOoxeaFXsY5MxhR5s.jpg"
+  },
+  {
+    "quote": "It's a trap!",
+    "year": 1983,
+    "options": [
+      "Star Wars: Episode VI - Return of the Jedi",
+      "The Empire Strikes Back",
+      "A New Hope",
+      "Rogue One"
+    ],
+    "genre": "scifi",
+    "answer": "Star Wars: Episode VI - Return of the Jedi",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/jQYlydvHm3kUix1f8prMucrplhm.jpg"
+  },
+  {
+    "quote": "Do or do not, there is no try.",
+    "year": 1980,
+    "options": [
+      "The Empire Strikes Back",
+      "A New Hope",
+      "Return of the Jedi",
+      "The Phantom Menace"
+    ],
+    "genre": "scifi",
+    "answer": "The Empire Strikes Back",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg"
+  },
+  {
+    "quote": "The Dude abides.",
+    "year": 1998,
+    "options": [
+      "The Big Lebowski",
+      "Fargo",
+      "Burn After Reading",
+      "No Country for Old Men"
+    ],
+    "genre": "comedy",
+    "answer": "The Big Lebowski",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/3bv6WAp6BSxxYvB5ozKFUYuRA8C.jpg"
+  },
+  {
+    "quote": "That's what she said.",
+    "year": 2005,
+    "options": [
+      "The Office",
+      "Parks and Recreation",
+      "Community",
+      "30 Rock"
+    ],
+    "genre": "comedy",
+    "answer": "The Office",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/kKZnljlSpvkg42QAKeOIBhAQGgy.jpg"
+  },
+  {
+    "quote": "Cool cool cool cool cool.",
+    "year": 2009,
+    "options": [
+      "Community",
+      "The Office",
+      "Brooklyn Nine-Nine",
+      "Parks and Recreation"
+    ],
+    "genre": "comedy",
+    "answer": "Community",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/zqllSUVBeDBQPocN4ayzyuUPDX4.jpg"
+  },
+  {
+    "quote": "Wingardium Leviosa.",
+    "year": 2001,
+    "options": [
+      "Harry Potter and the Sorcerer's Stone",
+      "Harry Potter and the Chamber of Secrets",
+      "The Chronicles of Narnia",
+      "Fantastic Beasts and Where to Find Them"
+    ],
+    "genre": "scifi",
+    "answer": "Harry Potter and the Sorcerer's Stone",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg"
+  },
+  {
+    "quote": "After all this time? Always.",
+    "year": 2011,
+    "options": [
+      "Harry Potter and the Deathly Hallows: Part 2",
+      "Harry Potter and the Order of the Phoenix",
+      "Harry Potter and the Half-Blood Prince",
+      "Harry Potter and the Goblet of Fire"
+    ],
+    "genre": "drama",
+    "answer": "Harry Potter and the Deathly Hallows: Part 2",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/iGoXIpQb7Pot00EEdwpwPajheZ5.jpg"
+  },
+  {
+    "quote": "I am Groot.",
+    "year": 2014,
+    "options": [
+      "Guardians of the Galaxy",
+      "The Avengers",
+      "Iron Man",
+      "Ant-Man"
+    ],
+    "genre": "action",
+    "answer": "Guardians of the Galaxy",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg"
+  },
+  {
+    "quote": "I can do this all day.",
+    "year": 2011,
+    "options": [
+      "Captain America: The First Avenger",
+      "Captain America: Civil War",
+      "The Avengers",
+      "Captain America: The Winter Soldier"
+    ],
+    "genre": "action",
+    "answer": "Captain America: The First Avenger",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/vSNxAJTlD0r02V9sPYpOjqDZXUK.jpg"
+  },
+  {
+    "quote": "Wakanda forever!",
+    "year": 2018,
+    "options": [
+      "Black Panther",
+      "The Avengers",
+      "Black Panther: Wakanda Forever",
+      "Thor: Ragnarok"
+    ],
+    "genre": "action",
+    "answer": "Black Panther",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg"
+  },
+  {
+    "quote": "It's turned off. Try turning it on.",
+    "year": 2001,
+    "options": [
+      "Zoolander",
+      "Anchorman",
+      "Dodgeball",
+      "Blades of Glory"
+    ],
+    "genre": "comedy",
+    "answer": "Zoolander",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/qdrbSneHZjJG2Dj0hhBxzzAo4HB.jpg"
+  },
+  {
+    "quote": "60% of the time, it works every time.",
+    "year": 2004,
+    "options": [
+      "Anchorman: The Legend of Ron Burgundy",
+      "Zoolander",
+      "Talladega Nights",
+      "Step Brothers"
+    ],
+    "genre": "comedy",
+    "answer": "Anchorman: The Legend of Ron Burgundy",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/mhZIcRePT7U8viFQVjt1ZjYIsR4.jpg"
+  },
+  {
+    "quote": "I love lamp.",
+    "year": 2004,
+    "options": [
+      "Anchorman: The Legend of Ron Burgundy",
+      "Step Brothers",
+      "Old School",
+      "Talladega Nights"
+    ],
+    "genre": "comedy",
+    "answer": "Anchorman: The Legend of Ron Burgundy",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/mhZIcRePT7U8viFQVjt1ZjYIsR4.jpg"
+  },
+  {
+    "quote": "You either die a hero, or you live long enough to see yourself become the villain.",
+    "year": 2008,
+    "options": [
+      "The Dark Knight",
+      "Batman Begins",
+      "The Dark Knight Rises",
+      "Joker"
+    ],
+    "genre": "action",
+    "answer": "The Dark Knight",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+  },
+  {
+    "quote": "Some men just want to watch the world burn.",
+    "year": 2008,
+    "options": [
+      "The Dark Knight",
+      "Joker",
+      "V for Vendetta",
+      "Watchmen"
+    ],
+    "genre": "action",
+    "answer": "The Dark Knight",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+  },
+  {
+    "quote": "I'll make him an offer he can't refuse.",
+    "year": 1972,
+    "options": [
+      "The Godfather",
+      "The Godfather Part II",
+      "Goodfellas",
+      "Once Upon a Time in America"
+    ],
+    "genre": "drama",
+    "answer": "The Godfather",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
+  },
+  {
+    "quote": "Leave the gun. Take the cannoli.",
+    "year": 1972,
+    "options": [
+      "The Godfather",
+      "The Godfather Part II",
+      "Goodfellas",
+      "Casino"
+    ],
+    "genre": "drama",
+    "answer": "The Godfather",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
+  },
+  {
+    "quote": "As you wish.",
+    "year": 1987,
+    "options": [
+      "The Princess Bride",
+      "Willow",
+      "Legend",
+      "The NeverEnding Story"
+    ],
+    "genre": "comedy",
+    "answer": "The Princess Bride",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/2FC9L9MrjBoGHYjYZjdWQdopVYb.jpg"
+  },
+  {
+    "quote": "Inconceivable!",
+    "year": 1987,
+    "options": [
+      "The Princess Bride",
+      "Ladyhawke",
+      "Willow",
+      "Krull"
+    ],
+    "genre": "comedy",
+    "answer": "The Princess Bride",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/2FC9L9MrjBoGHYjYZjdWQdopVYb.jpg"
+  },
+  {
+    "quote": "Is this the real life? Is this just fantasy?",
+    "answer": "Queen",
+    "options": [
+      "Queen",
+      "The Eagles",
+      "Led Zeppelin",
+      "Pink Floyd"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4d/08/2a/4d082a9e-7898-1aa1-a02f-339810058d9e/14DMGIM05632.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "I want to hold your hand.",
+    "answer": "The Beatles",
+    "options": [
+      "The Beatles",
+      "The Rolling Stones",
+      "The Beach Boys",
+      "The Kinks"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/df/db/61/dfdb615d-47f8-06e9-9533-b96daccc029f/18UMGIM31076.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Hello darkness, my old friend.",
+    "answer": "Simon & Garfunkel",
+    "options": [
+      "Simon & Garfunkel",
+      "Bob Dylan",
+      "The Byrds",
+      "Crosby, Stills & Nash"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a3/84/0a/a3840a6d-44e8-0afe-fc3e-316c517dddfe/5099749521421.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Sweet child o' mine.",
+    "answer": "Guns N' Roses",
+    "options": [
+      "Guns N' Roses",
+      "Aerosmith",
+      "Motley Crue",
+      "Def Leppard"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a0/4d/c4/a04dc484-03cc-02aa-fa82-5334fcb4bc16/18UMGIM24878.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "We will, we will rock you.",
+    "answer": "Queen",
+    "options": [
+      "Queen",
+      "AC/DC",
+      "Kiss",
+      "Black Sabbath"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4d/08/2a/4d082a9e-7898-1aa1-a02f-339810058d9e/14DMGIM05632.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Is there anybody out there?",
+    "answer": "Pink Floyd",
+    "options": [
+      "Pink Floyd",
+      "Genesis",
+      "Yes",
+      "Rush"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/aa/e0/ab/aae0ab6a-d906-a189-81bf-70b56aa43f7a/886445635843.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Smells like teen spirit.",
+    "answer": "Nirvana",
+    "options": [
+      "Nirvana",
+      "Pearl Jam",
+      "Soundgarden",
+      "Alice in Chains"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/fd/b9/95fdb9b2-6d2b-92a6-97f2-51c1a6d77f1a/00602527874609.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Livin' on a prayer.",
+    "answer": "Bon Jovi",
+    "options": [
+      "Bon Jovi",
+      "Journey",
+      "Van Halen",
+      "Whitesnake"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5f/a8/1e/5fa81eae-6514-1d56-b352-8e3b243c65ec/24UMGIM99102.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Don't stop believin'.",
+    "answer": "Journey",
+    "options": [
+      "Journey",
+      "Boston",
+      "Foreigner",
+      "Toto"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/71/2d/61/712d617d-f4a4-5904-1b11-d4b4b45c47c5/828768588925.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "I can't get no satisfaction.",
+    "answer": "The Rolling Stones",
+    "options": [
+      "The Rolling Stones",
+      "The Who",
+      "The Kinks",
+      "The Animals"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/c5/ad/c2c5ad0d-e9c9-041c-e803-a8466a23ce54/26UMGIM36901.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Billie Jean is not my lover.",
+    "answer": "Michael Jackson",
+    "options": [
+      "Michael Jackson",
+      "Prince",
+      "Lionel Richie",
+      "Stevie Wonder"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ee/61/cc/ee61cca5-093a-a57d-6728-d339c54029f3/26UMGIM89161.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Just beat it, beat it.",
+    "answer": "Michael Jackson",
+    "options": [
+      "Michael Jackson",
+      "Prince",
+      "George Michael",
+      "Rick James"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ee/61/cc/ee61cca5-093a-a57d-6728-d339c54029f3/26UMGIM89161.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Like a virgin, touched for the very first time.",
+    "answer": "Madonna",
+    "options": [
+      "Madonna",
+      "Cyndi Lauper",
+      "Whitney Houston",
+      "Debbie Gibson"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/20/3c/f5/203cf53d-689e-528f-29d7-ba33758254aa/mzi.rotbotfl.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "I want it that way.",
+    "answer": "Backstreet Boys",
+    "options": [
+      "Backstreet Boys",
+      "NSYNC",
+      "98 Degrees",
+      "Boyz II Men"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5f/6b/e9/5f6be919-1b9e-30ef-45b7-cc27fc428fd5/012414167224.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Oops, I did it again.",
+    "answer": "Britney Spears",
+    "options": [
+      "Britney Spears",
+      "Christina Aguilera",
+      "Jessica Simpson",
+      "Mandy Moore"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d5/9d/97/d59d9769-1369-854f-1681-4901a6d8361b/012414170422.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Since you've been gone, I can breathe for the first time.",
+    "answer": "Kelly Clarkson",
+    "options": [
+      "Kelly Clarkson",
+      "Pink",
+      "Avril Lavigne",
+      "Katy Perry"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e3/7e/c5/e37ec5d7-725b-695c-333c-ee0deb5adcc6/dj.mveioodu.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Baby, baby, baby, oh.",
+    "answer": "Justin Bieber",
+    "options": [
+      "Justin Bieber",
+      "Usher",
+      "Chris Brown",
+      "Ne-Yo"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/73/08/1a/73081a96-0f7c-b5f8-2757-5c17fb714323/12UMGIM31899.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "I knew you were trouble when you walked in.",
+    "answer": "Taylor Swift",
+    "options": [
+      "Taylor Swift",
+      "Katy Perry",
+      "Selena Gomez",
+      "Demi Lovato"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2d/46/e0/2d46e0bc-8ab9-85dd-4b56-ee6951351034/25UM1IM19577.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Shake it off, shake it off.",
+    "answer": "Taylor Swift",
+    "options": [
+      "Taylor Swift",
+      "Meghan Trainor",
+      "Carly Rae Jepsen",
+      "Ariana Grande"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2d/46/e0/2d46e0bc-8ab9-85dd-4b56-ee6951351034/25UM1IM19577.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Roar, like a lion.",
+    "answer": "Katy Perry",
+    "options": [
+      "Katy Perry",
+      "Kesha",
+      "Rihanna",
+      "Demi Lovato"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c8/d3/42/c8d342af-26d9-3ec2-c511-e1eaf860e299/13UABIM57787.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Umbrella, ella, ella, eh, eh, eh.",
+    "answer": "Rihanna",
+    "options": [
+      "Rihanna",
+      "Beyonce",
+      "Ciara",
+      "Ashanti"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/2b/c0/81/2bc081c8-25f0-ba43-d451-587a54613778/16UMGIM59202.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "All the single ladies, put your hands up.",
+    "answer": "Beyonce",
+    "options": [
+      "Beyonce",
+      "Rihanna",
+      "Destiny's Child",
+      "Ciara"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c9/6b/3f/c96b3ff3-9cf6-4ce6-05aa-9f11474bd569/886443938373.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Poker face, p-p-poker face.",
+    "answer": "Lady Gaga",
+    "options": [
+      "Lady Gaga",
+      "Kesha",
+      "Katy Perry",
+      "Rihanna"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b1/9f/ef/b19fef51-79de-a940-e8ab-9e4e07b04d96/18UMGIM53752.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Uptown funk you up.",
+    "answer": "Bruno Mars",
+    "options": [
+      "Bruno Mars",
+      "Justin Timberlake",
+      "Pharrell Williams",
+      "Usher"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ed/46/bf/ed46bf4e-7cb9-965a-54f3-03059977fe6c/075679589293.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Can't stop the feeling.",
+    "answer": "Justin Timberlake",
+    "options": [
+      "Justin Timberlake",
+      "Bruno Mars",
+      "Ed Sheeran",
+      "Charlie Puth"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4c/44/30/4c4430dd-150b-d393-ec70-4894975f4b16/888880422095.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Rap god, rap god.",
+    "answer": "Eminem",
+    "options": [
+      "Eminem",
+      "Jay-Z",
+      "50 Cent",
+      "Kanye West"
+    ],
+    "genre": "hiphop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/dd/5c/e6/dd5ce621-f7d2-f767-7a08-e7a7eaa7870b/00602537526994.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "It was all a dream, I used to read Word Up magazine.",
+    "answer": "The Notorious B.I.G.",
+    "options": [
+      "The Notorious B.I.G.",
+      "Tupac Shakur",
+      "Nas",
+      "Jay-Z"
+    ],
+    "genre": "hiphop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f8/6a/3d/f86a3db0-d518-cd49-c0c9-25e767ae0a6d/075679456861.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "California love.",
+    "answer": "Tupac Shakur",
+    "options": [
+      "Tupac Shakur",
+      "The Notorious B.I.G.",
+      "Snoop Dogg",
+      "Dr. Dre"
+    ],
+    "genre": "hiphop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/f8/7a/40/f87a409a-5cd7-5974-2a52-79f03d28f30a/08UMGIM26293.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "In West Philadelphia, born and raised.",
+    "answer": "Will Smith",
+    "options": [
+      "Will Smith",
+      "LL Cool J",
+      "MC Hammer",
+      "Vanilla Ice"
+    ],
+    "genre": "hiphop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/96/47/9d/96479d49-1ccd-ea1a-7bee-6750a73f363f/mzi.haxmzhnz.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "I'm the real Slim Shady.",
+    "answer": "Eminem",
+    "options": [
+      "Eminem",
+      "50 Cent",
+      "Dr. Dre",
+      "D12"
+    ],
+    "genre": "hiphop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/dd/5c/e6/dd5ce621-f7d2-f767-7a08-e7a7eaa7870b/00602537526994.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Started from the bottom, now we're here.",
+    "answer": "Drake",
+    "options": [
+      "Drake",
+      "Kanye West",
+      "J. Cole",
+      "Future"
+    ],
+    "genre": "hiphop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/f5/87/95f587f7-21c3-d5f9-d81a-4350f9caa020/16UMGIM27643.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Hey ya, hey ya, hey ya.",
+    "answer": "OutKast",
+    "options": [
+      "OutKast",
+      "Missy Elliott",
+      "Ludacris",
+      "T.I."
+    ],
+    "genre": "hiphop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Video124/v4/72/d2/15/72d21542-7471-fdbf-aa92-4c70a22a0c25/dj.nqxebprr.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Gold digger, she gonna take your money.",
+    "answer": "Kanye West",
+    "options": [
+      "Kanye West",
+      "Jay-Z",
+      "Kid Cudi",
+      "Common"
+    ],
+    "genre": "hiphop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4d/75/2d/4d752db1-022d-f65d-40a1-a2390f01427a/13UAEIM26465.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "No church in the wild.",
+    "answer": "Jay-Z",
+    "options": [
+      "Jay-Z",
+      "Kanye West",
+      "Nas",
+      "Rick Ross"
+    ],
+    "genre": "hiphop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/03/c5/d4/mzi.ldvrmhxt.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "I got 99 problems.",
+    "answer": "Jay-Z",
+    "options": [
+      "Jay-Z",
+      "Ice Cube",
+      "Nas",
+      "50 Cent"
+    ],
+    "genre": "hiphop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/03/c5/d4/mzi.ldvrmhxt.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Ain't no sunshine when she's gone.",
+    "answer": "Bill Withers",
+    "options": [
+      "Bill Withers",
+      "Marvin Gaye",
+      "Al Green",
+      "Otis Redding"
+    ],
+    "genre": "rnb",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3a/93/40/3a9340a1-73f7-5bbb-86a2-15a4ba20acea/884977735840.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "What's going on?",
+    "answer": "Marvin Gaye",
+    "options": [
+      "Marvin Gaye",
+      "Stevie Wonder",
+      "Al Green",
+      "Smokey Robinson"
+    ],
+    "genre": "rnb",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/e5/65/db/e565db27-c3fd-e972-4010-1bfa2d918f10/23UMGIM49775.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "I will always love you.",
+    "answer": "Whitney Houston",
+    "options": [
+      "Whitney Houston",
+      "Mariah Carey",
+      "Celine Dion",
+      "Aretha Franklin"
+    ],
+    "genre": "rnb",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fa/9e/1b/fa9e1b0a-bae9-692b-5c79-323c57a76828/196873289373.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Respect, just a little bit.",
+    "answer": "Aretha Franklin",
+    "options": [
+      "Aretha Franklin",
+      "Diana Ross",
+      "Tina Turner",
+      "Gladys Knight"
+    ],
+    "genre": "rnb",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/47/0d/c0/470dc076-70e9-be30-07e5-ecee641a7604/603497902460.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "I'm every woman, it's all in me.",
+    "answer": "Chaka Khan",
+    "options": [
+      "Chaka Khan",
+      "Diana Ross",
+      "Donna Summer",
+      "Gloria Gaynor"
+    ],
+    "genre": "rnb",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/13/55/fb/1355fbb0-60f1-d15e-12cb-ad0008b99524/mzi.zqdpvvdq.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "No scrubs, I don't want no scrub.",
+    "answer": "TLC",
+    "options": [
+      "TLC",
+      "Destiny's Child",
+      "En Vogue",
+      "SWV"
+    ],
+    "genre": "rnb",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/14/a8/69/14a86912-841d-3cb8-cf55-0439b15c6cab/dj.mjduepez.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Say my name, say my name.",
+    "answer": "Destiny's Child",
+    "options": [
+      "Destiny's Child",
+      "TLC",
+      "En Vogue",
+      "SWV"
+    ],
+    "genre": "rnb",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c9/29/74/c92974ce-2bdd-4b86-a261-01adc901bb65/mzi.cmambura.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Crazy in love, got me looking so crazy right now.",
+    "answer": "Beyonce",
+    "options": [
+      "Beyonce",
+      "Rihanna",
+      "Alicia Keys",
+      "Ciara"
+    ],
+    "genre": "rnb",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c9/6b/3f/c96b3ff3-9cf6-4ce6-05aa-9f11474bd569/886443938373.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Jolene, Jolene, Jolene, Jolene.",
+    "answer": "Dolly Parton",
+    "options": [
+      "Dolly Parton",
+      "Loretta Lynn",
+      "Tammy Wynette",
+      "Reba McEntire"
+    ],
+    "genre": "country",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/37/fa/d1/mzi.ecmonpil.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "9 to 5, what a way to make a livin'.",
+    "answer": "Dolly Parton",
+    "options": [
+      "Dolly Parton",
+      "Reba McEntire",
+      "Loretta Lynn",
+      "Tammy Wynette"
+    ],
+    "genre": "country",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/37/fa/d1/mzi.ecmonpil.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Take me home, country roads.",
+    "answer": "John Denver",
+    "options": [
+      "John Denver",
+      "Glen Campbell",
+      "Kenny Rogers",
+      "Willie Nelson"
+    ],
+    "genre": "country",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/52/ed/f3/52edf3b6-5b73-c52d-e3f6-4473412eec7c/886443406193.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "The gambler, know when to hold 'em.",
+    "answer": "Kenny Rogers",
+    "options": [
+      "Kenny Rogers",
+      "Willie Nelson",
+      "Johnny Cash",
+      "Glen Campbell"
+    ],
+    "genre": "country",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/04/74/a2/0474a210-0239-df57-1457-96339adf1e56/13UABIM74030.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "I fell into a burning ring of fire.",
+    "answer": "Johnny Cash",
+    "options": [
+      "Johnny Cash",
+      "Willie Nelson",
+      "Waylon Jennings",
+      "Merle Haggard"
+    ],
+    "genre": "country",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/5f/13/bc/5f13bc30-0f68-ed45-466c-b491e9201558/dj.yjweejkt.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Friends in low places.",
+    "answer": "Garth Brooks",
+    "options": [
+      "Garth Brooks",
+      "George Strait",
+      "Alan Jackson",
+      "Toby Keith"
+    ],
+    "genre": "country",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b8/44/c5/b844c593-0012-6825-d7f4-3a96777bcc60/MOBX0771.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "God bless the USA.",
+    "answer": "Lee Greenwood",
+    "options": [
+      "Lee Greenwood",
+      "Toby Keith",
+      "Alan Jackson",
+      "Kenny Chesney"
+    ],
+    "genre": "country",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/2e/03/1f/2e031f9d-61df-dc10-a321-338165bbe438/00008817026428.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Get busy livin', or get busy dyin'.",
+    "year": 1994,
+    "options": [
+      "The Shawshank Redemption",
+      "Cool Hand Luke",
+      "The Green Mile",
+      "Rain Man"
+    ],
+    "genre": "drama",
+    "answer": "The Shawshank Redemption",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg"
+  },
+  {
+    "quote": "As far back as I can remember, I always wanted to be a gangster.",
+    "year": 1990,
+    "options": [
+      "Goodfellas",
+      "Casino",
+      "The Untouchables",
+      "Heat"
+    ],
+    "genre": "drama",
+    "answer": "Goodfellas",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/9OkCLM73MIU2CrKZbqiT8Ln1wY2.jpg"
+  },
+  {
+    "quote": "Funny how? Like I'm a clown? I amuse you?",
+    "year": 1990,
+    "options": [
+      "Goodfellas",
+      "Scarface",
+      "Casino",
+      "Donnie Brasco"
+    ],
+    "genre": "drama",
+    "answer": "Goodfellas",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/9OkCLM73MIU2CrKZbqiT8Ln1wY2.jpg"
+  },
+  {
+    "quote": "Be the ball.",
+    "year": 1980,
+    "options": [
+      "Caddyshack",
+      "Happy Gilmore",
+      "Tin Cup",
+      "The Blues Brothers"
+    ],
+    "genre": "comedy",
+    "answer": "Caddyshack",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lXnNz7zOXCsftMDVoU3VSo0Eioi.jpg"
+  },
+  {
+    "quote": "So I got that goin' for me, which is nice.",
+    "year": 1980,
+    "options": [
+      "Caddyshack",
+      "Stripes",
+      "Ghostbusters",
+      "Groundhog Day"
+    ],
+    "genre": "comedy",
+    "answer": "Caddyshack",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lXnNz7zOXCsftMDVoU3VSo0Eioi.jpg"
+  },
+  {
+    "quote": "What we've got here is failure to communicate.",
+    "year": 1967,
+    "options": [
+      "Cool Hand Luke",
+      "The Great Escape",
+      "Papillon",
+      "Bonnie and Clyde"
+    ],
+    "genre": "classic",
+    "answer": "Cool Hand Luke",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/4ykzTiHKLamh3eZJ8orVICtU2Jp.jpg"
+  },
+  {
+    "quote": "This is my rifle. There are many like it, but this one is mine.",
+    "year": 1987,
+    "options": [
+      "Full Metal Jacket",
+      "Platoon",
+      "Apocalypse Now",
+      "Saving Private Ryan"
+    ],
+    "genre": "drama",
+    "answer": "Full Metal Jacket",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/kMKyx1k8hWWscYFnPbnxxN4Eqo4.jpg"
+  },
+  {
+    "quote": "When you have to shoot, shoot. Don't talk.",
+    "year": 1966,
+    "options": [
+      "The Good, the Bad and the Ugly",
+      "A Fistful of Dollars",
+      "For a Few Dollars More",
+      "Once Upon a Time in the West"
+    ],
+    "genre": "classic",
+    "answer": "The Good, the Bad and the Ugly",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/bX2xnavhMYjWDoZp1VM6VnU1xwe.jpg"
+  },
+  {
+    "quote": "Are you not entertained?",
+    "year": 2000,
+    "options": [
+      "Gladiator",
+      "Troy",
+      "300",
+      "Braveheart"
+    ],
+    "genre": "action",
+    "answer": "Gladiator",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/wN2xWp1eIwCKOD0BHTcErTBv1Uq.jpg"
+  },
+  {
+    "quote": "My name is Maximus Decimus Meridius.",
+    "year": 2000,
+    "options": [
+      "Gladiator",
+      "Spartacus",
+      "Ben-Hur",
+      "Troy"
+    ],
+    "genre": "action",
+    "answer": "Gladiator",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/wN2xWp1eIwCKOD0BHTcErTBv1Uq.jpg"
+  },
+  {
+    "quote": "They may take our lives, but they'll never take our freedom!",
+    "year": 1995,
+    "options": [
+      "Braveheart",
+      "Gladiator",
+      "Rob Roy",
+      "The Patriot"
+    ],
+    "genre": "action",
+    "answer": "Braveheart",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/or1gBugydmjToAEq7OZY0owwFk.jpg"
+  },
+  {
+    "quote": "Earn this.",
+    "year": 1998,
+    "options": [
+      "Saving Private Ryan",
+      "Band of Brothers",
+      "The Thin Red Line",
+      "Fury"
+    ],
+    "genre": "drama",
+    "answer": "Saving Private Ryan",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/uqx37cS8cpHg8U35f9U5IBlrCV3.jpg"
+  },
+  {
+    "quote": "We're on a mission from God.",
+    "year": 1980,
+    "options": [
+      "The Blues Brothers",
+      "Animal House",
+      "Caddyshack",
+      "Trading Places"
+    ],
+    "genre": "comedy",
+    "answer": "The Blues Brothers",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/b0hq1d2d7FIvRGNLewKLm79JNTK.jpg"
+  },
+  {
+    "quote": "It's a hundred and six miles to Chicago, we got a full tank of gas, half a pack of cigarettes, it's dark, and we're wearing sunglasses.",
+    "year": 1980,
+    "options": [
+      "The Blues Brothers",
+      "Smokey and the Bandit",
+      "The Cannonball Run",
+      "Vacation"
+    ],
+    "genre": "comedy",
+    "answer": "The Blues Brothers",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/b0hq1d2d7FIvRGNLewKLm79JNTK.jpg"
+  },
+  {
+    "quote": "Snakes. Why'd it have to be snakes?",
+    "year": 1981,
+    "options": [
+      "Raiders of the Lost Ark",
+      "Indiana Jones and the Temple of Doom",
+      "The Mummy",
+      "Romancing the Stone"
+    ],
+    "genre": "action",
+    "answer": "Raiders of the Lost Ark",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/ceG9VzoRAVGwivFU403Wc3AHRys.jpg"
+  },
+  {
+    "quote": "It's not the years, honey. It's the mileage.",
+    "year": 1981,
+    "options": [
+      "Raiders of the Lost Ark",
+      "Indiana Jones and the Last Crusade",
+      "National Treasure",
+      "The Mummy"
+    ],
+    "genre": "action",
+    "answer": "Raiders of the Lost Ark",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/ceG9VzoRAVGwivFU403Wc3AHRys.jpg"
+  },
+  {
+    "quote": "They drew first blood, not me.",
+    "year": 1982,
+    "options": [
+      "First Blood",
+      "Rambo: First Blood Part II",
+      "Missing in Action",
+      "Commando"
+    ],
+    "genre": "action",
+    "answer": "First Blood",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/a9sa6ERZCpplbPEO7OMWE763CLD.jpg"
+  },
+  {
+    "quote": "I'm too old for this.",
+    "year": 1987,
+    "options": [
+      "Lethal Weapon",
+      "Die Hard",
+      "48 Hrs.",
+      "Beverly Hills Cop"
+    ],
+    "genre": "action",
+    "answer": "Lethal Weapon",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/6gt44oqb4nE8vflPElffeGwsHVl.jpg"
+  },
+  {
+    "quote": "I'm your huckleberry.",
+    "year": 1993,
+    "options": [
+      "Tombstone",
+      "Wyatt Earp",
+      "Unforgiven",
+      "Young Guns"
+    ],
+    "genre": "action",
+    "answer": "Tombstone",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/wGFCvylul8iEQhJOKfwZGGvXMzA.jpg"
+  },
+  {
+    "quote": "You're a daisy if you do.",
+    "year": 1993,
+    "options": [
+      "Tombstone",
+      "Silverado",
+      "Wyatt Earp",
+      "The Quick and the Dead"
+    ],
+    "genre": "action",
+    "answer": "Tombstone",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/wGFCvylul8iEQhJOKfwZGGvXMzA.jpg"
+  },
+  {
+    "quote": "You wanna get Capone? Here's how you get him.",
+    "year": 1987,
+    "options": [
+      "The Untouchables",
+      "Goodfellas",
+      "Casino",
+      "Miller's Crossing"
+    ],
+    "genre": "drama",
+    "answer": "The Untouchables",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/tPq0R4jTO4Ey8ZspFaWK9wGA4Ls.jpg"
+  },
+  {
+    "quote": "Don't let yourself get attached to anything you are not willing to walk out on in thirty seconds flat.",
+    "year": 1995,
+    "options": [
+      "Heat",
+      "Ronin",
+      "The Town",
+      "Collateral"
+    ],
+    "genre": "drama",
+    "answer": "Heat",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/umSVjVdbVwtx5ryCA2QXL44Durm.jpg"
+  },
+  {
+    "quote": "K-Mart sucks.",
+    "year": 1988,
+    "options": [
+      "Rain Man",
+      "Forrest Gump",
+      "Big",
+      "Awakenings"
+    ],
+    "genre": "drama",
+    "answer": "Rain Man",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/iTNHwO896WKkaoPtpMMS74d8VNi.jpg"
+  },
+  {
+    "quote": "Surely you can't be serious. I am serious. And don't call me Shirley.",
+    "year": 1980,
+    "options": [
+      "Airplane!",
+      "The Naked Gun",
+      "Top Secret!",
+      "Hot Shots!"
+    ],
+    "genre": "comedy",
+    "answer": "Airplane!",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/7Q3efxd3AF1vQjlSxnlerSA7RzN.jpg"
+  },
+  {
+    "quote": "If there's a steady paycheck in it, I'll believe anything you say.",
+    "year": 1984,
+    "options": [
+      "Ghostbusters",
+      "Stripes",
+      "Men in Black",
+      "Beetlejuice"
+    ],
+    "genre": "comedy",
+    "answer": "Ghostbusters",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/7E8nLijS9AwwUEPu2oFYOVKhdFA.jpg"
+  },
+  {
+    "quote": "He slimed me.",
+    "year": 1984,
+    "options": [
+      "Ghostbusters",
+      "Beetlejuice",
+      "Poltergeist",
+      "Gremlins"
+    ],
+    "genre": "comedy",
+    "answer": "Ghostbusters",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/7E8nLijS9AwwUEPu2oFYOVKhdFA.jpg"
+  },
+  {
+    "quote": "Badges? We ain't got no badges!",
+    "year": 1974,
+    "options": [
+      "Blazing Saddles",
+      "Young Frankenstein",
+      "The Producers",
+      "Spaceballs"
+    ],
+    "genre": "comedy",
+    "answer": "Blazing Saddles",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/vNw1gOEDdYTDeNMuuq8OmiEHrfH.jpg"
+  },
+  {
+    "quote": "Say hello to my little friend.",
+    "year": 1983,
+    "options": [
+      "Scarface",
+      "Carlito's Way",
+      "The Godfather",
+      "Heat"
+    ],
+    "genre": "action",
+    "answer": "Scarface",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/iQ5ztdjvteGeboxtmRdXEChJOHh.jpg"
+  },
+  {
+    "quote": "Just when I thought I was out, they pull me back in.",
+    "year": 1990,
+    "options": [
+      "The Godfather Part III",
+      "The Godfather Part II",
+      "Goodfellas",
+      "Casino"
+    ],
+    "genre": "drama",
+    "answer": "The Godfather Part III",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lm3pQ2QoQ16pextRsmnUbG2onES.jpg"
+  },
+  {
+    "quote": "Life moves pretty fast. If you don't stop and look around once in a while, you could miss it.",
+    "year": 1986,
+    "options": [
+      "Ferris Bueller's Day Off",
+      "The Breakfast Club",
+      "Sixteen Candles",
+      "Weird Science"
+    ],
+    "genre": "comedy",
+    "answer": "Ferris Bueller's Day Off",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/9LTQNCvoLsKXP0LtaKAaYVtRaQL.jpg"
+  },
+  {
+    "quote": "Don't you forget about me.",
+    "year": 1985,
+    "options": [
+      "The Breakfast Club",
+      "Pretty in Pink",
+      "St. Elmo's Fire",
+      "Say Anything..."
+    ],
+    "genre": "comedy",
+    "answer": "The Breakfast Club",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/gp4zlj7wgbiofLMNsTPndMuO3PN.jpg"
+  },
+  {
+    "quote": "Nobody's perfect.",
+    "year": 1959,
+    "options": [
+      "Some Like It Hot",
+      "The Apartment",
+      "Sabrina",
+      "Roman Holiday"
+    ],
+    "genre": "classic",
+    "answer": "Some Like It Hot",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/hVIKyTK13AvOGv7ICmJjK44DTzp.jpg"
+  },
+  {
+    "quote": "I coulda been a contender.",
+    "year": 1954,
+    "options": [
+      "On the Waterfront",
+      "Rocky",
+      "Raging Bull",
+      "The Hustler"
+    ],
+    "genre": "classic",
+    "answer": "On the Waterfront",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/d4S8LpbCyFJsh1tGgwGQSJdGzKm.jpg"
+  },
+  {
+    "quote": "The greatest trick the devil ever pulled was convincing the world he didn't exist.",
+    "year": 1995,
+    "options": [
+      "The Usual Suspects",
+      "Se7en",
+      "Fight Club",
+      "Memento"
+    ],
+    "genre": "drama",
+    "answer": "The Usual Suspects",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/99X2SgyFunJFXGAYnDv3sb9pnUD.jpg"
+  },
+  {
+    "quote": "The first rule is: you do not talk about it.",
+    "year": 1999,
+    "options": [
+      "Fight Club",
+      "American Psycho",
+      "Se7en",
+      "Memento"
+    ],
+    "genre": "drama",
+    "answer": "Fight Club",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/jSziioSwPVrOy9Yow3XhWIBDjq1.jpg"
+  },
+  {
+    "quote": "What's in the box?",
+    "year": 1995,
+    "options": [
+      "Se7en",
+      "Zodiac",
+      "The Silence of the Lambs",
+      "Prisoners"
+    ],
+    "genre": "drama",
+    "answer": "Se7en",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/191nKfP0ehp3uIvWqgPbFmI4lv9.jpg"
+  },
+  {
+    "quote": "I ate his liver with some fava beans and a nice chianti.",
+    "year": 1991,
+    "options": [
+      "The Silence of the Lambs",
+      "Hannibal",
+      "Red Dragon",
+      "Se7en"
+    ],
+    "genre": "drama",
+    "answer": "The Silence of the Lambs",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/uS9m8OBk1A8eM9I042bx8XXpqAq.jpg"
+  },
+  {
+    "quote": "Toto, I've a feeling we're not in Kansas anymore.",
+    "year": 1939,
+    "options": [
+      "The Wizard of Oz",
+      "Alice in Wonderland",
+      "Mary Poppins",
+      "The Sound of Music"
+    ],
+    "genre": "classic",
+    "answer": "The Wizard of Oz",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/uCC3j4pV9eOZwzDUWp2ilbcTf1f.jpg"
+  },
+  {
+    "quote": "Roads? Where we're going we don't need roads.",
+    "year": 1985,
+    "options": [
+      "Back to the Future",
+      "Bill & Ted's Excellent Adventure",
+      "Time Bandits",
+      "Flight of the Navigator"
+    ],
+    "genre": "scifi",
+    "answer": "Back to the Future",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg"
+  },
+  {
+    "quote": "Every time a bell rings, an angel gets his wings.",
+    "year": 1946,
+    "options": [
+      "It's a Wonderful Life",
+      "Miracle on 34th Street",
+      "A Christmas Carol",
+      "White Christmas"
+    ],
+    "genre": "classic",
+    "answer": "It's a Wonderful Life",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/bSqt9rhDZx1Q7UZ86dBPKdNomp2.jpg"
+  },
+  {
+    "quote": "Round up the usual suspects.",
+    "year": 1942,
+    "options": [
+      "Casablanca",
+      "The Maltese Falcon",
+      "To Have and Have Not",
+      "Key Largo"
+    ],
+    "genre": "classic",
+    "answer": "Casablanca",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lGCEKlJo2CnWydQj7aamY7s1S7Q.jpg"
+  },
+  {
+    "quote": "I'm walkin' here!",
+    "year": 1969,
+    "options": [
+      "Midnight Cowboy",
+      "Taxi Driver",
+      "Serpico",
+      "Dog Day Afternoon"
+    ],
+    "genre": "classic",
+    "answer": "Midnight Cowboy",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/wNvxBptJChe3A2CSfPmZoXf7ooh.jpg"
+  },
+  {
+    "quote": "Attica! Attica!",
+    "year": 1975,
+    "options": [
+      "Dog Day Afternoon",
+      "Serpico",
+      "Taxi Driver",
+      "The French Connection"
+    ],
+    "genre": "classic",
+    "answer": "Dog Day Afternoon",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/mavrhr0ig2aCRR8d48yaxtD5aMQ.jpg"
+  },
+  {
+    "quote": "Greed, for lack of a better word, is good.",
+    "year": 1987,
+    "options": [
+      "Wall Street",
+      "The Wolf of Wall Street",
+      "Boiler Room",
+      "American Psycho"
+    ],
+    "genre": "drama",
+    "answer": "Wall Street",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/2tQYq9ntzn2dEwDIGLBSipYPenv.jpg"
+  },
+  {
+    "quote": "Wilson!",
+    "year": 2000,
+    "options": [
+      "Cast Away",
+      "The Martian",
+      "Life of Pi",
+      "127 Hours"
+    ],
+    "genre": "drama",
+    "answer": "Cast Away",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/7lLJgKnAicAcR5UEuo8xhSMj18w.jpg"
+  },
+  {
+    "quote": "Nobody exists on purpose. Nobody belongs anywhere.",
+    "year": 2013,
+    "options": [
+      "Rick and Morty",
+      "Futurama",
+      "BoJack Horseman",
+      "Archer"
+    ],
+    "genre": "scifi",
+    "answer": "Rick and Morty",
+    "type": "movie"
+  },
+  {
+    "quote": "Do, or do not. There is no try.",
+    "year": 1980,
+    "options": [
+      "The Empire Strikes Back",
+      "Star Wars",
+      "Return of the Jedi",
+      "The Phantom Menace"
+    ],
+    "genre": "scifi",
+    "answer": "The Empire Strikes Back",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg"
+  },
+  {
+    "quote": "Game over, man! Game over!",
+    "year": 1986,
+    "options": [
+      "Aliens",
+      "Alien",
+      "Predator",
+      "Starship Troopers"
+    ],
+    "genre": "scifi",
+    "answer": "Aliens",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/r1x5JGpyqZU8PYhbs4UcrO1Xb6x.jpg"
+  },
+  {
+    "quote": "Open the pod bay doors, HAL.",
+    "year": 1968,
+    "options": [
+      "2001: A Space Odyssey",
+      "Solaris",
+      "Blade Runner",
+      "Contact"
+    ],
+    "genre": "scifi",
+    "answer": "2001: A Space Odyssey",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/ve72VxNqjGM69Uky4WTo2bK6rfq.jpg"
+  },
+  {
+    "quote": "All those moments will be lost in time, like tears in rain.",
+    "year": 1982,
+    "options": [
+      "Blade Runner",
+      "Blade Runner 2049",
+      "Ghost in the Shell",
+      "Total Recall"
+    ],
+    "genre": "scifi",
+    "answer": "Blade Runner",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/63N9uy8nd9j7Eog2axPQ8lbr3Wj.jpg"
+  },
+  {
+    "quote": "They're heeere.",
+    "year": 1982,
+    "options": [
+      "Poltergeist",
+      "The Amityville Horror",
+      "The Exorcist",
+      "Insidious"
+    ],
+    "genre": "scifi",
+    "answer": "Poltergeist",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/4eMN3GANH5GG4kXdHkrTZEUuQ9M.jpg"
+  },
+  {
+    "quote": "Hello. My name is Inigo Montoya.",
+    "year": 1987,
+    "options": [
+      "The Princess Bride",
+      "Willow",
+      "Ladyhawke",
+      "The NeverEnding Story"
+    ],
+    "genre": "comedy",
+    "answer": "The Princess Bride",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/2FC9L9MrjBoGHYjYZjdWQdopVYb.jpg"
+  },
+  {
+    "quote": "Baby, we were born to run.",
+    "answer": "Bruce Springsteen",
+    "options": [
+      "Bruce Springsteen",
+      "Tom Petty",
+      "Bob Seger",
+      "John Mellencamp"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/72/68/327268ba-b9dd-b322-2a16-bdd0212df48c/074643865326.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Everybody's got a hungry heart.",
+    "answer": "Bruce Springsteen",
+    "options": [
+      "Bruce Springsteen",
+      "Billy Joel",
+      "Bob Seger",
+      "Don Henley"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/72/68/327268ba-b9dd-b322-2a16-bdd0212df48c/074643865326.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Welcome to the Hotel California.",
+    "answer": "The Eagles",
+    "options": [
+      "The Eagles",
+      "Fleetwood Mac",
+      "The Doobie Brothers",
+      "Steely Dan"
+    ],
+    "genre": "rock",
+    "type": "music"
+  },
+  {
+    "quote": "Take it easy.",
+    "answer": "The Eagles",
+    "options": [
+      "The Eagles",
+      "America",
+      "Jackson Browne",
+      "The Byrds"
+    ],
+    "genre": "rock",
+    "type": "music"
+  },
+  {
+    "quote": "There's a lady who's sure all that glitters is gold.",
+    "answer": "Led Zeppelin",
+    "options": [
+      "Led Zeppelin",
+      "Deep Purple",
+      "Black Sabbath",
+      "Pink Floyd"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/4c/7b/80/4c7b80b4-ed35-4e06-ec80-2f7aaaabb5c5/dj.pjjmtwdc.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Hey, hey, mama, said the way you move.",
+    "answer": "Led Zeppelin",
+    "options": [
+      "Led Zeppelin",
+      "AC/DC",
+      "Aerosmith",
+      "The Rolling Stones"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/4c/7b/80/4c7b80b4-ed35-4e06-ec80-2f7aaaabb5c5/dj.pjjmtwdc.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "I'm on the highway to hell.",
+    "answer": "AC/DC",
+    "options": [
+      "AC/DC",
+      "Guns N' Roses",
+      "Metallica",
+      "Judas Priest"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1e/14/58/1e145814-281a-58e0-3ab1-145f5d1af421/886443673441.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "She was a fast machine, she kept her motor clean.",
+    "answer": "AC/DC",
+    "options": [
+      "AC/DC",
+      "Van Halen",
+      "Def Leppard",
+      "Motley Crue"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1e/14/58/1e145814-281a-58e0-3ab1-145f5d1af421/886443673441.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "I see a bad moon rising.",
+    "answer": "Creedence Clearwater Revival",
+    "options": [
+      "Creedence Clearwater Revival",
+      "The Band",
+      "The Doors",
+      "Steppenwolf"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a1/47/ba/a147ba91-31cd-ef4d-d785-040036d14598/12CMGIM34362.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Rollin' on the river.",
+    "answer": "Creedence Clearwater Revival",
+    "options": [
+      "Creedence Clearwater Revival",
+      "Lynyrd Skynyrd",
+      "The Allman Brothers Band",
+      "The Band"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a1/47/ba/a147ba91-31cd-ef4d-d785-040036d14598/12CMGIM34362.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "She's a good girl, loves her mama.",
+    "answer": "Tom Petty",
+    "options": [
+      "Tom Petty",
+      "Bob Seger",
+      "John Mellencamp",
+      "Bryan Adams"
+    ],
+    "genre": "rock",
+    "type": "music"
+  },
+  {
+    "quote": "You don't have to live like a refugee.",
+    "answer": "Tom Petty",
+    "options": [
+      "Tom Petty",
+      "Bruce Springsteen",
+      "Neil Young",
+      "Jackson Browne"
+    ],
+    "genre": "rock",
+    "type": "music"
+  },
+  {
+    "quote": "Now here you go again, you say you want your freedom.",
+    "answer": "Fleetwood Mac",
+    "options": [
+      "Fleetwood Mac",
+      "Heart",
+      "The Pretenders",
+      "Blondie"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d2/48/f4/d248f4ae-a7e4-a48e-1588-6617de3e8d76/mzi.izeorbmm.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Thunder only happens when it's raining.",
+    "answer": "Fleetwood Mac",
+    "options": [
+      "Fleetwood Mac",
+      "Stevie Nicks",
+      "The Eagles",
+      "Carly Simon"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d2/48/f4/d248f4ae-a7e4-a48e-1588-6617de3e8d76/mzi.izeorbmm.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Sing us a song, you're the piano man.",
+    "answer": "Billy Joel",
+    "options": [
+      "Billy Joel",
+      "Elton John",
+      "Bruce Hornsby",
+      "Randy Newman"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/76/15/b4/7615b45f-428c-e269-a2b5-c02949924a66/886447594681.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "We didn't start the fire.",
+    "answer": "Billy Joel",
+    "options": [
+      "Billy Joel",
+      "Elton John",
+      "Huey Lewis and the News",
+      "Bryan Adams"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/76/15/b4/7615b45f-428c-e269-a2b5-c02949924a66/886447594681.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Might as well jump.",
+    "answer": "Van Halen",
+    "options": [
+      "Van Halen",
+      "Def Leppard",
+      "Bon Jovi",
+      "Motley Crue"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/7a/ef/88/7aef88ad-25aa-be91-eb78-8917c3f114f7/603497894130.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Big wheels keep on turning.",
+    "answer": "Lynyrd Skynyrd",
+    "options": [
+      "Lynyrd Skynyrd",
+      "The Allman Brothers Band",
+      "ZZ Top",
+      "Creedence Clearwater Revival"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/ff/39/ccff392e-ec9d-1ffd-6c1b-d21978bca939/06UMGIM02061.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "If I leave here tomorrow, would you still remember me?",
+    "answer": "Lynyrd Skynyrd",
+    "options": [
+      "Lynyrd Skynyrd",
+      "The Marshall Tucker Band",
+      "The Outlaws",
+      "38 Special"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/ff/39/ccff392e-ec9d-1ffd-6c1b-d21978bca939/06UMGIM02061.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Mamas, don't let your babies grow up to be cowboys.",
+    "answer": "Willie Nelson",
+    "options": [
+      "Willie Nelson",
+      "Waylon Jennings",
+      "Merle Haggard",
+      "Johnny Cash"
+    ],
+    "genre": "country",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/08/28/02/082802b9-2d7a-9f29-3413-37eccfb98714/dj.prbhjyep.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "On the road again.",
+    "answer": "Willie Nelson",
+    "options": [
+      "Willie Nelson",
+      "Kris Kristofferson",
+      "Merle Haggard",
+      "Waylon Jennings"
+    ],
+    "genre": "country",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/08/28/02/082802b9-2d7a-9f29-3413-37eccfb98714/dj.prbhjyep.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Keep on rockin' in the free world.",
+    "answer": "Neil Young",
+    "options": [
+      "Neil Young",
+      "Bob Dylan",
+      "Tom Petty",
+      "Bruce Springsteen"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4d/45/41/4d45414c-6364-51cf-2874-7c8aa755caaa/mzi.oetoyyot.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "It's better to burn out than to fade away.",
+    "answer": "Neil Young",
+    "options": [
+      "Neil Young",
+      "Bob Dylan",
+      "The Who",
+      "Pearl Jam"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4d/45/41/4d45414c-6364-51cf-2874-7c8aa755caaa/mzi.oetoyyot.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "How does it feel to be on your own, with no direction home?",
+    "answer": "Bob Dylan",
+    "options": [
+      "Bob Dylan",
+      "Neil Young",
+      "Leonard Cohen",
+      "Van Morrison"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Features124/v4/dc/e7/e3/dce7e385-5b40-bcda-4d09-ae4faab692ed/dj.fvugskmg.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "The answer is blowin' in the wind.",
+    "answer": "Bob Dylan",
+    "options": [
+      "Bob Dylan",
+      "Simon & Garfunkel",
+      "Joan Baez",
+      "Pete Seeger"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Features124/v4/dc/e7/e3/dce7e385-5b40-bcda-4d09-ae4faab692ed/dj.fvugskmg.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Working on our night moves.",
+    "answer": "Bob Seger",
+    "options": [
+      "Bob Seger",
+      "Bruce Springsteen",
+      "John Mellencamp",
+      "Tom Petty"
+    ],
+    "genre": "rock",
+    "type": "music"
+  },
+  {
+    "quote": "Just take those old records off the shelf.",
+    "answer": "Bob Seger",
+    "options": [
+      "Bob Seger",
+      "Billy Joel",
+      "The Eagles",
+      "Huey Lewis and the News"
+    ],
+    "genre": "rock",
+    "type": "music"
+  },
+  {
+    "quote": "I walk the line.",
+    "answer": "Johnny Cash",
+    "options": [
+      "Johnny Cash",
+      "Willie Nelson",
+      "Waylon Jennings",
+      "Merle Haggard"
+    ],
+    "genre": "country",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/5f/13/bc/5f13bc30-0f68-ed45-466c-b491e9201558/dj.yjweejkt.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "You've got to know when to hold 'em.",
+    "answer": "Kenny Rogers",
+    "options": [
+      "Kenny Rogers",
+      "Dolly Parton",
+      "Johnny Cash",
+      "Waylon Jennings"
+    ],
+    "genre": "country",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1e/35/d9/1e35d90b-9a5f-da52-d1ce-089d53d19988/00602567821953.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Workin' nine to five.",
+    "answer": "Dolly Parton",
+    "options": [
+      "Dolly Parton",
+      "Loretta Lynn",
+      "Tammy Wynette",
+      "Reba McEntire"
+    ],
+    "genre": "country",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/37/fa/d1/mzi.ecmonpil.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Sweet dreams are made of this.",
+    "answer": "Eurythmics",
+    "options": [
+      "Eurythmics",
+      "Blondie",
+      "The Human League",
+      "Depeche Mode"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/9d/0c/3c/mzi.sdsmyrby.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "We built this city on rock and roll.",
+    "answer": "Starship",
+    "options": [
+      "Starship",
+      "Journey",
+      "Foreigner",
+      "REO Speedwagon"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/d2/cf/64/d2cf6436-3004-0366-077b-211e005b4ab2/603497854004.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Just a small town girl, livin' in a lonely world.",
+    "answer": "Journey",
+    "options": [
+      "Journey",
+      "Foreigner",
+      "Boston",
+      "Toto"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/71/2d/61/712d617d-f4a4-5904-1b11-d4b4b45c47c5/828768588925.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Whoa, we're halfway there.",
+    "answer": "Bon Jovi",
+    "options": [
+      "Bon Jovi",
+      "Def Leppard",
+      "Poison",
+      "Journey"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3c/96/b3/3c96b3cb-59c0-9641-cfad-a33346ab87f9/24UMGIM83177.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "I want to know what love is.",
+    "answer": "Foreigner",
+    "options": [
+      "Foreigner",
+      "REO Speedwagon",
+      "Journey",
+      "Chicago"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/af/7b/a2/af7ba295-c0c0-ba8d-17da-5cc52959a602/mzi.ykpmzuxm.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Another one bites the dust.",
+    "answer": "Queen",
+    "options": [
+      "Queen",
+      "David Bowie",
+      "The Rolling Stones",
+      "Kiss"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4d/08/2a/4d082a9e-7898-1aa1-a02f-339810058d9e/14DMGIM05632.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Carpe diem. Seize the day.",
+    "year": 1989,
+    "options": [
+      "Dead Poets Society",
+      "Good Will Hunting",
+      "Mr. Holland's Opus",
+      "Stand and Deliver"
+    ],
+    "genre": "drama",
+    "answer": "Dead Poets Society",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/tNvKkSnnn4Z6RCBThyK1gfCSSvv.jpg"
+  },
+  {
+    "quote": "Say 'hello' to the bad guy.",
+    "year": 1983,
+    "options": [
+      "Scarface",
+      "Carlito's Way",
+      "Goodfellas",
+      "Casino"
+    ],
+    "genre": "action",
+    "answer": "Scarface",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/iQ5ztdjvteGeboxtmRdXEChJOHh.jpg"
+  },
+  {
+    "quote": "Of all the gin joints in all the towns in all the world, she walks into mine.",
+    "year": 1942,
+    "options": [
+      "Casablanca",
+      "The Big Sleep",
+      "To Have and Have Not",
+      "The Maltese Falcon"
+    ],
+    "genre": "classic",
+    "answer": "Casablanca",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/lGCEKlJo2CnWydQj7aamY7s1S7Q.jpg"
+  },
+  {
+    "quote": "Stella! Hey, Stella!",
+    "year": 1951,
+    "options": [
+      "A Streetcar Named Desire",
+      "On the Waterfront",
+      "Cat on a Hot Tin Roof",
+      "East of Eden"
+    ],
+    "genre": "classic",
+    "answer": "A Streetcar Named Desire",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/aicdlO5vt7z2ARm279eGzJeYCLQ.jpg"
+  },
+  {
+    "quote": "Mrs. Robinson, you're trying to seduce me.",
+    "year": 1967,
+    "options": [
+      "The Graduate",
+      "Bonnie and Clyde",
+      "Midnight Cowboy",
+      "Easy Rider"
+    ],
+    "genre": "classic",
+    "answer": "The Graduate",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/8XaDpF0COV1MLsDirJMnxmYc1Wp.jpg"
+  },
+  {
+    "quote": "The stuff that dreams are made of.",
+    "year": 1941,
+    "options": [
+      "The Maltese Falcon",
+      "Casablanca",
+      "The Big Sleep",
+      "Key Largo"
+    ],
+    "genre": "classic",
+    "answer": "The Maltese Falcon",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/bf4o6Uzw5wqLjdKwRuiDrN1xyvl.jpg"
+  },
+  {
+    "quote": "Run, Forrest, run!",
+    "year": 1994,
+    "options": [
+      "Forrest Gump",
+      "Rain Man",
+      "Big",
+      "The Green Mile"
+    ],
+    "genre": "drama",
+    "answer": "Forrest Gump",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg"
+  },
+  {
+    "quote": "Hakuna matata.",
+    "year": 1994,
+    "options": [
+      "The Lion King",
+      "Madagascar",
+      "Tarzan",
+      "The Jungle Book"
+    ],
+    "genre": "comedy",
+    "answer": "The Lion King",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg"
+  },
+  {
+    "quote": "Why don't you knock it off with them negative waves?",
+    "year": 1970,
+    "options": [
+      "Kelly's Heroes",
+      "The Dirty Dozen",
+      "Where Eagles Dare",
+      "The Great Escape"
+    ],
+    "genre": "action",
+    "answer": "Kelly's Heroes",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/hleMxFKSC42yT0TClS4G29HV11n.jpg"
+  },
+  {
+    "quote": "Nobody tosses a Dwarf.",
+    "year": 2001,
+    "options": [
+      "The Lord of the Rings: The Fellowship of the Ring",
+      "The Hobbit: An Unexpected Journey",
+      "The Two Towers",
+      "Willow"
+    ],
+    "genre": "scifi",
+    "answer": "The Lord of the Rings: The Fellowship of the Ring",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg"
+  },
+  {
+    "quote": "What is your major malfunction?",
+    "year": 1987,
+    "options": [
+      "Full Metal Jacket",
+      "Platoon",
+      "Stripes",
+      "An Officer and a Gentleman"
+    ],
+    "genre": "drama",
+    "answer": "Full Metal Jacket",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/kMKyx1k8hWWscYFnPbnxxN4Eqo4.jpg"
+  },
+  {
+    "quote": "You're killin' me, Smalls.",
+    "year": 1993,
+    "options": [
+      "The Sandlot",
+      "The Mighty Ducks",
+      "Little Giants",
+      "Rookie of the Year"
+    ],
+    "genre": "comedy",
+    "answer": "The Sandlot",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/7PYqz0viEuW8qTvuGinUMjDWMnj.jpg"
+  },
+  {
+    "quote": "These go to eleven.",
+    "year": 1984,
+    "options": [
+      "This Is Spinal Tap",
+      "Almost Famous",
+      "The Blues Brothers",
+      "School of Rock"
+    ],
+    "genre": "comedy",
+    "answer": "This Is Spinal Tap",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/b3lllDltoBws5uKZzBYVSjpjjJx.jpg"
+  },
+  {
+    "quote": "Nobody calls me chicken.",
+    "year": 1989,
+    "options": [
+      "Back to the Future Part II",
+      "Back to the Future",
+      "Back to the Future Part III",
+      "Bill & Ted's Excellent Adventure"
+    ],
+    "genre": "scifi",
+    "answer": "Back to the Future Part II",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/hQq8xZe5uLjFzSBt4LanNP7SQjl.jpg"
+  },
+  {
+    "quote": "A boy's best friend is his mother.",
+    "year": 1960,
+    "options": [
+      "Psycho",
+      "The Birds",
+      "Vertigo",
+      "Rear Window"
+    ],
+    "genre": "classic",
+    "answer": "Psycho",
+    "type": "movie",
+    "art": "https://image.tmdb.org/t/p/w500/yz4QVqPx3h1hD1DfqqQkCq3rmxW.jpg"
+  },
+  {
+    "quote": "Cause I'm free-fallin'.",
+    "answer": "Tom Petty",
+    "options": [
+      "Tom Petty",
+      "Bruce Springsteen",
+      "Bob Seger",
+      "John Mellencamp"
+    ],
+    "genre": "rock",
+    "type": "music"
+  },
+  {
+    "quote": "Slow down, you crazy child.",
+    "answer": "Billy Joel",
+    "options": [
+      "Billy Joel",
+      "Elton John",
+      "Bruce Hornsby",
+      "Paul Simon"
+    ],
+    "genre": "pop",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/76/15/b4/7615b45f-428c-e269-a2b5-c02949924a66/886447594681.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Carry on my wayward son.",
+    "answer": "Kansas",
+    "options": [
+      "Kansas",
+      "Boston",
+      "Styx",
+      "Journey"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/98/1a/fb/981afb81-415b-c6f1-f725-147769022da6/mzi.dgzjndad.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "More than a feeling.",
+    "answer": "Boston",
+    "options": [
+      "Boston",
+      "Kansas",
+      "Foreigner",
+      "Styx"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e3/08/9a/e3089ac9-a820-5ee9-64be-39500ad8a5e2/886444824972.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Come on, feel the noise.",
+    "answer": "Quiet Riot",
+    "options": [
+      "Quiet Riot",
+      "Twisted Sister",
+      "Def Leppard",
+      "Motley Crue"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1a/cc/95/1acc955a-696c-f7fd-c922-90f95c08ff20/mzi.mwpabxlj.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "We're not gonna take it.",
+    "answer": "Twisted Sister",
+    "options": [
+      "Twisted Sister",
+      "Quiet Riot",
+      "Poison",
+      "Ratt"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fd/c8/04/fdc80494-b3cc-eb07-7a96-0cb08b53c9b9/0603497879861.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "Sweet home Alabama.",
+    "answer": "Lynyrd Skynyrd",
+    "options": [
+      "Lynyrd Skynyrd",
+      "The Allman Brothers Band",
+      "ZZ Top",
+      "The Marshall Tucker Band"
+    ],
+    "genre": "rock",
+    "type": "music",
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/ff/39/ccff392e-ec9d-1ffd-6c1b-d21978bca939/06UMGIM02061.rgb.jpg/600x600bb.jpg"
+  },
+  {
+    "quote": "She's got a smile that it seems to me reminds me of childhood memories.",
+    "answer": "Guns N' Roses",
+    "options": [
+      "Guns N' Roses",
+      "Aerosmith",
+      "Motley Crue",
+      "Bon Jovi"
+    ],
+    "genre": "rock",
+    "type": "music"
+  }
+]
