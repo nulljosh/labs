@@ -28,6 +28,7 @@ window.quotableBadge = (event, d = {}) => {
   if (fresh.length) badgeToast(Badges.LIST.find(b => b.id === fresh[0]));
 };
 function badgeToast(b) {
+  window.Sound?.play('badge');
   const t = document.createElement('div');
   t.className = 'badge-toast';
   t.setAttribute('role', 'status');   // read out by screen readers, outside the page's landmarks on purpose

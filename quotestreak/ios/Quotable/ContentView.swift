@@ -295,7 +295,7 @@ private struct RoundView: View {
     /// game.js fades the movie poster / album art in as the background on a correct answer.
     private func react(correct: Bool) {
         if sfxOn {
-            correct ? Sound.correct(volume: sfxVolume / 100) : Sound.wrong(volume: sfxVolume / 100)
+            correct ? Sound.correct(volume: sfxVolume / 100, streak: game.streak) : Sound.wrong(volume: sfxVolume / 100)
         }
         if correct { burst = Burst(count: game.streak % 5 == 0 ? 60 : 24) }
         guard correct, let url = game.current?.art else { return }

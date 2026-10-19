@@ -1,7 +1,6 @@
 import AVFoundation
 
-/// The web game's two beeps (game.js `beep()`): 660Hz on a correct answer, 180Hz on a miss,
-/// at the user's chosen volume. Synthesised rather than shipped as audio files so the tones
+/// The web game's sound kit (sound.js, v94) at the user's chosen volume. Synthesised rather than shipped as audio files so the tones
 /// stay identical to the oscillator the browser builds.
 enum Sound {
     private static let engine = AVAudioEngine()
@@ -21,8 +20,23 @@ enum Sound {
         remaining = Int(duration * rate)
     }
 
-    static func correct(volume: Double) { play(frequency: 660, duration: 0.15, volume: volume) }
-    static func wrong(volume: Double) { play(frequency: 180, duration: 0.25, volume: volume) }
+    /// The sound kit (v94), note for note the web's sound.js: [frequency, start, length] per note.
+    static let cues: [String: [(Double, Double, Double)]] = [
+        "right": [(660, 0, 0.09), (880, 0.08, 0.12)],
+        "streak": [(660, 0, 0.08), (880, 0.07, 0.08), (1100, 0.14, 0.16)],
+        "wrong": [(196, 0, 0.22)],
+        "tick": [(1000, 0, 0.04)],
+        "badge": [(1320, 0, 0.06), (1760, 0.06, 0.1)],
+        "over": [(523, 0, 0.12), (392, 0.12, 0.12), (330, 0.24, 0.22)],
+    ]
+    static func cue(_ name: String, volume: Double) {
+        for (f, at, len) in cues[name] ?? [] {
+            DispatchQueue.main.asyncAfter(deadline: .now() + at) { play(frequency: f, duration: len, volume: volume) }
+        }
+    }
+
+    static func correct(volume: Double, streak: Int = 1) { cue(streak > 0 && streak % 5 == 0 ? "streak" : "right", volume: volume) }
+    static func wrong(volume: Double) { cue("wrong", volume: volume) }
 
     private static func start() {
         guard !started else { return }

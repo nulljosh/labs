@@ -67,3 +67,6 @@ A transfer link now merges instead of replacing (`transfer.js` `combine`): best 
 
 ## Audit (v93)
 See `docs/AUDIT.md`: escaping checked at every markup sink, security headers and a script CSP on every static page, the answer tally limited to real lines and 120 a minute, and the privacy page brought up to date.
+
+## Motion and sound (v94)
+`docs/MOTION.md` writes the system down: three motion speeds and one curve as tokens in `brand/tokens.css`, used by the game's animations; a global reduced-motion rule (the seven-second reveal is exempt, since it is the game); and a sound kit, `sound.js`, of six named cues (right, streak, wrong, tick, badge, over) that replace the two raw beeps.

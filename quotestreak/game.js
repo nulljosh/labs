@@ -174,7 +174,9 @@ function startTimer() {
   timeLeft = TIME_LIMIT;
   updateRing();
   timer = setInterval(() => {
+    const before = Math.ceil(timeLeft);
     timeLeft -= 0.1;
+    if (Math.ceil(timeLeft) < before && before <= 3 && timeLeft > 0) window.Sound?.play('tick');
     updateRing();
     if (timeLeft <= 0) {
       clearInterval(timer);
@@ -207,14 +209,14 @@ function choose(opt, btn) {
     score += pts;
     const milestone = streak % 5 === 0;
     feedbackEl.textContent = milestone ? `${streak} in a row! +${pts}` : `Correct! +${pts}`;
-    beep(660, 0.15);
+    window.Sound?.play(milestone ? 'streak' : 'right');
     burst(btn || $('type-input'), milestone ? 60 : 24);
     bump($('streak'));
   } else {
     streak = 0;
     if (lives) lives--;
     feedbackEl.textContent = `Nope, it was "${current.answer}"`;
-    beep(180, 0.25);
+    window.Sound?.play('wrong');
   }
   if (current.character) feedbackEl.textContent += ` · ${[current.character, current.year].filter(Boolean).join(', ')}`;
   if (!current.noTally) tally(current, correct);  // timelines, reveals, misquotes and packs aren't one bank quote
@@ -255,6 +257,7 @@ function updateStats() {
 }
 
 function endGame() {
+  window.Sound?.play('over');
   gameEl.classList.add('hidden');
   endEl.classList.remove('hidden');
   document.body.classList.remove('speed', 'revealing');
