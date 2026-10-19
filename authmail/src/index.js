@@ -13,6 +13,7 @@ const THEMES = {
   stanza:    { name: "Co-Stanza",       accent: "#171717", match: ["stanza"] },
   quotestreak: { name: "Quotestreak",   accent: "#5B9BD5", match: ["quotestreak", "quotable"] },
   hikko:     { name: "Hikko",           accent: "#3B82F6", match: ["spark", "hikko"] },
+  glyphbox:  { name: "Glyphbox",        accent: "#1D4ED8", match: ["glyphbox", "wiretext"], icon: "https://glyphbox.jaybulb.com/icon-192.png" },
 };
 const DEFAULT = { name: "Jaybulb", accent: "#111111" };
 
