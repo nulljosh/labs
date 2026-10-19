@@ -11,6 +11,7 @@
 !evidna/
 !plan/
 !hormuz/
+!tripwire/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
