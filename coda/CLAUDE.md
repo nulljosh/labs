@@ -70,7 +70,7 @@ node scripts/daily-expect.mjs > /tmp/daily.json && swiftc -o /tmp/quotablecheck 
 It checks that the Swift Daily Quote matches `daily.js` day for day, and validates the whole quote bank (4 unique options, answer present, no duplicate quotes, movies have years) and the scoring paths (streaks, the speed multiplier, timeout-as-miss).
 
 ## App Store
-Renamed Quotestreak to **Coda** on 2026-10-19. The store listing (app id `6804394619`, bundle `com.heyitsmejosh.quotable`) still says Quotestreak until 1.3.0 clears review; then probe Coda with asc-name-creator and rename it. The folder, the Pages project (`quotestreak`), `quotestreak_*` storage keys, RPCs and tables, and the `quotestreak-duel` Worker keep the old name on purpose: renaming them wipes players' data or breaks the API. quotestreak.jaybulb.com still serves the site. "Quotable", "Quotely", "Quipster", "Recite" and "Cueline" are all taken by other accounts.
+Renamed Quotestreak to **Coda** on 2026-10-19. The store listing (app id `6804394619`, bundle `com.heyitsmejosh.quotable`) still says Quotestreak until 1.3.0 clears review; then probe Coda with asc-name-creator and rename it. The Pages project (`quotestreak`), `quotestreak_*` storage keys, RPCs and tables, and the `quotestreak-duel` Worker keep the old name on purpose: renaming them wipes players' data or breaks the API. quotestreak.jaybulb.com still serves the site. "Quotable", "Quotely", "Quipster", "Recite" and "Cueline" are all taken by other accounts.
 
 **The product is Coda everywhere** (2026-08-28). The web game used to keep the Quotable name while only the store listing was Coda; that split is gone, every user-facing string on the site now reads Coda. Three things deliberately still say "quotable" and must NOT be renamed:
 

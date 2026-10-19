@@ -12,7 +12,7 @@
 
 ## Repos
 
-**`~/Documents/Code` is the `labs` repo.** 24 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, swing, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, quotestreak, curvely, hamurapi, bcgd, nyc, inkpress. Glyphbox (ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/glyphbox`, folder `glyphbox/`, ignored here). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`.
+**`~/Documents/Code` is the `labs` repo.** 24 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, swing, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), curvely, hamurapi, bcgd, nyc, inkpress. Glyphbox (ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/glyphbox`, folder `glyphbox/`, ignored here). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`.
 
 ### Apps
 Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
@@ -31,7 +31,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **curvely** | Equation grapher · 6794988370 |
 | **glyphbox** (ex-glyphic, ex-blockprint, ex-blockframe, ex-wiretext). Own repo, not in labs | Sketch a screen in plain text. Domain, Pages project and bundle ID still `wiretext` · 6794988951 |
 | **wordroot** | Etymology lookup |
-| **quotestreak** | Quote guessing game, no backend · 6804394619 |
+| **coda** (ex-quotestreak) | Quote guessing game at coda.jaybulb.com. Store listing, Pages project, storage keys and RPCs still say quotestreak · 6804394619 |
 | **inkpress** | Multi-feed RSS reader · 6787759999 |
 | **sidewise** | RSS bias API + reader · 6806028670 |
 | **plaintxt** | Plain text editor, iOS + macOS + CLI |
@@ -97,7 +97,7 @@ Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28 and again on 2026-10-05. R
 - **DNS**: curl with `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish`. Not named `CLOUDFLARE_API_TOKEN` on purpose, that name breaks wrangler's OAuth.
 - **Apple**: xcodegen `project.yml`, no checked-in xcodeproj. SwiftUI, iOS 17+/macOS 14+. `asc xcode archive`/`export`.
 - **Other platforms**: Kotlin Multiplatform under `<repo>/kmp/`. A PWA is a fallback and does not count as coverage.
-- **/api + /mcp**: house Cloudflare Functions pattern (quotestreak, bookrank, wordroot, curvely, glyphbox).
+- **/api + /mcp**: house Cloudflare Functions pattern (coda, bookrank, wordroot, curvely, glyphbox).
 - No emojis in any UI. No demo accounts for screenshots. Use the gitignored `.env`.
 
 ## Repo standard (nimble is the reference)

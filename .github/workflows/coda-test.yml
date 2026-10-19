@@ -1,15 +1,15 @@
-name: quotestreak Tests
+name: coda Tests
 on:
   push:
     branches: [main]
-    paths: ["quotestreak/**", ".github/workflows/quotestreak-test.yml"]
+    paths: ["coda/**", ".github/workflows/coda-test.yml"]
   pull_request:
     branches: [main]
-    paths: ["quotestreak/**", ".github/workflows/quotestreak-test.yml"]
+    paths: ["coda/**", ".github/workflows/coda-test.yml"]
   workflow_dispatch:
 defaults:
   run:
-    working-directory: quotestreak
+    working-directory: coda
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

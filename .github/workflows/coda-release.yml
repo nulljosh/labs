@@ -1,11 +1,11 @@
-name: quotestreak Release
+name: coda Release
 on:
   push:
-    tags: ['quotestreak-v*']
+    tags: ['coda-v*']
   workflow_dispatch:   # build-only dry run; release step needs a tag
 defaults:
   run:
-    working-directory: quotestreak
+    working-directory: coda
 
 jobs:
   release:
@@ -26,9 +26,9 @@ jobs:
       - name: Zip app
         run: |
           cd macos/build/Build/Products/Release
-          zip -r "$GITHUB_WORKSPACE/quotestreak/Quotestreak-macOS.zip" Quotestreak.app
+          zip -r "$GITHUB_WORKSPACE/coda/Coda-macOS.zip" Coda.app
       - uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: quotestreak/Quotestreak-macOS.zip
+          files: coda/Coda-macOS.zip
           generate_release_notes: true
