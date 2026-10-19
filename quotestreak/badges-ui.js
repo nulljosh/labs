@@ -30,6 +30,7 @@ window.quotableBadge = (event, d = {}) => {
 function badgeToast(b) {
   const t = document.createElement('div');
   t.className = 'badge-toast';
+  t.setAttribute('role', 'status');   // read out by screen readers, outside the page's landmarks on purpose
   t.style.top = `${12 + 64 * document.querySelectorAll('.badge-toast').length}px`;  // over the topbar, never over answers; stack down
   t.innerHTML = Badges.svg(b, true) + `<span>Badge: ${b.title}</span>`;
   document.body.appendChild(t);

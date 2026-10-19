@@ -172,6 +172,7 @@ struct AnswerButtonStyle: ButtonStyle {
             .background(fill, in: RoundedRectangle(cornerRadius: 14))
             .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(.primary.opacity(state == .open ? 0.14 : 0), lineWidth: 1))
             .opacity(state == .spent ? 0.5 : 1)
+            .accessibilityValue(state == .right ? Text("Right answer") : state == .wrong ? Text("Your answer, wrong") : Text(""))
             .scaleEffect(configuration.isPressed ? 0.98 : (state == .right ? 1.02 : 1))
             .animation(.spring(duration: 0.3), value: state == .right)
             .contentShape(RoundedRectangle(cornerRadius: 14))

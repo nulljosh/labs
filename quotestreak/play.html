@@ -35,6 +35,7 @@
     </div>
   </nav>
   <main class="wrap">
+    <h1 class="sr-only">Quotestreak</h1>
     <div id="settings" class="panel hidden">
       <h2>Settings</h2>
       <label class="setting-row">
@@ -44,6 +45,10 @@
       <label class="setting-row">
         <span>Answer by voice</span>
         <input type="checkbox" id="voice-toggle">
+      </label>
+      <label class="setting-row">
+        <span>High contrast</span>
+        <input type="checkbox" id="contrast-toggle">
       </label>
       <label class="setting-row">
         <span>Hints</span>
@@ -137,13 +142,13 @@
         <option value="year">Name the year</option>
         <option value="marathon">Marathon</option>
       </select>
-      <select id="genre">
+      <select id="genre" aria-label="Genre">
         <option value="all">All genres</option>
       </select>
-      <select id="decade">
+      <select id="decade" aria-label="Decade">
         <option value="all">All decades</option>
       </select>
-      <select id="difficulty">
+      <select id="difficulty" aria-label="Difficulty">
         <option value="all">Any difficulty</option>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
@@ -175,14 +180,14 @@
         <span id="timer-num"></span>
       </div>
       <span id="genre-badge" class="genre-badge"></span>
-      <p id="prompt" class="prompt"></p>
-      <blockquote id="quote" translate="no" dir="auto"></blockquote>
+      <p id="prompt" class="prompt" aria-live="polite"></p>
+      <blockquote id="quote" translate="no" dir="auto" aria-live="polite"></blockquote>
       <div id="options" class="options"></div>
       <form id="type-form" class="hidden"><input id="type-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your answer"><button id="type-go">Answer</button></form>
       <p id="hint" class="prompt"></p>
       <button id="hint-btn" class="secondary">Hint</button>
       <button id="end-btn" class="link">End game</button>
-      <p id="feedback"></p>
+      <p id="feedback" role="status" aria-live="polite"></p>
     </div>
 
     <div id="badges" class="panel hidden">

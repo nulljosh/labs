@@ -30,6 +30,7 @@ Quip is always yellow with an ink face. Never recolour, outline or stretch Quip,
 |---|---|
 | Accent, marquee yellow | `#ffcc00` |
 | Accent deep (strokes and rings on light) | `#e0a800` |
+| Accent text (yellow as text on light, 5.9:1) | `#8a6412` |
 | Text on accent | `#15161a`, always ink, never white |
 | Night ink (tile, dark cards) | `#15161a` to `#2e3039` |
 | Right | `#248a3d` light, `#34c759` dark |

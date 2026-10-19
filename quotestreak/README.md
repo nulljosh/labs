@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80" height="80" alt="Quotestreak icon">
 
-![version](https://img.shields.io/badge/version-58.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-59.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Here's the line. Name the movie.
 
@@ -40,6 +40,8 @@ Or the show, the game, the song or the book. 1,624 lines across 15 genres, from 
 **Pass and play.** Up to eight people on one phone, taking turns.
 
 **Party.** Put it on a big screen, the Apple TV or any browser at /party, and everyone plays on their own phone: type the code, tap your answer, the screen keeps score. Phones need no app, just the browser. Quiz night makes it four themed rounds with the standings between them. Classroom packs (Shakespeare, famous speeches, first lines of novels) turn it into a lesson, with every student's results ready to paste into a gradebook.
+
+**For everyone.** Screen readers hear each line and each result, keys 1 to 4 answer, a high-contrast theme follows your system or a switch, and the layout holds at twice the text size. Every screen passes an axe-core check, light and dark.
 
 **Twenty languages.** The web game speaks English, Spanish, French, German, Italian, Portuguese, Dutch, Swedish, Polish, Turkish, Russian, Ukrainian, Arabic, Hebrew, Hindi, Japanese, Korean, Chinese, Indonesian and Vietnamese, right to left where it should be. The lines themselves stay as they were said.
 

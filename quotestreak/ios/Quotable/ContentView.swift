@@ -219,6 +219,9 @@ private struct RoundView: View {
     private let clock = Timer.publish(every: Game.tickInterval, on: .main, in: .common).autoconnect()
 
     var body: some View {
+        // Scrolls at the largest Dynamic Type sizes instead of clipping; centred whenever it fits.
+        GeometryReader { geo in
+        ScrollView {
         VStack(spacing: 20) {
             Spacer(minLength: 0)
             if game.speedMode { TimerRing(timeLeft: game.timeLeft) }
@@ -262,7 +265,10 @@ private struct RoundView: View {
         }
         .frame(maxWidth: 560 * Theme.padScale)   // a reading column, not edge to edge on a wide Mac window
         .padding(24)
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, minHeight: geo.size.height)
+        }
+        .scrollBounceBehavior(.basedOnSize)
+        }
         .animation(.default, value: game.current)
         .sensoryFeedback(.success, trigger: game.lastWasCorrect) { _, new in hapticsOn && new == true }
         .sensoryFeedback(.error, trigger: game.lastWasCorrect) { _, new in hapticsOn && new == false }
@@ -370,6 +376,8 @@ private struct TimerRing: View {
             Text("\(Int(timeLeft.rounded(.up)))").font(.quip(.headline, weight: .bold))
         }
         .frame(width: 64, height: 64)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(Int(timeLeft.rounded(.up))) seconds left")
     }
 }
 

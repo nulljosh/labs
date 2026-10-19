@@ -31,3 +31,17 @@ function initSettings() {
   $('settings-close').onclick = () => $('settings').classList.add('hidden');
 }
 initSettings();
+
+// High contrast (v59): follows the system's Increase Contrast until the player flips the switch.
+const contrastOn = () => { try { const v = localStorage.getItem('quotestreak_contrast'); return v === null ? matchMedia('(prefers-contrast: more)').matches : v === 'true'; } catch { return false; } };
+const applyContrast = () => { document.documentElement.classList.toggle('contrast', contrastOn()); document.documentElement.classList.toggle('no-contrast', !contrastOn()); $('contrast-toggle').checked = contrastOn(); };
+$('contrast-toggle').onchange = () => { try { localStorage.setItem('quotestreak_contrast', $('contrast-toggle').checked); } catch {} applyContrast(); };
+applyContrast();
+
+// Keys 1 to 4 pick an answer, for keyboard and switch players; Enter on a focused answer works as ever.
+addEventListener('keydown', (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey || /input|textarea|select/i.test(document.activeElement?.tagName)) return;
+  const n = '1234'.indexOf(e.key);
+  const btn = n >= 0 && !gameEl.classList.contains('hidden') && optionsEl.children[n];
+  if (btn && !btn.disabled) { e.preventDefault(); btn.click(); }
+});
