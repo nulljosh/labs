@@ -14,6 +14,7 @@
 !tripwire/
 !cadence/
 !fieldbook/
+!dream/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
