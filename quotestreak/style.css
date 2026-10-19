@@ -18,6 +18,7 @@
   --g-sitcom: #4cc9f0; --g-sitcom-text: #111;
   --g-tvdrama: #1d3557; --g-tvdrama-text: #fff;
   --g-cartoon: #f4a261; --g-cartoon-text: #111;
+  --g-game: #577590; --g-game-text: #fff;
 }
 * { box-sizing: border-box; }
 html, body { height: 100%; }
