@@ -27793,5 +27793,1581 @@
     "type": "book",
     "character": "Charles Dickens",
     "source": "https://www.gutenberg.org/ebooks/1023"
+  },
+  {
+    "quote": "An unusable item... The Key of the Twilight?",
+    "year": 2006,
+    "options": [
+      ".hack//Roots",
+      "The Mystery of Mamo",
+      "Death Note",
+      "Chiikawa the Movie: The Secret of the Mermaid Island"
+    ],
+    "genre": "anime",
+    "answer": ".hack//Roots",
+    "type": "tv",
+    "character": "Sakisaka",
+    "source": "https://en.wikiquote.org/wiki/.hack%2F%2FRoots",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "We are just facing an unavoidable situation.",
+    "year": 2006,
+    "options": [
+      ".hack//Roots",
+      "Shangri-La",
+      "Made in Abyss",
+      "Wolf's Rain"
+    ],
+    "genre": "anime",
+    "answer": ".hack//Roots",
+    "type": "tv",
+    "character": "Ovan",
+    "source": "https://en.wikiquote.org/wiki/.hack%2F%2FRoots",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I customized that bike for myself. It's too wild, you couldn't handle it.",
+    "year": 1988,
+    "options": [
+      "Yu-Gi-Oh! 5D's",
+      "Akira",
+      "Ōban Star-Racers",
+      "The Mystery of Mamo"
+    ],
+    "genre": "anime",
+    "answer": "Akira",
+    "type": "movie",
+    "character": "Kaneda",
+    "source": "https://en.wikiquote.org/wiki/Akira_(1988_film)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Twin ceramic rotor drives on each wheel! And these look like computer controlled anti-lock brakes! Wow, 200 horses at 12,000 rpm!",
+    "year": 1988,
+    "options": [
+      "Akira",
+      "Hunter × Hunter",
+      "Cowboy Bebop",
+      "Darker Than Black"
+    ],
+    "genre": "anime",
+    "answer": "Akira",
+    "type": "movie",
+    "character": "Tetsuo",
+    "source": "https://en.wikiquote.org/wiki/Akira_(1988_film)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "To be or not to be, that is the question!",
+    "year": 2012,
+    "options": [
+      "Cyborg 009",
+      "Akira",
+      "The Big O",
+      "Another"
+    ],
+    "genre": "anime",
+    "answer": "Another",
+    "type": "tv",
+    "character": "Aya Ayano",
+    "source": "https://en.wikiquote.org/wiki/Another_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "If humans don't want me, then why did they create me?!",
+    "options": [
+      "Armitage III",
+      "The Big O",
+      "Magic Knight Rayearth",
+      "Darker Than Black"
+    ],
+    "genre": "anime",
+    "answer": "Armitage III",
+    "type": "tv",
+    "character": "Armitage",
+    "source": "https://en.wikiquote.org/wiki/Armitage_III",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Even if we painstakingly piece together something lost, it doesn't mean things will ever go back to how they were",
+    "options": [
+      "Naruto: Shippūden",
+      ".hack//Roots",
+      "Gurren Lagann",
+      "Berserk"
+    ],
+    "genre": "anime",
+    "answer": "Berserk",
+    "type": "tv",
+    "character": "Guts",
+    "source": "https://en.wikiquote.org/wiki/Berserk_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "A friend would not just follow another's dream... a friend would find his own reason to live...",
+    "options": [
+      "Berserk",
+      "Code Geass",
+      "Wolf's Rain",
+      "Hunter × Hunter"
+    ],
+    "genre": "anime",
+    "answer": "Berserk",
+    "type": "tv",
+    "character": "Griffith",
+    "source": "https://en.wikiquote.org/wiki/Berserk_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "On the justice and honor of the Military Police",
+    "year": 1999,
+    "options": [
+      "Code Geass",
+      "Berserk",
+      "Saint Seiya",
+      "The Big O"
+    ],
+    "genre": "anime",
+    "answer": "The Big O",
+    "type": "tv",
+    "character": "Dastun",
+    "source": "https://en.wikiquote.org/wiki/The_Big_O",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "This fallen angel's nothing but trouble.",
+    "year": 1999,
+    "options": [
+      "Death Note",
+      "The Girl Who Leapt Through Time",
+      "Naruto: Shippūden",
+      "The Big O"
+    ],
+    "genre": "anime",
+    "answer": "The Big O",
+    "type": "tv",
+    "character": "Roger Smith",
+    "source": "https://en.wikiquote.org/wiki/The_Big_O",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Don't use others as a reason for walking straight into death's arms.",
+    "year": 2004,
+    "options": [
+      "Pokémon: Lucario and The Mystery of Mew",
+      "Bleach",
+      "Death Note",
+      "The Melancholy of Haruhi Suzumiya"
+    ],
+    "genre": "anime",
+    "answer": "Bleach",
+    "type": "tv",
+    "character": "Urahara",
+    "source": "https://en.wikiquote.org/wiki/Bleach_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Sorry to keep you waiting. I found my resolve. This time I will get you.",
+    "year": 2004,
+    "options": [
+      "Bleach",
+      "Gurren Lagann",
+      ".hack//Roots",
+      "Chiikawa the Movie: The Secret of the Mermaid Island"
+    ],
+    "genre": "anime",
+    "answer": "Bleach",
+    "type": "tv",
+    "character": "Ichigo",
+    "source": "https://en.wikiquote.org/wiki/Bleach_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "A most precious and endearing light, I am happy just to gaze upon her.",
+    "year": 2008,
+    "options": [
+      "Casshern Sins",
+      "Sgt. Frog",
+      "The Tower of Druaga",
+      "Fullmetal Alchemist: Brotherhood"
+    ],
+    "genre": "anime",
+    "answer": "Casshern Sins",
+    "type": "tv",
+    "character": "Dune",
+    "source": "https://en.wikiquote.org/wiki/Casshern_Sins",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "It's good to practice somewhere else once in a while.",
+    "year": 2026,
+    "options": [
+      "Code Geass",
+      "Cyborg 009",
+      "Another",
+      "Chiikawa the Movie: The Secret of the Mermaid Island"
+    ],
+    "genre": "anime",
+    "answer": "Chiikawa the Movie: The Secret of the Mermaid Island",
+    "type": "movie",
+    "character": "Rakko",
+    "source": "https://en.wikiquote.org/wiki/Chiikawa_the_Movie%3A_The_Secret_of_the_Mermaid_Island",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "You care to repeat those words? If you can, I'll stick my hand into your mouth and rip out your vocal cords as a reward.",
+    "year": 2007,
+    "options": [
+      "Armitage III",
+      "Naruto: Shippūden",
+      "Akira",
+      "Clannad: After Story"
+    ],
+    "genre": "anime",
+    "answer": "Clannad: After Story",
+    "type": "tv",
+    "character": "Kyou Fujibayashi",
+    "source": "https://en.wikiquote.org/wiki/Clannad%3A_After_Story",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "When in midst of love, sisters go out of sight. Love is amazing!",
+    "year": 2007,
+    "options": [
+      "Casshern Sins",
+      "Fullmetal Alchemist",
+      "Magical Girl Lyrical Nanoha",
+      "Clannad: After Story"
+    ],
+    "genre": "anime",
+    "answer": "Clannad: After Story",
+    "type": "tv",
+    "character": "Youhei Sunohara",
+    "source": "https://en.wikiquote.org/wiki/Clannad%3A_After_Story",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "You fellas know full well what this badass mother can do!",
+    "year": 2006,
+    "options": [
+      "Another",
+      "Armitage III",
+      "Ronin Warriors",
+      "Code Geass"
+    ],
+    "genre": "anime",
+    "answer": "Code Geass",
+    "type": "tv",
+    "character": "Kallen Kōzuki",
+    "source": "https://en.wikiquote.org/wiki/Code_Geass",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "So, are we having a bad day?! Looks like you missed a chance to go to heaven, Private Kururugi.",
+    "year": 2006,
+    "options": [
+      "Code Geass",
+      ".hack//Roots",
+      "Shangri-La",
+      "Ronin Warriors"
+    ],
+    "genre": "anime",
+    "answer": "Code Geass",
+    "type": "tv",
+    "character": "Lloyd Asplund",
+    "source": "https://en.wikiquote.org/wiki/Code_Geass",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I hate kids and pets. They’re all a royal pain in the butt!",
+    "year": 1998,
+    "options": [
+      "Cowboy Bebop",
+      "The Melancholy of Haruhi Suzumiya",
+      "Kirby: Right Back at Ya!",
+      "Armitage III"
+    ],
+    "genre": "anime",
+    "answer": "Cowboy Bebop",
+    "type": "tv",
+    "character": "Spike",
+    "source": "https://en.wikiquote.org/wiki/Cowboy_Bebop",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "When you're told not to open something, well, who can resist?",
+    "year": 1998,
+    "options": [
+      "Persona 4: The Animation",
+      "Cowboy Bebop",
+      "Armitage III",
+      "The Lord of the Rings: The War of the Rohirrim"
+    ],
+    "genre": "anime",
+    "answer": "Cowboy Bebop",
+    "type": "tv",
+    "character": "Faye",
+    "source": "https://en.wikiquote.org/wiki/Cowboy_Bebop",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Is it really over? Is this the end? I hope so.",
+    "year": 1968,
+    "options": [
+      "Cyborg 009",
+      ".hack//Roots",
+      "Pokémon: Lucario and The Mystery of Mew",
+      "Bleach"
+    ],
+    "genre": "anime",
+    "answer": "Cyborg 009",
+    "type": "tv",
+    "character": "003",
+    "source": "https://en.wikiquote.org/wiki/Cyborg_009",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "So neither of them was able to touch the other or they would die, even though they said they were brothers.",
+    "year": 1968,
+    "options": [
+      "Cyborg 009",
+      "Martian Successor Nadesico",
+      "Madlax",
+      "The Law of Ueki"
+    ],
+    "genre": "anime",
+    "answer": "Cyborg 009",
+    "type": "tv",
+    "character": "009",
+    "source": "https://en.wikiquote.org/wiki/Cyborg_009",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Contractors are liars. I'm no different.",
+    "year": 2007,
+    "options": [
+      "Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle",
+      "Mobile Fighter G Gundam",
+      "Saint Seiya",
+      "Darker Than Black"
+    ],
+    "genre": "anime",
+    "answer": "Darker Than Black",
+    "type": "tv",
+    "character": "Hei",
+    "source": "https://en.wikiquote.org/wiki/Darker_Than_Black",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Greetings to all of you at the ICPO, I am L.",
+    "options": [
+      "Death Note",
+      "Sgt. Frog",
+      "Naruto: Shippūden",
+      "Momentary Lily"
+    ],
+    "genre": "anime",
+    "answer": "Death Note",
+    "type": "tv",
+    "character": "L",
+    "source": "https://en.wikiquote.org/wiki/Death_Note",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Look around you, and all you will see are people the world would be better off without.",
+    "options": [
+      "Death Note",
+      "Made in Abyss",
+      "Saint Seiya",
+      "Fullmetal Alchemist: Brotherhood"
+    ],
+    "genre": "anime",
+    "answer": "Death Note",
+    "type": "tv",
+    "character": "Light",
+    "source": "https://en.wikiquote.org/wiki/Death_Note",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "This is my own form. Seventh Form: Honoikazuchi no Kami!",
+    "year": 2025,
+    "options": [
+      "Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle",
+      "The Girl Who Leapt Through Time",
+      "The Mystery of Mamo",
+      ".hack//Roots"
+    ],
+    "genre": "anime",
+    "answer": "Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle",
+    "type": "movie",
+    "character": "Zenitsu Agatsumɑ",
+    "source": "https://en.wikiquote.org/wiki/Demon_Slayer%3A_Kimetsu_no_Yaiba_%E2%80%93_The_Movie%3A_Infinity_Castle",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Zenitsu... you've become strong. You are my pride and joy.",
+    "year": 2025,
+    "options": [
+      "Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle",
+      "Pokémon: Lucario and The Mystery of Mew",
+      "The Mystery of Mamo",
+      "Naruto: Shippūden"
+    ],
+    "genre": "anime",
+    "answer": "Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle",
+    "type": "movie",
+    "character": "Jigoro Kuwajima",
+    "source": "https://en.wikiquote.org/wiki/Demon_Slayer%3A_Kimetsu_no_Yaiba_%E2%80%93_The_Movie%3A_Infinity_Castle",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Punyǃ I'm going to rush him, watch my backǃ Beast breathingǃ Fourth fang: Slice 'n diceǃ",
+    "year": 2020,
+    "options": [
+      "Casshern Sins",
+      "Demon Slayer: Kimetsu no Yaiba – The Movie: Mugen Train",
+      "The Tower of Druaga",
+      "Martian Successor Nadesico"
+    ],
+    "genre": "anime",
+    "answer": "Demon Slayer: Kimetsu no Yaiba – The Movie: Mugen Train",
+    "type": "movie",
+    "character": "Inosuke",
+    "source": "https://en.wikiquote.org/wiki/Demon_Slayer%3A_Kimetsu_no_Yaiba_%E2%80%93_The_Movie%3A_Mugen_Train",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "No matter how weak or unworthy you feel... keep your heart burning, grit your teeth and move forward.",
+    "year": 2020,
+    "options": [
+      "Magic Knight Rayearth",
+      "Bleach",
+      "Madlax",
+      "Demon Slayer: Kimetsu no Yaiba – The Movie: Mugen Train"
+    ],
+    "genre": "anime",
+    "answer": "Demon Slayer: Kimetsu no Yaiba – The Movie: Mugen Train",
+    "type": "movie",
+    "character": "Kyôjurô Rengoku",
+    "source": "https://en.wikiquote.org/wiki/Demon_Slayer%3A_Kimetsu_no_Yaiba_%E2%80%93_The_Movie%3A_Mugen_Train",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Please don't tell people our bakery's motorbike ran you over.",
+    "year": 2018,
+    "options": [
+      "The Law of Ueki",
+      "Fullmetal Alchemist",
+      "Shangri-La",
+      "FLCL"
+    ],
+    "genre": "anime",
+    "answer": "FLCL",
+    "type": "tv",
+    "character": "Haruko",
+    "source": "https://en.wikiquote.org/wiki/FLCL",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Don't be late for dinner. We're having your favorite, Genetically Altered Fermented Soybeans.",
+    "year": 2018,
+    "options": [
+      "FLCL",
+      "Naruto the Movie: Ninja Clash in the Land of Snow",
+      ".hack//Roots",
+      "Gurren Lagann"
+    ],
+    "genre": "anime",
+    "answer": "FLCL",
+    "type": "tv",
+    "character": "Kamon",
+    "source": "https://en.wikiquote.org/wiki/FLCL",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "In chronological order to the anime/manga.",
+    "options": [
+      "Fullmetal Alchemist",
+      "Bleach",
+      "Darker Than Black",
+      "Momentary Lily"
+    ],
+    "genre": "anime",
+    "answer": "Fullmetal Alchemist",
+    "type": "tv",
+    "character": "Movie: Conqueror of Shamballa",
+    "source": "https://en.wikiquote.org/wiki/Fullmetal_Alchemist_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "We were done with making dolls and roses.",
+    "options": [
+      "Fullmetal Alchemist",
+      "Berserk",
+      "The Lord of the Rings: The War of the Rohirrim",
+      "Naruto: Shippūden"
+    ],
+    "genre": "anime",
+    "answer": "Fullmetal Alchemist",
+    "type": "tv",
+    "character": "Alphonse",
+    "source": "https://en.wikiquote.org/wiki/Fullmetal_Alchemist_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "And that was it. Mom had given us all the encouragement we needed. From that moment, we were obsessed with learning alchemy.",
+    "year": 2009,
+    "options": [
+      "Fullmetal Alchemist: Brotherhood",
+      "Shangri-La",
+      "Another",
+      "Berserk"
+    ],
+    "genre": "anime",
+    "answer": "Fullmetal Alchemist: Brotherhood",
+    "type": "tv",
+    "character": "Edward",
+    "source": "https://en.wikiquote.org/wiki/Fullmetal_Alchemist%3A_Brotherhood_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I am the called by many names I am the world, I am the universe, I am god, I am truth, I am all, I am one, and I am you.",
+    "year": 2009,
+    "options": [
+      "Madlax",
+      "Naruto",
+      ".hack//Roots",
+      "Fullmetal Alchemist: Brotherhood"
+    ],
+    "genre": "anime",
+    "answer": "Fullmetal Alchemist: Brotherhood",
+    "type": "tv",
+    "character": "\"The Truth\"",
+    "source": "https://en.wikiquote.org/wiki/Fullmetal_Alchemist%3A_Brotherhood_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Does a child need a reason to protect something his parents loved?",
+    "options": [
+      "Sgt. Frog",
+      "Chiikawa the Movie: The Secret of the Mermaid Island",
+      "Gin Tama",
+      "Code Geass"
+    ],
+    "genre": "anime",
+    "answer": "Gin Tama",
+    "type": "tv",
+    "character": "Otae",
+    "source": "https://en.wikiquote.org/wiki/Gin_Tama",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "A samurai doesn’t need a reason to do what’s right. If you want to protect her, you must draw your sword.",
+    "options": [
+      "Gin Tama",
+      "The Mystery of Mamo",
+      "Magic Knight Rayearth",
+      "Naruto: Shippūden"
+    ],
+    "genre": "anime",
+    "answer": "Gin Tama",
+    "type": "tv",
+    "character": "Gintoki",
+    "source": "https://en.wikiquote.org/wiki/Gin_Tama",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "When I'm not lucky, I'm really not, but I usually am, so it balances out.",
+    "options": [
+      "Casshern Sins",
+      "Pokémon: Lucario and The Mystery of Mew",
+      "The Tower of Druaga",
+      "The Girl Who Leapt Through Time"
+    ],
+    "genre": "anime",
+    "answer": "The Girl Who Leapt Through Time",
+    "type": "movie",
+    "character": "Makoto Konno",
+    "source": "https://en.wikiquote.org/wiki/The_Girl_Who_Leapt_Through_Time",
+    "year": 2006,
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "You don’t get to choose when or who you meet. However, you do get to choose who you hold on to.",
+    "options": [
+      "Hunter × Hunter",
+      ".hack//Roots",
+      "Darker Than Black",
+      "The Girl Who Leapt Through Time"
+    ],
+    "genre": "anime",
+    "answer": "The Girl Who Leapt Through Time",
+    "type": "movie",
+    "character": "Unknown",
+    "source": "https://en.wikiquote.org/wiki/The_Girl_Who_Leapt_Through_Time",
+    "year": 2006,
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Guise sees Henrietta as his little sister, and Jean sees Rico as his work dog. Which makes me... what does he want me to be?",
+    "year": 2003,
+    "options": [
+      "Cyborg 009",
+      ".hack//Roots",
+      "Naruto",
+      "Gunslinger Girl"
+    ],
+    "genre": "anime",
+    "answer": "Gunslinger Girl",
+    "type": "tv",
+    "character": "Triela",
+    "source": "https://en.wikiquote.org/wiki/Gunslinger_Girl_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Your drill is the drill that will pierce the Heavens!",
+    "year": 2007,
+    "options": [
+      "Yu-Gi-Oh! 5D's",
+      "Gin Tama",
+      "Gurren Lagann",
+      "Casshern Sins"
+    ],
+    "genre": "anime",
+    "answer": "Gurren Lagann",
+    "type": "tv",
+    "character": "Kamina",
+    "source": "https://en.wikiquote.org/wiki/Gurren_Lagann",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Our dead friends...the sorrow of the spiral race...we'll take in all their regrets. We'll take it and turn it into power!",
+    "year": 2007,
+    "options": [
+      "Naruto: Shippūden",
+      "The Lord of the Rings: The War of the Rohirrim",
+      "Madlax",
+      "Gurren Lagann"
+    ],
+    "genre": "anime",
+    "answer": "Gurren Lagann",
+    "type": "tv",
+    "character": "Simon",
+    "source": "https://en.wikiquote.org/wiki/Gurren_Lagann",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "My master, it shall be done. As you command.",
+    "year": 2006,
+    "options": [
+      "Gurren Lagann",
+      "Hellsing Ultimate",
+      "Gunslinger Girl",
+      "Pokémon: Lucario and The Mystery of Mew"
+    ],
+    "genre": "anime",
+    "answer": "Hellsing Ultimate",
+    "type": "tv",
+    "character": "Alucard",
+    "source": "https://en.wikiquote.org/wiki/Hellsing_Ultimate",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "They're not real people. They're like...zombie pumpkins.",
+    "year": 2006,
+    "options": [
+      "Hellsing Ultimate",
+      "The Girl Who Leapt Through Time",
+      "Magical Girl Lyrical Nanoha",
+      "The Tower of Druaga"
+    ],
+    "genre": "anime",
+    "answer": "Hellsing Ultimate",
+    "type": "tv",
+    "character": "Seras Victoria",
+    "source": "https://en.wikiquote.org/wiki/Hellsing_Ultimate",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Enough. I don't care what happens to me now. I need all the power I'll ever have.",
+    "options": [
+      ".hack//Roots",
+      "Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle",
+      "Sayonara Zetsubō Sensei",
+      "Hunter × Hunter"
+    ],
+    "genre": "anime",
+    "answer": "Hunter × Hunter",
+    "type": "tv",
+    "character": "Gon",
+    "source": "https://en.wikiquote.org/wiki/Hunter_%C3%97_Hunter",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Why does he have to be so abusive? Self-esteem issues, anyone?",
+    "year": 2001,
+    "options": [
+      "Another",
+      "Kirby: Right Back at Ya!",
+      "Casshern Sins",
+      "Wolf's Rain"
+    ],
+    "genre": "anime",
+    "answer": "Kirby: Right Back at Ya!",
+    "type": "tv",
+    "character": "Escargoon",
+    "source": "https://en.wikiquote.org/wiki/Kirby%3A_Right_Back_at_Ya!",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Hey, I do believe we've been starstruck.",
+    "year": 2001,
+    "options": [
+      "Kirby: Right Back at Ya!",
+      "Your Name",
+      "Bleach",
+      ".hack//Roots"
+    ],
+    "genre": "anime",
+    "answer": "Kirby: Right Back at Ya!",
+    "type": "tv",
+    "character": "King Dedede",
+    "source": "https://en.wikiquote.org/wiki/Kirby%3A_Right_Back_at_Ya!",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Riders of the Mark, Brothers of Rohan, arise!",
+    "options": [
+      "The Big O",
+      "The Lord of the Rings: The War of the Rohirrim",
+      "Martian Successor Nadesico",
+      "Sgt. Frog"
+    ],
+    "genre": "anime",
+    "answer": "The Lord of the Rings: The War of the Rohirrim",
+    "type": "movie",
+    "character": "Helm Hammerhand",
+    "source": "https://en.wikiquote.org/wiki/The_Lord_of_the_Rings%3A_The_War_of_the_Rohirrim",
+    "year": 2024,
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Our fathers speak as if I were not even in the room.",
+    "options": [
+      "The Lord of the Rings: The War of the Rohirrim",
+      "Casshern Sins",
+      "Hunter × Hunter",
+      "Magic Knight Rayearth"
+    ],
+    "genre": "anime",
+    "answer": "The Lord of the Rings: The War of the Rohirrim",
+    "type": "movie",
+    "character": "Hèra",
+    "source": "https://en.wikiquote.org/wiki/The_Lord_of_the_Rings%3A_The_War_of_the_Rohirrim",
+    "year": 2024,
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I want to become a White Whistle soon so I can catch up to my mother...and explore the places she went.",
+    "options": [
+      "Another",
+      "Madlax",
+      "Made in Abyss",
+      "The Mystery of Mamo"
+    ],
+    "genre": "anime",
+    "answer": "Made in Abyss",
+    "type": "tv",
+    "character": "Riko",
+    "source": "https://en.wikiquote.org/wiki/Made_in_Abyss_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Thank you Mitty, for pulling Reg's Treasure up out of that place",
+    "options": [
+      "Made in Abyss",
+      "Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle",
+      "Hellsing Ultimate",
+      "Code Geass"
+    ],
+    "genre": "anime",
+    "answer": "Made in Abyss",
+    "type": "tv",
+    "character": "Nanachi",
+    "source": "https://en.wikiquote.org/wiki/Made_in_Abyss_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Even if you don't have any memory of me, this feeling won't change. That's true loyalty. A willingness to die.",
+    "options": [
+      "Madlax",
+      "Darker Than Black",
+      "Naruto: Shippūden",
+      "Kirby: Right Back at Ya!"
+    ],
+    "genre": "anime",
+    "answer": "Madlax",
+    "type": "tv",
+    "character": "Elenore Baker",
+    "source": "https://en.wikiquote.org/wiki/Madlax",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Don't you know how to do anything?! Just close your eyes and think real hard!",
+    "year": 1994,
+    "options": [
+      "Magic Knight Rayearth",
+      "Gin Tama",
+      "The Mystery of Mamo",
+      "Madlax"
+    ],
+    "genre": "anime",
+    "answer": "Magic Knight Rayearth",
+    "type": "tv",
+    "character": "Presea",
+    "source": "https://en.wikiquote.org/wiki/Magic_Knight_Rayearth",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I always thought of Fahren as a country with many Chinese influences. But I think ninjas are distinctly Japanese.",
+    "year": 1994,
+    "options": [
+      "Chiikawa the Movie: The Secret of the Mermaid Island",
+      "Martian Successor Nadesico",
+      "Naruto: Shippūden",
+      "Magic Knight Rayearth"
+    ],
+    "genre": "anime",
+    "answer": "Magic Knight Rayearth",
+    "type": "tv",
+    "character": "Fuu",
+    "source": "https://en.wikiquote.org/wiki/Magic_Knight_Rayearth",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "If they re that powerful, I doubt this is enough to kill them. Ill have Quattro and Sein find the case for me.",
+    "year": 2004,
+    "options": [
+      "Madlax",
+      "Pokémon: Lucario and The Mystery of Mew",
+      "Magical Girl Lyrical Nanoha",
+      "Fullmetal Alchemist: Brotherhood"
+    ],
+    "genre": "anime",
+    "answer": "Magical Girl Lyrical Nanoha",
+    "type": "tv",
+    "character": "Lutecia Alpine",
+    "source": "https://en.wikiquote.org/wiki/Magical_Girl_Lyrical_Nanoha",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Now your usefulness and your revenge are at an end.",
+    "year": 2004,
+    "options": [
+      "Magical Girl Lyrical Nanoha",
+      "Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle",
+      "Another",
+      "The Tower of Druaga"
+    ],
+    "genre": "anime",
+    "answer": "Magical Girl Lyrical Nanoha",
+    "type": "tv",
+    "character": "Due",
+    "source": "https://en.wikiquote.org/wiki/Magical_Girl_Lyrical_Nanoha",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Jiro Yamada is the boring name my mother gave me. Gai Daigoji is the name of my soul!",
+    "year": 1996,
+    "options": [
+      "Martian Successor Nadesico",
+      "Casshern Sins",
+      "Death Note",
+      "Berserk"
+    ],
+    "genre": "anime",
+    "answer": "Martian Successor Nadesico",
+    "type": "tv",
+    "character": "Gai",
+    "source": "https://en.wikiquote.org/wiki/Martian_Successor_Nadesico",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "There might be discrepancies in the transmission of data.",
+    "year": 2006,
+    "options": [
+      "Wolf's Rain",
+      "Hellsing Ultimate",
+      "The Melancholy of Haruhi Suzumiya",
+      "Sayonara Zetsubō Sensei"
+    ],
+    "genre": "anime",
+    "answer": "The Melancholy of Haruhi Suzumiya",
+    "type": "tv",
+    "character": "Yuki Nagato",
+    "source": "https://en.wikiquote.org/wiki/The_Melancholy_of_Haruhi_Suzumiya",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Oh please, won't you just give up? You're going to die no matter what, so let me kill you.",
+    "year": 2006,
+    "options": [
+      "The Melancholy of Haruhi Suzumiya",
+      "Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle",
+      "Armitage III",
+      "Berserk"
+    ],
+    "genre": "anime",
+    "answer": "The Melancholy of Haruhi Suzumiya",
+    "type": "tv",
+    "character": "Ryoko",
+    "source": "https://en.wikiquote.org/wiki/The_Melancholy_of_Haruhi_Suzumiya",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "You may have those silver feet, but I've got these gold fingers! Here I go! Shining Finger!",
+    "year": 1994,
+    "options": [
+      "Gin Tama",
+      "Made in Abyss",
+      "Hunter × Hunter",
+      "Mobile Fighter G Gundam"
+    ],
+    "genre": "anime",
+    "answer": "Mobile Fighter G Gundam",
+    "type": "tv",
+    "character": "Domon",
+    "source": "https://en.wikiquote.org/wiki/Mobile_Fighter_G_Gundam",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I guess dreams are dreams cuz they're endless.",
+    "year": 1994,
+    "options": [
+      "Mobile Fighter G Gundam",
+      "Bleach",
+      "Persona 4: The Animation",
+      "Magical Girl Lyrical Nanoha"
+    ],
+    "genre": "anime",
+    "answer": "Mobile Fighter G Gundam",
+    "type": "tv",
+    "character": "Chibodee",
+    "source": "https://en.wikiquote.org/wiki/Mobile_Fighter_G_Gundam",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Taking advantage of us without our express permission is not allowed!",
+    "year": 2007,
+    "options": [
+      "Mobile Suit Gundam 00",
+      "Gunslinger Girl",
+      "Magic Knight Rayearth",
+      "Berserk"
+    ],
+    "genre": "anime",
+    "answer": "Mobile Suit Gundam 00",
+    "type": "tv",
+    "character": "Lockon",
+    "source": "https://en.wikiquote.org/wiki/Mobile_Suit_Gundam_00",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "While we are talking of peace, people are dying.",
+    "year": 2007,
+    "options": [
+      ".hack//Roots",
+      "Gurren Lagann",
+      "Shangri-La",
+      "Mobile Suit Gundam 00"
+    ],
+    "genre": "anime",
+    "answer": "Mobile Suit Gundam 00",
+    "type": "tv",
+    "character": "Setsuna",
+    "source": "https://en.wikiquote.org/wiki/Mobile_Suit_Gundam_00",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Anyone who sees me, has got a date with his maker.",
+    "year": 1995,
+    "options": [
+      "Kirby: Right Back at Ya!",
+      "Berserk",
+      "Cyborg 009",
+      "Mobile Suit Gundam Wing"
+    ],
+    "genre": "anime",
+    "answer": "Mobile Suit Gundam Wing",
+    "type": "tv",
+    "character": "Duo",
+    "source": "https://en.wikiquote.org/wiki/Mobile_Suit_Gundam_Wing",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Never forget how beautiful the earth looks from afar.",
+    "year": 1995,
+    "options": [
+      "Mobile Suit Gundam Wing",
+      "Momentary Lily",
+      "Cowboy Bebop",
+      "Ronin Warriors"
+    ],
+    "genre": "anime",
+    "answer": "Mobile Suit Gundam Wing",
+    "type": "tv",
+    "character": "Vice Foreign Minister Darlian",
+    "source": "https://en.wikiquote.org/wiki/Mobile_Suit_Gundam_Wing",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Lalah Sune was a young woman who may very well have become a mother to me! You took away her life, so don't you dare to judge me!",
+    "year": 1988,
+    "options": [
+      "Fullmetal Alchemist: Brotherhood",
+      "Mobile Suit Gundam: Char's Counterattack",
+      "Fullmetal Alchemist",
+      "Bleach"
+    ],
+    "genre": "anime",
+    "answer": "Mobile Suit Gundam: Char's Counterattack",
+    "type": "movie",
+    "character": "Char Aznable",
+    "source": "https://en.wikiquote.org/wiki/Mobile_Suit_Gundam%3A_Char's_Counterattack",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "They always came one at a time until now! Please don't! I can't handle two at once!",
+    "year": 2025,
+    "options": [
+      "Momentary Lily",
+      "Magic Knight Rayearth",
+      "Armitage III",
+      "Another"
+    ],
+    "genre": "anime",
+    "answer": "Momentary Lily",
+    "type": "tv",
+    "character": "Erika Kōdaiji",
+    "source": "https://en.wikiquote.org/wiki/Momentary_Lily",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I was trash-talking someone I was playing against online... and they figured out where I live from my social media photos.",
+    "year": 2025,
+    "options": [
+      "Momentary Lily",
+      "Demon Slayer: Kimetsu no Yaiba – The Movie: Mugen Train",
+      "Magical Girl Lyrical Nanoha",
+      "The Big O"
+    ],
+    "genre": "anime",
+    "answer": "Momentary Lily",
+    "type": "tv",
+    "character": "Hinageshi Usuzumi",
+    "source": "https://en.wikiquote.org/wiki/Momentary_Lily",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Excuse me. May I ask you something? Heil, Hitler! What could this possibly mean?",
+    "year": 1978,
+    "options": [
+      "The Mystery of Mamo",
+      "The Big O",
+      "Gunslinger Girl",
+      "Wolf's Rain"
+    ],
+    "genre": "anime",
+    "answer": "The Mystery of Mamo",
+    "type": "movie",
+    "character": "Lupin",
+    "source": "https://en.wikiquote.org/wiki/The_Mystery_of_Mamo",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Even if I have to sacrifice my own body like an oyster, I will put an end to Lupin's life.",
+    "year": 1978,
+    "options": [
+      "Madlax",
+      "Casshern Sins",
+      "The Mystery of Mamo",
+      "Clannad: After Story"
+    ],
+    "genre": "anime",
+    "answer": "The Mystery of Mamo",
+    "type": "movie",
+    "character": "Zenigata",
+    "source": "https://en.wikiquote.org/wiki/The_Mystery_of_Mamo",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I never give up. I never go back on my word. That's my ninja way!",
+    "options": [
+      "Mobile Fighter G Gundam",
+      ".hack//Roots",
+      "Naruto",
+      "FLCL"
+    ],
+    "genre": "anime",
+    "answer": "Naruto",
+    "type": "tv",
+    "character": "Naruto",
+    "source": "https://en.wikiquote.org/wiki/Naruto",
+    "year": 2002,
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "If I fail I'll be separated from Sasuke. This is a trial of love.",
+    "options": [
+      "Hunter × Hunter",
+      "Darker Than Black",
+      "The Girl Who Leapt Through Time",
+      "Naruto"
+    ],
+    "genre": "anime",
+    "answer": "Naruto",
+    "type": "tv",
+    "character": "Sakura",
+    "source": "https://en.wikiquote.org/wiki/Naruto",
+    "year": 2002,
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I'm done before I'm giving up!, I'm not giving up!",
+    "year": 2004,
+    "options": [
+      "Naruto the Movie: Ninja Clash in the Land of Snow",
+      "Another",
+      "Made in Abyss",
+      "Darker Than Black"
+    ],
+    "genre": "anime",
+    "answer": "Naruto the Movie: Ninja Clash in the Land of Snow",
+    "type": "movie",
+    "character": "Naruto Uzumaki",
+    "source": "https://en.wikiquote.org/wiki/Naruto_the_Movie%3A_Ninja_Clash_in_the_Land_of_Snow",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "You idiot! You've no idea how scary she is!",
+    "year": 2007,
+    "options": [
+      "Sayonara Zetsubō Sensei",
+      "Code Geass",
+      "Naruto: Shippūden",
+      "The Lord of the Rings: The War of the Rohirrim"
+    ],
+    "genre": "anime",
+    "answer": "Naruto: Shippūden",
+    "type": "tv",
+    "character": "Sakura",
+    "source": "https://en.wikiquote.org/wiki/Naruto%3A_Shipp%C5%ABden",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "But you can't expect a kid to appreciate great literature. People would kill for a copy. Hasn't even been released yet.",
+    "year": 2007,
+    "options": [
+      "Cowboy Bebop",
+      "Mobile Fighter G Gundam",
+      "Naruto: Shippūden",
+      "Code Geass"
+    ],
+    "genre": "anime",
+    "answer": "Naruto: Shippūden",
+    "type": "tv",
+    "character": "Jiraiya",
+    "source": "https://en.wikiquote.org/wiki/Naruto%3A_Shipp%C5%ABden",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Well, I'm gonna be the King of the Pirates!",
+    "options": [
+      "One Piece",
+      "Martian Successor Nadesico",
+      "Akira",
+      ".hack//Roots"
+    ],
+    "genre": "anime",
+    "answer": "One Piece",
+    "type": "tv",
+    "character": "Monkey D. Luffy",
+    "source": "https://en.wikiquote.org/wiki/One_Piece",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "But the two of you have taught me a lesson I could never learn on my own, how to live for what I believe in!",
+    "options": [
+      "The Mystery of Mamo",
+      "Your Name",
+      "Berserk",
+      "One Piece"
+    ],
+    "genre": "anime",
+    "answer": "One Piece",
+    "type": "tv",
+    "character": "Koby",
+    "source": "https://en.wikiquote.org/wiki/One_Piece",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Let me impart one bit of truth on you: You are all going to die here.",
+    "options": [
+      "Casshern Sins",
+      "Persona 4: The Animation",
+      "The Melancholy of Haruhi Suzumiya",
+      "Kirby: Right Back at Ya!"
+    ],
+    "genre": "anime",
+    "answer": "Persona 4: The Animation",
+    "type": "tv",
+    "character": "Shadow Teddie",
+    "source": "https://en.wikiquote.org/wiki/Persona_4%3A_The_Animation",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Hey, by the way: Has anyone seen Teddie's head?",
+    "options": [
+      "Persona 4: The Animation",
+      "Your Name",
+      "Another",
+      "Cowboy Bebop"
+    ],
+    "genre": "anime",
+    "answer": "Persona 4: The Animation",
+    "type": "tv",
+    "character": "Chie",
+    "source": "https://en.wikiquote.org/wiki/Persona_4%3A_The_Animation",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Pikachu! You can't even save me! Just take care of yourself and all the others! I'll miss you, buddy! I love you all!",
+    "year": 2005,
+    "options": [
+      "Mobile Suit Gundam Wing",
+      "Cyborg 009",
+      "Kirby: Right Back at Ya!",
+      "Pokémon: Lucario and The Mystery of Mew"
+    ],
+    "genre": "anime",
+    "answer": "Pokémon: Lucario and The Mystery of Mew",
+    "type": "movie",
+    "character": "Ash",
+    "source": "https://en.wikiquote.org/wiki/Pok%C3%A9mon%3A_Lucario_and_The_Mystery_of_Mew",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Why did you abandon the Queen? Answer me!",
+    "year": 2005,
+    "options": [
+      "Mobile Fighter G Gundam",
+      "Pokémon: Lucario and The Mystery of Mew",
+      "Death Note",
+      "Magical Girl Lyrical Nanoha"
+    ],
+    "genre": "anime",
+    "answer": "Pokémon: Lucario and The Mystery of Mew",
+    "type": "movie",
+    "character": "Lucario",
+    "source": "https://en.wikiquote.org/wiki/Pok%C3%A9mon%3A_Lucario_and_The_Mystery_of_Mew",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "It's kind of pointless to water plants when they're almost dead.",
+    "year": 1988,
+    "options": [
+      "Ronin Warriors",
+      "Darker Than Black",
+      "Kirby: Right Back at Ya!",
+      "The Big O"
+    ],
+    "genre": "anime",
+    "answer": "Ronin Warriors",
+    "type": "tv",
+    "character": "Ryo Sanada",
+    "source": "https://en.wikiquote.org/wiki/Ronin_Warriors",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "No holding back! Take this! Pegasus Meteor Punch!",
+    "options": [
+      "Darker Than Black",
+      "Armitage III",
+      "Cyborg 009",
+      "Saint Seiya"
+    ],
+    "genre": "anime",
+    "answer": "Saint Seiya",
+    "type": "tv",
+    "character": "Seiya",
+    "source": "https://en.wikiquote.org/wiki/Saint_Seiya",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I'm in despair! This money-grubbing world has left me in despair!",
+    "year": 2007,
+    "options": [
+      "The Big O",
+      "Demon Slayer: Kimetsu no Yaiba – The Movie: Mugen Train",
+      "Sgt. Frog",
+      "Sayonara Zetsubō Sensei"
+    ],
+    "genre": "anime",
+    "answer": "Sayonara Zetsubō Sensei",
+    "type": "tv",
+    "character": "Nozomu",
+    "source": "https://en.wikiquote.org/wiki/Sayonara_Zetsub%C5%8D_Sensei",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "The Keroball could destroy your planet with a single press of a button. It's the one next to dance party.",
+    "options": [
+      ".hack//Roots",
+      "Sgt. Frog",
+      "Shangri-La",
+      "Fullmetal Alchemist: Brotherhood"
+    ],
+    "genre": "anime",
+    "answer": "Sgt. Frog",
+    "type": "tv",
+    "character": "Keroro",
+    "source": "https://en.wikiquote.org/wiki/Sgt._Frog",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I drink a lot of cola, so that's why I fart a lot.",
+    "options": [
+      "Madlax",
+      "Saint Seiya",
+      "Armitage III",
+      "Sgt. Frog"
+    ],
+    "genre": "anime",
+    "answer": "Sgt. Frog",
+    "type": "tv",
+    "character": "Tamama",
+    "source": "https://en.wikiquote.org/wiki/Sgt._Frog",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I can't believe it! A man behind me and I didn't even notice!",
+    "options": [
+      "Shangri-La",
+      "Cyborg 009",
+      "Kirby: Right Back at Ya!",
+      ".hack//Roots"
+    ],
+    "genre": "anime",
+    "answer": "Shangri-La",
+    "type": "tv",
+    "character": "Momoko",
+    "source": "https://en.wikiquote.org/wiki/Shangri-La_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Hey! Take care of my little sis, will ya? I kinda gotta go save the world right now.",
+    "options": [
+      "Yu-Gi-Oh! 5D's",
+      "Mobile Suit Gundam Wing",
+      "The Tower of Druaga",
+      "Shangri-La"
+    ],
+    "genre": "anime",
+    "answer": "Shangri-La",
+    "type": "tv",
+    "character": "Kuniko",
+    "source": "https://en.wikiquote.org/wiki/Shangri-La_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I'll tell you what! It's my righteousness!",
+    "year": 2005,
+    "options": [
+      "The Law of Ueki",
+      "Made in Abyss",
+      "Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle",
+      "Yu-Gi-Oh! 5D's"
+    ],
+    "genre": "anime",
+    "answer": "The Law of Ueki",
+    "type": "tv",
+    "character": "Ueki",
+    "source": "https://en.wikiquote.org/wiki/The_Law_of_Ueki",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "You've got to live the way you want to. This is your own life, kid.",
+    "year": 2005,
+    "options": [
+      "The Mystery of Mamo",
+      "Casshern Sins",
+      "Fullmetal Alchemist",
+      "The Law of Ueki"
+    ],
+    "genre": "anime",
+    "answer": "The Law of Ueki",
+    "type": "tv",
+    "character": "Mr. K",
+    "source": "https://en.wikiquote.org/wiki/The_Law_of_Ueki",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Your smile's great. It looks kind of evil!",
+    "year": 2008,
+    "options": [
+      "Death Note",
+      "Casshern Sins",
+      "Bleach",
+      "The Tower of Druaga"
+    ],
+    "genre": "anime",
+    "answer": "The Tower of Druaga",
+    "type": "tv",
+    "character": "Coopa",
+    "source": "https://en.wikiquote.org/wiki/The_Tower_of_Druaga_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Ki, be on my side. It's pretty fun to be the bad guy, you know.",
+    "year": 2008,
+    "options": [
+      "Mobile Suit Gundam Wing",
+      "Naruto the Movie: Ninja Clash in the Land of Snow",
+      "The Tower of Druaga",
+      "Casshern Sins"
+    ],
+    "genre": "anime",
+    "answer": "The Tower of Druaga",
+    "type": "tv",
+    "character": "Shadow of Gilgamesh",
+    "source": "https://en.wikiquote.org/wiki/The_Tower_of_Druaga_(anime)",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Dying or getting killed isn't something unnatural. Living aimlessly without a purpose is.",
+    "year": 2003,
+    "options": [
+      "Another",
+      "Shangri-La",
+      "Wolf's Rain",
+      "Mobile Fighter G Gundam"
+    ],
+    "genre": "anime",
+    "answer": "Wolf's Rain",
+    "type": "tv",
+    "character": "Kiba",
+    "source": "https://en.wikiquote.org/wiki/Wolf's_Rain",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I just realized. It’s not simply that we have a desire for paradise... Paradise is calling us...",
+    "year": 2003,
+    "options": [
+      "Madlax",
+      "Wolf's Rain",
+      "Armitage III",
+      "Death Note"
+    ],
+    "genre": "anime",
+    "answer": "Wolf's Rain",
+    "type": "tv",
+    "character": "Darcia III",
+    "source": "https://en.wikiquote.org/wiki/Wolf's_Rain",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "I can never remember the dream I must have had.",
+    "options": [
+      "Magical Girl Lyrical Nanoha",
+      "The Big O",
+      "Naruto",
+      "Your Name"
+    ],
+    "genre": "anime",
+    "answer": "Your Name",
+    "type": "movie",
+    "character": "Taki Tachibana",
+    "source": "https://en.wikiquote.org/wiki/Your_Name",
+    "year": 2016,
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Nothing more... nothing less... than a beautiful view.",
+    "options": [
+      "Your Name",
+      "The Melancholy of Haruhi Suzumiya",
+      "Gurren Lagann",
+      "Death Note"
+    ],
+    "genre": "anime",
+    "answer": "Your Name",
+    "type": "movie",
+    "character": "Mitsuha Miyamizu",
+    "source": "https://en.wikiquote.org/wiki/Your_Name",
+    "year": 2016,
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "If they duel me, they're my friend. If I were to leave without my friends, I wouldn't truly be free.",
+    "year": 2008,
+    "options": [
+      "Yu-Gi-Oh! 5D's",
+      "Hunter × Hunter",
+      "Hellsing Ultimate",
+      ".hack//Roots"
+    ],
+    "genre": "anime",
+    "answer": "Yu-Gi-Oh! 5D's",
+    "type": "tv",
+    "character": "Yusei",
+    "source": "https://en.wikiquote.org/wiki/Yu-Gi-Oh!_5D's",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Feel the pain from the blade of betrayal.",
+    "year": 2008,
+    "options": [
+      "Code Geass",
+      "Pokémon: Lucario and The Mystery of Mew",
+      "Shangri-La",
+      "Yu-Gi-Oh! 5D's"
+    ],
+    "genre": "anime",
+    "answer": "Yu-Gi-Oh! 5D's",
+    "type": "tv",
+    "character": "Akiza",
+    "source": "https://en.wikiquote.org/wiki/Yu-Gi-Oh!_5D's",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Is this part of the great race you were talking about, Don? Or is it just the warm up?",
+    "options": [
+      "The Lord of the Rings: The War of the Rohirrim",
+      "The Law of Ueki",
+      "Naruto: Shippūden",
+      "Ōban Star-Racers"
+    ],
+    "genre": "anime",
+    "answer": "Ōban Star-Racers",
+    "type": "tv",
+    "character": "Rick",
+    "source": "https://en.wikiquote.org/wiki/%C5%8Cban_Star-Racers",
+    "prompt": "Name the anime from the quote."
+  },
+  {
+    "quote": "Aren't you a little bit young to be running around without parental supervision?",
+    "options": [
+      "Mobile Suit Gundam: Char's Counterattack",
+      "Bleach",
+      "Made in Abyss",
+      "Ōban Star-Racers"
+    ],
+    "genre": "anime",
+    "answer": "Ōban Star-Racers",
+    "type": "tv",
+    "character": "Aikka",
+    "source": "https://en.wikiquote.org/wiki/%C5%8Cban_Star-Racers",
+    "prompt": "Name the anime from the quote."
   }
 ]

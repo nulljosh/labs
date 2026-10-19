@@ -50,6 +50,7 @@ const GENRES = {
   cartoon: { color: 'var(--g-cartoon)', text: 'var(--g-cartoon-text)' },
   game: { color: 'var(--g-game)', text: 'var(--g-game-text)' },
   book: { color: 'var(--g-book)', text: 'var(--g-book-text)' },
+  anime: { color: 'var(--g-anime)', text: 'var(--g-anime-text)' },
 };
 // Genre keys that do not read well capitalized. Mirrored by Theme.label(for:) in Swift.
 const LABELS = { scifi: 'Sci-fi', hiphop: 'Hip-hop', rnb: 'R&B', tvdrama: 'TV drama', game: 'Games', book: 'First lines' };

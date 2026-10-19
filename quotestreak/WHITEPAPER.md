@@ -1,12 +1,12 @@
 # Quotestreak Technical Whitepaper
 
-**v76.0.0** | October 2026
+**v77.0.0** | October 2026
 
 Here's the line. Name where it came from. Quotestreak is a guessing game for lines from movies, TV, games, songs and books. It runs as a static site on Cloudflare Pages and as a native SwiftUI app on iPhone, iPad, Mac and Apple Watch. Two small Workers sit behind it: one relays live duels, one holds accounts and scores.
 
 ## The guess
 
-`quotes.json` holds 1,597 lines in 15 genres. 272 were written by hand. The rest were harvested: film, TV and game lines from Wikiquote, kept only when the title's Wikipedia article is well read, and book openings read straight off Project Gutenberg's most downloaded novels. Each harvested line keeps its character and its source link.
+`quotes.json` holds 1,697 lines in 16 genres. 272 were written by hand. The rest were harvested: film, TV and game lines from Wikiquote, kept only when the title's Wikipedia article is well read, and book openings read straight off Project Gutenberg's most downloaded novels. Each harvested line keeps its character and its source link.
 
 A round shows a line and four choices, or a text box when typing is on. Typed answers forgive case, punctuation and small typos. Hints cost points. The speed round puts ten seconds on the clock and pays more for faster answers. Difficulty is measured, not guessed: every answer is counted per quote in D1, and once a line has ten plays its real hit rate sorts it into easy, medium or hard.
 

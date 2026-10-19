@@ -1,10 +1,10 @@
 <img src="icon.svg" width="80" height="80" alt="Quotestreak icon">
 
-![version](https://img.shields.io/badge/version-76.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-77.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Here's the line. Name the movie.
 
-Or the show, the game, the song or the book. 1,597 lines across 15 genres, from the 1930s to now, with a clock if you want one and a friend to beat if you have one. Dad's idea.
+Or the show, the game, the song or the book. 1,697 lines across 16 genres, from the 1930s to now, with a clock if you want one and a friend to beat if you have one. Dad's idea.
 
 **[quotestreak.jaybulb.com →](https://quotestreak.jaybulb.com)** · **[Play →](https://quotestreak.jaybulb.com/play)**
 

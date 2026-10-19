@@ -75,6 +75,7 @@ enum Theme {
         case "cartoon": return (Color(hex: "f4a261"), .black)
         case "game":    return (Color(hex: "577590"), .white)
         case "book":    return (Color(hex: "6d4c41"), .white)
+        case "anime":   return (Color(hex: "ffc8dd"), .black)
         default:        return (accent, onAccent)
         }
     }
