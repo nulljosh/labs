@@ -1,0 +1,88 @@
+name: tripwire fix
+# Dispatched by the tripwire Worker (tripwire/ci.js) when a repo's default branch goes red.
+# Claude Code works in a throwaway checkout: reproduce the failing step, fix the root cause,
+# re-run it, then this job opens the PR. If it isn't a code problem, it explains on the issue.
+# The GitHub token never reaches the Claude step; only checkout, log fetch and push see it.
+on:
+  workflow_dispatch:
+    inputs:
+      repo: { description: owner/name of the red repo, required: true }
+      run_id: { description: id of the failing run, required: true }
+      issue: { description: tripwire issue number in that repo, required: true }
+
+concurrency: tripwire-fix-${{ inputs.repo }}
+permissions: {}
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      REPO: ${{ inputs.repo }}
+      RUN_ID: ${{ inputs.run_id }}
+      ISSUE: ${{ inputs.issue }}
+    steps:
+      - name: Check inputs
+        run: '[[ "$REPO" =~ ^nulljosh/[A-Za-z0-9._-]+$ && "$RUN_ID" =~ ^[0-9]+$ && "$ISSUE" =~ ^[0-9]+$ ]] || { echo "bad inputs"; exit 1; }'
+
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.repo }}
+          token: ${{ secrets.TRIPWIRE_GH_TOKEN }}
+          persist-credentials: false
+
+      - name: Fetch the failing log
+        env:
+          GH_TOKEN: ${{ secrets.TRIPWIRE_GH_TOKEN }}
+        run: |
+          gh run view "$RUN_ID" -R "$REPO" --log-failed | tail -n 400 > "$RUNNER_TEMP/failed.log"
+          git rev-parse HEAD > "$RUNNER_TEMP/base"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Claude Code fixes it
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          cat > "$RUNNER_TEMP/prompt.md" <<EOF
+          CI is red on the default branch of $REPO. You are in a fresh checkout of it.
+          The failing job's log (last 400 lines) is at $RUNNER_TEMP/failed.log. The workflows
+          are in .github/workflows (in a monorepo, find the one whose name matches the log).
+
+          1. Find the root cause. Read the code the log points at, not just the last error line.
+          2. Reproduce the failing step locally if this Ubuntu runner has the toolchain.
+          3. Make the smallest correct fix, then re-run the failing step until it passes.
+          Never skip, weaken or delete tests or checks to make them pass. Never edit CI config
+          to hide a failure. Do not commit, do not push, and leave no stray files behind.
+          If it is not a code problem (outage, expired secret, rate limit, flaky network,
+          runner image, macOS-only build you cannot run), change nothing.
+
+          End with a short plain-English summary for the PR: what broke and why, what you
+          changed, and how you verified it (or exactly why you could not).
+          EOF
+          npx -y @anthropic-ai/claude-code@2.1.288 -p "$(cat "$RUNNER_TEMP/prompt.md")" \
+            --model claude-sonnet-5-5 --max-turns 40 --dangerously-skip-permissions \
+            > "$RUNNER_TEMP/summary.md"
+          cat "$RUNNER_TEMP/summary.md"
+
+      - name: Open the PR, or explain on the issue
+        env:
+          GH_TOKEN: ${{ secrets.TRIPWIRE_GH_TOKEN }}
+        run: |
+          git config user.name tripwire
+          git config user.email tripwire@users.noreply.github.com
+          git add -A
+          git diff --cached --quiet && git diff --quiet "$(cat "$RUNNER_TEMP/base")" HEAD && {
+            { echo "tripwire looked at this and changed nothing:"; echo; cat "$RUNNER_TEMP/summary.md"; } > "$RUNNER_TEMP/comment.md"
+            gh issue comment "$ISSUE" -R "$REPO" --body-file "$RUNNER_TEMP/comment.md"
+            exit 0
+          }
+          git diff --cached --quiet || git commit -q -m "tripwire: fix CI failure from run $RUN_ID"
+          branch="tripwire/ci-fix-$RUN_ID"
+          git push -q "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" "HEAD:refs/heads/$branch"
+          title=$(gh issue view "$ISSUE" -R "$REPO" --json title -q .title | sed 's/CI failing/fix/')
+          { cat "$RUNNER_TEMP/summary.md"; echo; echo "Fixes #$ISSUE"; } > "$RUNNER_TEMP/body.md"
+          gh pr create -R "$REPO" --head "$branch" --title "$title" --body-file "$RUNNER_TEMP/body.md"
