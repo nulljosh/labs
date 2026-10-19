@@ -95,4 +95,10 @@ assert.equal(jaws.answer, 'Steven Spielberg');
 // Actor: only lines whose character matched one cast entry
 const ac = pool('actor', bank, bank, rand);
 assert(ac.every(q => q.options.length === 4 && new Set(q.options).size === 4 && q.options.includes(q.answer)));
-console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length, ma.length, im.length, di.length, ac.length);
+
+// Album: the song's album among four
+const ab = pool('record', bank, bank, rand);
+assert(ab.length > 80, `${ab.length} album questions`);
+assert(ab.every(q => q.options.length === 4 && new Set(q.options).size === 4 && q.options.includes(q.answer)));
+assert.equal(build('record', bank.find(q => q.song === 'Bohemian Rhapsody'), bank, rand).answer, 'A Night at the Opera');
+console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length, ma.length, im.length, di.length, ac.length, ab.length);

@@ -1668,7 +1668,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4d/08/2a/4d082a9e-7898-1aa1-a02f-339810058d9e/14DMGIM05632.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4d/08/2a/4d082a9e-7898-1aa1-a02f-339810058d9e/14DMGIM05632.rgb.jpg/600x600bb.jpg",
+    "song": "Bohemian Rhapsody",
+    "album": "A Night at the Opera",
+    "albums": [
+      "Queen",
+      "A Day at the Races",
+      "Sheer Heart Attack",
+      "Queen II",
+      "Made in Heaven",
+      "The Game",
+      "Innuendo",
+      "Jazz",
+      "The Works",
+      "A Kind of Magic",
+      "Hot Space",
+      "The Miracle"
+    ],
+    "year": 1975
   },
   {
     "quote": "I want to hold your hand.",
@@ -1694,7 +1711,16 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a3/84/0a/a3840a6d-44e8-0afe-fc3e-316c517dddfe/5099749521421.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a3/84/0a/a3840a6d-44e8-0afe-fc3e-316c517dddfe/5099749521421.jpg/600x600bb.jpg",
+    "song": "The Sound of Silence",
+    "album": "Sounds of Silence",
+    "albums": [
+      "Wednesday Morning, 3 A.M.",
+      "Bookends",
+      "Bridge over Troubled Water",
+      "Parsley, Sage, Rosemary and Thyme"
+    ],
+    "year": 1965
   },
   {
     "quote": "Sweet child o' mine.",
@@ -1707,7 +1733,16 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a0/4d/c4/a04dc484-03cc-02aa-fa82-5334fcb4bc16/18UMGIM24878.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a0/4d/c4/a04dc484-03cc-02aa-fa82-5334fcb4bc16/18UMGIM24878.rgb.jpg/600x600bb.jpg",
+    "song": "Sweet Child O' Mine",
+    "album": "Appetite for Destruction",
+    "albums": [
+      "Use Your Illusion I",
+      "\"The Spaghetti Incident?\"",
+      "Use Your Illusion II",
+      "G N' R Lies"
+    ],
+    "year": 1987
   },
   {
     "quote": "We will, we will rock you.",
@@ -1720,7 +1755,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4d/08/2a/4d082a9e-7898-1aa1-a02f-339810058d9e/14DMGIM05632.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4d/08/2a/4d082a9e-7898-1aa1-a02f-339810058d9e/14DMGIM05632.rgb.jpg/600x600bb.jpg",
+    "song": "We Will Rock You",
+    "album": "News of the World",
+    "albums": [
+      "Queen",
+      "A Day at the Races",
+      "Sheer Heart Attack",
+      "Queen II",
+      "Made in Heaven",
+      "A Night at the Opera",
+      "The Game",
+      "Innuendo",
+      "Jazz",
+      "The Works",
+      "A Kind of Magic",
+      "Hot Space"
+    ],
+    "year": 1977
   },
   {
     "quote": "Is there anybody out there?",
@@ -1733,7 +1785,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/aa/e0/ab/aae0ab6a-d906-a189-81bf-70b56aa43f7a/886445635843.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/aa/e0/ab/aae0ab6a-d906-a189-81bf-70b56aa43f7a/886445635843.jpg/600x600bb.jpg",
+    "song": "Is There Anybody Out There?",
+    "album": "The Wall",
+    "albums": [
+      "A Momentary Lapse of Reason",
+      "The Dark Side of the Moon",
+      "Wish You Were Here",
+      "The Final Cut",
+      "Ummagumma",
+      "A Saucerful of Secrets",
+      "The Piper at the Gates of Dawn",
+      "The Division Bell",
+      "Atom Heart Mother",
+      "Meddle",
+      "Animals (Pink Floyd album)",
+      "The Endless River"
+    ],
+    "year": 1979
   },
   {
     "quote": "Smells like teen spirit.",
@@ -1746,7 +1815,14 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/fd/b9/95fdb9b2-6d2b-92a6-97f2-51c1a6d77f1a/00602527874609.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/fd/b9/95fdb9b2-6d2b-92a6-97f2-51c1a6d77f1a/00602527874609.rgb.jpg/600x600bb.jpg",
+    "song": "Smells Like Teen Spirit",
+    "album": "Nevermind",
+    "albums": [
+      "In Utero",
+      "Bleach"
+    ],
+    "year": 1991
   },
   {
     "quote": "Livin' on a prayer.",
@@ -1759,7 +1835,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5f/a8/1e/5fa81eae-6514-1d56-b352-8e3b243c65ec/24UMGIM99102.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5f/a8/1e/5fa81eae-6514-1d56-b352-8e3b243c65ec/24UMGIM99102.rgb.jpg/600x600bb.jpg",
+    "song": "Livin' on a Prayer",
+    "album": "Slippery When Wet",
+    "albums": [
+      "Forever",
+      "2020",
+      "Burning Bridges",
+      "This House Is Not for Sale",
+      "Crush",
+      "These Days",
+      "7800° Fahrenheit",
+      "New Jersey",
+      "Have a Nice Day",
+      "Bon Jovi",
+      "The Circle",
+      "Lost Highway"
+    ],
+    "year": 1986
   },
   {
     "quote": "Don't stop believin'.",
@@ -1772,7 +1865,16 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/71/2d/61/712d617d-f4a4-5904-1b11-d4b4b45c47c5/828768588925.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/71/2d/61/712d617d-f4a4-5904-1b11-d4b4b45c47c5/828768588925.jpg/600x600bb.jpg",
+    "song": "Don't Stop Believin'",
+    "album": "Escape",
+    "albums": [
+      "Evolution",
+      "Journey",
+      "Eclipse",
+      "Frontiers"
+    ],
+    "year": 1981
   },
   {
     "quote": "I can't get no satisfaction.",
@@ -1785,7 +1887,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/c5/ad/c2c5ad0d-e9c9-041c-e803-a8466a23ce54/26UMGIM36901.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/c5/ad/c2c5ad0d-e9c9-041c-e803-a8466a23ce54/26UMGIM36901.rgb.jpg/600x600bb.jpg",
+    "song": "(I Can't Get No) Satisfaction",
+    "album": "Out of Our Heads",
+    "albums": [
+      "Hackney Diamonds",
+      "Foreign Tongues",
+      "Flowers",
+      "12 X 5",
+      "Exile on Main St.",
+      "Black and Blue",
+      "Sticky Fingers",
+      "Between the Buttons",
+      "Aftermath",
+      "Tattoo You",
+      "Let It Bleed",
+      "Beggars Banquet"
+    ],
+    "year": 1965
   },
   {
     "quote": "Billie Jean is not my lover.",
@@ -1798,7 +1917,24 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ee/61/cc/ee61cca5-093a-a57d-6728-d339c54029f3/26UMGIM89161.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ee/61/cc/ee61cca5-093a-a57d-6728-d339c54029f3/26UMGIM89161.rgb.jpg/600x600bb.jpg",
+    "song": "Billie Jean",
+    "album": "Thriller",
+    "albums": [
+      "Thriller 40",
+      "Music & Me",
+      "Off the Wall",
+      "Forever, Michael",
+      "Bad 25",
+      "Invincible",
+      "Dangerous",
+      "Got to Be There",
+      "Ben",
+      "Bad",
+      "Thriller 25",
+      "HIStory: Past, Present and Future, Book I"
+    ],
+    "year": 1982
   },
   {
     "quote": "Just beat it, beat it.",
@@ -1811,7 +1947,24 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ee/61/cc/ee61cca5-093a-a57d-6728-d339c54029f3/26UMGIM89161.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ee/61/cc/ee61cca5-093a-a57d-6728-d339c54029f3/26UMGIM89161.rgb.jpg/600x600bb.jpg",
+    "song": "Beat It",
+    "album": "Thriller",
+    "albums": [
+      "Thriller 40",
+      "Music & Me",
+      "Off the Wall",
+      "Forever, Michael",
+      "Bad 25",
+      "Invincible",
+      "Dangerous",
+      "Got to Be There",
+      "Ben",
+      "Bad",
+      "Thriller 25",
+      "HIStory: Past, Present and Future, Book I"
+    ],
+    "year": 1982
   },
   {
     "quote": "Like a virgin, touched for the very first time.",
@@ -1824,7 +1977,24 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/20/3c/f5/203cf53d-689e-528f-29d7-ba33758254aa/mzi.rotbotfl.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/20/3c/f5/203cf53d-689e-528f-29d7-ba33758254aa/mzi.rotbotfl.jpg/600x600bb.jpg",
+    "song": "Like a Virgin",
+    "album": "Like a Virgin",
+    "albums": [
+      "Madame X",
+      "Bedtime Stories",
+      "Erotica",
+      "American Life",
+      "True Blue",
+      "Confessions on a Dance Floor",
+      "Rebel Heart",
+      "Madonna",
+      "MDNA",
+      "Like a Prayer",
+      "Music",
+      "Ray of Light"
+    ],
+    "year": 1984
   },
   {
     "quote": "I want it that way.",
@@ -1837,7 +2007,20 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5f/6b/e9/5f6be919-1b9e-30ef-45b7-cc27fc428fd5/012414167224.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5f/6b/e9/5f6be919-1b9e-30ef-45b7-cc27fc428fd5/012414167224.jpg/600x600bb.jpg",
+    "song": "I Want It That Way",
+    "album": "Millennium",
+    "albums": [
+      "DNA",
+      "In a World Like This",
+      "Unbreakable",
+      "This Is Us",
+      "Black & Blue",
+      "Backstreet Boys",
+      "Backstreet's Back",
+      "Never Gone"
+    ],
+    "year": 1999
   },
   {
     "quote": "Oops, I did it again.",
@@ -1850,7 +2033,20 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d5/9d/97/d59d9769-1369-854f-1681-4901a6d8361b/012414170422.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d5/9d/97/d59d9769-1369-854f-1681-4901a6d8361b/012414170422.jpg/600x600bb.jpg",
+    "song": "Oops!...I Did It Again",
+    "album": "Oops!… I Did It Again",
+    "albums": [
+      "Glory",
+      "Circus",
+      "In the Zone",
+      "Femme Fatale",
+      "Blackout",
+      "…Baby One More Time",
+      "Britney",
+      "Britney Jean"
+    ],
+    "year": 1999
   },
   {
     "quote": "Since you've been gone, I can breathe for the first time.",
@@ -1863,7 +2059,19 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e3/7e/c5/e37ec5d7-725b-695c-333c-ee0deb5adcc6/dj.mveioodu.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e3/7e/c5/e37ec5d7-725b-695c-333c-ee0deb5adcc6/dj.mveioodu.jpg/600x600bb.jpg",
+    "song": "Since U Been Gone",
+    "album": "Breakaway",
+    "albums": [
+      "Chemistry",
+      "Piece by Piece",
+      "Wrapped in Red",
+      "All I Ever Wanted",
+      "My December",
+      "Stronger",
+      "Thankful"
+    ],
+    "year": 2004
   },
   {
     "quote": "Baby, baby, baby, oh.",
@@ -1876,7 +2084,19 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/73/08/1a/73081a96-0f7c-b5f8-2757-5c17fb714323/12UMGIM31899.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/73/08/1a/73081a96-0f7c-b5f8-2757-5c17fb714323/12UMGIM31899.rgb.jpg/600x600bb.jpg",
+    "song": "Baby",
+    "album": "My World 2.0",
+    "albums": [
+      "Justice",
+      "Swag",
+      "Swag II",
+      "Believe",
+      "Purpose",
+      "Under the Mistletoe",
+      "Changes"
+    ],
+    "year": 2010
   },
   {
     "quote": "I knew you were trouble when you walked in.",
@@ -1889,7 +2109,24 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2d/46/e0/2d46e0bc-8ab9-85dd-4b56-ee6951351034/25UM1IM19577.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2d/46/e0/2d46e0bc-8ab9-85dd-4b56-ee6951351034/25UM1IM19577.rgb.jpg/600x600bb.jpg",
+    "song": "I Knew You Were Trouble",
+    "album": "Red",
+    "albums": [
+      "The Life of a Showgirl",
+      "The Tortured Poets Department",
+      "Fearless",
+      "Speak Now",
+      "Fearless (Taylor's Version)",
+      "Red (Taylor's Version)",
+      "Speak Now (Taylor's Version)",
+      "Lover",
+      "Evermore",
+      "Midnights",
+      "1989",
+      "Reputation"
+    ],
+    "year": 2012
   },
   {
     "quote": "Shake it off, shake it off.",
@@ -1902,7 +2139,24 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2d/46/e0/2d46e0bc-8ab9-85dd-4b56-ee6951351034/25UM1IM19577.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2d/46/e0/2d46e0bc-8ab9-85dd-4b56-ee6951351034/25UM1IM19577.rgb.jpg/600x600bb.jpg",
+    "song": "Shake It Off",
+    "album": "1989",
+    "albums": [
+      "The Life of a Showgirl",
+      "The Tortured Poets Department",
+      "Fearless",
+      "Speak Now",
+      "Fearless (Taylor's Version)",
+      "Red (Taylor's Version)",
+      "Speak Now (Taylor's Version)",
+      "Red",
+      "Lover",
+      "Evermore",
+      "Midnights",
+      "Reputation"
+    ],
+    "year": 2014
   },
   {
     "quote": "Roar, like a lion.",
@@ -1915,7 +2169,18 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c8/d3/42/c8d342af-26d9-3ec2-c511-e1eaf860e299/13UABIM57787.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c8/d3/42/c8d342af-26d9-3ec2-c511-e1eaf860e299/13UABIM57787.rgb.jpg/600x600bb.jpg",
+    "song": "Roar",
+    "album": "Prism",
+    "albums": [
+      "143",
+      "One of the Boys",
+      "Teenage Dream",
+      "Katy Hudson",
+      "Witness",
+      "Smile"
+    ],
+    "year": 2013
   },
   {
     "quote": "Umbrella, ella, ella, eh, eh, eh.",
@@ -1928,7 +2193,20 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/2b/c0/81/2bc081c8-25f0-ba43-d451-587a54613778/16UMGIM59202.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/2b/c0/81/2bc081c8-25f0-ba43-d451-587a54613778/16UMGIM59202.rgb.jpg/600x600bb.jpg",
+    "song": "Umbrella",
+    "album": "Good Girl Gone Bad",
+    "albums": [
+      "Anti",
+      "Unapologetic",
+      "Loud",
+      "Music of the Sun",
+      "A Girl Like Me",
+      "Good Girl Gone Bad: Reloaded",
+      "Talk That Talk",
+      "Rated R"
+    ],
+    "year": 2007
   },
   {
     "quote": "All the single ladies, put your hands up.",
@@ -1941,7 +2219,19 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c9/6b/3f/c96b3ff3-9cf6-4ce6-05aa-9f11474bd569/886443938373.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c9/6b/3f/c96b3ff3-9cf6-4ce6-05aa-9f11474bd569/886443938373.jpg/600x600bb.jpg",
+    "song": "Single Ladies (Put a Ring on It)",
+    "album": "I Am... Sasha Fierce",
+    "albums": [
+      "4",
+      "B'Day",
+      "Dangerously in Love",
+      "Cowboy Carter",
+      "Renaissance",
+      "Beyoncé",
+      "Lemonade"
+    ],
+    "year": 2008
   },
   {
     "quote": "Poker face, p-p-poker face.",
@@ -1954,7 +2244,22 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b1/9f/ef/b19fef51-79de-a940-e8ab-9e4e07b04d96/18UMGIM53752.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b1/9f/ef/b19fef51-79de-a940-e8ab-9e4e07b04d96/18UMGIM53752.rgb.jpg/600x600bb.jpg",
+    "song": "Poker Face",
+    "album": "The Fame",
+    "albums": [
+      "Mayhem",
+      "Chromatica",
+      "Love for Sale",
+      "Harlequin",
+      "Born This Way The Tenth Anniversary",
+      "Artpop",
+      "The Fame Monster",
+      "Born This Way",
+      "Cheek to Cheek",
+      "Joanne"
+    ],
+    "year": 2008
   },
   {
     "quote": "Uptown funk you up.",
@@ -1967,7 +2272,16 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ed/46/bf/ed46bf4e-7cb9-965a-54f3-03059977fe6c/075679589293.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ed/46/bf/ed46bf4e-7cb9-965a-54f3-03059977fe6c/075679589293.jpg/600x600bb.jpg",
+    "song": "Uptown Funk",
+    "album": "Uptown Special",
+    "albums": [
+      "The Romantic",
+      "24K Magic",
+      "Doo-Wops & Hooligans",
+      "Unorthodox Jukebox"
+    ],
+    "year": 2014
   },
   {
     "quote": "Can't stop the feeling.",
@@ -1980,7 +2294,18 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4c/44/30/4c4430dd-150b-d393-ec70-4894975f4b16/888880422095.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4c/44/30/4c4430dd-150b-d393-ec70-4894975f4b16/888880422095.jpg/600x600bb.jpg",
+    "song": "Can't Stop the Feeling!",
+    "album": "Trolls: Original Motion Picture Soundtrack",
+    "albums": [
+      "Shark Tale",
+      "Justified",
+      "FutureSex/LoveSounds",
+      "The 20/20 Experience: 2 of 2",
+      "The 20/20 Experience",
+      "Man of the Woods"
+    ],
+    "year": 2016
   },
   {
     "quote": "Rap god, rap god.",
@@ -1993,7 +2318,24 @@
     ],
     "genre": "hiphop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/dd/5c/e6/dd5ce621-f7d2-f767-7a08-e7a7eaa7870b/00602537526994.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/dd/5c/e6/dd5ce621-f7d2-f767-7a08-e7a7eaa7870b/00602537526994.rgb.jpg/600x600bb.jpg",
+    "song": "Rap God",
+    "album": "The Marshall Mathers LP 2",
+    "albums": [
+      "Recovery",
+      "The Slim Shady LP",
+      "Kamikaze",
+      "Revival",
+      "Relapse: Refill",
+      "Music to Be Murdered By",
+      "Infinite",
+      "Encore",
+      "The Slim Shady EP",
+      "Relapse",
+      "The Marshall Mathers LP",
+      "The Eminem Show"
+    ],
+    "year": 2013
   },
   {
     "quote": "It was all a dream, I used to read Word Up magazine.",
@@ -2006,7 +2348,14 @@
     ],
     "genre": "hiphop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f8/6a/3d/f86a3db0-d518-cd49-c0c9-25e767ae0a6d/075679456861.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f8/6a/3d/f86a3db0-d518-cd49-c0c9-25e767ae0a6d/075679456861.jpg/600x600bb.jpg",
+    "song": "Juicy",
+    "album": "Ready to Die",
+    "albums": [
+      "Life After Death",
+      "The King & I"
+    ],
+    "year": 1994
   },
   {
     "quote": "California love.",
@@ -2019,7 +2368,24 @@
     ],
     "genre": "hiphop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/f8/7a/40/f87a409a-5cd7-5974-2a52-79f03d28f30a/08UMGIM26293.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/f8/7a/40/f87a409a-5cd7-5974-2a52-79f03d28f30a/08UMGIM26293.rgb.jpg/600x600bb.jpg",
+    "song": "California Love",
+    "album": "All Eyez on Me",
+    "albums": [
+      "Thug Life",
+      "Troublesome 21",
+      "Pac's Life",
+      "R U Still Down? (Remember Me)",
+      "Until the End of Time",
+      "Still I Rise",
+      "Me Against the World",
+      "The Don Killuminati: The 7 Day Theory",
+      "Better Dayz",
+      "2Pacalypse Now",
+      "Loyal to the Game",
+      "Strictly 4 My N.I.G.G.A.Z.…"
+    ],
+    "year": 1995
   },
   {
     "quote": "In West Philadelphia, born and raised.",
@@ -2045,7 +2411,24 @@
     ],
     "genre": "hiphop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/dd/5c/e6/dd5ce621-f7d2-f767-7a08-e7a7eaa7870b/00602537526994.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/dd/5c/e6/dd5ce621-f7d2-f767-7a08-e7a7eaa7870b/00602537526994.rgb.jpg/600x600bb.jpg",
+    "song": "The Real Slim Shady",
+    "album": "The Marshall Mathers LP",
+    "albums": [
+      "Recovery",
+      "The Slim Shady LP",
+      "Kamikaze",
+      "Revival",
+      "Relapse: Refill",
+      "The Marshall Mathers LP 2",
+      "Music to Be Murdered By",
+      "Infinite",
+      "Encore",
+      "The Slim Shady EP",
+      "Relapse",
+      "The Eminem Show"
+    ],
+    "year": 2000
   },
   {
     "quote": "Started from the bottom, now we're here.",
@@ -2058,7 +2441,24 @@
     ],
     "genre": "hiphop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/f5/87/95f587f7-21c3-d5f9-d81a-4350f9caa020/16UMGIM27643.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/f5/87/95f587f7-21c3-d5f9-d81a-4350f9caa020/16UMGIM27643.rgb.jpg/600x600bb.jpg",
+    "song": "Started from the Bottom",
+    "album": "Nothing Was the Same",
+    "albums": [
+      "Scorpion",
+      "Certified Lover Boy",
+      "Take Care",
+      "Views",
+      "Thank Me Later",
+      "Honestly, Nevermind",
+      "Her Loss",
+      "For All the Dogs",
+      "Some Sexy Songs 4 U",
+      "Iceman",
+      "Maid of Honour",
+      "Habibti"
+    ],
+    "year": 2013
   },
   {
     "quote": "Hey ya, hey ya, hey ya.",
@@ -2071,7 +2471,13 @@
     ],
     "genre": "hiphop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Video124/v4/72/d2/15/72d21542-7471-fdbf-aa92-4c70a22a0c25/dj.nqxebprr.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Video124/v4/72/d2/15/72d21542-7471-fdbf-aa92-4c70a22a0c25/dj.nqxebprr.jpg/600x600bb.jpg",
+    "song": "Hey Ya!",
+    "album": "Speakerboxxx/The Love Below",
+    "albums": [
+      "Idlewild"
+    ],
+    "year": 2003
   },
   {
     "quote": "Gold digger, she gonna take your money.",
@@ -2084,7 +2490,24 @@
     ],
     "genre": "hiphop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4d/75/2d/4d752db1-022d-f65d-40a1-a2390f01427a/13UAEIM26465.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4d/75/2d/4d752db1-022d-f65d-40a1-a2390f01427a/13UAEIM26465.rgb.jpg/600x600bb.jpg",
+    "song": "Gold Digger",
+    "album": "Late Registration",
+    "albums": [
+      "Jesus Is King",
+      "Ye",
+      "Yeezus",
+      "The Life of Pablo",
+      "Donda 2",
+      "Vultures 1",
+      "Donda",
+      "808s & Heartbreak",
+      "My Beautiful Dark Twisted Fantasy",
+      "The College Dropout",
+      "Graduation",
+      "Watch the Throne"
+    ],
+    "year": 2005
   },
   {
     "quote": "No church in the wild.",
@@ -2097,7 +2520,19 @@
     ],
     "genre": "hiphop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/03/c5/d4/mzi.ldvrmhxt.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/03/c5/d4/mzi.ldvrmhxt.jpg/600x600bb.jpg",
+    "song": "No Church in the Wild",
+    "album": "Watch the Throne",
+    "albums": [
+      "Magna Carta Holy Grail",
+      "Reasonable Doubt",
+      "The Blueprint",
+      "Kingdom Come",
+      "The Black Album",
+      "The Blueprint 2: The Gift & The Curse",
+      "The Dynasty: Roc La Familia"
+    ],
+    "year": 2011
   },
   {
     "quote": "I got 99 problems.",
@@ -2110,7 +2545,19 @@
     ],
     "genre": "hiphop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/03/c5/d4/mzi.ldvrmhxt.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/03/c5/d4/mzi.ldvrmhxt.jpg/600x600bb.jpg",
+    "song": "99 Problems",
+    "album": "The Black Album",
+    "albums": [
+      "Magna Carta Holy Grail",
+      "Kingdom Come",
+      "The Blueprint 2: The Gift & The Curse",
+      "The Dynasty: Roc La Familia",
+      "Reasonable Doubt",
+      "The Blueprint",
+      "Watch the Throne"
+    ],
+    "year": 2003
   },
   {
     "quote": "Ain't no sunshine when she's gone.",
@@ -2123,7 +2570,17 @@
     ],
     "genre": "rnb",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3a/93/40/3a9340a1-73f7-5bbb-86a2-15a4ba20acea/884977735840.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3a/93/40/3a9340a1-73f7-5bbb-86a2-15a4ba20acea/884977735840.jpg/600x600bb.jpg",
+    "song": "Ain't No Sunshine",
+    "album": "Just As I Am",
+    "albums": [
+      "Still Bill",
+      "Menagerie",
+      "'Bout Love",
+      "Naked & Warm",
+      "Watching You, Watching Me"
+    ],
+    "year": 1971
   },
   {
     "quote": "What's going on?",
@@ -2136,7 +2593,23 @@
     ],
     "genre": "rnb",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/e5/65/db/e565db27-c3fd-e972-4010-1bfa2d918f10/23UMGIM49775.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/e5/65/db/e565db27-c3fd-e972-4010-1bfa2d918f10/23UMGIM49775.rgb.jpg/600x600bb.jpg",
+    "song": "What's Going On",
+    "album": "What's Going On",
+    "albums": [
+      "Take Two",
+      "United",
+      "Trouble Man",
+      "How Sweet It Is to Be Loved by You",
+      "In Our Lifetime",
+      "In the Groove",
+      "Diana & Marvin",
+      "That Stubborn Kinda Fellow Marvin Gaye",
+      "The Soulful Moods of Marvin Gaye",
+      "Midnight Love",
+      "Let's Get It On"
+    ],
+    "year": 1971
   },
   {
     "quote": "I will always love you.",
@@ -2149,7 +2622,19 @@
     ],
     "genre": "rnb",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fa/9e/1b/fa9e1b0a-bae9-692b-5c79-323c57a76828/196873289373.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fa/9e/1b/fa9e1b0a-bae9-692b-5c79-323c57a76828/196873289373.jpg/600x600bb.jpg",
+    "song": "I Will Always Love You",
+    "album": "The Bodyguard: Original Soundtrack Album",
+    "albums": [
+      "Just Whitney",
+      "Whitney",
+      "I'm Your Baby Tonight",
+      "One Wish – The Holiday Album",
+      "My Love Is Your Love",
+      "I Look to You",
+      "Whitney Houston"
+    ],
+    "year": 1992
   },
   {
     "quote": "Respect, just a little bit.",
@@ -2162,7 +2647,24 @@
     ],
     "genre": "rnb",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/47/0d/c0/470dc076-70e9-be30-07e5-ecee641a7604/603497902460.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/47/0d/c0/470dc076-70e9-be30-07e5-ecee641a7604/603497902460.jpg/600x600bb.jpg",
+    "song": "Respect",
+    "album": "I Never Loved a Man the Way I Love You",
+    "albums": [
+      "Platoon",
+      "Soul Sister",
+      "Aretha Franklin Sings the Great Diva Classics",
+      "Runnin' Out of Fools",
+      "La Diva",
+      "Lady Soul",
+      "Aretha Now",
+      "With Everything I Feel in Me",
+      "You",
+      "Spirit in the Dark",
+      "Young, Gifted and Black",
+      "Soul '69"
+    ],
+    "year": 1967
   },
   {
     "quote": "I'm every woman, it's all in me.",
@@ -2175,7 +2677,17 @@
     ],
     "genre": "rnb",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/13/55/fb/1355fbb0-60f1-d15e-12cb-ad0008b99524/mzi.zqdpvvdq.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/13/55/fb/1355fbb0-60f1-d15e-12cb-ad0008b99524/mzi.zqdpvvdq.jpg/600x600bb.jpg",
+    "song": "I'm Every Woman",
+    "album": "Chaka",
+    "albums": [
+      "Hello Happiness",
+      "Naughty",
+      "What Cha' Gonna Do for Me",
+      "I Feel for You",
+      "Chaka Khan"
+    ],
+    "year": 1978
   },
   {
     "quote": "No scrubs, I don't want no scrub.",
@@ -2188,7 +2700,13 @@
     ],
     "genre": "rnb",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/14/a8/69/14a86912-841d-3cb8-cf55-0439b15c6cab/dj.mjduepez.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/14/a8/69/14a86912-841d-3cb8-cf55-0439b15c6cab/dj.mjduepez.jpg/600x600bb.jpg",
+    "song": "No Scrubs",
+    "album": "FanMail",
+    "albums": [
+      "3D"
+    ],
+    "year": 1999
   },
   {
     "quote": "Say my name, say my name.",
@@ -2201,7 +2719,13 @@
     ],
     "genre": "rnb",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c9/29/74/c92974ce-2bdd-4b86-a261-01adc901bb65/mzi.cmambura.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c9/29/74/c92974ce-2bdd-4b86-a261-01adc901bb65/mzi.cmambura.jpg/600x600bb.jpg",
+    "song": "Say My Name",
+    "album": "The Writing's on the Wall",
+    "albums": [
+      "Destiny Fulfilled"
+    ],
+    "year": 1999
   },
   {
     "quote": "Crazy in love, got me looking so crazy right now.",
@@ -2214,7 +2738,19 @@
     ],
     "genre": "rnb",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c9/6b/3f/c96b3ff3-9cf6-4ce6-05aa-9f11474bd569/886443938373.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c9/6b/3f/c96b3ff3-9cf6-4ce6-05aa-9f11474bd569/886443938373.jpg/600x600bb.jpg",
+    "song": "Crazy in Love",
+    "album": "Dangerously in Love",
+    "albums": [
+      "4",
+      "B'Day",
+      "I Am… Sasha Fierce",
+      "Cowboy Carter",
+      "Renaissance",
+      "Beyoncé",
+      "Lemonade"
+    ],
+    "year": 2003
   },
   {
     "quote": "Jolene, Jolene, Jolene, Jolene.",
@@ -2227,7 +2763,24 @@
     ],
     "genre": "country",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/37/fa/d1/mzi.ecmonpil.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/37/fa/d1/mzi.ecmonpil.jpg/600x600bb.jpg",
+    "song": "Jolene",
+    "album": "Jolene",
+    "albums": [
+      "Rockstar",
+      "Smoky Mountain DNA",
+      "I Believe in You",
+      "Hello, I'm Dolly",
+      "Halos & Horns",
+      "Better Day",
+      "My Tennessee Mountain Home",
+      "Love Is Like a Butterfly",
+      "Real Love",
+      "Slow Dancing with the Moon",
+      "9 to 5 and Odd Jobs",
+      "Dolly"
+    ],
+    "year": 1973
   },
   {
     "quote": "9 to 5, what a way to make a livin'.",
@@ -2240,7 +2793,24 @@
     ],
     "genre": "country",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/37/fa/d1/mzi.ecmonpil.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/37/fa/d1/mzi.ecmonpil.jpg/600x600bb.jpg",
+    "song": "9 to 5",
+    "album": "9 to 5 and Odd Jobs",
+    "albums": [
+      "Rockstar",
+      "Smoky Mountain DNA",
+      "I Believe in You",
+      "Jolene",
+      "Hello, I'm Dolly",
+      "Halos & Horns",
+      "Better Day",
+      "My Tennessee Mountain Home",
+      "Love Is Like a Butterfly",
+      "Real Love",
+      "Slow Dancing with the Moon",
+      "Dolly"
+    ],
+    "year": 1980
   },
   {
     "quote": "Take me home, country roads.",
@@ -2253,7 +2823,15 @@
     ],
     "genre": "country",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/52/ed/f3/52edf3b6-5b73-c52d-e3f6-4473412eec7c/886443406193.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/52/ed/f3/52edf3b6-5b73-c52d-e3f6-4473412eec7c/886443406193.jpg/600x600bb.jpg",
+    "song": "Take Me Home, Country Roads",
+    "album": "Poems, Prayers & Promises",
+    "albums": [
+      "Rhymes & Reasons",
+      "Back Home Again",
+      "Some Days Are Diamonds"
+    ],
+    "year": 1971
   },
   {
     "quote": "The gambler, know when to hold 'em.",
@@ -2266,7 +2844,24 @@
     ],
     "genre": "country",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/04/74/a2/0474a210-0239-df57-1457-96339adf1e56/13UABIM74030.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/04/74/a2/0474a210-0239-df57-1457-96339adf1e56/13UABIM74030.rgb.jpg/600x600bb.jpg",
+    "song": "The Gambler",
+    "album": "The Gambler",
+    "albums": [
+      "Life Is Like a Song",
+      "Eyes That See in the Dark",
+      "Classics",
+      "Gideon",
+      "Across My Heart",
+      "Back Home Again",
+      "Back to the Well",
+      "I Prefer the Moonlight",
+      "The Gift",
+      "Timepiece",
+      "There You Go Again",
+      "Ten Years of Gold"
+    ],
+    "year": 1978
   },
   {
     "quote": "I fell into a burning ring of fire.",
@@ -2279,7 +2874,24 @@
     ],
     "genre": "country",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/5f/13/bc/5f13bc30-0f68-ed45-466c-b491e9201558/dj.yjweejkt.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/5f/13/bc/5f13bc30-0f68-ed45-466c-b491e9201558/dj.yjweejkt.jpg/600x600bb.jpg",
+    "song": "Ring of Fire",
+    "album": "Ring of Fire: The Best of Johnny Cash",
+    "albums": [
+      "The Mystery of Life",
+      "American Recordings",
+      "American III: Solitary Man",
+      "American IV: The Man Comes Around",
+      "American V: A Hundred Highways",
+      "American VI: Ain't No Grave",
+      "Silver",
+      "Look at Them Beans",
+      "The Holy Land",
+      "I Would Like to See You Again",
+      "Rockabilly Blues",
+      "The Johnny Cash Children's Album"
+    ],
+    "year": 1963
   },
   {
     "quote": "Friends in low places.",
@@ -2292,7 +2904,18 @@
     ],
     "genre": "country",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b8/44/c5/b844c593-0012-6825-d7f4-3a96777bcc60/MOBX0771.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b8/44/c5/b844c593-0012-6825-d7f4-3a96777bcc60/MOBX0771.jpg/600x600bb.jpg",
+    "song": "Friends in Low Places",
+    "album": "No Fences",
+    "albums": [
+      "Time Traveler",
+      "Man Against Machine",
+      "The Chase",
+      "Garth Brooks",
+      "Ropin' the Wind",
+      "Beyond the Season"
+    ],
+    "year": 1990
   },
   {
     "quote": "God bless the USA.",
@@ -2305,7 +2928,14 @@
     ],
     "genre": "country",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/2e/03/1f/2e031f9d-61df-dc10-a321-338165bbe438/00008817026428.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/2e/03/1f/2e031f9d-61df-dc10-a321-338165bbe438/00008817026428.rgb.jpg/600x600bb.jpg",
+    "song": "God Bless the U.S.A.",
+    "album": "You've Got a Good Love Comin'",
+    "albums": [
+      "Inside Out",
+      "If There's Any Justice"
+    ],
+    "year": 1984
   },
   {
     "quote": "Get busy livin', or get busy dyin'.",
@@ -3096,7 +3726,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/72/68/327268ba-b9dd-b322-2a16-bdd0212df48c/074643865326.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/72/68/327268ba-b9dd-b322-2a16-bdd0212df48c/074643865326.jpg/600x600bb.jpg",
+    "song": "Born to Run",
+    "album": "Born to Run",
+    "albums": [
+      "Letter to You",
+      "Only the Strong Survive",
+      "Western Stars",
+      "High Hopes",
+      "Devils & Dust",
+      "Magic",
+      "The Rising",
+      "Born in the U.S.A.",
+      "The Ghost of Tom Joad",
+      "The River",
+      "Wrecking Ball",
+      "Lucky Town"
+    ],
+    "year": 1975
   },
   {
     "quote": "Everybody's got a hungry heart.",
@@ -3109,7 +3756,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/72/68/327268ba-b9dd-b322-2a16-bdd0212df48c/074643865326.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/72/68/327268ba-b9dd-b322-2a16-bdd0212df48c/074643865326.jpg/600x600bb.jpg",
+    "song": "Hungry Heart",
+    "album": "The River",
+    "albums": [
+      "Letter to You",
+      "Only the Strong Survive",
+      "Western Stars",
+      "High Hopes",
+      "Devils & Dust",
+      "Magic",
+      "The Rising",
+      "Born in the U.S.A.",
+      "The Ghost of Tom Joad",
+      "Wrecking Ball",
+      "Lucky Town",
+      "Working on a Dream"
+    ],
+    "year": 1980
   },
   {
     "quote": "Welcome to the Hotel California.",
@@ -3121,7 +3785,18 @@
       "Steely Dan"
     ],
     "genre": "rock",
-    "type": "music"
+    "type": "music",
+    "song": "Hotel California",
+    "album": "Hotel California",
+    "albums": [
+      "On the Border",
+      "The Long Run",
+      "One of These Nights",
+      "Long Road Out of Eden",
+      "Eagles",
+      "Desperado"
+    ],
+    "year": 1976
   },
   {
     "quote": "Take it easy.",
@@ -3133,7 +3808,18 @@
       "The Byrds"
     ],
     "genre": "rock",
-    "type": "music"
+    "type": "music",
+    "song": "Take It Easy",
+    "album": "Eagles",
+    "albums": [
+      "On the Border",
+      "The Long Run",
+      "One of These Nights",
+      "Long Road Out of Eden",
+      "Desperado",
+      "Hotel California"
+    ],
+    "year": 1972
   },
   {
     "quote": "There's a lady who's sure all that glitters is gold.",
@@ -3146,7 +3832,20 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/4c/7b/80/4c7b80b4-ed35-4e06-ec80-2f7aaaabb5c5/dj.pjjmtwdc.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/4c/7b/80/4c7b80b4-ed35-4e06-ec80-2f7aaaabb5c5/dj.pjjmtwdc.jpg/600x600bb.jpg",
+    "song": "Stairway to Heaven",
+    "album": "Led Zeppelin IV",
+    "albums": [
+      "Led Zeppelin",
+      "Coda",
+      "Led Zeppelin II",
+      "Led Zeppelin III",
+      "Houses of the Holy",
+      "Physical Graffiti",
+      "Presence",
+      "In Through the Out Door"
+    ],
+    "year": 1971
   },
   {
     "quote": "Hey, hey, mama, said the way you move.",
@@ -3159,7 +3858,20 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/4c/7b/80/4c7b80b4-ed35-4e06-ec80-2f7aaaabb5c5/dj.pjjmtwdc.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/4c/7b/80/4c7b80b4-ed35-4e06-ec80-2f7aaaabb5c5/dj.pjjmtwdc.jpg/600x600bb.jpg",
+    "song": "Black Dog",
+    "album": "Led Zeppelin IV",
+    "albums": [
+      "Led Zeppelin",
+      "Coda",
+      "Led Zeppelin II",
+      "Led Zeppelin III",
+      "Houses of the Holy",
+      "Physical Graffiti",
+      "Presence",
+      "In Through the Out Door"
+    ],
+    "year": 1971
   },
   {
     "quote": "I'm on the highway to hell.",
@@ -3172,7 +3884,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1e/14/58/1e145814-281a-58e0-3ab1-145f5d1af421/886443673441.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1e/14/58/1e145814-281a-58e0-3ab1-145f5d1af421/886443673441.jpg/600x600bb.jpg",
+    "song": "Highway to Hell",
+    "album": "Highway to Hell",
+    "albums": [
+      "Black Ice",
+      "Back in Black",
+      "Power Up",
+      "Dirty Deeds Done Dirt Cheap",
+      "Rock or Bust",
+      "For Those About to Rock We Salute You",
+      "The Razors Edge",
+      "Flick of the Switch",
+      "High Voltage",
+      "Fly on the Wall",
+      "Let There Be Rock",
+      "Stiff Upper Lip"
+    ],
+    "year": 1979
   },
   {
     "quote": "She was a fast machine, she kept her motor clean.",
@@ -3185,7 +3914,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1e/14/58/1e145814-281a-58e0-3ab1-145f5d1af421/886443673441.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1e/14/58/1e145814-281a-58e0-3ab1-145f5d1af421/886443673441.jpg/600x600bb.jpg",
+    "song": "You Shook Me All Night Long",
+    "album": "Back in Black",
+    "albums": [
+      "Black Ice",
+      "Power Up",
+      "Dirty Deeds Done Dirt Cheap",
+      "Rock or Bust",
+      "For Those About to Rock We Salute You",
+      "Highway to Hell",
+      "The Razors Edge",
+      "Flick of the Switch",
+      "High Voltage",
+      "Fly on the Wall",
+      "Let There Be Rock",
+      "Stiff Upper Lip"
+    ],
+    "year": 1980
   },
   {
     "quote": "I see a bad moon rising.",
@@ -3198,7 +3944,18 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a1/47/ba/a147ba91-31cd-ef4d-d785-040036d14598/12CMGIM34362.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a1/47/ba/a147ba91-31cd-ef4d-d785-040036d14598/12CMGIM34362.rgb.jpg/600x600bb.jpg",
+    "song": "Bad Moon Rising",
+    "album": "Green River",
+    "albums": [
+      "Pendulum",
+      "Cosmo's Factory",
+      "Bayou Country",
+      "Mardi Gras",
+      "Creedence Clearwater Revival",
+      "Willy and the Poor Boys"
+    ],
+    "year": 1969
   },
   {
     "quote": "Rollin' on the river.",
@@ -3211,7 +3968,18 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a1/47/ba/a147ba91-31cd-ef4d-d785-040036d14598/12CMGIM34362.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a1/47/ba/a147ba91-31cd-ef4d-d785-040036d14598/12CMGIM34362.rgb.jpg/600x600bb.jpg",
+    "song": "Proud Mary",
+    "album": "Bayou Country",
+    "albums": [
+      "Green River",
+      "Pendulum",
+      "Cosmo's Factory",
+      "Mardi Gras",
+      "Creedence Clearwater Revival",
+      "Willy and the Poor Boys"
+    ],
+    "year": 1968
   },
   {
     "quote": "She's a good girl, loves her mama.",
@@ -3223,7 +3991,14 @@
       "Bryan Adams"
     ],
     "genre": "rock",
-    "type": "music"
+    "type": "music",
+    "song": "Free Fallin'",
+    "album": "Full Moon Fever",
+    "albums": [
+      "Wildflowers",
+      "Highway Companion"
+    ],
+    "year": 1989
   },
   {
     "quote": "You don't have to live like a refugee.",
@@ -3248,7 +4023,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d2/48/f4/d248f4ae-a7e4-a48e-1588-6617de3e8d76/mzi.izeorbmm.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d2/48/f4/d248f4ae-a7e4-a48e-1588-6617de3e8d76/mzi.izeorbmm.jpg/600x600bb.jpg",
+    "song": "Dreams",
+    "album": "Rumours",
+    "albums": [
+      "Mirage",
+      "Tusk",
+      "Penguin",
+      "Time",
+      "Bare Trees",
+      "Future Games",
+      "Mr. Wonderful",
+      "Say You Will",
+      "Mystery to Me",
+      "Then Play On",
+      "Fleetwood Mac",
+      "Tango in the Night"
+    ],
+    "year": 1977
   },
   {
     "quote": "Thunder only happens when it's raining.",
@@ -3261,7 +4053,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d2/48/f4/d248f4ae-a7e4-a48e-1588-6617de3e8d76/mzi.izeorbmm.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d2/48/f4/d248f4ae-a7e4-a48e-1588-6617de3e8d76/mzi.izeorbmm.jpg/600x600bb.jpg",
+    "song": "Dreams",
+    "album": "Rumours",
+    "albums": [
+      "Mirage",
+      "Tusk",
+      "Penguin",
+      "Time",
+      "Bare Trees",
+      "Future Games",
+      "Mr. Wonderful",
+      "Say You Will",
+      "Mystery to Me",
+      "Then Play On",
+      "Fleetwood Mac",
+      "Tango in the Night"
+    ],
+    "year": 1977
   },
   {
     "quote": "Sing us a song, you're the piano man.",
@@ -3274,7 +4083,21 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/76/15/b4/7615b45f-428c-e269-a2b5-c02949924a66/886447594681.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/76/15/b4/7615b45f-428c-e269-a2b5-c02949924a66/886447594681.jpg/600x600bb.jpg",
+    "song": "Piano Man",
+    "album": "Piano Man",
+    "albums": [
+      "The Nylon Curtain",
+      "An Innocent Man",
+      "The Stranger",
+      "52nd Street",
+      "Storm Front",
+      "The Bridge",
+      "River of Dreams",
+      "Turnstiles",
+      "Fantasies & Delusions"
+    ],
+    "year": 1973
   },
   {
     "quote": "We didn't start the fire.",
@@ -3287,7 +4110,21 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/76/15/b4/7615b45f-428c-e269-a2b5-c02949924a66/886447594681.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/76/15/b4/7615b45f-428c-e269-a2b5-c02949924a66/886447594681.jpg/600x600bb.jpg",
+    "song": "We Didn't Start the Fire",
+    "album": "Storm Front",
+    "albums": [
+      "Piano Man",
+      "The Nylon Curtain",
+      "An Innocent Man",
+      "The Stranger",
+      "52nd Street",
+      "The Bridge",
+      "River of Dreams",
+      "Turnstiles",
+      "Fantasies & Delusions"
+    ],
+    "year": 1989
   },
   {
     "quote": "Might as well jump.",
@@ -3300,7 +4137,22 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/7a/ef/88/7aef88ad-25aa-be91-eb78-8917c3f114f7/603497894130.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/7a/ef/88/7aef88ad-25aa-be91-eb78-8917c3f114f7/603497894130.jpg/600x600bb.jpg",
+    "song": "Jump",
+    "album": "1984",
+    "albums": [
+      "Fair Warning",
+      "For Unlawful Carnal Knowledge",
+      "Diver Down",
+      "Balance",
+      "5150",
+      "OU812",
+      "Women and Children First",
+      "Van Halen",
+      "A Different Kind of Truth",
+      "Van Halen II"
+    ],
+    "year": 1983
   },
   {
     "quote": "Big wheels keep on turning.",
@@ -3313,7 +4165,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/ff/39/ccff392e-ec9d-1ffd-6c1b-d21978bca939/06UMGIM02061.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/ff/39/ccff392e-ec9d-1ffd-6c1b-d21978bca939/06UMGIM02061.rgb.jpg/600x600bb.jpg",
+    "song": "Sweet Home Alabama",
+    "album": "Second Helping",
+    "albums": [
+      "Vicious Cycle",
+      "God & Guns",
+      "Last of a Dyin' Breed",
+      "Twenty",
+      "The Last Rebel",
+      "Lynyrd Skynyrd 1991",
+      "Street Survivors",
+      "Edge of Forever",
+      "Endangered Species",
+      "(Pronounced 'Lĕh-'nérd 'Skin-'nérd)",
+      "Gimme Back My Bullets",
+      "Nuthin' Fancy"
+    ],
+    "year": 1974
   },
   {
     "quote": "If I leave here tomorrow, would you still remember me?",
@@ -3326,7 +4195,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/ff/39/ccff392e-ec9d-1ffd-6c1b-d21978bca939/06UMGIM02061.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/ff/39/ccff392e-ec9d-1ffd-6c1b-d21978bca939/06UMGIM02061.rgb.jpg/600x600bb.jpg",
+    "song": "Free Bird",
+    "album": "(Pronounced 'Lĕh-'nérd 'Skin-'nérd)",
+    "albums": [
+      "Vicious Cycle",
+      "God & Guns",
+      "Last of a Dyin' Breed",
+      "Twenty",
+      "The Last Rebel",
+      "Lynyrd Skynyrd 1991",
+      "Street Survivors",
+      "Edge of Forever",
+      "Endangered Species",
+      "Second Helping",
+      "Gimme Back My Bullets",
+      "Nuthin' Fancy"
+    ],
+    "year": 1973
   },
   {
     "quote": "Mamas, don't let your babies grow up to be cowboys.",
@@ -3352,7 +4238,24 @@
     ],
     "genre": "country",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/08/28/02/082802b9-2d7a-9f29-3413-37eccfb98714/dj.prbhjyep.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/08/28/02/082802b9-2d7a-9f29-3413-37eccfb98714/dj.prbhjyep.jpg/600x600bb.jpg",
+    "song": "On the Road Again",
+    "album": "Honeysuckle Rose",
+    "albums": [
+      "The Border",
+      "Bluegrass",
+      "Last Leaf on the Tree",
+      "Oh What a Beautiful World",
+      "That's Life",
+      "In the Jailhouse Now",
+      "The Willie Nelson Family",
+      "A Beautiful Time",
+      "I Don't Know a Thing About Love – The Songs of Harlan Howard",
+      "…And Then I Wrote",
+      "Country Willie – His Own Songs",
+      "Make Way for Willie Nelson"
+    ],
+    "year": 1980
   },
   {
     "quote": "Keep on rockin' in the free world.",
@@ -3365,7 +4268,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4d/45/41/4d45414c-6364-51cf-2874-7c8aa755caaa/mzi.oetoyyot.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4d/45/41/4d45414c-6364-51cf-2874-7c8aa755caaa/mzi.oetoyyot.jpg/600x600bb.jpg",
+    "song": "Rockin' in the Free World",
+    "album": "Freedom",
+    "albums": [
+      "The Visitor",
+      "Hitchhiker",
+      "Peace Trail",
+      "Before and After",
+      "Colorado",
+      "Barn",
+      "World Record",
+      "Talkin to the Trees",
+      "Second Song",
+      "Prairie Wind",
+      "Living with War",
+      "Everybody's Rockin'"
+    ],
+    "year": 1989
   },
   {
     "quote": "It's better to burn out than to fade away.",
@@ -3378,7 +4298,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4d/45/41/4d45414c-6364-51cf-2874-7c8aa755caaa/mzi.oetoyyot.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4d/45/41/4d45414c-6364-51cf-2874-7c8aa755caaa/mzi.oetoyyot.jpg/600x600bb.jpg",
+    "song": "My My, Hey Hey (Out of the Blue)",
+    "album": "Rust Never Sleeps",
+    "albums": [
+      "The Visitor",
+      "Hitchhiker",
+      "Peace Trail",
+      "Before and After",
+      "Colorado",
+      "Barn",
+      "World Record",
+      "Talkin to the Trees",
+      "Second Song",
+      "Freedom",
+      "Prairie Wind",
+      "Living with War"
+    ],
+    "year": 1979
   },
   {
     "quote": "How does it feel to be on your own, with no direction home?",
@@ -3391,7 +4328,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Features124/v4/dc/e7/e3/dce7e385-5b40-bcda-4d09-ae4faab692ed/dj.fvugskmg.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Features124/v4/dc/e7/e3/dce7e385-5b40-bcda-4d09-ae4faab692ed/dj.fvugskmg.jpg/600x600bb.jpg",
+    "song": "Like a Rolling Stone",
+    "album": "Highway 61 Revisited",
+    "albums": [
+      "Gospel Plow",
+      "Rough and Rowdy Ways",
+      "Self Portrait",
+      "Blonde on Blonde",
+      "Infidels",
+      "The Freewheelin' Bob Dylan",
+      "Nashville Skyline",
+      "Bob Dylan",
+      "Blood on the Tracks",
+      "Bringing It All Back Home",
+      "Dylan",
+      "Love and Theft"
+    ],
+    "year": 1965
   },
   {
     "quote": "The answer is blowin' in the wind.",
@@ -3404,7 +4358,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Features124/v4/dc/e7/e3/dce7e385-5b40-bcda-4d09-ae4faab692ed/dj.fvugskmg.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Features124/v4/dc/e7/e3/dce7e385-5b40-bcda-4d09-ae4faab692ed/dj.fvugskmg.jpg/600x600bb.jpg",
+    "song": "Blowin' in the Wind",
+    "album": "The Freewheelin' Bob Dylan",
+    "albums": [
+      "Gospel Plow",
+      "Rough and Rowdy Ways",
+      "Self Portrait",
+      "Blonde on Blonde",
+      "Infidels",
+      "Highway 61 Revisited",
+      "Nashville Skyline",
+      "Bob Dylan",
+      "Blood on the Tracks",
+      "Bringing It All Back Home",
+      "Dylan",
+      "Love and Theft"
+    ],
+    "year": 1962
   },
   {
     "quote": "Working on our night moves.",
@@ -3416,7 +4387,17 @@
       "Tom Petty"
     ],
     "genre": "rock",
-    "type": "music"
+    "type": "music",
+    "song": "Night Moves",
+    "album": "Night Moves",
+    "albums": [
+      "Noah",
+      "Against the Wind",
+      "Mongrel",
+      "Brand New Morning",
+      "I Knew You When (album)"
+    ],
+    "year": 1976
   },
   {
     "quote": "Just take those old records off the shelf.",
@@ -3428,7 +4409,17 @@
       "Huey Lewis and the News"
     ],
     "genre": "rock",
-    "type": "music"
+    "type": "music",
+    "song": "Old Time Rock & Roll",
+    "album": "Stranger in Town",
+    "albums": [
+      "Noah",
+      "Against the Wind",
+      "Mongrel",
+      "Brand New Morning",
+      "I Knew You When (album)"
+    ],
+    "year": 1978
   },
   {
     "quote": "I walk the line.",
@@ -3441,7 +4432,11 @@
     ],
     "genre": "country",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/5f/13/bc/5f13bc30-0f68-ed45-466c-b491e9201558/dj.yjweejkt.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/5f/13/bc/5f13bc30-0f68-ed45-466c-b491e9201558/dj.yjweejkt.jpg/600x600bb.jpg",
+    "song": "I Walk the Line",
+    "album": "Johnny Cash with His Hot and Blue Guitar!",
+    "albums": [],
+    "year": 1956
   },
   {
     "quote": "You've got to know when to hold 'em.",
@@ -3454,7 +4449,24 @@
     ],
     "genre": "country",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1e/35/d9/1e35d90b-9a5f-da52-d1ce-089d53d19988/00602567821953.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1e/35/d9/1e35d90b-9a5f-da52-d1ce-089d53d19988/00602567821953.rgb.jpg/600x600bb.jpg",
+    "song": "The Gambler",
+    "album": "The Gambler",
+    "albums": [
+      "Life Is Like a Song",
+      "Eyes That See in the Dark",
+      "Classics",
+      "Gideon",
+      "Across My Heart",
+      "Back Home Again",
+      "Back to the Well",
+      "I Prefer the Moonlight",
+      "The Gift",
+      "Timepiece",
+      "There You Go Again",
+      "Ten Years of Gold"
+    ],
+    "year": 1978
   },
   {
     "quote": "Workin' nine to five.",
@@ -3467,7 +4479,24 @@
     ],
     "genre": "country",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/37/fa/d1/mzi.ecmonpil.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/37/fa/d1/mzi.ecmonpil.jpg/600x600bb.jpg",
+    "song": "9 to 5",
+    "album": "9 to 5 and Odd Jobs",
+    "albums": [
+      "Rockstar",
+      "Smoky Mountain DNA",
+      "I Believe in You",
+      "Jolene",
+      "Hello, I'm Dolly",
+      "Halos & Horns",
+      "Better Day",
+      "My Tennessee Mountain Home",
+      "Love Is Like a Butterfly",
+      "Real Love",
+      "Slow Dancing with the Moon",
+      "Dolly"
+    ],
+    "year": 1980
   },
   {
     "quote": "Sweet dreams are made of this.",
@@ -3480,7 +4509,18 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/9d/0c/3c/mzi.sdsmyrby.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/9d/0c/3c/mzi.sdsmyrby.jpg/600x600bb.jpg",
+    "song": "Sweet Dreams (Are Made of This)",
+    "album": "Sweet Dreams (Are Made Of This)",
+    "albums": [
+      "Touch",
+      "In the Garden",
+      "Savage",
+      "Revenge",
+      "We Too Are One",
+      "Be Yourself Tonight"
+    ],
+    "year": 1983
   },
   {
     "quote": "We built this city on rock and roll.",
@@ -3493,7 +4533,15 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/d2/cf/64/d2cf6436-3004-0366-077b-211e005b4ab2/603497854004.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/d2/cf/64/d2cf6436-3004-0366-077b-211e005b4ab2/603497854004.jpg/600x600bb.jpg",
+    "song": "We Built This City",
+    "album": "Knee Deep in the Hoopla",
+    "albums": [
+      "Love Among the Cannibals",
+      "Loveless Fascination",
+      "No Protection"
+    ],
+    "year": 1985
   },
   {
     "quote": "Just a small town girl, livin' in a lonely world.",
@@ -3506,7 +4554,16 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/71/2d/61/712d617d-f4a4-5904-1b11-d4b4b45c47c5/828768588925.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/71/2d/61/712d617d-f4a4-5904-1b11-d4b4b45c47c5/828768588925.jpg/600x600bb.jpg",
+    "song": "Don't Stop Believin'",
+    "album": "Escape",
+    "albums": [
+      "Evolution",
+      "Journey",
+      "Eclipse",
+      "Frontiers"
+    ],
+    "year": 1981
   },
   {
     "quote": "Whoa, we're halfway there.",
@@ -3519,7 +4576,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3c/96/b3/3c96b3cb-59c0-9641-cfad-a33346ab87f9/24UMGIM83177.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3c/96/b3/3c96b3cb-59c0-9641-cfad-a33346ab87f9/24UMGIM83177.rgb.jpg/600x600bb.jpg",
+    "song": "Livin' on a Prayer",
+    "album": "Slippery When Wet",
+    "albums": [
+      "Forever",
+      "2020",
+      "Burning Bridges",
+      "This House Is Not for Sale",
+      "Crush",
+      "These Days",
+      "7800° Fahrenheit",
+      "New Jersey",
+      "Have a Nice Day",
+      "Bon Jovi",
+      "The Circle",
+      "Lost Highway"
+    ],
+    "year": 1986
   },
   {
     "quote": "I want to know what love is.",
@@ -3532,7 +4606,19 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/af/7b/a2/af7ba295-c0c0-ba8d-17da-5cc52959a602/mzi.ykpmzuxm.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/af/7b/a2/af7ba295-c0c0-ba8d-17da-5cc52959a602/mzi.ykpmzuxm.jpg/600x600bb.jpg",
+    "song": "I Want to Know What Love Is",
+    "album": "Agent Provocateur",
+    "albums": [
+      "Head Games",
+      "Double Vision",
+      "Inside Information",
+      "Unusual Heat",
+      "Foreigner",
+      "4",
+      "Mr. Moonlight"
+    ],
+    "year": 1984
   },
   {
     "quote": "Another one bites the dust.",
@@ -3545,7 +4631,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4d/08/2a/4d082a9e-7898-1aa1-a02f-339810058d9e/14DMGIM05632.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4d/08/2a/4d082a9e-7898-1aa1-a02f-339810058d9e/14DMGIM05632.rgb.jpg/600x600bb.jpg",
+    "song": "Another One Bites the Dust",
+    "album": "The Game",
+    "albums": [
+      "Queen",
+      "A Day at the Races",
+      "Sheer Heart Attack",
+      "Queen II",
+      "Made in Heaven",
+      "A Night at the Opera",
+      "Innuendo",
+      "Jazz",
+      "The Works",
+      "A Kind of Magic",
+      "Hot Space",
+      "The Miracle"
+    ],
+    "year": 1980
   },
   {
     "quote": "Carpe diem. Seize the day.",
@@ -3782,7 +4885,14 @@
       "John Mellencamp"
     ],
     "genre": "rock",
-    "type": "music"
+    "type": "music",
+    "song": "Free Fallin'",
+    "album": "Full Moon Fever",
+    "albums": [
+      "Wildflowers",
+      "Highway Companion"
+    ],
+    "year": 1989
   },
   {
     "quote": "Slow down, you crazy child.",
@@ -3795,7 +4905,21 @@
     ],
     "genre": "pop",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/76/15/b4/7615b45f-428c-e269-a2b5-c02949924a66/886447594681.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/76/15/b4/7615b45f-428c-e269-a2b5-c02949924a66/886447594681.jpg/600x600bb.jpg",
+    "song": "Vienna",
+    "album": "The Stranger",
+    "albums": [
+      "Piano Man",
+      "The Nylon Curtain",
+      "An Innocent Man",
+      "52nd Street",
+      "Storm Front",
+      "The Bridge",
+      "River of Dreams",
+      "Turnstiles",
+      "Fantasies & Delusions"
+    ],
+    "year": 1977
   },
   {
     "quote": "Carry on my wayward son.",
@@ -3808,7 +4932,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/98/1a/fb/981afb81-415b-c6f1-f725-147769022da6/mzi.dgzjndad.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/98/1a/fb/981afb81-415b-c6f1-f725-147769022da6/mzi.dgzjndad.jpg/600x600bb.jpg",
+    "song": "Carry On Wayward Son",
+    "album": "Leftoverture",
+    "albums": [
+      "Kansas",
+      "Monolith",
+      "Freaks of Nature",
+      "Point of Know Return",
+      "Masque",
+      "One for All",
+      "Always Never the Same",
+      "The Prelude Implicit",
+      "Somewhere to Elsewhere",
+      "Power",
+      "Drastic Measures",
+      "In the Spirit of Things"
+    ],
+    "year": 1976
   },
   {
     "quote": "More than a feeling.",
@@ -3821,7 +4962,15 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e3/08/9a/e3089ac9-a820-5ee9-64be-39500ad8a5e2/886444824972.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e3/08/9a/e3089ac9-a820-5ee9-64be-39500ad8a5e2/886444824972.jpg/600x600bb.jpg",
+    "song": "More Than a Feeling",
+    "album": "Boston",
+    "albums": [
+      "Don't Look Back",
+      "Walk On",
+      "Third Stage"
+    ],
+    "year": 1976
   },
   {
     "quote": "Come on, feel the noise.",
@@ -3847,7 +4996,15 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fd/c8/04/fdc80494-b3cc-eb07-7a96-0cb08b53c9b9/0603497879861.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fd/c8/04/fdc80494-b3cc-eb07-7a96-0cb08b53c9b9/0603497879861.jpg/600x600bb.jpg",
+    "song": "We're Not Gonna Take It",
+    "album": "Stay Hungry",
+    "albums": [
+      "Come Out and Play",
+      "Under the Blade",
+      "Still Hungry"
+    ],
+    "year": 1984
   },
   {
     "quote": "Sweet home Alabama.",
@@ -3860,7 +5017,24 @@
     ],
     "genre": "rock",
     "type": "music",
-    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/ff/39/ccff392e-ec9d-1ffd-6c1b-d21978bca939/06UMGIM02061.rgb.jpg/600x600bb.jpg"
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/ff/39/ccff392e-ec9d-1ffd-6c1b-d21978bca939/06UMGIM02061.rgb.jpg/600x600bb.jpg",
+    "song": "Sweet Home Alabama",
+    "album": "Second Helping",
+    "albums": [
+      "Vicious Cycle",
+      "God & Guns",
+      "Last of a Dyin' Breed",
+      "Twenty",
+      "The Last Rebel",
+      "Lynyrd Skynyrd 1991",
+      "Street Survivors",
+      "Edge of Forever",
+      "Endangered Species",
+      "(Pronounced 'Lĕh-'nérd 'Skin-'nérd)",
+      "Gimme Back My Bullets",
+      "Nuthin' Fancy"
+    ],
+    "year": 1974
   },
   {
     "quote": "She's got a smile that it seems to me reminds me of childhood memories.",
@@ -3872,7 +5046,16 @@
       "Bon Jovi"
     ],
     "genre": "rock",
-    "type": "music"
+    "type": "music",
+    "song": "Sweet Child O' Mine",
+    "album": "Appetite for Destruction",
+    "albums": [
+      "Use Your Illusion I",
+      "\"The Spaghetti Incident?\"",
+      "Use Your Illusion II",
+      "G N' R Lies"
+    ],
+    "year": 1987
   },
   {
     "quote": "Despair is a narcotic. It lulls the mind into indifference.",

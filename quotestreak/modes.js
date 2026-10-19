@@ -53,6 +53,14 @@
     const options = pick(q.director, [dirs(o => near(o) && o.genre === q.genre), dirs(near), dirs(() => true)], rand);
     return options && { ...q, answer: q.director, options, character: `${q.answer}, ${q.year}`, year: null, prompt: `Who directed ${q.answer}?` };
   };
+  // v55 Album: which album the song is on (Wikidata, else the song's Wikipedia infobox). Wrong answers
+  // are the artist's other studio albums, then albums from the same genre.
+  BUILD.record = (q, all, rand) => {   // 'album' is taken by v26 Album reveal
+    if (!q.album || !q.song) return null;
+    const albums = (f) => all.filter(o => o.album && o.answer !== q.answer && f(o)).map(o => o.album);
+    const options = pick(q.album, [q.albums || [], albums(o => o.genre === q.genre), albums(() => true)], rand);
+    return options && { ...q, answer: q.album, options, character: `${q.song} by ${q.answer}, ${q.year}`, year: null, prompt: `Which album is ${q.song} on?` };
+  };
   const build = (mode, q, all, rand = Math.random) => (BUILD[mode] ? BUILD[mode](q, all, rand) : q);
   // v24 Timeline: which of four came out first? Four titles at least three years apart; the reveal
   // gives every year so the player learns the order.
