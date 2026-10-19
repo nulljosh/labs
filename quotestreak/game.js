@@ -213,7 +213,7 @@ function choose(opt, btn) {
     beep(180, 0.25);
   }
   if (current.character) feedbackEl.textContent += ` · ${[current.character, current.year].filter(Boolean).join(', ')}`;
-  if (!current.plain && !current.image) tally(current, correct);  // timelines and reveals aren't one quote
+  if (!current.noTally) tally(current, correct);  // timelines, reveals, misquotes and packs aren't one bank quote
   run.push({ qid: Difficulty.qid(current.quote), pts });
   duelSend({ type: 'answer', score, i: run.length, name: window.quotableDisplayName?.() });
   window.quotableBadge?.('answer', { q: current, correct, typed: typeMode, hints: hintsUsed, streak });
@@ -255,13 +255,14 @@ function endGame() {
   endEl.classList.remove('hidden');
   document.body.classList.remove('speed', 'revealing');
   const prev = parseInt(localStorage.getItem(HIGH_KEY) || '0', 10);
-  const high = Math.max(score, prev);
-  if (score > prev) requestAnimationFrame(() => burst($('final-score'), 80));
+  const best = !window.quotableOffBoard && score > prev;   // pass and play and packs never set the high score
+  const high = best ? score : prev;
+  if (best) requestAnimationFrame(() => burst($('final-score'), 80));
   const dark = document.documentElement.dataset.theme === 'dark' ? '-dark' : '';  // cream limbs on the dark ground
-  $('quip-end').src = `brand/quip-${score > prev ? 'cheer' : score > 0 ? 'idle' : 'oops'}${dark}.svg`;
+  $('quip-end').src = `brand/quip-${best ? 'cheer' : score > 0 ? 'idle' : 'oops'}${dark}.svg`;
   localStorage.setItem(HIGH_KEY, high);
   $('final-score').textContent = `Final score: ${score} · High score: ${high}`;
-  if (!cupRound && !duel && !challenge && !window.quotablePassPlay) window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal');
+  if (!cupRound && !duel && !challenge && !window.quotableOffBoard) window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal');
   if (challenge) {
     $('final-score').textContent = Challenge.verdict(score, challenge.score, challenge.name);
     challenge = null;

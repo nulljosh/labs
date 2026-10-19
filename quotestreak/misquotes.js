@@ -36,7 +36,7 @@
   ];
   // Questions in the game's shape: the misquote is shown, the real line is the answer.
   const questions = () => LIST.map(m => ({
-    type: 'movie', genre: m.genre, year: m.year, quote: m.real, display: m.said, answer: m.real, character: `${m.who}, ${m.answer}`,
+    type: 'movie', genre: m.genre, year: m.year, quote: m.real, noTally: true, display: m.said, answer: m.real, character: `${m.who}, ${m.answer}`,
     options: [m.real, ...m.near.slice(0, 3)], prompt: `Everyone says this. What did ${m.who} really say in ${m.answer}?`,
   }));
   const api = { LIST, questions };

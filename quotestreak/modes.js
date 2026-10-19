@@ -50,7 +50,7 @@
       if (four.length < 4) continue;
       const first = [...four].sort((x, y) => x.year - y.year)[0];
       out.push({
-        ...first, quote: four.map(t => t.quote).join(' | '), year: null, art: null,
+        ...first, quote: four.map(t => t.quote).join(' | '), year: null, art: null, noTally: true,
         genre: 'timeline', plain: 'Which came out first?', prompt: 'Oldest wins.', options: shuffle(four.map(t => t.answer), rand),
         character: `it came out in ${first.year}; then ${[...four].sort((x, y) => x.year - y.year).slice(1).map(t => `${t.answer} (${t.year})`).join(', ')}`,
         hints: [`It came out in the ${Math.floor(first.year / 10) * 10}s`, `It starts with ${first.answer[0]}`],
@@ -63,7 +63,7 @@
   function reveal(list, kind, rand) {
     const seen = new Set();
     return shuffle(list.filter(q => q.art && q.art.includes(kind === 'poster' ? 'tmdb' : 'mzstatic') && !seen.has(q.answer) && seen.add(q.answer)), rand)
-      .map(q => ({ ...q, image: q.art, square: kind === 'album', prompt: kind === 'poster' ? 'Name the movie from the poster.' : 'Name the artist from the cover.' }));
+      .map(q => ({ ...q, image: q.art, noTally: true, square: kind === 'album', prompt: kind === 'poster' ? 'Name the movie from the poster.' : 'Name the artist from the cover.' }));
   }
   // v27 Name the year: the line and its title, four years to pick from. The wrong years sit
   // three to twelve years either side and at least three apart, so the decade alone doesn't settle it.

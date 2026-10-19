@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80" height="80" alt="Quotestreak icon">
 
-![version](https://img.shields.io/badge/version-43.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-44.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Here's the line. Name the movie.
 
@@ -30,6 +30,8 @@ Or the show, the game, the song or the book. 1,624 lines across 15 genres, from 
 **Siri.** "Give me a quote from Quotestreak" reads today's line; "Start a speed round in Quotestreak" opens straight into one.
 
 **Handoff.** Start a game on your iPhone and pick it up on your Mac at the same question.
+
+**Make a pack.** Write your own lines, family sayings or inside jokes, and share them as a link. The whole pack lives in the link; nothing is stored.
 
 **Pass and play.** Up to eight people on one phone, taking turns.
 

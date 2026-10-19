@@ -33,8 +33,8 @@
   $('pass-go').onclick = () => {
     const list = names();
     if (list.length < 2) return ($('pass-msg').textContent = 'Two players at least.');
-    pp = { players: list.map(name => ({ name, score: 0 })), asked: 0, before: 0, high: localStorage.getItem(HIGH_KEY) };
-    window.quotablePassPlay = true;   // keeps a shared device's total off the leaderboard (game.js)
+    pp = { players: list.map(name => ({ name, score: 0 })), asked: 0, before: 0 };
+    window.quotableOffBoard = true;   // keeps a shared device's total off the leaderboard (game.js)
     $('pass').classList.add('hidden');
     startGame(false);   // deals the first question, and showTurn marks it
     pool = pool.slice(-(list.length * +$('pass-rounds').value - 1));   // the rest, so everyone gets the same number of turns
@@ -63,9 +63,8 @@
     if (pp && event === 'game') {
       $('final-score').textContent = verdict(pp.players);
       $('challenge-btn').classList.add('hidden');
-      try { pp.high === null ? localStorage.removeItem(HIGH_KEY) : localStorage.setItem(HIGH_KEY, pp.high); } catch {}
       pp = null;
-      window.quotablePassPlay = false;
+      window.quotableOffBoard = false;
       return;
     }
     badgeBeforePass(event, d);
