@@ -435,5 +435,13 @@
  "Theme": "Thème",
  "Marquee": "Marquise",
  "Noir": "Film noir",
- "Drive-in": "Ciné-parc"
+ "Drive-in": "Ciné-parc",
+ "Offline packs": "Packs hors ligne",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "Vous partez sans réseau ? Enregistrez les genres que vous voulez et jouez dans l’avion.",
+ "Save for offline": "Enregistrer hors ligne",
+ "Remove offline packs": "Supprimer les packs hors ligne",
+ "Saved for offline: {x}": "Enregistré hors ligne : {x}",
+ "Nothing saved yet.": "Rien d’enregistré pour l’instant.",
+ "Pick at least one genre.": "Choisissez au moins un genre.",
+ "Saving {n} of {n}": "Enregistrement {n} sur {n}"
 }

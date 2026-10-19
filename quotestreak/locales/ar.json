@@ -427,5 +427,13 @@
  "Theme": "السمة",
  "Marquee": "لافتة السينما",
  "Noir": "نوار",
- "Drive-in": "سينما السيارات"
+ "Drive-in": "سينما السيارات",
+ "Offline packs": "حزم بلا اتصال",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "ذاهب إلى مكان بلا إشارة؟ احفظ الأنواع التي تريدها والعب بها في الطائرة.",
+ "Save for offline": "احفظ للاستخدام بلا اتصال",
+ "Remove offline packs": "إزالة الحزم بلا اتصال",
+ "Saved for offline: {x}": "محفوظ بلا اتصال: {x}",
+ "Nothing saved yet.": "لم يُحفظ شيء بعد.",
+ "Pick at least one genre.": "اختر نوعًا واحدًا على الأقل.",
+ "Saving {n} of {n}": "جارٍ حفظ {n} من {n}"
 }

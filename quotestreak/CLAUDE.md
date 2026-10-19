@@ -8,6 +8,9 @@ Plain HTML/CSS/JS, classic scripts sharing top-level bindings, one file per feat
 ## Family mode (v60)
 `family.js` decides kid-safe from data, never taste: films rated G (or PG when the bank calls them cartoons), games rated Everyone / Everyone 10+ / Kids to Adults, TV only if Wikidata says children's series (none yet), songs and book first lines, and a word list on every line. Unrated = out. Ratings come from `scripts/harvest-ratings.mjs` (Wikidata MPA P1657 and ESRB P852 through the title's Wikipedia article) as `rating` in the bank. In family mode the shared modes (Daily, Duel, Cup, Big screen, Library, Champions) hide, since they deal the same unfiltered lines to everyone, and the poster wall shows family titles only. `scripts/clean-bank.mjs` removed harvested junk (cast-list rows, mid-sentence fragments, two-speaker exchanges).
 
+## Offline packs (v68)
+`offline.js` saves the chosen genres' poster and album art, plus the game's own files, into the `quotestreak-offline` cache, which `sw.js` keeps across releases. The service worker serves cross-origin images from it first (art never changes) and falls back to it for same-origin files and the shared jaybulb tokens only when the network fails, so a release never runs on stale scripts. The poster wall's thumbnails are not saved.
+
 ## Access (v59)
 `scripts/axe-check.mjs` runs axe-core over every screen of `dist/`, light and dark; keep it at 0 violations. The question and the result are `aria-live`; keys 1 to 4 answer; High contrast (Settings, or the system's Increase Contrast) swaps to pure ink and white with no poster wall. Yellow as text on the light ground uses `--accent-text` (#8a6412), never `--accent-deep`, which fails contrast. Native: the round scrolls at the largest Dynamic Type sizes, the timer ring reads as one value, revealed answers say right or wrong.
 

@@ -1,6 +1,7 @@
 // ponytail: network-first for pages, cache-first for the hashed assets they name.
 // Bump CACHE to evict everything a previous version stored.
-const CACHE = "quotestreak-v80";
+const CACHE = "quotestreak-v81";
+const OFFLINE = "quotestreak-offline";   // offline packs (v68): kept across releases, filled by offline.js
 const FILES = ["/", "/index.html","/play.html","/privacy.html", "/manifest.webmanifest"];
 
 self.addEventListener("install", e => {
@@ -12,7 +13,7 @@ self.addEventListener("install", e => {
 
 self.addEventListener("activate", e => {
   e.waitUntil(caches.keys()
-    .then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k))))
+    .then(ks => Promise.all(ks.filter(k => k !== CACHE && k !== OFFLINE).map(k => caches.delete(k))))
     .then(() => self.clients.claim()));
 });
 
@@ -25,8 +26,16 @@ const save = (req, res) => {
 };
 
 self.addEventListener("fetch", e => {
-  // Same-origin GETs only; APIs are cross-origin and stay network-only.
-  if (e.request.method !== "GET" || new URL(e.request.url).origin !== location.origin) return;
+  if (e.request.method !== "GET") return;
+  // Poster and album art saved by an offline pack; art is immutable, so the saved copy wins.
+  if (new URL(e.request.url).origin !== location.origin) {
+    if (e.request.destination === "image") e.respondWith(caches.open(OFFLINE)
+      .then(c => c.match(e.request, { ignoreVary: true })).then(hit => hit || fetch(e.request)));
+    // The shared jaybulb tokens can change, so the saved copy is only the fallback.
+    else if (e.request.destination === "style") e.respondWith(fetch(e.request)
+      .catch(() => caches.open(OFFLINE).then(c => c.match(e.request, { ignoreVary: true }))));
+    return;   // APIs stay network-only
+  }
 
   // HTML must never come from cache first: it names the hashed bundles, so one
   // stale page pins a whole stale build and the site stops shipping updates to
@@ -41,9 +50,10 @@ self.addEventListener("fetch", e => {
     return;
   }
 
-  // Everything else is content-hashed, so a cache hit is always the right file.
+  // Everything else: this release's cache, then the network, then an offline pack's older copy.
   e.respondWith(
-    caches.match(e.request, { ignoreSearch: true }).then(hit => hit ||
-      fetch(e.request).then(res => save(e.request, res)))
+    caches.open(CACHE).then(c => c.match(e.request, { ignoreSearch: true })).then(hit => hit ||
+      fetch(e.request).then(res => save(e.request, res))
+        .catch(() => caches.match(e.request, { ignoreSearch: true })))
   );
 });

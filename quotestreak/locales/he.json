@@ -427,5 +427,13 @@
  "Theme": "ערכת נושא",
  "Marquee": "שלט קולנוע",
  "Noir": "נואר",
- "Drive-in": "קולנוע רכב"
+ "Drive-in": "קולנוע רכב",
+ "Offline packs": "חבילות לא מקוונות",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "נוסעים למקום בלי קליטה? שמרו את הז׳אנרים שאתם רוצים ושחקו במטוס.",
+ "Save for offline": "שמירה לשימוש לא מקוון",
+ "Remove offline packs": "הסרת חבילות לא מקוונות",
+ "Saved for offline: {x}": "נשמר לשימוש לא מקוון: {x}",
+ "Nothing saved yet.": "עוד לא נשמר כלום.",
+ "Pick at least one genre.": "בחרו לפחות ז׳אנר אחד.",
+ "Saving {n} of {n}": "שומר {n} מתוך {n}"
 }

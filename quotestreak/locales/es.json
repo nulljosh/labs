@@ -427,5 +427,13 @@
  "Theme": "Tema",
  "Marquee": "Marquesina",
  "Noir": "Cine negro",
- "Drive-in": "Autocine"
+ "Drive-in": "Autocine",
+ "Offline packs": "Paquetes sin conexión",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "¿Vas a algún sitio sin cobertura? Guarda los géneros que quieras y juega en el avión.",
+ "Save for offline": "Guardar sin conexión",
+ "Remove offline packs": "Quitar paquetes sin conexión",
+ "Saved for offline: {x}": "Guardado sin conexión: {x}",
+ "Nothing saved yet.": "Aún no hay nada guardado.",
+ "Pick at least one genre.": "Elige al menos un género.",
+ "Saving {n} of {n}": "Guardando {n} de {n}"
 }

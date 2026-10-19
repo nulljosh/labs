@@ -427,5 +427,13 @@
  "Theme": "Tema",
  "Marquee": "Letreiro",
  "Noir": "Noir",
- "Drive-in": "Drive-in"
+ "Drive-in": "Drive-in",
+ "Offline packs": "Pacotes offline",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "Vai para algum lugar sem sinal? Salve os gêneros que quiser e jogue no avião.",
+ "Save for offline": "Salvar offline",
+ "Remove offline packs": "Remover pacotes offline",
+ "Saved for offline: {x}": "Salvo offline: {x}",
+ "Nothing saved yet.": "Nada salvo ainda.",
+ "Pick at least one genre.": "Escolha pelo menos um gênero.",
+ "Saving {n} of {n}": "Salvando {n} de {n}"
 }

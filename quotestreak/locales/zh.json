@@ -429,5 +429,13 @@
  "Theme": "主题",
  "Marquee": "影院招牌",
  "Noir": "黑色电影",
- "Drive-in": "汽车影院"
+ "Drive-in": "汽车影院",
+ "Offline packs": "离线包",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "要去没信号的地方？保存想玩的类型，在飞机上玩。",
+ "Save for offline": "保存以离线使用",
+ "Remove offline packs": "移除离线包",
+ "Saved for offline: {x}": "已离线保存：{x}",
+ "Nothing saved yet.": "还没有保存任何内容。",
+ "Pick at least one genre.": "至少选择一个类型。",
+ "Saving {n} of {n}": "正在保存 {n} / {n}"
 }

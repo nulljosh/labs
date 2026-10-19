@@ -427,5 +427,13 @@
  "Theme": "Thema",
  "Marquee": "Lichtreclame",
  "Noir": "Film noir",
- "Drive-in": "Drive-inbioscoop"
+ "Drive-in": "Drive-inbioscoop",
+ "Offline packs": "Offline pakketten",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "Ga je ergens heen zonder bereik? Bewaar de genres die je wilt en speel ze in het vliegtuig.",
+ "Save for offline": "Offline bewaren",
+ "Remove offline packs": "Offline pakketten verwijderen",
+ "Saved for offline: {x}": "Offline bewaard: {x}",
+ "Nothing saved yet.": "Nog niets bewaard.",
+ "Pick at least one genre.": "Kies minstens één genre.",
+ "Saving {n} of {n}": "Bewaren {n} van {n}"
 }

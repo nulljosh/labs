@@ -427,5 +427,13 @@
  "Theme": "Tema",
  "Marquee": "Biograffasad",
  "Noir": "Film noir",
- "Drive-in": "Drive-in-bio"
+ "Drive-in": "Drive-in-bio",
+ "Offline packs": "Offlinepaket",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "Ska du någonstans utan täckning? Spara genrerna du vill ha och spela på planet.",
+ "Save for offline": "Spara offline",
+ "Remove offline packs": "Ta bort offlinepaket",
+ "Saved for offline: {x}": "Sparat offline: {x}",
+ "Nothing saved yet.": "Inget sparat än.",
+ "Pick at least one genre.": "Välj minst en genre.",
+ "Saving {n} of {n}": "Sparar {n} av {n}"
 }

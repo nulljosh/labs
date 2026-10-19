@@ -427,5 +427,13 @@
  "Theme": "Design",
  "Marquee": "Leuchtreklame",
  "Noir": "Film noir",
- "Drive-in": "Autokino"
+ "Drive-in": "Autokino",
+ "Offline packs": "Offline-Pakete",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "Unterwegs ohne Netz? Speichere die Genres, die du willst, und spiel im Flugzeug.",
+ "Save for offline": "Offline speichern",
+ "Remove offline packs": "Offline-Pakete entfernen",
+ "Saved for offline: {x}": "Offline gespeichert: {x}",
+ "Nothing saved yet.": "Noch nichts gespeichert.",
+ "Pick at least one genre.": "Wähle mindestens ein Genre.",
+ "Saving {n} of {n}": "Speichere {n} von {n}"
 }

@@ -186,6 +186,7 @@
       <button id="start-party">Big screen</button>
       <button id="start-pack">Make a pack</button>
       <button id="start-library">Pack library</button>
+      <button id="start-offline">Offline packs</button>
       <button id="badges-btn">Badges</button>
       <button id="stats-btn">Stats</button>
       <button id="start-watchlist">Watchlist</button>
@@ -261,6 +262,15 @@
       <button id="watchlist-back">Back</button>
     </div>
 
+    <div id="offline" class="panel hidden">
+      <h2>Offline packs</h2>
+      <p class="prompt">Going somewhere with no signal? Save the genres you want and play them on the plane.</p>
+      <ol id="offline-list" class="library-list"></ol>
+      <p id="offline-status" class="prompt" aria-live="polite"></p>
+      <button id="offline-save">Save for offline</button>
+      <button id="offline-clear" class="secondary">Remove offline packs</button>
+      <button id="offline-back">Back</button>
+    </div>
     <div id="library" class="panel hidden">
       <h2>Pack library</h2>
       <p class="prompt">Packs other players made, checked before they go up.</p>
@@ -385,6 +395,7 @@
   <script src="passplay.js"></script>
   <script src="packs.js"></script>
   <script src="library.js"></script>
+  <script src="offline.js"></script>
   <script type="module" src="auth.js"></script>
   <script src="i18n.js"></script>
   <script src="webmcp.js"></script>

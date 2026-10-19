@@ -427,5 +427,13 @@
  "Theme": "테마",
  "Marquee": "극장 간판",
  "Noir": "누아르",
- "Drive-in": "자동차 극장"
+ "Drive-in": "자동차 극장",
+ "Offline packs": "오프라인 팩",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "신호가 없는 곳에 가나요? 원하는 장르를 저장하고 비행기에서 즐기세요.",
+ "Save for offline": "오프라인용으로 저장",
+ "Remove offline packs": "오프라인 팩 삭제",
+ "Saved for offline: {x}": "오프라인 저장됨: {x}",
+ "Nothing saved yet.": "아직 저장된 것이 없어요.",
+ "Pick at least one genre.": "장르를 하나 이상 고르세요.",
+ "Saving {n} of {n}": "저장 중 {n} / {n}"
 }

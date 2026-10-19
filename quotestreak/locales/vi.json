@@ -427,5 +427,13 @@
  "Theme": "Giao diện",
  "Marquee": "Bảng hiệu rạp",
  "Noir": "Phim đen",
- "Drive-in": "Rạp xe hơi"
+ "Drive-in": "Rạp xe hơi",
+ "Offline packs": "Gói ngoại tuyến",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "Sắp đến nơi không có sóng? Lưu các thể loại bạn muốn và chơi trên máy bay.",
+ "Save for offline": "Lưu để chơi ngoại tuyến",
+ "Remove offline packs": "Xóa gói ngoại tuyến",
+ "Saved for offline: {x}": "Đã lưu ngoại tuyến: {x}",
+ "Nothing saved yet.": "Chưa lưu gì cả.",
+ "Pick at least one genre.": "Chọn ít nhất một thể loại.",
+ "Saving {n} of {n}": "Đang lưu {n} / {n}"
 }

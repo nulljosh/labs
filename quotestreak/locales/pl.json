@@ -427,5 +427,13 @@
  "Theme": "Motyw",
  "Marquee": "Neon kinowy",
  "Noir": "Kino noir",
- "Drive-in": "Kino samochodowe"
+ "Drive-in": "Kino samochodowe",
+ "Offline packs": "Pakiety offline",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "Jedziesz tam, gdzie nie ma zasięgu? Zapisz gatunki, które chcesz, i graj w samolocie.",
+ "Save for offline": "Zapisz offline",
+ "Remove offline packs": "Usuń pakiety offline",
+ "Saved for offline: {x}": "Zapisane offline: {x}",
+ "Nothing saved yet.": "Nic jeszcze nie zapisano.",
+ "Pick at least one genre.": "Wybierz co najmniej jeden gatunek.",
+ "Saving {n} of {n}": "Zapisywanie {n} z {n}"
 }

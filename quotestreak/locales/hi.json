@@ -427,5 +427,13 @@
  "Theme": "थीम",
  "Marquee": "सिनेमा बोर्ड",
  "Noir": "नोआर",
- "Drive-in": "ड्राइव-इन"
+ "Drive-in": "ड्राइव-इन",
+ "Offline packs": "ऑफ़लाइन पैक",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "बिना सिग्नल वाली जगह जा रहे हैं? अपनी पसंद की शैलियाँ सेव करें और हवाई जहाज़ में खेलें।",
+ "Save for offline": "ऑफ़लाइन सेव करें",
+ "Remove offline packs": "ऑफ़लाइन पैक हटाएँ",
+ "Saved for offline: {x}": "ऑफ़लाइन सेव: {x}",
+ "Nothing saved yet.": "अभी कुछ सेव नहीं हुआ।",
+ "Pick at least one genre.": "कम से कम एक शैली चुनें।",
+ "Saving {n} of {n}": "सेव हो रहा है {n} / {n}"
 }

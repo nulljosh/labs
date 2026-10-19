@@ -427,5 +427,13 @@
  "Theme": "Tema",
  "Marquee": "Sinema tabelası",
  "Noir": "Kara film",
- "Drive-in": "Arabalı sinema"
+ "Drive-in": "Arabalı sinema",
+ "Offline packs": "Çevrimdışı paketler",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "Çekmeyen bir yere mi gidiyorsun? İstediğin türleri kaydet, uçakta oyna.",
+ "Save for offline": "Çevrimdışı kaydet",
+ "Remove offline packs": "Çevrimdışı paketleri kaldır",
+ "Saved for offline: {x}": "Çevrimdışı kaydedildi: {x}",
+ "Nothing saved yet.": "Henüz kaydedilen yok.",
+ "Pick at least one genre.": "En az bir tür seç.",
+ "Saving {n} of {n}": "Kaydediliyor {n} / {n}"
 }

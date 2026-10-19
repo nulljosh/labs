@@ -427,5 +427,13 @@
  "Theme": "テーマ",
  "Marquee": "劇場の看板",
  "Noir": "ノワール",
- "Drive-in": "ドライブイン"
+ "Drive-in": "ドライブイン",
+ "Offline packs": "オフラインパック",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "電波のない場所へ？好きなジャンルを保存して、機内で遊ぼう。",
+ "Save for offline": "オフライン用に保存",
+ "Remove offline packs": "オフラインパックを削除",
+ "Saved for offline: {x}": "オフライン保存済み：{x}",
+ "Nothing saved yet.": "まだ何も保存されていません。",
+ "Pick at least one genre.": "ジャンルを1つ以上選んでください。",
+ "Saving {n} of {n}": "保存中 {n} / {n}"
 }

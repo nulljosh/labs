@@ -85,7 +85,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v65 Year in quotes.** An end-of-year recap.
 - [x] **v66 Dress Quip.** Hats and outfits, always on brand.
 - [x] **v67 Themes.** Marquee, noir and drive-in, each within the brand.
-- [ ] **v68 Offline packs.** Download packs for flights.
+- [x] **v68 Offline packs.** Download packs for flights.
 - [ ] **v69 Sync without an account.** iCloud for players who never sign in.
 - [ ] **v70 Family profiles.** Several players on one device.
 

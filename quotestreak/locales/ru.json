@@ -427,5 +427,13 @@
  "Theme": "Тема",
  "Marquee": "Афиша",
  "Noir": "Нуар",
- "Drive-in": "Автокинотеатр"
+ "Drive-in": "Автокинотеатр",
+ "Offline packs": "Офлайн-наборы",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "Едете туда, где нет связи? Сохраните нужные жанры и играйте в самолёте.",
+ "Save for offline": "Сохранить офлайн",
+ "Remove offline packs": "Удалить офлайн-наборы",
+ "Saved for offline: {x}": "Сохранено офлайн: {x}",
+ "Nothing saved yet.": "Пока ничего не сохранено.",
+ "Pick at least one genre.": "Выберите хотя бы один жанр.",
+ "Saving {n} of {n}": "Сохранение {n} из {n}"
 }

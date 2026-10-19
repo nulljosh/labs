@@ -427,5 +427,13 @@
  "Theme": "Tema",
  "Marquee": "Papan bioskop",
  "Noir": "Noir",
- "Drive-in": "Bioskop mobil"
+ "Drive-in": "Bioskop mobil",
+ "Offline packs": "Paket offline",
+ "Going somewhere with no signal? Save the genres you want and play them on the plane.": "Mau pergi ke tempat tanpa sinyal? Simpan genre yang kamu mau dan mainkan di pesawat.",
+ "Save for offline": "Simpan untuk offline",
+ "Remove offline packs": "Hapus paket offline",
+ "Saved for offline: {x}": "Tersimpan offline: {x}",
+ "Nothing saved yet.": "Belum ada yang disimpan.",
+ "Pick at least one genre.": "Pilih setidaknya satu genre.",
+ "Saving {n} of {n}": "Menyimpan {n} dari {n}"
 }
