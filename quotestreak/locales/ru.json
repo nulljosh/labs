@@ -414,5 +414,14 @@
  "longest streak": "самая длинная серия",
  "Play a game and your year starts here.": "Сыграйте партию, и ваш год начнётся здесь.",
  "Most at home in": "Лучше всего знаете:",
- "Share my year": "Поделиться годом"
+ "Share my year": "Поделиться годом",
+ "Quip's outfit": "Наряд Квипа",
+ "None": "Нет",
+ "Bow tie": "Бабочка",
+ "Headphones": "Наушники",
+ "Beret": "Берет",
+ "Sunglasses": "Солнцезащитные очки",
+ "Top hat": "Цилиндр",
+ "Mortarboard": "Конфедератка",
+ "{x}, {n} badges to unlock": "{x}, откроется при {n} значках"
 }

@@ -34,11 +34,49 @@ def eye(x, y, kind):
                 f'<path d="M{x - 24},{y - 22} L{x + 22},{y - 10}" stroke="{INK}" stroke-width="9" stroke-linecap="round"/>')
 
 
+# Outfits (v66): flat ink and yellow like Quip itself, drawn in the figure's frame so they lean with it.
+# Hats and headphones take the limb ink so they read on the dark ground; bowtie and shades sit on
+# the yellow and stay ink. The ball's top sits at (256, 198); the cowlick rises to the right, so hats sit left of it.
+OUTFITS = ("bowtie", "headphones", "beret", "tophat", "shades", "mortarboard")
+
+
+def outfit(name, cx, cy, r, ink):
+    top = cy - r
+    if name == "bowtie":
+        y = cy + r - 26
+        return (f'<path d="M{cx - 44},{y - 20} L{cx - 6},{y} L{cx - 44},{y + 20} Z M{cx + 44},{y - 20} L{cx + 6},{y} L{cx + 44},{y + 20} Z" fill="{INK}"/>'
+                f'<circle cx="{cx}" cy="{y}" r="11" fill="{INK}"/>')
+    if name == "headphones":
+        return (f'<path d="M{cx - r - 4},{cy - 10} A{r + 4},{r + 4} 0 0 1 {cx + r + 4},{cy - 10}" stroke="{ink}" stroke-width="16" fill="none"/>'
+                f'<rect x="{cx - r - 26}" y="{cy - 40}" width="34" height="70" rx="14" fill="{ink}"/>'
+                f'<rect x="{cx + r - 8}" y="{cy - 40}" width="34" height="70" rx="14" fill="{ink}"/>')
+    if name == "beret":
+        return (f'<ellipse cx="{cx - 40}" cy="{top + 14}" rx="96" ry="34" fill="{ink}" transform="rotate(-12 {cx - 40} {top + 14})"/>'
+                f'<rect x="{cx - 46}" y="{top - 30}" width="12" height="20" rx="6" fill="{ink}"/>')
+    if name == "tophat":
+        x = cx - 60
+        return (f'<rect x="{x - 56}" y="{top - 2}" width="152" height="22" rx="10" fill="{ink}" transform="rotate(-10 {x + 20} {top})"/>'
+                f'<rect x="{x - 26}" y="{top - 112}" width="92" height="112" rx="10" fill="{ink}" transform="rotate(-10 {x + 20} {top})"/>'
+                f'<rect x="{x - 26}" y="{top - 30}" width="92" height="18" fill="{YELLOW}" transform="rotate(-10 {x + 20} {top})"/>')
+    if name == "shades":
+        y = cy - 14
+        return (f'<rect x="{cx - 82}" y="{y - 24}" width="72" height="46" rx="18" fill="{ink}"/>'
+                f'<rect x="{cx + 10}" y="{y - 24}" width="72" height="46" rx="18" fill="{ink}"/>'
+                f'<path d="M{cx - 10},{y - 6} L{cx + 10},{y - 6}" stroke="{ink}" stroke-width="10"/>'
+                f'<path d="M{cx - 70},{y - 12} l18,0" stroke="#fff" stroke-width="7" stroke-linecap="round"/>')
+    if name == "mortarboard":
+        x = cx - 50
+        return (f'<path d="M{x - 92},{top - 6} L{x},{top - 46} L{x + 92},{top - 6} L{x},{top + 30} Z" fill="{ink}"/>'
+                f'<rect x="{x - 46}" y="{top}" width="92" height="30" rx="8" fill="{ink}"/>'
+                f'<path d="M{x},{top - 8} L{x + 70},{top + 10} L{x + 70},{top + 60}" stroke="{YELLOW}" stroke-width="7" fill="none" stroke-linecap="round"/>')
+    return ""
+
+
 def limb(d, ink=INK):
     return f'<path d="{d}" stroke="{ink}" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
 
 
-def pose(name, ink=INK):
+def pose(name, ink=INK, wear=None):
     """ink colours the limbs, feet and motion marks: night ink on light grounds, soft white on dark ones.
     The face is always ink, since it sits on yellow."""
     cx, cy, r = 256, 330, 132
@@ -69,7 +107,8 @@ def pose(name, ink=INK):
         extra = "".join(f'<rect x="{x}" y="{y}" width="{w}" height="22" rx="11" fill="{ink}"/>'
                         for x, y, w in ((22, cy - 110, 80), (6, cy - 50, 104), (34, cy + 10, 66)))
     face = eye(cx - 46, cy - 14, eyes) + eye(cx + 46, cy - 14, eyes) + mouth
-    figure = f'<g transform="rotate({tilt} {cx} {cy})">{arms}{feet}{body(cx, cy, r, 1.95 * r)}{face}</g>'
+    dress = outfit(wear, cx, cy, r, ink) if wear else ""
+    figure = f'<g transform="rotate({tilt} {cx} {cy})">{arms}{feet}{body(cx, cy, r, 1.95 * r)}{face}{dress}</g>'
     return f'<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">{extra}{figure}</svg>\n'
 
 
@@ -93,4 +132,11 @@ if __name__ == "__main__":
             json.dump({"images": [{"filename": f"quip-{name}.svg", "idiom": "universal"},
                                   {"filename": f"quip-{name}-dark.svg", "idiom": "universal", **dark}], **meta,
                        "properties": {"preserves-vector-representation": True}}, f, indent=2)
-    print("wrote brand/quip-{idle,cheer,oops,streak}{,-dark}.svg and brand/Quip.xcassets")
+    # Outfits: web only for now, brand/outfits/quip-{pose}-{outfit}{,-dark}.svg
+    os.makedirs(os.path.join(HERE, "outfits"), exist_ok=True)
+    for name in ("idle", "cheer", "oops", "streak"):
+        for wear in OUTFITS:
+            for suffix, ink in (("", INK), ("-dark", SNOW)):
+                with open(os.path.join(HERE, "outfits", f"quip-{name}-{wear}{suffix}.svg"), "w") as f:
+                    f.write(pose(name, ink, wear))
+    print("wrote brand/quip-{idle,cheer,oops,streak}{,-dark}.svg, brand/Quip.xcassets and brand/outfits/")

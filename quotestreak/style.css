@@ -3,6 +3,8 @@
 :root{--panel:var(--bg2);--panel2:var(--color-code-bg);--link:var(--text);--muted:var(--text2);--good:var(--right);--bad:var(--wrong);}
 #settings-btn { background: none; border: none; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--muted); padding: 0 4px; }
 .setting-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: 0.75rem 0; }
+.setting-row > span { flex: 1 0 auto; text-align: start; }
+.setting-row select { max-width: 50%; }   /* a long locked outfit must not squeeze the label */
 /* genre colors: [icon, color, text] */
 :root {
   --g-action: #ff6b35; --g-action-text: #111;
