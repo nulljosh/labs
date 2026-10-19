@@ -201,6 +201,18 @@ final class Account {
         return (try? JSONDecoder().decode([Entry].self, from: data)) ?? []
     }
 
+    // MARK: Real difficulty (anonymous, same tallies as the web)
+
+    func tally(_ quote: Quote, correct: Bool) {
+        Task { _ = try? await call("POST", "/rpc/quotestreak_answer", ["qid": quote.qid, "ok": correct]) }
+    }
+
+    func loadStats(into game: Game) async {
+        struct Row: Decodable { let qid: String; let plays: Int; let correct: Int }
+        guard let d = try? await call("POST", "/rpc/quotestreak_stats", [:]), let rows = try? JSONDecoder().decode([Row].self, from: d) else { return }
+        game.stats = Dictionary(uniqueKeysWithValues: rows.map { ($0.qid, (plays: $0.plays, correct: $0.correct)) })
+    }
+
     // MARK: Friends
 
     func myCode() async -> String? {

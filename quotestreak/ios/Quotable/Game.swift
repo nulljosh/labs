@@ -37,13 +37,17 @@ final class Game {
         self.quotes = quotes
     }
 
-    func start(genre: String?, speed: Bool, decade: Int? = nil) {
+    /// Per-quote answer tallies from jaybulb-api, filled in by Account after launch.
+    var stats: [String: (plays: Int, correct: Int)] = [:]
+
+    func start(genre: String?, speed: Bool, decade: Int? = nil, level: String? = nil) {
         speedMode = speed
         score = 0
         streak = 0
         let byGenre = genre.map { g in quotes.filter { $0.genre == g } } ?? quotes
         let byDecade = decade.map { d in byGenre.filter { $0.year.map { $0 / 10 * 10 } == d } } ?? byGenre
-        let filtered = byDecade.isEmpty ? byGenre : byDecade  // an empty pairing plays the genre
+        let byLevel = level.map { l in byDecade.filter { $0.level(stats) == l } } ?? byDecade
+        let filtered = !byLevel.isEmpty ? byLevel : byDecade.isEmpty ? byGenre : byDecade  // an empty pairing plays the genre
         pool = filtered.shuffled()
         phase = .playing
         nextQuestion()

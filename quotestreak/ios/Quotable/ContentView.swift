@@ -7,6 +7,7 @@ struct ContentView: View {
     @State private var game = Game()
     @State private var genre = MenuView.allGenres
     @State private var decade = 0  // 0 = all decades
+    @State private var level = "all"
     @AppStorage("quotable_haptics_on") private var hapticsOn = true
     @AppStorage("quotable_sfx_on") private var sfxOn = true
     @AppStorage("quotable_sfx_vol") private var sfxVolume = 60.0
@@ -42,6 +43,7 @@ struct ContentView: View {
                 }
             }
             #endif
+            .task { await Account.shared.loadStats(into: game) }
             .sheet(isPresented: $showAccount) { AccountSheet() }
             .sheet(isPresented: $showBoard) { LeaderboardSheet(speed: game.speedMode) }
             .sheet(isPresented: $showSettings) { SettingsSheet(hapticsOn: $hapticsOn, sfxOn: $sfxOn, sfxVolume: $sfxVolume) }
@@ -103,10 +105,18 @@ private struct MenuView: View {
             }
             .pickerStyle(.menu)
 
+            Picker("Difficulty", selection: $level) {
+                Text("Any difficulty").tag("all")
+                Text("Easy").tag("easy")
+                Text("Medium").tag("medium")
+                Text("Hard").tag("hard")
+            }
+            .pickerStyle(.menu)
+
             VStack(spacing: 12) {
-                Button("Play") { game.start(genre: selectedGenre, speed: false, decade: decade == 0 ? nil : decade) }
+                Button("Play") { game.start(genre: selectedGenre, speed: false, decade: decade == 0 ? nil : decade, level: level == "all" ? nil : level) }
                     .buttonStyle(PrimaryButtonStyle())
-                Button("Speed Round (10s)") { game.start(genre: selectedGenre, speed: true, decade: decade == 0 ? nil : decade) }
+                Button("Speed Round (10s)") { game.start(genre: selectedGenre, speed: true, decade: decade == 0 ? nil : decade, level: level == "all" ? nil : level) }
                     .buttonStyle(SecondaryButtonStyle())
             }
 
@@ -256,7 +266,10 @@ private struct RoundView: View {
     }
 
     private func answer(_ option: String) {
-        react(correct: game.choose(option))
+        let asked = game.current
+        let correct = game.choose(option)
+        if let asked { Account.shared.tally(asked, correct: correct) }
+        react(correct: correct)
         advanceAfterDelay()
     }
 
