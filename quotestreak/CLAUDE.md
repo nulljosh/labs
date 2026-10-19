@@ -68,3 +68,6 @@ Ship with `asc workflow run ship-ios VERSION:x.y.z` (see `.asc/workflow.json`).
 `macos/`, native SwiftUI, rewritten 2026-08-23 off the same shared sources as iOS. Sandboxed, bundle `com.heyitsmejosh.quotable.mac`. Builds clean.
 
 **Shipped.** The "not submitted yet, deliberately / no ASC record exists" note here was stale, `roadmap.md` records iOS 1.0 and macOS 1.0 both APPROVED and live as of 2026-08-23 on the shared Universal Purchase record 6804394619. The landing page links both store pages (`?mt=12` for Mac); if either listing is ever pulled, drop the matching hero button.
+
+## The loop
+A /loop works down "Road to v100" in `roadmap.md`. Read `docs/LOOP-HANDOFF.md` first; it has the current state and the restart prompt.

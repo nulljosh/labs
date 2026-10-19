@@ -8,9 +8,131 @@
   destination even by explicit UDID -- needs the matching platform component installed,
   then a screenshot check (menu, round, game-over, speed-round clock).
 
+## Road to v100
+
+One major version per milestone. Each one ships on the web first (deploy the same day), then iOS and Mac in the next store batch. Only one store build is in review at a time, so native majors queue and go out together. A milestone is done when it is live, tested, and its line is checked here.
+
+### Era 1: a deeper game (2 to 10)
+- [ ] **v2 Daily Quote.** One shared puzzle a day, the same for everyone, a day streak, and a spoiler-free share card.
+- [ ] **v3 Hints.** Reveal the year, then the first letter; each hint halves the points.
+- [ ] **v4 Type it.** Answer by typing with forgiving matching instead of four choices.
+- [ ] **v5 1,000 lines.** Grow the bank to 1,000 verified quotes with year, character and source on every line.
+- [ ] **v6 TV.** A television category: sitcoms, dramas, cartoons.
+- [ ] **v7 Games.** A video game category.
+- [ ] **v8 First lines.** Name the book from its opening sentence.
+- [ ] **v9 Decades.** Filter by decade, from the 1930s to now.
+- [ ] **v10 Real difficulty.** Easy, medium and hard, ranked from what players actually get right.
+
+### Era 2: play with people (11 to 20)
+- [ ] **v11 Challenge link.** Send ten quotes to a friend; they play the same ten and see your score.
+- [ ] **v12 Live duels.** Real-time one on one through a Durable Object lobby.
+- [ ] **v13 Friends.** Add friends and see a friends-only leaderboard.
+- [ ] **v14 Weekly cup.** A bracket tournament every week.
+- [ ] **v15 Clubs.** Teams with a shared score and a club board.
+- [ ] **v16 Badges.** Fifty achievements drawn in Quip's style.
+- [ ] **v17 Stats.** Accuracy by genre and decade, best streaks, a history graph.
+- [ ] **v18 Share cards.** A generated image per game with the right Quip pose.
+- [ ] **v19 Spectate.** Watch a live duel.
+- [ ] **v20 Seasons.** A ranked ladder each quarter with cosmetic Quip rewards.
+
+### Era 3: new ways to guess (21 to 30)
+- [ ] **v21 Who said it.** Name the character, not the movie.
+- [ ] **v22 Finish the line.** Fill in the missing word.
+- [ ] **v23 Misquotes.** Spot the famous line everyone gets wrong.
+- [ ] **v24 Timeline.** Put three quotes in order of release.
+- [ ] **v25 Poster reveal.** A blurred poster sharpens until you name it.
+- [ ] **v26 Album reveal.** The same for album covers.
+- [ ] **v27 Name the year.** Guess the release year, closer scores more.
+- [ ] **v28 Quip reads it.** On-device speech reads each quote aloud.
+- [ ] **v29 Answer out loud.** Voice answers for hands-free play.
+- [ ] **v30 Marathon.** One long run through every genre with three lives.
+
+### Era 4: every screen (31 to 40)
+- [ ] **v31 Widgets.** The daily quote on the iPhone, iPad and Mac home screen.
+- [ ] **v32 Watch.** Play the daily quote on Apple Watch.
+- [ ] **v33 Live Activities.** Duel and tournament progress on the lock screen.
+- [ ] **v34 Apple TV.** A living-room game with phones as buzzers.
+- [ ] **v35 Vision Pro.** The poster wall around you.
+- [ ] **v36 Google Play.** The Android app in the Play Store.
+- [ ] **v37 Microsoft Store.** The Windows app in the Store.
+- [ ] **v38 Flathub.** The Linux app on Flathub.
+- [ ] **v39 Siri and Shortcuts.** "Give me a quote" and "start a speed round".
+- [ ] **v40 Handoff and sync.** Start on the phone, finish on the Mac.
+
+### Era 5: parties (41 to 50)
+- [ ] **v41 Pass and play.** Up to eight players on one device.
+- [ ] **v42 Room codes.** Phones join a big-screen game with a four-letter code.
+- [ ] **v43 Quiz night.** Rounds, a host screen and a final scoreboard.
+- [ ] **v44 Custom packs.** Build a quote pack and share it by link.
+- [ ] **v45 Pack library.** Browse and play moderated community packs.
+- [ ] **v46 Classroom.** Literature and speech packs with a teacher view.
+- [ ] **v47 Stream mode.** Twitch chat votes on the answer.
+- [ ] **v48 Discord.** A Discord Activity.
+- [ ] **v49 iMessage.** Play a round inside a conversation.
+- [ ] **v50 Champions.** A live tournament of season winners.
+
+### Era 6: know more (51 to 60)
+- [ ] **v51 The story.** After each answer, a card on the scene and why the line stuck.
+- [ ] **v52 Said or written.** Which famous lines were improvised.
+- [ ] **v53 Actor mode.** Name who delivered it.
+- [ ] **v54 Director mode.** Name who directed it.
+- [ ] **v55 Album and year.** Deeper music questions.
+- [ ] **v56 Phrases.** Lines that entered everyday speech, with their origins from Wordroot.
+- [ ] **v57 Original languages.** French, Spanish, German, Japanese and Korean films in their own words.
+- [ ] **v58 Twenty languages.** The whole interface, with fonts that cover every script.
+- [ ] **v59 Access for all.** VoiceOver play, Switch Control, the largest text sizes and a high-contrast theme.
+- [ ] **v60 Family mode.** A bank safe for kids.
+
+### Era 7: it learns you (61 to 70)
+- [ ] **v61 Practice.** Missed quotes come back until you know them.
+- [ ] **v62 Suggestions.** Know 80s action? Try 80s comedy.
+- [ ] **v63 Watchlist.** Movies you missed saved to a list you can export.
+- [ ] **v64 Taste card.** Your genres and decades on one card.
+- [ ] **v65 Year in quotes.** An end-of-year recap.
+- [ ] **v66 Dress Quip.** Hats and outfits, always on brand.
+- [ ] **v67 Themes.** Marquee, noir and drive-in, each within the brand.
+- [ ] **v68 Offline packs.** Download packs for flights.
+- [ ] **v69 Sync without an account.** iCloud for players who never sign in.
+- [ ] **v70 Family profiles.** Several players on one device.
+
+### Era 8: the content engine (71 to 80)
+- [ ] **v71 Verified bank.** Every line checked against subtitles, with its source shown.
+- [ ] **v72 Submissions.** Players suggest quotes through a review queue.
+- [ ] **v73 New releases.** A pack of recent films every week.
+- [ ] **v74 Seasons of film.** Halloween, holiday and summer packs.
+- [ ] **v75 Sports.** Famous commentary calls.
+- [ ] **v76 Speeches.** History in its own words.
+- [ ] **v77 Anime.** An anime category.
+- [ ] **v78 Stand-up.** Comedy specials and podcasts.
+- [ ] **v79 Open API.** The quote of the day and the bank through /api and /mcp.
+- [ ] **v80 Open data.** Publish the verified metadata where the licence allows.
+
+### Era 9: a show (81 to 90)
+- [ ] **v81 Live show.** A global quiz at a set time every week.
+- [ ] **v82 Guest packs.** Featured packs from creators.
+- [ ] **v83 Invite links.** A landing page for every challenge.
+- [ ] **v84 Press kit.** Brand kit two with video and screenshots.
+- [ ] **v85 Embed.** A daily-quote widget for any website.
+- [ ] **v86 Newsletter.** The daily quote by email, opt in.
+- [ ] **v87 Fair play.** Scores checked on the server.
+- [ ] **v88 Moderation.** Tools for packs, names and clubs.
+- [ ] **v89 Supporter pack.** An optional one-dollar cosmetic pack, nothing locked.
+- [ ] **v90 Store in twenty languages.** Localized listings and screenshots.
+
+### Era 10: the hundred (91 to 100)
+- [ ] **v91 Fast.** Cold start under 300 ms and a smooth wall on old devices.
+- [ ] **v92 Sync that never loses.** Conflict handling across every device.
+- [ ] **v93 Audit.** Security and privacy review, start to finish.
+- [ ] **v94 Motion and sound.** A written motion system and a sound kit.
+- [ ] **v95 Quip lives.** Quip reacts everywhere, drawn in code.
+- [ ] **v96 Archive.** Every past daily quote playable.
+- [ ] **v97 Hall of fame.** The best runs ever, kept forever.
+- [ ] **v98 Certified access.** A full outside accessibility audit.
+- [ ] **v99 The book.** Whitepaper two and a public roadmap page.
+- [ ] **v100 Quotestreak 100.** Ten thousand verified quotes, a live event, and Quip's birthday.
+
 ## Brand refresh (2026-10-18)
-- [ ] Ship a new iOS and Mac build so the store shows the new icon, Quip Sans and the yellow UI (needs Joshua's yes before submitting).
-- [ ] Retake App Store screenshots in the new look.
+- [x] 1.3.0 submitted 2026-10-18 on iOS and Mac with the new brand, screenshots, privacy labels for accounts and new review notes. Waiting for review.
 
 ## TODO, next time you are at a real Mac
 
