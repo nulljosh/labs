@@ -1,0 +1,114 @@
+@import './tokens.css';
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+:root {
+  --text-secondary: var(--text2);
+  /* ponytail: shared tokens.css sets --font to a mono stack; this app's UI is sans throughout */
+  --font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+input::placeholder { color: var(--text-secondary); }
+input:focus { outline: none; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* The graph is the whole viewport; the equation list floats over it as glass. */
+.main-layout {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.graph-pane {
+  position: absolute;
+  inset: 0;
+}
+
+.sidebar-pane {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  box-sizing: border-box;
+  padding: 16px;
+  border-left: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg2) 72%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow-y: auto;
+}
+
+/* Phones only: the panel covers the bottom of the plot, so it collapses to its handle. */
+.panel-handle { display: none; }
+
+@media (max-width: 640px) {
+  /* ponytail: drawer height in one place so the graph pane's calc can't drift */
+  .main-layout { --drawer-h: 34dvh; }
+
+  .panel-handle {
+    display: block;
+    width: 100%;
+    margin: -10px 0 6px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .sidebar-pane.collapsed { height: 44px; overflow: hidden; }
+
+  .sidebar-pane {
+    top: auto;
+    left: 0;
+    width: 100%;
+    height: var(--drawer-h);
+    max-height: var(--drawer-h);
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding: 10px 12px;
+  }
+
+  .eq-input {
+    font-size: 16px !important;
+    min-height: 44px !important;
+  }
+
+  .eq-list-container {
+    max-height: calc(var(--drawer-h) - 40px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .example-btn {
+    padding: 8px 10px !important;
+  }
+
+  canvas {
+    width: 100% !important;
+    display: block;
+    touch-action: none;
+  }
+}
