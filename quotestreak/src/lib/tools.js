@@ -1,15 +1,3 @@
-// The one definition of what Quotable does over the network. Both surfaces — the REST
-// routes in functions/api/ and the MCP server in functions/mcp.js — call `callTool` from
-// here, so they cannot drift apart.
-//
-// Deliberately different from webmcp.js: those tools are STATEFUL — they play the game in
-// the visitor's browser, mutating score and streak. These are pure reads of the quote set,
-// which is what keeps this free of a database, a session store and a Durable Object.
-//
-// ponytail: quotes.json is imported, not fetched. It is ~100KB of static data that ships
-// in the bundle; a KV or D1 round trip would add latency and a binding to maintain for a
-// file that changes when someone edits the repo.
-
 import quotes from '../../quotes.json' with { type: 'json' };
 
 const MAX_LIMIT = 50;
@@ -17,9 +5,6 @@ const DEFAULT_LIMIT = 10;
 
 export class ToolError extends Error {}
 
-// The answer is the whole point of the game, so the API hands out the question and the
-// answer together — anyone can read quotes.json from the site anyway, and pretending
-// otherwise would only make the API useless to an agent that wants to check itself.
 const shape = (q) => ({
   quote: q.quote,
   answer: q.answer,
@@ -100,8 +85,6 @@ export function callTool(name, args = {}) {
 
     case 'random_quote': {
       const pool = filtered(args);
-      // An empty pool is a real combination the caller can ask for (say drama + tv with no
-      // entries); saying so beats returning `undefined` and 500ing one line later.
       if (!pool.length) throw new ToolError('No quotes match that combination of filters.');
       return shape(pool[Math.floor(Math.random() * pool.length)]);
     }
@@ -117,7 +100,6 @@ export function callTool(name, args = {}) {
           x.answer.toLowerCase().includes(needle) ||
           x.options.some((o) => o.toLowerCase().includes(needle)),
       );
-      // `total` before slicing, so a caller can tell "10 of 40" from "10 of 10".
       return { query: args.q.trim(), total: hits.length, results: hits.slice(0, limit).map(shape) };
     }
 
