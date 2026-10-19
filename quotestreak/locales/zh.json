@@ -437,5 +437,11 @@
  "Saved for offline: {x}": "已离线保存：{x}",
  "Nothing saved yet.": "还没有保存任何内容。",
  "Pick at least one genre.": "至少选择一个类型。",
- "Saving {n} of {n}": "正在保存 {n} / {n}"
+ "Saving {n} of {n}": "正在保存 {n} / {n}",
+ "Move to another device": "转到另一台设备",
+ "Link copied. Open it on your other device.": "链接已复制。请在另一台设备上打开。",
+ "Bring your progress over?": "要把进度带过来吗？",
+ "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "此链接会带来另一台设备上的徽章、统计、连胜和设置，并替换这台设备上的内容；较高的最佳成绩会保留。",
+ "Bring it over": "带过来",
+ "Not now": "暂不"
 }

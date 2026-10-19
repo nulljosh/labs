@@ -435,5 +435,11 @@
  "Saved for offline: {x}": "נשמר לשימוש לא מקוון: {x}",
  "Nothing saved yet.": "עוד לא נשמר כלום.",
  "Pick at least one genre.": "בחרו לפחות ז׳אנר אחד.",
- "Saving {n} of {n}": "שומר {n} מתוך {n}"
+ "Saving {n} of {n}": "שומר {n} מתוך {n}",
+ "Move to another device": "העברה למכשיר אחר",
+ "Link copied. Open it on your other device.": "הקישור הועתק. פתחו אותו במכשיר השני.",
+ "Bring your progress over?": "להעביר לכאן את ההתקדמות שלך?",
+ "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "הקישור מביא תגים, סטטיסטיקות, רצפים והגדרות ממכשיר אחר. הם מחליפים את מה שיש כאן; השיא הגבוה יותר נשאר.",
+ "Bring it over": "להעביר",
+ "Not now": "לא עכשיו"
 }

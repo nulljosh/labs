@@ -443,5 +443,11 @@
  "Saved for offline: {x}": "Enregistré hors ligne : {x}",
  "Nothing saved yet.": "Rien d’enregistré pour l’instant.",
  "Pick at least one genre.": "Choisissez au moins un genre.",
- "Saving {n} of {n}": "Enregistrement {n} sur {n}"
+ "Saving {n} of {n}": "Enregistrement {n} sur {n}",
+ "Move to another device": "Passer sur un autre appareil",
+ "Link copied. Open it on your other device.": "Lien copié. Ouvrez-le sur votre autre appareil.",
+ "Bring your progress over?": "Récupérer votre progression ?",
+ "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Ce lien apporte badges, statistiques, séries et réglages d’un autre appareil. Ils remplacent ceux de celui-ci ; le meilleur score le plus haut est conservé.",
+ "Bring it over": "Récupérer",
+ "Not now": "Pas maintenant"
 }

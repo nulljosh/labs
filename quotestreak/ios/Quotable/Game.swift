@@ -25,7 +25,7 @@ final class Game {
     private(set) var lastPoints = 0
     /// Questions answered this game; a duel reports it with each score.
     private(set) var answeredCount = 0
-    private(set) var highScore = UserDefaults.standard.integer(forKey: Game.highKey)
+    private(set) var highScore = SharedStore.cloudHigh(UserDefaults.standard.integer(forKey: Game.highKey))
 
     private static let highKey = "quotable_high_score"
 

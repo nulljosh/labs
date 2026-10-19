@@ -11,6 +11,9 @@ Plain HTML/CSS/JS, classic scripts sharing top-level bindings, one file per feat
 ## Offline packs (v68)
 `offline.js` saves the chosen genres' poster and album art, plus the game's own files, into the `quotestreak-offline` cache, which `sw.js` keeps across releases. The service worker serves cross-origin images from it first (art never changes) and falls back to it for same-origin files and the shared jaybulb tokens only when the network fails, so a release never runs on stale scripts. The poster wall's thumbnails are not saved.
 
+## Sync without an account (v69)
+Native: `SharedStore.cloudHigh` keeps the best score in iCloud key-value storage (`com.apple.developer.ubiquity-kvstore-identifier`, shared id `$(TeamIdentifierPrefix)com.heyitsmejosh.quotable` on iOS, macOS and visionOS), higher score wins. The iCloud capability was added to bundle id YDHCC4J3S2 on 2026-10-19, so the next archive needs fresh provisioning profiles (`asc signing fetch`). Web: `transfer.js` puts every `quotable_*`/`quotestreak_*` key in a `#sync=` link (the hash never reaches a server); opening it asks first, replaces, and keeps the higher best score.
+
 ## Access (v59)
 `scripts/axe-check.mjs` runs axe-core over every screen of `dist/`, light and dark; keep it at 0 violations. The question and the result are `aria-live`; keys 1 to 4 answer; High contrast (Settings, or the system's Increase Contrast) swaps to pure ink and white with no poster wall. Yellow as text on the light ground uses `--accent-text` (#8a6412), never `--accent-deep`, which fails contrast. Native: the round scrolls at the largest Dynamic Type sizes, the timer ring reads as one value, revealed answers say right or wrong.
 

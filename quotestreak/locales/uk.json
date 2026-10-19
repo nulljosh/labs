@@ -435,5 +435,11 @@
  "Saved for offline: {x}": "Збережено офлайн: {x}",
  "Nothing saved yet.": "Поки нічого не збережено.",
  "Pick at least one genre.": "Виберіть хоча б один жанр.",
- "Saving {n} of {n}": "Збереження {n} з {n}"
+ "Saving {n} of {n}": "Збереження {n} з {n}",
+ "Move to another device": "Перенести на інший пристрій",
+ "Link copied. Open it on your other device.": "Посилання скопійовано. Відкрийте його на іншому пристрої.",
+ "Bring your progress over?": "Перенести ваш прогрес?",
+ "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Це посилання переносить значки, статистику, серії й налаштування з іншого пристрою. Вони замінять те, що є тут; лишається вищий рекорд.",
+ "Bring it over": "Перенести",
+ "Not now": "Не зараз"
 }

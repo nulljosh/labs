@@ -435,5 +435,11 @@
  "Saved for offline: {x}": "Đã lưu ngoại tuyến: {x}",
  "Nothing saved yet.": "Chưa lưu gì cả.",
  "Pick at least one genre.": "Chọn ít nhất một thể loại.",
- "Saving {n} of {n}": "Đang lưu {n} / {n}"
+ "Saving {n} of {n}": "Đang lưu {n} / {n}",
+ "Move to another device": "Chuyển sang thiết bị khác",
+ "Link copied. Open it on your other device.": "Đã sao chép liên kết. Mở nó trên thiết bị kia.",
+ "Bring your progress over?": "Mang tiến trình của bạn sang đây?",
+ "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Liên kết này mang huy hiệu, thống kê, chuỗi thắng và cài đặt từ thiết bị khác. Chúng thay cho dữ liệu ở đây; điểm cao nhất lớn hơn được giữ lại.",
+ "Bring it over": "Mang sang",
+ "Not now": "Để sau"
 }

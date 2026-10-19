@@ -1,0 +1,14 @@
+const assert = require('assert');
+const { pick, pack, unpack, merge } = require('./transfer');
+const all = { quotable_high_score: '120', quotestreak_badges: '{"right":3}', quotestreak_offline: '["action"]', sb_token: 'secret', quotestreak_buzz_name: 'Zoë ✓' };
+const mine = pick(Object.entries(all));
+assert.deepStrictEqual(Object.keys(mine).sort(), ['quotable_high_score', 'quotestreak_badges', 'quotestreak_buzz_name'], 'no tokens, no cache list');
+const code = pack(mine);
+assert(/^[\w-]+$/.test(code), 'safe in a URL hash');
+assert.deepStrictEqual(unpack(code), mine, 'round trip, accents included');
+assert.strictEqual(unpack('not base64!'), null);
+assert.deepStrictEqual(unpack(pack({ sb_token: 'x', quotable_high_score: 5 })), {}, 'foreign keys and non-strings dropped');
+assert.strictEqual(merge({ quotable_high_score: '300' }, mine).quotable_high_score, '300', 'the higher best score wins');
+assert.strictEqual(merge({ quotable_high_score: '30' }, mine).quotable_high_score, '120');
+assert.strictEqual(merge({}, mine).quotestreak_badges, mine.quotestreak_badges);
+console.log('transfer ok');

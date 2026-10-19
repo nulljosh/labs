@@ -435,5 +435,11 @@
  "Saved for offline: {x}": "Tersimpan offline: {x}",
  "Nothing saved yet.": "Belum ada yang disimpan.",
  "Pick at least one genre.": "Pilih setidaknya satu genre.",
- "Saving {n} of {n}": "Menyimpan {n} dari {n}"
+ "Saving {n} of {n}": "Menyimpan {n} dari {n}",
+ "Move to another device": "Pindah ke perangkat lain",
+ "Link copied. Open it on your other device.": "Tautan disalin. Buka di perangkat lainmu.",
+ "Bring your progress over?": "Bawa progresmu ke sini?",
+ "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Tautan ini membawa lencana, statistik, rentetan, dan pengaturan dari perangkat lain. Semuanya menggantikan yang ada di sini; skor terbaik yang lebih tinggi tetap.",
+ "Bring it over": "Bawa ke sini",
+ "Not now": "Nanti saja"
 }

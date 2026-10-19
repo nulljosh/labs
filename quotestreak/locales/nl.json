@@ -435,5 +435,11 @@
  "Saved for offline: {x}": "Offline bewaard: {x}",
  "Nothing saved yet.": "Nog niets bewaard.",
  "Pick at least one genre.": "Kies minstens één genre.",
- "Saving {n} of {n}": "Bewaren {n} van {n}"
+ "Saving {n} of {n}": "Bewaren {n} van {n}",
+ "Move to another device": "Naar een ander apparaat",
+ "Link copied. Open it on your other device.": "Link gekopieerd. Open hem op je andere apparaat.",
+ "Bring your progress over?": "Je voortgang hierheen halen?",
+ "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Deze link brengt badges, statistieken, reeksen en instellingen van een ander apparaat mee. Ze vervangen wat hier staat; de hoogste topscore blijft.",
+ "Bring it over": "Hierheen halen",
+ "Not now": "Niet nu"
 }

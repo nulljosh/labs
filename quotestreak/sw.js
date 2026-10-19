@@ -1,6 +1,6 @@
 // ponytail: network-first for pages, cache-first for the hashed assets they name.
 // Bump CACHE to evict everything a previous version stored.
-const CACHE = "quotestreak-v81";
+const CACHE = "quotestreak-v82";
 const OFFLINE = "quotestreak-offline";   // offline packs (v68): kept across releases, filled by offline.js
 const FILES = ["/", "/index.html","/play.html","/privacy.html", "/manifest.webmanifest"];
 

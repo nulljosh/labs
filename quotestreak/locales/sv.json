@@ -435,5 +435,11 @@
  "Saved for offline: {x}": "Sparat offline: {x}",
  "Nothing saved yet.": "Inget sparat än.",
  "Pick at least one genre.": "Välj minst en genre.",
- "Saving {n} of {n}": "Sparar {n} av {n}"
+ "Saving {n} of {n}": "Sparar {n} av {n}",
+ "Move to another device": "Flytta till en annan enhet",
+ "Link copied. Open it on your other device.": "Länken är kopierad. Öppna den på din andra enhet.",
+ "Bring your progress over?": "Ta med dina framsteg hit?",
+ "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Länken tar med märken, statistik, sviter och inställningar från en annan enhet. De ersätter det som finns här; det högsta rekordet behålls.",
+ "Bring it over": "Ta med",
+ "Not now": "Inte nu"
 }

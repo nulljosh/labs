@@ -435,5 +435,11 @@
  "Saved for offline: {x}": "오프라인 저장됨: {x}",
  "Nothing saved yet.": "아직 저장된 것이 없어요.",
  "Pick at least one genre.": "장르를 하나 이상 고르세요.",
- "Saving {n} of {n}": "저장 중 {n} / {n}"
+ "Saving {n} of {n}": "저장 중 {n} / {n}",
+ "Move to another device": "다른 기기로 옮기기",
+ "Link copied. Open it on your other device.": "링크를 복사했어요. 다른 기기에서 여세요.",
+ "Bring your progress over?": "진행 상황을 가져올까요?",
+ "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "이 링크는 다른 기기의 배지, 기록, 연속 기록, 설정을 가져와요. 이 기기의 것은 바뀌지만 더 높은 최고 점수는 남아요.",
+ "Bring it over": "가져오기",
+ "Not now": "나중에"
 }

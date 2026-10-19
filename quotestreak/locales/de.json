@@ -435,5 +435,11 @@
  "Saved for offline: {x}": "Offline gespeichert: {x}",
  "Nothing saved yet.": "Noch nichts gespeichert.",
  "Pick at least one genre.": "Wähle mindestens ein Genre.",
- "Saving {n} of {n}": "Speichere {n} von {n}"
+ "Saving {n} of {n}": "Speichere {n} von {n}",
+ "Move to another device": "Auf ein anderes Gerät",
+ "Link copied. Open it on your other device.": "Link kopiert. Öffne ihn auf deinem anderen Gerät.",
+ "Bring your progress over?": "Fortschritt übernehmen?",
+ "This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.": "Dieser Link bringt Abzeichen, Statistiken, Serien und Einstellungen von einem anderen Gerät. Sie ersetzen, was hier ist; der höhere Bestwert bleibt.",
+ "Bring it over": "Übernehmen",
+ "Not now": "Nicht jetzt"
 }

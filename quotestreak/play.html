@@ -86,6 +86,11 @@
         <span>Volume</span>
         <input type="range" id="sfx-volume" min="0" max="100" value="60">
       </label>
+      <div class="setting-row">
+        <span>Move to another device</span>
+        <button id="transfer-copy" class="secondary">Copy link</button>
+      </div>
+      <p id="transfer-note" class="prompt" aria-live="polite"></p>
       <button id="settings-close">Close</button>
     </div>
 
@@ -142,6 +147,12 @@
       <button id="lb-close">Close</button>
     </div>
 
+    <div id="transfer-in" class="panel hidden">
+      <h2>Bring your progress over?</h2>
+      <p class="prompt">This link carries badges, stats, streaks and settings from another device. They replace what is on this one; the higher best score stays.</p>
+      <button id="transfer-yes">Bring it over</button>
+      <button id="transfer-no" class="secondary">Not now</button>
+    </div>
     <div id="mode-select" class="panel">
       <picture><source srcset="brand/quip-idle-dark.svg" media="(prefers-color-scheme: dark)"><img class="quip" src="brand/quip-idle.svg" alt="" width="128" height="128"></picture>
       <p>Guess the movie, show, game, song or book from the line.</p>
@@ -375,6 +386,7 @@
   <script src="art.js"></script>
   <script src="game.js"></script>
   <script src="settings.js"></script>
+  <script src="transfer.js"></script>
   <script src="reveal.js"></script>
   <script src="story.js"></script>
   <script src="speak.js"></script>
