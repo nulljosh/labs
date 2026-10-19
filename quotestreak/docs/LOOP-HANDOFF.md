@@ -19,7 +19,7 @@ Work down "Road to v100" in `roadmap.md`, one major version per tick. Each miles
 ## Next, in order
 1. Blocked milestones, waiting on Joshua: v36, v37, v38, v48, v89, v90 and v98 (see above).
 2. The native batch rides the next App Store build, once 1.3.0 clears. Fetch fresh provisioning profiles first.
-3. The one-word rename hunt for the app, not yet probed.
+3. Rename to Coda (Joshua said "you decide", 2026-10-19). Clear in App Store search, coda.jaybulb.com and nulljosh/coda are free. Once 1.3.0 clears review, run the real ASC duplicate check (asc-name-creator probe.sh), then do the full rename: store listing, landing, domain, docs. Taken: Quip, Ditto, Encore, Cue, Riff, Verbatim, Rosebud, Yorick, Cameo, Matinee, Stella, Motif. Rejected by Joshua: Quoth, Quotient, Cita, Bonmot.
 
 ## Restart prompt
 ```
