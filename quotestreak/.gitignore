@@ -6,3 +6,5 @@
 .asc/web-review/
 dist/
 .build/
+.asc/*.log
+app.py

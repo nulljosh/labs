@@ -1,4 +1,4 @@
-# Quotable Roadmap
+# Quotestreak Roadmap
 
 - [ ] Verify iPad layout visually on simulator -- 2026-09-02. `TARGETED_DEVICE_FAMILY = "1,2"`
   already set; iOS `ContentView` uses `NavigationStack` with flexible frames throughout

@@ -1,109 +1,40 @@
 # Quotestreak Technical Whitepaper
 
-**v2.0.0** | October 2026
+**v19.0.0** | October 2026
 
-Here's the line. Name the movie.
+Here's the line. Name where it came from. Quotestreak is a guessing game for lines from movies, TV, games, songs and books. It runs as a static site on Cloudflare Pages and as a native SwiftUI app on iPhone, iPad, Mac and Apple Watch. Two small Workers sit behind it: one relays live duels, one holds accounts and scores.
 
-Quotestreak is a guessing game for movie quotes and lyrics, built because a
-trivia game about lines everyone half-remembers doesn't need an account, a
-server, or a monetization plan to be fun for thirty seconds at a time. Static
-site, no build step, no backend, because none of those are required to show
-a quote and take a guess. It's Quotestreak everywhere: App Store, repo, web.
-Only the domain (`quotestreak.jaybulb.com`) and the `quotable_*` localStorage
-keys still carry the old name. See below.
+## The guess
 
-## Guessing Engine
+`quotes.json` holds 1,624 lines in 15 genres. 272 were written by hand. The rest were harvested: film, TV and game lines from Wikiquote, kept only when the title's Wikipedia article is well read, and book openings read straight off Project Gutenberg's most downloaded novels. Each harvested line keeps its character and its source link.
 
-`quotes.json` holds a hand-seeded bank of 272 entries (178 movie quotes + 94
-song lyrics, all verified, no fabricated attributions) across 10 genres.
-Both categories share one `answer` field, so lyrics and movie lines run
-through a single guessing loop instead of two parallel ones: a quote or
-lyric is shown, the player picks the source from four options, and the game
-scores right/wrong with genre-colored feedback. The genre dropdown is
-populated dynamically from `quotes.json` rather than hardcoded, so adding a
-genre to the data file is enough to surface it in the UI, no code change to
-ship new content. A speed round puts a 10-second clock on each question and
-pays a multiplier for answering fast, because a plain quiz with no clock has
-no reason to come back to. High score persists via `localStorage`, since
-there's no account system to hang it off and a leaderboard isn't the point.
-Sound effects are synthesized with the Web Audio API, no bundled audio
-assets, and their settings also persist in `localStorage`.
+A round shows a line and four choices, or a text box when typing is on. Typed answers forgive case, punctuation and small typos. Hints cost points. The speed round puts ten seconds on the clock and pays more for faster answers. Difficulty is measured, not guessed: every answer is counted per quote in D1, and once a line has ten plays its real hit rate sorts it into easy, medium or hard.
 
-224 entries carry an optional `art` URL (TMDB posters, iTunes album covers),
-resolving to 167 unique images once deduplicated by title. `art` is
-advisory: `game.js` no-ops when it is absent and the native apps never use
-it, because the game has to work without artwork at all, art is decoration
-on top of a text guessing game, not a dependency of it.
+The Daily Quote walks a fixed shuffle of the bank, one line per UTC day, so everyone gets the same one.
 
-## Structure
+## Playing with people
 
-Plain HTML/CSS/JS, no framework, no game library.
+A challenge link encodes ten quote ids and a score in the URL. The friend plays the same ten.
 
-- `index.html`: landing page. Self-contained: its own inline `<style>`, no
-  `style.css`, no `game.js`. Its hero is a drifting wall of poster and album
-  art built at runtime from `quotes.json`, one tile per title, requested at
-  thumbnail size (TMDB `w185`, iTunes `200x200`) rather than the full-size
-  art the game flashes behind a question. A fetch failure leaves the plain
-  hero. `game.js` must never be loaded here, it wires its handlers at parse
-  time and throws if any game element id is missing.
-- `play.html` / `style.css` / `game.js`, the game.
-- `privacy.html`: standalone, self-styled.
-- `webmcp.js`: registers five tools on `document.modelContext`
-  (`get_high_score`, `get_game_state`, `start_game`, `answer_question`,
-  `next_question`), exposing game state and controls to agents. Nothing is
-  gated; worst case is a restarted game. See `docs/API.md`.
+Live duels run through `quotestreak-duel`, a Worker with one Durable Object per four-letter room. The room relays messages between two players and does no scoring; the pages do that. Hibernation keeps idle rooms free. Spectators join the same room read-only and get a full snapshot of both players after every move.
 
-iOS and macOS are **native SwiftUI**, rewritten 2026-08-23 from an earlier
-WKWebView shell, because a wrapper is a guaranteed Guideline 4.2 rejection and
-there was no version of shipping to the App Store that didn't mean a real
-port. They
-share four sources (`Game.swift`, `ContentView.swift`, `Quote.swift`,
-`Theme.swift`); `macos/project.yml` points at the iOS copies rather than
-forking them, and `ContentView` branches on `#if os(macOS)`. `Game.swift` is
-`@Observable` with no SwiftUI imports, so the whole game loop is testable
-headless. Both ship under one Universal Purchase ASC record (6804394619) and
-are live.
+The weekly cup seeds a bracket from that week's ten quotes. Friends, clubs and leaderboards live in jaybulb-api, the shared Worker on D1 at api.jaybulb.com. A friend code is the first eight hex digits of a user id; adding one links both people.
 
-`quotes.json` is the only file shared between web and native; it is copied
-to `ios/Quotable/Resources/quotes.json` whenever the root file changes. The
-genre palette in `ios/Quotable/Theme.swift` mirrors the `--g-*` variables in
-`style.css` and is kept in step by hand.
+## On the device
 
-A self-check validates the bank and the scoring paths without XCTest:
+High score, badges and stats never leave the browser or the phone. Fifty badges are computed from a small bag of counters. Stats keep hit rates by genre and decade and the last fifty scores. A share card is drawn on a canvas with the Quip pose that fits the game.
 
-```
-swiftc -o /tmp/quotablecheck ios/Quotable/Quote.swift ios/Quotable/Game.swift ios/Checks/main.swift && /tmp/quotablecheck quotes.json
-```
+## Accounts
 
-`node scripts/check-art.mjs` separately confirms every artwork URL still
-resolves at both sizes.
+Email and password, Sign in with Apple, and Google, on every platform, all against jaybulb-api. No Supabase. Deleting an account removes scores, friend links and club membership.
 
-## Design
+## Native
 
-Flat backgrounds, no emojis, no decorative border stripes, blue accent only
-(no purple), the standing no-generic-AI-UI rule. Type is San Francisco on
-Apple platforms and Helvetica elsewhere, with no webfont to load.
+`Game.swift` is the game loop with no SwiftUI imports, so it runs headless under `ios/Checks/main.swift`. macOS builds from the same four sources. The Watch reads the iPhone's last game from an App Group.
 
-One sanctioned exception to "no gradients": the landing page's `.hero::after`
-scrim, which is a legibility mask over the artwork rather than decoration,
-earning its exception because the rule exists to keep the UI from looking
-AI-generated, and an unreadable headline fails a different, more basic bar.
-Without it the headline is unreadable over the wall. The game UI stays flat.
+## Security and privacy
 
-The hero wall honors `prefers-reduced-motion`, at the specificity of the
-`.wall-col.up` / `.wall-col.down` rules it has to override.
-
-## Deploy
-
-GitHub Pages via `.github/workflows/deploy.yml`, which uploads the repo root
-verbatim, there is no build step and no `dist/`. Custom domain from `CNAME`.
-
-## Security / Privacy
-
-Fully static, no accounts, no backend, no analytics. All state (high score,
-settings) lives in the browser's `localStorage` only. The web pages load
-poster and album art from third-party image hosts; the native apps bundle
-the bank and use no artwork, so they make no network requests at all.
+No analytics. Scores and accounts are the only things stored on a server. Duel rooms hold no history once both players leave.
 
 ## License
 

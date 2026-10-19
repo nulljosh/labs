@@ -1,8 +1,6 @@
-# Quotable API
+# Quotestreak API
 
-Quotable has no HTTP API. It's a client-only game: quotes are loaded from
-`quotes.json`, and all state (high score, sound settings) lives in
-`localStorage` in the player's browser.
+Three surfaces: WebMCP tools that play the game in the visitor's browser, a read-only HTTP and MCP API over the quote bank, and the duel socket. Accounts and scores go through jaybulb-api (`POST https://api.jaybulb.com/rpc/quotestreak_*`), documented there.
 
 ## WebMCP
 
@@ -31,12 +29,10 @@ Worst case for any tool is a restarted or skipped game, which the player
 
 ## HTTP API (Cloudflare Pages Functions)
 
-Quotable now has a server surface. The WebMCP tools above still exist and are unchanged —
-they *play the game* in the visitor's browser. These read the quote set instead, so an agent
-can use it without loading the page.
+These read the quote set instead of playing, so an agent can use it without loading the page.
 
 Both surfaces call the same `callTool()` in `src/lib/tools.js`; REST and MCP cannot describe
-different behaviour. `quotes.json` is imported into the bundle — there is no database.
+different behaviour. `quotes.json` is imported into the bundle.
 
 ### REST (read-only, `GET`)
 
@@ -56,3 +52,9 @@ is a 400 naming the valid values, not a silent empty result.
 
 The answer ships with the question on purpose: `quotes.json` is public on the site anyway,
 and withholding it would only stop an agent from checking its own guess.
+
+## Duel socket
+
+`wss://quotestreak.jaybulb.com/duel/ws?room=ABCD` joins a duel as a player (two at most, a third gets 409). Every message is relayed to the other player: `start {qids}`, `answer {score, i, name}`, `done {score}`. The room sends `joined {host}`, `opponent` and `left`.
+
+Add `&watch=1` to spectate. Spectators can't send. They get `state {qids, players: [{host, name, score, i, done}]}` on join and after every move.
