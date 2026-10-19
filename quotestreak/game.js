@@ -191,7 +191,7 @@ function choose(opt, btn) {
     beep(660, 0.15);
   } else {
     streak = 0;
-    feedbackEl.textContent = `Nope — it was "${current.answer}"`;
+    feedbackEl.textContent = `Nope, it was "${current.answer}"`;
     beep(180, 0.25);
   }
   updateStats();
