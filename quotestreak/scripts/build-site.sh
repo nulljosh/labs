@@ -22,7 +22,7 @@ cat > dist/_headers <<'HEADERS'
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), geolocation=(), payment=(), microphone=(self)
-  Content-Security-Policy: script-src 'self' 'unsafe-inline' https://accounts.google.com https://appleid.cdn-apple.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'
+  Content-Security-Policy: script-src 'self' 'unsafe-inline' https://accounts.google.com https://appleid.cdn-apple.com https://static.cloudflareinsights.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'
 /data/*
   Access-Control-Allow-Origin: *
 HEADERS
