@@ -98,9 +98,11 @@ function buildBackdrop(data) {
   const per = Math.ceil(window.innerHeight / 150) + 1;
   for (let c = 0; c < cols; c++) {
     const col = document.createElement('div');
-    col.className = 'bcol';
-    for (let r = 0; r < per; r++) {
-      const a = shuffled[(c * per + r) % shuffled.length];
+    col.className = 'bcol ' + (c % 2 ? 'down' : 'up');
+    col.style.setProperty('--dur', (80 + c * 13) + 's');
+    // doubled so the drift loops seamlessly
+    for (let r = 0; r < per * 2; r++) {
+      const a = shuffled[(c * per + r % per) % shuffled.length];
       const img = new Image();
       img.src = a.url;
       img.alt = '';
@@ -127,6 +129,7 @@ function startGame(speed) {
   endEl.classList.add('hidden');
   gameEl.classList.remove('hidden');
   timerRing.classList.toggle('hidden', !speed);
+  document.body.classList.toggle('speed', speed);  // freezes the drifting wall while the clock runs
   nextQuestion();
 }
 
@@ -187,8 +190,11 @@ function choose(opt, btn) {
     streak++;
     const bonus = speedMode ? Math.max(1, Math.ceil(timeLeft)) : 1;
     score += 10 * bonus;
-    feedbackEl.textContent = `Correct! +${10 * bonus}`;
+    const milestone = streak % 5 === 0;
+    feedbackEl.textContent = milestone ? `${streak} in a row! +${10 * bonus}` : `Correct! +${10 * bonus}`;
     beep(660, 0.15);
+    burst(btn, milestone ? 60 : 24);
+    bump($('streak'));
   } else {
     streak = 0;
     feedbackEl.textContent = `Nope, it was "${current.answer}"`;
@@ -196,6 +202,29 @@ function choose(opt, btn) {
   }
   updateStats();
   setTimeout(nextQuestion, 1100);
+}
+
+// Confetti from the picked answer, in the round's genre colour plus the accent.
+function burst(from, n) {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const r = from.getBoundingClientRect();
+  const colors = [genreBadge.style.background || '#ff6b35', '#5B9BD5', '#ffd23f', '#ff6fae', '#34c759'];
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement('i');
+    p.className = 'confetti';
+    const a = Math.random() * Math.PI * 2, d = 80 + Math.random() * (n > 30 ? 260 : 160);
+    p.style.cssText = `left:${r.left + r.width / 2}px;top:${r.top + r.height / 2}px;background:${colors[i % colors.length]};` +
+      `--dx:${Math.cos(a) * d}px;--dy:${Math.sin(a) * d - 60}px;--rot:${Math.random() * 720 - 360}deg`;
+    document.body.appendChild(p);
+    p.addEventListener('animationend', () => p.remove());
+  }
+}
+
+function bump(el) {
+  if (!el) return;
+  el.classList.remove('bump');
+  void el.offsetWidth;  // restart the animation
+  el.classList.add('bump');
 }
 
 // Full-size art is fetched as soon as the question is shown, so a correct answer flashes
@@ -245,7 +274,10 @@ function updateStats() {
 function endGame() {
   gameEl.classList.add('hidden');
   endEl.classList.remove('hidden');
-  const high = Math.max(score, parseInt(localStorage.getItem(HIGH_KEY) || '0', 10));
+  document.body.classList.remove('speed');
+  const prev = parseInt(localStorage.getItem(HIGH_KEY) || '0', 10);
+  const high = Math.max(score, prev);
+  if (score > prev) requestAnimationFrame(() => burst($('final-score'), 80));
   localStorage.setItem(HIGH_KEY, high);
   $('final-score').textContent = `Final score: ${score} · High score: ${high}`;
   window.quotableSubmitScore?.(score, speedMode ? 'speed' : 'normal');
