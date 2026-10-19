@@ -31,7 +31,7 @@ final class Account {
     /// Used only for the Google OAuth browser flow (PKCE), which needs a real client to
     /// drive ASWebAuthenticationSession. Apple sign-in and everything else stays on the
     /// raw URLSession calls below.
-    private lazy var sbClient = SupabaseClient(supabaseURL: Self.url, supabaseKey: Self.anon)
+    @ObservationIgnored private lazy var sbClient = SupabaseClient(supabaseURL: Account.url, supabaseKey: Account.anon)
 
     // MARK: Sign in with Apple
 
