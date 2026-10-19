@@ -1,14 +1,13 @@
-// v78 Stand-up: one-liners from comics' Wikiquote pages, three each. Takes top-level "* line" entries
-// (the "** source" lines under them are skipped), bolded lines first since Wikiquote bolds the famous
-// ones, 30 to 150 characters, no f-words or slurs, and never a line that names the comic.
-// Writes standup.json as [{ quote, answer, source }] for the Stand-up shelf in shelves.js.
-import fs from 'fs';
+// v78 Stand-up: prints candidate one-liners from comics' Wikiquote pages for hand-picking; the picks
+// live in shelves.js (STANDUP). Takes top-level "* line" entries (the "** source" lines under them are
+// skipped), bolded lines first since Wikiquote bolds the famous ones, 30 to 150 characters, no
+// f-words or slurs, and never a line that names the comic. Automatic picks were too often interview
+// answers or crude, so a person chooses.
 import { api, clean, wait } from './wq.mjs';
 import { usable } from './harvest-recent.mjs';
-const OUT = new URL('../standup.json', import.meta.url).pathname;
 const COMICS = ['George Carlin', 'Richard Pryor', 'Mitch Hedberg', 'Steven Wright', 'Rodney Dangerfield', 'Joan Rivers', 'Robin Williams',
   'Jerry Seinfeld', 'Chris Rock', 'Dave Chappelle', 'Bill Hicks', 'Norm Macdonald', 'Demetri Martin', 'Jim Gaffigan', 'John Mulaney',
-  'Ricky Gervais', 'Bill Burr', 'Ali Wong', 'Phyllis Diller', 'Lenny Bruce', 'Eddie Izzard', 'Jimmy Carr', 'Tig Notaro', 'Bo Burnham', 'Ellen DeGeneres'];
+  'Eddie Izzard', 'Groucho Marx', 'Henny Youngman', 'Emo Philips', 'Rita Rudner', 'Jack Handey'];
 export function oneLiners(wt, name) {
   const last = name.split(' ').pop().toLowerCase();
   const out = [];
@@ -24,14 +23,10 @@ export function oneLiners(wt, name) {
 }
 
 if (process.argv[1]?.endsWith('harvest-standup.mjs')) {
-  const rows = [];
-  for (const name of COMICS) {
+  for (const name of process.argv.slice(2).length ? process.argv.slice(2) : COMICS) {
     const d = await api('en.wikiquote.org', { action: 'parse', page: name, prop: 'wikitext', redirects: 1 });
-    const picks = oneLiners(d?.parse?.wikitext || '', name).slice(0, 3);
-    for (const quote of picks) rows.push({ quote, answer: name, source: `https://en.wikiquote.org/wiki/${encodeURIComponent((d.parse.title).replace(/ /g, '_'))}` });
-    console.log(name, picks.length);
+    console.log(`## ${name}`);
+    oneLiners(d?.parse?.wikitext || '', name).slice(0, 10).forEach(t => console.log(`  ${t}`));
     await wait(150);
   }
-  fs.writeFileSync(OUT, JSON.stringify(rows, null, 1) + '\n');
-  console.log(rows.length, 'lines');
 }

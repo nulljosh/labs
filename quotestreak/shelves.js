@@ -1,4 +1,4 @@
-// Sports calls (v75) and Speeches (v76): hand-picked lines, each found word for word (80% of its
+// Sports calls (v75), Speeches (v76) and Stand-up (v78): hand-picked lines, each found word for word (80% of its
 // five-word runs) on the page in `source` before it went in; lines that failed the check stayed out.
 // Each shelf plays as a ten-line pack off the leaderboard; wrong answers come from the same shelf.
 // Classic script after game.js; shelves.test.js requires it.
@@ -41,8 +41,42 @@
     ['Yes we can.', 'Barack Obama', 2008],
     ['Speak softly and carry a big stick; you will go far.', 'Theodore Roosevelt', 1901],
   ];
+  // Classic one-liners picked by hand from scripts/harvest-standup.mjs's candidates, then checked.
+  const STANDUP = [
+    ["I used to do drugs. I still do, but I used to, too.", "Mitch Hedberg"],
+    ["I'm against picketing, but I don't know how to show it.", "Mitch Hedberg"],
+    ["I haven't slept for ten days, because that would be too long.", "Mitch Hedberg"],
+    ["A lot of people are afraid of heights; not me, I'm afraid of widths.", "Steven Wright"],
+    ["Everywhere is walking distance if you've got the time.", "Steven Wright"],
+    ["I bought some powdered water, but I don't know what to add.", "Steven Wright"],
+    ["I told my doctor I broke my arm in two places. He told me to keep out of those places.", "Rodney Dangerfield"],
+    ["My old man never liked me. He gave me my allowance in traveler's checks.", "Rodney Dangerfield"],
+    ["I live in a tough neighborhood. They got a children's zoo. Last week, four kids escaped.", "Rodney Dangerfield"],
+    ["I knew I was an unwanted baby when I saw that my bath toys were a toaster and a radio.", "Joan Rivers"],
+    ["I wish I had a twin, so I could know what I'd look like without plastic surgery.", "Joan Rivers"],
+    ["Most people work just hard enough not to get fired and get paid just enough money not to quit.", "George Carlin"],
+    ["Comedy is the blues for people who can't sing.", "Chris Rock"],
+    ["You can't be happy that fire cooks your food and be mad it burns your fingertips.", "Chris Rock"],
+    ["In terms of like, instant relief, canceling plans is like heroin.", "John Mulaney"],
+    ["I was raised Catholic. I don't know if you can tell that from the everything about me.", "John Mulaney"],
+    ["Agatha Christie? We go back years, me and Ag. She's a … she's just a … she's dead, isn't she?", "Eddie Izzard"],
+    ["I like my coffee like I like my women... in a plastic cup.", "Eddie Izzard"],
+    ["I never forget a face, but in your case I'll be glad to make an exception.", "Groucho Marx"],
+    ["Although it is generally known, I think it's about time to announce that I was born at a very early age.", "Groucho Marx"],
+    ["Here's to our wives and girlfriends... may they never meet!", "Groucho Marx"],
+    ["My wife will buy anything marked down. Last year she bought an escalator.", "Henny Youngman"],
+    ["I take my wife everywhere, but she keeps finding her way back.", "Henny Youngman"],
+    ["My first Hollywood picture wasn't released, it escaped.", "Henny Youngman"],
+    ["When I was ten, my family moved to Downers Grove, Illinois. When I was twelve, I found them.", "Emo Philips"],
+    ["How many people here have telekinetic powers? Raise my hand.", "Emo Philips"],
+    ["My boyfriend and I broke up. He wanted to get married, and I didn't want him to.", "Rita Rudner"],
+    ["I had teeth that stuck out so far, I used to eat other kids' candy bars by accident.", "Rita Rudner"],
+    ["It takes a big man to cry, but it takes an even bigger man to laugh at that man.", "Jack Handey"],
+    ["If you ever drop your keys into a river of molten lava, let 'em go, because man, they're gone.", "Jack Handey"],
+  ];
   const SHELVES = {
     sports: { title: 'Sports calls', prompt: 'Which moment is this call from?', rows: SPORTS.map(([quote, answer, who, year, source]) => ({ quote, answer, who, year, source })) },
+    standup: { title: 'Stand-up', prompt: 'Which comic said it?', rows: STANDUP.map(([quote, answer]) => ({ quote, answer, source: WQ + encodeURIComponent(answer.replace(/ /g, '_')) })) },
     speeches: { title: 'Speeches', prompt: 'Who said it?', rows: SPEECHES.map(([quote, answer, year]) => ({ quote, answer, year, source: WQ + encodeURIComponent(answer.replace(/ /g, '_')) })) },
   };
   // A shelf's lines in the game's shape, wrong answers drawn from the shelf's other answers.
@@ -60,6 +94,8 @@
 
   GENRES.sports = { color: '#0f4c81', text: '#fff' };
   GENRES.speeches = { color: '#5c6b8a', text: '#fff' };
+  GENRES.standup = { color: '#ffd23f', text: '#111' };
+  LABELS.standup = 'Stand-up';
   let on = false;
   for (const id of Object.keys(SHELVES)) $(`start-${id}`).onclick = () => {
     on = window.quotableOffBoard = true;

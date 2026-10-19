@@ -97,7 +97,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v75 Sports.** Famous commentary calls.
 - [x] **v76 Speeches.** History in its own words.
 - [x] **v77 Anime.** An anime category.
-- [ ] **v78 Stand-up.** Comedy specials and podcasts.
+- [x] **v78 Stand-up.** Comedy specials and podcasts.
 - [ ] **v79 Open API.** The quote of the day and the bank through /api and /mcp.
 - [ ] **v80 Open data.** Publish the verified metadata where the licence allows.
 

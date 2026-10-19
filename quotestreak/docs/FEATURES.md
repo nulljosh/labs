@@ -31,3 +31,6 @@ Native: `SharedStore.cloudHigh` keeps the best score in iCloud key-value storage
 
 ## Anime (v77)
 `scripts/harvest-anime.mjs` takes two lines per title from Wikiquote's Category:Anime and Studio Ghibli pages (same filters as the new-release harvest), film or series and year from Wikipedia categories. Hand fixes after the run: Your Name, The Girl Who Leapt Through Time and The War of the Rohirrim are films; Underworld: Endless War (not anime), Moetan and a voice-cast row came out. The genre is `anime`, sakura pink with ink text, mirrored in `Theme.swift`. It is not part of the all-genres badge, so nobody loses that badge.
+
+## Stand-up (v78)
+Thirty classic one-liners from thirteen comics (Hedberg, Wright, Dangerfield, Rivers, Carlin, Rock, Mulaney, Izzard, Groucho, Youngman, Emo Philips, Rudner, Handey), the third shelf in `shelves.js`. Automatic picks were too often interview answers or crude, so `scripts/harvest-standup.mjs` only prints candidates and a person picks; every pick was then found word for word on the comic's Wikiquote page. Podcasts have no usable quote source yet.
