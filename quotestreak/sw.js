@@ -1,6 +1,6 @@
 // ponytail: network-first for pages, cache-first for the hashed assets they name.
 // Bump CACHE to evict everything a previous version stored.
-const CACHE = "quotestreak-v37";
+const CACHE = "quotestreak-v38";
 const FILES = ["/", "/index.html","/play.html","/privacy.html", "/manifest.webmanifest"];
 
 self.addEventListener("install", e => {

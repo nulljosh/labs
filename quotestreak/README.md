@@ -15,7 +15,7 @@ Or the show, the game, the song or the book. 1,624 lines across 15 genres, from 
 
 ## Features
 
-**Guess.** Four choices or type it in. Hints when you're stuck. Filter by genre, decade and difficulty, where difficulty comes from what real players get right. Other ways to guess: who said it, finish the line, misquotes, timeline.
+**Guess.** Four choices or type it in. Hints if you turn them on. Filter by genre, decade and difficulty, where difficulty comes from what real players get right. Other ways to guess: who said it, finish the line, misquotes, timeline.
 
 **Speed round.** Ten seconds a line. Faster answers pay more.
 

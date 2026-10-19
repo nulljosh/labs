@@ -44,6 +44,8 @@ function initSettings() {
   volume.value = localStorage.getItem(SFX_VOL_KEY) || '60';
   toggle.onchange = () => localStorage.setItem(SFX_ON_KEY, toggle.checked);
   volume.oninput = () => localStorage.setItem(SFX_VOL_KEY, volume.value);
+  $('hints-toggle').checked = localStorage.getItem('quotestreak_hints') === 'true';  // off unless the player turns them on
+  $('hints-toggle').onchange = () => localStorage.setItem('quotestreak_hints', $('hints-toggle').checked);
   $('settings-btn').onclick = () => $('settings').classList.remove('hidden');
   $('settings-close').onclick = () => $('settings').classList.add('hidden');
 }
@@ -163,7 +165,7 @@ function nextQuestion() {
   feedbackEl.textContent = '';
   hintsUsed = 0;
   $('hint').textContent = '';
-  $('hint-btn').classList.remove('hidden');
+  $('hint-btn').classList.toggle('hidden', !$('hints-toggle').checked);
   optionsEl.innerHTML = '';
   $('type-form').classList.toggle('hidden', !typeMode);
   if (typeMode) { $('type-input').value = ''; $('type-input').disabled = false; $('type-input').focus(); }
