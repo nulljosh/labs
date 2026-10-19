@@ -75,7 +75,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v57 Original languages.** Italian and French films in their own words. (Spanish, German, Japanese and Korean wait on enough films on their Wikiquotes.)
 - [x] **v58 Twenty languages.** The whole interface, with fonts that cover every script.
 - [x] **v59 Access for all.** VoiceOver play, Switch Control, the largest text sizes and a high-contrast theme.
-- [ ] **v60 Family mode.** A bank safe for kids.
+- [x] **v60 Family mode.** A bank safe for kids.
 
 ### Era 7: it learns you (61 to 70)
 - [ ] **v61 Practice.** Missed quotes come back until you know them.

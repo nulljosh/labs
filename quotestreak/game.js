@@ -80,7 +80,7 @@ fetch('quotes.json').then(r => r.json()).then(data => {
     opt.textContent = `${d}s`;
     $('decade').appendChild(opt);
   });
-  buildBackdrop(data);
+  buildBackdrop(window.quotableFamily ? data.filter(Family.ok) : data);
   updateDailyButton();
   if (new URLSearchParams(location.search).has('daily')) startDaily();  // share links land on the daily
   challenge = Challenge.decode(location.search, quotes, Difficulty.qid);
@@ -110,6 +110,7 @@ function startGame(speed) {
   lives = mode === 'marathon' && !challenge && !duel && !cupRound ? 3 : null;
   if (mode !== 'classic') pool = Modes.pool(mode, pool, quotes);
   if (!pool.length) pool = Modes.pool(mode, shuffle(quotes), quotes);
+  if (window.quotableFamily) pool = pool.filter(Family.ok).length ? pool.filter(Family.ok) : shuffle(quotes.filter(Family.ok));  // v60
   if (challenge) pool = [...challenge.quotes].reverse();  // nextQuestion pops from the end
   if (duel?.quotes) pool = [...duel.quotes].reverse();
   if (cupRound) pool = [...cupRound].reverse();

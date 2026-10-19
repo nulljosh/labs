@@ -5,6 +5,7 @@
 function buildBackdrop(data) {
   const el = $('backdrop');
   if (!el) return;
+  el.innerHTML = '';   // rebuilt when family mode changes
   const seen = new Set();
   const art = [];
   data.forEach(q => {

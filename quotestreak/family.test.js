@@ -1,0 +1,17 @@
+const assert = require('assert');
+const { ok } = require('./family');
+const bank = require('./quotes.json');
+assert(ok({ type: 'movie', rating: 'G', quote: 'To infinity and beyond!' }));
+assert(!ok({ type: 'movie', rating: 'PG', genre: 'action', quote: 'You’re gonna need a bigger boat.' }), 'PG live action stays out');
+assert(ok({ type: 'movie', rating: 'PG', genre: 'cartoon', quote: 'Just keep swimming.' }));
+assert(!ok({ type: 'movie', rating: 'R', quote: 'Here’s Johnny!' }));
+assert(!ok({ type: 'movie', quote: 'No rating at all.' }), 'unrated stays out');
+assert(!ok({ type: 'music', quote: 'I’m on the highway to hell.' }));
+assert(!ok({ type: 'game', rating: 'Mature 17+', quote: 'Fine words.' }));
+assert(ok({ type: 'game', rating: 'Everyone 10+', quote: 'Fine words.' }));
+assert(!ok({ type: 'tv', quote: 'Fine words.' }), 'a show must be a children’s series');
+const fam = bank.filter(ok);
+const by = {}; fam.forEach(q => by[q.type] = (by[q.type] || 0) + 1);
+assert(fam.length >= 100, `only ${fam.length} family lines`);
+assert(!fam.some(q => q.answer === 'The Godfather' || q.answer === 'Pulp Fiction'));
+console.log('family ok', fam.length, JSON.stringify(by));

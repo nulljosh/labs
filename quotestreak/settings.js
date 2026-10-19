@@ -45,3 +45,17 @@ addEventListener('keydown', (e) => {
   const btn = n >= 0 && !gameEl.classList.contains('hidden') && optionsEl.children[n];
   if (btn && !btn.disabled) { e.preventDefault(); btn.click(); }
 });
+
+// Family mode (v60, family.js): only kid-safe lines, a poster wall to match, and no Daily, Duel,
+// Cup or other shared modes that deal everyone the same unfiltered lines.
+const SHARED = ['start-daily', 'start-duel', 'start-cup', 'start-party', 'start-library', 'start-champions'];
+const familyOn = () => { try { return localStorage.getItem('quotestreak_family') === 'true'; } catch { return false; } };
+function applyFamily() {
+  window.quotableFamily = familyOn();
+  $('family-toggle').checked = window.quotableFamily;
+  for (const id of [...SHARED]) $(id)?.classList.toggle('hidden', window.quotableFamily);
+  $('family-note').classList.toggle('hidden', !window.quotableFamily);
+  if (quotes.length) buildBackdrop(window.quotableFamily ? quotes.filter(Family.ok) : quotes);
+}
+$('family-toggle').onchange = () => { try { localStorage.setItem('quotestreak_family', $('family-toggle').checked); } catch {} applyFamily(); };
+applyFamily();

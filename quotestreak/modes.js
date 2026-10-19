@@ -99,7 +99,8 @@
     for (const gap of [3, 1]) for (const c of cands) if (out.length < 4 && out.every(o => Math.abs(o - c) >= gap)) out.push(c);
     return shuffle(out.map(String), rand);
   }
-  const year = (list, rand) => shuffle(list.filter(q => q.year), rand).map(q => ({
+  // A title that carries its own year (Taylor Swift's 1989) would answer itself, so it sits out.
+  const year = (list, rand) => shuffle(list.filter(q => q.year && !`${q.answer} ${q.song || ''}`.includes(String(q.year))), rand).map(q => ({
     ...q, answer: String(q.year), options: yearChoices(q.year, rand), year: null, character: q.answer,
     prompt: `What year did ${q.answer} come out?`,
     hints: [`It's from the ${Math.floor(q.year / 10) * 10}s`, `The ${PART[q.year % 10]} ${Math.floor(q.year / 10) * 10}s`],

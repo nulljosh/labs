@@ -47,6 +47,10 @@
         <input type="checkbox" id="voice-toggle">
       </label>
       <label class="setting-row">
+        <span>Family mode</span>
+        <input type="checkbox" id="family-toggle">
+      </label>
+      <label class="setting-row">
         <span>High contrast</span>
         <input type="checkbox" id="contrast-toggle">
       </label>
@@ -125,6 +129,7 @@
     <div id="mode-select" class="panel">
       <picture><source srcset="brand/quip-idle-dark.svg" media="(prefers-color-scheme: dark)"><img class="quip" src="brand/quip-idle.svg" alt="" width="128" height="128"></picture>
       <p>Guess the movie, show, game, song or book from the line.</p>
+      <p id="family-note" class="prompt hidden">Family mode: only lines that are safe for kids.</p>
       <select id="mode" aria-label="Way to guess">
         <option value="classic">Name the source</option>
         <option value="who">Who said it</option>
@@ -315,6 +320,7 @@
   <script src="phrases-data.js"></script>
   <script src="phrases.js"></script>
   <script src="world.js"></script>
+  <script src="family.js"></script>
   <script src="modes.js"></script>
   <script src="season.js"></script>
   <script src="sharecard.js"></script>
