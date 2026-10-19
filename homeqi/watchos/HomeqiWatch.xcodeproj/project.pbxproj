@@ -1,0 +1,353 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10F234A6AEC951543E0E19AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90CEA8C21CF41CD3D3E08173 /* Assets.xcassets */; };
+		18716402E9C768A1CDDE1F17 /* HomeqiWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A0A2376BD1F0EFD3CAEE28 /* HomeqiWatchApp.swift */; };
+		42FB51A75E8DE31E1661EF79 /* content.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F8634C7A47B9B476D15D446 /* content.md */; };
+		71F5259A9A0F2E87B165A8A7 /* ContentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB0784C8C9F43D1FEA3BA9 /* ContentStore.swift */; };
+		9D5FCE86CDC602C266CF947F /* ChapterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D527D77124ADC300370626 /* ChapterListView.swift */; };
+		BA3A0E1D6FF7A23D1B6B8A12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75615F85357FAF009AF3CC12 /* ContentView.swift */; };
+		C5451C4855A441C3A40052B4 /* ChapterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFABF492C60EC97DBE5F41AB /* ChapterDetailView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3F8634C7A47B9B476D15D446 /* content.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = content.md; sourceTree = "<group>"; };
+		75615F85357FAF009AF3CC12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		85BB0784C8C9F43D1FEA3BA9 /* ContentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentStore.swift; sourceTree = "<group>"; };
+		90CEA8C21CF41CD3D3E08173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92A0A2376BD1F0EFD3CAEE28 /* HomeqiWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeqiWatchApp.swift; sourceTree = "<group>"; };
+		B3D527D77124ADC300370626 /* ChapterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListView.swift; sourceTree = "<group>"; };
+		B4F451CAB3E66B4E9818990D /* HomeqiWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeqiWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFABF492C60EC97DBE5F41AB /* ChapterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterDetailView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0B5912BABF0E5C785CD0E423 = {
+			isa = PBXGroup;
+			children = (
+				3FCF7AC9E17EB51AA795C36C /* Models */,
+				46A38B8A36F70B1309BD9352 /* Resources */,
+				7A7F224ED461A04DA934BE9E /* Views */,
+				79F1AED95C69A02F32176EFD /* watchos */,
+				2A927A0E574B83A4E1FE117F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2A927A0E574B83A4E1FE117F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4F451CAB3E66B4E9818990D /* HomeqiWatch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FCF7AC9E17EB51AA795C36C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				85BB0784C8C9F43D1FEA3BA9 /* ContentStore.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		46A38B8A36F70B1309BD9352 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3F8634C7A47B9B476D15D446 /* content.md */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		79F1AED95C69A02F32176EFD /* watchos */ = {
+			isa = PBXGroup;
+			children = (
+				90CEA8C21CF41CD3D3E08173 /* Assets.xcassets */,
+				75615F85357FAF009AF3CC12 /* ContentView.swift */,
+				92A0A2376BD1F0EFD3CAEE28 /* HomeqiWatchApp.swift */,
+				3FCF7AC9E17EB51AA795C36C /* Models */,
+				46A38B8A36F70B1309BD9352 /* Resources */,
+				7A7F224ED461A04DA934BE9E /* Views */,
+			);
+			name = watchos;
+			path = .;
+			sourceTree = "<group>";
+		};
+		7A7F224ED461A04DA934BE9E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CFABF492C60EC97DBE5F41AB /* ChapterDetailView.swift */,
+				B3D527D77124ADC300370626 /* ChapterListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18A5BEE35D73A390C77C9DA8 /* HomeqiWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DC28DBB6F6C6531380F7482 /* Build configuration list for PBXNativeTarget "HomeqiWatch" */;
+			buildPhases = (
+				031DA8160D305BA17D383E8B /* Sources */,
+				CFF02A40C7A598AA10E4B5B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HomeqiWatch;
+			packageProductDependencies = (
+			);
+			productName = HomeqiWatch;
+			productReference = B4F451CAB3E66B4E9818990D /* HomeqiWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		440864CF23AC14E04EFC0411 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					18A5BEE35D73A390C77C9DA8 = {
+						DevelopmentTeam = QMM486NPYC;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1A5F7D7B2A266CA9AE42FB06 /* Build configuration list for PBXProject "HomeqiWatch" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 0B5912BABF0E5C785CD0E423;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2A927A0E574B83A4E1FE117F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18A5BEE35D73A390C77C9DA8 /* HomeqiWatch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFF02A40C7A598AA10E4B5B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10F234A6AEC951543E0E19AC /* Assets.xcassets in Resources */,
+				42FB51A75E8DE31E1661EF79 /* content.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		031DA8160D305BA17D383E8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5451C4855A441C3A40052B4 /* ChapterDetailView.swift in Sources */,
+				9D5FCE86CDC602C266CF947F /* ChapterListView.swift in Sources */,
+				71F5259A9A0F2E87B165A8A7 /* ContentStore.swift in Sources */,
+				BA3A0E1D6FF7A23D1B6B8A12 /* ContentView.swift in Sources */,
+				18716402E9C768A1CDDE1F17 /* HomeqiWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1C27DCF022B15D1FE0DAD906 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		7DE97996096FB62DE119DDC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		902645E16789AF195C688181 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.fengshui.watchos;
+				PRODUCT_NAME = Homeqi;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		DAC9E2942A58AD7FFF265EB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.fengshui.watchos;
+				PRODUCT_NAME = Homeqi;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A5F7D7B2A266CA9AE42FB06 /* Build configuration list for PBXProject "HomeqiWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C27DCF022B15D1FE0DAD906 /* Debug */,
+				7DE97996096FB62DE119DDC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4DC28DBB6F6C6531380F7482 /* Build configuration list for PBXNativeTarget "HomeqiWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				902645E16789AF195C688181 /* Debug */,
+				DAC9E2942A58AD7FFF265EB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 440864CF23AC14E04EFC0411 /* Project object */;
+}

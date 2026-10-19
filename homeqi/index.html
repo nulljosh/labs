@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js')</script>
+<script>if(location.hostname==="fengshui.jaybulb.com")location.replace("https://homeqi.jaybulb.com"+location.pathname+location.search)</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homeqi — Joshua Trommel</title>
+<meta name="description" content="Assess your home against the four energy layers of feng shui — land, neighborhood, building, objects. Condensed from Good Fengshui by Eva Wong. No account.">
+<meta property="og:title" content="Homeqi — assess the place you live">
+<meta property="og:description" content="Walk your home through the four energy layers and get back what the book says is working against you. Condensed from Good Fengshui by Eva Wong.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://homeqi.jaybulb.com">
+<link rel="icon" href="icon.svg">
+<meta name="theme-color" content="#f5f0e4">
+<style>
+@import url("https://jaybulb.com/tokens.css");
+
+:root {
+  --accent: var(--clay);
+  --link: var(--clay-deep);
+  --font-body: -apple-system, system-ui, "Inter", "Segoe UI", sans-serif;
+  --font-display: var(--font-body);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --link: var(--clay);
+  }
+}
+:root[data-theme="dark"] {
+  --link: var(--clay);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:var(--font-body); font-weight:400;
+  background:var(--bg); color:var(--text);
+  line-height:1.6; min-height:100dvh;
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.page {
+  display:grid;
+  grid-template-columns:220px 1fr;
+  grid-template-rows:auto 1fr;
+  max-width:1060px;
+  margin:0 auto;
+  padding:clamp(2rem,6vw,4rem) clamp(1.5rem,4vw,2.5rem) 6rem;
+  gap:0 3rem;
+}
+@media(max-width:860px) {
+  .page { grid-template-columns:1fr; }
+  .toc-wrap { display:none; }
+}
+
+.toc-wrap { grid-column:1; grid-row:2; position:relative; }
+.toc { position:sticky; top:2.5rem; display:flex; flex-direction:column; gap:0; }
+.toc-label {
+  font-size:0.6875rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--text3); margin-bottom:0.75rem;
+}
+.toc a {
+  display:block; font-size:0.8125rem; color:var(--text3); text-decoration:none;
+  padding:0.3rem 0 0.3rem 0.875rem; border-left:2px solid var(--border);
+  line-height:1.35; transition:color 0.15s, border-color 0.15s;
+}
+.toc a:hover { color:var(--text2); }
+.toc a.active { color: var(--link, var(--accent)); border-left-color: var(--link, var(--accent)); font-weight:500; }
+
+.chapter-jump {
+  display:none; width:100%; margin-bottom:1.5rem; padding:0.5rem 0.75rem;
+  background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-sm);
+  color:var(--text2); font-family:var(--font-body); font-size:0.875rem; appearance:none; cursor:pointer;
+}
+@media(max-width:860px) { body[data-view="read"] .chapter-jump { display:block; } }
+
+.main { grid-column:2; grid-row:2; min-width:0; }
+@media(max-width:860px) { .main { grid-column:1; } }
+
+.hero { margin-bottom:2rem; padding-bottom:2rem; border-bottom:1px solid var(--border2); }
+h1.title {
+  font-family:var(--font-display); font-size:clamp(2rem,5vw,2.75rem); font-weight:900;
+  letter-spacing:-0.02em; line-height:1.1; color:var(--text); margin-bottom:0.75rem;
+}
+.hero-sub { font-size:0.9375rem; color:var(--text2); margin:0.5rem 0 0.75rem; max-width:36rem; }
+.hero-meta { font-size:0.8125rem; color:var(--text3); display:flex; gap:1rem; flex-wrap:wrap; }
+.hero-meta span::before { content:'· '; }
+.hero-meta span:first-child::before { content:''; }
+
+/* tabs */
+.tabs { display:flex; gap:0.375rem; margin-bottom:2.5rem; }
+.tabs button {
+  font-family:var(--font-body); font-size:0.8125rem; font-weight:500;
+  padding:0.4rem 0.9rem; border-radius:var(--radius-pill); cursor:pointer;
+  background:transparent; border:1px solid var(--border2); color:var(--text3);
+  transition:color 0.15s, border-color 0.15s, background 0.15s;
+}
+.tabs button:hover { color:var(--text2); }
+.tabs button[aria-selected="true"] { color:var(--bg); background:var(--accent); border-color: var(--link, var(--accent)); }
+
+body[data-view="assess"] #read-view { display:none; }
+body[data-view="assess"] .toc-wrap { visibility:hidden; }
+body[data-view="read"] #assess-view { display:none; }
+
+/* assessment */
+.summary { border:1px solid var(--border2); border-radius:var(--radius-md); padding:1.25rem 1.25rem 1rem; margin-bottom:2.5rem; }
+.prop-bar { display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap; margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+.prop-bar select { font-family:var(--font-body); font-size:0.8125rem; padding:0.3rem 0.6rem; border-radius:var(--radius-sm); border:1px solid var(--border2); background:var(--bg); color:var(--text); flex:1 1 auto; min-width:8rem; }
+.prop-bar button { font-family:var(--font-body); font-size:0.75rem; color:var(--text3); background:none; border:1px solid var(--border2); border-radius:var(--radius-pill); padding:0.3rem 0.7rem; cursor:pointer; }
+.prop-bar button:hover { color:var(--text2); border-color:var(--text3); }
+.summary-head { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; margin-bottom:1rem; }
+.summary-head h2 { font-family:var(--font-display); font-size:1rem; font-weight:600; color:var(--text); }
+.summary-head button {
+  font-family:var(--font-body); font-size:0.75rem; color:var(--text3);
+  background:none; border:none; cursor:pointer; text-decoration:underline; padding:0;
+}
+.summary-head button:hover { color:var(--text2); }
+.tally { display:flex; flex-direction:column; gap:0.5rem; }
+.tally-row { display:flex; align-items:center; gap:0.75rem; font-size:0.8125rem; }
+.tally-row .name { color:var(--text2); flex:0 0 9.5rem; }
+.tally-row .bar { flex:1; height:4px; background:var(--border); border-radius:2px; overflow:hidden; min-width:2rem; }
+.tally-row .bar i { display:block; height:100%; background:var(--accent); }
+.tally-row .n { color:var(--text3); flex:0 0 auto; font-variant-numeric:tabular-nums; }
+.summary-note { font-size:0.8125rem; color:var(--text3); margin-top:1rem; padding-top:0.875rem; border-top:1px solid var(--border); }
+
+.layer { margin-bottom:3rem; }
+.layer > h2 {
+  font-family:var(--font-display); font-size:1.25rem; color:var(--text); line-height:1.25;
+  padding-left:0.875rem; border-left:3px solid var(--accent); margin-left:-0.875rem; margin-bottom:0.4rem;
+}
+.layer > p.layer-sub { font-size:0.8125rem; color:var(--text3); margin-bottom:1.5rem; }
+
+.q { padding:1rem 0; border-bottom:1px solid var(--border); }
+.q:last-child { border-bottom:none; }
+.q p { font-size:0.9375rem; color:var(--text2); margin-bottom:0.75rem; }
+.q.flagged p { color:var(--text); }
+.opts { display:flex; gap:0.375rem; flex-wrap:wrap; }
+.opts button {
+  font-family:var(--font-body); font-size:0.8125rem; padding:0.3rem 0.85rem;
+  background:var(--bg2); border:1px solid var(--border2); border-radius:var(--radius-pill);
+  color:var(--text3); cursor:pointer; transition:color 0.15s, border-color 0.15s;
+}
+.opts button:hover { color:var(--text2); border-color:var(--text3); }
+.opts button[aria-pressed="true"] { color:var(--text); border-color: var(--link, var(--accent)); font-weight:500; }
+.q-note {
+  font-size:0.8125rem; color:var(--text3); margin-top:0.75rem;
+  padding-left:0.875rem; border-left:2px solid var(--border2);
+}
+.q-note a { color:var(--text2); }
+
+.findings { margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border2); }
+.findings h2 { font-family:var(--font-display); font-size:1.25rem; color:var(--text); margin-bottom:1rem; }
+.findings ol { padding-left:1.2rem; }
+.findings li { margin-bottom:1rem; font-size:0.875rem; color:var(--text2); }
+.findings li .fq { color:var(--text); font-weight:500; display:block; }
+.findings li .siting { font-size:0.75rem; color:var(--text3); }
+
+#content { font-size:0.9375rem; color:var(--text2); }
+#content h1, #content h2 { font-family:var(--font-display); color:var(--text); line-height:1.25; margin-top:2.5rem; margin-bottom:0.75rem; }
+#content h1 { font-size:1.5rem; }
+#content h2 { font-size:1.25rem; padding-left:0.875rem; border-left:3px solid var(--accent); margin-left:-0.875rem; }
+#content h3 { font-size:1rem; font-weight:600; color:var(--text); margin:1.5rem 0 0.5rem; }
+#content p, #content ul, #content ol { margin-bottom:1rem; }
+#content ul, #content ol { padding-left:1.4rem; }
+#content li { margin-bottom:0.4rem; }
+#content strong { color:var(--text); font-weight:600; }
+#content hr { border:none; border-top:1px solid var(--border); margin:2.5rem 0; }
+
+.empty-state { color:var(--text3); font-size:0.9375rem; padding:2rem 0; }
+footer { margin-top:4rem; padding-top:2rem; border-top:1px solid var(--border2); }
+footer a { font-size:0.8125rem; color:var(--text3); text-decoration:none; }
+footer a:hover { color: var(--link, var(--accent)); }
+</style>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#C9784A">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="devices.css">
+<script>
+// ponytail: UA sniff, good enough for a mockup. iphone is the default. ?embed = app only, for the landing demo frame.
+(function(u,d){d=/Android/.test(u)?'android':/iPhone|iPad/.test(u)?'iphone':/Windows/.test(u)?'windows':/Mac/.test(u)?'mac':'iphone';document.documentElement.dataset.device=d;if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed')})(navigator.userAgent);
+</script>
+<style>
+/* Live demo: the real app in a frame matching the visitor's device (nimble treatment) */
+.demo{margin:2rem auto 0;text-align:center;position:relative;z-index:2}
+.demo .device-screen{aspect-ratio:9/19.5}
+.demo .device-mac .device-screen,.demo .device-windows .device-screen{aspect-ratio:16/10}
+.demo .device-screen iframe{position:absolute;top:0;left:0;border:0;display:block;transform-origin:0 0;width:390px;height:845px;background:#fff}
+.demo .device-mac .device-screen iframe,.demo .device-windows .device-screen iframe{width:1024px;height:640px}
+.demo-caption{font-size:.9rem;opacity:.65;margin:1rem 0 0}
+.embed .demo,.embed footer,.embed nav,.embed .hero{display:none!important}
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease-out, transform .6s ease-out; }
+  html.js .reveal.in-view { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body data-view="assess">
+
+<div class="page">
+  <select class="chapter-jump" id="chapter-jump" aria-label="Jump to chapter">
+    <option value="">Jump to chapter&hellip;</option>
+  </select>
+
+  <aside class="toc-wrap">
+    <nav class="toc" id="toc">
+      <div class="toc-label">Contents</div>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="hero">
+      <h1 class="hero-sub">Assess the place you live against the four energy layers, then read the reasoning. Condensed from <em>Good Fengshui</em> by Eva Wong. No account.</h1>
+<div class="demo">
+  <div class="device device-iphone" id="demoFrame" data-title="Homeqi"><div class="device-screen"><iframe id="demoApp" title="Homeqi, live" loading="lazy" data-src="./?embed"></iframe></div></div>
+  <p class="demo-caption">This is the <span id="demoDev">iPhone</span> app, live. Try it.</p>
+</div>
+<script>
+(function(){var names={iphone:'iPhone',android:'Android',mac:'Mac',windows:'Windows'},dev=document.documentElement.dataset.device,f=document.getElementById('demoFrame'),i=document.getElementById('demoApp');
+if(!names[dev])dev='iphone';f.className='device device-'+dev;document.getElementById('demoDev').textContent=names[dev];
+if(!document.documentElement.classList.contains('embed'))i.src=i.dataset.src;
+function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidth)+')';}fit();addEventListener('resize',fit);})();
+</script>
+
+      <div class="hero-meta" id="hero-meta"></div>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tab-assess" aria-selected="true" aria-controls="assess-view">Assess</button>
+      <button role="tab" id="tab-read" aria-selected="false" aria-controls="read-view">Read</button>
+    </div>
+
+    <section id="assess-view" role="tabpanel" aria-labelledby="tab-assess">
+      <div class="summary">
+        <div class="prop-bar">
+          <select id="prop-picker" aria-label="Property"></select>
+          <button type="button" id="prop-new">+ Add place</button>
+          <button type="button" id="prop-rename">Rename</button>
+          <button type="button" id="prop-delete">Delete</button>
+        </div>
+        <div class="summary-head">
+          <h2 id="summary-title">Nothing answered yet</h2>
+          <button type="button" id="reset">Start over</button>
+        </div>
+        <div class="tally" id="tally"></div>
+        <p class="summary-note">The book works outside in. Land and neighbourhood problems cannot be remedied by anything you do indoors, so they are siting decisions, not fixes.</p>
+      </div>
+      <div id="layers"></div>
+      <div class="findings" id="findings" hidden>
+        <h2>What to do about it</h2>
+        <ol id="findings-list"></ol>
+      </div>
+    </section>
+
+    <section id="read-view" role="tabpanel" aria-labelledby="tab-read">
+      <div id="content"><div class="empty-state">Loading&hellip;</div></div>
+    </section>
+
+
+<style>
+#install-anywhere{padding:5rem 0;border-top:1px solid color-mix(in srgb, currentColor 14%, transparent);}
+#install-anywhere .xp-wrap{max-width:960px;margin:0 auto;padding:0 1.5rem;}
+#install-anywhere h2{font-size:clamp(1.6rem,3.4vw,2.4rem);margin:0 0 .6rem;letter-spacing:-.02em;}
+#install-anywhere .xp-lead{max-width:46ch;margin:0 0 2.5rem;opacity:.7;line-height:1.55;}
+#install-anywhere .xp-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+#install-anywhere .xp-card{background:color-mix(in srgb, currentColor 4%, transparent);border:1px solid color-mix(in srgb, currentColor 14%, transparent);border-radius:12px;padding:1.25rem;display:flex;flex-direction:column;gap:.5rem;}
+#install-anywhere .xp-card h3{margin:0;font-size:1rem;letter-spacing:-.01em;}
+#install-anywhere .xp-card p{margin:0;font-size:.9rem;line-height:1.5;opacity:.7;flex:1;}
+#install-anywhere .xp-card a{margin-top:.5rem;font-size:.875rem;font-weight:500;color:var(--accent,currentColor);text-decoration:none;}
+#install-anywhere .xp-card a:hover{text-decoration:underline;}
+</style>
+
+<section id="install-anywhere">
+  <div class="xp-wrap">
+    <h2>Install it anywhere.</h2>
+    <p class="xp-lead">Homeqi runs on every platform. On Windows, Linux and Android it installs straight from the browser &mdash; no store, no download, no runtime. It gets a real window, its own icon, and keeps working offline.</p>
+    <div class="xp-grid">
+    <div class="xp-card">
+      <h3>iPhone &amp; iPad</h3>
+      <p>A native SwiftUI app.</p>
+    </div>
+    <div class="xp-card">
+      <h3>Windows</h3>
+      <p>Open the web app in Edge or Chrome, then <strong>Install Homeqi</strong> from the address bar. It lands in the Start Menu like any other app.</p>
+      <a href="https://homeqi.jaybulb.com">Open &amp; install &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Android</h3>
+      <p>Open the web app in Chrome, then <strong>Add to Home screen</strong>. Full screen, no browser chrome, works offline.</p>
+      <a href="https://homeqi.jaybulb.com">Open &amp; install &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Linux</h3>
+      <p>Same as Windows &mdash; install the web app from Chrome or Chromium and it runs in its own window.</p>
+      <a href="https://homeqi.jaybulb.com">Open &amp; install &rarr;</a>
+    </div>
+    <div class="xp-card">
+      <h3>Web</h3>
+      <p>Nothing to install. The same app, in any modern browser.</p>
+      <a href="https://homeqi.jaybulb.com">Open the web app &rarr;</a>
+    </div>
+    </div>
+  </div>
+</section>
+
+    <footer>
+      <a href="https://jaybulb.com">jaybulb.com</a> &middot; <a href="https://jaybulb.com/docs.html#homeqi">Docs</a>
+    </footer>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
+/* ---------- assessment data: every note traces to content.md ---------- */
+
+var LAYERS = [
+  { id:'land',         name:'Land energy',        sub:'Chapter 8. The strongest influence, and the one you cannot change.' },
+  { id:'neighborhood', name:'Neighbourhood',      sub:'Chapter 9. People energy. Not fixable from inside the home.' },
+  { id:'building',     name:'Building',           sub:'Chapter 10. Architectural energy — shape, materials, flow, light.' },
+  { id:'objects',      name:'Objects',            sub:'Chapter 11. What is near you and what you keep around you.' }
+];
+
+var SITING = { land:true, neighborhood:true, building:false, objects:false };
+
+var QUESTIONS = [
+  { layer:'land', bad:'no', ch:'Chapter 8: Land Energy',
+    q:'Are the nearest hills and mountains gentle and rolling, rather than jagged, rocky, or knife-edged?',
+    note:'Jagged, rocky, sharp formations carry aggressive, destructive energy; gentle rolling hills carry nourishing energy. The impact is worst when you are surrounded by them, less when they are only visible at a distance.' },
+  { layer:'land', bad:'no', ch:'Chapter 8: Land Energy',
+    q:'If you are in a valley, is it wide with gentle slopes rather than narrow and steep?',
+    note:'Wide valleys with gentle slopes carry nourishing energy. Narrow valleys with steep slopes carry fast, restless energy, and gullies carry unstable, precarious energy.' },
+  { layer:'land', bad:'no', ch:'Chapter 8: Land Energy',
+    q:'Is the nearest water gentle and clear — a meandering river, a calm lake — rather than fast, stagnant, or stormy?',
+    note:'Gentle clear water nourishes. Fast water carries restless energy, stagnant water (swamps, brackish channels) carries lethargy, and stormy water carries aggressive energy.' },
+  { layer:'land', bad:'yes', ch:'Chapter 8: Land Energy',
+    q:'Is there a reservoir, dam, or large human-made water channel close by?',
+    note:'Reservoirs carry pent-up energy, and releasing water through a dam adds to the severity of the discontinuity. Well-maintained canals are the exception — they carry uplifting energy.' },
+  { layer:'land', bad:'yes', ch:'Chapter 8: Land Energy',
+    q:'Is there a cliff edge, shoreline, or steep drop within about 300 feet?',
+    note:'Avoid living at the edge of a cliff or at the bottom of one. About 300 feet (100 metres) from a discontinuity in the land is usually enough distance.' },
+  { layer:'land', bad:'no', ch:'Chapter 8: Land Energy',
+    q:'Is the vegetation around you healthy — full trees, diverse grasses — and do you see wildlife?',
+    note:'Animals are drawn to positive energy and repelled by negative energy, and healthy plant life indicates positive land energy. Unhealthy foliage signals unfavourable conditions even in a developed area.' },
+
+  { layer:'neighborhood', bad:'no', ch:'Assessing Your Neighborhood',
+    q:'Do people actually gather in the public spaces — parks, squares, markets?',
+    note:'Visible signs of life and community engagement are a listed indicator of positive neighbourhood energy. Some neighbourhoods encourage interaction; others produce isolation.' },
+  { layer:'neighborhood', bad:'no', ch:'Assessing Your Neighborhood',
+    q:'Does traffic flow smoothly here, rather than piling into congestion?',
+    note:'Street patterns should encourage safe, pleasant pedestrian movement. Congestion is one of the factors that sets the overall energy of a neighbourhood.' },
+  { layer:'neighborhood', bad:'no', ch:'Assessing Your Neighborhood',
+    q:'Are the buildings and streets in good condition and visibly maintained?',
+    note:'Condition of buildings and streets is one of the seven questions the book puts to a neighbourhood. Active, well-maintained community space is a positive indicator.' },
+  { layer:'neighborhood', bad:'no', ch:'Assessing Your Neighborhood',
+    q:'Is there a balanced mix of residential and commercial use, rather than one use dominating?',
+    note:'A balanced mix of residential and commercial uses is listed as an indicator of positive neighbourhood energy.' },
+  { layer:'neighborhood', bad:'no', ch:'Assessing Your Neighborhood',
+    q:'Do the surrounding buildings share a coherent architectural character?',
+    note:'Coherent, harmonious architectural character is a positive indicator. Land use, architectural style, street pattern and community space together produce the neighbourhood energy.' },
+  { layer:'neighborhood', bad:'no', ch:'Assessing Your Neighborhood',
+    q:'Do you feel good walking through the neighbourhood?',
+    note:'How you feel walking through a neighbourhood is one of the book’s direct assessment questions. A beautifully designed home cannot overcome fundamentally poor neighbourhood energy.' },
+
+  { layer:'building', bad:'no', ch:'The Fengshui of Building Structure',
+    q:'Is your first impression of the building a good one?',
+    note:'First impression is the first test the book applies to architectural energy. Negative architectural energy creates stress, confusion, and discomfort over time.' },
+  { layer:'building', bad:'no', ch:'The Fengshui of Building Structure',
+    q:'Do the building’s elements feel balanced and in proportion, and in scale with what surrounds it?',
+    note:'Poor structural proportion and being out of scale with the surroundings are both listed as architectural problems to recognise.' },
+  { layer:'building', bad:'no', ch:'The Fengshui of Building Structure',
+    q:'Are the materials natural, well maintained, and pleasing?',
+    note:'Deteriorating materials and poor maintenance are listed building problems. Material quality is one of the six checks in the book’s evaluation.' },
+  { layer:'building', bad:'no', ch:'The Fengshui of Building Structure',
+    q:'Does the floor plan circulate well, without dead zones or rooms nobody enters?',
+    note:'Floor plans that create dead zones or poor circulation are a named architectural problem. Interior flow should facilitate circulation and connection.' },
+  { layer:'building', bad:'no', ch:'The Fengshui of Building Structure',
+    q:'Does the home get enough natural light and ventilation?',
+    note:'Light and air is one of the six architectural checks. Fengshui means "wind and water" — gentle wind and clear water make an environment healthy.' },
+  { layer:'building', bad:'no', ch:'The Fengshui of Building Structure',
+    q:'Does the building connect to neighbourhood life rather than isolating you from it?',
+    note:'Buildings that isolate you from community and neighbourhood life are a listed problem. A building should relate well to its neighbourhood.' },
+
+  { layer:'objects', bad:'yes', ch:'External Object Energy',
+    q:'Are there electrical transmission lines directly overhead?',
+    note:'Transmission lines directly overhead are a named sign of negative object energy. Relocation is the best answer; countermeasures only minimise the effect, they do not remove it.' },
+  { layer:'objects', bad:'yes', ch:'External Object Energy',
+    q:'Is there a cell tower, radio antenna, or substation nearby?',
+    note:'Proximity to large utility structures is the primary source of negative object energy. Distance matters — ask how far away it is, not only whether it exists.' },
+  { layer:'objects', bad:'yes', ch:'External Object Energy',
+    q:'Are there industrial structures, or harsh angular structures, dominating the view?',
+    note:'Industrial structures and harsh angular forms that dominate the view are listed indicators of problematic object energy.' },
+  { layer:'objects', bad:'no', ch:'External Object Energy',
+    q:'Is the view from your main windows clear rather than obstructed?',
+    note:'Whether the view is clear or obstructed is one of the five questions the book puts to object energy.' },
+  { layer:'objects', bad:'no', ch:'External Object Energy',
+    q:'Are there plants, trees, or natural elements in the immediate surroundings?',
+    note:'Presence of plants and natural elements is part of assessing object energy, and strategic landscaping is one of the listed countermeasures.' },
+  { layer:'objects', bad:'no', ch:'External Object Energy',
+    q:'Are your interior spaces organised rather than cluttered?',
+    note:'Clutter versus organised space is listed under interior object energy, alongside furniture arrangement, natural versus synthetic materials, and colour.' }
+];
+
+/* ---------- state ---------- */
+
+var STORE_KEY = 'homeqi.properties';
+var props = loadProps();
+var answers = props.list[props.current].answers;
+
+// ponytail: migrates the old single-assessment key so nobody loses data.
+function loadProps() {
+  try {
+    var p = JSON.parse(localStorage.getItem(STORE_KEY));
+    if (p && p.list && p.list[p.current]) return p;
+  } catch (e) {}
+  var legacy = {};
+  try { legacy = JSON.parse(localStorage.getItem('homeqi.assessment')) || {}; } catch (e) {}
+  var id = 'p1';
+  return { current: id, list: { p1: { name: 'My place', answers: legacy } } };
+}
+function save() {
+  props.list[props.current].answers = answers;
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(props)); } catch (e) {}
+}
+function switchProp(id) {
+  props.current = id;
+  answers = props.list[id].answers;
+  save();
+  render();
+  renderPropPicker();
+}
+function newProp() {
+  var name = prompt('Name this place:', 'New place');
+  if (!name) return;
+  var id = 'p' + Date.now();
+  props.list[id] = { name: name, answers: {} };
+  switchProp(id);
+}
+function renameProp() {
+  var name = prompt('Rename this place:', props.list[props.current].name);
+  if (!name) return;
+  props.list[props.current].name = name;
+  save();
+  renderPropPicker();
+}
+function deleteProp() {
+  var ids = Object.keys(props.list);
+  if (ids.length < 2) return;
+  if (!confirm('Delete "' + props.list[props.current].name + '"?')) return;
+  delete props.list[props.current];
+  switchProp(Object.keys(props.list)[0]);
+}
+
+// counts only answers that match the question's concerning value; 'unsure' never counts
+function tally(a) {
+  var out = {};
+  LAYERS.forEach(function(l) { out[l.id] = { concerns:0, answered:0, total:0 }; });
+  QUESTIONS.forEach(function(q, i) {
+    var t = out[q.layer];
+    t.total++;
+    if (!a[i]) return;
+    t.answered++;
+    if (a[i] === q.bad) t.concerns++;
+  });
+  return out;
+}
+
+function concerns(a) {
+  return QUESTIONS.map(function(q, i) { return { q:q, i:i }; })
+                  .filter(function(x) { return a[x.i] === x.q.bad; });
+}
+
+/* ---------- render ---------- */
+
+var layersEl = document.getElementById('layers');
+var tallyEl = document.getElementById('tally');
+var titleEl = document.getElementById('summary-title');
+var findingsEl = document.getElementById('findings');
+var findingsList = document.getElementById('findings-list');
+
+function buildLayers() {
+  LAYERS.forEach(function(layer) {
+    var sec = document.createElement('section');
+    sec.className = 'layer';
+    var h = document.createElement('h2');
+    h.textContent = layer.name;
+    var sub = document.createElement('p');
+    sub.className = 'layer-sub';
+    sub.textContent = layer.sub;
+    sec.appendChild(h);
+    sec.appendChild(sub);
+
+    QUESTIONS.forEach(function(q, i) {
+      if (q.layer !== layer.id) return;
+      var row = document.createElement('div');
+      row.className = 'q';
+      row.id = 'q-' + i;
+      var p = document.createElement('p');
+      p.textContent = q.q;
+      row.appendChild(p);
+      var opts = document.createElement('div');
+      opts.className = 'opts';
+      ['yes','no','unsure'].forEach(function(v) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = v;
+        b.dataset.q = i;
+        b.dataset.v = v;
+        opts.appendChild(b);
+      });
+      row.appendChild(opts);
+      var note = document.createElement('div');
+      note.className = 'q-note';
+      note.hidden = true;
+      row.appendChild(note);
+      sec.appendChild(row);
+    });
+    layersEl.appendChild(sec);
+  });
+
+  layersEl.addEventListener('click', function(e) {
+    var b = e.target.closest('button[data-q]');
+    if (!b) return;
+    var i = b.dataset.q;
+    answers[i] = answers[i] === b.dataset.v ? undefined : b.dataset.v;
+    if (!answers[i]) delete answers[i];
+    save();
+    render();
+  });
+}
+
+function render() {
+  var t = tally(answers);
+  var flagged = concerns(answers);
+  var answered = Object.keys(answers).length;
+
+  titleEl.textContent = answered === 0
+    ? 'Nothing answered yet'
+    : flagged.length + (flagged.length === 1 ? ' concern' : ' concerns') +
+      ' across ' + answered + ' of ' + QUESTIONS.length + ' questions';
+
+  tallyEl.textContent = '';
+  LAYERS.forEach(function(l) {
+    var s = t[l.id];
+    var row = document.createElement('div');
+    row.className = 'tally-row';
+    var name = document.createElement('span');
+    name.className = 'name';
+    name.textContent = l.name;
+    var bar = document.createElement('span');
+    bar.className = 'bar';
+    var fill = document.createElement('i');
+    fill.style.width = (s.concerns / s.total * 100) + '%';
+    bar.appendChild(fill);
+    var n = document.createElement('span');
+    n.className = 'n';
+    n.textContent = s.answered === 0 ? '—' : s.concerns + ' of ' + s.answered;
+    row.appendChild(name); row.appendChild(bar); row.appendChild(n);
+    tallyEl.appendChild(row);
+  });
+
+  QUESTIONS.forEach(function(q, i) {
+    var row = document.getElementById('q-' + i);
+    var val = answers[i];
+    row.querySelectorAll('button[data-q]').forEach(function(b) {
+      b.setAttribute('aria-pressed', b.dataset.v === val ? 'true' : 'false');
+    });
+    var bad = val === q.bad;
+    row.classList.toggle('flagged', bad);
+    var note = row.querySelector('.q-note');
+    note.hidden = !bad;
+    if (bad) note.textContent = q.note;
+  });
+
+  findingsEl.hidden = flagged.length === 0;
+  findingsList.textContent = '';
+  // Siting concerns (the layer the book treats as hardest to fix after move-in)
+  // float to the top of the findings list; everything else keeps question order.
+  flagged.sort(function(a, b) { return (SITING[b.q.layer] ? 1 : 0) - (SITING[a.q.layer] ? 1 : 0); });
+  flagged.forEach(function(x) {
+    var li = document.createElement('li');
+    var q = document.createElement('span');
+    q.className = 'fq';
+    q.textContent = x.q.q;
+    li.appendChild(q);
+    li.appendChild(document.createTextNode(x.q.note + ' '));
+    var link = document.createElement('a');
+    link.href = '#';
+    link.textContent = 'Read ' + x.q.ch;
+    link.addEventListener('click', function(e) { e.preventDefault(); openChapter(x.q.ch); });
+    li.appendChild(link);
+    if (SITING[x.q.layer]) {
+      var s = document.createElement('div');
+      s.className = 'siting';
+      s.textContent = 'Siting decision — no interior change fixes this.';
+      li.appendChild(s);
+    }
+    findingsList.appendChild(li);
+  });
+}
+
+document.getElementById('reset').addEventListener('click', function() {
+  if (!confirm('Clear all answers for "' + props.list[props.current].name + '"?')) return;
+  answers = {};
+  save();
+  render();
+});
+
+var propPicker = document.getElementById('prop-picker');
+function renderPropPicker() {
+  propPicker.textContent = '';
+  Object.keys(props.list).forEach(function(id) {
+    var opt = document.createElement('option');
+    opt.value = id;
+    opt.textContent = props.list[id].name;
+    if (id === props.current) opt.selected = true;
+    propPicker.appendChild(opt);
+  });
+  document.getElementById('prop-delete').disabled = Object.keys(props.list).length < 2;
+}
+propPicker.addEventListener('change', function() { switchProp(this.value); });
+document.getElementById('prop-new').addEventListener('click', newProp);
+document.getElementById('prop-rename').addEventListener('click', renameProp);
+document.getElementById('prop-delete').addEventListener('click', deleteProp);
+renderPropPicker();
+
+/* ---------- tabs ---------- */
+
+var tabAssess = document.getElementById('tab-assess');
+var tabRead = document.getElementById('tab-read');
+
+function setView(v) {
+  document.body.dataset.view = v;
+  tabAssess.setAttribute('aria-selected', v === 'assess' ? 'true' : 'false');
+  tabRead.setAttribute('aria-selected', v === 'read' ? 'true' : 'false');
+}
+tabAssess.addEventListener('click', function() { setView('assess'); });
+tabRead.addEventListener('click', function() { setView('read'); });
+
+// matches on heading text, so it survives content.md edits that renumber the ids
+function openChapter(text) {
+  setView('read');
+  var target = null;
+  contentEl.querySelectorAll('h2').forEach(function(h) {
+    if (!target && h.textContent.trim() === text) target = h;
+  });
+  // the read view is display:none until setView, so let layout settle before scrolling
+  requestAnimationFrame(function() {
+    if (target) target.scrollIntoView({ behavior:'smooth' });
+    else window.scrollTo({ top:0, behavior:'smooth' });
+  });
+}
+
+/* ---------- reader ---------- */
+
+var contentEl = document.getElementById('content');
+var metaEl = document.getElementById('hero-meta');
+var tocEl = document.getElementById('toc');
+var jumpEl = document.getElementById('chapter-jump');
+
+function buildTOC() {
+  var headings = contentEl.querySelectorAll('h2');
+  if (!headings.length) return;
+  headings.forEach(function(h, i) {
+    var id = 'ch-' + i;
+    h.id = id;
+    var a = document.createElement('a');
+    a.href = '#' + id;
+    a.textContent = h.textContent;
+    tocEl.appendChild(a);
+    var opt = document.createElement('option');
+    opt.value = '#' + id;
+    opt.textContent = h.textContent;
+    jumpEl.appendChild(opt);
+  });
+  jumpEl.addEventListener('change', function() {
+    if (this.value) {
+      document.querySelector(this.value).scrollIntoView({behavior:'smooth'});
+      this.value = '';
+    }
+  });
+  var links = tocEl.querySelectorAll('a');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        links.forEach(function(l) { l.classList.remove('active'); });
+        var active = tocEl.querySelector('a[href="#' + entry.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  headings.forEach(function(h) { observer.observe(h); });
+}
+
+buildLayers();
+render();
+
+fetch('content.md')
+  .then(function(res) { return res.text(); })
+  .then(function(md) {
+    contentEl.innerHTML = marked.parse(md);
+    var h2s = contentEl.querySelectorAll('h2');
+    var words = md.trim().split(/\s+/).length;
+    var mins = Math.max(1, Math.round(words / 200));
+    var s0 = document.createElement('span'); s0.textContent = QUESTIONS.length + ' checks'; metaEl.appendChild(s0);
+    var s1 = document.createElement('span'); s1.textContent = h2s.length + ' chapters'; metaEl.appendChild(s1);
+    var s2 = document.createElement('span'); s2.textContent = mins + ' min read'; metaEl.appendChild(s2);
+    buildTOC();
+  })
+  .catch(function() {
+    contentEl.innerHTML = '<div class="empty-state">Content failed to load.</div>';
+  });
+
+/* ---------- self-check: /?selftest ---------- */
+// ponytail: assert block, real test file if the scoring grows past counting
+if (location.search.indexOf('selftest') !== -1) {
+  (function() {
+    var fails = 0;
+    function ok(cond, msg) { if (!cond) { fails++; console.error('FAIL: ' + msg); } else { console.log('ok: ' + msg); } }
+
+    var first = QUESTIONS.findIndex(function(q) { return q.layer === 'land'; });
+    var good = QUESTIONS[first].bad === 'yes' ? 'no' : 'yes';
+
+    ok(concerns({}).length === 0, 'no answers means no concerns');
+    ok(tally({})['land'].answered === 0, 'no answers means nothing answered');
+
+    var f = {}; f[first] = QUESTIONS[first].bad;
+    ok(tally(f)['land'].concerns === 1, 'a bad answer counts as one concern');
+    ok(concerns(f).length === 1, 'a bad answer appears in findings');
+
+    var g = {}; g[first] = good;
+    ok(tally(g)['land'].concerns === 0, 'the safe answer is not a concern');
+    ok(tally(g)['land'].answered === 1, 'the safe answer still counts as answered');
+
+    var u = {}; u[first] = 'unsure';
+    ok(tally(u)['land'].concerns === 0, 'unsure is never a concern');
+    ok(tally(u)['land'].answered === 1, 'unsure still counts as answered');
+
+    var all = {};
+    QUESTIONS.forEach(function(q, i) { all[i] = q.bad; });
+    ok(concerns(all).length === QUESTIONS.length, 'every bad answer flags');
+    LAYERS.forEach(function(l) {
+      var t = tally(all)[l.id];
+      ok(t.concerns === t.total, l.id + ' tallies all of its own questions');
+    });
+
+    var totals = LAYERS.reduce(function(n, l) { return n + tally(all)[l.id].total; }, 0);
+    ok(totals === QUESTIONS.length, 'every question belongs to a known layer');
+
+    var before = answers;
+    answers = all; save();
+    var restored = load();
+    ok(JSON.stringify(tally(restored)) === JSON.stringify(tally(all)), 'localStorage round-trip is identical');
+    answers = before; save(); render();
+
+    console.log(fails === 0 ? 'selftest: all passed' : 'selftest: ' + fails + ' failed');
+  })();
+}
+</script>
+
+  <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>
+<script>
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  document.querySelectorAll('.tabs, .xp-card').forEach(function(el){ el.classList.add('reveal'); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

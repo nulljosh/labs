@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" style="background:#fff;font-family:-apple-system,BlinkMacSystemFont,sans-serif" viewBox="0 0 640 400">
+<text x="320" y="28" fill="#333" font-size="16" font-weight="600" text-anchor="middle">Homeqi Architecture</text>
+
+<rect width="230" height="88" x="35" y="55" fill="#f5f5f7" stroke="#d1d1d6" rx="8"/>
+<text x="150" y="76" fill="#333" font-size="12" font-weight="600" text-anchor="middle">Web app — index.html</text>
+<text x="150" y="96" fill="#333" font-size="11" text-anchor="middle">Assess tab: 24 questions, 4 layers</text>
+<text x="150" y="112" fill="#333" font-size="11" text-anchor="middle">Read tab: chapter reader + TOC</text>
+<text x="150" y="128" fill="#333" font-size="11" text-anchor="middle">no build, no dependencies</text>
+
+<rect width="180" height="88" x="425" y="55" fill="#f5f5f7" stroke="#d1d1d6" rx="8"/>
+<text x="515" y="76" fill="#333" font-size="12" font-weight="600" text-anchor="middle">iOS app — SwiftUI</text>
+<text x="515" y="96" fill="#333" font-size="11" text-anchor="middle">reader only</text>
+<text x="515" y="112" fill="#333" font-size="11" text-anchor="middle">parked, assessment</text>
+<text x="515" y="128" fill="#333" font-size="11" text-anchor="middle">not yet mirrored</text>
+
+<rect width="170" height="44" x="35" y="195" fill="#f5f5f7" stroke="#d1d1d6" rx="8"/>
+<text x="120" y="213" fill="#333" font-size="11" text-anchor="middle">localStorage</text>
+<text x="120" y="228" fill="#333" font-size="11" text-anchor="middle">fengshui.assessment</text>
+
+<rect width="230" height="58" x="255" y="188" fill="#a8323a" fill-opacity=".15" stroke="#a8323a" rx="8"/>
+<text x="370" y="209" fill="#333" font-size="11" font-weight="500" text-anchor="middle">content.md</text>
+<text x="370" y="226" fill="#333" font-size="11" font-weight="500" text-anchor="middle">chapter source, shared by both</text>
+<text x="370" y="240" fill="#333" font-size="11" font-weight="500" text-anchor="middle">and cited by every finding</text>
+
+<rect width="290" height="44" x="175" y="310" fill="#a8323a" fill-opacity=".15" stroke="#a8323a" rx="8"/>
+<text x="320" y="329" fill="#333" font-size="12" font-weight="500" text-anchor="middle">Cloudflare Pages — static upload</text>
+<text x="320" y="344" fill="#333" font-size="11" font-weight="500" text-anchor="middle">homeqi.jaybulb.com</text>
+
+<path stroke="#d1d1d6" fill="none" d="M150 143v45M150 188H120v7M150 143v20h220v25M515 143v45h-30v0M370 246v40H320v24"/>
+</svg>
