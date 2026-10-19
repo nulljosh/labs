@@ -8,6 +8,10 @@
   destination even by explicit UDID -- needs the matching platform component installed,
   then a screenshot check (menu, round, game-over, speed-round clock).
 
+## Brand refresh (2026-10-18)
+- [ ] Ship a new iOS and Mac build so the store shows the new icon, Quip Sans and the yellow UI (needs Joshua's yes before submitting).
+- [ ] Retake App Store screenshots in the new look.
+
 ## TODO, next time you are at a real Mac
 
 Left over from the 2026-09-01 art-flash fix. None of it can run in a Claude Code web
