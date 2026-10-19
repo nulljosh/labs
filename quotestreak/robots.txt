@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://quotestreak.jaybulb.com/sitemap.xml
