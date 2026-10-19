@@ -16,7 +16,7 @@
   "Score: {n}": "Score : {n}",
   "Streak: {n}": "Série : {n}",
   "Correct! +{n}": "Correct ! +{n}",
-  "Nope — it was \"{s}\"": "Non — c'était « {s} »",
+  "Nope, it was \"{s}\"": "Non, c'était « {s} »",
   "Haptics": "Retour haptique",
   "High score: {n}": "Meilleur score : {n}",
   "Quotestreak": "Quotestreak",
