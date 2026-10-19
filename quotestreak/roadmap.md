@@ -43,7 +43,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 
 ### Era 4: every screen (31 to 40)
 - [x] **v31 Widgets.** The daily quote on the iPhone, iPad and Mac home screen.
-- [ ] **v32 Watch.** Play the daily quote on Apple Watch.
+- [x] **v32 Watch.** Play the daily quote on Apple Watch.
 - [ ] **v33 Live Activities.** Duel and tournament progress on the lock screen.
 - [ ] **v34 Apple TV.** A living-room game with phones as buzzers.
 - [ ] **v35 Vision Pro.** The poster wall around you.

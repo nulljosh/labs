@@ -19,6 +19,10 @@ targets:
           - "*.xcodeproj"
           - "*.yml"
           - "*.md"
+      - path: ../ios/Quotable/Quote.swift
+      - path: ../ios/Quotable/Daily.swift
+      - path: ../quotes.json
+        buildPhase: resources
     settings:
       INFOPLIST_FILE: ""
       GENERATE_INFOPLIST_FILE: YES

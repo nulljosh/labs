@@ -10,7 +10,7 @@ Work down "Road to v100" in `roadmap.md`, one major version per tick. Each miles
 - Store builds need `-allowProvisioningUpdates` and automatic export signing; the old manual Mac profile lacks Sign in with Apple.
 
 ## Next, in order
-1. v32 Watch, then down the list. v2 to v31 are live on the web. Duels: `cd duel && npx wrangler deploy`. Native carries accounts on Cloudflare, the new media types, decades and difficulty for the next store build.
+1. v33 Live Activities, then down the list. v2 to v32 are live on the web. Duels: `cd duel && npx wrangler deploy`. Native carries accounts on Cloudflare, the new media types, decades and difficulty for the next store build.
 2. When 1.3.0 clears review, cut the next store build with every native change since, new screenshots if the UI moved, and What's New in the house voice.
 
 ## Restart prompt
