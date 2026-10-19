@@ -1,0 +1,60 @@
+# dotfiles
+
+v2.0.0
+
+## Rules
+
+- No emojis.
+- Project scope is macOS (Apple Silicon) shell and terminal configuration managed via symlinks.
+- NEVER commit secrets (API keys, tokens); secrets are not managed in this repo.
+- Secrets live in `~/.config/fish/secrets.fish` and `~/.config/zsh/secrets.zsh`.
+- Repo copies must match live configs minus secrets (replaced with source lines).
+- After editing a live config, copy the sanitized version into the repo.
+- `install.sh` symlinks repo files to their target locations; update it if new files are added.
+- Test changes by sourcing the config in a new shell before committing.
+
+## Run
+
+```bash
+git clone https://github.com/nulljosh/dotfiles.git ~/Documents/Code/dotfiles
+cd ~/Documents/Code/dotfiles
+chmod +x install.sh
+./install.sh
+```
+
+## Key Files
+
+### Shell & Terminal
+- `fish/` - Fish shell config (aliases, abbreviations, tool init).
+- `zsh/` - Zsh config (PATH, aliases, completions, tool init).
+- `ghostty/` - Ghostty terminal config (font, shell, theme).
+- `starship/` - Starship prompt config (Catppuccin Mocha).
+- `applescripts/` - macOS automation scripts.
+- `install.sh` - Symlink installer that backs up existing files.
+
+### Infrastructure (infra/)
+- `infra/api-gateway/` - API gateway (Go)
+- `infra/key-value-store/` - KV store (Rust)
+- `infra/search-engine/` - Search engine (Python)
+- `infra/graphics-renderer/` - Graphics renderer (Rust)
+
+### Notes (notes/)
+- Personal reference site. Health, school, timeline, master notes.
+- Has its own GitHub Pages deploy.
+
+### Vibe (vibe/)
+- Portfolio design reference. Dark editorial aesthetic template.
+
+### Claude (claude/)
+- `claude/commands/` - symlinked to `~/.claude/commands` (slash commands, e.g. `/work`).
+- `claude/skills/` - symlinked to `~/.agents/skills` (asc-* App Store Connect skills).
+- `claude/claude-skills/` - symlinked to `~/.claude/skills` (all Claude Code skills: /night, /journal, /xcode-cleanup, etc).
+- Edits in either location are the same files; no separate sync step needed.
+
+### Scaffold (scaffold/)
+- Project template extracted from Tally. Express API + PWA + iOS/macOS companions.
+- Auth: encrypted cookies, session rehydration, CSRF, security headers, rate limiting.
+- PWA: service worker, design tokens, login page with theme toggle.
+- iOS: APIClient, KeychainHelper, AppState with biometric + session check bootstrap.
+- macOS: MacAPIClient, MacAppState with widget sync.
+- Deployment: Vercel serverless config, Blob persistence helpers.
