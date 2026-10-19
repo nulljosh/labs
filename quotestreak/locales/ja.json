@@ -497,5 +497,8 @@
  "Feature": "おすすめにする",
  "Unfeature": "おすすめを外す",
  "Featured · by {x} · {n} lines · {n} plays": "おすすめ · 作成 {x} · {n}フレーズ・{n}回プレイ",
- "Featured · by {x} · {n} lines · {n} play": "おすすめ · 作成 {x} · {n}フレーズ・{n}回プレイ"
+ "Featured · by {x} · {n} lines · {n} play": "おすすめ · 作成 {x} · {n}フレーズ・{n}回プレイ",
+ "{x} scored {n} on Quotestreak. Your turn.": "{x}がQuotestreakで{n}点。次はあなたの番。",
+ "{n} lines, one go. Can you beat {n}?": "{n}問、一発勝負。{n}点を超えられる？",
+ "Take the challenge": "挑戦する"
 }

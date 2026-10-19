@@ -282,7 +282,7 @@ function endGame() {
 $('challenge-btn').onclick = () => {
   window.quotableBadge?.('challenge');
   const first = run.slice(0, Challenge.SIZE);
-  const url = `${location.origin}/play?${Challenge.encode(first.map(r => r.qid), first.reduce((n, r) => n + r.pts, 0), window.quotableDisplayName?.())}`;
+  const url = `${location.origin}/c?${Challenge.encode(first.map(r => r.qid), first.reduce((n, r) => n + r.pts, 0), window.quotableDisplayName?.())}`;
   const text = `I scored ${first.reduce((n, r) => n + r.pts, 0)} on these ${first.length} Quotestreak lines. Your turn: ${url}`;
   if (navigator.share) navigator.share({ text });
   else navigator.clipboard.writeText(text).then(() => {

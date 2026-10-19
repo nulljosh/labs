@@ -497,5 +497,8 @@
  "Feature": "Làm nổi bật",
  "Unfeature": "Bỏ nổi bật",
  "Featured · by {x} · {n} lines · {n} plays": "Nổi bật · của {x} · {n} câu thoại · {n} lượt chơi",
- "Featured · by {x} · {n} lines · {n} play": "Nổi bật · của {x} · {n} câu thoại · {n} lượt chơi"
+ "Featured · by {x} · {n} lines · {n} play": "Nổi bật · của {x} · {n} câu thoại · {n} lượt chơi",
+ "{x} scored {n} on Quotestreak. Your turn.": "{x} được {n} điểm trên Quotestreak. Đến lượt bạn.",
+ "{n} lines, one go. Can you beat {n}?": "{n} câu thoại, một lượt. Bạn vượt được {n} điểm không?",
+ "Take the challenge": "Nhận thử thách"
 }

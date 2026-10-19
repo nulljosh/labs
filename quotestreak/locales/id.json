@@ -497,5 +497,8 @@
  "Feature": "Unggulkan",
  "Unfeature": "Batalkan unggulan",
  "Featured · by {x} · {n} lines · {n} plays": "Unggulan · oleh {x} · {n} dialog · {n} kali dimainkan",
- "Featured · by {x} · {n} lines · {n} play": "Unggulan · oleh {x} · {n} dialog · {n} kali dimainkan"
+ "Featured · by {x} · {n} lines · {n} play": "Unggulan · oleh {x} · {n} dialog · {n} kali dimainkan",
+ "{x} scored {n} on Quotestreak. Your turn.": "{x} mencetak {n} di Quotestreak. Giliranmu.",
+ "{n} lines, one go. Can you beat {n}?": "{n} kutipan, satu kesempatan. Bisa kalahkan {n}?",
+ "Take the challenge": "Terima tantangan"
 }

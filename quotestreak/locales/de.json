@@ -497,5 +497,8 @@
  "Feature": "Empfehlen",
  "Unfeature": "Nicht mehr empfehlen",
  "Featured · by {x} · {n} lines · {n} plays": "Empfohlen · von {x} · {n} Zeilen · {n} Spiele",
- "Featured · by {x} · {n} lines · {n} play": "Empfohlen · von {x} · {n} Zeilen · {n} Spiel"
+ "Featured · by {x} · {n} lines · {n} play": "Empfohlen · von {x} · {n} Zeilen · {n} Spiel",
+ "{x} scored {n} on Quotestreak. Your turn.": "{x} hat {n} Punkte bei Quotestreak. Du bist dran.",
+ "{n} lines, one go. Can you beat {n}?": "{n} Zeilen, ein Versuch. Schaffst du mehr als {n}?",
+ "Take the challenge": "Herausforderung annehmen"
 }

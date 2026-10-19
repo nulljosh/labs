@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import { createRequire } from 'node:module';
+import { page } from './c.js';
+const require = createRequire(import.meta.url);
+const Challenge = require('../challenge.js'), Difficulty = require('../difficulty.js'), quotes = require('../quotes.json');
+const search = '?' + Challenge.encode(quotes.slice(0, 10).map(q => Difficulty.qid(q.quote)), 80, 'Sam <script>');
+const html = page(search);
+assert.match(html, /<meta property="og:title" content="Sam &#60;script&#62; scored 80 on Quotestreak. Your turn.">/);
+assert.ok(html.includes(`href="/play${search.replace(/&/g, '&#38;')}"`), 'Play keeps the challenge');
+assert.ok(!html.includes('<script>alert') && !html.includes('Sam <script>'), 'names are escaped');
+assert.match(page(''), /<title>Quotestreak<\/title>/, 'a bare /c still renders');
+console.log('c ok');

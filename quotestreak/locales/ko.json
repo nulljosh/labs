@@ -497,5 +497,8 @@
  "Feature": "추천하기",
  "Unfeature": "추천 해제",
  "Featured · by {x} · {n} lines · {n} plays": "추천 · 만든 사람 {x} · 대사 {n}개 · 플레이 {n}회",
- "Featured · by {x} · {n} lines · {n} play": "추천 · 만든 사람 {x} · 대사 {n}개 · 플레이 {n}회"
+ "Featured · by {x} · {n} lines · {n} play": "추천 · 만든 사람 {x} · 대사 {n}개 · 플레이 {n}회",
+ "{x} scored {n} on Quotestreak. Your turn.": "{x} 님이 Quotestreak에서 {n}점을 냈어요. 이제 당신 차례예요.",
+ "{n} lines, one go. Can you beat {n}?": "{n}개 대사, 한 번의 기회. {n}점을 넘을 수 있나요?",
+ "Take the challenge": "도전하기"
 }

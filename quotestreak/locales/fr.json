@@ -505,5 +505,8 @@
  "Feature": "Mettre à la une",
  "Unfeature": "Retirer de la une",
  "Featured · by {x} · {n} lines · {n} plays": "À la une · par {x} · {n} répliques · {n} parties",
- "Featured · by {x} · {n} lines · {n} play": "À la une · par {x} · {n} répliques · {n} partie"
+ "Featured · by {x} · {n} lines · {n} play": "À la une · par {x} · {n} répliques · {n} partie",
+ "{x} scored {n} on Quotestreak. Your turn.": "{x} a marqué {n} sur Quotestreak. À vous.",
+ "{n} lines, one go. Can you beat {n}?": "{n} répliques, un seul essai. Pouvez-vous battre {n} ?",
+ "Take the challenge": "Relever le défi"
 }

@@ -497,5 +497,8 @@
  "Feature": "Öne çıkar",
  "Unfeature": "Öne çıkarmayı kaldır",
  "Featured · by {x} · {n} lines · {n} plays": "Öne çıkan · {x} · {n} replik · {n} oynanma",
- "Featured · by {x} · {n} lines · {n} play": "Öne çıkan · {x} · {n} replik · {n} oynanma"
+ "Featured · by {x} · {n} lines · {n} play": "Öne çıkan · {x} · {n} replik · {n} oynanma",
+ "{x} scored {n} on Quotestreak. Your turn.": "{x}, Quotestreak'te {n} puan aldı. Sıra sende.",
+ "{n} lines, one go. Can you beat {n}?": "{n} replik, tek şans. {n} puanı geçebilir misin?",
+ "Take the challenge": "Meydan okumayı kabul et"
 }

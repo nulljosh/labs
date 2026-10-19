@@ -497,5 +497,8 @@
  "Feature": "להמליץ",
  "Unfeature": "להסיר המלצה",
  "Featured · by {x} · {n} lines · {n} plays": "מומלץ · מאת {x} · {n} משפטים · {n} משחקים",
- "Featured · by {x} · {n} lines · {n} play": "מומלץ · מאת {x} · {n} משפטים · {n} משחק"
+ "Featured · by {x} · {n} lines · {n} play": "מומלץ · מאת {x} · {n} משפטים · {n} משחק",
+ "{x} scored {n} on Quotestreak. Your turn.": "{x} צבר {n} ב־Quotestreak. תורך.",
+ "{n} lines, one go. Can you beat {n}?": "{n} משפטים, ניסיון אחד. תצליחו לעקוף {n}?",
+ "Take the challenge": "קבלו את האתגר"
 }

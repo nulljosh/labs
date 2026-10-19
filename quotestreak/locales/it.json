@@ -497,5 +497,8 @@
  "Feature": "Metti in evidenza",
  "Unfeature": "Togli dall’evidenza",
  "Featured · by {x} · {n} lines · {n} plays": "In evidenza · di {x} · {n} battute · {n} partite",
- "Featured · by {x} · {n} lines · {n} play": "In evidenza · di {x} · {n} battute · {n} partita"
+ "Featured · by {x} · {n} lines · {n} play": "In evidenza · di {x} · {n} battute · {n} partita",
+ "{x} scored {n} on Quotestreak. Your turn.": "{x} ha fatto {n} punti su Quotestreak. Tocca a te.",
+ "{n} lines, one go. Can you beat {n}?": "{n} battute, un tentativo. Riesci a battere {n}?",
+ "Take the challenge": "Accetta la sfida"
 }

@@ -497,5 +497,8 @@
  "Feature": "Uitlichten",
  "Unfeature": "Niet meer uitlichten",
  "Featured · by {x} · {n} lines · {n} plays": "Uitgelicht · door {x} · {n} zinnen · {n} keer gespeeld",
- "Featured · by {x} · {n} lines · {n} play": "Uitgelicht · door {x} · {n} zinnen · {n} keer gespeeld"
+ "Featured · by {x} · {n} lines · {n} play": "Uitgelicht · door {x} · {n} zinnen · {n} keer gespeeld",
+ "{x} scored {n} on Quotestreak. Your turn.": "{x} scoorde {n} op Quotestreak. Jij bent.",
+ "{n} lines, one go. Can you beat {n}?": "{n} zinnen, één poging. Kun jij {n} verslaan?",
+ "Take the challenge": "Ga de uitdaging aan"
 }

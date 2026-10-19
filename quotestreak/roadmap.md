@@ -104,7 +104,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 ### Era 9: a show (81 to 90)
 - [x] **v81 Live show.** A global quiz at a set time every week.
 - [x] **v82 Guest packs.** Featured packs from creators.
-- [ ] **v83 Invite links.** A landing page for every challenge.
+- [x] **v83 Invite links.** A landing page for every challenge.
 - [ ] **v84 Press kit.** Brand kit two with video and screenshots.
 - [ ] **v85 Embed.** A daily-quote widget for any website.
 - [ ] **v86 Newsletter.** The daily quote by email, opt in.

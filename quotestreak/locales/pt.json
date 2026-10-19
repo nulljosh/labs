@@ -497,5 +497,8 @@
  "Feature": "Destacar",
  "Unfeature": "Remover destaque",
  "Featured · by {x} · {n} lines · {n} plays": "Destaque · por {x} · {n} falas · {n} jogos",
- "Featured · by {x} · {n} lines · {n} play": "Destaque · por {x} · {n} falas · {n} jogo"
+ "Featured · by {x} · {n} lines · {n} play": "Destaque · por {x} · {n} falas · {n} jogo",
+ "{x} scored {n} on Quotestreak. Your turn.": "{x} fez {n} pontos no Quotestreak. Sua vez.",
+ "{n} lines, one go. Can you beat {n}?": "{n} falas, uma tentativa. Consegue passar de {n}?",
+ "Take the challenge": "Aceitar o desafio"
 }

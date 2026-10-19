@@ -40,3 +40,6 @@ Thirty classic one-liners from thirteen comics (Hedberg, Wright, Dangerfield, Ri
 
 ## Guest packs (v82)
 The owner can feature any approved pack in the Pack library (`quotestreak_feature_pack`, a `featured` column added by ALTER TABLE on 2026-10-19). Featured packs lead the list with a dot and the maker's leaderboard name as the credit. The French, German, Italian and Portuguese "1 play" strings had made the line count singular too; fixed.
+
+## Invite links (v83)
+Challenge links now go to `/c?c=&s=&n=` (`functions/c.js`), a landing page rendered on the server so link previews in Messages, Discord and WhatsApp say who scored what and show the first line. Take the challenge goes to `/play` with the same query. The web share and the native `ChallengeLink.url` both build `/c` links; old `/play?c=` links still work.

@@ -497,5 +497,8 @@
  "Feature": "В избранное",
  "Unfeature": "Убрать из избранного",
  "Featured · by {x} · {n} lines · {n} plays": "Избранное · автор {x} · Реплик: {n} · Сыграно: {n}",
- "Featured · by {x} · {n} lines · {n} play": "Избранное · автор {x} · Реплик: {n} · Сыграно: {n}"
+ "Featured · by {x} · {n} lines · {n} play": "Избранное · автор {x} · Реплик: {n} · Сыграно: {n}",
+ "{x} scored {n} on Quotestreak. Your turn.": "{x} набирает {n} в Quotestreak. Ваш ход.",
+ "{n} lines, one go. Can you beat {n}?": "{n} реплик, одна попытка. Побьёте {n}?",
+ "Take the challenge": "Принять вызов"
 }
