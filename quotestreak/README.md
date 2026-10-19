@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80" height="80" alt="Quotestreak icon">
 
-![version](https://img.shields.io/badge/version-52.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+![version](https://img.shields.io/badge/version-53.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 Here's the line. Name the movie.
 
@@ -15,7 +15,7 @@ Or the show, the game, the song or the book. 1,624 lines across 15 genres, from 
 
 ## Features
 
-**Guess.** Four choices or type it in. Hints if you turn them on. Filter by genre, decade and difficulty, where difficulty comes from what real players get right. Other ways to guess: who said it, finish the line, misquotes, said or written (was it improvised?), timeline, poster and album reveal, name the year, and a marathon through every genre on three lives.
+**Guess.** Four choices or type it in. Hints if you turn them on. Filter by genre, decade and difficulty, where difficulty comes from what real players get right. Other ways to guess: who said it, which actor, which director, finish the line, misquotes, said or written (was it improvised?), timeline, poster and album reveal, name the year, and a marathon through every genre on three lives.
 
 **Hands free.** Turn them on in Settings: Quip reads every line aloud, and you say the answer instead of tapping it.
 

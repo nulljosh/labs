@@ -38,6 +38,21 @@
       return { ...q, answer: word, character: [q.character, q.answer].filter(Boolean).join(', '), options, display, prompt: `Finish the line from ${q.answer}.` };
     },
   };
+  // v53 Actor mode: who delivered the line, from the cast lists on the line's Wikiquote page.
+  BUILD.actor = (q, all, rand) => {
+    if (!q.actor) return null;
+    const actors = (f) => all.filter(o => o.actor && f(o)).map(o => o.actor);
+    const options = pick(q.actor, [actors(o => o.answer === q.answer), actors(o => o.type === q.type && o.genre === q.genre), actors(o => o.type === q.type), actors(() => true)], rand);
+    return options && { ...q, answer: q.actor, options, character: `${q.character} in ${q.answer}`, prompt: `Who said this in ${q.answer}?` };
+  };
+  // v54 Director mode: who directed the film, from Wikidata through the film's Wikipedia article.
+  BUILD.director = (q, all, rand) => {
+    if (!q.director) return null;
+    const near = (o) => o.year && q.year && Math.abs(o.year - q.year) <= 10;
+    const dirs = (f) => all.filter(o => o.director && o.answer !== q.answer && f(o)).map(o => o.director);
+    const options = pick(q.director, [dirs(o => near(o) && o.genre === q.genre), dirs(near), dirs(() => true)], rand);
+    return options && { ...q, answer: q.director, options, character: `${q.answer}, ${q.year}`, year: null, prompt: `Who directed ${q.answer}?` };
+  };
   const build = (mode, q, all, rand = Math.random) => (BUILD[mode] ? BUILD[mode](q, all, rand) : q);
   // v24 Timeline: which of four came out first? Four titles at least three years apart; the reveal
   // gives every year so the player learns the order.

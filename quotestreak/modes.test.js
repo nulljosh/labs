@@ -85,4 +85,14 @@ const im = pool('improv', [], bank, rand);
 assert(im.length >= 16);
 assert(im.every(q => q.options.length === 2 && q.options.includes(q.answer) && q.character.length > 20));
 assert.equal(new Set(im.map(q => q.answer)).size, 2);
-console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length, ma.length, im.length);
+
+// Director: a real director, three others, the film's title in the prompt
+const di = pool('director', bank, bank, rand);
+assert(di.length > 500, `${di.length} director questions`);
+assert(di.every(q => q.options.length === 4 && new Set(q.options).size === 4 && q.options.includes(q.answer) && q.prompt.startsWith('Who directed')));
+const jaws = build('director', bank.find(q => q.answer === 'Jaws' && q.director), bank, rand);
+assert.equal(jaws.answer, 'Steven Spielberg');
+// Actor: only lines whose character matched one cast entry
+const ac = pool('actor', bank, bank, rand);
+assert(ac.every(q => q.options.length === 4 && new Set(q.options).size === 4 && q.options.includes(q.answer)));
+console.log('modes ok', playable, fin, mq.length, tl.length, po.length, al.length, yr.length, ma.length, im.length, di.length, ac.length);
