@@ -9,7 +9,7 @@ cp auth.js spark.js daily.js hints.js match.js difficulty.js challenge.js cup.js
    manifest.webmanifest quotes.json vibe.json icon.svg icon-192.png icon-512.png \
    icon-512-maskable.png architecture.svg favicon.svg favicon-32.png apple-touch-icon.png dist/
 cp -R locales fonts dist/
-mkdir -p dist/brand && cp brand/index.html brand/tokens.css brand/mark.svg brand/icon-1024.png brand/quip-*.svg dist/brand/ && cp -R brand/outfits dist/brand/
+mkdir -p dist/brand && cp brand/index.html brand/tokens.css brand/mark.svg brand/icon-1024.png brand/quip-*.svg dist/brand/ && cp -R brand/outfits brand/press dist/brand/
 mkdir -p dist/screenshots
 cp -R screenshots/web dist/screenshots/
 node scripts/build-data.mjs dist/data   # v80 open data, rebuilt from quotes.json every build

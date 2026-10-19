@@ -43,3 +43,6 @@ The owner can feature any approved pack in the Pack library (`quotestreak_featur
 
 ## Invite links (v83)
 Challenge links now go to `/c?c=&s=&n=` (`functions/c.js`), a landing page rendered on the server so link previews in Messages, Discord and WhatsApp say who scored what and show the first line. Take the challenge goes to `/play` with the same query. The web share and the native `ChallengeLink.url` both build `/c` links; old `/play?c=` links still work.
+
+## Press kit (v84)
+The brand kit page has a Press section: a fact paragraph, a 15-second gameplay video, six screenshots and downloads, all in `brand/press/`. `scripts/press-kit.mjs` regenerates them from the live site (pre-earned badges so no toast lands in a shot, family mode so no sworn line does, the first two seconds of video trimmed). Reviewing its first run caught a junk Riven line and a speaker prefix in Metal Gear; both fixed in the bank.
