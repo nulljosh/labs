@@ -483,7 +483,6 @@
  "Name the anime from the quote.": "대사로 애니메이션을 맞혀 보세요.",
  "Stand-up": "스탠드업",
  "Which comic said it?": "어느 코미디언이 한 말일까요?",
- "Live show": "라이브 쇼",
  "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "다음 쇼는 {x}에 시작해요. {x} 남았어요. 12문제, 모두에게 같은 순간에.",
  "{n} days": "{n}일",
  "{n} hours": "{n}시간",
@@ -536,6 +535,5 @@
  "Roadmap": "로드맵",
  "Happy birthday, Quip.": "생일 축하해, Quip.",
  "Happy birthday, Quip. {n} today.": "생일 축하해, Quip. 오늘로 {n}살.",
- "Quotestreak 100: the first live show, {x}. Twelve questions, everyone at once.": "Quotestreak 100: 첫 라이브 쇼, {x}. 12문제, 모두 동시에.",
  "Get ready": "준비하기"
 }

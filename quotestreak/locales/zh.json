@@ -485,7 +485,6 @@
  "Name the anime from the quote.": "根据台词猜动漫。",
  "Stand-up": "单口喜剧",
  "Which comic said it?": "这是哪位喜剧演员说的？",
- "Live show": "直播竞猜",
  "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "下一场将于{x}开始，还有{x}。十二道题，所有人同一秒作答。",
  "{n} days": "{n} 天",
  "{n} hours": "{n} 小时",
@@ -538,6 +537,5 @@
  "Roadmap": "路线图",
  "Happy birthday, Quip.": "Quip，生日快乐。",
  "Happy birthday, Quip. {n} today.": "Quip，生日快乐。今天 {n} 岁。",
- "Quotestreak 100: the first live show, {x}. Twelve questions, everyone at once.": "Quotestreak 100：首场直播竞猜，{x}。十二道题，所有人同时作答。",
  "Get ready": "做好准备"
 }

@@ -102,7 +102,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v80 Open data.** Publish the verified metadata where the licence allows.
 
 ### Era 9: a show (81 to 90)
-- [x] **v81 Live show.** A global quiz at a set time every week.
+- [x] **v81 Live show.** Built, then removed on 2026-10-19: nobody asked for it.
 - [x] **v82 Guest packs.** Featured packs from creators.
 - [x] **v83 Invite links.** A landing page for every challenge.
 - [x] **v84 Press kit.** Brand kit two with video and screenshots.
@@ -123,7 +123,7 @@ One major version per milestone. Each one ships on the web first (deploy the sam
 - [x] **v97 Hall of fame.** The best runs ever, kept forever.
 - [ ] **v98 Certified access.** A full outside accessibility audit. *Waiting on an outside auditor. The internal WCAG 2.2 pass is done and its fixes are live (docs/ACCESSIBILITY.md).*
 - [x] **v99 The book.** Whitepaper two and a public roadmap page.
-- [x] **v100 Quotestreak 100.** Ten thousand verified quotes, a live event, and Quip's birthday.
+- [x] **v100 Quotestreak 100.** Ten thousand verified quotes and Quip's birthday.
 
 ## TODO, next time you are at a real Mac
 

@@ -32,10 +32,6 @@ try {
   const [dctx, d] = await page(1440, 900, 'light');
   await d.goto(`${site}/play`); await ready(d); await d.click('#start-normal'); await d.waitForTimeout(600); await shot(d, 'desktop-question');
   await dctx.close();
-  // The show hides in family mode, so this one plays the whole bank.
-  const [sctx, s] = await page(1440, 900, 'light', false, false);
-  await s.goto(`${site}/play?show=now`); await s.waitForSelector('#show-stage:not(.hidden)', { timeout: 10000 }); await s.waitForTimeout(500); await shot(s, 'desktop-live-show');
-  await sctx.close();
   // About twenty seconds of play: three right answers and a miss, on a phone.
   const [vctx, v] = await page(390, 844, 'light', true);
   await v.goto(`${site}/play`); await ready(v);

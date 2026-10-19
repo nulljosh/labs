@@ -483,7 +483,6 @@
  "Name the anime from the quote.": "Adivina el anime por la frase.",
  "Stand-up": "Monólogos",
  "Which comic said it?": "¿Qué cómico lo dijo?",
- "Live show": "Concurso en directo",
  "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "El próximo concurso empieza el {x}, dentro de {x}. Doce preguntas, al mismo segundo para todos.",
  "{n} days": "{n} días",
  "{n} hours": "{n} horas",
@@ -536,6 +535,5 @@
  "Roadmap": "Hoja de ruta",
  "Happy birthday, Quip.": "Feliz cumpleaños, Quip.",
  "Happy birthday, Quip. {n} today.": "Feliz cumpleaños, Quip. Hoy cumple {n}.",
- "Quotestreak 100: the first live show, {x}. Twelve questions, everyone at once.": "Quotestreak 100: el primer concurso en directo, {x}. Doce preguntas, todos a la vez.",
  "Get ready": "Prepárate"
 }

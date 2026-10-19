@@ -1,7 +1,7 @@
 // Quotestreak 100 (v100): Quip's birthday and the live event. On October 18 (UTC), the day the brand
-// and Quip were made in 2026, every Quip wears a party hat and the menu says so, with confetti. Until
-// the first Sunday live show ends, the menu bills it as the Quotestreak 100 event, with a way in.
-// ?birthday shows the birthday any day. Classic script after dress.js and show.js; event.test.js
+// and Quip were made in 2026, every Quip wears a party hat and the menu says so, with confetti.
+// The show has its own menu button; a banner for it pushed Play off a phone screen, so there isn't one.
+// ?birthday shows the birthday any day. Classic script after dress.js; event.test.js
 // requires the pure part.
 (function (root) {
   const isBirthday = (d = new Date()) => d.getUTCMonth() === 9 && d.getUTCDate() === 18;
@@ -19,11 +19,6 @@
     window.Dress?.wearFor('partyhat');
     setTimeout(() => { const q = document.querySelector('#mode-select .quip'); if (q && !gameEl.offsetParent) burst(q, 60); }, 900);
   }
-  if (eventOn() && !window.quotableFamily) {   // the show hides in family mode, so its note does too
-    const when = new Date(EVENT_START).toLocaleString(undefined, { weekday: 'long', hour: 'numeric', minute: '2-digit' });
-    notes.push(`<p class="event-note">Quotestreak 100: the first live show, ${when}. Twelve questions, everyone at once.</p><button id="event-join">Get ready</button>`);
-  }
   if (!notes.length) return;
   modeSelect.insertAdjacentHTML('afterbegin', `<div id="event" class="event">${notes.join('')}</div>`);
-  $('event-join')?.addEventListener('click', () => $('start-show').click());
 })(this);

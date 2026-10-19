@@ -483,7 +483,6 @@
  "Name the anime from the quote.": "Replikten animeyi bil.",
  "Stand-up": "Stand-up",
  "Which comic said it?": "Bunu hangi komedyen söyledi?",
- "Live show": "Canlı yarışma",
  "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "Sonraki yarışma {x} başlıyor, {x} sonra. On iki soru, herkes için aynı saniyede.",
  "{n} days": "{n} gün",
  "{n} hours": "{n} saat",
@@ -536,6 +535,5 @@
  "Roadmap": "Yol haritası",
  "Happy birthday, Quip.": "İyi ki doğdun, Quip.",
  "Happy birthday, Quip. {n} today.": "İyi ki doğdun, Quip. Bugün {n} yaşında.",
- "Quotestreak 100: the first live show, {x}. Twelve questions, everyone at once.": "Quotestreak 100: ilk canlı yarışma, {x}. On iki soru, herkes aynı anda.",
  "Get ready": "Hazırlan"
 }

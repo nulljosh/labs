@@ -5,7 +5,7 @@ Where Quotestreak stands against WCAG 2.2 AA, for the outside audit (v98) to sta
 ## What is tested on every release
 - axe-core over every screen, light and dark (`scripts/axe-check.mjs`): 0 violations.
 - Keyboard only: Tab reaches every control with a visible focus ring, Enter starts a round, keys 1 to 4 answer.
-- Reflow at 320 CSS pixels: no sideways scrolling on the menu, a round, Settings, Offline packs, Suggest a line, the Hall of fame and the Live show.
+- Reflow at 320 CSS pixels: no sideways scrolling on the menu, a round, Settings, Offline packs, Suggest a line and the Hall of fame.
 - Target size: every control is at least 24 by 24 pixels, or sits inside a larger label.
 
 ## How the game meets it
@@ -14,7 +14,6 @@ The question and the result are live regions, so a screen reader hears each new 
 ## Known gaps for the auditor to look at
 - The speed round is timed by design (2.2.1 allows it for real-time games); Classic is the untimed equivalent.
 - Poster and album reveals are visual by nature; screen reader users can play every other way to guess.
-- The live show runs on a shared clock and has no untimed version.
 - No one with a disability has tested it yet. That is what the outside audit is for.
 
 ## Fixed in the v98 pass

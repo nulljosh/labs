@@ -483,7 +483,6 @@
  "Name the anime from the quote.": "Вгадайте аніме за цитатою.",
  "Stand-up": "Стендап",
  "Which comic said it?": "Який комік це сказав?",
- "Live show": "Пряме шоу",
  "The next show starts {x}, in {x}. Twelve questions, the same second for everyone.": "Наступне шоу почнеться {x}, через {x}. Дванадцять питань, для всіх в одну й ту саму секунду.",
  "{n} days": "{n} дн.",
  "{n} hours": "{n} год",
@@ -536,6 +535,5 @@
  "Roadmap": "Дорожня карта",
  "Happy birthday, Quip.": "З днем народження, Квіпе.",
  "Happy birthday, Quip. {n} today.": "З днем народження, Квіпе. Сьогодні {n}.",
- "Quotestreak 100: the first live show, {x}. Twelve questions, everyone at once.": "Quotestreak 100: перше пряме шоу, {x}. Дванадцять питань, усі одночасно.",
  "Get ready": "Приготуватися"
 }
