@@ -3,7 +3,7 @@
 ## Setup
 
 ```
-git clone https://github.com/nulljosh/plan.git
+git clone https://github.com/nulljosh/labs.git
 cd plan
 npm install
 ```

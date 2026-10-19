@@ -57,7 +57,7 @@ Science and math encyclopedia. Seventy-six fields explained plainly with cross-l
 
 ## Repository
 
-github.com/nulljosh/fieldbook (public)
+github.com/nulljosh/labs/tree/main/fieldbook (public)
 
 ## Origin
 

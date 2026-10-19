@@ -13,7 +13,7 @@ Pricing: Free.
 Links
 Web: https://quotestreak.jaybulb.com
 App Store: https://apps.apple.com/app/id6804394619
-GitHub: https://github.com/nulljosh/quotestreak
+GitHub: https://github.com/nulljosh/labs/tree/main/quotestreak
 
 ## First comment
 

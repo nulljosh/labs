@@ -3,7 +3,7 @@
 ## Setup
 
 ```
-git clone https://github.com/nulljosh/nyc.git
+git clone https://github.com/nulljosh/labs.git
 cd nyc
 open Package.swift   # or the .xcodeproj/.xcworkspace, if present
 ```

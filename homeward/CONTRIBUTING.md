@@ -3,7 +3,7 @@
 ## Setup
 
 ```
-git clone https://github.com/nulljosh/homeward.git
+git clone https://github.com/nulljosh/labs.git
 cd homeward
 npm install
 ```

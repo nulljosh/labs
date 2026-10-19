@@ -33,4 +33,4 @@ $0.99 on iPhone, iPad and Mac, free on the web.
 ## Links
 - Web: https://toroid.jaybulb.com
 - App Store: https://apps.apple.com/app/id6806324937
-- GitHub: https://github.com/nulljosh/toroid
+- GitHub: https://github.com/nulljosh/labs/tree/main/toroid

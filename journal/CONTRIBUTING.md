@@ -3,7 +3,7 @@
 ## Setup
 
 ```
-git clone https://github.com/nulljosh/journal.git
+git clone https://github.com/nulljosh/labs.git
 cd journal
 ```
 

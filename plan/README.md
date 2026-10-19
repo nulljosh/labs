@@ -2,7 +2,7 @@
 
 # Plan
 
-![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fplan-black?logo=github)](https://github.com/nulljosh/plan)
+![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fplan-black?logo=github)](https://github.com/nulljosh/labs/tree/main/plan)
 
 I kept the next ten years in my head, then in a text file, then in a repo nobody could see. Now it's a page anyone can open: [plan.jaybulb.com](https://plan.jaybulb.com).
 

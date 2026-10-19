@@ -16,7 +16,7 @@ v2.0.0
 ## Run
 
 ```bash
-git clone https://github.com/nulljosh/dotfiles.git ~/Documents/Code/dotfiles
+git clone https://github.com/nulljosh/labs.git ~/Documents/Code/dotfiles
 cd ~/Documents/Code/dotfiles
 chmod +x install.sh
 ./install.sh

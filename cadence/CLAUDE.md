@@ -15,7 +15,7 @@ open web/index.html   # static, fetches from live API
 ```
 
 ## Links
-- GitHub: https://github.com/nulljosh/cadence
+- GitHub: https://github.com/nulljosh/labs/tree/main/cadence
 - Live: cadence.heyitsmejosh.com
 - License: MIT 2026 Joshua Trommel
 

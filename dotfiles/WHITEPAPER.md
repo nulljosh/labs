@@ -44,7 +44,7 @@ one machine.
 ## Install
 
 ```bash
-git clone https://github.com/nulljosh/dotfiles.git ~/Documents/Code/dotfiles
+git clone https://github.com/nulljosh/labs.git ~/Documents/Code/dotfiles
 cd ~/Documents/Code/dotfiles && ./install.sh
 ```
 

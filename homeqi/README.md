@@ -2,7 +2,7 @@
 
 # Homeqi
 
-![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fhomeqi-black?logo=github)](https://github.com/nulljosh/homeqi)
+![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fhomeqi-black?logo=github)](https://github.com/nulljosh/labs/tree/main/homeqi)
 
 **Live:** https://homeqi.jaybulb.com
 
