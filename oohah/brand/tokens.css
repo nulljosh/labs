@@ -1,0 +1,7 @@
+/* Oohah brand tokens. The accent is the only colour this app owns; spacing, radii and type come from the shared system. */
+:root {
+  --accent: #001F3F;
+  --accent-light: #B10DC9;
+  --accent-deep: #001F3F;
+  --accent-ring: color-mix(in srgb, #001F3F 30%, transparent);
+}

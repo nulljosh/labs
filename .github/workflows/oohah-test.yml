@@ -1,15 +1,15 @@
-name: irisa Tests
+name: oohah Tests
 on:
   push:
     branches: [main]
-    paths: ["irisa/**", ".github/workflows/irisa-test.yml"]
+    paths: ["oohah/**", ".github/workflows/oohah-test.yml"]
   pull_request:
     branches: [main]
-    paths: ["irisa/**", ".github/workflows/irisa-test.yml"]
+    paths: ["oohah/**", ".github/workflows/oohah-test.yml"]
   workflow_dispatch:
 defaults:
   run:
-    working-directory: irisa
+    working-directory: oohah
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

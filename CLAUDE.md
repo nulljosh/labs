@@ -12,7 +12,7 @@
 
 ## Repos
 
-**`~/Documents/Code` is the `labs` repo.** 24 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, irisa, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), curvely, hamurapi, bcgd, nyc, inkpress. Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and in the allowlist but untracked, see roadmap. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`. 
+**`~/Documents/Code` is the `labs` repo.** 24 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, oohah, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), curvely, hamurapi, bcgd, nyc, inkpress. Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and in the allowlist but untracked, see roadmap. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`. 
 
 ### Apps
 Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
@@ -49,7 +49,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **homeward** | Lost/found pets, web + iOS + KMP |
 | **homeroom** (ex-lec) | Private D2L quiz app |
 | **costanza** | Poetry network, shared spark table `stanza_poems` |
-| **irisa** (ex-swing) | Random 1:1 video chat, Durable Object lobby |
+| **oohah** (ex-swing, ex-irisa) | Random 1:1 video chat, Durable Object lobby |
 | **dream** | Dream journal, Workers AI |
 | **cadence** | Commit-history tracker |
 | **numen** | Free-form calculator canvas |
