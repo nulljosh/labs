@@ -123,3 +123,4 @@ a:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .btn { transition: none; }
 }
+.band-copy .label { display: inline-block; padding: var(--sp-1) var(--sp-2); background: var(--band); }

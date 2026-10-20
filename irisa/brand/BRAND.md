@@ -1,33 +1,43 @@
 # Irisa brand kit and design system
 
-an iris diaphragm, the lens that opens
+Iris was the Greek messenger of the gods. She carried word between gods and people on a rainbow. An iris is also the ring inside a lens that opens to let light in. Irisa carries a hello between two strangers, fifteen seconds at a time.
 
 ## The mark
-One bold flat white glyph on an accent gradient tile. No text, no outline, no emblem.
+An iris diaphragm: six blades in a ring, white on a purple to navy tile. No text, no outline, no emblem.
 
 - `../Irisa.icon` is the source of truth (Icon Composer). Light and dark fills are set in it.
 - `../icon.svg` is the flat copy for READMEs (shown at 80 px). `icon-1024.png` is the App Store icon, no alpha.
 - `mark.svg` is the glyph alone in `currentColor` for your own background.
-- Clear space equal to the width of the glyph's thickest stroke. Smallest size 16 px.
+- Clear space equal to the width of the blade stroke. Smallest size 16 px.
+
+## The mascot
+`mascot.svg` is a small orange monkey with white wings: Iris's messenger, cheerful, never a cartoon face alone. Flat shapes in a circle on a pale purple disc. Use it at 28 px in a nav, 112 px over a section, and on the empty and waiting screens. Never with text inside it, never traced from a photo.
 
 ## Colour
-| Role | Value |
-|---|---|
-| Accent | `#14925a` |
-| Gradient top | `#3ccf91` |
-| Text | `#1d1d1f` light, `#f5f5f7` dark |
-| Background | `#ffffff` light, `#000000` dark |
-| Surface | `#f5f5f7` light, `#1c1c1e` dark |
+Every colour comes from [clrs.cc](https://clrs.cc).
 
-The accent is for actions, links and the icon. Never brown, beige, purple or teal.
+| Role | Light | Dark |
+|---|---|---|
+| Accent (actions, links, buttons) | purple `#B10DC9` | `#DA8BE6` links, `#B10DC9` buttons |
+| Band (full-bleed sections) | navy `#001F3F` | same |
+| Engravings on the band | aqua `#7FDBFF` | same |
+| Icon tile | `#B10DC9` to `#001F3F` | deeper navy |
+| Background | `#fdfdfd` | `#070b14` |
+| Surface | `#f4f2f7` | `#10162a` |
+| Line | `#e0dce6` | `#232b45` |
+| Text | `#1a1a1a` | `#f2f5f3` |
+| Secondary text | `#5d5866` | `#a7a3b5` |
 
 ## Type
-The system font: `-apple-system, BlinkMacSystemFont, "SF Pro Text", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif`. Scale 34/41 bold, 22/28, 17/24, 15/20, 13/18.
+Headlines and labels use Irisa Display (Antonio, SIL Open Font License): thin condensed caps. Everything else is the system font: `-apple-system, BlinkMacSystemFont, "SF Pro Text", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif`.
+
+## Art
+John Flaxman's 1795 engravings for the Iliad (public domain), dithered to line masks in `web/art/` and tinted aqua on the navy band. Only clothed plates: the app bans nudity, so the landing shows none.
 
 ## Space and shape
-- Space on the 8 point grid: 4, 8, 12, 16, 24, 32, 48. Side margin 20. Reading column 680.
-- Radii: cards 28, grouped lists 20, controls fully round, icon 22 percent.
-- Controls are 48 points tall capsules, one height in a row. Focus is a 4 point ring at 30 percent accent.
+- Space on the 8 point grid: 4, 8, 12, 16, 24, 32, 48, 64, 96.
+- Landing buttons are 48 points tall with 2 point corners, set in display caps. Radii elsewhere: cards 28, rows 8, icon 22.5 percent.
+- Focus is a 3 point ring at 30 percent accent.
 - Motion is 0.2 s ease and honours reduced motion.
 
-`tokens.css` holds the app's accent. Everything else comes from the shared token file.
+`web/tokens.css` is the single source; the native `Theme.swift` mirrors it.
