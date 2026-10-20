@@ -1,58 +1,74 @@
 import SwiftUI
 
-/// 18+ and the rules, agreed once before the camera ever turns on.
+/// 18+ and the rules, agreed once before the camera ever turns on. An inset grouped list.
 struct GateView: View {
     @Binding var adult: Bool
     @State private var agreed = false
 
+    private let rules: [(String, String)] = [
+        ("18 and over", "Adults only. Minors are removed."),
+        ("No nudity", "Nothing sexual, ever, on camera or in chat."),
+        ("No harassment", "Slurs are masked before anyone sees them."),
+        ("Report", "Cuts the call. Reports are reviewed by a person."),
+        ("Block", "You are never matched with that person again."),
+    ]
+
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
+            VStack(alignment: .leading, spacing: Space.xl) {
                 Image("Mascot")
                     .resizable()
-                    .frame(width: 112, height: 112)
-                    .accessibilityLabel("Oohaah's mascot, a small monkey with white wings")
-                Text("OOHAAH PUTS YOU ON CAMERA WITH A STRANGER.")
-                    .font(Theme.display(40))
-                VStack(alignment: .leading, spacing: 12) {
-                    rule("18 and over", "Adults only. Minors are removed.")
-                    rule("No nudity", "Nothing sexual, ever, on camera or in chat.")
-                    rule("No harassment", "Slurs are masked before anyone sees them.")
-                    rule("Report", "Cuts the call. Reports are reviewed by a person.")
-                    rule("Block", "You will never be matched with that person again.")
+                    .frame(width: 80, height: 80)
+                    .accessibilityHidden(true)
+                Text("Oohaah puts you on camera with a stranger.")
+                    .font(.largeTitle.bold())
+                    .fixedSize(horizontal: false, vertical: true)
+                group {
+                    ForEach(Array(rules.enumerated()), id: \.offset) { index, rule in
+                        if index > 0 { Divider().padding(.leading, Space.l) }
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(rule.0).font(.body.weight(.semibold))
+                            Text(rule.1).font(.subheadline).foregroundStyle(.secondary)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.vertical, Space.m)
+                        .padding(.horizontal, Space.l)
+                    }
                 }
-                Toggle(isOn: $agreed) {
-                    Text("I am 18 or older and I agree to the [terms](\(Theme.terms.absoluteString)).")
+                group {
+                    Toggle(isOn: $agreed) {
+                        Text("I am 18 or older and I agree to the [terms](\(Theme.terms.absoluteString)).")
+                    }
+                    .padding(.vertical, Space.m)
+                    .padding(.horizontal, Space.l)
                 }
-                #if os(iOS)
-                .toggleStyle(.switch)
-                #else
-                .toggleStyle(.checkbox)
-                #endif
                 Button {
                     adult = true
                 } label: {
-                    Text("Continue").frame(maxWidth: .infinity, minHeight: 48)
+                    Text("Continue")
+                        .font(.body.weight(.semibold))
+                        .frame(maxWidth: .infinity, minHeight: Space.control)
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.glassProminent)
                 .buttonBorderShape(.capsule)
                 .disabled(!agreed)
-                HStack(spacing: 16) {
+                HStack(spacing: Space.l) {
                     Link("Privacy", destination: Theme.privacy)
                     Link("Contact", destination: Theme.contact)
                 }
                 .font(.footnote)
+                .frame(maxWidth: .infinity)
             }
-            .padding(24)
-            .frame(maxWidth: 560, alignment: .leading)
+            .padding(.horizontal, 20)
+            .padding(.vertical, Space.xxl)
+            .frame(maxWidth: 680)
             .frame(maxWidth: .infinity)
         }
     }
 
-    private func rule(_ title: String, _ detail: String) -> some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text(title).font(.headline)
-            Text(detail).foregroundStyle(.secondary)
-        }
+    /// One inset grouped container: radius 20, no borders, rows separated by an inset hairline.
+    private func group<Content: View>(@ViewBuilder _ content: () -> Content) -> some View {
+        VStack(spacing: 0, content: content)
+            .background(.fill.quinary, in: RoundedRectangle(cornerRadius: Space.radius, style: .continuous))
     }
 }

@@ -13,6 +13,17 @@ struct OohaahApp: App {
     }
 }
 
+/// The 8 point grid and the one radius. Every gap and size in the app comes from here.
+enum Space {
+    static let s: CGFloat = 8
+    static let m: CGFloat = 12
+    static let l: CGFloat = 16
+    static let xl: CGFloat = 24
+    static let xxl: CGFloat = 32
+    static let control: CGFloat = 48
+    static let radius: CGFloat = 20
+}
+
 /// Mirrors web/tokens.css. Every colour is from clrs.cc.
 enum Theme {
     static let accent = Color("AccentColor")
