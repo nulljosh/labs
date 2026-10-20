@@ -1,0 +1,55 @@
+/* Irisa design tokens. One source for the landing, the web app and the native apps (Theme.swift mirrors these).
+   Shared system: 8 point grid, one radius set. The green is the only colour Irisa owns. */
+/* Irisa Display: Antonio (SIL OFL 1.1, fonts/OFL-Antonio.txt), condensed caps for headlines and labels only */
+@font-face { font-family: "Irisa Display"; src: url("fonts/IrisaDisplay.woff2") format("woff2"); font-weight: 100 700; font-display: swap; }
+
+:root {
+  color-scheme: light dark;
+  --accent: #0d7a48;          /* actions and links, AA on paper */
+  --btn: #0d7a48;             /* solid buttons, white label */
+  --frame: #14925a;           /* the thin frame down the window edges */
+  --band: #0f7a4a;            /* full-bleed green sections */
+  --band-sub: #d3f0e1;        /* secondary text on the band, AA */
+  --band-art: #8fe0b8;        /* engraving on the band */
+  --band-line: rgba(255, 255, 255, .22);
+  --accent-light: #3ccf91;    /* icon gradient top */
+  --accent-deep: #14925a;     /* icon gradient bottom */
+  --ring: color-mix(in srgb, var(--accent) 30%, transparent);
+  --danger: #c0392b;
+  --bg: #fdfdfd;
+  --surface: #f2f5f3;
+  --line: #dce3df;
+  --text: #1a1a1a;
+  --sub: #56605b;
+
+  --display: "Irisa Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --size-body: 17px;
+  --size-footnote: 13px;
+
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
+  --wrap: 1120px;
+  --control: 48px;
+  --r-card: 28px;
+  --r-row: 8px;
+  --r-pill: 999px;
+  --r-sq: 2px;
+  --r-icon: 22.5%;
+  --motion: .2s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --accent: #4fd197;
+    --btn: #14925a;
+    --band: #0b5c38;
+    --band-sub: #c7ead8;
+    --band-art: #6fcf9f;
+    --danger: #e2564a;
+    --bg: #08130e;
+    --surface: #112019;
+    --line: #22362c;
+    --text: #f2f5f3;
+    --sub: #a0b0a8;
+  }
+}
