@@ -1,4 +1,4 @@
-// swing — random 1:1 video chat. The Worker serves the page and hands /ws to
+// marmoset — random 1:1 video chat. The Worker serves the page and hands /ws to
 // one Durable Object that pairs strangers, runs the call clock, and relays
 // WebRTC signaling. Media is peer-to-peer and never touches us.
 
@@ -12,7 +12,7 @@ export default {
       const ip = request.headers.get("CF-Connecting-IP") || "local";
       const key = await fingerprint(ip, env.ABUSE_SALT);
       const headers = new Headers(request.headers);
-      headers.set("X-Swing-Client", key);
+      headers.set("X-Marmoset-Client", key);
       return env.LOBBY.get(env.LOBBY.idFromName("global")).fetch(new Request(request, { headers }));
     }
     if (url.pathname === "/moderation") {
@@ -88,7 +88,7 @@ export class Lobby {
     if (request.headers.get("Upgrade") !== "websocket") {
       return new Response("expected websocket", { status: 426 });
     }
-    const key = request.headers.get("X-Swing-Client");
+    const key = request.headers.get("X-Marmoset-Client");
     if (!key || !/^[a-f0-9]{64}$/.test(key)) return new Response("forbidden", { status: 403 });
     const ban = this.state.storage.sql.exec("SELECT until_at FROM bans WHERE subject = ?", key).toArray()[0];
     if (ban && ban.until_at > Date.now()) return new Response("banned", { status: 403 });

@@ -1,8 +1,8 @@
-# Swing Privacy Policy
+# Marmoset Privacy Policy
 
 *Last updated September 2026*
 
-Swing is video chat with strangers. It doesn't want your data, and it collects as little as it can.
+Marmoset is video chat with strangers. It doesn't want your data, and it collects as little as it can.
 
 ## What leaves your device
 - **Camera and microphone.** Used only during a call, only with your permission. Video goes peer to peer and is never recorded or stored.
@@ -12,7 +12,7 @@ Swing is video chat with strangers. It doesn't want your data, and it collects a
 No ads. No selling data. No tracking cookies.
 
 ## Kids
-Swing isn't aimed at children under 13 and doesn't knowingly collect anything from them.
+Marmoset isn't aimed at children under 13 and doesn't knowingly collect anything from them.
 
 ## Contact
 Questions: trommatic@icloud.com

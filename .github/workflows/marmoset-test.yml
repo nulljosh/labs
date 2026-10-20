@@ -1,15 +1,15 @@
-name: swing Tests
+name: marmoset Tests
 on:
   push:
     branches: [main]
-    paths: ["swing/**", ".github/workflows/swing-test.yml"]
+    paths: ["marmoset/**", ".github/workflows/marmoset-test.yml"]
   pull_request:
     branches: [main]
-    paths: ["swing/**", ".github/workflows/swing-test.yml"]
+    paths: ["marmoset/**", ".github/workflows/marmoset-test.yml"]
   workflow_dispatch:
 defaults:
   run:
-    working-directory: swing
+    working-directory: marmoset
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

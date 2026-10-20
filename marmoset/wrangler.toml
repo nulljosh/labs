@@ -1,8 +1,8 @@
-name = "swing"
+name = "marmoset"
 main = "worker.js"
 compatibility_date = "2025-07-01"
 workers_dev = false
-routes = [{ pattern = "swing.heyitsmejosh.com", custom_domain = true }, { pattern = "swing.jaybulb.com", custom_domain = true }]
+routes = [{ pattern = "marmoset.jaybulb.com", custom_domain = true }]
 
 [assets]
 directory = "web"

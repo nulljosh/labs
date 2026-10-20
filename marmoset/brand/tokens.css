@@ -1,4 +1,4 @@
-/* Swing brand tokens. The accent is the only colour this app owns; spacing, radii and type come from the shared system. */
+/* Marmoset brand tokens. The accent is the only colour this app owns; spacing, radii and type come from the shared system. */
 :root {
   --accent: #14925a;
   --accent-light: #3ccf91;

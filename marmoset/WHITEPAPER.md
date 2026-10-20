@@ -1,16 +1,16 @@
-# Swing Technical Whitepaper
+# Marmoset Technical Whitepaper
 
 **v1.0** | September 2026
 
 Random video chat used to mean Chatroulette and Omegle: no timer, no exit
 built in, and a call that drags on past the point either side wants it to.
-Swing fixes that by making the awkward exit automatic. It is fifteen seconds
+Marmoset fixes that by making the awkward exit automatic. It is fifteen seconds
 of video with a stranger. Both people tap for more
 time or the call ends itself; if both tap Keep they swap handles. Same idea as
 Monkey and Omegle, written from scratch on Cloudflare because there was no
 reason to run a video app on anything heavier than a Worker and a Durable
 Object. Live at
-[swing.heyitsmejosh.com](https://swing.heyitsmejosh.com).
+[marmoset.heyitsmejosh.com](https://marmoset.heyitsmejosh.com).
 
 ## Architecture
 
