@@ -30,6 +30,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **bookrank** | Book summaries, listen feature |
 | **curvely** | Equation grapher · 6794988370 |
 | **icelus** (ex-morphis, ex-morpheus, ex-glyphbox, ex-glyphic, ex-blockprint, ex-blockframe, ex-wiretext). Own repo, not in labs | Describe a screen and it takes shape: a design tool on a real canvas, text underneath. Domain icelus.jaybulb.com; Pages project and bundle ID still `wiretext` · 6794988951 |
+| **hermes** (ex-tiller, ex-bosun, ex-palaemon, ex-talaria). Own repo, not in labs | Native Mac app for App Store Connect, a one-to-one clone of Helm over asc. Landing hermes.jaybulb.com |
 | **wordroot** | Etymology lookup |
 | **coda** (ex-quotestreak) | Quote guessing game at coda.jaybulb.com. Store listing, Pages project, storage keys and RPCs still say quotestreak · 6804394619 |
 | **inkpress** | Multi-feed RSS reader · 6787759999 |
