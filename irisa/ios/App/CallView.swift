@@ -76,7 +76,7 @@ struct CallView: View {
                     VStack(spacing: 16) {
                         Image("Mascot").resizable().frame(width: 112, height: 112)
                             .accessibilityHidden(true)
-                        Text(call.state == .idle ? "Fifteen seconds with someone new." : "Finding someone...")
+                        Text(call.state == .idle ? "Fifteen seconds with someone new." : call.state == .connecting ? "Connecting..." : "Finding someone...")
                             .font(Theme.display(28))
                             .foregroundStyle(.white)
                             .multilineTextAlignment(.center)
