@@ -7,7 +7,8 @@ struct CallView: View {
     @State private var text = ""
     @State private var reporting = false
 
-    private var live: Bool { call.state == .connected }
+    private var real: Bool { call.state == .connected }
+    private var live: Bool { real || call.practicing }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -56,6 +57,21 @@ struct CallView: View {
                 LinearGradient(colors: [Theme.purple, Theme.navy], startPoint: .top, endPoint: .bottom)
                 if let remote = call.remoteVideo {
                     VideoView(track: remote)
+                } else if call.practicing {
+                    VStack(spacing: 16) {
+                        Image("Mascot").resizable().frame(width: 112, height: 112)
+                            .phaseAnimator([false, true]) { view, up in
+                                view.offset(y: up ? -6 : 0).rotationEffect(.degrees(up ? -3 : 0))
+                            } animation: { _ in .easeInOut(duration: 0.8) }
+                            .accessibilityHidden(true)
+                        Text("PRACTICE CALL").font(Theme.display(28)).foregroundStyle(.white)
+                        Text("Iri is the Irisa mascot, not a person. You will be moved to a real person the moment one arrives.")
+                            .font(.footnote)
+                            .foregroundStyle(.white.opacity(0.85))
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: 320)
+                    }
+                    .padding(24)
                 } else {
                     VStack(spacing: 16) {
                         Image("Mascot").resizable().frame(width: 112, height: 112)
@@ -146,8 +162,8 @@ struct CallView: View {
                     pill("Next", action: call.next)
                 }
                 HStack(spacing: 8) {
-                    pill("Block", action: call.block).disabled(!live)
-                    pill("Report", role: .destructive) { reporting = true }.disabled(!live)
+                    pill("Block", action: call.block).disabled(!real)
+                    pill("Report", role: .destructive) { reporting = true }.disabled(!real)
                     pill("Stop") { call.stop() }
                 }
             }

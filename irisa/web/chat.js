@@ -1,6 +1,18 @@
 // Client half of the loop: hold the camera, talk to the lobby socket, rebuild
 // one RTCPeerConnection per stranger, and mirror the server's call clock.
 
+// Practice: an empty lobby is a dead screen, so after a few seconds alone you get a call
+// with Iri, the mascot, clearly labelled as not a person. You stay queued the whole time and
+// a real match replaces it instantly. Nothing practice does reaches the server.
+const PRACTICE_AFTER_MS = 6000;
+const IRI = [
+  "ooh, tell me more",
+  "I only speak monkey, but I like you",
+  "real strangers are way more fun than me",
+  "ha!",
+  "hang tight, a real person usually turns up soon",
+];
+
 const FALLBACK_ICE = [{ urls: ["stun:stun.cloudflare.com:3478", "stun:stun.l.google.com:19302"] }];
 
 // The server mints short-lived TURN credentials per visit. Fetched once when the
@@ -17,6 +29,7 @@ async function iceServers() {
 
 export class Chat {
   constructor({ local, remote, onState, onClock, onAsked, onKept, onChat }) {
+    this.timers = [];
     this.localEl = local;
     this.remoteEl = remote;
     this.onState = onState || (() => {});
@@ -87,8 +100,10 @@ export class Chat {
     switch (msg.type) {
       case "waiting":
         this.set("searching", "Looking for someone...");
+        this.armPractice();
         break;
       case "matched":
+        this.endPractice();
         await this.openPeer(msg.initiator);
         this.runClock(msg.ms);
         break;
@@ -119,13 +134,13 @@ export class Chat {
   }
 
   // Display only — the server owns the real deadline and ends the call itself.
-  runClock(ms) {
+  runClock(ms, onEnd) {
     clearInterval(this.tick);
     const end = Date.now() + ms;
     const paint = () => {
       const left = Math.max(0, Math.round((end - Date.now()) / 1000));
       this.onClock(left);
-      if (left === 0) clearInterval(this.tick);
+      if (left === 0) { clearInterval(this.tick); onEnd?.(); }
     };
     paint();
     this.tick = setInterval(paint, 250);
@@ -188,11 +203,55 @@ export class Chat {
     this.set("searching", note);
   }
 
-  say(text) { if (this.state === "connected" && text) this.send({ type: "chat", text }); }
-  extend() { this.send({ type: "extend" }); }
-  keep() { this.send({ type: "keep" }); }
+  armPractice() {
+    clearTimeout(this.wait);
+    this.wait = setTimeout(() => { if (this.state === "searching") this.practice(); }, PRACTICE_AFTER_MS);
+  }
+
+  practice() {
+    this.endPractice();
+    this.onChat(null);
+    this.onAsked(null);
+    this.set("practice", "Practice call with Iri while you wait");
+    this.later(() => this.iri("hi! I'm Iri, the Irisa mascot. Not a real person."), 1500);
+    this.later(() => this.iri("tap More time to keep talking, or Keep to swap handles"), 6000);
+    this.practiceClock();
+  }
+
+  practiceClock() {
+    this.runClock(15000, () => {
+      this.set("practice", "Time ran out. A real call moves on to someone new.");
+      this.later(() => this.practice(), 2000);
+    });
+  }
+
+  later(fn, ms) { this.timers.push(setTimeout(fn, ms)); }
+  iri(text) { if (this.state === "practice") this.onChat(text); }
+
+  endPractice() {
+    clearTimeout(this.wait);
+    this.timers.splice(0).forEach(clearTimeout);
+    if (this.state === "practice") { clearInterval(this.tick); this.onClock(null); }
+  }
+
+  say(text) {
+    if (!text) return;
+    if (this.state === "practice") this.later(() => this.iri(IRI[Math.floor(Math.random() * IRI.length)]), 1000);
+    else if (this.state === "connected") this.send({ type: "chat", text });
+  }
+
+  extend() {
+    if (this.state !== "practice") return this.send({ type: "extend" });
+    this.later(() => { this.iri("I tapped More time too."); this.practiceClock(); }, 1000);
+  }
+
+  keep() {
+    if (this.state !== "practice") return this.send({ type: "keep" });
+    this.later(() => this.onKept("@irisa"), 1000);
+  }
 
   next() {
+    if (this.state === "practice") return this.practice();
     this.reset("Looking for someone...");
     this.send({ type: "next" });
   }
@@ -210,6 +269,7 @@ export class Chat {
   }
 
   stop(note) {
+    this.endPractice();
     clearInterval(this.tick);
     this.closePeer();
     this.onClock(null);

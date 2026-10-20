@@ -17,6 +17,17 @@ final class Call: NSObject {
     private(set) var lines: [Line] = []
     private(set) var localVideo: RTCVideoTrack?
     private(set) var remoteVideo: RTCVideoTrack?
+    /// A practice call with Iri, the mascot, while the lobby is empty. Local only: you stay
+    /// queued and a real match replaces it. Mirrors web/chat.js.
+    private(set) var practicing = false
+
+    static let iriLines = [
+        "ooh, tell me more",
+        "I only speak monkey, but I like you",
+        "real strangers are way more fun than me",
+        "ha!",
+        "hang tight, a real person usually turns up soon",
+    ]
 
     @ObservationIgnored private let lobby = Lobby()
     @ObservationIgnored private let factory: RTCPeerConnectionFactory = {
@@ -30,6 +41,7 @@ final class Call: NSObject {
     @ObservationIgnored private var pending: [RTCIceCandidate] = []
     @ObservationIgnored private var ice: [RTCIceServer] = []
     @ObservationIgnored private var handle = ""
+    @ObservationIgnored private var practiceTasks: [Task<Void, Never>] = []
 
     override init() {
         super.init()
@@ -80,6 +92,7 @@ final class Call: NSObject {
     }
 
     func stop(_ message: String = "") {
+        endPractice()
         resetPeer()
         lobby.close()
         capturer?.stopCapture()
@@ -116,15 +129,30 @@ final class Call: NSObject {
 
     func say(_ text: String) {
         let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard state == .connected, !text.isEmpty else { return }
-        lobby.send(["type": "chat", "text": text])
+        guard state == .connected || practicing, !text.isEmpty else { return }
         lines.append(Line(text: text, mine: true))
+        if practicing {
+            later(1) { $0.iri(Self.iriLines.randomElement()!) }
+        } else {
+            lobby.send(["type": "chat", "text": text])
+        }
     }
 
-    func extend() { lobby.send(["type": "extend"]) }
-    func keep() { lobby.send(["type": "keep"]) }
+    func extend() {
+        guard practicing else { return lobby.send(["type": "extend"]) }
+        later(1) { call in
+            call.iri("I tapped More time too.")
+            call.practiceClock()
+        }
+    }
+
+    func keep() {
+        guard practicing else { return lobby.send(["type": "keep"]) }
+        later(1) { $0.kept = "@irisa" }
+    }
 
     func next() {
+        if practicing { return practice() }
         lobby.send(["type": "next"])
         reset("Looking for someone...")
     }
@@ -151,7 +179,9 @@ final class Call: NSObject {
         case "waiting":
             state = .searching
             note = "Looking for someone..."
+            armPractice()
         case "matched":
+            endPractice()
             openPeer(initiator: msg["initiator"] as? Bool ?? false)
             runClock(msg["ms"] as? Double)
         case "signal":
@@ -173,6 +203,60 @@ final class Call: NSObject {
         default:
             break
         }
+    }
+
+    // MARK: - Practice
+
+    private func armPractice() {
+        endPractice()
+        later(6) { call in
+            if call.state == .searching, call.remoteVideo == nil { call.practice() }
+        }
+    }
+
+    private func practice() {
+        endPractice()
+        practicing = true
+        lines = []
+        asked = nil
+        kept = nil
+        note = "Practice call with Iri while you wait"
+        later(1.5) { $0.iri("hi! I'm Iri, the Irisa mascot. Not a real person.") }
+        later(6) { $0.iri("tap More time to keep talking, or Keep to swap handles") }
+        practiceClock()
+    }
+
+    private func practiceClock() {
+        deadline = Date().addingTimeInterval(15)
+        practiceTasks.append(Task { [weak self] in
+            try? await Task.sleep(for: .seconds(15))
+            guard let self, !Task.isCancelled, let deadline = self.deadline, deadline <= Date() else { return }
+            self.deadline = nil
+            self.note = "Time ran out. A real call moves on to someone new."
+            self.later(2) { $0.practice() }
+        })
+    }
+
+    private func iri(_ text: String) {
+        if practicing { lines.append(Line(text: text, mine: false)) }
+    }
+
+    private func later(_ seconds: Double, _ body: @escaping (Call) -> Void) {
+        practiceTasks.append(Task { [weak self] in
+            try? await Task.sleep(for: .seconds(seconds))
+            guard let self, !Task.isCancelled else { return }
+            body(self)
+        })
+    }
+
+    private func endPractice() {
+        practiceTasks.forEach { $0.cancel() }
+        practiceTasks = []
+        guard practicing else { return }
+        practicing = false
+        deadline = nil
+        lines = []
+        kept = nil
     }
 
     /// Display only. The server owns the real deadline and ends the call itself.

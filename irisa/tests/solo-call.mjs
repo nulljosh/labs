@@ -1,6 +1,6 @@
 import { chromium } from 'playwright-core';
 
-const origin = process.env.SWING_QA_URL || 'http://localhost:8789';
+const origin = process.env.IRISA_QA_URL || 'http://localhost:8789';
 const executablePath = process.env.CHROME_PATH ||
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const browser = await chromium.launch({
