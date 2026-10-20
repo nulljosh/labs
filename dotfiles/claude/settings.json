@@ -2,6 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(supabase *)",
+      "Bash(asc web api-keys create *)",
       "Bash(rm \"/Users/joshua/Library/Mobile Documents/com~apple~CloudDocs/Documents/Misc/Books/*\")",
       "Bash(rm -f \"/Users/joshua/Library/Mobile Documents/com~apple~CloudDocs/Documents/Misc/Books/*\")"
     ],
@@ -66,7 +67,7 @@
     "claude-security@claude-plugins-official": true,
     "cloudflare@cloudflare": true,
     "stripe@claude-plugins-official": false,
-    "cc-plugin-you-should-know@builtin": true
+    "cc-plugin-you-should-know@builtin": false
   },
   "extraKnownMarketplaces": {
     "ponytail": {
@@ -93,5 +94,6 @@
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
   "agentPushNotifEnabled": true,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "feedbackDrafts": "off"
 }
