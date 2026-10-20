@@ -15,7 +15,7 @@ try {
   const [first, second] = await Promise.all(contexts.map(c => c.newPage()));
   for (const page of [first, second]) {
     await page.goto(`${origin}/app`);
-    if (await page.locator('#gate').isVisible()) await page.locator('#agree').click();
+    if (await page.locator('#gate').isVisible()) { await page.locator('#terms').check(); await page.locator('#agree').click(); }
   }
   await first.locator('#handle').fill('@first');
   await second.locator('#handle').fill('@second');

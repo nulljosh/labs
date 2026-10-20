@@ -3,6 +3,7 @@
 // only when both sides ask.
 import assert from "node:assert";
 import { readFile } from "node:fs/promises";
+import { DatabaseSync } from "node:sqlite";
 import { Lobby } from "./worker.js";
 
 const fake = (name) => ({ name, readyState: 1, sent: [], send(s) { this.sent.push(JSON.parse(s)); } });
@@ -14,9 +15,22 @@ const timers = [];
 globalThis.setTimeout = (fn) => (timers.push(fn), timers.length);
 globalThis.clearTimeout = () => {};
 
-const lobby = new Lobby({});
+// The Durable Object's SQLite, stood in for by Node's own.
+const room = () => {
+  const db = new DatabaseSync(":memory:");
+  const sql = { exec(q, ...p) {
+    const st = db.prepare(q);
+    if (!/^\s*select/i.test(q)) return void st.run(...p);
+    const rows = st.all(...p);
+    return { toArray: () => rows, one: () => rows[0] };
+  } };
+  return new Lobby({ blockConcurrencyWhile: (f) => f(), storage: { sql } });
+};
+const join = (lobby, ws, key) => lobby.who.set(ws, { handle: "", last: null, pair: null, key });
+
+const lobby = room();
 const [a, b, c] = ["a", "b", "c"].map(fake);
-for (const ws of [a, b, c]) lobby.who.set(ws, { handle: "", last: null, pair: null });
+["a", "b", "c"].forEach((k, i) => join(lobby, [a, b, c][i], k));
 
 msg(lobby, a, { type: "find", handle: " @ana  " });
 assert.equal(last(a).type, "waiting");
@@ -63,6 +77,26 @@ assert.equal(last(b).type, "waiting", "b is not handed straight back to a");
 lobby.drop(a);
 assert.deepEqual(last(c), { type: "peer-left", reason: "left" });
 msg(lobby, c, "{not json");
+
+// Blocking ends the call and keeps the pair apart for good, both ways round.
+{
+  const l = room();
+  const [x, y, z] = ["x", "y", "z"].map(fake);
+  ["x", "y", "z"].forEach((k, i) => join(l, [x, y, z][i], k));
+  msg(l, x, { type: "find", handle: "kill yourself @x" });
+  assert.equal(l.who.get(x).handle, "************* @x", "handles are masked");
+  msg(l, y, { type: "find", handle: "@y" });
+  msg(l, x, { type: "chat", text: "send nudes" });
+  assert.deepEqual(last(y), { type: "chat", text: "**********" }, "chat is masked");
+  msg(l, y, { type: "block" });
+  assert.deepEqual(last(x), { type: "peer-left", reason: "blocked" });
+  msg(l, y, { type: "find", handle: "@y" });
+  msg(l, x, { type: "find", handle: "@x" });
+  assert.equal(last(y).type, "waiting", "y never meets x again");
+  assert.equal(last(x).type, "waiting", "and x never meets y");
+  msg(l, z, { type: "find", handle: "@z" });
+  assert.equal(last(z).type, "matched", "z can still match");
+}
 
 // A browser may deliver an ICE candidate before its offer. Keep it until the
 // remote description is installed so that the connection can still form.

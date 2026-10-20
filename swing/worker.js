@@ -78,6 +78,8 @@ export class Lobby {
         reporter TEXT NOT NULL, subject TEXT NOT NULL, reason TEXT NOT NULL)`);
       state.storage.sql.exec(`CREATE TABLE IF NOT EXISTS bans (
         subject TEXT PRIMARY KEY, until_at INTEGER NOT NULL)`);
+      state.storage.sql.exec(`CREATE TABLE IF NOT EXISTS blocks (
+        blocker TEXT NOT NULL, subject TEXT NOT NULL, PRIMARY KEY (blocker, subject))`);
     });
   }
 
@@ -110,7 +112,7 @@ export class Lobby {
     }
     switch (msg.type) {
       case "find":
-        me.handle = clean(msg.handle);
+        me.handle = scrub(msg.handle);
         this.find(ws);
         break;
       case "signal": {
@@ -121,7 +123,7 @@ export class Lobby {
       case "chat": {
         // Text rides the same socket as signalling; the server never stores it.
         const peer = this.peerOf(ws);
-        const text = clean(msg.text, 280);
+        const text = scrub(msg.text, 280);
         if (peer && text) send(peer, { type: "chat", text });
         break;
       }
@@ -134,6 +136,10 @@ export class Lobby {
       case "report":
         this.report(ws, clean(msg.reason, 200) || "unspecified");
         this.end(ws, "reported");
+        break;
+      case "block":
+        this.block(ws);
+        this.end(ws, "blocked");
         break;
       case "next":
         this.end(ws, "skipped");
@@ -173,6 +179,27 @@ export class Lobby {
     }
   }
 
+  // A block is forever and one-way in storage, two-way in matching: neither side
+  // is ever paired with the other again. The key is an IP hash, so a shared
+  // network blocks as one person. ponytail: accounts would make this per-person.
+  block(ws) {
+    const peer = this.peerOf(ws);
+    if (!peer) return;
+    const blocker = this.who.get(ws).key;
+    const subject = this.who.get(peer).key;
+    if (blocker === subject) return;
+    this.state.storage.sql.exec(
+      "INSERT OR IGNORE INTO blocks (blocker, subject) VALUES (?, ?)", blocker, subject);
+  }
+
+  blocked(a, b) {
+    const ka = this.who.get(a)?.key;
+    const kb = this.who.get(b)?.key;
+    return this.state.storage.sql.exec(
+      "SELECT 1 FROM blocks WHERE (blocker = ? AND subject = ?) OR (blocker = ? AND subject = ?)",
+      ka, kb, kb, ka).toArray().length > 0;
+  }
+
   moderation(request) {
     if (request.method === "GET") {
       return Response.json({
@@ -194,7 +221,7 @@ export class Lobby {
     if (!me || me.pair || this.queue.includes(ws)) return;
     // Take the oldest waiting stranger who isn't the person we just left —
     // otherwise a timed-out pair instantly rematches with each other.
-    const i = this.queue.findIndex((o) => o !== ws && o !== me.last && open(o));
+    const i = this.queue.findIndex((o) => o !== ws && o !== me.last && open(o) && !this.blocked(ws, o));
     if (i === -1) {
       this.queue.push(ws);
       send(ws, { type: "waiting" });
@@ -277,6 +304,13 @@ export class Lobby {
 function clean(s, max = 32) {
   if (typeof s !== "string") return "";
   return s.replace(/[\p{C}]/gu, "").trim().slice(0, max);
+}
+
+// Slurs and the obvious solicitations are masked before a stranger sees them.
+// ponytail: a short word list, not a classifier. Reports and bans do the rest.
+const BAD = /\b(n[i1]gg(er|a)s?|f[a4]gg?(ot)?s?|retards?|kill yourself|kys|send nudes)\b/gi;
+function scrub(s, max) {
+  return clean(s, max).replace(BAD, (m) => "*".repeat(m.length));
 }
 
 const open = (ws) => ws.readyState === 1;

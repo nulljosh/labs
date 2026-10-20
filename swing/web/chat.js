@@ -203,6 +203,12 @@ export class Chat {
     this.find();
   }
 
+  block() {
+    this.send({ type: "block" });
+    this.reset("Blocked. Looking for someone...");
+    this.find();
+  }
+
   stop(note) {
     clearInterval(this.tick);
     this.closePeer();
