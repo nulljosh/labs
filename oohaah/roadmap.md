@@ -7,4 +7,4 @@
       Worker secrets. Current Wrangler OAuth and DNS token lack that permission.
 - [ ] Accounts, so a kept handle survives the tab closing.
 - [ ] Interest/region matching, needs the lobby sharded past one DO.
-- [ ] iOS/macOS wrappers, per the cross-platform rule.
+- [ ] Submit the iPhone and Mac builds to App Review once uploads finish, with Joshua's yes; then answer any reviewer reply.
