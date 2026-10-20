@@ -1,16 +1,16 @@
-# Marmoset Technical Whitepaper
+# Irisa Technical Whitepaper
 
 **v1.0** | September 2026
 
 Random video chat used to mean Chatroulette and Omegle: no timer, no exit
 built in, and a call that drags on past the point either side wants it to.
-Marmoset fixes that by making the awkward exit automatic. It is fifteen seconds
+Irisa fixes that by making the awkward exit automatic. It is fifteen seconds
 of video with a stranger. Both people tap for more
 time or the call ends itself; if both tap Keep they swap handles. Same idea as
 Monkey and Omegle, written from scratch on Cloudflare because there was no
 reason to run a video app on anything heavier than a Worker and a Durable
 Object. Live at
-[marmoset.heyitsmejosh.com](https://marmoset.heyitsmejosh.com).
+[irisa.heyitsmejosh.com](https://irisa.heyitsmejosh.com).
 
 ## Architecture
 

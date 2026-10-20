@@ -1,15 +1,15 @@
-name: marmoset Tests
+name: irisa Tests
 on:
   push:
     branches: [main]
-    paths: ["marmoset/**", ".github/workflows/marmoset-test.yml"]
+    paths: ["irisa/**", ".github/workflows/irisa-test.yml"]
   pull_request:
     branches: [main]
-    paths: ["marmoset/**", ".github/workflows/marmoset-test.yml"]
+    paths: ["irisa/**", ".github/workflows/irisa-test.yml"]
   workflow_dispatch:
 defaults:
   run:
-    working-directory: marmoset
+    working-directory: irisa
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

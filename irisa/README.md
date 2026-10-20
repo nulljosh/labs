@@ -1,10 +1,10 @@
-<img src="icon.svg" alt="Marmoset icon" width="80" height="80">
+<img src="icon.svg" alt="Irisa icon" width="80" height="80">
 
-# Marmoset
+# Irisa
 
-![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fswing-black?logo=github)](https://github.com/nulljosh/labs/tree/main/marmoset)
+![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fswing-black?logo=github)](https://github.com/nulljosh/labs/tree/main/irisa)
 
-**Live:** https://marmoset.jaybulb.com · **GitHub:** https://github.com/nulljosh/labs/tree/main/marmoset
+**Live:** https://irisa.jaybulb.com · **GitHub:** https://github.com/nulljosh/labs/tree/main/irisa
 
 Fifteen seconds of video with a stranger.
 
@@ -18,15 +18,15 @@ handles. Same idea as Monkey and Omegle. Written from scratch.
 - `web/index.html`: the landing page. `web/app.html`: the call, the clock,
   and the 18+ gate.
 
-Video and audio use a direct connection when possible, or a TURN relay when needed. Marmoset does not record calls. Your handle and age confirmation are saved in your browser.
+Video and audio use a direct connection when possible, or a TURN relay when needed. Irisa does not record calls. Your handle and age confirmation are saved in your browser.
 
 <img src="progress.svg" width="460">
 
 ## Screenshots
 
-<img src="screenshots/landing.png" alt="Marmoset landing page" width="600">
+<img src="screenshots/landing.png" alt="Irisa landing page" width="600">
 
-<img src="screenshots/age-gate.png" alt="Marmoset age confirmation on a phone" width="260">
+<img src="screenshots/age-gate.png" alt="Irisa age confirmation on a phone" width="260">
 
 These show the landing page and age gate. A live call needs two people and camera access.
 

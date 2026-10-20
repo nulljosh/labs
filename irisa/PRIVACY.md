@@ -1,8 +1,8 @@
-# Marmoset Privacy Policy
+# Irisa Privacy Policy
 
 *Last updated September 2026*
 
-Marmoset is video chat with strangers. It doesn't want your data, and it collects as little as it can.
+Irisa is video chat with strangers. It doesn't want your data, and it collects as little as it can.
 
 ## What leaves your device
 - **Camera and microphone.** Used only during a call, only with your permission. Video goes peer to peer and is never recorded or stored.
@@ -12,7 +12,7 @@ Marmoset is video chat with strangers. It doesn't want your data, and it collect
 No ads. No selling data. No tracking cookies.
 
 ## Kids
-Marmoset isn't aimed at children under 13 and doesn't knowingly collect anything from them.
+Irisa isn't aimed at children under 13 and doesn't knowingly collect anything from them.
 
 ## Contact
 Questions: trommatic@icloud.com

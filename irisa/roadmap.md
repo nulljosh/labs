@@ -1,4 +1,4 @@
-# marmoset roadmap
+# irisa roadmap
 
 > Priority tier 5 (2026-10-17): exploratory, this year. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
 
