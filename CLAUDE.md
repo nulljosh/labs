@@ -12,7 +12,7 @@
 
 ## Repos
 
-**`~/Documents/Code` is the `labs` repo.** 24 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, swing, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), curvely, hamurapi, bcgd, nyc, inkpress. Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and in the allowlist but untracked, see roadmap. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`. `thinkpond/` is a stale second checkout of melete (same remote), use `melete/`.
+**`~/Documents/Code` is the `labs` repo.** 24 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, swing, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), curvely, hamurapi, bcgd, nyc, inkpress. Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and in the allowlist but untracked, see roadmap. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`. 
 
 ### Apps
 Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
@@ -124,7 +124,7 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 - `mole clean` needs a real TTY for sudo. Run it yourself.
 
 ## Root files
-`README.md` (what labs tracks), `roadmap.md`, `GTM.md`, `SHIPPING.md` (the asc ship method), `README-TEMPLATE.md` (README voice), `PROGRESS.md` + `progress.svg` + `fleet.svg` (snapshots from `scripts/`).
+`README.md` (what labs tracks), `roadmap.md`, `GTM.md`, `SHIPPING.md` (the asc ship method), `README-TEMPLATE.md` (README voice), `progress.svg` + `fleet.svg` (snapshots from `scripts/`).
 
 ## Open work
 `roadmap.md` is the queue. `GTM.md` is the ledger. About 18 apps still need a `kmp/` module. TUI companions (`tui/` + SwiftTUI) exist for 16 apps, the rest are deliberately skipped (auth-gated, mic-bound or no backend).
