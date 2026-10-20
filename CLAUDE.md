@@ -21,7 +21,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 |---|---|
 | **nimble** | Instant answers, menu bar + web. **The reference repo** |
 | **epiphany** | Finance dashboard · 6779522175 |
-| **talli** | DTC/RDSP/CDB admin tool |
+| **plouton** (ex-talli) | BC disability assistance tracker, named for the Greek god of wealth. Bundle IDs, app group and KV keys still say talli/tally; talli.jaybulb.com still serves installed apps · 6782366555 |
 | **notate** (ex-voxprint) | On-device transcription, WhisperKit. Xcode targets and Pages project still say Voxprint · 6782604262 |
 | **patois** (ex-tonchi, ex-lexly). Folder is `tonchi` | Gamified learning, 165 courses · 6783501611 (6783501927 is a stray dupe) |
 | **intake** (ex-healstack) | Health/supplement tracker. Store name and Pages project still `healstack` |
@@ -119,7 +119,7 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 ## Gotchas
 - `heyitsmejosh.com` lapsed 2026-10-13 on purpose. Everything lives at `<name>.jaybulb.com`. Native apps still hardcode the old host until their next build.
 - `npm i <pkg> --save-dev` on a pinned dep upgrades it silently. Edit package.json by hand and diff the lockfile.
-- Stripe is live on epiphany, intake, melete and talli. It cannot unlock in-app features under App Review, that needs IAP.
+- Stripe is live on epiphany, intake, melete and plouton. It cannot unlock in-app features under App Review, that needs IAP.
 - Social sign-in is blocked on console registrations. The code is done.
 - `mole clean` needs a real TTY for sudo. Run it yourself.
 
