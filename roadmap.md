@@ -1,16 +1,16 @@
 # Cross-repo roadmap
 
 Items without their own repo. Per-project work lives in each repo's `roadmap.md`.
-Last pruned 2026-09-01 against live ASC + HTTP state, not against notes.
+Header refreshed 2026-10-20; last pruned 2026-09-01 against live ASC + HTTP state, not against notes.
 
 ## Priority order (2026-10-17)
 Work in this order, one project at a time. Each repo's roadmap carries its tier.
-1. Live blockers: rejected apps (Tonchi, Hikko, Mailbag, Windgate), new names for Tonchi/Hikko/Windgate, Brick, Talli, Curbfind.
-2. Ship pushes: Nimble, Epiphany, Bookrank, Sidewise, Intake, Notate, Blockframe Mac.
-3. Active features: Tonchi, Epiphany, Nimble, NYC, Inkpress, Blockframe, Hikko.
+1. Live blockers: rejected apps (Patois, Melete, Mailbag, Airwell), new names for Patois/Melete/Airwell, Atlin, Talli, Curbfind.
+2. Ship pushes: Nimble, Epiphany, Bookrank, Sidewise, Intake, Notate, Icelus Mac.
+3. Active features: Patois, Epiphany, Nimble, NYC, Inkpress, Icelus, Melete.
 4. Portfolio and meta: nulljosh.github.io demo, Doorstock.
 5. Exploratory: Joshua Tree, Turing, Vancouver Vice, Conveyer, Cruise, the rest.
-Joshua only: seller name to business, Hikko Sign in with Apple on a phone, dashboard steps.
+Joshua only: seller name to business, Melete Sign in with Apple on a phone, dashboard steps.
 
 ## Blocked on Joshua (manual, dashboard or phone)
 

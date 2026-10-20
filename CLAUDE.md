@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-10-16. This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money. Never write versions here, `asc versions list --app <id>` is the truth.*
+*Refreshed 2026-10-20. This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money. Never write versions here, `asc versions list --app <id>` is the truth.*
 
 ![Commits per month since Claude Code inception](progress.svg)
 
@@ -12,7 +12,7 @@
 
 ## Repos
 
-**`~/Documents/Code` is the `labs` repo.** 24 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, swing, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), curvely, hamurapi, bcgd, nyc, inkpress. Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`.
+**`~/Documents/Code` is the `labs` repo.** 24 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, swing, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), curvely, hamurapi, bcgd, nyc, inkpress. Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and in the allowlist but untracked, see roadmap. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`. `thinkpond/` is a stale second checkout of melete (same remote), use `melete/`.
 
 ### Apps
 Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
@@ -87,7 +87,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 ### Small or local-only
 `secretary` (Claude + Twilio phone secretary), `hackrange` (security dojo, private), `slicehack`, `logans-frenchies` (client pitch, private), `bbgd` (client site), `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch` (post drafts), `runs`. Old experiments and stray copies live in `_attic/` (gitignored, never push). Helpers: `scripts/`, `_external/` (read-only checkouts, never push).
 
-Gone. Don't mention them: systems, beep, missing-pets, abraham, code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay, plan.
+Gone. Don't mention them: systems, beep, missing-pets, abraham, code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay.
 
 ## Ship status
 Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28 and again on 2026-10-05. Reply with the nine answers, never resubmit unchanged, and send nothing without Joshua's yes. Book apps get a vague 2.1 unless you drop CHN. Rejection reasons live in Resolution Center only (`asc-login` for 2FA). The ledger is `wiki/pages/asc-status.md` in the Obsidian vault, regenerate it, don't trust it.
@@ -122,6 +122,9 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 - Stripe is live on epiphany, intake, melete and talli. It cannot unlock in-app features under App Review, that needs IAP.
 - Social sign-in is blocked on console registrations. The code is done.
 - `mole clean` needs a real TTY for sudo. Run it yourself.
+
+## Root files
+`README.md` (what labs tracks), `roadmap.md`, `GTM.md`, `SHIPPING.md` (the asc ship method), `README-TEMPLATE.md` (README voice), `PROGRESS.md` + `progress.svg` + `fleet.svg` (snapshots from `scripts/`).
 
 ## Open work
 `roadmap.md` is the queue. `GTM.md` is the ledger. About 18 apps still need a `kmp/` module. TUI companions (`tui/` + SwiftTUI) exist for 16 apps, the rest are deliberately skipped (auth-gated, mic-bound or no backend).

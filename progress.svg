@@ -1,21 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12">
-<style>text{fill:#555}.b{fill:#1d1d1f}@media(prefers-color-scheme:dark){text{fill:#aaa}.b{fill:#f5f5f7}line{stroke:#444}}</style>
-<text x="50" y="18" font-size="14" font-weight="600">Commits per month across ~/Documents/Code, Sep 2025 to Sep 2026</text>
-<line x1="50" x2="740" y1="260" y2="260" stroke="#ddd"/><text x="44" y="264" text-anchor="end">0</text>
-<line x1="50" x2="740" y1="183" y2="183" stroke="#ddd"/><text x="44" y="187" text-anchor="end">1000</text>
-<line x1="50" x2="740" y1="107" y2="107" stroke="#ddd"/><text x="44" y="111" text-anchor="end">2000</text>
-<line x1="50" x2="740" y1="30" y2="30" stroke="#ddd"/><text x="44" y="34" text-anchor="end">3000</text>
-<rect class="b" x="58" y="258" width="37" height="2" rx="2"/><text x="77" y="254" text-anchor="middle">22</text><text x="77" y="276" text-anchor="middle">Sep 25</text>
-<rect class="b" x="111" y="258" width="37" height="2" rx="2"/><text x="130" y="254" text-anchor="middle">24</text><text x="130" y="276" text-anchor="middle">Oct</text>
-<rect class="b" x="164" y="260" width="37" height="0" rx="2"/><text x="183" y="256" text-anchor="middle">5</text><text x="183" y="276" text-anchor="middle">Nov</text>
-<rect class="b" x="217" y="259" width="37" height="1" rx="2"/><text x="236" y="255" text-anchor="middle">8</text><text x="236" y="276" text-anchor="middle">Dec</text>
-<rect class="b" x="270" y="259" width="37" height="1" rx="2"/><text x="289" y="255" text-anchor="middle">14</text><text x="289" y="276" text-anchor="middle">Jan 26</text>
-<rect class="b" x="323" y="251" width="37" height="9" rx="2"/><text x="342" y="247" text-anchor="middle">121</text><text x="342" y="276" text-anchor="middle">Feb</text>
-<rect class="b" x="376" y="256" width="37" height="4" rx="2"/><text x="395" y="252" text-anchor="middle">55</text><text x="395" y="276" text-anchor="middle">Mar</text>
-<rect class="b" x="430" y="257" width="37" height="3" rx="2"/><text x="448" y="253" text-anchor="middle">38</text><text x="448" y="276" text-anchor="middle">Apr</text>
-<rect class="b" x="483" y="248" width="37" height="12" rx="2"/><text x="501" y="244" text-anchor="middle">160</text><text x="501" y="276" text-anchor="middle">May</text>
-<rect class="b" x="536" y="220" width="37" height="40" rx="2"/><text x="554" y="216" text-anchor="middle">526</text><text x="554" y="276" text-anchor="middle">Jun</text>
-<rect class="b" x="589" y="121" width="37" height="139" rx="2"/><text x="607" y="117" text-anchor="middle">1808</text><text x="607" y="276" text-anchor="middle">Jul</text>
-<rect class="b" x="642" y="52" width="37" height="208" rx="2"/><text x="660" y="48" text-anchor="middle">2714</text><text x="660" y="276" text-anchor="middle">Aug</text>
-<rect class="b" x="695" y="164" width="37" height="96" rx="2"/><text x="713" y="160" text-anchor="middle">1257</text><text x="713" y="276" text-anchor="middle">Sep</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="474" height="200" viewBox="0 0 474 200"><style>
+  :root { --ink: #111111; }
+  @media (prefers-color-scheme: dark) { :root { --ink: #ececec; } }
+  text { font-family: -apple-system, Helvetica, Arial, sans-serif; fill: var(--ink); }
+  line, polyline { stroke: var(--ink); fill: none; }
+  .g { stroke-dasharray: 1 4; }
+</style><text x="44" y="11" font-size="10">Commits</text><line x1="44" y1="26" x2="464" y2="26" class="g"/><text x="40" y="29" font-size="9" text-anchor="end">5277</text><line x1="44" y1="97" x2="464" y2="97" class="g"/><text x="40" y="100" font-size="9" text-anchor="end">2638</text>
+<line x1="44" y1="26" x2="44" y2="166"/><line x1="44" y1="166" x2="464" y2="166"/>
+<polyline points="44,166 54,163 64,160 74,156 84,153 95,149 105,146 115,142 125,139 136,135 146,132 156,128 166,125 177,121 187,118 197,114 207,111 218,107 228,104 238,100 248,97 259,93 269,90 279,87 289,83 300,80 310,76 320,73 330,69 341,66 351,62 361,59 371,55 382,52 392,48 402,45 412,41 423,38 433,34 443,31 453,27 464,26" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="44" y="182" font-size="10">Mar 10</text><text x="464" y="182" font-size="10" text-anchor="end">Oct 19</text>
+<text x="44" y="196" font-size="10" font-weight="600">5277 commits &#183; 0% documented &#183; since Mar 10 2026</text></svg>
