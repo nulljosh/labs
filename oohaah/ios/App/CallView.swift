@@ -223,7 +223,14 @@ struct CallView: View {
 
 private struct Prominence: ViewModifier {
     let prominent: Bool
+    @Environment(\.isEnabled) private var enabled
+
     func body(content: Content) -> some View {
-        if prominent { content.buttonStyle(.glassProminent) } else { content.buttonStyle(.glass).foregroundStyle(.white) }
+        if prominent {
+            content.buttonStyle(.glassProminent)
+        } else {
+            // White reads on dark glass; a disabled button has to look disabled too.
+            content.buttonStyle(.glass).foregroundStyle(.white.opacity(enabled ? 1 : 0.35))
+        }
     }
 }
