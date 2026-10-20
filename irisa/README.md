@@ -1,59 +1,49 @@
 <img src="icon.svg" alt="Irisa icon" width="80" height="80">
 
-# Irisa
+![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
-![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fswing-black?logo=github)](https://github.com/nulljosh/labs/tree/main/irisa)
+**Live:** https://irisa.jaybulb.com
 
-**Live:** https://irisa.jaybulb.com · **GitHub:** https://github.com/nulljosh/labs/tree/main/irisa
+Fifteen seconds of video with a stranger. Then you both decide.
 
-Fifteen seconds of video with a stranger.
+Both of you tap More time or the call ends itself. Both tap Keep and you swap handles. Iris was the messenger of the Greek gods; Irisa carries a hello between two strangers.
 
-Both of you tap for more time or the call ends itself. Both tap Keep and you swap
-handles. Same idea as Monkey and Omegle. Written from scratch.
+## Features
 
-- `worker.js`: a Cloudflare Worker. Serves `web/` and hands `/ws` to one
-  Durable Object. That object keeps the queue, pairs two sockets, and relays
-  WebRTC signaling. It never sees audio or video.
-- `web/chat.js`: camera, socket, one `RTCPeerConnection` per stranger.
-- `web/index.html`: the landing page. `web/app.html`: the call, the clock,
-  and the 18+ gate.
+- One tap matches you with one person. No account, no profile.
+- A fifteen second clock that only both of you can extend, kept on the server so nobody can stall it.
+- Keep: handles are swapped only when both of you ask.
+- Report cuts the call; three reports in a day bans that person for a day. Block keeps you apart for good.
+- Slurs are masked in chat and handles before a stranger sees them.
+- Video goes peer to peer. The server never sees it and nothing is recorded.
+- Web, iPhone and Mac, all in one lobby.
 
-Video and audio use a direct connection when possible, or a TURN relay when needed. Irisa does not record calls. Your handle and age confirmation are saved in your browser.
+## How it is built
 
-<img src="progress.svg" width="460">
-
-## Screenshots
-
-<img src="screenshots/landing.png" alt="Irisa landing page" width="600">
-
-<img src="screenshots/age-gate.png" alt="Irisa age confirmation on a phone" width="260">
-
-These show the landing page and age gate. A live call needs two people and camera access.
+- `worker.js`: a Cloudflare Worker. Serves `web/` and hands `/ws` to one Durable Object that keeps the queue, pairs two sockets, runs the clock, relays WebRTC signaling, and stores reports, bans and blocks in SQLite.
+- `web/`: the landing (`index.html`), the call (`app.html` + `chat.js`), privacy and terms.
+- `ios/`: the SwiftUI app for iPhone and Mac. WebRTC comes from the `stasel/WebRTC` package. It speaks the same lobby JSON as the browser, so native and web users meet each other.
+- `brand/`: icon, mascot, colours. See `brand/BRAND.md`.
 
 ## Run
 
     npx wrangler dev      # http://localhost:8787, open two tabs
-    node test.mjs         # pairing logic
+    node test.mjs         # lobby logic: pairing, clock, keep, block, filter
+    npm run qa            # two headless browsers make a real call
     npx wrangler deploy
+
+    cd ios && xcodegen generate && open Irisa.xcodeproj
 
 ## TURN
 
-`/ice` hands the browser its ICE servers. With no TURN key it returns STUN only.
-That connects most pairs. Symmetric NATs it does not. To turn the relay on, make
-a TURN key in the Cloudflare dashboard (Realtime > TURN) and give the Worker both values:
+`/ice` hands out ICE servers. With no TURN key it returns STUN only, which connects most pairs but not symmetric NATs or strict cellular networks. To turn the relay on, make a TURN key in the Cloudflare dashboard (Realtime > TURN) and give the Worker both values:
 
     npx wrangler secret put TURN_KEY_ID
     npx wrangler secret put TURN_KEY_API_TOKEN
 
-The Worker then mints a credential per visit that lives one hour. Nothing
-long-lived reaches the page. If minting fails, the call runs on STUN instead of
-failing.
+## Moderation
 
-## Known limits
-
-A report cuts the call and logs to the Worker console. That's it. No abuse
-queue, no ban list, no moderation. One lobby for everyone, so no interest tags
-and no region matching.
+`GET /moderation` with `Authorization: Bearer <MODERATOR_TOKEN>` lists the last 100 reports and live bans. The token is in the macOS Keychain under `irisa-moderator-token`.
 
 ## Architecture
 

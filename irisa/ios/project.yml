@@ -1,0 +1,63 @@
+name: Irisa
+options:
+  bundleIdPrefix: com.nulljosh
+  deploymentTarget:
+    iOS: "17.0"
+    macOS: "14.0"
+packages:
+  WebRTC:
+    url: https://github.com/stasel/WebRTC
+    exactVersion: 155.0.0
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "202610201200"
+targets:
+  Irisa:
+    type: application
+    supportedDestinations: [iOS, macOS]
+    sources:
+      - path: App
+      - path: ../Irisa.icon
+    dependencies:
+      - package: WebRTC
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nulljosh.irisa
+        INFOPLIST_FILE: App/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: Irisa
+        DEVELOPMENT_TEAM: QMM486NPYC
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_ENTITLEMENTS: Irisa.entitlements
+        CODE_SIGN_ENTITLEMENTS[sdk=macosx*]: Irisa-macOS.entitlements
+        "LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]": "$(inherited) @executable_path/../Frameworks"
+  IrisaTests:
+    type: bundle.unit-test
+    supportedDestinations: [iOS, macOS]
+    sources:
+      - path: Tests
+    dependencies:
+      - target: Irisa
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nulljosh.irisa.tests
+        "TEST_HOST[sdk=macosx*]": $(BUILT_PRODUCTS_DIR)/Irisa.app/Contents/MacOS/Irisa
+        GENERATE_INFOPLIST_FILE: YES
+        DEVELOPMENT_TEAM: QMM486NPYC
+schemes:
+  Irisa:
+    build:
+      targets:
+        Irisa: all
+        IrisaTests: [test]
+    test:
+      targets:
+        - IrisaTests
+    run:
+      config: Debug
+    archive:
+      config: Release
+    shared: true
