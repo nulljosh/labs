@@ -3,7 +3,7 @@
 Oohaah is the noise a monkey makes to say hello, and the noise you make when a stranger surprises you. Fifteen seconds of video with someone new. The mark is Momo's face.
 
 ## The mark
-Momo's face in white on a purple to navy tile: round head, two round ears, a tuft, and the heart-shaped face cut out so the tile shows through, with eyes and a smile. No text, no outline.
+Momo going "ooh": a round white head with side ears at eye level, the heart-shaped face cut out so the purple shows through, two big eyes and a round open mouth. Solid clrs.cc purple tile, no gradient. No text, no outline.
 
 - `../Oohaah.icon` is the source of truth (Icon Composer). Light and dark fills are set in it.
 - `../icon.svg` is the flat copy for READMEs (shown at 80 px). `icon-1024.png` is the App Store icon, no alpha.
@@ -14,14 +14,14 @@ Momo's face in white on a purple to navy tile: round head, two round ears, a tuf
 `mascot.svg` is Momo, a small orange monkey with white wings, cheerful, never a cartoon face alone. Flat shapes in a circle on a pale purple disc. Use it at 28 px in a nav, 112 px over a section, and on the empty and waiting screens. Never with text inside it, never traced from a photo.
 
 ## Colour
-Built on [clrs.cc](https://clrs.cc) purple, with clrs.cc navy deepening the icon tile.
+Built on [clrs.cc](https://clrs.cc) purple. No gradients anywhere.
 
 | Role | Light | Dark |
 |---|---|---|
 | Accent (actions, links, buttons) | purple `#B10DC9` | `#DA8BE6` links, `#B10DC9` buttons |
 | Band (full-bleed sections) | purple `#B10DC9` | `#6e0880` |
 | Engravings on the band | `#e9b9f0` | `#d58ce0` |
-| Icon tile | `#B10DC9` to `#001F3F` | deeper navy |
+| Icon tile | solid `#B10DC9` | darker purple |
 | Background | `#fdfdfd` | `#070b14` |
 | Surface | `#f4f2f7` | `#10162a` |
 | Line | `#e0dce6` | `#232b45` |
