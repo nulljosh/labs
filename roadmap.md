@@ -3,7 +3,6 @@
 Items without their own repo. Per-project work lives in each repo's `roadmap.md`.
 Last pruned 2026-09-01 against live ASC + HTTP state, not against notes.
 
-
 ## Priority order (2026-10-17)
 Work in this order, one project at a time. Each repo's roadmap carries its tier.
 1. Live blockers: rejected apps (Tonchi, Hikko, Mailbag, Windgate), new names for Tonchi/Hikko/Windgate, Brick, Talli, Curbfind.
@@ -631,9 +630,6 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 
 ## Ingested 2026-10-02
 - [ ] Some app keeps talking out loud using the macOS say command. Find it and fix it.
-
-## Ingested 2026-10-05
-- [x] Obsidian: refresh wiki and index. Names are kinda stale. (wiki/index.md Entities relabelled via aliases: Tonchi, Hikko, Notate, Homeroom, Intake, Brick, Blockframe, 2026-10-05; ASC ship-tier audit not run)
 
 ## Ingested 2026-10-16
 - [ ] Joshua Tree: GitHub screenshots need updating (README screenshot shows v3.9.3). Update and simplify the guide markdown, architecture and roadmap. (screenshot: notes/attachments/2026-10-16/joshuatree-1.png)
