@@ -1,0 +1,324 @@
+// oohaah — random 1:1 video chat. The Worker serves the page and hands /ws to
+// one Durable Object that pairs strangers, runs the call clock, and relays
+// WebRTC signaling. Media is peer-to-peer and never touches us.
+
+const ROUND_MS = 15000; // a call starts at 15s; both sides extend it or it ends
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    if (url.pathname === "/ws") {
+      if (!env.ABUSE_SALT) return new Response("moderation unavailable", { status: 503 });
+      const ip = request.headers.get("CF-Connecting-IP") || "local";
+      const key = await fingerprint(ip, env.ABUSE_SALT);
+      const headers = new Headers(request.headers);
+      headers.set("X-Oohaah-Client", key);
+      return env.LOBBY.get(env.LOBBY.idFromName("global")).fetch(new Request(request, { headers }));
+    }
+    if (url.pathname === "/moderation") {
+      if (!env.MODERATOR_TOKEN || request.headers.get("Authorization") !== `Bearer ${env.MODERATOR_TOKEN}`)
+        return new Response("unauthorized", { status: 401 });
+      return env.LOBBY.get(env.LOBBY.idFromName("global")).fetch(request);
+    }
+    if (url.pathname === "/ice") return ice(env);
+    return env.ASSETS.fetch(request);
+  },
+};
+
+async function fingerprint(ip, salt) {
+  const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(salt),
+    { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const bytes = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(ip));
+  return [...new Uint8Array(bytes)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+// STUN tells a browser its public address, which is enough for most pairs. The
+// rest — symmetric NATs, restrictive corporate networks — need TURN to relay the
+// media. Credentials are minted per client and expire, so nothing long-lived
+// ever reaches the page.
+const STUN = { urls: ["stun:stun.cloudflare.com:3478", "stun:stun.l.google.com:19302"] };
+
+async function ice(env) {
+  const body = (servers) =>
+    Response.json({ iceServers: servers }, { headers: { "cache-control": "no-store" } });
+
+  if (!env.TURN_KEY_ID || !env.TURN_KEY_API_TOKEN) return body([STUN]);
+  try {
+    const res = await fetch(
+      `https://rtc.live.cloudflare.com/v1/turn/keys/${env.TURN_KEY_ID}/credentials/generate-ice-servers`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${env.TURN_KEY_API_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ttl: 3600 }),
+      },
+    );
+    if (!res.ok) throw new Error(`turn ${res.status}`);
+    const data = await res.json();
+    const servers = data.iceServers ? [].concat(data.iceServers) : [];
+    return body([STUN, ...servers]);
+  } catch (err) {
+    // A relay we could not mint is not worth failing the call over; the pairs
+    // that STUN can serve still connect.
+    console.log("turn", String(err));
+    return body([STUN]);
+  }
+}
+
+export class Lobby {
+  constructor(state) {
+    this.state = state;
+    this.queue = [];          // sockets waiting for a partner, oldest first
+    this.who = new Map();     // socket -> { handle, last, pair }
+    state.blockConcurrencyWhile(async () => {
+      state.storage.sql.exec(`CREATE TABLE IF NOT EXISTS reports (
+        id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL,
+        reporter TEXT NOT NULL, subject TEXT NOT NULL, reason TEXT NOT NULL)`);
+      state.storage.sql.exec(`CREATE TABLE IF NOT EXISTS bans (
+        subject TEXT PRIMARY KEY, until_at INTEGER NOT NULL)`);
+      state.storage.sql.exec(`CREATE TABLE IF NOT EXISTS blocks (
+        blocker TEXT NOT NULL, subject TEXT NOT NULL, PRIMARY KEY (blocker, subject))`);
+    });
+  }
+
+  async fetch(request) {
+    if (new URL(request.url).pathname === "/moderation") return this.moderation(request);
+    if (request.headers.get("Upgrade") !== "websocket") {
+      return new Response("expected websocket", { status: 426 });
+    }
+    const key = request.headers.get("X-Oohaah-Client");
+    if (!key || !/^[a-f0-9]{64}$/.test(key)) return new Response("forbidden", { status: 403 });
+    const ban = this.state.storage.sql.exec("SELECT until_at FROM bans WHERE subject = ?", key).toArray()[0];
+    if (ban && ban.until_at > Date.now()) return new Response("banned", { status: 403 });
+    const [client, server] = Object.values(new WebSocketPair());
+    server.accept();
+    this.who.set(server, { handle: "", last: null, pair: null, key });
+    server.addEventListener("message", (e) => this.onMessage(server, e.data));
+    server.addEventListener("close", () => this.drop(server));
+    server.addEventListener("error", () => this.drop(server));
+    return new Response(null, { status: 101, webSocket: client });
+  }
+
+  onMessage(ws, raw) {
+    const me = this.who.get(ws);
+    if (!me) return;
+    let msg;
+    try {
+      msg = JSON.parse(raw);
+    } catch {
+      return; // ignore junk from the wire
+    }
+    switch (msg.type) {
+      case "find":
+        me.handle = scrub(msg.handle);
+        this.find(ws);
+        break;
+      case "signal": {
+        const peer = this.peerOf(ws);
+        if (peer) send(peer, { type: "signal", data: msg.data });
+        break;
+      }
+      case "chat": {
+        // Text rides the same socket as signalling; the server never stores it.
+        const peer = this.peerOf(ws);
+        const text = scrub(msg.text, 280);
+        if (peer && text) send(peer, { type: "chat", text });
+        break;
+      }
+      case "extend":
+        this.vote(ws, "extend");
+        break;
+      case "keep":
+        this.vote(ws, "keep");
+        break;
+      case "report":
+        this.report(ws, clean(msg.reason, 200) || "unspecified");
+        this.end(ws, "reported");
+        break;
+      case "block":
+        this.block(ws);
+        this.end(ws, "blocked");
+        break;
+      case "next":
+        this.end(ws, "skipped");
+        this.find(ws);
+        break;
+    }
+  }
+
+  report(ws, reason) {
+    const peer = this.peerOf(ws);
+    if (!peer) return;
+    const reporter = this.who.get(ws).key;
+    const subject = this.who.get(peer).key;
+    if (reporter === subject) return;
+    const now = Date.now();
+    // One report per reporter/subject per day. Three distinct reporters trigger
+    // a temporary ban; the queue remains available for human review.
+    this.state.storage.sql.exec("DELETE FROM reports WHERE at < ?", now - 7 * 86400000);
+    const prior = this.state.storage.sql.exec(
+      "SELECT id FROM reports WHERE reporter = ? AND subject = ? AND at > ?",
+      reporter, subject, now - 86400000).toArray();
+    if (prior.length) return;
+    this.state.storage.sql.exec(
+      "INSERT INTO reports (at, reporter, subject, reason) VALUES (?, ?, ?, ?)",
+      now, reporter, subject, reason);
+    const count = this.state.storage.sql.exec(
+      "SELECT COUNT(DISTINCT reporter) AS n FROM reports WHERE subject = ? AND at > ?",
+      subject, now - 86400000).one().n;
+    if (count >= 3) {
+      this.state.storage.sql.exec(
+        "INSERT INTO bans (subject, until_at) VALUES (?, ?) ON CONFLICT(subject) DO UPDATE SET until_at = excluded.until_at",
+        subject, now + 86400000);
+      for (const [socket, meta] of this.who) if (meta.key === subject) {
+        this.drop(socket);
+        socket.close(1008, "banned");
+      }
+    }
+  }
+
+  // A block is forever and one-way in storage, two-way in matching: neither side
+  // is ever paired with the other again. The key is an IP hash, so a shared
+  // network blocks as one person. ponytail: accounts would make this per-person.
+  block(ws) {
+    const peer = this.peerOf(ws);
+    if (!peer) return;
+    const blocker = this.who.get(ws).key;
+    const subject = this.who.get(peer).key;
+    if (blocker === subject) return;
+    this.state.storage.sql.exec(
+      "INSERT OR IGNORE INTO blocks (blocker, subject) VALUES (?, ?)", blocker, subject);
+  }
+
+  blocked(a, b) {
+    const ka = this.who.get(a)?.key;
+    const kb = this.who.get(b)?.key;
+    return this.state.storage.sql.exec(
+      "SELECT 1 FROM blocks WHERE (blocker = ? AND subject = ?) OR (blocker = ? AND subject = ?)",
+      ka, kb, kb, ka).toArray().length > 0;
+  }
+
+  moderation(request) {
+    if (request.method === "GET") {
+      return Response.json({
+        reports: this.state.storage.sql.exec("SELECT id, at, subject, reason FROM reports ORDER BY id DESC LIMIT 100").toArray(),
+        bans: this.state.storage.sql.exec("SELECT subject, until_at FROM bans WHERE until_at > ?", Date.now()).toArray(),
+      }, { headers: { "Cache-Control": "no-store" } });
+    }
+    return new Response("method not allowed", { status: 405 });
+  }
+
+  peerOf(ws) {
+    const pair = this.who.get(ws)?.pair;
+    if (!pair) return null;
+    return pair.a === ws ? pair.b : pair.a;
+  }
+
+  find(ws) {
+    const me = this.who.get(ws);
+    if (!me || me.pair || this.queue.includes(ws)) return;
+    // Take the oldest waiting stranger who isn't the person we just left —
+    // otherwise a timed-out pair instantly rematches with each other.
+    const i = this.queue.findIndex((o) => o !== ws && o !== me.last && open(o) && !this.blocked(ws, o));
+    if (i === -1) {
+      this.queue.push(ws);
+      send(ws, { type: "waiting" });
+      return;
+    }
+    const peer = this.queue.splice(i, 1)[0];
+    const pair = { a: peer, b: ws, extend: new Set(), keep: new Set(), timer: null };
+    this.who.get(peer).pair = pair;
+    me.pair = pair;
+    // Whoever was already waiting makes the offer; the newcomer answers.
+    send(peer, { type: "matched", initiator: true, ms: ROUND_MS });
+    send(ws, { type: "matched", initiator: false, ms: ROUND_MS });
+    this.arm(pair);
+  }
+
+  // The clock is the product: a call dies at the deadline unless both sides
+  // asked for more, so it is kept server-side where neither client can stall it.
+  arm(pair) {
+    clearTimeout(pair.timer);
+    pair.timer = setTimeout(() => {
+      const { a, b } = pair;
+      this.unpair(pair);
+      for (const ws of [a, b]) {
+        send(ws, { type: "time-up" });
+        this.find(ws);
+      }
+    }, ROUND_MS);
+  }
+
+  vote(ws, kind) {
+    const pair = this.who.get(ws)?.pair;
+    if (!pair) return;
+    const peer = this.peerOf(ws);
+    pair[kind].add(ws);
+    if (pair[kind].size < 2) {
+      send(peer, { type: "asked", what: kind });
+      return;
+    }
+    if (kind === "extend") {
+      pair.extend.clear();
+      for (const side of [pair.a, pair.b]) send(side, { type: "extended", ms: ROUND_MS });
+      this.arm(pair);
+    } else {
+      // Both said keep, so each one gets the other's handle. Nothing is
+      // exchanged unless both asked for it.
+      send(pair.a, { type: "kept", handle: this.who.get(pair.b).handle });
+      send(pair.b, { type: "kept", handle: this.who.get(pair.a).handle });
+    }
+  }
+
+  unpair(pair) {
+    clearTimeout(pair.timer);
+    for (const side of [pair.a, pair.b]) {
+      const meta = this.who.get(side);
+      if (meta) {
+        meta.pair = null;
+        meta.last = side === pair.a ? pair.b : pair.a;
+      }
+    }
+  }
+
+  // One side walked. Break the pair and tell the other, leaving both free.
+  end(ws, reason) {
+    const pair = this.who.get(ws)?.pair;
+    if (!pair) return;
+    const peer = this.peerOf(ws);
+    this.unpair(pair);
+    send(peer, { type: "peer-left", reason });
+  }
+
+  drop(ws) {
+    const i = this.queue.indexOf(ws);
+    if (i !== -1) this.queue.splice(i, 1);
+    this.end(ws, "left");
+    this.who.delete(ws);
+  }
+}
+
+// Handles and reasons are user text going straight back out to a stranger.
+function clean(s, max = 32) {
+  if (typeof s !== "string") return "";
+  return s.replace(/[\p{C}]/gu, "").trim().slice(0, max);
+}
+
+// Slurs and the obvious solicitations are masked before a stranger sees them.
+// ponytail: a short word list, not a classifier. Reports and bans do the rest.
+const BAD = /\b(n[i1]gg(er|a)s?|f[a4]gg?(ot)?s?|retards?|kill yourself|kys|send nudes)\b/gi;
+function scrub(s, max) {
+  return clean(s, max).replace(BAD, (m) => "*".repeat(m.length));
+}
+
+const open = (ws) => ws.readyState === 1;
+
+function send(ws, obj) {
+  try {
+    ws.send(JSON.stringify(obj));
+  } catch {
+    // socket already gone; drop() cleans up
+  }
+}
