@@ -14,13 +14,13 @@ An iris diaphragm: six blades in a ring, white on a purple to navy tile. No text
 `mascot.svg` is a small orange monkey with white wings: Iris's messenger, cheerful, never a cartoon face alone. Flat shapes in a circle on a pale purple disc. Use it at 28 px in a nav, 112 px over a section, and on the empty and waiting screens. Never with text inside it, never traced from a photo.
 
 ## Colour
-Every colour comes from [clrs.cc](https://clrs.cc).
+Built on [clrs.cc](https://clrs.cc) purple, with clrs.cc navy deepening the icon tile.
 
 | Role | Light | Dark |
 |---|---|---|
 | Accent (actions, links, buttons) | purple `#B10DC9` | `#DA8BE6` links, `#B10DC9` buttons |
-| Band (full-bleed sections) | navy `#001F3F` | same |
-| Engravings on the band | aqua `#7FDBFF` | same |
+| Band (full-bleed sections) | purple `#B10DC9` | `#6e0880` |
+| Engravings on the band | `#e9b9f0` | `#d58ce0` |
 | Icon tile | `#B10DC9` to `#001F3F` | deeper navy |
 | Background | `#fdfdfd` | `#070b14` |
 | Surface | `#f4f2f7` | `#10162a` |
@@ -32,7 +32,7 @@ Every colour comes from [clrs.cc](https://clrs.cc).
 Headlines and labels use Irisa Display (Antonio, SIL Open Font License): thin condensed caps. Everything else is the system font: `-apple-system, BlinkMacSystemFont, "SF Pro Text", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif`.
 
 ## Art
-John Flaxman's 1795 engravings for the Iliad (public domain), dithered to line masks in `web/art/` and tinted aqua on the navy band. Only clothed plates: the app bans nudity, so the landing shows none.
+John Flaxman's 1795 engravings for the Iliad (public domain), dithered to line masks in `web/art/` and tinted lavender on the purple band. Only clothed plates: the app bans nudity, so the landing shows none.
 
 ## Space and shape
 - Space on the 8 point grid: 4, 8, 12, 16, 24, 32, 48, 64, 96.
