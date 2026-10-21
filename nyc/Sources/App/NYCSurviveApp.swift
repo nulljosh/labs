@@ -57,6 +57,17 @@ struct NYCSurviveApp: App {
 /// The first click on an inactive window should press the button, not just focus it.
 final class MenuSKView: SKView {
     override func acceptsFirstMouse(for event: NSEvent?) -> Bool { true }
+
+    /// The menu needs mouse-moved events for button hover.
+    override func updateTrackingAreas() {
+        super.updateTrackingAreas()
+        trackingAreas.forEach(removeTrackingArea)
+        addTrackingArea(NSTrackingArea(rect: bounds, options: [.mouseMoved, .activeInKeyWindow, .inVisibleRect], owner: self))
+    }
+
+    override func mouseMoved(with event: NSEvent) {
+        scene?.mouseMoved(with: event)
+    }
 }
 
 struct MenuSceneView: NSViewRepresentable {

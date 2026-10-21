@@ -280,6 +280,9 @@ final class GameScene: SKScene {
     override func mouseDragged(with event: NSEvent) {
         guard let start = selectionStart else { return }
         let current = event.location(in: self)
+        // A click with a little hand jitter is still a click. Without this, a 1 px wobble
+        // turned every click into an empty drag-box that cleared the selection.
+        if !dragMoved, hypot(current.x - start.x, current.y - start.y) < 6 * cameraController.cameraNode.xScale { return }
         dragMoved = true
         updateSelectionRect(from: start, to: current)
     }

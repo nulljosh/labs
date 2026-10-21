@@ -75,6 +75,7 @@ final class MenuScene: SKScene {
         pill.lineWidth = 1
         pill.position = CGPoint(x: size.width / 2, y: y)
         pill.name = name
+        pill.userData = ["fill": pill.fillColor]
         addChild(pill)
 
         let label = SKLabelNode(fontNamed: chill(.semibold))
@@ -250,6 +251,28 @@ final class MenuScene: SKScene {
     #endif
 
     #if os(macOS)
+    private weak var hovered: SKShapeNode?
+
+    /// Hover: the capsule under the pointer grows a little, lightens, and the cursor turns to a hand.
+    override func mouseMoved(with event: NSEvent) {
+        let hit = showingLoadMenu || showingSettings ? nil :
+            nodes(at: event.location(in: self)).compactMap { $0 as? SKShapeNode }.first { $0.parent === self && $0.name != nil }
+        guard hit !== hovered else { return }
+        if let old = hovered {
+            old.run(.scale(to: 1.0, duration: 0.12))
+            old.fillColor = old.userData?["fill"] as? SKColor ?? old.fillColor
+        }
+        hovered = hit
+        if let new = hit {
+            new.run(.scale(to: 1.05, duration: 0.12))
+            let base = new.userData?["fill"] as? SKColor ?? new.fillColor
+            new.fillColor = base.blended(withFraction: 0.18, of: .white) ?? base
+            NSCursor.pointingHand.set()
+        } else {
+            NSCursor.arrow.set()
+        }
+    }
+
     override func keyDown(with event: NSEvent) {
         if event.keyCode == 53 && (showingLoadMenu || showingSettings) {
             hideLoadMenu()

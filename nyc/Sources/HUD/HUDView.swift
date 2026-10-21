@@ -43,7 +43,7 @@ struct HUDView: View {
                     gameLogView
                         .padding(8)
                     Spacer()
-                    MiniMap()
+                    MiniMap(gameState: gameState)
                         .padding(8)
                 }
                 .padding(.bottom, 110)
@@ -77,7 +77,7 @@ struct HUDView: View {
                         .foregroundStyle(Theme.text3)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 5)
-                        .background(RoundedRectangle(cornerRadius: 6).fill(Theme.glass))
+                        .background(RoundedRectangle(cornerRadius: 6).fill(.ultraThinMaterial))
                         .overlay(RoundedRectangle(cornerRadius: 6).stroke(Theme.border, lineWidth: 0.5))
                         .padding(8)
                 }
@@ -180,13 +180,13 @@ struct HUDView: View {
         VStack(alignment: .leading, spacing: 2) {
             ForEach(Array(gameState.gameLog.suffix(3).enumerated()), id: \.offset) { _, msg in
                 Text(msg)
-                    .font(.system(size: 10))
-                    .foregroundStyle(Theme.text2)
+                    .font(.system(size: 11))
+                    .foregroundStyle(Theme.text1)
             }
         }
         .padding(8)
         .frame(maxWidth: 280, alignment: .leading)
-        .background(RoundedRectangle(cornerRadius: Theme.radius).fill(Theme.glass))
+        .background(RoundedRectangle(cornerRadius: Theme.radius).fill(.ultraThinMaterial))
         .overlay(RoundedRectangle(cornerRadius: Theme.radius).stroke(Theme.border, lineWidth: 0.5))
     }
 

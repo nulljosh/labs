@@ -5,10 +5,20 @@ struct TutorialView: View {
 
     private var step: Int { gameState.tutorialStep ?? 0 }
 
+    /// Mac players click; the copy is written for touch.
     private var stepData: (title: String, body: String, hint: String) {
+        let d = touchCopy
+        #if os(macOS)
+        return (d.title, d.body.replacingOccurrences(of: "Tap", with: "Click"), d.hint.replacingOccurrences(of: "Tap", with: "Click"))
+        #else
+        return d
+        #endif
+    }
+
+    private var touchCopy: (title: String, body: String, hint: String) {
         switch step {
         case 0: ("WELCOME",    "Welcome to NYC Survive. You control a group of survivors.",                           "Tap to continue")
-        case 1: ("NEEDS",      "Colonists have NEEDS — hunger, oxygen, stress, sleep, health. Keep them alive.",      "Tap to continue")
+        case 1: ("NEEDS",      "Colonists have NEEDS: hunger, oxygen, stress, sleep, health. Keep them alive.",      "Tap to continue")
         case 2: ("STATS",      "Each colonist has RPG STATS — STR, INT, AGI, END, CHA. Tap a figure.",               "Tap a colonist")
         case 3: ("CAMERA",     "WASD or arrows to pan, scroll to zoom. On touch, drag to pan, pinch to zoom.",                                               "Tap to continue")
         case 4: ("BUILD",      "Tap BUILD to open the build menu. Buildings keep your colony running.",               "Tap BUILD")
@@ -74,6 +84,9 @@ struct TutorialView: View {
             .frame(maxWidth: 420)
             .liquidGlass(in: RoundedRectangle(cornerRadius: Theme.radiusLg), fallback: .ultraThinMaterial)
             .overlay(RoundedRectangle(cornerRadius: Theme.radiusLg).stroke(Theme.border, lineWidth: 1))
+            // "Tap to continue" means the card too, not only the dimmed area around it.
+            .contentShape(RoundedRectangle(cornerRadius: Theme.radiusLg))
+            .onTapGesture { if !isInteractiveStep { advance() } }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: isInteractiveStep ? .top : .center)
             .padding(.top, isInteractiveStep ? 60 : 0)
         }
