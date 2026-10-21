@@ -2,145 +2,133 @@
   {
     "slug": "garage-door-repair",
     "name": "Garage Door Repair",
-    "lead": "Most garage door problems are a single worn component, not a door that needs replacing. We diagnose the actual fault and fix it, usually in one visit.",
+    "lead": "Noisy, stuck or uneven? We find the cause and fix it.",
     "signs": [
       "Door reverses partway, or refuses to close at all",
       "Grinding, banging or scraping during travel",
-      "Door hangs crooked or binds against the track",
-      "Opener runs but the door does not move"
+      "Door hangs crooked or binds against the track"
     ],
-    "detail": "We are a repair-only shop. Because we do not sell new doors, there is never a reason for us to tell you a door is beyond saving when it is not. A technician inspects springs, cables, rollers, hinges, tracks and the opener, explains what failed and what it costs, and completes the work with parts carried on the truck."
+    "detail": "We repair the whole system, so the fix lasts."
   },
   {
     "slug": "garage-door-maintenance",
     "name": "Garage Door Maintenance",
-    "lead": "An annual service visit is the difference between replacing a $12 roller and replacing a bent panel. Most emergency calls we take were preventable.",
+    "lead": "A yearly tune-up heads off breakdowns.",
     "signs": [
       "The door has not been serviced in over a year",
       "It has become noticeably louder",
-      "Rollers or hinges look dry or rusted",
-      "The door drifts when stopped halfway"
+      "Rollers or hinges look dry or rusted"
     ],
-    "detail": "Maintenance covers lubricating moving parts, tightening hardware that vibrates loose over thousands of cycles, balancing the door against the spring, adjusting travel and force limits on the opener, and testing the photo-eye and auto-reverse safety features. You get a written note of anything wearing out so nothing is a surprise later."
+    "detail": "We inspect wear points, check balance, tighten hardware and service moving parts."
   },
   {
     "slug": "garage-door-springs",
     "name": "Garage Door Spring Repair",
-    "lead": "A broken torsion spring is the single most common garage door failure, and the most dangerous one to attempt yourself. Springs hold hundreds of pounds of stored energy.",
+    "lead": "A broken spring makes the door heavy and unsafe. Don't lift it. Call us.",
     "signs": [
       "A loud bang from the garage, then the door will not lift",
       "A visible gap in the spring above the door",
-      "The opener strains, or lifts a few inches and stops",
-      "The door feels extremely heavy by hand"
+      "The opener strains, or lifts a few inches and stops"
     ],
-    "detail": "We stock colour-coded torsion springs across the full gauge range on the truck, so a broken spring is almost always same-day. Springs are replaced in pairs where both are the same age, because a second break shortly after the first is otherwise near certain. Do not attempt this repair with hardware-store winding bars."
+    "detail": "Springs hold heavy tension. Leave them to a pro."
   },
   {
     "slug": "garage-door-cable",
     "name": "Garage Door Cable Repair",
-    "lead": "Cables carry the door's weight alongside the springs. A frayed cable is a warning; a snapped one drops the door out of level and can pull it off the track.",
+    "lead": "Frayed, loose or off the drum, fixed safely.",
     "signs": [
       "One side of the door sits lower than the other",
       "Cable is loose, slack or hanging off the drum",
-      "Visible fraying or kinking near the bottom bracket",
-      "The door jams diagonally in the opening"
+      "Visible fraying or kinking near the bottom bracket"
     ],
-    "detail": "Cable repair is fast and inexpensive on its own. Left alone, it turns into bent tracks, damaged panels and a door that has to come off entirely to be rethreaded. If you can see a frayed cable, stop using the door and call us."
+    "detail": "Cables keep the door lifting evenly. We restore tension and alignment."
   },
   {
     "slug": "garage-door-rollers",
     "name": "Garage Door Roller Repair",
-    "lead": "Worn rollers are the usual reason a door that used to be quiet has become loud enough to hear from inside the house.",
+    "lead": "Shaking, grinding or uneven travel usually means worn rollers.",
     "signs": [
       "Rattling or scraping as the door travels",
       "The door shudders instead of gliding",
-      "Rollers look chipped, flat-spotted or seized",
-      "Metal dust along the track"
+      "Rollers look chipped, flat-spotted or seized"
     ],
-    "detail": "We replace worn steel rollers with nylon rollers, which run quieter and do not need constant lubrication. A full set is a short visit and makes an immediate, obvious difference to how the door sounds and feels."
+    "detail": "New rollers make the door smoother and quieter."
   },
   {
     "slug": "garage-door-hinge",
     "name": "Garage Door Hinge Repair",
-    "lead": "Hinges take the flex every time the door bends around the curve of the track. Cracked hinges let panels shift, which is how panel damage starts.",
+    "lead": "Worn hinges make the door move unevenly.",
     "signs": [
       "Visible cracks or elongated holes at a hinge",
       "A panel edge that no longer lines up",
-      "Popping sounds as the door rounds the curve",
-      "Loose or missing hinge screws"
+      "Popping sounds as the door rounds the curve"
     ],
-    "detail": "Hinges are numbered by position on the door. We carry the common sizes on the truck and replace the failed hinge along with any fasteners that have pulled out of the panel, so the repair holds rather than reopening in a month."
+    "detail": "We replace them and realign the door."
   },
   {
     "slug": "garage-door-track",
     "name": "Garage Door Track Repair",
-    "lead": "A bent or misaligned track is why a door jams, grinds, or comes off its rollers mid-travel. It's rarely the track itself that's worn out -- usually something hit it.",
+    "lead": "Bent or loose track makes the door stick and rub.",
     "signs": [
       "Door grinds, sticks or jams partway through travel",
       "A visible bend, dent or gap in the track",
-      "Rollers popping out of the track",
-      "Door sits crooked or off-level in the opening"
+      "Rollers popping out of the track"
     ],
-    "detail": "Most bent tracks come from a vehicle bump or a roller that failed and let the door bind. We straighten minor bends on site and replace sections that are creased or torn rather than the full track, re-aligning against the door and checking rollers and hinges at the same time so the same failure doesn't repeat."
+    "detail": "We set it straight so the door runs true."
   },
   {
     "slug": "emergency-garage-door-repair",
     "name": "Emergency Garage Door Repair",
-    "lead": "A garage door stuck open is a security problem, and a door stuck closed can trap a vehicle you need. We answer the phone 24/7.",
+    "lead": "Stuck open or closed? We come fast, 24/7.",
     "signs": [
       "Door will not close and the garage is left open",
       "Door is off its track or hanging",
-      "A spring or cable let go with the door up",
-      "Vehicle is trapped inside"
+      "A spring or cable let go with the door up"
     ],
-    "detail": "Call (604) 240-0180 any hour. We will tell you honestly on the phone whether it is safe to keep operating the door, whether it can wait until morning, and what the visit will involve, before anyone is dispatched."
+    "detail": "We get your door secure and safe again, any hour."
   },
   {
     "slug": "garage-door-panel-and-section-repair",
     "name": "Garage Door Panel and Section Repair",
-    "lead": "A single damaged section usually does not mean a new door. In most cases the affected panel can be repaired or replaced on its own.",
+    "lead": "Dented or damaged sections, repaired.",
     "signs": [
       "A dented or cracked section after a bump",
       "A panel bowing outward",
-      "Separation between sections",
-      "Rot or delamination on a wood door"
+      "Separation between sections"
     ],
-    "detail": "We assess whether the section can be straightened and reinforced or needs replacing, and check the hinges and struts around it, since panel damage is frequently a symptom of a hinge or track problem rather than the cause."
+    "detail": "We restore strength and alignment without pushing a new door."
   },
   {
     "slug": "garage-door-clickers",
     "name": "Garage Door Remotes and Clickers",
-    "lead": "A remote that stopped working is often a battery or a lost pairing rather than a failed opener. We sort it out on the spot.",
+    "lead": "Remote stopped working? We repair or replace it.",
     "signs": [
       "Remote works only from very close range",
       "One remote works and another does not",
-      "Remote stopped after a power outage",
-      "You need extra or replacement remotes"
+      "Remote stopped after a power outage"
     ],
-    "detail": "We are LiftMaster specialists and carry LiftMaster remotes on the truck, including the 992LM and 6580LM. We will also program a remote to a vehicle's built-in HomeLink buttons while we are there."
+    "detail": "Reliable one-click access again."
   },
   {
     "slug": "garage-door-keypads",
     "name": "Garage Door Keypads",
-    "lead": "A wireless keypad means the family gets in without carrying a remote, and you can hand out a code instead of a key.",
+    "lead": "Keypad acting up? We repair or replace it.",
     "signs": [
       "Keypad no longer responds to the code",
       "Faded or worn keys",
-      "Keypad was never installed",
-      "You need to change a code someone else knows"
+      "Keypad was never installed"
     ],
-    "detail": "We install and program LiftMaster keypads including the 979LM and 387LM, and will show you how to change the code yourself and how to set a temporary code for a house-sitter or contractor."
+    "detail": "Keyless entry that works every time."
   },
   {
     "slug": "garage-door-bottom-weather-strips",
     "name": "Garage Door Bottom Weather Strips",
-    "lead": "The bottom seal is what keeps rain, leaves and rodents out of the garage. In this climate it is the part that fails soonest.",
+    "lead": "A worn bottom seal lets in drafts, water and pests.",
     "signs": [
       "Water tracking under the closed door",
       "Daylight visible along the bottom edge",
-      "Rubber is cracked, hardened or torn",
-      "Draft or debris blowing in"
+      "Rubber is cracked, hardened or torn"
     ],
-    "detail": "We carry bottom rubber for wood, Steel-Craft and NWD doors and cut it to your opening. If the concrete has settled and left an uneven gap, we will tell you that a thicker seal is the fix rather than replacing the same part again next year."
+    "detail": "A new strip seals the gap."
   }
 ]

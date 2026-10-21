@@ -39,12 +39,16 @@ const rootRelative = (html) => html
   .replace(/href="#/g, 'href="/#')
   .replace(/href="index\.html"/g, 'href="/"');
 
-const HEADER = rootRelative(header);
+// Home is only "active" on the homepage.
+const HEADER = rootRelative(header).replace(' class="is-active"', '');
 const FOOTER = rootRelative(footer);
+// The hero's call/book pair, so sub-pages carry the same buttons as the homepage.
+const BUTTONS = slice('<div class="sx-btns">', '</div>', 'buttons') + '</div>';
+const extraPages = JSON.parse(readFileSync(join(ROOT, 'data/pages.json'), 'utf8'));
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-function page({ path, title, description, h1, lead, signs, detail, jsonLd, related }) {
+function page({ path, title, description, h1, lead, signs, detail, jsonLd, related, body }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,31 +73,28 @@ ${JSON.stringify(jsonLd, null, 2)}
 </head>
 <body>
 ${HEADER}
-    <section class="section subpage-hero">
-        <div class="section-inner">
+    <section class="sx-subhero">
+        <div class="sx-wrap">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="/">Home</a> <span>/</span> <span>${esc(h1)}</span>
             </nav>
             <h1>${esc(h1)}</h1>
-            <p class="subpage-lead">${esc(lead)}</p>
-            <div class="subpage-cta">
-                <a href="tel:6042400180" class="btn-primary">Call (604) 240-0180</a>
-                <a href="/#contact" class="btn-secondary">Book a service call</a>
-            </div>
+            <p>${esc(lead)}</p>
+            ${BUTTONS}
         </div>
     </section>
 
-    <section class="section">
-        <div class="section-inner subpage-body">
-            <h2 class="section-title">${esc(signs.heading)}</h2>
-            <ul class="subpage-list">
-                ${signs.items.map(s => `<li>${esc(s)}</li>`).join('\n                ')}
-            </ul>
-            <p class="subpage-detail">${esc(detail)}</p>
-            <h2 class="section-title">${esc(related.heading)}</h2>
-            <div class="subpage-links">
-                ${related.links.map(l => `<a href="${l.href}">${esc(l.label)}</a>`).join('\n                ')}
+    <section class="sx-subbody">
+        <div class="sx-wrap">
+            ${body ?? `<h2>${esc(signs.heading)}</h2>
+            <div class="sx-tiles">
+                ${signs.items.map(s => `<div class="sx-tile"><p>${esc(s)}</p></div>`).join('\n                ')}
             </div>
+            ${detail ? `<p class="subpage-detail">${esc(detail)}</p>` : ''}
+            <h2>${esc(related.heading)}</h2>
+            <ul class="sx-pills">
+                ${related.links.map(l => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('\n                ')}
+            </ul>`}
         </div>
     </section>
 ${FOOTER}
@@ -157,13 +158,12 @@ for (const a of areas) {
     signs: {
       heading: `What we do in ${a.name}`,
       items: [
-        'Broken torsion spring replacement, usually same day',
-        'Cable, roller, hinge and track repair',
-        'Opener, remote and keypad service (LiftMaster specialists)',
-        '24/7 emergency callouts for doors stuck open or off-track',
+        'Springs and cables',
+        'Rollers, hinges and track',
+        'Remotes and keypads',
+        '24/7 emergency repair',
       ],
     },
-    detail: `We are a repair-only shop, which means nobody arrives in ${a.name} trying to sell you a new door. A technician diagnoses the fault, explains the cost before starting, and carries the common parts on the truck so most jobs finish in one visit.`,
     related: {
       heading: 'Other areas we serve',
       links: areaLinks.filter(l => l.href !== path),
@@ -178,6 +178,21 @@ for (const a of areas) {
       areaServed: { '@type': 'City', name: a.name, containedInPlace: { '@type': 'AdministrativeArea', name: 'British Columbia' } },
       aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '128' },
     },
+  }));
+}
+
+// Specials, Tips and Blogs: short pages, like the source has them.
+for (const p of extraPages) {
+  const path = `/${p.slug}/`;
+  paths.push(path);
+  write(p.slug, page({
+    path,
+    title: p.title,
+    description: `${p.lead} Best Choice Garage Doors, Langley, BC. Call (604) 240-0180.`,
+    h1: p.h1,
+    lead: p.lead,
+    body: `<div class="sx-tiles">${p.body}</div>`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'WebPage', name: p.h1 },
   }));
 }
 

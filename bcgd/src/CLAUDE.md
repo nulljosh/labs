@@ -1,11 +1,11 @@
 # BC Garage Doors (BCGD)
-v3.0.0
+v4.0.0
 
 Monorepo for BC Garage Doors -- customer-facing website, internal operations dashboard, and native companion apps.
 
 ## Structure
-- `web/` -- Static HTML landing page + generated service/service-area pages. Live: bcgd.heyitsmejosh.com
-- `dashboard/` -- Vite + React 19 operations dashboard. Inventory, jobs pipeline, website leads, Supabase auth, backup/restore. Live: bcgd-dashboard.heyitsmejosh.com
+- `web/` -- Static HTML landing page + generated service/service-area pages. Live: bcgd.jaybulb.com
+- `dashboard/` -- Vite + React 19 operations dashboard. Inventory, jobs pipeline, website leads, Supabase auth, backup/restore. Live: bcgd-dashboard.jaybulb.com
 - `ios/` -- SwiftUI iPhone companion app (4 tabs, local persistence, builds + runs on sim)
 - `macos/` -- (planned) SwiftUI macOS companion app
 
@@ -35,8 +35,8 @@ and flipping them to `Imported`.
 - Settings (alert email, PIN, backup)
 
 ## Deploy
-Both sites are **Cloudflare Pages**, not Vercel. `bcgd.heyitsmejosh.com` and
-`bcgd-dashboard.heyitsmejosh.com` are proxied CNAMEs to `bcgd.pages.dev` /
+Both sites are **Cloudflare Pages**, not Vercel. `bcgd.jaybulb.com` and
+`bcgd-dashboard.jaybulb.com` are proxied CNAMEs to `bcgd.pages.dev` /
 `bcgd-dashboard.pages.dev`. A `vercel --prod` here deploys to an orphaned
 Vercel project that nothing points at -- it will look like it worked and change
 nothing. Deploys off wrangler's cached OAuth session -- run `npx wrangler login` if it

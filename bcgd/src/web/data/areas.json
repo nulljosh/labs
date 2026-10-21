@@ -1,17 +1,77 @@
 [
-  { "slug": "langley", "name": "Langley", "blurb": "Our shop is in Langley on 40th Ave, so Langley calls usually get the shortest response time we offer. Walnut Grove, Willoughby, Brookswood, Murrayville and Fort Langley are all a short drive." },
-  { "slug": "surrey", "name": "Surrey", "blurb": "Surrey is our busiest service area outside Langley. Cloverdale, Fleetwood, Guildford, Newton and South Surrey are all regular same-day territory." },
-  { "slug": "abbotsford", "name": "Abbotsford", "blurb": "Abbotsford is the eastern edge of our regular route, and we are out that way most weeks. Emergency calls east of Aldergrove are still answered 24/7." },
-  { "slug": "maple-ridge", "name": "Maple Ridge", "blurb": "We cover Maple Ridge and Pitt Meadows, including Albion, Silver Valley and Hammond. The older wood doors common in the area are a specialty of ours." },
-  { "slug": "coquitlam", "name": "Coquitlam", "blurb": "Coquitlam, Port Coquitlam and Port Moody are all inside our regular service area, from Burke Mountain down to the Mary Hill bypass." },
-  { "slug": "burnaby", "name": "Burnaby", "blurb": "We service all of Burnaby, from Metrotown and Burnaby Heights to Brentwood and the Lougheed corridor, in both houses and townhome complexes." },
-  { "slug": "new-westminster", "name": "New Westminster", "blurb": "New Westminster's older housing stock means a lot of original hardware still in service. We repair rather than replace wherever the door allows it." },
-  { "slug": "richmond", "name": "Richmond", "blurb": "Richmond's damp, salt-air conditions are hard on cables, springs and bottom seals. We carry the parts for all three on the truck." },
-  { "slug": "delta", "name": "Delta", "blurb": "North Delta, Ladner and Tsawwassen are all covered. Coastal exposure in Tsawwassen makes annual maintenance especially worthwhile." },
-  { "slug": "vancouver", "name": "Vancouver", "blurb": "We serve Vancouver proper, including the lane-access garages common on the east side, where tight clearances and older track are the norm." },
-  { "slug": "north-vancouver", "name": "North Vancouver", "blurb": "North Vancouver's steep driveways and heavy winter rain are hard on door balance and weather seals. We are up there regularly." },
-  { "slug": "west-vancouver", "name": "West Vancouver", "blurb": "West Vancouver marks the western end of our service area, from Ambleside through to Horseshoe Bay." },
-  { "slug": "port-coquitlam", "name": "Port Coquitlam", "blurb": "Port Coquitlam sits right between our Coquitlam and Pitt Meadows runs, so Citadel Heights, Mary Hill, Riverwood and the downtown core are all regular stops. Broken springs and off-track doors usually get a same-day visit." },
-  { "slug": "pitt-meadows", "name": "Pitt Meadows", "blurb": "Pitt Meadows is a quick trip over the Golden Ears Bridge from our Langley shop. We cover Osprey Village, South Bonson, the Highland Park area and the farm properties out toward the dikes." },
-  { "slug": "mission", "name": "Mission", "blurb": "We serve Mission from the Abbotsford side, including Cedar Valley, Hatzic, Silverdale and the homes above the Lougheed. Call ahead for emergencies and we will give you an honest arrival time." }
+  {
+    "slug": "langley",
+    "name": "Langley",
+    "blurb": "Garage door repair in Langley, from our base in Langley."
+  },
+  {
+    "slug": "surrey",
+    "name": "Surrey",
+    "blurb": "Garage door repair in Surrey, from our base in Langley."
+  },
+  {
+    "slug": "abbotsford",
+    "name": "Abbotsford",
+    "blurb": "Garage door repair in Abbotsford, from our base in Langley."
+  },
+  {
+    "slug": "maple-ridge",
+    "name": "Maple Ridge",
+    "blurb": "Garage door repair in Maple Ridge, from our base in Langley."
+  },
+  {
+    "slug": "coquitlam",
+    "name": "Coquitlam",
+    "blurb": "Garage door repair in Coquitlam, from our base in Langley."
+  },
+  {
+    "slug": "burnaby",
+    "name": "Burnaby",
+    "blurb": "Garage door repair in Burnaby, from our base in Langley."
+  },
+  {
+    "slug": "new-westminster",
+    "name": "New Westminster",
+    "blurb": "Garage door repair in New Westminster, from our base in Langley."
+  },
+  {
+    "slug": "richmond",
+    "name": "Richmond",
+    "blurb": "Garage door repair in Richmond, from our base in Langley."
+  },
+  {
+    "slug": "delta",
+    "name": "Delta",
+    "blurb": "Garage door repair in Delta, from our base in Langley."
+  },
+  {
+    "slug": "vancouver",
+    "name": "Vancouver",
+    "blurb": "Garage door repair in Vancouver, from our base in Langley."
+  },
+  {
+    "slug": "north-vancouver",
+    "name": "North Vancouver",
+    "blurb": "Garage door repair in North Vancouver, from our base in Langley."
+  },
+  {
+    "slug": "west-vancouver",
+    "name": "West Vancouver",
+    "blurb": "Garage door repair in West Vancouver, from our base in Langley."
+  },
+  {
+    "slug": "port-coquitlam",
+    "name": "Port Coquitlam",
+    "blurb": "Garage door repair in Port Coquitlam, from our base in Langley."
+  },
+  {
+    "slug": "pitt-meadows",
+    "name": "Pitt Meadows",
+    "blurb": "Garage door repair in Pitt Meadows, from our base in Langley."
+  },
+  {
+    "slug": "mission",
+    "name": "Mission",
+    "blurb": "Garage door repair in Mission, from our base in Langley."
+  }
 ]

@@ -1,5 +1,12 @@
 # Changelog
 
+## [v4.0.0] - 2026-10-21
+
+- Website now looks like bcgaragedoors.ca: same header, nav, colours, fonts and real photos
+- Copy cut to one headline and one line per section
+- Specials, Tips and Blogs moved to their own pages
+- Made-up prices and claims removed, unused photos deleted
+
 ## [v0.0.1] — 2026-05-23
 
 - 212c2c22 chore: snow leopard pass (portfolio-ios)
