@@ -1,161 +1,67 @@
-<img src="icon.svg" width="80">
+<img src="icon.svg" width="80" height="80" alt="NYC Survive icon">
 
-# NYC Survive
+![version](https://img.shields.io/badge/version-v1.1.0-blue) [![tests](https://github.com/nulljosh/labs/actions/workflows/nyc-test.yml/badge.svg)](https://github.com/nulljosh/labs/actions/workflows/nyc-test.yml) ![license](https://img.shields.io/badge/license-Apache%202.0-green)
 
-**Live:** https://nyc.jaybulb.com
-**App Store:** https://apps.apple.com/app/id6782618198
+Reclaim Times Square.
 
-**Terminal:** `swift build && ./.build/debug/nyc-tui` — building reference, not the live game. See [tui/](tui/)
+NYC Survive is a colony survival game. You run a small group of survivors in the middle of the city. Gather food and materials, build shelters, and let new survivors move in when there is a bed for them. Scavengers come every third night. You decide what everyone does.
 
-### Build the City That Never Sleeps
+**[nyc.jaybulb.com](https://nyc.jaybulb.com)** · **[Play in the browser](https://nyc.jaybulb.com/app/)** · **[App Store](https://apps.apple.com/app/id6782618198)**
 
-![version](https://img.shields.io/badge/version-v1.3.1-blue) ![license](https://img.shields.io/badge/license-MIT-green)
-[![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fnyc-black?logo=github)](https://github.com/nulljosh/labs/tree/main/nyc)
-
-Build a factory in the middle of Manhattan. Mine, smelt, assemble, and watch the chain hum.
-
-A Factorio-style production game in SpriteKit and Swift 6. iOS and macOS, portrait and landscape.
-
-<img src="progress.svg" width="460">
-
-## Screenshots
-
-<p>
-<img src="screenshots/nyc-1.jpg" alt="NYC Survive">
-</p>
+<img src="screenshots/nyc-1.jpg" width="600" alt="NYC Survive">
 
 ## Features
 
-- **One codebase.** Shared `Sources/`, a thin entry point per platform
-- **Fits the screen.** Portrait and landscape on iOS, a fixed 1280×800 on macOS
-- **Production chains.** Four buildings: miner, smelter, assembler, storage
-- **Auto-pull.** Neighbours take what they need from each other
-- **Progress bars** on every recipe
-- **Three save slots**, with auto-save
-- **Items, not resources.** ore, iron_plate, copper_ore, gear
+- **Survivors move in.** One arrives each day when there is a free bed and 10 food. Shelters add beds. The colony holds up to 20.
+- **Five resources.** Food, power, materials, oxygen and cash. Hunger and oxygen drain every survivor, so the stockpile has to keep up.
+- **Buildings cost upkeep.** Each building uses one material every 10 seconds at normal speed to keep running. Run out and it breaks until you can pay again.
+- **Raids.** Every third night at 22:00, scavengers take a fifth of your food, materials and cash. A survivor on patrol near your buildings turns them back.
+- **You give every order.** Click a survivor, or drag a box around several. Click the ground to move them. Click a resource to gather it. Nobody works on their own.
+- **Win.** Have 15 survivors alive, an average level of 8, and one at level 10. A full game takes about an hour and a half.
+- **Saves.** Autosave runs about once a minute. There are three save slots.
+- **Apple.** iPhone, iPad and Mac. The Mac app has a resizable window and a full screen switch in Settings.
+- **Web.** The same game runs in a browser at [/app](https://nyc.jaybulb.com/app/), with WebMCP tools for browser agents.
+- **Apple Watch.** A quick reference for building costs, survivor traits and weapon stats.
 
 ## Run
 
 ```bash
-# macOS
 xcodegen generate && open NYCSurvive.xcodeproj
-
-# iOS
-cd ../nyc-ios && xcodegen generate && open NYCSurviveIOS.xcodeproj
 ```
 
-Requires Xcode 16+, macOS 15.0+, iOS 17.0+, xcodegen.
+Needs Xcode 16 or later. The app targets iOS 17 and macOS 15.
 
-## Apple Watch companion
+Other ways in:
 
-`watchos/` is a standalone watchOS app (XcodeGen, watchOS 10.0 deployment target,
-`WKWatchOnly`), a quick-reference guide for the game's building costs, colonist traits, and
-weapon stats, ported directly from `Sources/Models/`. No pairing with the iOS/macOS app, no
-network, no shared save state, just the same static data available on your wrist.
+- **Web.** `cd web && python3 -m http.server 8000`, then open http://localhost:8000. Modules need a server, so `file://` will not work.
+- **Headless playthrough.** `scripts/playthrough.sh 200` plays the bot to the win with no window.
+- **Recorded demo.** `"NYC Survive.app/Contents/MacOS/NYC Survive" -demo 200` runs the tutorial, then the bot at 200 ticks a second with the window on top.
+- **Apple Watch.** `cd watchos && xcodegen generate && open NYCSurviveWatch.xcodeproj`
+
+## Tests
 
 ```bash
-cd watchos && xcodegen generate && open NYCSurviveWatch.xcodeproj
+node --test
+xcodebuild test -project NYCSurvive.xcodeproj -scheme NYCSurvive -destination 'platform=macOS' -only-testing:SimTests
 ```
 
-## Gameplay
+`node --test` runs the web tests, including `web/winnable.test.mjs`, which plays the game to a win. The Swift tests live in `Tests/SimTests.swift`.
 
-1. Start with ore, copper ore, iron plates in inventory
-2. Place a **Miner** (costs 5 ore) → produces ore
-3. Place a **Smelter** adjacent (costs 10 ore) → auto-pulls ore, produces plates
-4. Place an **Assembler** adjacent (costs 15 ore) → auto-pulls plates, produces gears
-5. Watch it tick. Bars fill as recipes finish
+## Docs
 
-## Roadmap
+- [Controls](docs/CONTROLS.md): every key, click and tap.
+- [Whitepaper](WHITEPAPER.md): how the game works and why.
+- [Architecture](docs/ARCHITECTURE.md) and [Web API](docs/API.md).
+- [Changelog](CHANGELOG.md).
 
-### Phase 1: ✅ Mobile Architecture
+Found a security problem? Email trommatic@icloud.com. See [SECURITY.md](SECURITY.md).
 
-### Phase 2: ✅ Factorio Mechanics
+## Privacy
 
-### Phase 3: Planned (Optional)
-- [ ] Enemy waves (biters) spawning periodically
-- [ ] Turret defense buildings
-- [ ] Wall blocks + repair mechanics
-- [ ] Pollution system (factories emit, triggers enemy waves)
-
-### Phase 2.5: Optional
-- [ ] Conveyor belt system (directional item flow)
-- [ ] Advanced logistics (item filters, priority)
-- [ ] Research/tech tree for building unlocks
-
-### Phase 4: Polish
-- [ ] Performance profiling (iOS battery, frame rate)
-- [ ] Mobile UI refinements (button sizing, adaptive menus)
-- [ ] Sound design & music
-- [ ] App Store ship pass: tutorial/onboarding polish, accessibility audit (VoiceOver labels, Dynamic Type, contrast), final mobile-friendly pass
-- [x] Autoplay gone for good, 2026-08-02. The 2026-07-02 fix only removed the directive engine entry point. Two other systems kept it alive: hardcoded startup jobs and self-renewing job-tick loops. Both removed, plus a dead web autopilot block. Colonists act only when told
-
-## Remaining Tasks
-
-- [ ] Landing page (GitHub Pages, `docs/` folder): hero, subtitle, gameplay summary, screenshots, how-to-play tutorial
-- [ ] README screenshots (gameplay capture via simulator)
-
-## Architecture
-
-- **Sources-Shared/**: Game logic, models, HUD (both platforms)
-- **Sources-macOS/**: macOS entry point + AudioManager
-- **Sources-iOS/**: iOS entry point + HapticManager
-- **Game Systems**: ProductionSystem (recipe execution + auto-pull), BuildSystem, CameraController
-- **Models**: ProductionBuilding, ItemType, Recipe, GameState
-- **Rendering**: SpriteKit only (no UIKit/AppKit views in game scene)
-
-## Changelog
-
-### v1.3.1 (Current)
-
-- Fix tutorial/HUD unclickable on macOS and iOS (HUD subtree had hit-testing disabled; taps fell through to the game scene)
-- Harden SaveManager: corrupt saves log instead of failing silently, guard against invalid grid size
-- Test suite expanded to 19 tests: no-autoplay regression, move orders, save round-trip, legacy save decode, tutorial flow
-
-### v1.3.0
-
-- Sprite refresh: colonists get hair, skin-tone faces, two-tone outfits; textured road/sidewalk/empty tiles; all sprites now export @1x/@2x/@3x (crisp on Retina)
-- Controls reference in Settings now covers select-then-tap move orders and macOS keyboard shortcuts (WASD, B, 1-6, Space, Cmd+S, Esc)
-
-### v1.2.0
-
-- Removed autoplay completely: deleted colony directive engine (`autoAssignIdle`, `ColonyDirective`, directive HUD pills, `jobOverride`)
-- Game is fully player-controlled: select colonist + tap to move, assign jobs via colonist panel
-- Tutorial step 6 now teaches manual command instead of directives
-- Applies to both macOS and iOS targets (shared `Sources/`)
-
-### v1.1.0
-
-- Transformed from colony sim → Factorio-style factory game
-- Unified iOS + macOS codebase (single Sources-Shared/)
-- Added portrait + landscape support (iOS only)
-- Replaced colonist AI with production building system
-- 4 building types with auto-pull logistics
-- ItemType-based inventory (replaced ResourceType)
-- Progress bar visualization for production recipes
-- Simplified GameState (no colonists, no complex resources)
-- Updated SaveManager for new model schema
-
-### v1.0.0
-
-- Stable colony sim release
-- Colonist AI, weapons, building placement
-- 3-slot save system, interactive tutorial
-- Camera controls, mini-map
+NYC Survive collects nothing. Saves stay on your device. There are no accounts, no analytics and no network calls. The full [privacy policy](https://nyc.jaybulb.com/app/privacy) is on the site.
 
 ## License
 
-MIT 2026 Joshua Trommel
+Apache License 2.0. See [LICENSE](LICENSE). Copyright 2026 Joshua Trommel.
 
-## Whitepaper
-
-[Technical whitepaper](WHITEPAPER.md)
-
-## API and agent tools
-
-No HTTP API. The game runs in the client and saves to `localStorage`. The web
-app registers WebMCP tools so a browser agent can inspect and drive it. See
-[docs/API.md](docs/API.md).
-
-## Architecture
-
-<img src="architecture.svg" width="600">
+The NYC Sans typeface is Inter, renamed. It stays under the SIL Open Font License 1.1, see [Resources/Fonts/OFL.txt](Resources/Fonts/OFL.txt).

@@ -1,82 +1,57 @@
 # NYC Survive Technical Whitepaper
 
-**v1.3.1** | August 2026
+**v1.1.0** | October 2026
 
-Build a factory in the middle of Manhattan.
+Reclaim Times Square with a few survivors and a stockpile that never quite covers everything.
 
-Factorio-style games reward the player for designing a good layout, but most
-mobile takes on the genre replace that design work with automation, an idle
-game wearing a factory skin. NYC Survive exists to keep the actual game:
-place buildings on a grid, chain them into lines, keep the city fed, and
-make every decision the player's. SpriteKit, Swift 6, one codebase. A web
-port lives at nyc.heyitsmejosh.com.
+NYC Survive is a survival game about choices. The colonists do only what the player tells them. Nobody auto-assigns a job, and nobody wanders off to work on their own. Buildings run on their own, but every trip out to gather is an order. The player watches the stockpile, plans for the next raid, and decides who goes where. The rules are small on purpose. SpriteKit and Swift 6, one codebase for iPhone, iPad and Mac. The same game runs in a browser at nyc.jaybulb.com/app.
 
-## Core Mechanic: Auto-Pull Production Chains
+## The Loop
 
-The economy is item-based (ore, copper ore, iron plates, gears) and flows
-through four building types, miner, smelter, assembler, storage. The defining
-rule is **adjacency auto-pull**: a building automatically pulls its recipe
-inputs from adjacent buildings, so logistics is spatial and the puzzle is
-where you place things, not a belt-routing minigame layered on top. A
-working factory is `miner → smelter → assembler` laid out tile-by-tile, with
-progress bars showing each recipe tick.
+A day is 240 ticks. At normal speed a tick is one real second, so a day takes four minutes.
 
-Colonists are **fully player-controlled**. The original auto-directive engine
-was deleted (2026-07-02) because letting colonists act on their own turned
-the game into something that plays itself: colonists act only on explicit
-commands (select, then tap a destination via `JobSystem.commandMove()`), and
-auto-assignment must not be reintroduced. The game is deliberately a
-hands-on sim, not an idle game.
+1. **Stockpile.** Five resources: food, power, materials, oxygen and cash. Generators make power. Billboards make cash. Food stalls turn food into meals, and filter stations use power to make air.
+2. **Survivors.** Each one has hunger, oxygen, sleep and stress. Hunger and oxygen drain over time. An idle survivor recovers sleep and stress. Survivors eat from the stockpile when they are hungry and breathe from it when they are short of air. Traits (insomniac, iron lung, anxious) change those rates.
+3. **Buildings.** Six types: shelter, food stall, generator, filter station, subway access and billboard. Each costs materials plus cash or power. Each one uses a material every ten ticks. With no materials left, it breaks until the stockpile can pay again.
+4. **Recruits.** Once a day, a survivor arrives if the colony has a free bed and at least 10 food. Beds come from a base of six, plus four per working shelter. The colony tops out at 20.
+5. **Raids.** Every third night at 22:00, scavengers take a fifth of the food, materials and cash. A survivor on patrol within eight tiles of a building turns them back. The game warns at 06:00 so the player has time to set a guard.
+
+**Victory** is 15 survivors alive, an average level of 8, and at least one survivor at level 10. The native and web games use the same rule. The XP curve matches the web game, and gathering pays XP on every harvest, since native has no quests. A headless playthrough (`scripts/playthrough.sh`) wins in about 1.5 hours of play.
+
+## Commands
+
+Colonists act only on explicit orders:
+
+- Click a survivor, or drag a box around several (Mac).
+- Click the ground to move them. `JobSystem.commandMove()` handles it.
+- Click a resource to gather it. `JobSystem.commandGather()` handles it.
+
+Auto-assignment was removed on 2026-07-02 and again on 2026-08-02, when two other systems were found to bring it back. It must not return.
 
 ## Architecture
 
-- **Rendering**: SpriteKit only, no UIKit/AppKit views inside the game scene,
-  because mixing view frameworks into a real-time scene is where frame drops
-  and input-routing bugs come from.
-- **Layout**: responsive portrait + landscape on iOS, fixed 1280×800 on macOS,
-  from one `Sources/` tree with per-platform app entry points (xcodegen,
-  `project.yml`), so the game logic never forks even though the two
-  platforms present differently.
-- **State**: `GameState.swift` is the single source of truth;
-  `SaveManager.swift` serializes it to JSON across a 3-slot save system with
-  auto-save.
-- **Systems**: `GameScene.swift` (input → command wiring),
-  `JobSystem.swift` (manual colonist commands), `BuildSystem.swift`
-  (placement/demolition with ore costs).
-
-Note: `Sources-Shared/` on disk is a stale, non-compiled duplicate, the build
-target is `Sources/` only.
-
-## Planned: Spatial Partitioning
-
-Two loops in `web/js/systems.js` scale badly with colony size. The colonist
-interaction pass compares every colonist against every other colonist (O(n²)
-per tick), and the job-assignment pass walks the entire resource-node list for
-each idle colonist to find the nearest one (O(n·m) per tick). Both run every
-frame, so the tick cost grows quadratically with a number the player is
-directly encouraged to increase.
-
-The fix is a uniform spatial hash: one grid of buckets sized to roughly the
-interaction radius, rebuilt from scratch each tick (rebuilding is O(n) and
-cheaper than maintaining incremental membership). Neighbour queries then read
-the 3×3 block of buckets around a position instead of the whole list, which
-turns both passes into O(n) with a small constant for the density the map
-actually supports.
-
-The same grid answers "nearest resource node" by searching outward ring by
-ring from the colonist's bucket and stopping at the first ring that cannot
-contain anything closer than the best candidate found so far.
+- **Rendering.** The world renders in SpriteKit. The HUD, menus and settings are SwiftUI views over the scene.
+- **Layout.** One `Sources/` tree, with a thin entry point per platform in `Sources/App` (Mac) and `Sources/AppiOS` (iPhone and iPad). The game logic is shared.
+- **State.** `GameState.swift` is the single source of truth. `SaveManager.swift` writes JSON to three save slots and autosaves about once a minute.
+- **Systems.** `TimeSystem` advances the clock. `NeedsSystem` runs upkeep, needs, recruits, raids and victory. `ResourceSystem` handles gathering. `JobSystem` carries out orders. `BuildSystem` places and removes buildings.
+- **Pathfinding.** `Pathfinder.swift` keeps a bitmap of blocked tiles and runs a breadth-first search over it. New Game went from 7.7 seconds to 0.05 seconds when the old grid-graph wall removal was replaced.
+- **World.** A 128 by 128 tile grid with avenues and streets, from `WorldGenerator.swift`.
+- **Type.** The NYC Sans face is Inter, renamed and with proportional figures. `scripts/gen_font.py` builds it.
+- **Headless.** `DemoBot.swift` plays the game for the `-demo` run and for `scripts/playthrough.sh`. Tests in `Tests/SimTests.swift` and `web/*.test.mjs` cover the same rules.
 
 ## Platforms
 
 | Platform | Status |
 |---|---|
-| macOS | Builds clean (Xcode 16+, macOS 15+) |
-| iOS | Build on ASC, processed clean; submission still gated on the ASC-web-only items (App Privacy answers, privacy policy URL, iPad 12.9" screenshot) |
-| Web | Port recovered to `web/`, deploys to Cloudflare Pages (the Vercel project was deleted 2026-08-17) |
+| iPhone and iPad | iOS 1.1.0, live on the App Store since 2026-10-06 |
+| Mac | macOS 1.1.0, submitted 2026-10-05. Review status lives in App Store Connect |
+| Web | Live at nyc.jaybulb.com/app. Static ES modules, saves in local storage |
+| Apple Watch | Quick reference for costs, traits and weapon stats. No pairing, no network |
 
-## Roadmap
+## Open Work
 
-Phase 3 (optional): enemy waves, turret defense, walls, pollution.
-Phase 2.5 (optional): conveyor belts, item filters. Phase 4: performance
-profiling for iOS battery and frame rate.
+The open list lives in [ROADMAP.md](ROADMAP.md).
+
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE).
