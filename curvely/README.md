@@ -1,54 +1,46 @@
 <img src="icon.svg" width="80">
 
-# Curvely
-
-![version](https://img.shields.io/badge/version-v1.2.4-blue) [![App Store](https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=appstore&logoColor=white)](https://apps.apple.com/us/app/curvely/id6794988370)
-![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fcurvely-black?logo=github)](https://github.com/nulljosh/labs/tree/main/curvely)
+![version](https://img.shields.io/badge/version-v2.0.0-blue) [![tests](https://github.com/nulljosh/curvely/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/curvely/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-MIT-green) [![App Store](https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=appstore&logoColor=white)](https://apps.apple.com/us/app/curvely/id6794988370)
 
 **Live:** https://curvely.jaybulb.com
 
-**Terminal:** `swift build && ./.build/debug/curvely-tui "x^2" -5 5` — see [tui/](tui/)
-
-A graphing calculator that feels like it belongs on your phone.
-
-Type an equation and watch it draw. Add another. Pinch, pan, zoom. Native SwiftUI on
-iPhone, iPad and Mac with Apple's Liquid Glass look, and the same thing on the web.
-
-An Apple Watch companion (`watchos/`) pages through a handful of preset curves — `x^2`,
-`sin(x)`, `cos(x)`, and others — rendered by the same hand-written expression parser and
-evaluator the iOS app uses (`ios/App/Expression.swift`, mirrored into `watchos/Models/`).
-There's no equation input on the watch (no practical keyboard for `sin(x)` at 40mm) and no
-backend to sync against — Curvely's math is fully client-side on every platform — so this
-is a standalone `WKWatchOnly` app, not a paired companion with a pairing/sync screen.
-
-<img src="progress.svg" width="460">
-
-## Screenshots
+A graphing calculator that feels like it belongs on your phone. Type an equation and watch it draw. Native SwiftUI on iPhone, iPad and Mac, and the same app on the web. Everything runs on your device.
 
 <p>
-<img src="screenshots/mac/01-graph.png" alt="Curvely">
+<img src="screenshots/ios/2.0.jpg" width="240" alt="Curves, a polar cardioid and a shaded disc on iPhone">
+<img src="screenshots/ios/flower-of-life.jpg" width="240" alt="The flower of life pattern">
+<img src="screenshots/ios/butterfly.jpg" width="240" alt="The butterfly curve">
 </p>
 
-## Roadmap
+## Features
 
-- [ ] Pass over equation input: error states, edge-case parsing
-- [x] (2026-09-02: both palettes wrap, web now also handles negative/NaN) Restored equations lose their colour (grey dot) when the saved colorIndex
-      falls outside the palette
+- Curves `x^2`, implicit equations `x^2 + y^2 = 4`, points `(1, 2)`, parametric `(cos(t), sin(t))` and polar `r = 1 + cos(theta)`.
+- Inequalities shade their region: `y > x^2`.
+- Sliders: type `a = 3`, or `a = 3 {0 < a < 10}` for a range, and press play to sweep it.
+- Your own functions `f(x) = x^2`, derivatives `f'(x)` and `d/dx(sin(x))`, piecewise `{x < 0: -x, x}` and domain limits `sin(x) {0 < x < 5}`.
+- Lists: `L = [1...10]`, then `(L, L^2)` or `sin(x) + [0, 1, 2]` draws one copy per element.
+- Roots, peaks and crossings show as dots. Hover or tap one to read it.
+- 85 patterns in one tap: the flower of life, a sunflower, the golden spiral, a butterfly, roses, spirographs and more.
+- Light and dark, Liquid Glass panels, and Curvely Sans, a renamed Inter whose quote marks are drawn as waves.
 
-## Whitepaper
+## Run it
 
-[Technical whitepaper](WHITEPAPER.md)
+```bash
+npm install && npm run dev     # web app on port 5174
+npm test                       # web tests
+cd ios && xcodegen generate    # then open Grapher.xcodeproj for iPhone, iPad and Mac
+```
+
+A terminal sparkline lives in [tui/](tui/): `swift build && ./.build/debug/curvely-tui "x^2" -5 5`.
 
 ## API and agent tools
 
-An agent can drive this app. [`docs/API.md`](docs/API.md) lists the HTTP surface, where there
-is one, and the WebMCP tools registered on `document.modelContext`. Tools come in three kinds:
-read-only, writes you can undo, and the few that ask a human first.
+An agent can drive this app. [`docs/API.md`](docs/API.md) lists the HTTP API and the WebMCP tools.
 
-## Architecture
+## More
+
+[Whitepaper](WHITEPAPER.md) · [Roadmap](roadmap.md) · [Changelog](CHANGELOG.md) · [Security](SECURITY.md)
 
 <img src="architecture.svg" width="600">
-
-## License
 
 MIT 2026, Joshua Trommel
