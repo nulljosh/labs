@@ -78,6 +78,7 @@ private func traceImplicit(
 
 struct GraphView: View {
     let equations: [Equation]
+    var vars: Vars = [:]
     @Binding var transform: GraphTransform
 
     @State private var panStart: CGSize?
@@ -198,7 +199,34 @@ struct GraphView: View {
 
     private func drawCurves(_ context: inout GraphicsContext, size: CGSize, center: CGPoint) {
         for equation in equations {
-            if let fn = equation.compiled.function {
+            if let point = equation.compiled.point {
+                let (x, y) = point(vars)
+                guard x.isFinite, y.isFinite else { continue }
+                let p = CGPoint(x: center.x + x * transform.scale, y: center.y - y * transform.scale)
+                context.fill(Path(ellipseIn: CGRect(x: p.x - 5, y: p.y - 5, width: 10, height: 10)),
+                             with: .color(equation.color))
+            } else if let curve = equation.compiled.parametric {
+                var path = Path()
+                var last: CGPoint?
+                let steps = 2000
+                for i in 0...steps {
+                    let (x, y) = curve(Double(i) / Double(steps) * tMax, vars)
+                    guard x.isFinite, y.isFinite else { last = nil; continue }
+                    let p = CGPoint(x: center.x + x * transform.scale, y: center.y - y * transform.scale)
+                    // a huge jump between neighbouring samples is an asymptote, not a line to draw
+                    if let last, hypot(p.x - last.x, p.y - last.y) <= size.height {
+                        path.addLine(to: p)
+                    } else {
+                        path.move(to: p)
+                    }
+                    last = p
+                }
+                context.stroke(
+                    path,
+                    with: .color(equation.color),
+                    style: StrokeStyle(lineWidth: 2.2, lineCap: .round, lineJoin: .round)
+                )
+            } else if let fn = equation.compiled.function {
                 var path = Path()
                 var penDown = false
                 var previousY = 0.0
@@ -206,7 +234,7 @@ struct GraphView: View {
                 var px = 0.0
                 while px < size.width {
                     let x = (px - center.x) / transform.scale
-                    let y = fn(x)
+                    let y = fn(x, vars)
                     guard y.isFinite else { penDown = false; px += 1; continue }
 
                     let point = CGPoint(x: px, y: center.y - y * transform.scale)
@@ -226,7 +254,7 @@ struct GraphView: View {
                 )
             } else if let implicitFn = equation.compiled.implicitFunction {
                 var path = Path()
-                for segment in traceImplicit(implicitFn, size: size, center: center, scale: transform.scale) {
+                for segment in traceImplicit({ implicitFn($0, $1, vars) }, size: size, center: center, scale: transform.scale) {
                     path.move(to: segment.0)
                     path.addLine(to: segment.1)
                 }

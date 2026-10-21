@@ -37,7 +37,7 @@ struct ContentView: View {
         // The graph is the whole screen, edge to edge; the equation list floats over it
         // as glass instead of taking a slice of the layout away from the plot.
         let compact = horizontalSizeClass == .compact
-        GraphView(equations: equations.filter { !$0.hidden }, transform: $transform)
+        GraphView(equations: equations.filter { !$0.hidden }, vars: sliderValues, transform: $transform)
             .ignoresSafeArea()
             .overlay(alignment: compact ? .bottom : .trailing) {
                 if compact {
@@ -58,6 +58,11 @@ struct ContentView: View {
                         .frame(maxHeight: .infinity, alignment: .top)
                 }
             }
+    }
+
+    /// Every `a = 3` row, hidden or not: hiding a slider row must not break the curves using it.
+    private var sliderValues: Vars {
+        Dictionary(equations.compactMap(\.compiled.slider), uniquingKeysWith: { first, _ in first })
     }
 
     private var sidebar: some View {
@@ -104,7 +109,7 @@ struct ContentView: View {
     /// ponytail: ImageRenderer over the same GraphView, one source of truth for what a
     /// curve looks like, rather than a second drawing path just for export.
     private func exportGraph() {
-        let snapshot = GraphView(equations: equations.filter { !$0.hidden }, transform: .constant(transform))
+        let snapshot = GraphView(equations: equations.filter { !$0.hidden }, vars: sliderValues, transform: .constant(transform))
             .frame(width: 1200, height: 900)
         let renderer = ImageRenderer(content: snapshot)
         renderer.scale = 2

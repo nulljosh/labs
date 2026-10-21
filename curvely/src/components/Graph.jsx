@@ -1,7 +1,6 @@
 import { useRef, useEffect, useCallback, useState } from 'react';
-import { isAsymptoteJump } from '../utils/evaluate.js';
+import { isAsymptoteJump, T_MAX } from '../utils/evaluate.js';
 
-// Dark only, same values as ios/App/Theme.swift.
 // Read from tokens.css so the canvas follows the light/dark setting with the rest of the UI.
 function graphColors() {
   const css = getComputedStyle(document.documentElement);
@@ -108,8 +107,37 @@ export default function Graph({ equations, sliders }) {
     }
 
     // curves
-    equations.forEach(({ fn, implicitFn, color }) => {
-      if (fn) {
+    equations.forEach(({ fn, implicitFn, paramFn, pointFn, color }) => {
+      if (pointFn) {
+        let p;
+        try { p = pointFn(sliders); } catch { return; }
+        if (!p.every(isFinite)) return;
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(cx + p[0] * scale, cy - p[1] * scale, 5, 0, Math.PI * 2);
+        ctx.fill();
+      } else if (paramFn) {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2.2;
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        let penDown = false;
+        let last = null;
+        const STEPS = 2000;
+        for (let i = 0; i <= STEPS; i++) {
+          let p;
+          try { p = paramFn((i / STEPS) * T_MAX, sliders); } catch { penDown = false; continue; }
+          if (!p.every(isFinite)) { penDown = false; continue; }
+          const px = cx + p[0] * scale;
+          const py = cy - p[1] * scale;
+          // a huge jump between neighbouring samples is an asymptote, not a line to draw
+          if (penDown && Math.hypot(px - last[0], py - last[1]) > H) penDown = false;
+          if (!penDown) { ctx.moveTo(px, py); penDown = true; }
+          else ctx.lineTo(px, py);
+          last = [px, py];
+        }
+        ctx.stroke();
+      } else if (fn) {
         ctx.strokeStyle = color;
         ctx.lineWidth = 2.2;
         ctx.lineJoin = 'round';

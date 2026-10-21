@@ -130,7 +130,26 @@ struct EquationRowView: View {
                     .foregroundStyle(Theme.error)
                     .padding(.leading, 32)
             }
+
+            if let slider = equation.compiled.slider {
+                // Dragging rewrites the row's own text, like Desmos, so the value persists
+                // with the equation and there is no second copy of it to keep in sync.
+                Slider(
+                    value: Binding(
+                        get: { slider.value },
+                        set: { binding.wrappedValue = "\(slider.name) = \(formatSlider($0))" }
+                    ),
+                    in: min(-10, slider.value - 5)...max(10, slider.value + 5)
+                )
+                .tint(equation.color)
+                .padding(.leading, 32)
+                .accessibilityLabel("Value of \(slider.name)")
+            }
         }
+    }
+
+    private func formatSlider(_ value: Double) -> String {
+        String(format: "%g", (value * 10).rounded() / 10)
     }
 
     private var binding: Binding<String> {

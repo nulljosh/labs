@@ -9,9 +9,12 @@ export function isAsymptoteJump(prevY, y, scale, height) {
 // `a = 3` defines a slider instead of a curve; distinct from `y = ...` curve definitions.
 const SLIDER_RE = /^([a-zA-Z]\w*)\s*=\s*(-?\d+(?:\.\d+)?)$/;
 
+// x, y and t are variables; r and theta belong to polar curves.
+const RESERVED = new Set(['x', 'y', 't', 'r', 'theta']);
+
 export function parseSlider(expr) {
   const m = expr.trim().match(SLIDER_RE);
-  if (!m || m[1] === 'x' || m[1] === 'y') return null;
+  if (!m || RESERVED.has(m[1])) return null;
   return { name: m[1], value: Number(m[2]) };
 }
 
@@ -19,13 +22,66 @@ export function parseSlider(expr) {
 // solved as f(x,y)=lhs-rhs=0 by marching squares instead of walking y=f(x) per pixel.
 export function isImplicit(expr) {
   const cleaned = expr.trim();
-  return cleaned.includes('=') && !/^y\s*=/i.test(cleaned) && !parseSlider(cleaned);
+  return cleaned.includes('=') && !/^[yr]\s*=/i.test(cleaned) && !parseSlider(cleaned);
 }
+
+// `(a, b)`: the outer parens must wrap the whole thing and hold exactly one top-level comma.
+export function splitPair(expr) {
+  const s = expr.trim();
+  if (s[0] !== '(' || s[s.length - 1] !== ')') return null;
+  let depth = 0;
+  let comma = -1;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(') depth++;
+    else if (s[i] === ')' && --depth === 0 && i !== s.length - 1) return null;
+    else if (s[i] === ',' && depth === 1) {
+      if (comma !== -1) return null;
+      comma = i;
+    }
+  }
+  return comma === -1 ? null : [s.slice(1, comma).trim(), s.slice(comma + 1, -1).trim()];
+}
+
+const usesT = (node) => node.filter((n) => n.isSymbolNode && n.name === 't').length > 0;
+
+// Parametric and polar curves are sampled over t (or theta) in [0, 2 pi].
+// ponytail: fixed domain, a per-row range like Desmos's can come later.
+export const T_MAX = Math.PI * 2;
 
 export function evaluate(expr) {
   if (parseSlider(expr)) return { fn: null, implicitFn: null, error: null };
   const cleaned = expr.trim();
   if (!cleaned) return { fn: null, implicitFn: null, error: null };
+
+  const polar = cleaned.match(/^r\s*=\s*(.+)$/i);
+  if (polar) {
+    try {
+      const rc = parse(polar[1]).compile();
+      const paramFn = (t, sliders) => {
+        const r = rc.evaluate({ theta: t, t, ...sliders });
+        return [r * Math.cos(t), r * Math.sin(t)];
+      };
+      return { fn: null, implicitFn: null, paramFn, error: null };
+    } catch (e) {
+      return { fn: null, implicitFn: null, error: e.message };
+    }
+  }
+
+  const pair = splitPair(cleaned);
+  if (pair) {
+    try {
+      const [xn, yn] = pair.map((p) => parse(p));
+      const [xc, yc] = [xn.compile(), yn.compile()];
+      if (usesT(xn) || usesT(yn)) {
+        const paramFn = (t, sliders) => [xc.evaluate({ t, ...sliders }), yc.evaluate({ t, ...sliders })];
+        return { fn: null, implicitFn: null, paramFn, error: null };
+      }
+      const pointFn = (sliders) => [xc.evaluate({ ...sliders }), yc.evaluate({ ...sliders })];
+      return { fn: null, implicitFn: null, pointFn, error: null };
+    } catch (e) {
+      return { fn: null, implicitFn: null, error: e.message };
+    }
+  }
 
   if (isImplicit(cleaned)) {
     const idx = cleaned.indexOf('=');

@@ -3,11 +3,11 @@
 ## v2.0.0 (Desmos basics), started 2026-10-21
 Each item lands on web, iOS and Mac together. Submit 2.0.0 once all are in and 1.2.6 has cleared review.
 - [x] Tap a curve's dot to hide or show it (persists on native).
-- [ ] Points: `(1, 2)` plots a dot, `(a, a^2)` follows sliders.
+- [x] Points: `(1, 2)` plots a dot, `(a, a^2)` follows sliders. Native also got sliders, which it never had (dragging rewrites the row's text, like Desmos).
 - [ ] Key points: roots, extrema and intersections as small dots, tap to read the coordinates.
 - [ ] Inequalities: `y > x^2`, `x^2+y^2 < 4` shade their region.
-- [ ] Polar: `r = 1 + cos(theta)`.
-- [ ] Parametric: `(cos(t), sin(t))` over t in 0 to 2 pi.
+- [x] Polar: `r = 1 + cos(theta)`, theta 0 to 2 pi.
+- [x] Parametric: `(cos(t), sin(t))` over t in 0 to 2 pi.
 
 ## State 2026-09-20
 iOS + macOS 1.2.4 WAITING_FOR_REVIEW: full-screen graph, no header or zoom buttons, glass

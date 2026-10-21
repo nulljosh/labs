@@ -31,7 +31,7 @@ func f(_ source: String, _ x: Double) -> Double {
         FileHandle.standardError.write("FAIL: \(source) did not compile\n".data(using: .utf8)!)
         exit(1)
     }
-    return fn(x)
+    return fn(x, [:])
 }
 
 // MARK: - evaluate.test.js
@@ -75,8 +75,20 @@ guard let circleFn = circle.implicitFunction else {
     FileHandle.standardError.write("FAIL: circle did not compile an implicit function\n".data(using: .utf8)!)
     exit(1)
 }
-check(near(circleFn(0, 1), 0), "circle satisfied at (0,1)")
-check(near(circleFn(0, 0), -1), "circle residual at origin")
+check(near(circleFn(0, 1, [:]), 0), "circle satisfied at (0,1)")
+check(near(circleFn(0, 0, [:]), -1), "circle residual at origin")
+
+// Points, parametric, polar and sliders, mirroring evaluate.test.js.
+check(parseSlider("a = 3")?.value == 3, "a = 3 is a slider")
+check(parseSlider("r = 3") == nil && parseSlider("t = 1") == nil, "r and t are never sliders")
+check(compileExpression("a = 3").function == nil, "a slider row draws no curve")
+if let p = compileExpression("(1, 2)").point?([:]) { check(p == (1, 2), "(1, 2) is a point") } else { check(false, "(1, 2) compiles to a point") }
+if let p = compileExpression("(a, a^2)").point?(["a": 3]) { check(p == (3, 9), "a point follows a slider") } else { check(false, "(a, a^2) compiles to a point") }
+if let p = compileExpression("(cos(t), sin(t))").parametric?(0, [:]) { check(near(p.0, 1) && near(p.1, 0), "unit circle starts at (1, 0)") } else { check(false, "(cos(t), sin(t)) is parametric") }
+if let p = compileExpression("r = 1 + cos(theta)").parametric?(0, [:]) { check(near(p.0, 2), "cardioid starts at (2, 0)") } else { check(false, "r = ... is polar") }
+check(splitPair("(x+1)*(x-1)") == nil && splitPair("(max(x, 1))") == nil && splitPair("(1, 2, 3)") == nil, "splitPair ignores products and nested commas")
+check(near(f("(x+1)*(x-1)", 2), 3), "(x+1)*(x-1) still graphs as y = f(x)")
+check(near(compileExpression("a*x").function?(2, ["a": 3]) ?? .nan, 6), "curves read slider values")
 
 let badImplicit = compileExpression("x^2 =!! y")
 check(badImplicit.implicitFunction == nil, "malformed implicit equation has no function")

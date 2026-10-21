@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { evaluate, isAsymptoteJump, parseSlider, isImplicit } from './evaluate.js';
+import { evaluate, isAsymptoteJump, parseSlider, isImplicit, splitPair } from './evaluate.js';
 
 describe('evaluate', () => {
   it('returns null fn for empty string', () => {
@@ -146,5 +146,43 @@ describe('isAsymptoteJump', () => {
   it('keeps an ordinary zero crossing joined', () => {
     const { fn } = evaluate('sin(x)');
     expect(isAsymptoteJump(fn(-0.01), fn(0.01), scale, height)).toBe(false);
+  });
+});
+
+describe('points, parametric and polar', () => {
+  it('(1, 2) is a point', () => {
+    const { pointFn, error } = evaluate('(1, 2)');
+    expect(error).toBeNull();
+    expect(pointFn({})).toEqual([1, 2]);
+  });
+  it('a point follows a slider', () => {
+    expect(evaluate('(a, a^2)').pointFn({ a: 3 })).toEqual([3, 9]);
+  });
+  it('(cos(t), sin(t)) is parametric', () => {
+    const [x, y] = evaluate('(cos(t), sin(t))').paramFn(0, {});
+    expect(x).toBeCloseTo(1);
+    expect(y).toBeCloseTo(0);
+  });
+  it('r = 2 is a polar circle', () => {
+    const [x, y] = evaluate('r = 2').paramFn(Math.PI / 2, {});
+    expect(x).toBeCloseTo(0);
+    expect(y).toBeCloseTo(2);
+  });
+  it('r = 1 + cos(theta) reads theta', () => {
+    expect(evaluate('r = 1 + cos(theta)').paramFn(0, {})[0]).toBeCloseTo(2);
+  });
+  it('r and t are never sliders', () => {
+    expect(parseSlider('r = 3')).toBeNull();
+    expect(parseSlider('t = 1')).toBeNull();
+  });
+  it('splitPair ignores products and nested commas', () => {
+    expect(splitPair('(x+1)*(x-1)')).toBeNull();
+    expect(splitPair('(x+1)')).toBeNull();
+    expect(splitPair('(max(x, 1))')).toBeNull();
+    expect(splitPair('(1, 2, 3)')).toBeNull();
+    expect(splitPair('( 1 , 2 )')).toEqual(['1', '2']);
+  });
+  it('(x+1)*(x-1) still graphs as y = f(x)', () => {
+    expect(evaluate('(x+1)*(x-1)').fn(2, {})).toBe(3);
   });
 });

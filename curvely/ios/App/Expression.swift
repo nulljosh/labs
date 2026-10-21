@@ -9,7 +9,10 @@
 //   term       := unary (('*' | '/') unary | implicit-multiplication)*
 //   unary      := ('-' | '+')* power
 //   power      := primary ('^' unary)?          -- right associative
-//   primary    := number | 'x' | constant | function '(' expression ')' | '(' expression ')'
+//   primary    := number | variable | constant | function '(' expression ')' | '(' expression ')'
+//
+// Variables are x, y, t (theta is t) and any other bare name, which reads its value from a
+// slider row like `a = 3`. A name nothing defines evaluates to NaN and draws nothing.
 
 import Foundation
 
@@ -31,6 +34,7 @@ private enum Token: Equatable {
     case op(Character)
     case lparen
     case rparen
+    case comma
 }
 
 private func tokenize(_ input: String) throws -> [Token] {
@@ -71,6 +75,8 @@ private func tokenize(_ input: String) throws -> [Token] {
             tokens.append(.lparen); i += 1
         case ")":
             tokens.append(.rparen); i += 1
+        case ",":
+            tokens.append(.comma); i += 1
         default:
             throw ExpressionError.message("Unexpected character: \(c)")
         }
@@ -82,7 +88,7 @@ private func tokenize(_ input: String) throws -> [Token] {
 
 private indirect enum Node {
     case constant(Double)
-    case variable(Character) // 'x' or 'y' -- 'y' only appears on the implicit-equation path
+    case variable(String) // x, y, t, or a slider name
     case unaryMinus(Node)
     case binary(Character, Node, Node)
     case call(String, Node)
@@ -190,11 +196,13 @@ private struct Parser {
 
         case .identifier(let name):
             position += 1
-            if name == "x" { return .variable("x") }
-            if name == "y" { return .variable("y") }
             if let value = constants[name] { return .constant(value) }
             guard functions[name] != nil else {
-                throw ExpressionError.message("Unknown name: \(name)")
+                // `x(x+1)` multiplies; any other unknown name before a paren is a typo'd function.
+                if case .lparen = current, !["x", "y", "t", "theta"].contains(name) {
+                    throw ExpressionError.message("Unknown function: \(name)")
+                }
+                return .variable(name == "theta" ? "t" : name)
             }
             guard case .lparen = current else {
                 throw ExpressionError.message("\(name) needs parentheses, like \(name)(x)")
@@ -210,25 +218,41 @@ private struct Parser {
         case .rparen:
             throw ExpressionError.message("Unmatched closing parenthesis")
 
+        case .comma:
+            throw ExpressionError.message("Unexpected comma")
+
         case .op(let c):
             throw ExpressionError.message("Unexpected operator: \(c)")
         }
     }
 }
 
-private func evaluate(_ node: Node, x: Double, y: Double = .nan) -> Double {
+/// Slider values by name, from rows like `a = 3`.
+typealias Vars = [String: Double]
+
+private struct Scope {
+    var x = Double.nan, y = Double.nan, t = Double.nan
+    let vars: Vars
+}
+
+private func evaluate(_ node: Node, _ scope: Scope) -> Double {
     switch node {
     case .constant(let value):
         return value
     case .variable(let name):
-        return name == "x" ? x : y
+        switch name {
+        case "x": return scope.x
+        case "y": return scope.y
+        case "t": return scope.t
+        default: return scope.vars[name] ?? .nan
+        }
     case .unaryMinus(let operand):
-        return -evaluate(operand, x: x, y: y)
+        return -evaluate(operand, scope)
     case .call(let name, let argument):
-        return functions[name]?(evaluate(argument, x: x, y: y)) ?? .nan
+        return functions[name]?(evaluate(argument, scope)) ?? .nan
     case .binary(let op, let lhs, let rhs):
-        let a = evaluate(lhs, x: x, y: y)
-        let b = evaluate(rhs, x: x, y: y)
+        let a = evaluate(lhs, scope)
+        let b = evaluate(rhs, scope)
         switch op {
         case "+": return a + b
         case "-": return a - b
@@ -240,22 +264,68 @@ private func evaluate(_ node: Node, x: Double, y: Double = .nan) -> Double {
     }
 }
 
+private func uses(_ name: String, _ node: Node) -> Bool {
+    switch node {
+    case .constant: return false
+    case .variable(let v): return v == name
+    case .unaryMinus(let operand): return uses(name, operand)
+    case .call(_, let argument): return uses(name, argument)
+    case .binary(_, let lhs, let rhs): return uses(name, lhs) || uses(name, rhs)
+    }
+}
+
 // MARK: - Public surface, mirroring src/utils/evaluate.js
 
 struct CompiledExpression {
     /// nil when the input was empty — an empty row is not an error, it just draws nothing.
-    let function: ((Double) -> Double)?
+    let function: ((Double, Vars) -> Double)?
     /// Set instead of `function` for an implicit equation (x^2+y^2=1, x=3, ...): f(x,y) = lhs-rhs,
     /// traced by marching squares rather than walked per pixel. Mirrors src/utils/evaluate.js.
-    let implicitFunction: ((Double, Double) -> Double)?
+    let implicitFunction: ((Double, Double, Vars) -> Double)?
+    /// `(1, 2)` or `(a, a^2)`: one dot.
+    var point: ((Vars) -> (Double, Double))? = nil
+    /// `(cos(t), sin(t))` or `r = 1 + cos(theta)`, sampled over t in [0, tMax].
+    var parametric: ((Double, Vars) -> (Double, Double))? = nil
+    /// `a = 3`: a slider row, draws nothing itself.
+    var slider: (name: String, value: Double)? = nil
     let error: String?
+}
+
+/// Parametric and polar curves run t from 0 to 2 pi, same as the web's T_MAX.
+let tMax = Double.pi * 2
+
+private let reservedNames: Set<String> = ["x", "y", "t", "r", "theta"]
+
+/// `a = 3` defines a slider, mirroring parseSlider in src/utils/evaluate.js.
+func parseSlider(_ raw: String) -> (name: String, value: Double)? {
+    let trimmed = raw.trimmingCharacters(in: .whitespaces)
+    guard let match = trimmed.wholeMatch(of: #/([a-zA-Z]\w*)\s*=\s*(-?\d+(?:\.\d+)?)/#),
+          let value = Double(match.2) else { return nil }
+    let name = String(match.1).lowercased()
+    return reservedNames.contains(name) ? nil : (name, value)
+}
+
+/// `(a, b)`: the outer parens wrap the whole input and hold exactly one top-level comma.
+func splitPair(_ raw: String) -> (String, String)? {
+    let s = Array(raw.trimmingCharacters(in: .whitespaces))
+    guard s.first == "(", s.last == ")" else { return nil }
+    var depth = 0
+    var comma: Int?
+    for (i, c) in s.enumerated() {
+        if c == "(" { depth += 1 }
+        else if c == ")" { depth -= 1; if depth == 0 && i != s.count - 1 { return nil } }
+        else if c == ",", depth == 1 { if comma != nil { return nil }; comma = i }
+    }
+    guard let comma else { return nil }
+    return (String(s[1..<comma]).trimmingCharacters(in: .whitespaces),
+            String(s[(comma + 1)..<(s.count - 1)]).trimmingCharacters(in: .whitespaces))
 }
 
 /// Any `=` not of the form `y = ...` is an implicit equation.
 func isImplicitEquation(_ raw: String) -> Bool {
     let cleaned = raw.trimmingCharacters(in: .whitespaces)
-    guard cleaned.contains("=") else { return false }
-    return cleaned.range(of: #"^y\s*=\s*"#, options: [.regularExpression, .caseInsensitive]) == nil
+    guard cleaned.contains("="), parseSlider(cleaned) == nil else { return false }
+    return cleaned.range(of: #"^[yr]\s*=\s*"#, options: [.regularExpression, .caseInsensitive]) == nil
 }
 
 private func compileSide(_ raw: String) throws -> Node {
@@ -269,6 +339,41 @@ func compileExpression(_ raw: String) -> CompiledExpression {
         return CompiledExpression(function: nil, implicitFunction: nil, error: nil)
     }
 
+    if let slider = parseSlider(trimmed) {
+        return CompiledExpression(function: nil, implicitFunction: nil, slider: slider, error: nil)
+    }
+
+    do {
+        if let match = trimmed.range(of: #"^r\s*=\s*"#, options: [.regularExpression, .caseInsensitive]) {
+            let r = try compileSide(String(trimmed[match.upperBound...]))
+            let polar: (Double, Vars) -> (Double, Double) = { t, vars in
+                let radius = evaluate(r, Scope(t: t, vars: vars))
+                return (radius * cos(t), radius * sin(t))
+            }
+            return CompiledExpression(function: nil, implicitFunction: nil, parametric: polar, error: nil)
+        }
+        if let (xs, ys) = splitPair(trimmed) {
+            let xn = try compileSide(xs)
+            let yn = try compileSide(ys)
+            if uses("t", xn) || uses("t", yn) {
+                let curve: (Double, Vars) -> (Double, Double) = { t, vars in
+                    let scope = Scope(t: t, vars: vars)
+                    return (evaluate(xn, scope), evaluate(yn, scope))
+                }
+                return CompiledExpression(function: nil, implicitFunction: nil, parametric: curve, error: nil)
+            }
+            let point: (Vars) -> (Double, Double) = { vars in
+                let scope = Scope(vars: vars)
+                return (evaluate(xn, scope), evaluate(yn, scope))
+            }
+            return CompiledExpression(function: nil, implicitFunction: nil, point: point, error: nil)
+        }
+    } catch let error as ExpressionError {
+        return CompiledExpression(function: nil, implicitFunction: nil, error: error.text)
+    } catch {
+        return CompiledExpression(function: nil, implicitFunction: nil, error: "Could not read that expression")
+    }
+
     if isImplicitEquation(trimmed) {
         let parts = trimmed.split(separator: "=", maxSplits: 1).map {
             $0.trimmingCharacters(in: .whitespaces)
@@ -276,8 +381,9 @@ func compileExpression(_ raw: String) -> CompiledExpression {
         do {
             let lhs = try compileSide(parts[0])
             let rhs = try compileSide(parts.count > 1 ? parts[1] : "")
-            let implicitFn: (Double, Double) -> Double = { x, y in
-                evaluate(lhs, x: x, y: y) - evaluate(rhs, x: x, y: y)
+            let implicitFn: (Double, Double, Vars) -> Double = { x, y, vars in
+                let scope = Scope(x: x, y: y, vars: vars)
+                return evaluate(lhs, scope) - evaluate(rhs, scope)
             }
             return CompiledExpression(function: nil, implicitFunction: implicitFn, error: nil)
         } catch let error as ExpressionError {
@@ -299,7 +405,7 @@ func compileExpression(_ raw: String) -> CompiledExpression {
 
     do {
         let tree = try compileSide(cleaned)
-        return CompiledExpression(function: { evaluate(tree, x: $0) }, implicitFunction: nil, error: nil)
+        return CompiledExpression(function: { evaluate(tree, Scope(x: $0, vars: $1)) }, implicitFunction: nil, error: nil)
     } catch let error as ExpressionError {
         return CompiledExpression(function: nil, implicitFunction: nil, error: error.text)
     } catch {
