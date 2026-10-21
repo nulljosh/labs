@@ -62,3 +62,16 @@ targets:
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.nyc.tests
       GENERATE_INFOPLIST_FILE: YES
+schemes:
+  NYCSurvive:
+    build:
+      targets:
+        NYCSurvive: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - SimTests
+    archive:
+      config: Release
