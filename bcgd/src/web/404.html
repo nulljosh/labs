@@ -828,6 +828,19 @@
             margin-top: 48px;
         }
 
+        /* Five steps: three on the top row, two centred on the bottom row */
+        .process-steps-five {
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .process-steps-five .process-step {
+            grid-column: span 2;
+        }
+
+        .process-steps-five .process-step:nth-child(n+4) {
+            grid-column: span 3;
+        }
+
         .process-step {
             text-align: center;
             position: relative;
@@ -2003,9 +2016,15 @@
                 grid-template-columns: 1fr;
             }
 
-            .process-steps {
+            .process-steps,
+            .process-steps-five {
                 grid-template-columns: 1fr;
                 gap: 32px;
+            }
+
+            .process-steps-five .process-step,
+            .process-steps-five .process-step:nth-child(n+4) {
+                grid-column: auto;
             }
 
             .reviews-grid {

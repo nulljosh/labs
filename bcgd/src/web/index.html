@@ -904,6 +904,19 @@
             margin-top: 48px;
         }
 
+        /* Five steps: three on the top row, two centred on the bottom row */
+        .process-steps-five {
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .process-steps-five .process-step {
+            grid-column: span 2;
+        }
+
+        .process-steps-five .process-step:nth-child(n+4) {
+            grid-column: span 3;
+        }
+
         .process-step {
             text-align: center;
             position: relative;
@@ -2079,9 +2092,15 @@
                 grid-template-columns: 1fr;
             }
 
-            .process-steps {
+            .process-steps,
+            .process-steps-five {
                 grid-template-columns: 1fr;
                 gap: 32px;
+            }
+
+            .process-steps-five .process-step,
+            .process-steps-five .process-step:nth-child(n+4) {
+                grid-column: auto;
             }
 
             .reviews-grid {
@@ -2553,6 +2572,44 @@
                     <div class="step-number">3</div>
                     <h3>Same-Day Repair</h3>
                     <p>Most repairs completed in under 90 minutes. We carry parts on the truck so there's no need for a second visit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEAMLESS SERVICE PROCESS -->
+    <section class="section section-alt-bg">
+        <div class="section-inner">
+            <div class="section-header">
+                <div class="section-label">Our Process</div>
+                <h2 class="section-title">Our Seamless Service Process</h2>
+                <p class="section-subtitle">Five steps, from first look to a finished job.</p>
+            </div>
+            <div class="process-steps process-steps-five">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Thorough System Inspection</h3>
+                    <p>We check the whole door system, not just the part that failed, so the real cause gets found.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Clear Explanation and Service Plan</h3>
+                    <p>We walk you through what we found, what it needs, and what it will cost before any work starts.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Precision Service Completion</h3>
+                    <p>We do the repair carefully and adjust each part to the manufacturer's specs.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Safety Testing and Performance Check</h3>
+                    <p>We test the door open and closed, the auto-reverse and the balance before we leave.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Final Review and Clean Completion</h3>
+                    <p>We review the job with you, clean up after ourselves, and leave the door working the way it should.</p>
                 </div>
             </div>
         </div>
