@@ -15,7 +15,8 @@ final class AuthStore {
     var userId: String? = UserDefaults.standard.string(forKey: "bcgd.authUserId")
     var error = ""
 
-    private lazy var sbClient = SupabaseClient(supabaseURL: URL(string: Self.url)!, supabaseKey: Self.anon)
+    // Not UI state; @Observable can't track a lazy property, so leave it out of observation.
+    @ObservationIgnored private lazy var sbClient = SupabaseClient(supabaseURL: URL(string: Self.url)!, supabaseKey: Self.anon)
 
     private func request(_ path: String, body: Data) -> URLRequest {
         var r = URLRequest(url: URL(string: Self.url + path)!)
@@ -75,7 +76,7 @@ struct AccountGateView: View {
         VStack(spacing: 20) {
             Image(systemName: "person.crop.circle.badge.checkmark")
                 .font(.system(size: 44))
-                .foregroundStyle(Color.bcgdTeal)
+                .foregroundStyle(Color.doorstock)
             Text("Sign in to Doorstock")
                 .font(.headline)
             Text("Each tech signs in with their own account.")

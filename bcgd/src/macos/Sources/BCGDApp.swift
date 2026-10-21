@@ -21,7 +21,7 @@ struct BCGDApp: App {
                     .tabItem { Label("Settings", systemImage: "gearshape") }
                     .tag(3)
             }
-            .tint(.bcgdTeal)
+            .tint(.doorstock)
             .environment(store)
         }
     }

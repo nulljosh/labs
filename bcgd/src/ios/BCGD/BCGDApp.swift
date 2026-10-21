@@ -24,7 +24,7 @@ struct BCGDApp: App {
                         SettingsView()
                             .tabItem { Label("Settings", systemImage: "gearshape") }
                     }
-                    .tint(.bcgdTeal)
+                    .tint(.doorstock)
                     .environment(store)
                     .environment(auth)
                 } else {
@@ -63,7 +63,7 @@ private struct LockScreen: View {
         VStack(spacing: 16) {
             Image(systemName: "lock.shield")
                 .font(.system(size: 44))
-                .foregroundStyle(Color.bcgdTeal)
+                .foregroundStyle(Color.doorstock)
             Text("Doorstock is locked")
                 .font(.headline)
             Button("Unlock") {
@@ -73,7 +73,7 @@ private struct LockScreen: View {
                 }
             }
             .buttonStyle(.borderedProminent)
-            .tint(.bcgdTeal)
+            .tint(.doorstock)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemBackground))

@@ -2,9 +2,8 @@ import Foundation
 import SwiftUI
 
 extension Color {
-    static let bcgdTeal = Color(red: 0x1B / 255, green: 0x59 / 255, blue: 0x59 / 255)
-    static let bcgdDeep = Color(red: 0x13 / 255, green: 0x40 / 255, blue: 0x40 / 255)
-    static let bcgdSage = Color(red: 0x8D / 255, green: 0xA6 / 255, blue: 0xA6 / 255)
+    // Doorstock blue, from brand/tokens.css (--accent). The website keeps the shop's teal.
+    static let doorstock = Color(red: 0x1B / 255, green: 0x4F / 255, blue: 0xC4 / 255)
 }
 
 struct Part: Identifiable, Codable {
@@ -31,6 +30,12 @@ enum JobStatus: String, Codable, CaseIterable {
     }
 }
 
+struct JobPart: Identifiable, Codable, Hashable {
+    var id: UUID { partID }
+    var partID: UUID
+    var quantity: Int
+}
+
 struct Job: Identifiable, Codable {
     var id = UUID()
     var customer: String
@@ -38,39 +43,138 @@ struct Job: Identifiable, Codable {
     var detail: String = ""
     var status: JobStatus = .lead
     var created = Date()
+    var scheduled: Date? = nil
+    var parts: [JobPart] = []
+    var stockDeducted = false
+
+    init(customer: String) { self.customer = customer }
+
+    // 1.0 saves have none of the newer keys. Synthesized decoding would throw on them,
+    // the store would fall back to the seed list and overwrite the shop's real stock.
+    init(from d: Decoder) throws {
+        let c = try d.container(keyedBy: CodingKeys.self)
+        id = try c.decodeIfPresent(UUID.self, forKey: .id) ?? UUID()
+        customer = try c.decode(String.self, forKey: .customer)
+        address = try c.decodeIfPresent(String.self, forKey: .address) ?? ""
+        detail = try c.decodeIfPresent(String.self, forKey: .detail) ?? ""
+        status = try c.decodeIfPresent(JobStatus.self, forKey: .status) ?? .lead
+        created = try c.decodeIfPresent(Date.self, forKey: .created) ?? Date()
+        scheduled = try c.decodeIfPresent(Date.self, forKey: .scheduled)
+        parts = try c.decodeIfPresent([JobPart].self, forKey: .parts) ?? []
+        stockDeducted = try c.decodeIfPresent(Bool.self, forKey: .stockDeducted) ?? false
+    }
+
+    var isToday: Bool { scheduled.map(Calendar.current.isDateInToday) ?? false }
+}
+
+struct StockChange: Identifiable, Codable {
+    var id = UUID()
+    var date = Date()
+    var partName: String
+    var delta: Int
+    var reason: String
+}
+
+struct Saved: Codable {
+    var parts: [Part]
+    var jobs: [Job]
+    var history: [StockChange] = []
+
+    init(parts: [Part], jobs: [Job], history: [StockChange]) {
+        self.parts = parts; self.jobs = jobs; self.history = history
+    }
+
+    init(from d: Decoder) throws {
+        let c = try d.container(keyedBy: CodingKeys.self)
+        parts = try c.decode([Part].self, forKey: .parts)
+        jobs = try c.decodeIfPresent([Job].self, forKey: .jobs) ?? []
+        history = try c.decodeIfPresent([StockChange].self, forKey: .history) ?? []
+    }
+
+    static func decode(_ data: Data) -> Saved? { try? JSONDecoder().decode(Saved.self, from: data) }
 }
 
 @Observable
 final class Store {
     var parts: [Part] { didSet { save() } }
     var jobs: [Job] { didSet { save() } }
+    var history: [StockChange] { didSet { save() } }
 
     // ponytail: UserDefaults JSON persistence, swap for shared API when dashboard sync lands
     private static let key = "bcgd.store"
 
     init() {
-        if let data = UserDefaults.standard.data(forKey: Self.key),
-           let saved = try? JSONDecoder().decode(Saved.self, from: data) {
-            parts = saved.parts
-            jobs = saved.jobs
-        } else {
-            parts = Store.seedParts
-            jobs = []
+        let defaults = UserDefaults.standard
+        if let data = defaults.data(forKey: Self.key) {
+            if let saved = Saved.decode(data) {
+                parts = saved.parts; jobs = saved.jobs; history = saved.history
+                return
+            }
+            // Never lose data we can't read: park it before seeding.
+            defaults.set(data, forKey: Self.key + ".unreadable." + String(Int(Date().timeIntervalSince1970)))
         }
-    }
-
-    private struct Saved: Codable {
-        var parts: [Part]
-        var jobs: [Job]
+        parts = Store.seedParts; jobs = []; history = []
     }
 
     private func save() {
-        if let data = try? JSONEncoder().encode(Saved(parts: parts, jobs: jobs)) {
+        if let data = try? JSONEncoder().encode(Saved(parts: parts, jobs: jobs, history: history)) {
             UserDefaults.standard.set(data, forKey: Self.key)
         }
     }
 
     var lowStockParts: [Part] { parts.filter(\.isLowStock) }
+    var todayJobs: [Job] { jobs.filter { $0.isToday && $0.status == .scheduled } }
+
+    func part(_ id: UUID) -> Part? { parts.first { $0.id == id } }
+
+    /// Every stock change goes through here so the history stays complete. Never below zero.
+    func adjust(_ id: UUID, by delta: Int, reason: String) {
+        guard let i = parts.firstIndex(where: { $0.id == id }) else { return }
+        let new = max(0, parts[i].quantity + delta)
+        let applied = new - parts[i].quantity
+        guard applied != 0 else { return }
+        parts[i].quantity = new
+        history.insert(StockChange(partName: parts[i].name, delta: applied, reason: reason), at: 0)
+    }
+
+    /// Moving a job into Complete takes its parts off the shelf, once.
+    func advance(_ jobID: UUID) {
+        guard let i = jobs.firstIndex(where: { $0.id == jobID }), let next = jobs[i].status.next else { return }
+        if next == .complete && !jobs[i].stockDeducted {
+            for p in jobs[i].parts { adjust(p.partID, by: -p.quantity, reason: "Job: \(jobs[i].customer)") }
+            jobs[i].stockDeducted = true
+        }
+        jobs[i].status = next
+    }
+
+    func reorderURL(to email: String) -> URL? {
+        let lines = lowStockParts.map { "\($0.name): \($0.quantity) left" }.joined(separator: "\n")
+        var c = URLComponents(string: "mailto:\(email)")
+        c?.queryItems = [URLQueryItem(name: "subject", value: "Reorder"), URLQueryItem(name: "body", value: lines)]
+        return c?.url
+    }
+
+    var csv: String {
+        let esc = { (s: String) in "\"" + s.replacingOccurrences(of: "\"", with: "\"\"") + "\"" }
+        return (["Name,Category,Quantity,Low stock at"] + parts.map {
+            "\(esc($0.name)),\(esc($0.category)),\($0.quantity),\($0.lowStockThreshold)"
+        }).joined(separator: "\n")
+    }
+
+    var backup: Data { (try? JSONEncoder().encode(Saved(parts: parts, jobs: jobs, history: history))) ?? Data() }
+
+    func restore(_ data: Data) -> Bool {
+        guard let saved = Saved.decode(data) else { return false }
+        parts = saved.parts; jobs = saved.jobs; history = saved.history
+        return true
+    }
+
+    // ponytail: writes the export on each call; it's a few KB, fine until inventories get big
+    func exportFile(_ name: String, _ data: Data) -> URL {
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent(name)
+        try? data.write(to: url)
+        return url
+    }
 
     static let seedParts: [Part] = [
         Part(name: "Torsion Spring .225 x 24\"", category: "Springs", quantity: 6),
