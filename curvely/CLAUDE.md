@@ -68,7 +68,8 @@ xcodebuild build -scheme Grapher-iOS -destination 'platform=macOS' \
 
 # parser self-check, no framework needed
 swiftc -o /tmp/curvecheck ios/App/Expression.swift ios/App/Rows.swift ios/App/Lists.swift \
-  ios/App/KeyPoints.swift ios/App/Palette.swift ios/App/PNG.swift ios/Checks/main.swift && /tmp/curvecheck
+  ios/App/KeyPoints.swift ios/App/Patterns.swift ios/App/Equation.swift ios/App/Palette.swift \
+  ios/App/PNG.swift ios/Checks/main.swift && /tmp/curvecheck
 ```
 
 Native-only capabilities the web build cannot offer: equations persist across launches, and the

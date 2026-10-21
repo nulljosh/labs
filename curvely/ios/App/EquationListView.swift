@@ -54,6 +54,28 @@ struct EquationListView: View {
                     .buttonStyle(.plain)
                 }
             }
+
+            Text("PATTERNS")
+                .font(Theme.font(11, .semibold))
+                .tracking(1.2)
+                .foregroundStyle(Theme.secondary)
+                .padding(.top, 8)
+
+            FlowRow(spacing: 6) {
+                ForEach(patterns, id: \.name) { pattern in
+                    Button { pattern.rows.forEach(append) } label: {
+                        Text(pattern.name)
+                            .font(Theme.font(13))
+                            .foregroundStyle(Theme.secondary)
+                            .padding(.horizontal, 12)
+                            .frame(minHeight: 32)
+                            .background(Theme.fill, in: Capsule())
+                            .overlay(Capsule().strokeBorder(Theme.border, lineWidth: 1))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityHint("Adds the \(pattern.name.lowercased()) rows to the graph")
+                }
+            }
         }
         .padding(.top, 12)
     }

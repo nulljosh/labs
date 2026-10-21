@@ -123,6 +123,7 @@ let functions: [String: (Double) -> Double] = [
 
 private let constants: [String: Double] = [
     "pi": .pi, "e": M_E, "tau": 2 * .pi, "nan": .nan,
+    "phi": (1 + 5.squareRoot()) / 2, // the golden ratio, mathjs has it too
 ]
 
 private struct Parser {

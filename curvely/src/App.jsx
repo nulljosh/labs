@@ -5,6 +5,7 @@ import { evaluate, parseSlider, buildScope } from './utils/evaluate.js';
 import { colorAt } from './utils/colors.js';
 import { parseListDef, expandRow, evaluateRow } from './utils/lists.js';
 import { useWebMCP } from './lib/webmcp.js';
+import { PATTERNS } from './utils/patterns.js';
 
 let nextId = 3;
 
@@ -155,6 +156,13 @@ export default function App() {
             <div className="card-title">Quick examples</div>
             {['x^2', 'sin(x)', 'x^3-x', 'x^2+y^2=4', 'y > x^2', 'r = 1+cos(theta)', '(cos(t), sin(t))', '(1, 2)'].map((ex) => (
               <button key={ex} className="chip" onClick={() => handleAdd(ex)}>{ex}</button>
+            ))}
+          </div>
+
+          <div className="glass-card" style={{ marginTop: 12 }}>
+            <div className="card-title">Patterns</div>
+            {PATTERNS.map((p) => (
+              <button key={p.name} className="chip" onClick={() => p.rows.forEach((row) => handleAdd(row))}>{p.name}</button>
             ))}
           </div>
         </div>

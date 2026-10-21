@@ -4,6 +4,7 @@
 One major version per real feature batch, each on web, iOS and Mac, submitted once the last one clears review. Order is a proposal, Joshua can reshuffle.
 - [x] v3 Functions: `f(x) = x^2` then `f(x+1)`, derivatives `f'(x)` and `d/dx`, piecewise `{x < 0: -x, x}`, domain limits `sin(x) {0 < x < 5}`. Built 2026-10-21 on web, iOS and Mac; web live, native ships as 3.0.0 after 2.0.0 clears review.
 - [x] v4 Lists: `L = [1, 2, 3]`, ranges `[1...10]`, `(L, L^2)` and `sin(x) + [0, 1, 2]` draw once per element, `[(1, 2), (2, 4)]` plots a point list. Built 2026-10-21 on all three. An editable table UI moves to v31-40.
+- [x] Patterns (Joshua's ask 2026-10-21): a Patterns card with one-tap golden spiral, sunflower, rose, butterfly, heart, Lissajous, spirograph, cardioid, sine fan, damped wave. Adds rows, never replaces. Adding more is one line in src/utils/patterns.js and ios/App/Patterns.swift.
 - [x] v5 Sliders grown up: play button sweeps between bounds, `a = 3 {0 < a < 10}` sets the range (fixed while dragging), `{0 < t < pi}` / `{0 < theta < 6pi}` set parametric and polar ranges. Built 2026-10-21 on all three. Per-slider step left out: continuous plus 2-decimal rounding covers it.
 - v6 Saved graphs: a list of named graphs, a share link on web (state in the URL), iCloud sync on native.
 - v7 Look: per-row colour picker, line style (solid, dashed, points), labels on points.

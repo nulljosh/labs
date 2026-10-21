@@ -272,4 +272,26 @@ let spiral = compileExpression("r = theta {0 < theta < 6pi}")
 check(abs(spiral.tRange.upperBound - 6 * .pi) < 1e-9 && near(spiral.parametric?(4 * .pi, [:]).0 ?? 0, 4 * .pi), "a polar spiral runs past 2 pi")
 check(compileExpression("(cos(t), sin(t))").tRange == 0...(2 * .pi), "parametric rows default to 0...2pi")
 
+
+// MARK: - patterns.test.js
+
+for pattern in patterns {
+    let lists = Dictionary(pattern.rows.compactMap(parseListDef), uniquingKeysWith: { a, _ in a })
+    let vars = buildVars(pattern.rows, values: Dictionary(pattern.rows.compactMap(parseSlider).map { ($0.name, $0.value) }, uniquingKeysWith: { a, _ in a }))
+    var drew = false
+    for row in pattern.rows {
+        check(compileRow(row).error == nil, "\(pattern.name): \(row) reads")
+        let (source, binds) = expandRow(row, lists: lists)
+        guard let bind = binds.first else { continue }
+        let c = compileExpression(source)
+        let v = vars.with(bind)
+        let mid = (c.tRange.lowerBound + c.tRange.upperBound) / 2
+        let values: [Double]? = c.function.map { [$0(1, v)] }
+            ?? c.parametric.map { let p = $0(mid, v); return [p.0, p.1] }
+            ?? c.point.map { let p = $0(v); return [p.0, p.1] }
+        if let values { check(values.allSatisfy(\.isFinite), "\(pattern.name): \(row) is finite"); drew = true }
+    }
+    check(drew, "\(pattern.name) draws something")
+}
+
 print("ok — \(checks) checks passed")

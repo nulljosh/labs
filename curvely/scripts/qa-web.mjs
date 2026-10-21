@@ -40,6 +40,9 @@ await type(2, 'sin('); await sleep(900); ok('invalid expression flagged', await 
 await type(2, '2*x+1'); await sleep(900); ok('fixing it clears the flag', await count('.eq-input.bad') === 0);
 const before = await curvePx(); await type(0, '3*x'); await sleep(200); ok('editing redraws', await curvePx() > 0);
 await click('.rm-btn'); await sleep(100); ok('remove drops a row', await count('.eq-input') === 3);
+const before2 = await count('.eq-input'); await click('.chip', 'Golden spiral'); await sleep(900);
+ok('a pattern adds its rows', await count('.eq-input') === before2 + 2);
+ok('pattern rows read cleanly', await count('.eq-input.bad') === 0);
 // pan + wheel zoom change the canvas
 const snap1 = await ev(`document.querySelector('canvas').toDataURL().length`);
 await ev(`document.querySelector('canvas').dispatchEvent(new WheelEvent('wheel',{deltaY:-300,clientX:400,clientY:300,bubbles:true,cancelable:true}))`); await sleep(200);
