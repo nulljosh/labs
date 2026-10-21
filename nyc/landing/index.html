@@ -2,270 +2,200 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NYC Survive — build the city that never sleeps</title>
-<meta property="og:image" content="https://nyc.jaybulb.com/og.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>NYC Survive. Survive Times Square.</title>
+<meta name="description" content="Lead a small group of survivors through Times Square. Build shelters, food, power and filters, and get them through the night. On iPhone, iPad, Mac and in your browser.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://nyc.jaybulb.com/">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NYC Survive">
+<meta property="og:title" content="NYC Survive. Survive Times Square.">
+<meta property="og:description" content="Lead a small group of survivors through Times Square. Build shelters, food, power and filters, and get them through the night.">
 <meta property="og:url" content="https://nyc.jaybulb.com/">
+<meta property="og:image" content="https://nyc.jaybulb.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://nyc.jaybulb.com/og.png">
-<link rel="canonical" href="https://nyc.jaybulb.com/">
-<meta name="description" content="A Factorio-style production game for iOS and macOS. Build factory chains, automate logistics, and keep the city running.">
-<meta name="theme-color" content="#f5f0e4">
-<meta property="og:title" content="NYC Survive — build the city that never sleeps">
-<meta property="og:description" content="A Factorio-style production game for iOS and macOS. Build factory chains, automate logistics, and keep the city running.">
-<meta property="og:type" content="website">
-<link rel="icon" href="icon.svg">
-<style>
-@import url("https://jaybulb.com/tokens.css");
-
-:root {
-  --accent: #c0504d;
-  --link: #b34a48;
-  --accent-soft: #fbeeed;
-  --font-body: -apple-system, system-ui, "Inter", "Segoe UI", sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --link: #cb6e6b;
-    --accent-soft: #2b1c1b;
-  }
-}
-:root[data-theme="dark"] {
-  --link: #cb6e6b;
-  --accent-soft: #2b1c1b;
-}
-
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-::selection { background: var(--accent); color: #fff; }
-a { color: var(--link, var(--accent)); text-decoration: none; }
-a:hover { text-decoration: underline; }
-img { max-width: 100%; }
-
-.container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
-
-.hero {
-  position: relative; isolation: isolate; overflow: hidden;
-  background: #24252e; padding: 5.5rem 0 4.5rem; text-align: center;
-}
-.hero .container { position: relative; z-index: 2; }
-
-/* the real game, playing itself in attract mode */
-.hero-city {
-  position: absolute; inset: 0; z-index: 0;
-  border: 0; width: 100%; height: 100%;
-  pointer-events: none;
-  background: url("hero-city.png") repeat center; /* fallback while the frame loads */
-  background-size: 512px 382px;
-  image-rendering: pixelated;
-}
-
-/* scrim: keeps the headline readable over the board */
-.hero::after {
-  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background:
-    radial-gradient(ellipse 55% 60% at 50% 45%, #24252e 15%, transparent 80%),
-    linear-gradient(rgba(36,37,46,0.85), rgba(36,37,46,0.35) 35%, rgba(36,37,46,0.35) 62%, var(--bg) 98%);
-}
-.hero h1, .hero p { color: #ececf0; }
-.hero p { color: rgba(236,236,240,0.72); }
-.hero .btn-outline { background: rgba(0,0,0,0.35); color: #ececf0; border-color: rgba(236,236,240,0.28); }
-.hero-icon { width: 88px; height: 88px; margin: 0 auto 1.75rem; display: block; }
-.hero h1 {
-  font-size: clamp(2.25rem, 6.5vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.08;
-  margin-bottom: 0.85rem;
-}
-.hero p {
-  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
-  color: var(--text2);
-  max-width: 34rem;
-  margin: 0 auto 2.25rem;
-}
-
-.buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-.btn {
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
-  border-radius: 100px;
-  font-size: 0.98rem;
-  font-weight: 600;
-  border: 1.5px solid transparent;
-  transition: transform 0.15s ease, opacity 0.15s ease;
-}
-.btn:hover { text-decoration: none; transform: translateY(-1px); }
-.btn-primary { background: var(--accent); color: #fff; }
-.btn-primary:hover { opacity: 0.9; }
-.btn-outline { border-color: var(--border); color: var(--text); background: var(--bg); }
-.btn-outline:hover { border-color: var(--link, var(--accent)); color: var(--link, var(--accent)); }
-
-section { padding: 4rem 0; }
-.features h2, .closing h2 {
-  font-size: clamp(1.5rem, 3.6vw, 2rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 2.25rem;
-  text-align: center;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-.feature {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.4rem;
-}
-.feature h3 { font-size: 1rem; font-weight: 650; margin-bottom: 0.4rem; }
-.feature p { font-size: 0.93rem; color: var(--text2); }
-
-.closing { background: var(--bg2); text-align: center; border-top: 1px solid var(--border); }
-.closing p { color: var(--text2); max-width: 34rem; margin: 0 auto 1.75rem; }
-
-footer { padding: 2.5rem 0 3.5rem; text-align: center; font-size: 0.9rem; color: var(--text2); }
-footer p + p { margin-top: 0.35rem; }
-</style>
-<link rel="stylesheet" href="devices.css">
-<script>
-// ponytail: UA sniff, good enough for a mockup. iphone is the default. ?embed = app only, for the landing demo frame.
-(function(u,d){d=/Android/.test(u)?'android':/iPhone|iPad/.test(u)?'iphone':/Windows/.test(u)?'windows':/Mac/.test(u)?'mac':'iphone';document.documentElement.dataset.device=d;if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed')})(navigator.userAgent);
-</script>
-<style>
-/* Live demo: the real app in a frame matching the visitor's device (nimble treatment) */
-.demo{margin:2rem auto 0;text-align:center;position:relative;z-index:2}
-.demo .device-screen{aspect-ratio:9/19.5}
-.demo .device-mac .device-screen,.demo .device-windows .device-screen{aspect-ratio:16/10}
-.demo .device-screen iframe{position:absolute;top:0;left:0;border:0;display:block;transform-origin:0 0;width:390px;height:845px;background:#fff}
-.demo .device-mac .device-screen iframe,.demo .device-windows .device-screen iframe{width:1024px;height:640px}
-.playthrough{display:block;width:min(960px,92vw);margin:2rem auto 0;border-radius:16px}
-.demo-caption{font-size:.9rem;opacity:.65;margin:1rem 0 0}
-.embed .demo,.embed footer,.embed nav{display:none!important}
-</style>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="landing.css">
 </head>
-<body>
+<body id="top">
+
+<header class="nav" aria-label="Site">
+  <nav class="nav-links" aria-label="Main">
+    <a href="#controls">Controls</a>
+    <a href="#play">Play</a>
+  </nav>
+  <a class="nav-brand" href="#top" aria-label="NYC Survive home"><img src="icon.svg" alt="" width="28" height="28"><span>NYC Survive</span></a>
+  <div class="nav-end">
+    <a class="btn btn-solid" href="/app/">Play now</a>
+  </div>
+</header>
+
+<main>
 
 <section class="hero">
-  <iframe class="hero-city" src="/app/?bg" title="" aria-hidden="true" tabindex="-1" loading="lazy" scrolling="no"></iframe>
-  <div class="container">
-    <img class="hero-icon" src="icon.svg" alt="NYC Survive icon" width="88" height="88">
-    <h1>A Factorio-style production game for the city that never sleeps.</h1>
-<div class="demo">
-  <div class="device device-iphone" id="demoFrame" data-title="NYC Survive"><div class="device-screen"><iframe id="demoApp" title="NYC Survive, live" loading="lazy" data-src="/app/?embed"></iframe></div></div>
-  <p class="demo-caption">This is the <span id="demoDev">iPhone</span> app, live. Try it.</p>
-  <video class="playthrough" src="playthrough.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="A real playthrough: drag-select survivors, send them to gather, place a generator"></video>
-  <p class="demo-caption">A real playthrough. Drag a box around survivors, click a resource to gather, press B to build.</p>
-</div>
-<script>
-(function(){var names={iphone:'iPhone',android:'Android',mac:'Mac',windows:'Windows'},dev=document.documentElement.dataset.device,f=document.getElementById('demoFrame'),i=document.getElementById('demoApp');
-if(!names[dev])dev='iphone';f.className='device device-'+dev;document.getElementById('demoDev').textContent=names[dev];
-if(!document.documentElement.classList.contains('embed'))i.src=i.dataset.src;
-function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidth)+')';}fit();addEventListener('resize',fit);})();
-</script>
+  <div class="wrap">
+    <p class="label">Times Square colony sim</p>
+    <h1>Survive Times Square.</h1>
+    <p class="lead">Lead a small group of survivors one street at a time. Build what they need and get them through the night.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="/app/">Play in browser</a>
+      <a class="btn btn-ghost" href="https://apps.apple.com/app/id6782618198">App Store</a>
+    </div>
+    <p class="fine">On iPhone, iPad and Mac.</p>
 
-    <div class="buttons">
-      <a href="/app" class="btn btn-primary">Play now</a>
-      <a href="https://apps.apple.com/app/id6782618198" class="btn btn-outline">App Store</a>
-      <a href="https://github.com/nulljosh/labs/tree/main/nyc" class="btn btn-outline">Source</a>
+    <div class="game-wrap">
+      <div class="game">
+        <iframe src="/app/?embed" title="NYC Survive, running live" loading="lazy" allow="fullscreen"></iframe>
+      </div>
+      <p class="caption">The real game, running live. Click a survivor, then click the ground to send them there.</p>
     </div>
   </div>
 </section>
 
-<section class="features">
-  <div class="container">
-    <h2>Build it, automate it, scale it</h2>
-    <div class="grid">
-      <div class="feature">
-        <h3>Factory production chains</h3>
-        <p>Four building types — miner, smelter, assembler, and storage — that feed each other.</p>
+<section class="band" id="city">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">What you do</p>
+      <h2>Build the block. Keep it alive.</h2>
+      <p>Buildings burn materials, and survivors get hungry, tired and stressed. Keep the numbers up and the colony holds.</p>
+    </div>
+    <div class="cells">
+      <article class="cell">
+        <p class="label">Build</p>
+        <h3>Six kinds of building</h3>
+        <p>Shelters, food stalls, generators, filter stations, subway access and billboards.</p>
+      </article>
+      <article class="cell">
+        <p class="label">Keep alive</p>
+        <h3>Five numbers to watch</h3>
+        <p>Hunger, oxygen, stress, sleep and health. Let one slide and someone pays for it.</p>
+      </article>
+      <article class="cell">
+        <p class="label">Nights</p>
+        <h3>Raids come at night</h3>
+        <p>Have shelters up and food stocked before the raids hit.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="controls">
+  <div class="wrap split">
+    <div>
+      <p class="label">Your orders</p>
+      <h2>Nobody moves until you say so.</h2>
+      <p>Colonists only move when you tell them to. Select one, then tap where it should go. Nothing runs on autopilot.</p>
+    </div>
+    <div class="keys">
+      <div>
+        <h3>On iPhone and iPad</h3>
+        <dl>
+          <div><dt>Drag</dt><dd>Pan the camera</dd></div>
+          <div><dt>Pinch</dt><dd>Zoom in and out</dd></div>
+          <div><dt>Tap a colonist, then a tile</dt><dd>Move them there</dd></div>
+        </dl>
       </div>
-      <div class="feature">
-        <h3>Auto-pull logistics</h3>
-        <p>Adjacent buildings pull the inputs they need automatically. No manual hauling.</p>
-      </div>
-      <div class="feature">
-        <h3>Production tracking</h3>
-        <p>Progress bars show every recipe as it completes, so you can spot the bottleneck.</p>
-      </div>
-      <div class="feature">
-        <h3>iOS and macOS</h3>
-        <p>One shared Swift 6 codebase, native SpriteKit rendering on both platforms.</p>
-      </div>
-      <div class="feature">
-        <h3>Portrait and landscape</h3>
-        <p>Responsive layouts on iPhone and iPad; a fixed widescreen board on the Mac.</p>
-      </div>
-      <div class="feature">
-        <h3>Free and open source</h3>
-        <p>MIT licensed. No ads, no purchases, no accounts.</p>
+      <div>
+        <h3>On Mac</h3>
+        <dl>
+          <div><dt><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dt><dd>Pan the camera</dd></div>
+          <div><dt><kbd>B</kbd></dt><dd>Open or close the build menu</dd></div>
+          <div><dt><kbd>1</kbd> to <kbd>6</kbd></dt><dd>Pick a building</dd></div>
+          <div><dt><kbd>Space</kbd></dt><dd>Pause or resume</dd></div>
+        </dl>
       </div>
     </div>
   </div>
 </section>
 
-<section class="closing">
-  <div class="container">
-    <h2>Play it in the browser</h2>
-    <p>The web build runs straight in the browser — nothing to download.</p>
-    <div class="buttons">
-      <a href="/app" class="btn btn-primary">Play now</a>
+<section class="sec" id="win">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">The win</p>
+      <h2>Times Square reclaimed.</h2>
+      <p>Grow to 15 survivors. Get the average level to 8, with one survivor at level 10.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>15</b><span>Survivors</span></div>
+      <div class="stat"><b>8</b><span>Average level</span></div>
+      <div class="stat"><b>10</b><span>For one survivor</span></div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="container">
-    <p>NYC Survive &mdash; by <a href="https://jaybulb.com">Joshua Trommel</a></p>
-    <p><a href="https://github.com/nulljosh/labs/tree/main/nyc">Source on GitHub</a></p>
-    <p><a href="https://github.com/nulljosh/labs/blob/main/nyc/docs/API.md">API</a> &middot; <a href="https://jaybulb.com/docs.html#nyc">Docs</a></p>
+<section class="sec" id="film">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">A real run</p>
+      <h2>See it played.</h2>
+      <p>Drag a box around survivors, click a resource to gather it, and press B to build.</p>
+    </div>
+    <div class="film">
+      <video src="playthrough.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="A real playthrough: drag a box around survivors, click a resource to gather, press B to build."></video>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="play">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Play</p>
+      <h2>Pick how you play.</h2>
+      <p>One game on every Apple device. Nothing to install in the browser.</p>
+    </div>
+    <div class="plats">
+      <div class="plat">
+        <p class="label">Browser</p>
+        <h3>Play in your browser</h3>
+        <p>No install. Works on a phone, tablet or computer.</p>
+        <a class="btn btn-solid" href="/app/">Play now</a>
+      </div>
+      <div class="plat">
+        <p class="label">App Store</p>
+        <h3>iPhone, iPad and Mac</h3>
+        <p>Touch on phone and tablet, keyboard and mouse on Mac.</p>
+        <a class="btn btn-ghost" href="https://apps.apple.com/app/id6782618198">Get the app</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="icon.svg" alt="" width="40" height="40">
+        <b>NYC Survive</b>
+        <p>Survive Times Square.</p>
+      </div>
+      <nav class="foot-cols" aria-label="Footer">
+        <div>
+          <p class="label">Play</p>
+          <a href="/app/">Play in browser</a>
+          <a href="https://apps.apple.com/app/id6782618198">App Store</a>
+          <a href="#controls">Controls</a>
+        </div>
+        <div>
+          <p class="label">Source</p>
+          <a href="https://github.com/nulljosh/labs/tree/main/nyc">GitHub</a>
+          <a href="https://github.com/nulljosh/labs/blob/main/nyc/docs/CONTROLS.md">Controls doc</a>
+          <a href="/app/privacy.html">Privacy</a>
+        </div>
+        <div>
+          <p class="label">More</p>
+          <a href="https://jaybulb.com">Joshua Trommel</a>
+          <a href="#top">Back to top</a>
+        </div>
+      </nav>
+    </div>
+    <p class="legal">&copy; 2026 Joshua Trommel &middot; MIT License &middot; <a href="/app/privacy.html">Privacy</a></p>
   </div>
 </footer>
 
-<style>
-html.js .reveal{opacity:0;transform:translateY(20px)}
-html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
-@media (prefers-reduced-motion: reduce){html.js .reveal{opacity:1!important;transform:none!important;transition:none!important}}
-</style>
-<script>
-document.documentElement.classList.add('js');
-(function(){
-  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduced && 'IntersectionObserver' in window) {
-    var targets = document.querySelectorAll('section.features .feature, section.closing');
-    targets.forEach(function(el){ el.classList.add('reveal'); });
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
-    }, {threshold: 0.15});
-    targets.forEach(function(el){ io.observe(el); });
-  }
-  if (!reduced) {
-    var layer = document.querySelector('.hero-city');
-    if (layer) {
-      var ticking = false;
-      window.addEventListener('scroll', function(){
-        if (!ticking) {
-          requestAnimationFrame(function(){
-            layer.style.transform = 'translateY(' + ((window.scrollY || 0) * 0.35) + 'px)';
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }, {passive: true});
-    }
-  }
-})();
-</script>
 </body>
 </html>
