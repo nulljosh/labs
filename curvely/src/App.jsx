@@ -5,7 +5,7 @@ import { evaluate, parseSlider, buildScope } from './utils/evaluate.js';
 import { colorAt } from './utils/colors.js';
 import { parseListDef, expandRow, evaluateRow } from './utils/lists.js';
 import { useWebMCP } from './lib/webmcp.js';
-import { PATTERNS } from './utils/patterns.js';
+import { PATTERNS, PATTERN_CATEGORIES } from './utils/patterns.js';
 
 let nextId = 3;
 
@@ -22,6 +22,7 @@ export default function App() {
   const [equations, setEquations] = useState(INITIAL);
   const [sliderValues, setSliderValues] = useState({});
   const [panelCollapsed, setPanelCollapsed] = useState(false);
+  const [patternCategory, setPatternCategory] = useState(PATTERN_CATEGORIES[0]);
   const [playing, setPlaying] = useState({}); // slider name -> true while its play button is on
 
   // `a = 3` rows drive a slider instead of plotting a curve. Value defaults from
@@ -161,7 +162,12 @@ export default function App() {
 
           <div className="glass-card" style={{ marginTop: 12 }}>
             <div className="card-title">Patterns</div>
-            {PATTERNS.map((p) => (
+            <div className="pattern-tabs" role="group" aria-label="Pattern categories">
+              {PATTERN_CATEGORIES.map((c) => (
+                <button key={c} aria-pressed={c === patternCategory} className="pattern-tab" onClick={() => setPatternCategory(c)}>{c}</button>
+              ))}
+            </div>
+            {PATTERNS.filter((p) => p.category === patternCategory).map((p) => (
               <button key={p.name} className="chip" onClick={() => p.rows.forEach((row) => handleAdd(row))}>{p.name}</button>
             ))}
           </div>

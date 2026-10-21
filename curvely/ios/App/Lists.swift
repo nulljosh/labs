@@ -35,6 +35,21 @@ private func parsePointList(_ inner: String) -> (xs: [Double], ys: [Double])? {
     return (matches.compactMap { Double($0.1) }, matches.compactMap { Double($0.2) })
 }
 
+/// Whether `source` names `name` on its own. Not a word-boundary regex: `0.05shell` uses
+/// shell, and a digit-to-letter step is no word boundary.
+private func uses(_ source: String, _ name: String) -> Bool {
+    var rest = source[...]
+    while let hit = rest.range(of: name) {
+        let before = hit.lowerBound == source.startIndex ? nil : source[source.index(before: hit.lowerBound)]
+        let after = hit.upperBound == source.endIndex ? nil : source[hit.upperBound]
+        // ASCII only, to match the web regex `(?<![A-Za-z_])name(?!\\w)` exactly
+        let isPart = { (c: Character?) in c.map { $0.isASCII && ($0.isLetter || $0 == "_") } ?? false }
+        if !isPart(before), !(isPart(after) || (after.map { $0.isASCII && $0.isNumber } ?? false)) { return true }
+        rest = source[hit.upperBound...]
+    }
+    return false
+}
+
 /// The rewritten row, compiled once, and one binding per copy to draw.
 /// `binds` is empty for a list definition and `[[:]]` for a row that uses no list.
 func expandRow(_ raw: String, lists: [String: [Double]]) -> (source: String, binds: [[String: Double]]) {
@@ -59,9 +74,7 @@ func expandRow(_ raw: String, lists: [String: [Double]]) -> (source: String, bin
     }
     let all = lists.merging(local) { _, new in new }
     let lowered = source.lowercased()
-    let used = all.keys.filter { name in
-        lowered.contains(try! Regex("\\b\(name)\\b"))
-    }.sorted()
+    let used = all.keys.filter { uses(lowered, $0) }.sorted()
     guard !used.isEmpty else { return (source, [[:]]) }
     let count = used.map { all[$0]!.count }.min()!
     let binds = (0..<count).map { i in Dictionary(uniqueKeysWithValues: used.map { ($0, all[$0]![i]) }) }

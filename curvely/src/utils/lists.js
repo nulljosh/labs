@@ -65,7 +65,8 @@ export function expandRow(expr, lists) {
     });
   }
   const all = { ...lists, ...local };
-  const used = Object.keys(all).filter((ln) => new RegExp(`\\b${ln}\\b`).test(source));
+  // not \\b: `0.05shell` uses shell, and a digit-to-letter step is no word boundary
+  const used = Object.keys(all).filter((ln) => new RegExp(`(?<![A-Za-z_])${ln}(?!\\w)`).test(source));
   if (!used.length) return { source, binds: [{}] };
   const len = Math.min(...used.map((ln) => all[ln].length));
   const binds = Array.from({ length: len }, (_, i) => Object.fromEntries(used.map((ln) => [ln, all[ln][i]])));

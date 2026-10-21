@@ -68,7 +68,8 @@ function assertSafe(node) {
 /// that is not a plottable expression in x.
 function compileExpression(raw) {
   if (typeof raw !== 'string') throw new ToolError('expr must be a string');
-  const cleaned = raw.replace(/^y\s*=\s*/i, '').trim();
+  // ln is what people type; mathjs spells the natural log `log`, same rewrite as the app
+  const cleaned = raw.replace(/^y\s*=\s*/i, '').replace(/(?<![A-Za-z_])ln\(/g, 'log(').trim();
   if (!cleaned) throw new ToolError('expr is empty');
   if (cleaned.length > MAX_EXPR) throw new ToolError(`expr exceeds ${MAX_EXPR} characters`);
 

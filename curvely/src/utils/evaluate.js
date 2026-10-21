@@ -89,9 +89,20 @@ export function splitInequality(expr) {
 // `f(x) = x^2` defines f for every other row, and draws itself as y = f(x).
 const FUNC_RE = /^([a-zA-Z]\w*)\(\s*([a-zA-Z]\w*)\s*\)\s*=\s*(.+)$/;
 
+// `sin(x) = cos(y)` is an equation, not a new definition of sin: ask mathjs whether the name is
+// already a function (case-sensitive, like mathjs), the way Swift checks its functions table.
+function isBuiltin(name) {
+  if (name === 'ln') return true; // desugar() maps it to log
+  try {
+    return typeof parse(name).evaluate() === 'function';
+  } catch {
+    return false;
+  }
+}
+
 export function parseFunctionDef(expr) {
   const m = expr.trim().match(FUNC_RE);
-  if (!m || m[1] === 'y' || m[1] === 'r') return null;
+  if (!m || m[1] === 'y' || m[1] === 'r' || isBuiltin(m[1])) return null;
   return { name: m[1], param: m[2], body: m[3] };
 }
 
@@ -130,6 +141,7 @@ export function desugar(expr) {
     }
     s = s.slice(0, open) + `(${out})` + s.slice(close + 1);
   }
+  s = s.replace(/(?<![A-Za-z_])ln\(/g, 'log('); // mathjs log is the natural log; `2ln(x)` too
   s = s.replace(/([a-zA-Z]\w*)''\(/g, '$1__d2(').replace(/([a-zA-Z]\w*)'\(/g, '$1__d1(');
   for (let guard = 0; guard < 20; guard++) {
     const at = s.indexOf('d/dx(');

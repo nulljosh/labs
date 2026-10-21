@@ -93,6 +93,10 @@ input:focus { outline: none; }
   background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; transition: color 0.2s ease, border-color 0.2s ease;
 }
 .chip:hover { color: var(--accent-text); border-color: var(--accent); }
+.pattern-tabs { display: flex; gap: 4px; overflow-x: auto; margin: 0 -4px 8px; padding: 0 4px 4px; scrollbar-width: none; }
+.pattern-tabs::-webkit-scrollbar { display: none; }
+.pattern-tab { flex-shrink: 0; min-height: 32px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 500; color: var(--text2); cursor: pointer; background: none; border: 1px solid transparent; border-radius: 16px; }
+.pattern-tab[aria-pressed="true"] { color: var(--accent-text); background: color-mix(in srgb, var(--accent) 18%, transparent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
 .play-btn { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border-radius: 16px; border: 1px solid var(--border); background: var(--bg2); color: var(--text); cursor: pointer; flex-shrink: 0; }
 .play-btn[aria-pressed="true"] { color: var(--accent-text); border-color: var(--accent); }
 .dot-btn { display: flex; align-items: center; justify-content: center; min-width: 32px; min-height: 44px; padding: 0; background: none; border: none; cursor: pointer; flex-shrink: 0; }

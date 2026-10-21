@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { evaluate, isAsymptoteJump, parseSlider, isImplicit, splitPair, splitInequality, buildScope, desugar } from './evaluate.js';
+import { evaluate, isAsymptoteJump, parseSlider, isImplicit, splitPair, splitInequality, buildScope, desugar, parseFunctionDef } from './evaluate.js';
 
 describe('evaluate', () => {
   it('returns null fn for empty string', () => {
@@ -276,5 +276,17 @@ describe('v5 slider bounds and t ranges', () => {
   });
   it('parametric rows default to 0..2pi', () => {
     expect(evaluate('(cos(t), sin(t))').tMax).toBeCloseTo(2 * Math.PI);
+  });
+});
+
+describe('review fixes', () => {
+  it('2ln(x) is 2 log(x)', () => {
+    expect(evaluate('2ln(x)').fn(Math.E, {})).toBeCloseTo(2);
+  });
+  it('atanh(x) = 0.5 is an equation, not a new atanh', () => {
+    expect(parseFunctionDef('atanh(x) = 0.5')).toBeNull();
+  });
+  it('Log(x) = x^2/4 still defines Log (mathjs names are case-sensitive)', () => {
+    expect(parseFunctionDef('Log(x) = x^2/4')).toMatchObject({ name: 'Log' });
   });
 });

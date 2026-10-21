@@ -4,6 +4,7 @@ import SwiftUI
 
 struct EquationListView: View {
     @Binding var equations: [Equation]
+    @State private var patternCategory = patternCategories[0]
     let onChange: () -> Void
     var playing: Set<String> = []
     var animated: [String: Double] = [:]
@@ -61,8 +62,27 @@ struct EquationListView: View {
                 .foregroundStyle(Theme.secondary)
                 .padding(.top, 8)
 
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 4) {
+                    ForEach(patternCategories, id: \.self) { category in
+                        let selected = category == patternCategory
+                        Button { patternCategory = category } label: {
+                            Text(category)
+                                .font(Theme.font(13, .medium))
+                                .foregroundStyle(selected ? Theme.accentText : Theme.secondary)
+                                .padding(.horizontal, 12)
+                                .frame(minHeight: 32)
+                                .background(selected ? Theme.accent.opacity(0.18) : .clear, in: Capsule())
+                                .overlay(Capsule().strokeBorder(selected ? Theme.accent.opacity(0.45) : .clear, lineWidth: 1))
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityAddTraits(selected ? .isSelected : [])
+                    }
+                }
+            }
+
             FlowRow(spacing: 6) {
-                ForEach(patterns, id: \.name) { pattern in
+                ForEach(patterns.filter { $0.category == patternCategory }, id: \.name) { pattern in
                     Button { pattern.rows.forEach(append) } label: {
                         Text(pattern.name)
                             .font(Theme.font(13))

@@ -15,6 +15,7 @@
     "dev": "vite",
     "build": "rm -rf dist && vite build && cp -r landing/. dist/ && node -e \"const f='dist/index.html',fs=require('fs');fs.writeFileSync(f,fs.readFileSync(f,'utf8').replace('{{VERSION}}',require('./package.json').version))\"",
     "preview": "vite preview",
+    "gen:patterns": "node scripts/gen-patterns.mjs",
     "test": "vitest run"
   },
   "dependencies": {

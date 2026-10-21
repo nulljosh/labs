@@ -285,10 +285,11 @@ for pattern in patterns {
         guard let bind = binds.first else { continue }
         let c = compileExpression(source)
         let v = vars.with(bind)
-        let mid = (c.tRange.lowerBound + c.tRange.upperBound) / 2
-        let values: [Double]? = c.function.map { [$0(1, v)] }
+        let mid = (c.tRange.lowerBound + c.tRange.upperBound) / 2 + 0.1 // same points as patterns.test.js
+        let values: [Double]? = c.function.map { [$0(1.1, v)] }
             ?? c.parametric.map { let p = $0(mid, v); return [p.0, p.1] }
             ?? c.point.map { let p = $0(v); return [p.0, p.1] }
+            ?? c.implicitFunction.map { [$0(1.1, 0.7, v)] }
         if let values { check(values.allSatisfy(\.isFinite), "\(pattern.name): \(row) is finite"); drew = true }
     }
     check(drew, "\(pattern.name) draws something")
