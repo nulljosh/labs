@@ -2,11 +2,7 @@
 
 > Priority tier 3 (2026-10-17): active feature work, this month. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
 
-- [ ] Verify iPad split-view (EntryListView) visually on simulator -- 2026-09-02. Pushed
-  the NavigationSplitView conversion without a simulator screenshot; this machine's Xcode
-  only has the iOS 26.5 SDK but the iOS 26.2 runtime downloaded, so `xcodebuild` won't
-  recognize any simulator destination even by explicit UDID. Needs the matching platform
-  component installed, then a quick visual check.
+- [x] Verify iPad split-view (EntryListView) visually on simulator -- 2026-09-02. Verified 2026-10-21 on iPad Pro 11-inch (M5), iOS 27.0 sim, Xcode 27.0: unsigned build of Journal-iOS succeeded, screenshot shows list column beside the "No entry selected" detail column.
 
 ## macOS + web (2026-08-28 submitted, 2026-08-30 approved)
 - **macOS 1.0.7 APPROVED 2026-08-30, first ever Mac release.** Version
