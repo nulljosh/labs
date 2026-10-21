@@ -257,4 +257,19 @@ check(pointList.source == "(qlist0, qlist1)" && pointList.binds.count == 2, "a l
 check(expandRow("x^2", lists: ["l": [1]]).binds.count == 1, "a row with no list is one plain copy")
 check(expandRow("lx + 1", lists: ["l": [1, 2]]).binds == [[:]], "a list name inside a longer word is not a use")
 
+
+// MARK: - v5 slider bounds and t ranges
+
+check(parseSlider("a = 3")?.range == -10...10, "a = 3 has the default range")
+check(parseSlider("a = 40")?.range == -10...40, "the default range widens to fit")
+check(parseSlider("a = 3 {0 < a < 5}")?.range == 0...5, "{0 < a < 5} sets the range")
+check(parseSlider("a = 3 {0 < a < 5}")?.bounds == "{0 < a < 5}", "the bounds text is kept for rewriting")
+check(abs((parseSlider("k = 1 {-pi <= k <= pi}")?.range.upperBound ?? 0) - .pi) < 1e-9, "bounds can be expressions")
+check(parseSlider("a = 3 {0 < b < 5}") == nil, "braces about another name are not slider bounds")
+let halfCircle = compileExpression("(cos(t), sin(t)) {0 < t < pi}")
+check(halfCircle.error == nil && abs(halfCircle.tRange.upperBound - .pi) < 1e-9, "{0 < t < pi} limits a parametric row")
+let spiral = compileExpression("r = theta {0 < theta < 6pi}")
+check(abs(spiral.tRange.upperBound - 6 * .pi) < 1e-9 && near(spiral.parametric?(4 * .pi, [:]).0 ?? 0, 4 * .pi), "a polar spiral runs past 2 pi")
+check(compileExpression("(cos(t), sin(t))").tRange == 0...(2 * .pi), "parametric rows default to 0...2pi")
+
 print("ok — \(checks) checks passed")

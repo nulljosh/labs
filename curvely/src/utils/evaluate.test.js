@@ -60,11 +60,11 @@ describe('evaluate', () => {
 
 describe('parseSlider', () => {
   it('recognizes a plain assignment as a slider', () => {
-    expect(parseSlider('a = 3')).toEqual({ name: 'a', value: 3 });
+    expect(parseSlider('a = 3')).toMatchObject({ name: 'a', value: 3 });
   });
 
   it('recognizes a negative decimal value', () => {
-    expect(parseSlider('k=-1.5')).toEqual({ name: 'k', value: -1.5 });
+    expect(parseSlider('k=-1.5')).toMatchObject({ name: 'k', value: -1.5 });
   });
 
   it('rejects y= and x= since those are reserved', () => {
@@ -246,5 +246,35 @@ describe('functions, derivatives, piecewise, domain limits', () => {
   });
   it('desugar leaves plain input alone', () => {
     expect(desugar('sin(x) + 1')).toBe('sin(x) + 1');
+  });
+});
+
+describe('v5 slider bounds and t ranges', () => {
+  it('a = 3 has a default range that fits it', () => {
+    expect(parseSlider('a = 3')).toEqual({ name: 'a', value: 3, min: -10, max: 10 });
+    expect(parseSlider('a = 40')).toMatchObject({ min: -10, max: 40 });
+  });
+  it('a = 3 {0 < a < 5} sets the range', () => {
+    expect(parseSlider('a = 3 {0 < a < 5}')).toEqual({ name: 'a', value: 3, min: 0, max: 5 });
+  });
+  it('bounds can be expressions', () => {
+    expect(parseSlider('k = 1 {-pi <= k <= pi}').max).toBeCloseTo(Math.PI);
+  });
+  it('braces about another name are not slider bounds', () => {
+    expect(parseSlider('a = 3 {0 < b < 5}')).toBeNull();
+  });
+  it('(cos(t), sin(t)) {0 < t < pi} runs half a circle', () => {
+    const r = evaluate('(cos(t), sin(t)) {0 < t < pi}');
+    expect(r.error).toBeNull();
+    expect(r.tMin).toBe(0);
+    expect(r.tMax).toBeCloseTo(Math.PI);
+  });
+  it('r = theta {0 < theta < 6pi} spirals past 2 pi', () => {
+    const r = evaluate('r = theta {0 < theta < 6pi}');
+    expect(r.tMax).toBeCloseTo(6 * Math.PI);
+    expect(r.paramFn(4 * Math.PI, {})[0]).toBeCloseTo(4 * Math.PI);
+  });
+  it('parametric rows default to 0..2pi', () => {
+    expect(evaluate('(cos(t), sin(t))').tMax).toBeCloseTo(2 * Math.PI);
   });
 });

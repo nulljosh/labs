@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import Graph from './components/Graph.jsx';
 import EquationList from './components/EquationList.jsx';
 import { evaluate, parseSlider, buildScope } from './utils/evaluate.js';
@@ -21,6 +21,7 @@ export default function App() {
   const [equations, setEquations] = useState(INITIAL);
   const [sliderValues, setSliderValues] = useState({});
   const [panelCollapsed, setPanelCollapsed] = useState(false);
+  const [playing, setPlaying] = useState({}); // slider name -> true while its play button is on
 
   // `a = 3` rows drive a slider instead of plotting a curve. Value defaults from
   // the row's own number but a dragged value overrides it until the row is edited.
@@ -54,6 +55,36 @@ export default function App() {
         return binds.map((b) => bind(compiled, b));
       });
   }, [equations]);
+
+  // Play sweeps a slider from one end of its range to the other and back.
+  const SWEEP_SECONDS = 4;
+  const slidersRef = useRef(sliders);
+  slidersRef.current = sliders;
+  useEffect(() => {
+    const names = Object.keys(playing).filter((n) => playing[n]);
+    if (!names.length) return undefined;
+    const dir = {};
+    let last = performance.now();
+    let raf = requestAnimationFrame(function tick(now) {
+      const dt = Math.min(0.1, (now - last) / 1000);
+      last = now;
+      setSliderValues((prev) => {
+        const next = { ...prev };
+        for (const n of names) {
+          const s = slidersRef.current.find((x) => x.name === n);
+          if (!s) continue;
+          let v = (prev[n] ?? s.value) + (dir[n] ?? 1) * (s.max - s.min) * dt / SWEEP_SECONDS;
+          if (v >= s.max) { v = s.max; dir[n] = -1; } else if (v <= s.min) { v = s.min; dir[n] = 1; }
+          next[n] = v;
+        }
+        return next;
+      });
+      raf = requestAnimationFrame(tick);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [playing]);
+
+  const handleTogglePlay = useCallback((name) => setPlaying((p) => ({ ...p, [name]: !p[name] })), []);
 
   const handleSliderChange = useCallback((name, value) => {
     setSliderValues((prev) => ({ ...prev, [name]: value }));
@@ -116,6 +147,8 @@ export default function App() {
             onToggle={handleToggle}
             onAdd={() => handleAdd()}
             onSliderChange={handleSliderChange}
+            playing={playing}
+            onTogglePlay={handleTogglePlay}
           />
 
           <div className="glass-card" style={{ marginTop: 12 }}>

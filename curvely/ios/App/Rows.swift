@@ -15,12 +15,14 @@ struct CompiledExpression {
     let implicitFunction: ((Double, Double, Vars) -> Double)?
     /// `(1, 2)` or `(a, a^2)`: one dot.
     var point: ((Vars) -> (Double, Double))? = nil
-    /// `(cos(t), sin(t))` or `r = 1 + cos(theta)`, sampled over t in [0, tMax].
+    /// `(cos(t), sin(t))` or `r = 1 + cos(theta)`, sampled over `tRange`.
     var parametric: ((Double, Vars) -> (Double, Double))? = nil
+    /// 0 to 2 pi unless the row ends in `{0 < t < pi}` (or theta).
+    var tRange: ClosedRange<Double> = 0...tMax
     /// `y > x^2`: shade where sign * implicitFunction > 0, dashed edge when strict.
     var inequality: (sign: Double, strict: Bool)? = nil
     /// `a = 3`: a slider row, draws nothing itself.
-    var slider: (name: String, value: Double)? = nil
+    var slider: SliderDef? = nil
     let error: String?
 }
 
@@ -29,13 +31,52 @@ let tMax = Double.pi * 2
 
 private let reservedNames: Set<String> = ["x", "y", "t", "r", "theta"]
 
+struct SliderDef {
+    let name: String
+    let value: Double
+    let range: ClosedRange<Double>
+    /// The `{0 < a < 10}` the row was typed with, kept so dragging rewrites only the number.
+    let bounds: String?
+}
+
+/// `0 < a < 10`, `-pi <= t <= pi`: the numeric bounds around one name, mirroring parseRange.
+func parseRange(_ condition: String, name: String) -> ClosedRange<Double>? {
+    guard let m = condition.wholeMatch(of: #/(.+?)(<=|<)\s*([a-zA-Z]\w*)\s*(<=|<)(.+)/#),
+          String(m.3).lowercased() == name,
+          let lo = compileExpression(String(m.1)).function?(0, [:]),
+          let hi = compileExpression(String(m.5)).function?(0, [:]),
+          lo.isFinite, hi.isFinite, lo < hi else { return nil }
+    return lo...hi
+}
+
 /// `a = 3` defines a slider, mirroring parseSlider in src/utils/evaluate.js.
-func parseSlider(_ raw: String) -> (name: String, value: Double)? {
+/// `a = 3 {0 < a < 10}` also sets its range; without one it is -10 to 10, widened to fit.
+func parseSlider(_ raw: String) -> SliderDef? {
     let trimmed = raw.trimmingCharacters(in: .whitespaces)
-    guard let match = trimmed.wholeMatch(of: #/([a-zA-Z]\w*)\s*=\s*(-?\d+(?:\.\d+)?)/#),
+    guard let match = trimmed.wholeMatch(of: #/([a-zA-Z]\w*)\s*=\s*(-?\d+(?:\.\d+)?)\s*(?:\{([^{}]*)\})?/#),
           let value = Double(match.2) else { return nil }
     let name = String(match.1).lowercased()
-    return reservedNames.contains(name) ? nil : (name, value)
+    guard !reservedNames.contains(name) else { return nil }
+    if let condition = match.3 {
+        guard let range = parseRange(String(condition), name: name) else { return nil }
+        return SliderDef(name: name, value: value, range: range, bounds: "{\(condition)}")
+    }
+    return SliderDef(name: name, value: value, range: min(-10, value)...max(10, value), bounds: nil)
+}
+
+/// The row text for a slider at a new value, keeping any `{0 < a < 10}` it was typed with.
+func sliderSource(_ slider: SliderDef, value: Double) -> String {
+    let number = String(format: "%g", (value * 100).rounded() / 100)
+    return "\(slider.name) = \(number)" + (slider.bounds.map { " " + $0 } ?? "")
+}
+
+/// A parametric or polar row ending in `{0 < t < pi}` runs t over that range. Other trailing
+/// braces stay for desugar(). Mirrors takeTRange.
+func takeTRange(_ raw: String) -> (source: String, range: ClosedRange<Double>) {
+    guard let m = raw.wholeMatch(of: #/(.+?)\s*\{([^{}:]+)\}/#),
+          let range = parseRange(String(m.2), name: "t") ?? parseRange(String(m.2), name: "theta")
+    else { return (raw, 0...tMax) }
+    return (String(m.1).trimmingCharacters(in: .whitespaces), range)
 }
 
 /// `y > x^2`, `x^2+y^2 <= 4`: exactly one comparison, mirroring splitInequality on the web.
@@ -183,15 +224,17 @@ func compileExpression(_ raw: String) -> CompiledExpression {
             return CompiledExpression(function: nil, implicitFunction: g,
                                       inequality: (ineq.sign, ineq.strict), error: nil)
         }
-        if let match = trimmed.range(of: #"^r\s*=\s*"#, options: [.regularExpression, .caseInsensitive]) {
-            let r = try compileSide(String(trimmed[match.upperBound...]))
+        let ranged = takeTRange(trimmed)
+        if let match = ranged.source.range(of: #"^r\s*=\s*"#, options: [.regularExpression, .caseInsensitive]) {
+            let r = try compileSide(String(ranged.source[match.upperBound...]))
             let polar: (Double, Vars) -> (Double, Double) = { t, vars in
                 let radius = evaluate(r, Scope(t: t, vars: vars))
                 return (radius * cos(t), radius * sin(t))
             }
-            return CompiledExpression(function: nil, implicitFunction: nil, parametric: polar, error: nil)
+            return CompiledExpression(function: nil, implicitFunction: nil, parametric: polar,
+                                      tRange: ranged.range, error: nil)
         }
-        if let (xs, ys) = splitPair(trimmed) {
+        if let (xs, ys) = splitPair(ranged.source) {
             let xn = try compileSide(xs)
             let yn = try compileSide(ys)
             if uses("t", xn) || uses("t", yn) {
@@ -199,7 +242,8 @@ func compileExpression(_ raw: String) -> CompiledExpression {
                     let scope = Scope(t: t, vars: vars)
                     return (evaluate(xn, scope), evaluate(yn, scope))
                 }
-                return CompiledExpression(function: nil, implicitFunction: nil, parametric: curve, error: nil)
+                return CompiledExpression(function: nil, implicitFunction: nil, parametric: curve,
+                                          tRange: ranged.range, error: nil)
             }
             let point: (Vars) -> (Double, Double) = { vars in
                 let scope = Scope(vars: vars)

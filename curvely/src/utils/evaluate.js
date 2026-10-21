@@ -1,4 +1,4 @@
-import { parse, derivative } from 'mathjs';
+import { parse, derivative, evaluate as mathEvaluate } from 'mathjs';
 
 // A vertical asymptote (tan(x), 1/x) yields two finite but huge values of opposite sign on
 // adjacent pixels. Joining them draws a false vertical line, so the stroke has to break.
@@ -7,7 +7,20 @@ export function isAsymptoteJump(prevY, y, scale, height) {
 }
 
 // `a = 3` defines a slider instead of a curve; distinct from `y = ...` curve definitions.
-const SLIDER_RE = /^([a-zA-Z]\w*)\s*=\s*(-?\d+(?:\.\d+)?)$/;
+// `a = 3 {0 < a < 10}` also sets its range; without one the range is -10 to 10, widened to fit.
+const SLIDER_RE = /^([a-zA-Z]\w*)\s*=\s*(-?\d+(?:\.\d+)?)\s*(?:\{([^{}]*)\})?$/;
+
+// `0 < a < 10`, `-pi <= t <= pi`: the numeric bounds around one name, or null.
+export function parseRange(cond, name) {
+  const m = cond.match(/^(.+?)(<=|<)\s*([a-zA-Z]\w*)\s*(<=|<)(.+)$/);
+  if (!m || m[3] !== name) return null;
+  try {
+    const [lo, hi] = [mathEvaluate(m[1]), mathEvaluate(m[5])];
+    return Number.isFinite(lo) && Number.isFinite(hi) && lo < hi ? [lo, hi] : null;
+  } catch {
+    return null;
+  }
+}
 
 // x, y and t are variables; r and theta belong to polar curves.
 const RESERVED = new Set(['x', 'y', 't', 'r', 'theta']);
@@ -15,7 +28,21 @@ const RESERVED = new Set(['x', 'y', 't', 'r', 'theta']);
 export function parseSlider(expr) {
   const m = expr.trim().match(SLIDER_RE);
   if (!m || RESERVED.has(m[1])) return null;
-  return { name: m[1], value: Number(m[2]) };
+  const value = Number(m[2]);
+  if (m[3] !== undefined) {
+    const range = parseRange(m[3], m[1]);
+    if (!range) return null;
+    return { name: m[1], value, min: range[0], max: range[1] };
+  }
+  return { name: m[1], value, min: Math.min(-10, value), max: Math.max(10, value) };
+}
+
+// A parametric or polar row ending in `{0 < t < pi}` (or theta) runs t over that range
+// instead of 0 to 2 pi. Any other trailing braces stay for desugar() to handle.
+export function takeTRange(expr) {
+  const m = expr.match(/^(.+?)\s*\{([^{}:]+)\}$/);
+  const range = m && (parseRange(m[2], 't') || parseRange(m[2], 'theta'));
+  return range ? { expr: m[1].trim(), tMin: range[0], tMax: range[1] } : { expr, tMin: 0, tMax: T_MAX };
 }
 
 // Any `=` not of the form `y = ...` is an implicit equation (x^2+y^2=1, x=3, ...):
@@ -166,7 +193,8 @@ export function evaluate(expr) {
     }
   }
 
-  const polar = cleaned.match(/^r\s*=\s*(.+)$/i);
+  const ranged = takeTRange(cleaned);
+  const polar = ranged.expr.match(/^r\s*=\s*(.+)$/i);
   if (polar) {
     try {
       const rc = parse(desugar(polar[1])).compile();
@@ -174,20 +202,20 @@ export function evaluate(expr) {
         const r = rc.evaluate({ theta: t, t, ...sliders });
         return [r * Math.cos(t), r * Math.sin(t)];
       };
-      return { fn: null, implicitFn: null, paramFn, error: null };
+      return { fn: null, implicitFn: null, paramFn, tMin: ranged.tMin, tMax: ranged.tMax, error: null };
     } catch (e) {
       return { fn: null, implicitFn: null, error: e.message };
     }
   }
 
-  const pair = splitPair(cleaned);
+  const pair = splitPair(ranged.expr);
   if (pair) {
     try {
       const [xn, yn] = pair.map((p) => parse(desugar(p)));
       const [xc, yc] = [xn.compile(), yn.compile()];
       if (usesT(xn) || usesT(yn)) {
         const paramFn = (t, sliders) => [xc.evaluate({ t, ...sliders }), yc.evaluate({ t, ...sliders })];
-        return { fn: null, implicitFn: null, paramFn, error: null };
+        return { fn: null, implicitFn: null, paramFn, tMin: ranged.tMin, tMax: ranged.tMax, error: null };
       }
       const pointFn = (sliders) => [xc.evaluate({ ...sliders }), yc.evaluate({ ...sliders })];
       return { fn: null, implicitFn: null, pointFn, error: null };

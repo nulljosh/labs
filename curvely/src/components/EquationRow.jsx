@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { parseSlider } from '../utils/evaluate.js';
 import { evaluateRow } from '../utils/lists.js';
 
-export default function EquationRow({ eq, slider, onChange, onRemove, onToggle, onSliderChange, showRemove }) {
+export default function EquationRow({ eq, slider, onChange, onRemove, onToggle, onSliderChange, playing, onTogglePlay, showRemove }) {
   const [invalid, setInvalid] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => {
@@ -61,11 +61,23 @@ export default function EquationRow({ eq, slider, onChange, onRemove, onToggle, 
       )}
       {sliderState != null && (
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 6, marginLeft: 20 }}>
+          <button
+            className="play-btn"
+            aria-label={playing?.[sliderDef.name] ? `Pause ${sliderDef.name}` : `Play ${sliderDef.name}`}
+            aria-pressed={!!playing?.[sliderDef.name]}
+            onClick={() => onTogglePlay(sliderDef.name)}
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" fill="currentColor">
+              {playing?.[sliderDef.name]
+                ? <><rect x="2" y="1" width="3" height="10" rx="1" /><rect x="7" y="1" width="3" height="10" rx="1" /></>
+                : <path d="M3 1.5v9a.5.5 0 0 0 .77.42l7-4.5a.5.5 0 0 0 0-.84l-7-4.5A.5.5 0 0 0 3 1.5z" />}
+            </svg>
+          </button>
           <input
             type="range"
-            min={Math.min(-10, sliderState.value - 5)}
-            max={Math.max(10, sliderState.value + 5)}
-            step={0.1}
+            min={sliderState.min}
+            max={sliderState.max}
+            step="any"
             value={sliderState.value}
             onChange={(e) => onSliderChange(sliderDef.name, Number(e.target.value))}
             style={{ flex: 1, accentColor: eq.color }}
@@ -73,7 +85,7 @@ export default function EquationRow({ eq, slider, onChange, onRemove, onToggle, 
           <span style={{
             fontSize: 12, color: 'var(--text-secondary)', minWidth: 40, textAlign: 'right',
             fontFamily: 'var(--font)',
-          }}>{sliderState.value.toFixed(1)}</span>
+          }}>{Number(sliderState.value.toFixed(2))}</span>
         </div>
       )}
     </div>

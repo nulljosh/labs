@@ -5,13 +5,17 @@ import SwiftUI
 struct EquationListView: View {
     @Binding var equations: [Equation]
     let onChange: () -> Void
+    var playing: Set<String> = []
+    var animated: [String: Double] = [:]
+    var onTogglePlay: (String) -> Void = { _ in }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             ForEach($equations) { $equation in
-                EquationRowView(equation: $equation, onChange: onChange) {
-                    remove(equation.id)
-                }
+                EquationRowView(
+                    equation: $equation, onChange: onChange, onRemove: { remove(equation.id) },
+                    playing: playing, animated: animated, onTogglePlay: onTogglePlay
+                )
             }
 
             Button(action: add) {
@@ -81,6 +85,9 @@ struct EquationRowView: View {
     @Binding var equation: Equation
     let onChange: () -> Void
     let onRemove: () -> Void
+    var playing: Set<String> = []
+    var animated: [String: Double] = [:]
+    var onTogglePlay: (String) -> Void = { _ in }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -132,24 +139,38 @@ struct EquationRowView: View {
             }
 
             if let slider = equation.compiled.slider {
-                // Dragging rewrites the row's own text, like Desmos, so the value persists
-                // with the equation and there is no second copy of it to keep in sync.
-                Slider(
-                    value: Binding(
-                        get: { slider.value },
-                        set: { binding.wrappedValue = "\(slider.name) = \(formatSlider($0))" }
-                    ),
-                    in: min(-10, slider.value - 5)...max(10, slider.value + 5)
-                )
-                .tint(equation.color)
-                .padding(.leading, 32)
-                .accessibilityLabel("Value of \(slider.name)")
+                let isPlaying = playing.contains(slider.name)
+                HStack(spacing: 10) {
+                    Button { onTogglePlay(slider.name) } label: {
+                        Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                            .font(.system(size: 12))
+                            .foregroundStyle(isPlaying ? Theme.accentText : Theme.text)
+                            .frame(width: 32, height: 32)
+                            .background(Theme.fill, in: Circle())
+                            .overlay(Circle().strokeBorder(isPlaying ? Theme.accent : Theme.border, lineWidth: 1))
+                            .contentShape(Circle())
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(isPlaying ? "Pause \(slider.name)" : "Play \(slider.name)")
+
+                    // Dragging rewrites the row's own text, like Desmos, so the value persists
+                    // with the equation. Playing animates a separate value and writes it once, on pause.
+                    Slider(
+                        value: Binding(
+                            get: { animated[slider.name] ?? slider.value },
+                            set: { value in
+                                if isPlaying { onTogglePlay(slider.name) }
+                                binding.wrappedValue = sliderSource(slider, value: value)
+                            }
+                        ),
+                        in: slider.range
+                    )
+                    .tint(equation.color)
+                    .accessibilityLabel("Value of \(slider.name)")
+                }
+                .padding(.leading, 22)
             }
         }
-    }
-
-    private func formatSlider(_ value: Double) -> String {
-        String(format: "%g", (value * 10).rounded() / 10)
     }
 
     private var binding: Binding<String> {

@@ -216,7 +216,8 @@ struct GraphView: View {
                 var last: CGPoint?
                 let steps = 2000
                 for i in 0...steps {
-                    let (x, y) = curve(Double(i) / Double(steps) * tMax, vars)
+                    let range = equation.compiled.tRange
+                    let (x, y) = curve(range.lowerBound + Double(i) / Double(steps) * (range.upperBound - range.lowerBound), vars)
                     guard x.isFinite, y.isFinite else { last = nil; continue }
                     let p = CGPoint(x: center.x + x * transform.scale, y: center.y - y * transform.scale)
                     // a huge jump between neighbouring samples is an asymptote, not a line to draw

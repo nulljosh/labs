@@ -112,7 +112,7 @@ export default function Graph({ equations, sliders }) {
     }
 
     // curves
-    equations.forEach(({ fn, implicitFn, inequality, paramFn, pointFn, color }) => {
+    equations.forEach(({ fn, implicitFn, inequality, paramFn, pointFn, tMin = 0, tMax = T_MAX, color }) => {
       if (pointFn) {
         let p;
         try { p = pointFn(sliders); } catch { return; }
@@ -131,7 +131,7 @@ export default function Graph({ equations, sliders }) {
         const STEPS = 2000;
         for (let i = 0; i <= STEPS; i++) {
           let p;
-          try { p = paramFn((i / STEPS) * T_MAX, sliders); } catch { penDown = false; continue; }
+          try { p = paramFn(tMin + (i / STEPS) * (tMax - tMin), sliders); } catch { penDown = false; continue; }
           if (!p.every(isFinite)) { penDown = false; continue; }
           const px = cx + p[0] * scale;
           const py = cy - p[1] * scale;

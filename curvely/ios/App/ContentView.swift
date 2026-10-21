@@ -9,12 +9,17 @@ struct ContentView: View {
     @State private var transform = GraphTransform()
     @State private var exportedImage: ExportedGraph?
     @State private var panelCollapsed = false
+    /// Sliders whose play button is on, and the values they are sweeping through. Kept out of
+    /// the row text so a playing slider does not rewrite and save it sixty times a second.
+    @State private var playing: Set<String> = []
+    @State private var animated: [String: Double] = [:]
 
     var body: some View {
         content
             .overlay(alignment: .topTrailing) { exportButton }
             .background(Theme.graphBackground)
             .onAppear(perform: restore)
+            .task(id: playing) { await animateSliders() }
             .sheet(item: $exportedImage) { export in
                 ExportSheet(export: export)
             }
@@ -78,13 +83,17 @@ struct ContentView: View {
     private var sliderValues: Vars {
         buildVars(
             equations.map(\.source),
-            values: Dictionary(equations.compactMap(\.compiled.slider), uniquingKeysWith: { first, _ in first })
+            values: Dictionary(equations.compactMap(\.compiled.slider).map { ($0.name, $0.value) }, uniquingKeysWith: { first, _ in first })
+                .merging(animated) { _, playing in playing }
         )
     }
 
     private var sidebar: some View {
         ScrollView {
-            EquationListView(equations: $equations, onChange: persist)
+            EquationListView(
+                equations: $equations, onChange: persist,
+                playing: playing, animated: animated, onTogglePlay: togglePlay
+            )
                 .padding(16)
         }
     }
@@ -139,6 +148,43 @@ struct ContentView: View {
     private func restore() {
         guard let saved = Store.load() else { return }
         equations = saved
+    }
+
+    /// Play sweeps each playing slider from one end of its range to the other and back, every 4 s.
+    private func animateSliders() async {
+        var direction: [String: Double] = [:]
+        var last = Date()
+        while !playing.isEmpty, !Task.isCancelled {
+            try? await Task.sleep(for: .milliseconds(16))
+            let now = Date()
+            let dt = min(0.1, now.timeIntervalSince(last))
+            last = now
+            for slider in equations.compactMap(\.compiled.slider) where playing.contains(slider.name) {
+                let span = slider.range.upperBound - slider.range.lowerBound
+                var value = (animated[slider.name] ?? slider.value) + (direction[slider.name] ?? 1) * span * dt / 4
+                if value >= slider.range.upperBound {
+                    value = slider.range.upperBound
+                    direction[slider.name] = -1
+                } else if value <= slider.range.lowerBound {
+                    value = slider.range.lowerBound
+                    direction[slider.name] = 1
+                }
+                animated[slider.name] = value
+            }
+        }
+    }
+
+    /// Pausing writes the slider's current value back into its row, once.
+    private func togglePlay(_ name: String) {
+        guard playing.remove(name) != nil else {
+            playing.insert(name)
+            return
+        }
+        guard let value = animated.removeValue(forKey: name),
+              let index = equations.firstIndex(where: { $0.compiled.slider?.name == name }),
+              let slider = equations[index].compiled.slider else { return }
+        equations[index].update(source: sliderSource(slider, value: value))
+        persist()
     }
 
     private func persist() {
