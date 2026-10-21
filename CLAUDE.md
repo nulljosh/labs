@@ -23,7 +23,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **epiphany** | Finance dashboard · 6779522175 |
 | **talli** | BC disability assistance tracker (DTC/RDSP/CDB) · 6782366555 |
 | **echo** (ex-notate, ex-voxprint, first named echo) | On-device transcription, WhisperKit. Store listing still Notate until Apple takes Echo; Xcode targets and Pages project still say Voxprint · 6782604262 |
-| **patois** (ex-tonchi, ex-lexly). Folder is `tonchi` | Gamified learning, 165 courses · 6783501611 (6783501927 is a stray dupe) |
+| **patois** (ex-tonchi, ex-lexly). Folder is `patois` | Gamified learning, 125 courses · 6783501611 (6783501927 is a stray dupe) |
 | **intake** (ex-healstack) | Health/supplement tracker. Store name and Pages project still `healstack` |
 | **melete** (ex-thinkpond, ex-hikko, ex-sparkjar). Folder is `melete` | Idea feed, named for the Muse of thought. Pages project still `sparkjar`; thinkpond. and hikko. hosts still serve · 6785162492 |
 | **mailbag** (ex-hagaki, siftbox, pare, sieve) | Inbox zero in one button. Store listing renamed Mailbag and resubmitted 2026-10-18; Google callback still on hagaki.jaybulb.com · 6811141466 |
