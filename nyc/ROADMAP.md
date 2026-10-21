@@ -7,7 +7,7 @@
 The gather-fix build (commit `49b474a`, 2026-09-09) fixed a critical bug: colonists could never
 actually gather resources (job flipped back to idle before ResourceSystem could harvest), so
 materials/cash were hard-capped at the starting stock. Fixed in both Swift (`JobSystem.swift`)
-and web (`web/js/systems.js`); web is already deployed live at nyc.heyitsmejosh.com. iOS 1.0.1
+and web (`web/js/systems.js`); web is already deployed live at nyc.jaybulb.com. iOS 1.0.1
 with icon alpha removed (ITMS-90717) received App Store approval and is now live at
 https://apps.apple.com/app/id6782618198. App Store link added to README, landing page, and wiki.
 
@@ -77,7 +77,7 @@ So the original root-`CLAUDE.md` claim of "3 ASC-web-UI-only items" was **right*
 
 Two of those three are now fixed **via CLI, no dashboard needed** (also disproving "ASC-web-UI-only"):
 
-**Deploy gotcha:** `web/.vercel` is a stale leftover. `nyc.heyitsmejosh.com` is a CNAME to `nyc-bum.pages.dev`, **Cloudflare Pages, not Vercel**. Deploying with `vercel --prod` succeeds and changes nothing live. Correct command:
+**Deploy gotcha (older note, check first):** `web/.vercel` is a stale leftover. The domain used to be a CNAME to `nyc-bum.pages.dev`, **Cloudflare Pages, not Vercel**. `wrangler.toml` now routes `nyc.jaybulb.com` to `dist/` as a Worker, so confirm the live path before you use the command below. Deploying with `vercel --prod` succeeds and changes nothing live. Correct command:
 ```
 cd web && npx wrangler pages deploy . --project-name nyc --commit-dirty=true
 ```
@@ -164,7 +164,7 @@ Before resubmitting:
 **Verdict: "Play Now does nothing" reproduced-and-already-fixed; app not resubmitted.**
 
 - Commit `d71b944` ("Fix Play Now: serve the game at /app") closed it.
-  `nyc.heyitsmejosh.com` → 200, and the landing page's `Play now` link (`landing/index.html`
+  `nyc.jaybulb.com` → 200, and the landing page's `Play now` link (`landing/index.html`
   lines 132/175, `href="/app"`) → 200 after redirect to `/app/`. Claim no longer holds.
 - Not a WKWebView shell: `Sources/` is 3126 lines of native Swift, no WebKit import.
 - ASC state unchanged and correct: iOS 1.0.0 and macOS 1.0 both REJECTED, **neither
@@ -172,7 +172,7 @@ Before resubmitting:
   Joshua Trommel (QMM486NPYC)` is a valid codesigning *identity* in the local Keychain (SHA1
   1E8B7533…, private key present, cert valid to 2027-07-03). Only remaining gate is the
   one-app-at-a-time rule, hold until Curvely/Wiretext/Wordroot/Healstack clear review.
-- `nycsurvive.heyitsmejosh.com` does not resolve, but no ASC record references it. Cosmetic.
+- The old `nycsurvive` subdomain does not resolve, but no ASC record references it. Cosmetic.
 
 ## 2026-08-19, hold confirmed, NOT resubmitted
 
@@ -264,13 +264,11 @@ improvement notes in App Review Information -> Notes.
 - [ ] **Original name for the game.** "NYC Survive" is descriptive, not a name. Use the
       `asc-name-creator` skill to find an available single-word App Store name, same process as
       the Echo→Voxprint rename.
-- [ ] **Playthrough script.** A script that plays the game start to finish, for verification
+- [x] **Playthrough script.** Done 2026-10-21: `scripts/playthrough.sh` (bot in scripts/playthrough/, never in the app). A script that plays the game start to finish, for verification
       only. Must live outside `Sources/` and stay opt-in (server-driven or explicitly invoked),
       never wired into the app, see the no-autoplay rule below.
 - [ ] **Confirm autoplay is gone.** Re-verify the game never plays itself in a normal session;
       the directive engine was deleted 2026-07-02 and must not have crept back.
-      game starts (tutorial or first-run card), right now the controls aren't obvious once you
-      start, which is the top complaint. Done 2026-10-21: `docs/CONTROLS.md`, plus a one-time CONTROLS card after the tutorial (`Sources/HUD/ControlsHintView.swift`). macOS and iOS build, 30 SimTests pass.
 
 ## WebMCP + REST API rollout -- shipped 2026-08-27
 
@@ -331,10 +329,10 @@ nyc/ROADMAP.md
 - [ ] Game still too confusing. Tutorial isn't playable because the window covers the build menu. Minimap doesn't work. App just needs a lot of updating. (screenshot: notes/attachments/2026-10-16/nyc-1.png)
 
 ## QA 2026-10-21 (Mac, full pass)
-- [ ] Balance, reopened 2026-10-21: the game could not be won (avg level 5.2 after 200 days). The fix wins 3 of 3 worlds on days 21 to 23, but a full 200-day run still has to win. Native had ported the wrong XP curve (level N cost N*100; web steps 50/100/200/300) and has no quests. Now the web curve plus 1 XP per harvest: `scripts/playthrough.sh` wins in 3 of 3 worlds on days 21-23, about 1.5 h at 1x.
+- [x] Balance: the game could not be won (avg level 5.2 after 200 days). Native had ported the wrong XP curve (level N cost N*100; web steps 50/100/200/300) and has no quests. Now the web curve plus 1 XP per harvest: `scripts/playthrough.sh` wins 3 of 3 worlds on days 21 to 23, about 1.5 h at 1x.
 - [ ] Record the demo once it can win: `"NYC Survive.app/Contents/MacOS/NYC Survive" -demo 200` (menu, scripted tutorial, then DemoBot at 200 ticks/s, window floats on top) and record the window region with `screencapture -v -R`. Send the video.
 - [ ] First click into an inactive window only focuses it; MenuSKView.acceptsFirstMouse does not get through SwiftUI's host view.
 - [ ] Settings QA after the game: Full screen switch goes stale if the green window button is used; check save slots, sound, appearance.
 - [ ] Design system: in-app Theme.accent is still #0071e3 next to brand blue #3d7bff; HUD mixes yellow headers, cyan tutorial titles, red SKIP. Record the NYC Sans override in CLAUDE.md and brand/BRAND.md (as Coda does).
 - [ ] Landing (Joshua: C-): rebuild against hermes/landing for real, load NYC Sans from landing/fonts, add the missing dist copy step (no deploy.sh copies landing/ into dist/), deploy, check live at nyc.jaybulb.com.
-- [ ] Joshua 2026-10-21: refresh README and the other markdowns; switch LICENSE to Apache 2.0; add a privacy policy page (web/privacy.html exists, check it and link it).
+- [x] Joshua 2026-10-21: refresh README and the other markdowns (done 2026-10-21); LICENSE switched to Apache 2.0; web/privacy.html checked and updated (no network calls, dated 21 Oct 2026), linked from README. Still open: link it from the landing page, which another session is rebuilding.

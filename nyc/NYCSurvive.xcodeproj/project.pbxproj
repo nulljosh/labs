@@ -29,7 +29,6 @@
 		3219F3B03FF203FEA6A75202 /* NYCSurvive.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 6917EAE44C0DC835136B5B42 /* NYCSurvive.entitlements */; };
 		33BDF5438AE0765E5D9BA621 /* MiniMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222B6FD5D7525CD8EB9A406E /* MiniMap.swift */; };
 		34AF3DA028D941BFDBF97B73 /* View+Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31054374AC2BC83D3D7B8BC /* View+Glass.swift */; };
-		36048D88261570D7E2E1AD95 /* GameScene+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7307EFF8CF87A1F355995 /* GameScene+Demo.swift */; };
 		3688634442DCC70157180613 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A62DD5F691C3480F2FA3607 /* GameState.swift */; };
 		3BA2869689D89410C64D7B02 /* TimeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C698EA5D829B3189276D26 /* TimeSystem.swift */; };
 		41C57ED1757B8A63A7F95D51 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB8E59CA64AAC68D9271EFF /* Resource.swift */; };
@@ -65,7 +64,6 @@
 		9F65F2C8D03F85B4005DF138 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861DB40895FE71F6960B9A9 /* MenuScene.swift */; };
 		A41D26FBF1F9FB7DFE5A3FEF /* SimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326800A355FDC8F9A4F56EBB /* SimTests.swift */; };
 		A5E03C4C185A60DEE7E25B40 /* NYC.icon in Resources */ = {isa = PBXBuildFile; fileRef = 72EEA1E52E12E0797D065E95 /* NYC.icon */; };
-		A7EF8E9A9F695644F4268279 /* GameScene+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7307EFF8CF87A1F355995 /* GameScene+Demo.swift */; };
 		AA3D993DDA47CA1D50248B38 /* Colonist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E63894AD540CC50808099E /* Colonist.swift */; };
 		AA8258E64167EA55F8DB43E2 /* JobSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEEE672F22D8FEEA9446954 /* JobSystem.swift */; };
 		AC35C92D99F329E89F25AA67 /* GameScene+Backdrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24F138BF1AA03A7B2527E46 /* GameScene+Backdrop.swift */; };
@@ -84,7 +82,6 @@
 		D45CA62ABCC9D812C430AF5B /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AA4E11E5678AB148203FC /* TileType.swift */; };
 		DAC697A0FD3C0DDE860DFCD5 /* ResourceSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59C23D94F770C687F4E5AE /* ResourceSystem.swift */; };
 		DC93431BF3A4429D8C228719 /* Pathfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E4A32F1DC7BC7E89470C44 /* Pathfinder.swift */; };
-		E1D62B3040EFE448E0E4954C /* DemoBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC85B3A8A2DFE4B59AED27E /* DemoBot.swift */; };
 		E2C1C255FE41FF9142D2801B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502457C288C5D0DB8F2216AF /* Theme.swift */; };
 		E325EA73F25635D7DAF20A02 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C54789E79556FA1775A89 /* AudioManager.swift */; };
 		E4F3967534862056D528945D /* NYCSurvive.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 6917EAE44C0DC835136B5B42 /* NYCSurvive.entitlements */; };
@@ -95,7 +92,6 @@
 		FA62B878417B239715A57AE0 /* BuildMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544F474728B842695609312 /* BuildMenu.swift */; };
 		FB2E35CB352E0CF777B5D3DF /* MiniMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222B6FD5D7525CD8EB9A406E /* MiniMap.swift */; };
 		FC42B363B48C0913038F4412 /* SaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2AEBC8EAAE1BD24D5090 /* SaveManager.swift */; };
-		FEBAB65A17DBF45FA888C1DC /* DemoBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC85B3A8A2DFE4B59AED27E /* DemoBot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,7 +119,6 @@
 		326800A355FDC8F9A4F56EBB /* SimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimTests.swift; sourceTree = "<group>"; };
 		380E49196451FA445E2A4065 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		410EFC97AB98A89269730A5E /* NYCSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NYCSans-Bold.ttf"; sourceTree = "<group>"; };
-		4EC85B3A8A2DFE4B59AED27E /* DemoBot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBot.swift; sourceTree = "<group>"; };
 		4F36295B5CB23AA72E528580 /* NeedsSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsSystem.swift; sourceTree = "<group>"; };
 		502457C288C5D0DB8F2216AF /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		5691499E000399842B3CB30D /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
@@ -151,7 +146,6 @@
 		BDEEE672F22D8FEEA9446954 /* JobSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSystem.swift; sourceTree = "<group>"; };
 		BEA3839862AB73E3B0E324B9 /* NYCSurviveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSurviveApp.swift; sourceTree = "<group>"; };
 		C31054374AC2BC83D3D7B8BC /* View+Glass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Glass.swift"; sourceTree = "<group>"; };
-		CEE7307EFF8CF87A1F355995 /* GameScene+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Demo.swift"; sourceTree = "<group>"; };
 		D74D0A0073C8CEE768991583 /* NYCSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NYCSans-Regular.ttf"; sourceTree = "<group>"; };
 		D76C33D384D2910BBCF73190 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EDE4C6EF54870683E05DBBAD /* ColonistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColonistModel.swift; sourceTree = "<group>"; };
@@ -225,7 +219,6 @@
 			children = (
 				F0D9BBA495724A89451770D3 /* GameScene.swift */,
 				B24F138BF1AA03A7B2527E46 /* GameScene+Backdrop.swift */,
-				CEE7307EFF8CF87A1F355995 /* GameScene+Demo.swift */,
 				8861DB40895FE71F6960B9A9 /* MenuScene.swift */,
 			);
 			path = Scenes;
@@ -252,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				0852054F2EBE0F76F774C060 /* BuildSystem.swift */,
-				4EC85B3A8A2DFE4B59AED27E /* DemoBot.swift */,
 				BDEEE672F22D8FEEA9446954 /* JobSystem.swift */,
 				4F36295B5CB23AA72E528580 /* NeedsSystem.swift */,
 				68E4A32F1DC7BC7E89470C44 /* Pathfinder.swift */,
@@ -500,9 +492,7 @@
 				AA3D993DDA47CA1D50248B38 /* Colonist.swift in Sources */,
 				F7E112B33420143AC3A24BF3 /* ColonistModel.swift in Sources */,
 				57799C6F239B6A84280E397A /* ColonistPanel.swift in Sources */,
-				E1D62B3040EFE448E0E4954C /* DemoBot.swift in Sources */,
 				AC35C92D99F329E89F25AA67 /* GameScene+Backdrop.swift in Sources */,
-				36048D88261570D7E2E1AD95 /* GameScene+Demo.swift in Sources */,
 				25E31E8C73E217531187C35A /* GameScene.swift in Sources */,
 				F7DE54BD562CAE78DDC8B997 /* GameState.swift in Sources */,
 				998CC74E1346C78D1EB7ACA8 /* HUDView.swift in Sources */,
@@ -542,9 +532,7 @@
 				B4B741251519E1F30F97C3BB /* Colonist.swift in Sources */,
 				74D09F31FE4A8199A28ADAEE /* ColonistModel.swift in Sources */,
 				61E1F8CE1340FF26D472D25F /* ColonistPanel.swift in Sources */,
-				FEBAB65A17DBF45FA888C1DC /* DemoBot.swift in Sources */,
 				1F2A4D0D13E767C09E4E969C /* GameScene+Backdrop.swift in Sources */,
-				A7EF8E9A9F695644F4268279 /* GameScene+Demo.swift in Sources */,
 				2FFE462F497A5E7AC2767511 /* GameScene.swift in Sources */,
 				3688634442DCC70157180613 /* GameState.swift in Sources */,
 				0125D98FB867ABBA2EA07631 /* HUDView.swift in Sources */,

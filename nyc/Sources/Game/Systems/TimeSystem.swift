@@ -5,13 +5,11 @@ final class TimeSystem {
     private var accumulated: TimeInterval = 0
     private let tickInterval: TimeInterval = 1.0
     let ticksPerDay = 240
-    /// Ticks per real second. Players always get 1; the recorded `-demo` run turns it up.
-    var speed: Double = 1
 
     /// How many ticks are due this frame (capped, so a slow frame never runs away). Call `advance` for each.
     func update(deltaTime: TimeInterval, gameState: GameState) -> Int {
         guard !gameState.isPaused else { return 0 }
-        accumulated += deltaTime * speed
+        accumulated += deltaTime
         var due = 0
         while accumulated >= tickInterval && due < 16 {
             accumulated -= tickInterval

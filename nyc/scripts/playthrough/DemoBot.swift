@@ -2,19 +2,10 @@ import Foundation
 
 /// Plays NYC Survive with the same commands a player's clicks issue: send survivors to gather, rest
 /// them when they tire, put one on patrol on raid nights, and build shelters so recruits have beds.
-/// It drives the recorded `-demo` run and the headless playthrough check (scripts/playthrough.sh).
-/// Normal play never creates one; colonists only move when the player says so.
+/// It drives the headless playthrough check (scripts/playthrough.sh) and lives outside Sources/ on
+/// purpose: the app never plays itself (ROADMAP no-autoplay rule).
 @MainActor
 struct DemoBot {
-    /// `-demo 200` on the command line: ticks per second for the recorded run.
-    static let speed: Double? = {
-        let args = ProcessInfo.processInfo.arguments
-        guard let i = args.firstIndex(of: "-demo") else { return nil }
-        return i + 1 < args.count ? Double(args[i + 1]) ?? 120 : 120
-    }()
-
-    /// Tick the scripted tutorial finished on (the in-app run holds the controls card a moment after).
-    var tutorialDoneTick: Int?
     private var resting: Set<UUID> = []
     private var home: (col: Int, row: Int)?
 

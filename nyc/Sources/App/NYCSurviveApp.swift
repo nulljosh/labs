@@ -40,13 +40,6 @@ struct NYCSurviveApp: App {
                 }
             }
             .frame(minWidth: 960, minHeight: 600)
-            .task {
-                // `-demo`: keep the window above everything for a clean recording, show the menu, start.
-                guard DemoBot.speed != nil else { return }
-                NSApp.windows.first?.level = .floating
-                try? await Task.sleep(for: .seconds(3))
-                startNewGame()
-            }
             .preferredColorScheme(themeChoice.colorScheme)
             .onReceive(NotificationCenter.default.publisher(for: .themeDidChange)) { _ in
                 themeChoice = Theme.choice

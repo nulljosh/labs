@@ -4,11 +4,11 @@ import GameplayKit
 @MainActor
 final class GameScene: SKScene {
     let gameState: GameState
-    var tileMap: TileMap!
-    var timeSystem = TimeSystem()
+    private var tileMap: TileMap!
+    private var timeSystem = TimeSystem()
     private var needsSystem = NeedsSystem()
     private var resourceSystem = ResourceSystem()
-    var buildSystem = BuildSystem()
+    private var buildSystem = BuildSystem()
     var jobSystem = JobSystem()
     var pathfinder: Pathfinder!
     private var inputHandler = InputHandler()
@@ -20,7 +20,6 @@ final class GameScene: SKScene {
 
     private var lastUpdateTime: TimeInterval = 0
     var backdrop = MenuBackdropClock()
-    var demoBot = DemoBot()
 
     // Drag selection
     private var selectionStart: CGPoint?
@@ -198,7 +197,6 @@ final class GameScene: SKScene {
                 gameState.isPaused = true
                 gameState.log("TIMES SQUARE RECLAIMED. Victory on day \(gameState.currentTick / NeedsSystem.ticksPerDay).")
             }
-            if DemoBot.speed != nil, !gameState.isMenuBackdrop { demoTick() }
         }
 
         // Auto-save every 60 ticks
@@ -417,7 +415,7 @@ final class GameScene: SKScene {
         }
     }
 
-    func placeBuilding(col: Int, row: Int) {
+    private func placeBuilding(col: Int, row: Int) {
         guard let type = gameState.selectedBuildingType else { return }
         if let model = buildSystem.place(type: type, col: col, row: row, tileMap: tileMap, gameState: gameState, pathfinder: pathfinder) {
             let node = BuildingNode(model: model, tileSize: TileMap.tileSize)
