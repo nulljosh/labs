@@ -250,7 +250,6 @@ improvement notes in App Review Information -> Notes.
 - [ ] Come up with an original name for the game (currently just "NYC").
 - [ ] Write a script that plays through the whole game end to end (regression walkthrough).
 - [ ] Confirm autoplay is disabled and removed. Autoplay should only run when connected via a server, or when the playthrough script above is run explicitly. (Directive engine was deleted 2026-07, this is a verification pass, not a rebuild.)
-- [x] Document the controls in a markdown file (done 2026-10-21, `docs/CONTROLS.md`). Surfacing them to the player at game start is still open, see the bold item below.
 - [ ] **Hero: game simulation (full version, deferred).** Future iteration: a canvas running a render loop with the game simulating itself, instead of the current static drifting-tile wall. Slot into `nyc/landing/index.html` the same way: absolute layer at `z-index:0` behind `.hero .container`, the `.hero::after` scrim above it, and a `prefers-reduced-motion` bail-out. **Guardrail:** this is decoration on the marketing page only, it must not resurrect the deleted directive/autoplay engine, and must not touch `Sources/`.
 - [ ] **macOS screenshots still 0, and app previews still 0 on every platform.** macOS could not be
       touched this pass: MAC_OS 1.0.1 is IN_REVIEW (1.0.0 is READY_FOR_SALE), and uploading to a
@@ -270,7 +269,6 @@ improvement notes in App Review Information -> Notes.
       never wired into the app, see the no-autoplay rule below.
 - [ ] **Confirm autoplay is gone.** Re-verify the game never plays itself in a normal session;
       the directive engine was deleted 2026-07-02 and must not have crept back.
-- [x] **Document the controls** in a markdown file, and surface them to the player when a new
       game starts (tutorial or first-run card), right now the controls aren't obvious once you
       start, which is the top complaint. Done 2026-10-21: `docs/CONTROLS.md`, plus a one-time CONTROLS card after the tutorial (`Sources/HUD/ControlsHintView.swift`). macOS and iOS build, 30 SimTests pass.
 
@@ -333,12 +331,7 @@ nyc/ROADMAP.md
 - [ ] Game still too confusing. Tutorial isn't playable because the window covers the build menu. Minimap doesn't work. App just needs a lot of updating. (screenshot: notes/attachments/2026-10-16/nyc-1.png)
 
 ## QA 2026-10-21 (Mac, full pass)
-- [x] New Game froze ~7.7 s (GKGridGraph wall removal is quadratic). Pathfinder is a bitmap + BFS now: 0.05 s.
-- [x] Map clicks lost to 1 px hand jitter (became an empty drag-box that cleared the selection). 6 pt drag threshold.
-- [x] Tutorial: card click did nothing; step 7 hid the colonists behind a blocking scrim; interactive steps auto-advanced after 30 s; step 10 named a SAVE button that does not exist; Mac copy said Tap. All fixed.
-- [x] HUD log and clock unreadable in light mode; minimap was an empty labelled box (now draws the city); victory card sat top-left.
-- [x] Menu: live city behind it, capsule buttons with hover, NYC Sans (Inter, OFL, scripts/gen_font.py), Empire State icon, Dock name "NYC Survive", resizable window, Full screen in Settings.
-- [x] Balance: the game could not be won (avg level 5.2 after 200 days). Native had ported the wrong XP curve (level N cost N*100; web steps 50/100/200/300) and has no quests. Now the web curve plus 1 XP per harvest: `scripts/playthrough.sh` wins in 3 of 3 worlds on days 21-23, about 1.5 h at 1x.
+- [ ] Balance, reopened 2026-10-21: the game could not be won (avg level 5.2 after 200 days). The fix wins 3 of 3 worlds on days 21 to 23, but a full 200-day run still has to win. Native had ported the wrong XP curve (level N cost N*100; web steps 50/100/200/300) and has no quests. Now the web curve plus 1 XP per harvest: `scripts/playthrough.sh` wins in 3 of 3 worlds on days 21-23, about 1.5 h at 1x.
 - [ ] Record the demo once it can win: `"NYC Survive.app/Contents/MacOS/NYC Survive" -demo 200` (menu, scripted tutorial, then DemoBot at 200 ticks/s, window floats on top) and record the window region with `screencapture -v -R`. Send the video.
 - [ ] First click into an inactive window only focuses it; MenuSKView.acceptsFirstMouse does not get through SwiftUI's host view.
 - [ ] Settings QA after the game: Full screen switch goes stale if the green window button is used; check save slots, sound, appearance.
