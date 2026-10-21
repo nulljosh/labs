@@ -124,7 +124,16 @@ struct ColonistModel: Identifiable, Codable, Sendable {
         min(hunger, oxygen, sleep)
     }
 
-    var xpForNextLevel: Int { level * 100 }
+    /// Same steps as the web game (web/js/state.js colonistXpForNext), so both win around day 35 to 40.
+    /// It was level * 100 here, which put level 8 at 2,800 XP instead of 650 and made the game unwinnable.
+    var xpForNextLevel: Int {
+        switch level {
+        case ...3: 50
+        case ...6: 100
+        case ...9: 200
+        default: 300
+        }
+    }
 
     var xpProgress: Double {
         Double(xp) / Double(xpForNextLevel)

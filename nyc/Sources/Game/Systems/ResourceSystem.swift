@@ -19,7 +19,7 @@ final class ResourceSystem {
                     let amount = gameState.resourceNodes[ri].harvest()
                     if amount > 0 {
                         gameState.resources[gameState.resourceNodes[ri].type, default: 0] += amount
-                        if gameState.currentTick % 5 == 0 { gameState.colonists[ci].grantXP(1) } // ponytail: paced like web/sim.mjs
+                        gameState.colonists[ci].grantXP(1) // every harvest: native has no quests, so this stands in for web's quest XP (scripts/playthrough.sh wins day 21-23, ~1.5 h)
                     }
                     break
                 }
