@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://nyc.jaybulb.com/sitemap.xml
