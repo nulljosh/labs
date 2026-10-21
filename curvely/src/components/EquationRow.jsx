@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { evaluate, parseSlider } from '../utils/evaluate.js';
 
-export default function EquationRow({ eq, slider, onChange, onRemove, onSliderChange, showRemove }) {
+export default function EquationRow({ eq, slider, onChange, onRemove, onToggle, onSliderChange, showRemove }) {
   const [invalid, setInvalid] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => {
@@ -21,10 +21,17 @@ export default function EquationRow({ eq, slider, onChange, onRemove, onSliderCh
   return (
     <div style={{ marginBottom: 10 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        <div style={{
-          width: 12, height: 12, borderRadius: '50%',
-          background: eq.color, flexShrink: 0,
-                  }} />
+        <button
+          className="dot-btn"
+          aria-label={eq.hidden ? 'Show on graph' : 'Hide from graph'}
+          aria-pressed={!eq.hidden}
+          onClick={() => onToggle(eq.id)}
+        >
+          <span style={{
+            display: 'block', width: 12, height: 12, borderRadius: '50%', boxSizing: 'border-box',
+            background: eq.hidden ? 'transparent' : eq.color, border: `2px solid ${eq.color}`,
+          }} />
+        </button>
         <input
           value={eq.expr}
           onChange={(e) => onChange(eq.id, e.target.value)}

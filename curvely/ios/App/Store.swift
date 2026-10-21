@@ -9,6 +9,7 @@ enum Store {
     private struct Saved: Codable {
         let source: String
         let colorIndex: Int
+        var hidden: Bool? // optional so files saved before 2.0 still load
     }
 
     private static var fileURL: URL? {
@@ -24,12 +25,16 @@ enum Store {
               let data = try? Data(contentsOf: url),
               let saved = try? JSONDecoder().decode([Saved].self, from: data),
               !saved.isEmpty else { return nil }
-        return saved.map { Equation(source: $0.source, colorIndex: $0.colorIndex) }
+        return saved.map {
+            var equation = Equation(source: $0.source, colorIndex: $0.colorIndex)
+            equation.hidden = $0.hidden ?? false
+            return equation
+        }
     }
 
     static func save(_ equations: [Equation]) {
         guard let url = fileURL else { return }
-        let saved = equations.map { Saved(source: $0.source, colorIndex: $0.colorIndex) }
+        let saved = equations.map { Saved(source: $0.source, colorIndex: $0.colorIndex, hidden: $0.hidden) }
         guard let data = try? JSONEncoder().encode(saved) else { return }
         try? data.write(to: url, options: .atomic)
     }

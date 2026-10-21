@@ -6,6 +6,7 @@ struct Equation: Identifiable {
     let id: UUID
     var source: String
     var colorIndex: Int
+    var hidden = false
     private(set) var compiled: CompiledExpression
 
     init(id: UUID = UUID(), source: String, colorIndex: Int) {

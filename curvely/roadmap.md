@@ -1,5 +1,14 @@
 # Curvely Roadmap
 
+## v2.0.0 (Desmos basics), started 2026-10-21
+Each item lands on web, iOS and Mac together. Submit 2.0.0 once all are in and 1.2.6 has cleared review.
+- [x] Tap a curve's dot to hide or show it (persists on native).
+- [ ] Points: `(1, 2)` plots a dot, `(a, a^2)` follows sliders.
+- [ ] Key points: roots, extrema and intersections as small dots, tap to read the coordinates.
+- [ ] Inequalities: `y > x^2`, `x^2+y^2 < 4` shade their region.
+- [ ] Polar: `r = 1 + cos(theta)`.
+- [ ] Parametric: `(cos(t), sin(t))` over t in 0 to 2 pi.
+
 ## State 2026-09-20
 iOS + macOS 1.2.4 WAITING_FOR_REVIEW: full-screen graph, no header or zoom buttons, glass
 equation panel. 1.2.5 work is on main: collapsible panel, Mac scroll-wheel zoom, web +/-/0 keys.

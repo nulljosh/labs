@@ -32,7 +32,7 @@ export default function App() {
   const sliderScope = useMemo(() =>
     Object.fromEntries(sliders.map((s) => [s.name, s.value])), [sliders]);
 
-  const curves = useMemo(() => equations.filter((eq) => !parseSlider(eq.expr)), [equations]);
+  const curves = useMemo(() => equations.filter((eq) => !eq.hidden && !parseSlider(eq.expr)), [equations]);
 
   const handleSliderChange = useCallback((name, value) => {
     setSliderValues((prev) => ({ ...prev, [name]: value }));
@@ -42,6 +42,10 @@ export default function App() {
     setEquations((prev) =>
       prev.map((eq) => eq.id === id ? { ...eq, expr, ...evaluate(expr) } : eq)
     );
+  }, []);
+
+  const handleToggle = useCallback((id) => {
+    setEquations((prev) => prev.map((eq) => eq.id === id ? { ...eq, hidden: !eq.hidden } : eq));
   }, []);
 
   const handleRemove = useCallback((id) => {
@@ -88,6 +92,7 @@ export default function App() {
             sliders={sliders}
             onChange={handleChange}
             onRemove={handleRemove}
+            onToggle={handleToggle}
             onAdd={() => handleAdd()}
             onSliderChange={handleSliderChange}
           />

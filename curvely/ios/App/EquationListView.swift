@@ -85,10 +85,19 @@ struct EquationRowView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack(spacing: 10) {
-                Circle()
-                    .fill(equation.color)
-                    .frame(width: 10, height: 10)
-                    .accessibilityHidden(true)
+                Button {
+                    equation.hidden.toggle()
+                    onChange()
+                } label: {
+                    Circle()
+                        .fill(equation.hidden ? Color.clear : equation.color)
+                        .overlay(Circle().strokeBorder(equation.color, lineWidth: 2))
+                        .frame(width: 12, height: 12)
+                        .frame(width: 32, height: 44)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(equation.hidden ? "Show on graph" : "Hide from graph")
 
                 TextField("y =", text: binding)
                     .textFieldStyle(.plain)
