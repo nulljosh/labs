@@ -4,8 +4,9 @@
 iOS + macOS 1.2.4 WAITING_FOR_REVIEW: full-screen graph, no header or zoom buttons, glass
 equation panel. 1.2.5 work is on main: collapsible panel, Mac scroll-wheel zoom, web +/-/0 keys.
 
-- [x] Recapture App Store screenshots (iPhone, iPad, Mac). 1.2.6 (build 202610210815) uploaded on iOS and Mac 2026-10-21 from committed code (carries the 10-17 brand icon fix). New iPhone, iPad and Mac shots are on the 1.2.6 draft. NOT submitted: another session was mid-redesign of Curvely (fonts, Theme.swift, icon) at the same time, so whoever finishes that decides whether 1.2.6 ships as is or takes a new build.
-- [ ] Support URL on the listing still says grapher.heyitsmejosh.com; move it to curvely.
+- [x] Recapture App Store screenshots (iPhone, iPad, Mac). 1.2.6 (build 202610210815) uploaded on iOS and Mac 2026-10-21 from committed code (carries the 10-17 brand icon fix). New iPhone, iPad and Mac shots are on the 1.2.6 draft. Superseded same day: the redesign (Curvely Sans, glass, new icon) plus light mode shipped as 1.2.6 build 202610210836, new shots, submitted on iOS and Mac 2026-10-21.
+- [x] Support and privacy URLs moved to curvely.jaybulb.com 2026-10-21 (heyitsmejosh.com has lapsed).
+- [x] Light mode on web, iOS and Mac, follows the system setting. 2026-10-21
 
 - [ ] Verify iPad layout visually on simulator -- 2026-09-02. Code review found no
   structural iPad issue: `ContentView` already branches on `horizontalSizeClass`
