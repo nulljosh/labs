@@ -16,11 +16,13 @@ struct NYCSurviveApp: App {
     @State private var gameState = GameState()
     @State private var showMenu = NYCSurviveApp.shotVariant == nil
     @State private var loadSlot: Int? = nil
+    @State private var menuBackdrop = GameState.menuBackdrop()
 
     var body: some Scene {
         WindowGroup {
             ZStack {
                 if showMenu {
+                    GameSceneView(gameState: menuBackdrop, loadSlot: nil)
                     MenuSceneView(
                         onNewGame: {
                             gameState = GameState()
@@ -42,7 +44,7 @@ struct NYCSurviveApp: App {
                     GameView(gameState: gameState, loadSlot: loadSlot)
                 }
             }
-            .frame(minWidth: 1280, minHeight: 800)
+            .frame(minWidth: 960, minHeight: 600)
             .preferredColorScheme(themeChoice.colorScheme)
             .onReceive(NotificationCenter.default.publisher(for: .themeDidChange)) { _ in
                 themeChoice = Theme.choice
@@ -52,12 +54,18 @@ struct NYCSurviveApp: App {
     }
 }
 
+/// The first click on an inactive window should press the button, not just focus it.
+final class MenuSKView: SKView {
+    override func acceptsFirstMouse(for event: NSEvent?) -> Bool { true }
+}
+
 struct MenuSceneView: NSViewRepresentable {
     var onNewGame: () -> Void
     var onLoadGame: (Int) -> Void
 
     func makeNSView(context: Context) -> SKView {
-        let view = SKView()
+        let view = MenuSKView()
+        view.allowsTransparency = true
         let scene = MenuScene(size: CGSize(width: 1280, height: 800))
         scene.scaleMode = .aspectFill
         scene.onNewGame = onNewGame
@@ -97,6 +105,7 @@ struct GameView: View {
 /// events reach the SpriteKit scene instead of being eaten by SwiftUI.
 class FocusableSKView: SKView {
     override var acceptsFirstResponder: Bool { true }
+    override func acceptsFirstMouse(for event: NSEvent?) -> Bool { true }
 
     override func viewDidMoveToWindow() {
         super.viewDidMoveToWindow()

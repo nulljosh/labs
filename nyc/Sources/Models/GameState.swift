@@ -39,6 +39,8 @@ final class GameState {
     var autoSaveEnabled: Bool = true
     var showSaveIndicator: Bool = false
     var victoryShown: Bool = false
+    /// True only for the city running behind the title menu.
+    var isMenuBackdrop: Bool = false
 
     // Audio
     var soundEnabled: Bool {

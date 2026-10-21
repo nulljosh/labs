@@ -9,16 +9,17 @@ final class GameScene: SKScene {
     private var needsSystem = NeedsSystem()
     private var resourceSystem = ResourceSystem()
     private var buildSystem = BuildSystem()
-    private var jobSystem = JobSystem()
-    private var pathfinder: Pathfinder!
+    var jobSystem = JobSystem()
+    var pathfinder: Pathfinder!
     private var inputHandler = InputHandler()
-    private var cameraController = CameraController()
+    var cameraController = CameraController()
 
     private var colonistNodes: [UUID: ColonistNode] = [:]
     private var buildingNodes: [UUID: BuildingNode] = [:]
     private var resourceNodes: [UUID: ResourceNode] = [:]
 
     private var lastUpdateTime: TimeInterval = 0
+    var backdrop = MenuBackdropClock()
 
     // Drag selection
     private var selectionStart: CGPoint?
@@ -180,6 +181,7 @@ final class GameScene: SKScene {
         }
 
         cameraController.update(deltaTime: dt)
+        if gameState.isMenuBackdrop { animateBackdrop(dt) }
         let deep = gameState.currentHour >= 22 || gameState.currentHour < 4
         nightOverlay.alpha = gameState.isNight ? (deep ? 0.42 : 0.24) : 0
 

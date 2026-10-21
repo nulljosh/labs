@@ -1,8 +1,14 @@
 import SwiftUI
+#if os(macOS)
+import AppKit
+#endif
 
 struct SettingsView: View {
     @Bindable var gameState: GameState
     @State private var themeChoice = Theme.choice
+    #if os(macOS)
+    @State private var isFullScreen = NSApp.keyWindow?.styleMask.contains(.fullScreen) ?? false
+    #endif
 
     var body: some View {
         ZStack(alignment: .trailing) {
@@ -52,6 +58,24 @@ struct SettingsView: View {
                 }
                 .toggleStyle(.switch)
                 .tint(Theme.accent)
+
+                #if os(macOS)
+                Toggle(isOn: Binding(
+                    get: { isFullScreen },
+                    set: { on in
+                        isFullScreen = on
+                        if NSApp.keyWindow?.styleMask.contains(.fullScreen) != on {
+                            NSApp.keyWindow?.toggleFullScreen(nil)
+                        }
+                    }
+                )) {
+                    Text("Full screen")
+                        .font(.system(size: 13))
+                        .foregroundStyle(Theme.text1)
+                }
+                .toggleStyle(.switch)
+                .tint(Theme.accent)
+                #endif
 
                 Toggle(isOn: Binding(
                     get: { gameState.soundEnabled },

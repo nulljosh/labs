@@ -27,64 +27,63 @@ final class MenuScene: SKScene {
     private var showingLoadMenu = false
     private var loadMenuNodes: [SKNode] = []
 
+    /// Menu sits over the live city (GameState.menuBackdrop), so it is always styled dark:
+    /// a flat scrim, white type and the brand blue (brand/tokens.css) on the primary button.
+    private static let accent = SKColor(red: 0.24, green: 0.48, blue: 1.00, alpha: 1)
+
     override func didMove(to view: SKView) {
-        backgroundColor = ScenePalette.background
+        backgroundColor = .clear
+
+        let scrim = SKShapeNode(rect: CGRect(origin: .zero, size: size))
+        scrim.fillColor = SKColor(white: 0, alpha: 0.55)
+        scrim.strokeColor = .clear
+        scrim.zPosition = -1
+        addChild(scrim)
 
         let title = SKLabelNode(fontNamed: chill(.bold))
         // Must match the App Store name — a title screen that says something else
         // reads as the wrong app to a reviewer (see wiki: app-renaming).
         title.text = "NYC Survive"
-        title.fontSize = 48
-        title.fontColor = ScenePalette.title
-        title.position = CGPoint(x: size.width / 2, y: size.height * 0.65)
+        title.fontSize = 64
+        title.fontColor = .white
+        title.position = CGPoint(x: size.width / 2, y: size.height * 0.66)
         title.horizontalAlignmentMode = .center
         addChild(title)
 
         let subtitle = SKLabelNode(fontNamed: chill(.regular))
-        subtitle.text = "Survival Simulator"
+        subtitle.text = "Hold Times Square. Keep everyone alive."
         subtitle.fontSize = 20
-        subtitle.fontColor = ScenePalette.accentHot
-        subtitle.position = CGPoint(x: size.width / 2, y: size.height * 0.55)
+        subtitle.fontColor = SKColor(white: 1, alpha: 0.7)
+        subtitle.position = CGPoint(x: size.width / 2, y: size.height * 0.59)
         subtitle.horizontalAlignmentMode = .center
         addChild(subtitle)
 
-        let newGame = SKLabelNode(fontNamed: chill(.bold))
-        newGame.text = "New Game"
-        newGame.fontSize = 24
-        newGame.fontColor = ScenePalette.accentWarm
-        newGame.position = CGPoint(x: size.width / 2, y: size.height * 0.38)
-        newGame.horizontalAlignmentMode = .center
-        newGame.name = "newGame"
-        addChild(newGame)
-
-        let loadGame = SKLabelNode(fontNamed: chill(.bold))
-        loadGame.text = "Load Game"
-        loadGame.fontSize = 24
-        loadGame.fontColor = ScenePalette.title
-        loadGame.position = CGPoint(x: size.width / 2, y: size.height * 0.30)
-        loadGame.horizontalAlignmentMode = .center
-        loadGame.name = "loadGame"
-        addChild(loadGame)
-
-        let settings = SKLabelNode(fontNamed: chill(.bold))
-        settings.text = "Settings"
-        settings.fontSize = 24
-        settings.fontColor = ScenePalette.title
-        settings.position = CGPoint(x: size.width / 2, y: size.height * 0.22)
-        settings.horizontalAlignmentMode = .center
-        settings.name = "settings"
-        addChild(settings)
-
+        addButton("New Game", name: "newGame", y: size.height * 0.44, primary: true)
+        addButton("Load Game", name: "loadGame", y: size.height * 0.36)
+        addButton("Settings", name: "settings", y: size.height * 0.28)
         #if os(macOS)
-        let quit = SKLabelNode(fontNamed: chill(.bold))
-        quit.text = "Quit"
-        quit.fontSize = 24
-        quit.fontColor = ScenePalette.muted
-        quit.position = CGPoint(x: size.width / 2, y: size.height * 0.14)
-        quit.horizontalAlignmentMode = .center
-        quit.name = "quit"
-        addChild(quit)
+        addButton("Quit", name: "quit", y: size.height * 0.20)
         #endif
+    }
+
+    /// 48 point capsule; the name sits on the capsule only, so one click fires once.
+    private func addButton(_ text: String, name: String, y: CGFloat, primary: Bool = false) {
+        let w: CGFloat = 280, h: CGFloat = 48
+        let pill = SKShapeNode(rect: CGRect(x: -w / 2, y: -h / 2, width: w, height: h), cornerRadius: h / 2)
+        pill.fillColor = primary ? Self.accent : SKColor(white: 1, alpha: 0.12)
+        pill.strokeColor = primary ? .clear : SKColor(white: 1, alpha: 0.2)
+        pill.lineWidth = 1
+        pill.position = CGPoint(x: size.width / 2, y: y)
+        pill.name = name
+        addChild(pill)
+
+        let label = SKLabelNode(fontNamed: chill(.semibold))
+        label.text = text
+        label.fontSize = 20
+        label.fontColor = .white
+        label.horizontalAlignmentMode = .center
+        label.verticalAlignmentMode = .center
+        pill.addChild(label)
     }
 
     private func showLoadMenu() {
@@ -257,4 +256,15 @@ final class MenuScene: SKScene {
         }
     }
     #endif
+}
+
+extension GameState {
+    /// A throwaway city that runs behind the menu. It never autosaves and skips the tutorial.
+    static func menuBackdrop() -> GameState {
+        let state = GameState()
+        state.autoSaveEnabled = false
+        state.tutorialStep = nil
+        state.isMenuBackdrop = true
+        return state
+    }
 }

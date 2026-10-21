@@ -7,11 +7,13 @@ struct NYCSurviveApp: App {
     @State private var gameState = GameState()
     @State private var showMenu = true
     @State private var loadSlot: Int? = nil
+    @State private var menuBackdrop = GameState.menuBackdrop()
 
     var body: some Scene {
         WindowGroup {
             ZStack {
                 if showMenu {
+                    GameSceneView(gameState: menuBackdrop, loadSlot: nil)
                     MenuSceneView(
                         onNewGame: {
                             gameState = GameState()
@@ -48,6 +50,8 @@ struct MenuSceneView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> SKView {
         let view = SKView()
+        view.allowsTransparency = true
+        view.backgroundColor = .clear
         let scene = MenuScene(size: CGSize(width: 1280, height: 800))
         scene.scaleMode = .aspectFill
         scene.onNewGame = onNewGame
