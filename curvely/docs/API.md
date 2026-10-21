@@ -1,7 +1,16 @@
 # Curvely API
 
-Curvely is a client-only graphing calculator — no server, no HTTP API. The
-agent-facing interface is WebMCP.
+The app is client-only. Agents have three doors: a stateless HTTP API, an MCP server, and WebMCP in
+the open page.
+
+## HTTP and MCP
+
+Cloudflare Pages Functions in `functions/`, one definition in `src/lib/tools.js`, behind an AST allowlist.
+
+- `GET /api/syntax`
+- `POST /api/evaluate` `{"expr":"x^2","xValues":[0,1,2]}` returns `points`
+- `POST /api/sample` `{"expr":"sin(x)","from":-10,"to":10,"samples":200}`
+- `POST /mcp` JSON-RPC 2.0: `initialize`, `tools/list`, `tools/call`
 
 ## WebMCP
 

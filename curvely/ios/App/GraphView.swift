@@ -188,7 +188,7 @@ struct GraphView: View {
     }
 
     private func draw(_ context: inout GraphicsContext, number: Double, at point: CGPoint, anchor: UnitPoint) {
-        let text = Text(formatted(number)).font(.system(size: 11)).foregroundStyle(Theme.axisLabel)
+        let text = Text(formatted(number)).font(Theme.font(11)).foregroundStyle(Theme.axisLabel)
         context.draw(text, at: point, anchor: anchor)
     }
 

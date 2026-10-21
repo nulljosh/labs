@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.2.6] — 2026-10-21
+
+- New icon: a sine wave with one plotted point, rebuilt as an Icon Composer bundle
+- Liquid Glass everywhere: floating glass panels on the web app, iOS and macOS (`glassEffect` on iOS 26 and macOS 26, a material before that), 48 point capsule controls
+- Curvely Sans, a renamed Inter whose quote marks are drawn as waves (`scripts/gen_font.py`), in the web app, the iOS and macOS apps and the landing
+- Web app is dark only with the blue brand accent and local tokens, no longer waiting on another site's stylesheet
+- Landing rebuilt after Hermes: halftone Apollo header lit by the pointer, the live app on a blue stage, glass nav and cards
+- MCP `serverInfo.version` now reads package.json
+
 ## [v1.1.0] — 2026-05-31
 
 - Visible zoom controls: floating glass +/-/reset cluster with live zoom-% readout (web, iOS, macOS)

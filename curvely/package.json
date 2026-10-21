@@ -2,7 +2,7 @@
   "name": "curvely",
   "license": "MIT",
   "private": true,
-  "version": "1.2.2",
+  "version": "1.2.6",
   "description": "A graphing calculator that feels like it belongs on your phone, native SwiftUI on iPhone, iPad and Mac.",
   "keywords": [
     "graphing-calculator",

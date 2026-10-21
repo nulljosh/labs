@@ -2,346 +2,141 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curvely, a graphing calculator that stays out of the way</title>
-<meta property="og:image" content="https://curvely.jaybulb.com/og.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Curvely. Type an equation, watch it draw.</title>
+<meta name="description" content="A graphing calculator that stays out of the way. Plot several equations at once, pan and zoom the plane, and read values straight off the curve. Free in the browser, native on iPhone, iPad and Mac.">
+<meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+<meta name="apple-itunes-app" content="app-id=6794988370">
+<link rel="canonical" href="https://curvely.jaybulb.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Curvely">
+<meta property="og:title" content="Curvely. Type an equation, watch it draw.">
+<meta property="og:description" content="Plot several equations at once, pan and zoom the plane, and read values straight off the curve.">
 <meta property="og:url" content="https://curvely.jaybulb.com/">
+<meta property="og:image" content="https://curvely.jaybulb.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://curvely.jaybulb.com/og.png">
-<link rel="canonical" href="https://curvely.jaybulb.com/">
-<meta name="apple-itunes-app" content="app-id=6794988370">
-<meta name="description" content="Plot several equations at once, pan and zoom the plane, and read values straight off the curve. Free in the browser, native on iOS and macOS.">
-<meta name="theme-color" content="#f5f0e4">
-<meta property="og:title" content="Curvely, a graphing calculator that stays out of the way">
-<meta property="og:description" content="Plot several equations at once, pan and zoom the plane, and read values straight off the curve.">
-<meta property="og:type" content="website">
-<link rel="icon" href="icon.svg">
-<link rel="stylesheet" href="https://jaybulb.com/tokens.css">
-<style>
-:root {
-  --link: var(--clay-deep);
-  --accent-soft: color-mix(in srgb, var(--clay) 8%, var(--bg));
-  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-}
-:root[data-theme="dark"] { --link: var(--clay); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --link: var(--clay); } }
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-.container { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
-.hero {
-  position: relative; isolation: isolate; overflow: hidden;
-  background: var(--accent-soft); padding: 5.5rem 0 4.5rem; text-align: center;
-}
-.hero .container { position: relative; z-index: 2; }
-
-/* a slow-drifting wall of curves the app can plot */
-.hero-wall {
-  position: absolute; inset: -8%; z-index: 0;
-  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 10px;
-  opacity: 0.9;
-  pointer-events: none; user-select: none;
-}
-.wall-col { display: flex; min-width: 0; flex-direction: column; gap: 10px; }
-.wall-card {
-  aspect-ratio: 1/1; border-radius: 4px; overflow: hidden;
-  background: var(--bg2); border: 1px solid var(--border);
-}
-.wall-card svg { display: block; width: 100%; height: 100%; }
-.wall-col.up   { animation: wall-up   var(--dur) linear infinite; }
-.wall-col.down { animation: wall-down var(--dur) linear infinite; }
-@keyframes wall-up   { from { transform: translateY(0); }    to { transform: translateY(-50%); } }
-@keyframes wall-down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
-@media (prefers-reduced-motion: reduce) { .wall-col { animation: none; } }
-
-/* scrim: keeps the headline readable over the wall, in either theme */
-.hero::after {
-  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  /* ponytail: scrim only where the text sits; the wall stays visible elsewhere */
-  background:
-    radial-gradient(ellipse 34% 38% at 50% 45%, color-mix(in srgb, var(--bg) 70%, transparent) 0%, transparent 100%),
-    linear-gradient(color-mix(in srgb, var(--bg) 80%, transparent), transparent 12%, transparent 88%, color-mix(in srgb, var(--bg) 80%, transparent) 100%);
-}
-.hero-icon { width: 88px; height: 88px; border-radius: 20px; }
-h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); margin: 1.25rem 0 0.75rem; letter-spacing: -0.02em; }
-.hero p { font-size: 1.15rem; color: var(--text2); max-width: 34rem; margin: 0 auto; }
-.buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-.btn { display: inline-block; padding: 0.7rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.98rem; border: 1px solid transparent; }
-.btn-primary { background: var(--accent); color: #fff; }
-.btn-outline { border-color: var(--border); color: var(--text); }
-.features { padding: 4rem 0; }
-h2 { font-size: 1.75rem; text-align: center; margin: 0 0 2.5rem; letter-spacing: -0.01em; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }
-.feature { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
-.feature h3 { margin: 0 0 0.5rem; font-size: 1.05rem; }
-.feature p { margin: 0; color: var(--text2); font-size: 0.95rem; }
-.closing { padding: 4rem 0 4.5rem; text-align: center; background: var(--bg2); border-top: 1px solid var(--border); }
-.closing p { color: var(--text2); max-width: 32rem; margin: 0 auto; }
-footer { padding: 2.5rem 0 3.5rem; text-align: center; font-size: 0.9rem; color: var(--text2); }
-
-/* footer directory, ported from Joshua Tree */
-footer { margin: 0; padding: 56px 0 40px; border-top: 1px solid var(--border); text-align: left; font-size: 13px; }
-footer .foot-rule { display: flex; align-items: center; gap: 16px; max-width: 880px; margin: 0 auto; padding: 0 20px 28px; font-size: 13px; letter-spacing: .06em; font-weight: 500; color: var(--text2); }
-footer .foot-rule::before { content: ""; order: 1; flex: 1; height: 1px; background: var(--border); }
-footer .foot-rule > :first-child { order: 0; }
-footer .foot-rule > :last-child { order: 2; }
-@media (max-width: 520px) { footer .foot-rule { flex-wrap: wrap; justify-content: center; gap: 10px 16px; } footer .foot-rule::before { order: -1; flex-basis: 100%; } }
-.foot-dir { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 24px; max-width: 880px; margin: 0 auto; padding: 0 20px 28px; text-align: left; }
-.foot-col h3 { margin: 0 0 8px; font-size: 12px; font-weight: 600; color: var(--text); letter-spacing: 0.02em; }
-.foot-col ul { list-style: none; margin: 0; padding: 0; }
-.foot-col a { position: relative; display: inline-block; padding: 5px 0; margin: 0; color: var(--text2); text-decoration: none; font-size: 13px; line-height: 1.35; }
-.foot-col a::after { content: ""; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; height: 44px; min-width: 44px; }
-.foot-col a:hover { color: var(--text); text-decoration: underline; }
-.foot-bar { max-width: 880px; margin: 0 auto; padding: 18px 20px 0; border-top: 1px solid var(--border); }
-.foot-bar .foot-meta { margin: 0; text-align: left; color: var(--text2); font-size: 12.5px; line-height: 1.9; }
-.foot-bar .foot-meta a { color: var(--text2); }
-@media (max-width: 700px) { .foot-dir { grid-template-columns: repeat(2, 1fr); } }
-</style>
-<link rel="stylesheet" href="devices.css">
-<script>
-// ponytail: UA sniff, good enough for a mockup. iphone is the default. ?embed = app only, for the landing demo frame.
-(function(u,d){d=/Android/.test(u)?'android':/iPhone|iPad/.test(u)?'iphone':/Windows/.test(u)?'windows':/Mac/.test(u)?'mac':'iphone';document.documentElement.dataset.device=d;if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed')})(navigator.userAgent);
-</script>
-<style>
-/* Live demo: the real app in a frame matching the visitor's device (nimble treatment) */
-.demo{margin:2rem auto 0;text-align:center;position:relative;z-index:2}
-.demo .device-screen{aspect-ratio:9/19.5}
-.demo .device-mac .device-screen,.demo .device-windows .device-screen{aspect-ratio:16/10}
-.demo .device-screen iframe{position:absolute;top:0;left:0;border:0;display:block;transform-origin:0 0;width:390px;height:845px;background:#fff}
-.demo .device-mac .device-screen iframe,.demo .device-windows .device-screen iframe{width:1024px;height:640px}
-.demo-caption{font-size:.9rem;opacity:.65;margin:1rem 0 0}
-.embed .demo,.embed footer,.embed nav{display:none!important}
-</style>
+<link rel="stylesheet" href="landing.css">
+<script src="landing.js" defer></script>
 </head>
-<body id="top">
-<section class="hero">
-  <div class="hero-wall" id="heroWall" aria-hidden="true"></div>
-  <div class="container">
-    <img class="hero-icon" src="icon.svg" alt="Curvely icon" width="88" height="88">
-    <h1>Type an equation. Watch it draw.</h1>
-<div class="demo">
-  <div class="device device-iphone" id="demoFrame" data-title="Curvely"><div class="device-screen"><iframe id="demoApp" title="Curvely, live" loading="lazy" data-src="/app?embed"></iframe></div></div>
-  <p class="demo-caption">This is the <span id="demoDev">iPhone</span> app, live. Try it.</p>
-</div>
-<script>
-(function(){var names={iphone:'iPhone',android:'Android',mac:'Mac',windows:'Windows'},dev=document.documentElement.dataset.device,f=document.getElementById('demoFrame'),i=document.getElementById('demoApp');
-if(!names[dev])dev='iphone';f.className='device device-'+dev;document.getElementById('demoDev').textContent=names[dev];
-if(!document.documentElement.classList.contains('embed'))i.src=i.dataset.src;
-function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidth)+')';}fit();addEventListener('resize',fit);})();
-</script>
+<body>
 
-    <div class="buttons">
-      <a href="/app" class="btn btn-primary">Open Curvely</a>
-      <a href="https://apps.apple.com/app/id6794988370" class="btn btn-outline">App Store</a>
-      <a href="https://github.com/nulljosh/labs/tree/main/curvely" class="btn btn-outline">Source</a>
-    </div>
-  </div>
-</section>
-<section class="features">
-  <div class="container">
-    <h2>Everything you need to read a curve</h2>
-    <div class="grid">
-      <div class="feature"><h3>Several equations at once</h3><p>Stack as many expressions as you like and give each its own colour, so relationships between curves are obvious.</p></div>
-      <div class="feature"><h3>Pan and zoom</h3><p>Drag the plane, pinch or scroll to zoom, double tap to reset. The axes and gridlines relabel themselves as you go.</p></div>
-      <div class="feature"><h3>Native on iOS and macOS</h3><p>A real SwiftUI app on Apple platforms, not a wrapped web page, built from the same maths as the web version.</p></div>
-      <div class="feature"><h3>Runs in the browser</h3><p>Nothing to install and no account to make. Open the page and start plotting.</p></div>
-      <div class="feature"><h3>Readable in the dark</h3><p>Light and dark themes that follow your system, with contrast tuned for long sessions.</p></div>
-      <div class="feature"><h3>Free and open source</h3><p>No ads, no purchases, no tracking. The source is on GitHub.</p></div>
-    </div>
-  </div>
-</section>
-<section class="closing">
-  <div class="container">
-    <h2>Plot something</h2>
-    <p>The web version runs straight in the browser, nothing to download.</p>
-    <div class="buttons"><a href="/app" class="btn btn-primary">Open Curvely</a></div>
-  </div>
-</section>
-
-<style>
-#install-anywhere{padding:5rem 0;border-top:1px solid color-mix(in srgb, currentColor 14%, transparent);}
-#install-anywhere .xp-wrap{max-width:960px;margin:0 auto;padding:0 1.5rem;}
-#install-anywhere h2{font-size:clamp(1.6rem,3.4vw,2.4rem);margin:0 0 .6rem;letter-spacing:-.02em;}
-#install-anywhere .xp-lead{max-width:46ch;margin:0 0 2.5rem;opacity:.7;line-height:1.55;}
-#install-anywhere .xp-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-#install-anywhere .xp-card{background:color-mix(in srgb, currentColor 4%, transparent);border:1px solid color-mix(in srgb, currentColor 14%, transparent);border-radius:12px;padding:1.25rem;display:flex;flex-direction:column;gap:.5rem;}
-#install-anywhere .xp-card h3{margin:0;font-size:1rem;letter-spacing:-.01em;}
-#install-anywhere .xp-card p{margin:0;font-size:.9rem;line-height:1.5;opacity:.7;flex:1;}
-#install-anywhere .xp-card a{margin-top:.5rem;font-size:.875rem;font-weight:500;color:var(--accent,currentColor);text-decoration:none;}
-#install-anywhere .xp-card a:hover{text-decoration:underline;}
-</style>
-
-<section id="install-anywhere">
-  <div class="xp-wrap">
-    <h2>Install it anywhere.</h2>
-    <p class="xp-lead">Curvely runs on every platform. On Windows, Linux and Android it installs straight from the browser &mdash; no store, no download, no runtime. It gets a real window, its own icon, and keeps working offline.</p>
-    <div class="xp-grid">
-    <div class="xp-card">
-      <h3>iPhone &amp; iPad</h3>
-      <p>A native app, not a wrapped web page.</p>
-      <a href="https://apps.apple.com/app/id6794988370">App Store &rarr;</a>
-    </div>
-    <div class="xp-card">
-      <h3>Mac</h3>
-      <p>Native, universal binary. Runs on Apple silicon and Intel.</p>
-      <a href="https://apps.apple.com/app/id6794988370">App Store &rarr;</a>
-    </div>
-    <div class="xp-card">
-      <h3>Windows</h3>
-      <p>Open the web app in Edge or Chrome, then <strong>Install Curvely</strong> from the address bar. It lands in the Start Menu like any other app.</p>
-      <a href="https://curvely.jaybulb.com/app">Open &amp; install &rarr;</a>
-    </div>
-    <div class="xp-card">
-      <h3>Android</h3>
-      <p>Open the web app in Chrome, then <strong>Add to Home screen</strong>. Full screen, no browser chrome, works offline.</p>
-      <a href="https://curvely.jaybulb.com/app">Open &amp; install &rarr;</a>
-    </div>
-    <div class="xp-card">
-      <h3>Linux</h3>
-      <p>Same as Windows &mdash; install the web app from Chrome or Chromium and it runs in its own window.</p>
-      <a href="https://curvely.jaybulb.com/app">Open &amp; install &rarr;</a>
-    </div>
-    <div class="xp-card">
-      <h3>Web</h3>
-      <p>Nothing to install. The same app, in any modern browser.</p>
-      <a href="https://curvely.jaybulb.com/app">Open the web app &rarr;</a>
-    </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="foot-rule" aria-hidden="true"><span>Curvely</span><span>Plot anything</span></div>
-  <nav class="foot-dir" aria-label="Footer">
-    <div class="foot-col">
-      <h3>Curvely</h3>
-      <ul>
-        <li><a href="https://apps.apple.com/app/id6794988370">App Store</a></li>
-        <li><a href="/app/">Open the web app</a></li>
-        <li><a href="https://github.com/nulljosh/labs/blob/main/curvely/CHANGELOG.md">Changelog</a></li>
-        <li><a href="https://github.com/nulljosh/labs/blob/main/curvely/WHITEPAPER.md">Whitepaper</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h3>Explore</h3>
-      <ul>
-        <li><a href="#install-anywhere">Install anywhere</a></li>
-        <li><a href="https://jaybulb.com/docs.html#curvely">Docs</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h3>Developers</h3>
-      <ul>
-        <li><a href="https://github.com/nulljosh/labs/tree/main/curvely">Source</a></li>
-        <li><a href="https://github.com/nulljosh/labs/blob/main/curvely/docs/API.md">API reference</a></li>
-        <li><a href="https://github.com/nulljosh/labs/blob/main/curvely/docs/ARCHITECTURE.md">Architecture</a></li>
-        <li><a href="https://github.com/nulljosh/labs/issues">Report a bug</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h3>Project</h3>
-      <ul>
-        <li><a href="/app/privacy.html">Privacy</a></li>
-        <li><a href="https://github.com/nulljosh/labs/blob/main/curvely/SECURITY.md">Security</a></li>
-        <li><a href="https://github.com/nulljosh/labs/blob/main/curvely/LICENSE">License (MIT)</a></li>
-        <li><a href="https://jaybulb.com">Portfolio</a></li>
-        <li><a href="#top">Back to top</a></li>
-      </ul>
-    </div>
+<header class="nav glass" aria-label="Site">
+  <nav class="nav-links" aria-label="Main">
+    <a href="#features">Features</a>
+    <a href="#agents">Agents</a>
+    <a href="#get">Get it</a>
   </nav>
-  <div class="foot-bar">
-    <p class="foot-meta">Curvely v{{VERSION}} &middot; MIT License &middot; &copy; 2026 Joshua Trommel &middot; Made with <span aria-hidden="true">&hearts;</span> in Vancouver, BC</p>
+  <a class="nav-brand" href="#top" aria-label="Curvely home"><img src="icon.svg" alt="" width="28" height="28"><span>Curvely</span></a>
+  <div class="nav-end"><a class="btn btn-solid" href="/app/">Open app</a></div>
+</header>
+
+<!-- Art: Apollo Belvedere, engraved by Antonio Lafreri (16th century, Metropolitan Museum, CC0), cropped above the waist and
+     dithered to a halftone mask by hand. The light that follows the pointer is CSS. -->
+<main id="top">
+<section class="hero-band" id="hero">
+  <div class="art spot" id="spot" style="--img: url(art/apollo.png)" aria-hidden="true"></div>
+  <div class="hero-copy center">
+    <p class="label">Graphing calculator</p>
+    <h1>Curvely</h1>
   </div>
+</section>
+
+<section class="hero">
+  <div class="wrap center">
+    <p class="lead">Type an equation. Watch it draw.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="/app/">Open Curvely</a>
+      <a class="btn btn-ghost glass" href="https://apps.apple.com/app/id6794988370">App Store</a>
+    </div>
+    <p class="fine">Free. iPhone, iPad, Mac and the web.</p>
+  </div>
+
+  <div class="demo-wrap reveal" id="demo">
+    <div class="stage">
+      <div class="art art-bg" data-curves="sin parab tanh" aria-hidden="true"></div>
+      <iframe class="app" title="Curvely, live. Type an equation." src="/app/?embed" loading="lazy"></iframe>
+    </div>
+    <p class="demo-hint">The real app, running here. Click an equation and type.</p>
+  </div>
+</section>
+
+<section class="band" id="features">
+  <div class="band-head">
+    <div class="art art-bg" data-curves="beat cos damp" aria-hidden="true"></div>
+    <div class="band-copy reveal">
+      <p class="label">Plot anything</p>
+      <h2>Read a curve</h2>
+      <p>Stack equations, drag the plane, read values straight off the line.</p>
+    </div>
+  </div>
+  <div class="frows">
+    <article class="frow reveal"><div class="art" data-curves="sin cos" aria-hidden="true"></div><div><p class="label">Equations</p><h3>Several at once</h3><p>Give each its own colour and see how the curves relate.</p></div></article>
+    <article class="frow reveal"><div class="art" data-curves="tanh" aria-hidden="true"></div><div><p class="label">Plane</p><h3>Pan and zoom</h3><p>Drag the plane, pinch or scroll to zoom, double tap to reset. The axes relabel as you go.</p></div></article>
+    <article class="frow reveal"><div class="art" data-curves="parab abs" aria-hidden="true"></div><div><p class="label">Native</p><h3>Real SwiftUI on Apple platforms</h3><p>Equations stay between launches. The graph exports as a PNG through the share sheet.</p></div></article>
+  </div>
+  <div class="cells">
+    <article class="cell reveal"><p class="label">Web</p><h3>Nothing to install</h3><p>Open the page and start plotting.</p></article>
+    <article class="cell reveal"><p class="label">Dark</p><h3>Easy on the eyes</h3><p>Dark by design, with glass panels that let the graph show through.</p></article>
+    <article class="cell reveal"><p class="label">Free</p><h3>Free and open source</h3><p>No ads, no account, no tracking.</p></article>
+  </div>
+</section>
+
+<section class="sec field" id="agents">
+  <div class="wrap center">
+    <div class="reveal">
+      <i class="mark" aria-hidden="true"></i>
+      <p class="label">An API and an MCP server</p>
+      <h2>Curves on call</h2>
+      <p class="body">Scripts and agents can evaluate expressions too. The API is stateless and nothing is stored.</p>
+    </div>
+    <div class="stage term-stage reveal">
+      <div class="art art-bg" data-curves="cubic sin" aria-hidden="true"></div>
+      <figure class="term glass" aria-label="Evaluating x squared over HTTP">
+<pre><span class="dim">$</span> curl -X POST curvely.jaybulb.com/api/evaluate \
+    -d '{"expr":"x^2","xValues":[0,1,2]}'
+<span class="dim">points</span>  (0, 0)  (1, 1)  (2, 4)</pre>
+        <figcaption>One call, three points.</figcaption>
+      </figure>
+    </div>
+    <div class="prods">
+      <article class="prod reveal"><div class="art" data-curves="parab" aria-hidden="true"></div><p class="label">HTTP</p><h3>Evaluate and sample</h3><p>Syntax, evaluate and sample endpoints.</p><a href="/api/syntax">/api/syntax &rarr;</a></article>
+      <article class="prod reveal"><div class="art" data-curves="damp" aria-hidden="true"></div><p class="label">MCP</p><h3>Curvely MCP server</h3><p>JSON-RPC at /mcp. No session, no SDK.</p><a href="https://github.com/nulljosh/labs/blob/main/curvely/functions/mcp.js">functions/mcp.js &rarr;</a></article>
+      <article class="prod reveal"><div class="art" data-curves="beat" aria-hidden="true"></div><p class="label">WebMCP</p><h3>Drive the open app</h3><p>Plot, edit and clear equations from an agent.</p><a href="https://github.com/nulljosh/labs/blob/main/curvely/docs/API.md">docs/API.md &rarr;</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec plats" id="get">
+  <div class="wrap center">
+    <p class="label reveal">Get it</p>
+    <h2 class="reveal">Everywhere you plot</h2>
+    <p class="body reveal">Free on every platform.</p>
+    <div class="plat-row">
+      <div class="reveal glass"><small>iOS 17 and up</small><b>iPhone</b><p>A native app, and it runs on iPad too.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6794988370">App Store</a></div>
+      <div class="reveal glass"><small>macOS 14 and up</small><b>Mac</b><p>Native, Apple silicon and Intel.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6794988370">Mac App Store</a></div>
+      <div class="reveal glass"><small>Any browser</small><b>Web</b><p>On Windows, Android and Linux, open it and install from the browser.</p><a class="btn btn-solid" href="/app/">Open the web app</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot" id="footer">
+  <div class="foot-top">
+    <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>Curvely</b><p>Type an equation. Watch it draw.</p></div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div><p class="label">Curvely</p><a href="https://apps.apple.com/app/id6794988370">App Store</a><a href="/app/">Web app</a><a href="#features">Features</a><a href="#agents">Agents</a></div>
+      <div><p class="label">Source</p><a href="https://github.com/nulljosh/labs/tree/main/curvely">GitHub</a><a href="https://github.com/nulljosh/labs/blob/main/curvely/CHANGELOG.md">Changelog</a><a href="https://github.com/nulljosh/labs/blob/main/curvely/WHITEPAPER.md">Whitepaper</a><a href="https://github.com/nulljosh/labs/blob/main/curvely/SECURITY.md">Security</a><a href="/app/privacy.html">Privacy</a></div>
+      <div><p class="label">More</p><a href="https://github.com/nulljosh/labs/issues">Report a bug</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
+    </nav>
+  </div>
+  <div class="word-band" aria-hidden="true"><canvas></canvas></div>
+  <p class="legal">Curvely v{{VERSION}} &middot; MIT License &middot; &copy; 2026 Joshua Trommel &middot; <a href="/app/privacy.html">Privacy</a></p>
 </footer>
-<script>
-// Wall of plotted curves -- the app's own output, drawn as the backdrop. Every
-// path is generated here, so there is nothing to fetch and nothing to fail.
-(function () {
-  var wall = document.getElementById('heroWall');
-  if (!wall) return;
-  var NS = 'http://www.w3.org/2000/svg';
-  var FNS = [
-    function (x) { return Math.sin(x * 3); },
-    function (x) { return x * x * 2 - 1; },
-    function (x) { return Math.cos(x * 4) * 0.7; },
-    function (x) { return Math.tanh(x * 4); },
-    function (x) { return Math.sin(x * 6) / (Math.abs(x) * 4 + 1); },
-    function (x) { return x * x * x * 1.5; },
-    function (x) { return Math.abs(x) * 2 - 1; },
-    function (x) { return Math.sin(x * 2) + Math.cos(x * 5) * 0.3; },
-    function (x) { return Math.exp(x) * 0.4 - 1; },
-    function (x) { return Math.sin(1 / (Math.abs(x) + 0.25)); }
-  ];
-  function plot(fn) {
-    var svg = document.createElementNS(NS, 'svg');
-    svg.setAttribute('viewBox', '-1 -1 2 2');
-    svg.setAttribute('preserveAspectRatio', 'none');
-    var d = '';
-    for (var i = 0; i <= 48; i++) {
-      var x = -1 + (i / 48) * 2;
-      var y = fn(x);
-      if (!isFinite(y)) { d = ''; continue; }
-      y = Math.max(-1, Math.min(1, y));
-      d += (d ? 'L' : 'M') + x.toFixed(3) + ' ' + (-y).toFixed(3) + ' ';
-    }
-    var path = document.createElementNS(NS, 'path');
-    path.setAttribute('d', d);
-    path.setAttribute('fill', 'none');
-    path.setAttribute('stroke', 'currentColor');
-    path.setAttribute('stroke-width', '1.5');  // px: non-scaling-stroke makes this screen units
-    path.setAttribute('vector-effect', 'non-scaling-stroke');
-    svg.appendChild(path);
-    return svg;
-  }
-  var cols = Math.max(4, Math.ceil(window.innerWidth / 120));
-  for (var c = 0; c < cols; c++) {
-    var col = document.createElement('div');
-    col.className = 'wall-col ' + (c % 2 ? 'down' : 'up');
-    col.style.setProperty('--dur', (40 + c * 7) + 's');
-    var slice = [];
-    for (var k = 0; k < 5; k++) slice.push(FNS[(c * 5 + k) % FNS.length]);
-    slice.concat(slice).forEach(function (fn) {  // doubled, so the loop is seamless
-      var card = document.createElement('div');
-      card.className = 'wall-card';
-      card.appendChild(plot(fn));
-      col.appendChild(card);
-    });
-    wall.appendChild(col);
-  }
-})();
-</script>
-<style>
-html.js .reveal{opacity:0;transform:translateY(20px)}
-html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
-@media (prefers-reduced-motion: reduce){html.js .reveal{opacity:1!important;transform:none!important;transition:none!important}}
-</style>
-<script>
-document.documentElement.classList.add('js');
-(function(){
-  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduced && 'IntersectionObserver' in window) {
-    var targets = document.querySelectorAll('section.features .feature, .xp-card, section.closing');
-    targets.forEach(function(el){ el.classList.add('reveal'); });
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
-    }, {threshold: 0.15});
-    targets.forEach(function(el){ io.observe(el); });
-  }
-  if (!reduced) {
-    var layer = document.getElementById('heroWall');
-    if (layer) {
-      var ticking = false;
-      window.addEventListener('scroll', function(){
-        if (!ticking) {
-          requestAnimationFrame(function(){
-            layer.style.transform = 'translateY(' + ((window.scrollY || 0) * 0.35) + 'px)';
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }, {passive: true});
-    }
-  }
-})();
-</script>
+
+<script src="footer-band.js" defer></script>
 </body>
 </html>

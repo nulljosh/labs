@@ -76,7 +76,7 @@ export default function App() {
           <Graph equations={curves} sliders={sliderScope} />
         </div>
 
-        <div className={`sidebar-pane${panelCollapsed ? ' collapsed' : ''}`}>
+        <div className={`sidebar-pane glass${panelCollapsed ? ' collapsed' : ''}`}>
           <button
             className="panel-handle"
             aria-label={panelCollapsed ? 'Show equations' : 'Hide equations'}
@@ -92,35 +92,10 @@ export default function App() {
             onSliderChange={handleSliderChange}
           />
 
-          <div style={{
-            marginTop: 12,
-            background: 'var(--bg)',
-            border: '1px solid var(--border)',
-            borderRadius: 12,
-            padding: '12px 14px',
-          }}>
-            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: 8 }}>
-              Quick examples
-            </div>
+          <div className="glass-card" style={{ marginTop: 12 }}>
+            <div className="card-title">Quick examples</div>
             {['x^2', 'sin(x)', 'cos(x)', '2*x+1', 'sqrt(abs(x))', 'tan(x)', '1/x', 'x^3-x'].map((ex) => (
-              <button
-                key={ex}
-                className="example-btn"
-                onClick={() => handleAdd(ex)}
-                style={{
-                  display: 'inline-block', margin: '3px 4px 3px 0',
-                  background: 'var(--bg2)',
-                  border: '1px solid var(--border)',
-                  borderRadius: 8, padding: '4px 9px',
-                  color: 'var(--text-secondary)',
-                  fontSize: 12,
-                  fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif',
-                  cursor: 'pointer',
-                  transition: 'background 0.1s',
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent)'; e.currentTarget.style.borderColor = 'var(--accent)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-secondary)'; e.currentTarget.style.borderColor = 'var(--border)'; }}
-              >{ex}</button>
+              <button key={ex} className="chip" onClick={() => handleAdd(ex)}>{ex}</button>
             ))}
           </div>
         </div>

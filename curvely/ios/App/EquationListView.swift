@@ -16,8 +16,11 @@ struct EquationListView: View {
 
             Button(action: add) {
                 Label("Add equation", systemImage: "plus")
-                    .font(.subheadline)
-                    .foregroundStyle(Theme.accent)
+                    .font(Theme.font(15, .medium))
+                    .foregroundStyle(Theme.accentText)
+                    .frame(maxWidth: .infinity, minHeight: 48)
+                    .background(Theme.accent.opacity(0.22), in: Capsule())
+                    .overlay(Capsule().strokeBorder(Theme.accent.opacity(0.5), lineWidth: 1))
             }
             .buttonStyle(.plain)
             .padding(.top, 2)
@@ -29,7 +32,7 @@ struct EquationListView: View {
     private var examples: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("QUICK EXAMPLES")
-                .font(.caption2)
+                .font(Theme.font(11, .semibold))
                 .tracking(1.2)
                 .foregroundStyle(Theme.secondary)
 
@@ -37,14 +40,12 @@ struct EquationListView: View {
                 ForEach(quickExamples, id: \.self) { example in
                     Button { append(example) } label: {
                         Text(example)
-                            .font(.footnote)
+                            .font(Theme.font(13))
                             .foregroundStyle(Theme.secondary)
-                            .padding(.horizontal, 9)
-                            .padding(.vertical, 5)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .strokeBorder(Theme.border, lineWidth: 1)
-                            )
+                            .padding(.horizontal, 12)
+                            .frame(minHeight: 32)
+                            .background(Color.white.opacity(0.07), in: Capsule())
+                            .overlay(Capsule().strokeBorder(Theme.border, lineWidth: 1))
                     }
                     .buttonStyle(.plain)
                 }
@@ -97,6 +98,7 @@ struct EquationRowView: View {
                     #if os(iOS)
                     .textInputAutocapitalization(.never)
                     #endif
+                    .font(Theme.font(16))
                     .foregroundStyle(Theme.text)
                     .accessibilityLabel("Equation")
 
@@ -108,11 +110,10 @@ struct EquationRowView: View {
                 .buttonStyle(.plain)
                 .accessibilityLabel("Remove equation")
             }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 10)
-            .background(Theme.panel)
-            .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(Theme.border, lineWidth: 1))
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding(.horizontal, 16)
+            .frame(minHeight: 48)
+            .background(Color.white.opacity(0.07), in: Capsule())
+            .overlay(Capsule().strokeBorder(Theme.border, lineWidth: 1))
 
             if let error = equation.error {
                 Text(error)

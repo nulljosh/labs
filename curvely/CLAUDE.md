@@ -1,6 +1,6 @@
 # Curvely
 
-v1.2.4, Desmos-style graphing calculator. Web + iOS + macOS, with a small stateless HTTP API.
+v1.2.6, Desmos-style graphing calculator. Web + iOS + macOS, with a small stateless HTTP API.
 
 ## Run
 
@@ -14,7 +14,8 @@ npm run build
 - The app itself is client-side: pure client math (mathjs on web, a hand-written parser on iOS).
   The only server code is the stateless API below; nothing is stored server-side.
 - Canvas rendering only, no chart libs
-- Apple Liquid Glass UI, dark mode only
+- Apple Liquid Glass UI, dark mode only. Glass helper `curvelyGlass` in `ios/App/Theme.swift`, `.glass` in `src/index.css`
+- Type is Curvely Sans (`brand/fonts`, built by `scripts/gen_font.py`), an exception to the system-font rule because Joshua asked for it
 - Mobile-first responsive
 
 ## HTTP API + MCP
@@ -85,6 +86,10 @@ Apple-frozen, so the internal name stays even though the product is Curvely.
 
 AppIcon asset catalog at `ios/App/Assets.xcassets/AppIcon.appiconset` (1024×1024, flattened from
 `icon.svg`), plus the ten `mac_*.png` idiom sizes, macOS gets no icon from a universal 1024 alone.
+
+## Landing
+
+`landing/` (index.html, landing.css, landing.js, footer-band.js, art/, fonts/), after the Hermes landing: halftone Apollo (Lafreri engraving, Met, CC0) dithered with `dither.py` logic, curves drawn in JS, the real app in an iframe on the blue stage. `npm run build` copies it over `dist/`. QA: `node scripts/qa-web.mjs` against `python3 -m http.server 4173 -d dist`.
 
 ## Key files
 

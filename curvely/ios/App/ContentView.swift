@@ -49,8 +49,14 @@ struct ContentView: View {
                             sidebar.containerRelativeFrame(.vertical) { height, _ in height * 0.34 }
                         }
                     }
+                    .curvelyGlass(in: RoundedRectangle(cornerRadius: 28))
+                    .padding(8)
                 } else {
-                    sidebar.frame(width: 320)
+                    sidebar
+                        .frame(width: 320)
+                        .curvelyGlass(in: RoundedRectangle(cornerRadius: 28))
+                        .padding(12)
+                        .frame(maxHeight: .infinity, alignment: .top)
                 }
             }
     }
@@ -60,7 +66,6 @@ struct ContentView: View {
             EquationListView(equations: $equations, onChange: persist)
                 .padding(16)
         }
-        .background(.ultraThinMaterial)
     }
 
     private var panelHandle: some View {
@@ -74,7 +79,6 @@ struct ContentView: View {
                 .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .background(.ultraThinMaterial)
         .accessibilityLabel(panelCollapsed ? "Show equations" : "Hide equations")
     }
 
@@ -84,14 +88,14 @@ struct ContentView: View {
         Button(action: exportGraph) {
             Image(systemName: "square.and.arrow.up")
                 .foregroundStyle(Theme.text)
-                .frame(width: 36, height: 36)
-                .background(.ultraThinMaterial, in: Circle())
+                .frame(width: 44, height: 44)
+                .curvelyGlass(in: Circle())
                 .contentShape(Circle())
         }
         .buttonStyle(.plain)
         .accessibilityLabel("Export graph as an image")
         // Clear the 320pt sidebar on iPad and Mac, or it lands on row one's remove button.
-        .padding(.trailing, horizontalSizeClass == .compact ? 0 : 320)
+        .padding(.trailing, horizontalSizeClass == .compact ? 0 : 344)
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
     }

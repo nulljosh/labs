@@ -9,8 +9,9 @@
 // fence around mathjs — this endpoint is public and compiles caller-supplied source.
 
 import { callTool, ToolError, TOOLS } from '../src/lib/tools.js';
+import pkg from '../package.json';
 
-const VERSION = '1.2.2';
+const VERSION = pkg.version;
 
 const CORS = {
   'access-control-allow-origin': '*',

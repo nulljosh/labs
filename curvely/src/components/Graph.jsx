@@ -1,14 +1,9 @@
 import { useRef, useEffect, useCallback, useState } from 'react';
 import { isAsymptoteJump } from '../utils/evaluate.js';
 
+// Dark only, same values as ios/App/Theme.swift.
 function graphColors() {
-  const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  return {
-    grid: dark ? 'rgba(232,232,240,0.07)' : 'rgba(37,42,73,0.07)',
-    axis: dark ? 'rgba(232,232,240,0.3)' : 'rgba(37,42,73,0.3)',
-    label: dark ? 'rgba(232,232,240,0.5)' : 'rgba(37,42,73,0.5)',
-    bg: dark ? '#0d0c0b' : '#faf7f4',
-  };
+  return { grid: 'rgba(232,232,240,0.07)', axis: 'rgba(232,232,240,0.3)', label: 'rgba(232,232,240,0.5)', bg: '#0d0c0b' };
 }
 
 const MIN_SCALE = 10;
@@ -96,7 +91,7 @@ export default function Graph({ equations, sliders }) {
 
     // axis labels
     ctx.fillStyle = colors.label;
-    ctx.font = '11px -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, system-ui, sans-serif';
+    ctx.font = '11px "Curvely Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, system-ui, sans-serif';
     ctx.textAlign = 'center';
     const labelStep = Math.round(Math.max(1, 80 / scale));
     for (let x = startX; x < W; x += step) {
@@ -154,7 +149,7 @@ export default function Graph({ equations, sliders }) {
       ctx.stroke();
 
       const label = `(${trace.x.toFixed(2)}, ${trace.y.toFixed(2)})`;
-      ctx.font = '12px -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, system-ui, sans-serif';
+      ctx.font = '12px "Curvely Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, system-ui, sans-serif';
       const tw = ctx.measureText(label).width;
       const lx = Math.min(Math.max(trace.px + 10, 4), W - tw - 12);
       const ly = trace.py > 24 ? trace.py - 12 : trace.py + 22;
@@ -186,15 +181,6 @@ export default function Graph({ equations, sliders }) {
   }, [draw]);
 
   useEffect(() => { draw(); }, [draw]);
-
-  // graphColors() reads prefers-color-scheme at draw time, but nothing triggered
-  // a draw when the system appearance changed -- the graph kept the old
-  // background until a pan/zoom/resize happened to force one.
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-color-scheme: dark)');
-    mq.addEventListener('change', draw);
-    return () => mq.removeEventListener('change', draw);
-  }, [draw]);
 
   // zoom keeping the graph point under (px,py) fixed on screen
   const zoomAbout = useCallback((factor, px, py) => {
