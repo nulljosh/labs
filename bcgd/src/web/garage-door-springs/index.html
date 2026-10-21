@@ -697,6 +697,23 @@
             line-height: 1.4;
         }
 
+        /* Five benefit cards: three on the top row, two centred on the bottom row */
+        .benefits-grid {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+
+        .benefits-grid .value-card {
+            grid-column: span 2;
+        }
+
+        .benefits-grid .value-card:nth-child(n+4) {
+            grid-column: span 3;
+        }
+
         /* ========== SERVICES ========== */
         .services-grid {
             display: grid;
@@ -2074,6 +2091,15 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid .value-card,
+            .benefits-grid .value-card:nth-child(n+4) {
+                grid-column: auto;
+            }
+
             .services-grid {
                 grid-template-columns: 1fr;
             }
@@ -2167,7 +2193,8 @@
                 font-size: 30px;
             }
 
-            .values-grid {
+            .values-grid,
+            .benefits-grid {
                 grid-template-columns: 1fr;
             }
 
