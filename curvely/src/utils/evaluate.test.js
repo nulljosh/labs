@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { evaluate, isAsymptoteJump, parseSlider, isImplicit, splitPair } from './evaluate.js';
+import { evaluate, isAsymptoteJump, parseSlider, isImplicit, splitPair, splitInequality } from './evaluate.js';
 
 describe('evaluate', () => {
   it('returns null fn for empty string', () => {
@@ -184,5 +184,25 @@ describe('points, parametric and polar', () => {
   });
   it('(x+1)*(x-1) still graphs as y = f(x)', () => {
     expect(evaluate('(x+1)*(x-1)').fn(2, {})).toBe(3);
+  });
+});
+
+describe('inequalities', () => {
+  it('y > x^2 is positive above the parabola', () => {
+    const { implicitFn, inequality } = evaluate('y > x^2');
+    expect(inequality).toEqual({ sign: 1, strict: true });
+    expect(implicitFn(0, 1, {}) * inequality.sign).toBeGreaterThan(0);
+    expect(implicitFn(0, -1, {}) * inequality.sign).toBeLessThan(0);
+  });
+  it('x^2+y^2 <= 4 is a filled disc with a solid edge', () => {
+    const { implicitFn, inequality } = evaluate('x^2+y^2 <= 4');
+    expect(inequality).toEqual({ sign: -1, strict: false });
+    expect(implicitFn(0, 0, {}) * inequality.sign).toBeGreaterThan(0);
+  });
+  it('y >= x is not mistaken for an implicit equation', () => {
+    expect(evaluate('y >= x').inequality).toBeTruthy();
+  });
+  it('two comparisons are not an inequality', () => {
+    expect(splitInequality('0 < x < 1')).toBeNull();
   });
 });

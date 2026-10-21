@@ -207,4 +207,15 @@ check(keyPoints([({ 1 / $0 }, 0)], xMin: -5, xMax: 5).isEmpty, "1/x has no key p
 let tangent = keyPoints([({ tan($0) }, 0)], xMin: -2, xMax: 2)
 check(tangent.count == 1 && hasPoint(tangent, 0, 0), "tan keeps its root, drops its asymptotes")
 
+
+// MARK: - inequalities
+
+let above = compileExpression("y > x^2")
+check(above.inequality?.sign == 1 && above.inequality?.strict == true, "y > x^2 is strict, shades above")
+check((above.implicitFunction?(0, 1, [:]) ?? 0) > 0, "(0, 1) is inside y > x^2")
+let disc = compileExpression("x^2+y^2 <= 4")
+check(disc.inequality?.sign == -1 && disc.inequality?.strict == false, "<= shades inside with a solid edge")
+check(compileExpression("y >= x").inequality != nil, "y >= x is not an implicit equation")
+check(splitInequality("0 < x < 1") == nil, "two comparisons are not an inequality")
+
 print("ok — \(checks) checks passed")

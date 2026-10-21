@@ -1,11 +1,23 @@
 # Changelog
 
-## [v1.2.6] — 2026-10-21
+## [v2.0.0] — 2026-10-21
 
+1.2.6 never reached the store; it was pulled from review and folded into 2.0.0.
+
+- Light mode: web, iOS and macOS follow the system appearance
+- Points: `(1, 2)`, and `(a, a^2)` moves with a slider
+- Parametric curves: `(cos(t), sin(t))`, t from 0 to 2 pi
+- Polar curves: `r = 1 + cos(theta)`
+- Inequalities: `y > x^2`, `x^2+y^2 <= 4` shade their region; a strict edge is drawn thin and faded
+- Key points: roots, extrema and intersections as small dots, hover (web, Mac) or tap (iOS) to read them
+- Tap a curve's colour dot to hide or show it
+- Sliders on iOS and macOS (`a = 3`), dragging rewrites the row like Desmos
+- New quick examples that show all of the above
+- New icon: a sine wave with one plotted point, rebuilt as an Icon Composer bundle
 - New icon: a sine wave with one plotted point, rebuilt as an Icon Composer bundle
 - Liquid Glass everywhere: floating glass panels on the web app, iOS and macOS (`glassEffect` on iOS 26 and macOS 26, a material before that), 48 point capsule controls
 - Curvely Sans, a renamed Inter whose quote marks are drawn as waves (`scripts/gen_font.py`), in the web app, the iOS and macOS apps and the landing
-- Web app is dark only with the blue brand accent and local tokens, no longer waiting on another site's stylesheet
+- Blue brand accent and local tokens, no longer waiting on another site's stylesheet
 - Landing rebuilt after Hermes: halftone Apollo header lit by the pointer, the live app on a blue stage, glass nav and cards
 - MCP `serverInfo.version` now reads package.json
 

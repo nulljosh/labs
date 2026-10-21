@@ -112,7 +112,7 @@ export default function Graph({ equations, sliders }) {
     }
 
     // curves
-    equations.forEach(({ fn, implicitFn, paramFn, pointFn, color }) => {
+    equations.forEach(({ fn, implicitFn, inequality, paramFn, pointFn, color }) => {
       if (pointFn) {
         let p;
         try { p = pointFn(sliders); } catch { return; }
@@ -162,8 +162,24 @@ export default function Graph({ equations, sliders }) {
         }
         ctx.stroke();
       } else if (implicitFn) {
+        if (inequality) {
+          // ponytail: shade on a coarse grid, cheap enough to redraw while panning
+          const CELL = 6;
+          ctx.fillStyle = color;
+          ctx.globalAlpha = 0.18;
+          for (let py = 0; py < H; py += CELL) {
+            for (let px = 0; px < W; px += CELL) {
+              let v;
+              try { v = implicitFn((px + CELL / 2 - cx) / scale, (cy - py - CELL / 2) / scale, sliders); } catch { continue; }
+              if (inequality.sign * v > 0) ctx.fillRect(px, py, CELL, CELL);
+            }
+          }
+          // The edge is many tiny segments, so a dash pattern restarts on each and never shows.
+          // A strict edge (not part of the region) is drawn thin and faded instead.
+          ctx.globalAlpha = inequality.strict ? 0.55 : 1;
+        }
         ctx.strokeStyle = color;
-        ctx.lineWidth = 2.2;
+        ctx.lineWidth = inequality?.strict ? 1.5 : 2.2;
         ctx.lineJoin = 'round';
         ctx.beginPath();
         for (const [[ax, ay], [bx, by]] of traceImplicit(implicitFn, W, H, cx, cy, scale, sliders)) {
@@ -171,6 +187,7 @@ export default function Graph({ equations, sliders }) {
           ctx.lineTo(bx, by);
         }
         ctx.stroke();
+        ctx.globalAlpha = 1;
       }
     });
 

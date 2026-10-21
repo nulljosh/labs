@@ -286,6 +286,8 @@ struct CompiledExpression {
     var point: ((Vars) -> (Double, Double))? = nil
     /// `(cos(t), sin(t))` or `r = 1 + cos(theta)`, sampled over t in [0, tMax].
     var parametric: ((Double, Vars) -> (Double, Double))? = nil
+    /// `y > x^2`: shade where sign * implicitFunction > 0, dashed edge when strict.
+    var inequality: (sign: Double, strict: Bool)? = nil
     /// `a = 3`: a slider row, draws nothing itself.
     var slider: (name: String, value: Double)? = nil
     let error: String?
@@ -303,6 +305,14 @@ func parseSlider(_ raw: String) -> (name: String, value: Double)? {
           let value = Double(match.2) else { return nil }
     let name = String(match.1).lowercased()
     return reservedNames.contains(name) ? nil : (name, value)
+}
+
+/// `y > x^2`, `x^2+y^2 <= 4`: exactly one comparison, mirroring splitInequality on the web.
+func splitInequality(_ raw: String) -> (lhs: String, rhs: String, sign: Double, strict: Bool)? {
+    guard let m = raw.wholeMatch(of: #/([^<>=]+)(<=|>=|<|>)([^<>=]+)/#) else { return nil }
+    let op = String(m.2)
+    return (String(m.1).trimmingCharacters(in: .whitespaces), String(m.3).trimmingCharacters(in: .whitespaces),
+            op.hasPrefix(">") ? 1 : -1, op.count == 1)
 }
 
 /// `(a, b)`: the outer parens wrap the whole input and hold exactly one top-level comma.
@@ -344,6 +354,16 @@ func compileExpression(_ raw: String) -> CompiledExpression {
     }
 
     do {
+        if let ineq = splitInequality(trimmed) {
+            let lhs = try compileSide(ineq.lhs)
+            let rhs = try compileSide(ineq.rhs)
+            let g: (Double, Double, Vars) -> Double = { x, y, vars in
+                let scope = Scope(x: x, y: y, vars: vars)
+                return evaluate(lhs, scope) - evaluate(rhs, scope)
+            }
+            return CompiledExpression(function: nil, implicitFunction: g,
+                                      inequality: (ineq.sign, ineq.strict), error: nil)
+        }
         if let match = trimmed.range(of: #"^r\s*=\s*"#, options: [.regularExpression, .caseInsensitive]) {
             let r = try compileSide(String(trimmed[match.upperBound...]))
             let polar: (Double, Vars) -> (Double, Double) = { t, vars in

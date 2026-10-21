@@ -258,15 +258,38 @@ struct GraphView: View {
                     style: StrokeStyle(lineWidth: 2.2, lineCap: .round, lineJoin: .round)
                 )
             } else if let implicitFn = equation.compiled.implicitFunction {
+                let inequality = equation.compiled.inequality
+                if let inequality {
+                    // ponytail: shade on a coarse grid, cheap enough to redraw while panning
+                    let cell = 6.0
+                    var region = Path()
+                    var py = 0.0
+                    while py < size.height {
+                        var px = 0.0
+                        while px < size.width {
+                            let x = (px + cell / 2 - center.x) / transform.scale
+                            let y = (center.y - py - cell / 2) / transform.scale
+                            if inequality.sign * implicitFn(x, y, vars) > 0 {
+                                region.addRect(CGRect(x: px, y: py, width: cell, height: cell))
+                            }
+                            px += cell
+                        }
+                        py += cell
+                    }
+                    context.fill(region, with: .color(equation.color.opacity(0.18)))
+                }
                 var path = Path()
                 for segment in traceImplicit({ implicitFn($0, $1, vars) }, size: size, center: center, scale: transform.scale) {
                     path.move(to: segment.0)
                     path.addLine(to: segment.1)
                 }
+                // The edge is many tiny segments, so a dash would restart on each and never show.
+                // A strict edge (not part of the region) is drawn thin and faded instead.
+                let strict = inequality?.strict == true
                 context.stroke(
                     path,
-                    with: .color(equation.color),
-                    style: StrokeStyle(lineWidth: 2.2, lineCap: .round, lineJoin: .round)
+                    with: .color(equation.color.opacity(strict ? 0.55 : 1)),
+                    style: StrokeStyle(lineWidth: strict ? 1.5 : 2.2, lineCap: .round, lineJoin: .round)
                 )
             }
         }

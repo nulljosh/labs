@@ -28,7 +28,7 @@ await click('.dot-btn'); await sleep(400); const hiddenPx = await curvePx(); ok(
 await click('.dot-btn'); await sleep(400); ok('dot shows it again', await curvePx() === settled);
 ok('key points drawn', await ev(`(()=>{const c=document.querySelector('canvas');const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let n=0;for(let i=0;i<d.length;i+=4){const g=d[i];if(Math.abs(d[i]-d[i+1])<8&&Math.abs(d[i]-d[i+2])<8&&g>60&&g<200)n++}return n})()`) > 0);
 await click('.add-btn'); await sleep(100); ok('add equation -> 3 rows', await count('.eq-input') === 3);
-await click('.chip', 'cos(x)'); await sleep(100); ok('quick example chip adds a row', await count('.eq-input') === 4 && await ev(`document.querySelectorAll('.eq-input')[3].value`) === 'cos(x)');
+await click('.chip', 'y > x^2'); await sleep(100); ok('quick example chip adds a row', await count('.eq-input') === 4 && await ev(`document.querySelectorAll('.eq-input')[3].value`) === 'y > x^2');
 await type(2, 'a=3'); await sleep(200); ok('a=3 makes a slider', await count('input[type=range]') === 1);
 await type(2, 'x^2+y^2=4'); await sleep(700); ok('implicit circle has no error', await count('.eq-input.bad') === 0);
 await type(2, 'sin('); await sleep(900); ok('invalid expression flagged', await count('.eq-input.bad') === 1);

@@ -31,4 +31,4 @@ let defaultEquations: [Equation] = [
     Equation(source: "sin(x)", colorIndex: 1),
 ]
 
-let quickExamples = ["x^2", "sin(x)", "cos(x)", "2*x+1", "sqrt(abs(x))", "tan(x)", "1/x", "x^3-x"]
+let quickExamples = ["x^2", "sin(x)", "x^3-x", "x^2+y^2=4", "y > x^2", "r = 1+cos(theta)", "(cos(t), sin(t))", "(1, 2)"]

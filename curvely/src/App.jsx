@@ -99,7 +99,7 @@ export default function App() {
 
           <div className="glass-card" style={{ marginTop: 12 }}>
             <div className="card-title">Quick examples</div>
-            {['x^2', 'sin(x)', 'cos(x)', '2*x+1', 'sqrt(abs(x))', 'tan(x)', '1/x', 'x^3-x'].map((ex) => (
+            {['x^2', 'sin(x)', 'x^3-x', 'x^2+y^2=4', 'y > x^2', 'r = 1+cos(theta)', '(cos(t), sin(t))', '(1, 2)'].map((ex) => (
               <button key={ex} className="chip" onClick={() => handleAdd(ex)}>{ex}</button>
             ))}
           </div>

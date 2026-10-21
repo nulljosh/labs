@@ -5,7 +5,7 @@ Each item lands on web, iOS and Mac together. Submit 2.0.0 once all are in and 1
 - [x] Tap a curve's dot to hide or show it (persists on native).
 - [x] Points: `(1, 2)` plots a dot, `(a, a^2)` follows sliders. Native also got sliders, which it never had (dragging rewrites the row's text, like Desmos).
 - [x] Key points: roots, extrema and intersections as small dots; hover (web, Mac) or tap (iOS) to read the coordinates.
-- [ ] Inequalities: `y > x^2`, `x^2+y^2 < 4` shade their region.
+- [x] Inequalities: `y > x^2`, `x^2+y^2 < 4` shade their region (strict edge thin and faded).
 - [x] Polar: `r = 1 + cos(theta)`, theta 0 to 2 pi.
 - [x] Parametric: `(cos(t), sin(t))` over t in 0 to 2 pi.
 

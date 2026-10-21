@@ -48,10 +48,31 @@ const usesT = (node) => node.filter((n) => n.isSymbolNode && n.name === 't').len
 // ponytail: fixed domain, a per-row range like Desmos's can come later.
 export const T_MAX = Math.PI * 2;
 
+// `y > x^2`, `x^2+y^2 <= 4`: exactly one comparison, nothing else on either side.
+export function splitInequality(expr) {
+  const m = expr.match(/^([^<>=]+)(<=|>=|<|>)([^<>=]+)$/);
+  if (!m) return null;
+  return { lhs: m[1].trim(), rhs: m[3].trim(), sign: m[2][0] === '>' ? 1 : -1, strict: m[2].length === 1 };
+}
+
 export function evaluate(expr) {
   if (parseSlider(expr)) return { fn: null, implicitFn: null, error: null };
   const cleaned = expr.trim();
   if (!cleaned) return { fn: null, implicitFn: null, error: null };
+
+  const ineq = splitInequality(cleaned);
+  if (ineq) {
+    try {
+      const lc = parse(ineq.lhs).compile();
+      const rc = parse(ineq.rhs).compile();
+      // region where sign * implicitFn > 0, edge where it is 0
+      const implicitFn = (x, y, sliders) =>
+        lc.evaluate({ x, y, ...sliders }) - rc.evaluate({ x, y, ...sliders });
+      return { fn: null, implicitFn, inequality: { sign: ineq.sign, strict: ineq.strict }, error: null };
+    } catch (e) {
+      return { fn: null, implicitFn: null, error: e.message };
+    }
+  }
 
   const polar = cleaned.match(/^r\s*=\s*(.+)$/i);
   if (polar) {
