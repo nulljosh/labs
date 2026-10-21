@@ -2,6 +2,24 @@
 
 > Priority tier 4 (2026-10-17): portfolio and meta. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
 
+## 2026-10-21, make src/web look like bcgaragedoors.ca (paused at 95% weekly usage, nothing edited yet)
+
+Goal: homepage matches the source, then tag 4.0.0. After that: refresh brand kit and design system, make the site reflect it, then build out the Doorstock apps.
+
+Done: compared both sites. Same teal and fonts (#1B5959, #134040, #3A3E40, #8DA6A6, #F2F2F2, Barlow Condensed + Open Sans). Source photos are already in `src/web/img` (planks-carbon-oak, img-8, img-15, img-24, bestchoice, banner-bg, walnut and cedar planks, langley-subd, map-1, Liftmaster-1, google, yelp).
+
+Source section order and backgrounds:
+1. Charcoal utility bar (socials, call, book) over a sage nav bar: Home, Services, Service Areas, Tips, Reviews, Specials, Contact, About Us, Blogs
+2. Hero on planks-carbon-oak, slanted bottom, five bullets, call and book buttons
+3. Industry-Leading (sage card, teal offset frame, van photo img-15)
+4. Three Generations (deep teal, slanted top, YouTube LqybSgcnOAg with img-15 poster) on img-24
+5. Top-Rated Residential: 15 service cards, 4 columns, round teal icons (inline SVGs are in the source HTML)
+6. Wide-Ranging (img-8), Quality Parts (banner-bg, Liftmaster), Seamless Process (walnut planks), Practical Benefits (cedar planks), Why Homeowners (bestchoice.jpg), Trusted by Families, Serving areas (langley-subd, map-1), Schedule Service, FAQ, footer
+
+Cut from the current homepage, none of it is on the source: the booking-form hero, $ price ranges, "90 min", "Smart Scheduling", "intelligent phone system", real-time ETA, seamless payments. Keep the booking form but move it into Schedule Service so leads still reach the dashboard. Replace `--` in copy. Keep the `<style>`, `<!-- READING PROGRESS BAR -->`, `<!-- HERO` and `<!-- FOOTER -->` markers so `node build.js` still works, then `node --test`.
+
+Method that worked: headless Chrome on a copy of the source with `.elementor-invisible{visibility:visible!important;opacity:1!important}` injected, then crop slices. Deploy: `wrangler pages deploy` project `bcgd`. Stage only `bcgd/` paths, the labs repo has unrelated dotfiles changes.
+
 ## Marketing
 
 The Best Choice Garage Doors Instagram and Google work lives in `marketing/`. Its own queue is `marketing/roadmap.md`.
