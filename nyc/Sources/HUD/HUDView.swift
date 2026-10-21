@@ -166,6 +166,9 @@ struct HUDView: View {
                 SettingsView(gameState: gameState).allowsHitTesting(true)
             }
 
+            // First-launch controls card (once per device, after the tutorial)
+            ControlsHintView(gameState: gameState)
+
             // Tutorial overlay
             if gameState.tutorialStep != nil {
                 TutorialView(gameState: gameState).allowsHitTesting(true)
@@ -205,3 +208,82 @@ struct HUDView: View {
     }
 }
 
+
+/// One-time card that lists the controls after the tutorial ends (or is skipped).
+/// Shown once per device; "GOT IT" sets the flag. Matches docs/CONTROLS.md and the
+/// Settings list. Never shown during App Store screenshot runs (`-shot`).
+struct ControlsHintView: View {
+    @Bindable var gameState: GameState
+    @AppStorage("nyc-controls-hint-seen") private var seen = false
+
+    private static let isScreenshotRun = ProcessInfo.processInfo.arguments.contains("-shot")
+
+    private struct Row: Identifiable {
+        let key: String
+        let action: String
+        var id: String { key }
+    }
+
+    #if os(macOS)
+    private static let rows: [Row] = [
+        Row(key: "WASD / Arrows", action: "Pan camera"),
+        Row(key: "Scroll",        action: "Zoom in and out"),
+        Row(key: "Click",         action: "Select, place or demolish"),
+        Row(key: "B",             action: "Build menu"),
+        Row(key: "1-6",           action: "Pick a building"),
+        Row(key: "X",             action: "Demolish mode"),
+        Row(key: "Space",         action: "Pause or resume"),
+        Row(key: "Esc",           action: "Cancel, or open Settings"),
+    ]
+    #else
+    private static let rows: [Row] = [
+        Row(key: "Drag",          action: "Pan camera"),
+        Row(key: "Pinch",         action: "Zoom in and out"),
+        Row(key: "Tap",           action: "Select or place"),
+        Row(key: "Tap, then tile", action: "Move selected colonist"),
+    ]
+    #endif
+
+    private var visible: Bool {
+        !seen && gameState.tutorialStep == nil && !gameState.showSettings && !Self.isScreenshotRun
+    }
+
+    var body: some View {
+        if visible {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("CONTROLS")
+                    .font(.system(size: 11, weight: .bold))
+                    .foregroundStyle(Theme.yellow)
+
+                VStack(alignment: .leading, spacing: 6) {
+                    ForEach(Self.rows) { row in
+                        HStack(spacing: 0) {
+                            Text(row.key)
+                                .font(.system(size: 11, weight: .bold))
+                                .foregroundStyle(Theme.accent)
+                                .frame(width: 150, alignment: .leading)
+                            Text(row.action)
+                                .font(.system(size: 11))
+                                .foregroundStyle(Theme.text2)
+                        }
+                    }
+                }
+
+                HStack {
+                    Text("Full list in SETTINGS")
+                        .font(.system(size: 10))
+                        .foregroundStyle(Theme.text3)
+                    Spacer()
+                    GlassButton(label: "GOT IT", isPrimary: true) { seen = true }
+                }
+                .padding(.top, 4)
+            }
+            .padding(16)
+            .frame(width: 360)
+            .liquidGlass(in: RoundedRectangle(cornerRadius: Theme.radiusLg), fallback: .ultraThinMaterial)
+            .overlay(RoundedRectangle(cornerRadius: Theme.radiusLg).stroke(Theme.border, lineWidth: 1))
+            .padding(.bottom, 110)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        }
+    }
+}

@@ -270,9 +270,9 @@ improvement notes in App Review Information -> Notes.
       never wired into the app, see the no-autoplay rule below.
 - [ ] **Confirm autoplay is gone.** Re-verify the game never plays itself in a normal session;
       the directive engine was deleted 2026-07-02 and must not have crept back.
-- [ ] **Document the controls** in a markdown file, and surface them to the player when a new
+- [x] **Document the controls** in a markdown file, and surface them to the player when a new
       game starts (tutorial or first-run card), right now the controls aren't obvious once you
-      start, which is the top complaint. Markdown part done 2026-10-21 (`docs/CONTROLS.md`); in-game surfacing still open.
+      start, which is the top complaint. Done 2026-10-21: `docs/CONTROLS.md`, plus a one-time CONTROLS card after the tutorial (`Sources/HUD/ControlsHintView.swift`). macOS and iOS build, 30 SimTests pass.
 
 ## WebMCP + REST API rollout -- shipped 2026-08-27
 
