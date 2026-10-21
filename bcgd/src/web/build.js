@@ -61,7 +61,7 @@ function page({ path, title, description, h1, lead, signs, detail, jsonLd, relat
     <meta property="og:url" content="${SITE}${path}">
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
-    <meta property="og:image" content="${SITE}/img/truck.png">
+    <meta property="og:image" content="${SITE}/img/best-choice-garage-img-24.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,8 +119,8 @@ for (const s of services) {
   paths.push(path);
   write(s.slug, page({
     path,
-    title: `${s.name} in Langley & the Lower Mainland | BC Garage Doors`,
-    description: `${s.lead} Call (604) 240-0180 for ${s.name.toLowerCase()} in Langley, Surrey and across the Lower Mainland.`,
+    title: `${s.name} in Langley, BC | Best Choice`,
+    description: `${s.lead} Langley and the Lower Mainland. Call (604) 240-0180.`,
     h1: `${s.name} in Langley, BC`,
     lead: s.lead,
     signs: { heading: 'Signs you need this service', items: s.signs },
@@ -139,7 +139,7 @@ for (const s of services) {
       provider: {
         '@type': 'LocalBusiness',
         '@id': `${SITE}/#business`,
-        name: 'BC Garage Doors',
+        name: 'Best Choice Garage Doors',
         telephone: '+1-604-240-0180',
       },
     },
@@ -151,7 +151,7 @@ for (const a of areas) {
   paths.push(path);
   write(join('service-areas', a.slug), page({
     path,
-    title: `Garage Door Repair in ${a.name}, BC | BC Garage Doors`,
+    title: `Garage Door Repair in ${a.name}, BC | Best Choice`,
     description: `Family-owned garage door repair serving ${a.name}, BC. 30+ years, 24/7 emergency service, 4.9/5 from 128 reviews. Call (604) 240-0180.`,
     h1: `Garage Door Repair in ${a.name}, BC`,
     lead: a.blurb,
@@ -171,7 +171,7 @@ for (const a of areas) {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      name: 'BC Garage Doors',
+      name: 'Best Choice Garage Doors',
       '@id': `${SITE}/#business`,
       url: `${SITE}${path}`,
       telephone: '+1-604-240-0180',
@@ -200,7 +200,7 @@ for (const p of extraPages) {
 // paths return 200 with the homepage, which reads as a soft-404 to crawlers.
 writeFileSync(join(ROOT, '404.html'), page({
   path: '/404.html',
-  title: 'Page not found | BC Garage Doors',
+  title: 'Page not found | Best Choice Garage Doors',
   description: 'That page does not exist. Call (604) 240-0180 for garage door repair in Langley and the Lower Mainland.',
   h1: 'Page not found',
   lead: 'That page does not exist, but the door still needs fixing. Call us and we will sort it out.',
