@@ -1,33 +1,34 @@
-# Doorstock brand kit and design system
+# Best Choice and Doorstock brand kit
 
-a garage door
+One kit, two faces. Best Choice Garage Doors is the business, and the website wears its real look. Doorstock is the shop's stock app, and it keeps its own blue.
 
-## The mark
-One bold flat white glyph on an accent gradient tile. No text, no outline, no emblem.
+## Best Choice (the website)
+It matches bcgaragedoors.ca. Never swap in the portfolio look.
 
-- `../Doorstock.icon` is the source of truth (Icon Composer). Light and dark fills are set in it.
-- `../icon.svg` is the flat copy for READMEs (shown at 80 px). `icon-1024.png` is the App Store icon, no alpha.
-- `mark.svg` is the glyph alone in `currentColor` for your own background.
-- Clear space equal to the width of the glyph's thickest stroke. Smallest size 16 px.
+| Role | Token | Value |
+|---|---|---|
+| Brand, buttons, links | `--bc-teal` | `#1B5959` |
+| Headings, dark bands, footer | `--bc-deep` | `#134040` |
+| Body text, top bar, call button | `--bc-charcoal` | `#3A3E40` |
+| Nav bar, muted accents | `--bc-sage` | `#8DA6A6` |
+| Cards and light bands | `--bc-surface` | `#F2F2F2` |
 
-## Colour
-| Role | Value |
-|---|---|
-| Accent | `#1b4fc4` |
-| Gradient top | `#3a86ff` |
-| Text | `#1d1d1f` light, `#f5f5f7` dark |
-| Background | `#ffffff` light, `#000000` dark |
-| Surface | `#f5f5f7` light, `#1c1c1e` dark |
+Type: Barlow Condensed 700 for headings, in sentence case. Open Sans for everything else. Both load from Google Fonts.
 
-The accent is for actions, links and the icon. Never brown, beige, purple or teal.
+Parts:
+- Top bar: charcoal, white round social icons, a call capsule and a book capsule.
+- Nav: sage bar, uppercase Open Sans, the current page underlined in teal.
+- Buttons: 50 px capsules with a phone glyph. Call is charcoal, Book is teal.
+- Hero: dark wood photo, white heading, a slanted bottom edge.
+- Cards: surface grey, a deep teal line along the bottom, a round teal icon.
+- Copy: one headline and one short line per section. No prices, times or claims the business has not made.
 
-## Type
-The system font: `-apple-system, BlinkMacSystemFont, "SF Pro Text", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif`. Scale 34/41 bold, 22/28, 17/24, 15/20, 13/18.
+Photos come from the business's own site. The logo is the charcoal oval in `src/web/img/bcgd-logo.png`.
 
-## Space and shape
-- Space on the 8 point grid: 4, 8, 12, 16, 24, 32, 48. Side margin 20. Reading column 680.
-- Radii: cards 28, grouped lists 20, controls fully round, icon 22 percent.
-- Controls are 48 points tall capsules, one height in a row. Focus is a 4 point ring at 30 percent accent.
-- Motion is 0.2 s ease and honours reduced motion.
+## Doorstock (the apps)
+- `../Doorstock.icon` is the source of truth (Icon Composer). `../icon.svg` is the flat copy for READMEs.
+- Accent `#1b4fc4`, gradient top `#3a86ff`. System font. Text `#1d1d1f` light, `#f5f5f7` dark.
+- 8 point grid, cards 28 radius, grouped lists 20, 48 point capsule controls.
 
-`tokens.css` holds the app's accent. Everything else comes from the shared token file.
+## Files
+`tokens.css` holds both sets. `src/web/index.html` copies the `--bc-*` block into its `:root`, and `node --test` fails if they drift.

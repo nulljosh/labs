@@ -152,7 +152,7 @@ for (const a of areas) {
   write(join('service-areas', a.slug), page({
     path,
     title: `Garage Door Repair in ${a.name}, BC | Best Choice`,
-    description: `Family-owned garage door repair serving ${a.name}, BC. 30+ years, 24/7 emergency service, 4.9/5 from 128 reviews. Call (604) 240-0180.`,
+    description: `Family-owned garage door repair serving ${a.name}, BC. 30+ years, 24/7 emergency service, 4.9 stars from 217 reviews. Call (604) 240-0180.`,
     h1: `Garage Door Repair in ${a.name}, BC`,
     lead: a.blurb,
     signs: {
@@ -176,7 +176,7 @@ for (const a of areas) {
       url: `${SITE}${path}`,
       telephone: '+1-604-240-0180',
       areaServed: { '@type': 'City', name: a.name, containedInPlace: { '@type': 'AdministrativeArea', name: 'British Columbia' } },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '128' },
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '217' },
     },
   }));
 }

@@ -1,5 +1,16 @@
-/* Doorstock brand tokens. The accent is the only colour this app owns; spacing, radii and type come from the shared system. */
+/* Best Choice Garage Doors brand tokens.
+   --bc-* is the business (the website). It matches bcgaragedoors.ca's own palette.
+   --accent* is Doorstock, the stock app, which keeps its own blue.
+   src/web/index.html copies the --bc-* block into its :root; data.test.js checks they match. */
 :root {
+  --bc-teal: #1B5959;
+  --bc-deep: #134040;
+  --bc-charcoal: #3A3E40;
+  --bc-sage: #8DA6A6;
+  --bc-surface: #F2F2F2;
+  --bc-font-head: 'Barlow Condensed', sans-serif;
+  --bc-font-body: 'Open Sans', sans-serif;
+
   --accent: #1b4fc4;
   --accent-light: #3a86ff;
   --accent-deep: #1b4fc4;

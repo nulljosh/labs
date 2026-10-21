@@ -34,3 +34,14 @@ test('services list the symptoms the page renders', () => {
     assert.ok(Array.isArray(s.signs) && s.signs.length > 0, `"${s.name}" has no signs to list`);
   }
 });
+
+test('the site uses the brand kit colours', () => {
+  const fs = require('node:fs');
+  const tokens = fs.readFileSync(__dirname + '/../../brand/tokens.css', 'utf8');
+  const page = fs.readFileSync(__dirname + '/index.html', 'utf8');
+  const bc = [...tokens.matchAll(/(--bc-[a-z-]+):\s*([^;]+);/g)];
+  assert.ok(bc.length > 0, 'brand/tokens.css has no --bc-* tokens');
+  for (const [, name, value] of bc) {
+    assert.ok(page.includes(`${name}: ${value};`), `index.html is missing ${name}: ${value}`);
+  }
+});
