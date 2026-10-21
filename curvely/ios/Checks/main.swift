@@ -143,7 +143,7 @@ check(!f("1/x", 0).isFinite, "1/0 is not finite, so the renderer lifts the pen")
 check(f("sqrt(x)", -1).isNaN, "sqrt of a negative is NaN, not a crash")
 
 // Malformed input must report, never trap.
-for bad in ["(", ")", "x+", "*x", "sin", "sin x", "1+", "((x)", "x)", "foo(x)", "@", "3..5"] {
+for bad in ["(", ")", "x+", "*x", "sin", "sin x", "1+", "((x)", "x)", "@", "3..5"] {
     let result = compileExpression(bad)
     check(result.function == nil, "rejects \(bad)")
     check((result.error?.isEmpty == false), "reports an error for \(bad)")
@@ -217,5 +217,44 @@ let disc = compileExpression("x^2+y^2 <= 4")
 check(disc.inequality?.sign == -1 && disc.inequality?.strict == false, "<= shades inside with a solid edge")
 check(compileExpression("y >= x").inequality != nil, "y >= x is not an implicit equation")
 check(splitInequality("0 < x < 1") == nil, "two comparisons are not an inequality")
+
+
+// MARK: - functions, derivatives, piecewise, domain limits
+
+let defs = buildVars(["f(x) = x^3", "g(x) = f(x) + 1", "h(x) = h(x)"], values: [:])
+check(near(defs.functions["f"]?(2) ?? .nan, 8), "f(x) = x^3 defines f")
+check(near(defs.functions["g"]?(2) ?? .nan, 9), "g can call f")
+check(defs.functions["h"]?(1).isNaN == true, "h(x) = h(x) is NaN, not a crash")
+check(near(compileExpression("f(x) = x^3").function?(2, defs) ?? .nan, 8), "a definition row draws itself")
+check(near(compileExpression("f(x + 1)").function?(1, defs) ?? .nan, 8), "another row calls f")
+check(abs((compileExpression("f'(x)").function?(2, defs) ?? .nan) - 12) < 1e-4, "f'(x) is the derivative")
+check(abs((compileExpression("f''(x)").function?(2, defs) ?? .nan) - 12) < 0.1, "f''(x) is the second derivative")
+check(abs((compileExpression("d/dx(sin(x))").function?(0, [:]) ?? .nan) - 1) < 1e-6, "d/dx(sin(x)) at 0 is 1")
+let absPiece = compileExpression("{x < 0: -x, x}")
+check(absPiece.error == nil && near(absPiece.function?(-3, [:]) ?? .nan, 3) && near(absPiece.function?(2, [:]) ?? .nan, 2), "piecewise abs")
+check(compileExpression("{x > 0: 1}").function?(-1, [:]).isNaN == true, "piecewise with no else is NaN outside")
+let limited = compileExpression("x^2 {0 < x < 2}")
+check(near(limited.function?(1, [:]) ?? .nan, 1) && limited.function?(3, [:]).isNaN == true, "domain limit cuts the curve")
+check(!isImplicitEquation("{x <= 0: 1, 2}") && near(compileExpression("{x <= 0: 1, 2}").function?(0, [:]) ?? .nan, 1), "<= inside braces is not an equation")
+check(compileExpression("foo(x)").function?(1, [:]).isNaN == true, "an undefined function draws nothing")
+check(desugar("sin(x) + 1") == "sin(x) + 1", "desugar leaves plain input alone")
+
+
+// MARK: - lists.test.js
+
+check(parseListDef("L = [1, 2, 3]")?.items == [1, 2, 3], "L = [1, 2, 3] defines a list")
+check(parseListDef("n = [1...5]")?.items == [1, 2, 3, 4, 5], "[1...5] is a range")
+check(expandRow("L = [1, 2]", lists: [:]).binds.isEmpty, "a list definition draws nothing")
+let squares = expandRow("(L, L^2)", lists: ["l": [1, 2, 3]])
+check(squares.binds.count == 3, "(L, L^2) draws one copy per element")
+if let point = compileExpression(squares.source).point {
+    check(squares.binds.map { point(Vars().with($0)) }.map(\.1) == [1, 4, 9], "each copy is its own point")
+} else { check(false, "(L, L^2) compiles to a point") }
+let family = expandRow("sin(x) + [0, 1, 2]", lists: [:])
+check(family.source == "sin(x) + qlist0" && family.binds.count == 3, "a literal list makes a family of curves")
+let pointList = expandRow("[(1, 2), (3, 4)]", lists: [:])
+check(pointList.source == "(qlist0, qlist1)" && pointList.binds.count == 2, "a list of points becomes one point row")
+check(expandRow("x^2", lists: ["l": [1]]).binds.count == 1, "a row with no list is one plain copy")
+check(expandRow("lx + 1", lists: ["l": [1, 2]]).binds == [[:]], "a list name inside a longer word is not a use")
 
 print("ok — \(checks) checks passed")

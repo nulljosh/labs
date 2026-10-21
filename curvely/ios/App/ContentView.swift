@@ -37,7 +37,7 @@ struct ContentView: View {
         // The graph is the whole screen, edge to edge; the equation list floats over it
         // as glass instead of taking a slice of the layout away from the plot.
         let compact = horizontalSizeClass == .compact
-        GraphView(equations: equations.filter { !$0.hidden }, vars: sliderValues, transform: $transform)
+        GraphView(equations: drawn, vars: sliderValues, transform: $transform)
             .ignoresSafeArea()
             .overlay(alignment: compact ? .bottom : .trailing) {
                 if compact {
@@ -60,9 +60,26 @@ struct ContentView: View {
             }
     }
 
-    /// Every `a = 3` row, hidden or not: hiding a slider row must not break the curves using it.
+    /// The rows the graph draws: visible ones, with each list row expanded into one copy per element.
+    private var drawn: [Equation] {
+        let lists = Dictionary(equations.compactMap { parseListDef($0.source) }, uniquingKeysWith: { first, _ in first })
+        return equations.filter { !$0.hidden }.flatMap { equation -> [Equation] in
+            let (source, binds) = expandRow(equation.source, lists: lists)
+            if binds.count == 1, binds[0].isEmpty { return [equation] }
+            return binds.map { binding in
+                var copy = Equation(id: equation.id, source: source, colorIndex: equation.colorIndex)
+                copy.bindings = binding
+                return copy
+            }
+        }
+    }
+
+    /// Every `a = 3` and `f(x) = ...` row, hidden or not: hiding one must not break the curves using it.
     private var sliderValues: Vars {
-        Dictionary(equations.compactMap(\.compiled.slider), uniquingKeysWith: { first, _ in first })
+        buildVars(
+            equations.map(\.source),
+            values: Dictionary(equations.compactMap(\.compiled.slider), uniquingKeysWith: { first, _ in first })
+        )
     }
 
     private var sidebar: some View {
@@ -109,7 +126,7 @@ struct ContentView: View {
     /// ponytail: ImageRenderer over the same GraphView, one source of truth for what a
     /// curve looks like, rather than a second drawing path just for export.
     private func exportGraph() {
-        let snapshot = GraphView(equations: equations.filter { !$0.hidden }, vars: sliderValues, transform: .constant(transform))
+        let snapshot = GraphView(equations: drawn, vars: sliderValues, transform: .constant(transform))
             .frame(width: 1200, height: 900)
         let renderer = ImageRenderer(content: snapshot)
         renderer.scale = 2

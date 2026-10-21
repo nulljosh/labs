@@ -4,7 +4,7 @@
 // ponytail: tools call the same handlers the sidebar buttons call, so anything
 // an agent plots is a real equation in the list, not a parallel state.
 import { useEffect, useRef } from 'react';
-import { evaluate } from '../utils/evaluate.js';
+import { evaluateRow } from '../utils/lists.js';
 
 const EXPR = { type: 'string', description: 'Expression in x, e.g. "x^2", "sin(x)", "1/x"' };
 
@@ -31,7 +31,7 @@ function buildTools(get) {
         required: ['expr', 'xValues'],
       },
       execute: async ({ expr, xValues }) => {
-        const { fn, error } = evaluate(expr);
+        const { fn, error } = evaluateRow(expr);
         if (error || !fn) return { expr, error: error || 'Could not parse expression' };
         return {
           expr,
@@ -60,7 +60,7 @@ function buildTools(get) {
       },
       execute: async ({ id, expr }) => {
         get().changeEquation(id, expr);
-        return { id, expr, error: evaluate(expr).error ?? null };
+        return { id, expr, error: evaluateRow(expr).error ?? null };
       },
     },
     {

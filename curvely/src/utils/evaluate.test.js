@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { evaluate, isAsymptoteJump, parseSlider, isImplicit, splitPair, splitInequality } from './evaluate.js';
+import { evaluate, isAsymptoteJump, parseSlider, isImplicit, splitPair, splitInequality, buildScope, desugar } from './evaluate.js';
 
 describe('evaluate', () => {
   it('returns null fn for empty string', () => {
@@ -204,5 +204,47 @@ describe('inequalities', () => {
   });
   it('two comparisons are not an inequality', () => {
     expect(splitInequality('0 < x < 1')).toBeNull();
+  });
+});
+
+describe('functions, derivatives, piecewise, domain limits', () => {
+  const scopeFor = (...exprs) => buildScope(exprs, {});
+  it('f(x) = x^2 defines f and draws itself', () => {
+    const scope = scopeFor('f(x) = x^2');
+    expect(scope.f(3)).toBe(9);
+    expect(evaluate('f(x) = x^2').fn(3, scope)).toBe(9);
+  });
+  it('another row can call f', () => {
+    const scope = scopeFor('f(x) = x^2');
+    expect(evaluate('f(x + 1)').fn(2, scope)).toBe(9);
+  });
+  it("f'(x) is the derivative", () => {
+    const scope = scopeFor('f(x) = x^3');
+    expect(evaluate("f'(x)").fn(2, scope)).toBeCloseTo(12, 3);
+    expect(evaluate("f''(x)").fn(2, scope)).toBeCloseTo(12, 1);
+  });
+  it('d/dx(sin(x)) is cos(x)', () => {
+    expect(evaluate('d/dx(sin(x))').fn(0, {})).toBeCloseTo(1);
+  });
+  it('piecewise {x < 0: -x, x} is abs', () => {
+    const { fn, error } = evaluate('{x < 0: -x, x}');
+    expect(error).toBeNull();
+    expect(fn(-3, {})).toBe(3);
+    expect(fn(2, {})).toBe(2);
+  });
+  it('a piecewise with no else is undefined outside', () => {
+    expect(evaluate('{x > 0: 1}').fn(-1, {})).toBeNaN();
+  });
+  it('a domain limit cuts the curve', () => {
+    const { fn } = evaluate('x^2 {0 < x < 2}');
+    expect(fn(1, {})).toBe(1);
+    expect(fn(3, {})).toBeNaN();
+  });
+  it('a piecewise with <= is not an implicit equation or inequality', () => {
+    expect(isImplicit('{x <= 0: 1, 2}')).toBe(false);
+    expect(evaluate('{x <= 0: 1, 2}').fn(0, {})).toBe(1);
+  });
+  it('desugar leaves plain input alone', () => {
+    expect(desugar('sin(x) + 1')).toBe('sin(x) + 1');
   });
 });

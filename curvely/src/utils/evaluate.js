@@ -1,4 +1,4 @@
-import { parse } from 'mathjs';
+import { parse, derivative } from 'mathjs';
 
 // A vertical asymptote (tan(x), 1/x) yields two finite but huge values of opposite sign on
 // adjacent pixels. Joining them draws a false vertical line, so the stroke has to break.
@@ -20,8 +20,11 @@ export function parseSlider(expr) {
 
 // Any `=` not of the form `y = ...` is an implicit equation (x^2+y^2=1, x=3, ...):
 // solved as f(x,y)=lhs-rhs=0 by marching squares instead of walking y=f(x) per pixel.
+// Piecewise and domain-limit braces hold their own < and =, which say nothing about the row.
+const outsideBraces = (s) => s.replace(/\{[^{}]*\}/g, '');
+
 export function isImplicit(expr) {
-  const cleaned = expr.trim();
+  const cleaned = outsideBraces(expr.trim());
   return cleaned.includes('=') && !/^[yr]\s*=/i.test(cleaned) && !parseSlider(cleaned);
 }
 
@@ -50,9 +53,88 @@ export const T_MAX = Math.PI * 2;
 
 // `y > x^2`, `x^2+y^2 <= 4`: exactly one comparison, nothing else on either side.
 export function splitInequality(expr) {
+  if (expr.includes('{')) return null;
   const m = expr.match(/^([^<>=]+)(<=|>=|<|>)([^<>=]+)$/);
   if (!m) return null;
   return { lhs: m[1].trim(), rhs: m[3].trim(), sign: m[2][0] === '>' ? 1 : -1, strict: m[2].length === 1 };
+}
+
+// `f(x) = x^2` defines f for every other row, and draws itself as y = f(x).
+const FUNC_RE = /^([a-zA-Z]\w*)\(\s*([a-zA-Z]\w*)\s*\)\s*=\s*(.+)$/;
+
+export function parseFunctionDef(expr) {
+  const m = expr.trim().match(FUNC_RE);
+  if (!m || m[1] === 'y' || m[1] === 'r') return null;
+  return { name: m[1], param: m[2], body: m[3] };
+}
+
+// Split on commas that sit at bracket depth 0.
+function splitTop(s) {
+  const out = [];
+  let depth = 0;
+  let start = 0;
+  for (let i = 0; i < s.length; i++) {
+    if ('([{'.includes(s[i])) depth++;
+    else if (')]}'.includes(s[i])) depth--;
+    else if (s[i] === ',' && depth === 0) { out.push(s.slice(start, i)); start = i + 1; }
+  }
+  out.push(s.slice(start));
+  return out.map((p) => p.trim());
+}
+
+// Desmos syntax mathjs does not read, rewritten into syntax it does:
+//   x^2 {0 < x < 2}       ->  ((0 < x < 2) ? (x^2) : NaN)      domain limit
+//   {x < 0: -x, x}         ->  ((x < 0) ? (-x) : (x))           piecewise
+//   f'(x), f''(x)          ->  f__d1(x), f__d2(x)                derivative of a defined function
+//   d/dx(sin(x))           ->  cos(x)                            symbolic derivative
+export function desugar(expr) {
+  let s = expr.trim();
+  const limit = s.match(/^(.+?)\s*\{([^{}:]+)\}$/);
+  if (limit && !limit[1].trim().endsWith(',')) s = `((${limit[2]}) ? (${limit[1]}) : NaN)`;
+  for (let guard = 0; guard < 20; guard++) {
+    const open = s.search(/\{[^{}]*:[^{}]*\}/);
+    if (open === -1) break;
+    const close = s.indexOf('}', open);
+    const parts = splitTop(s.slice(open + 1, close));
+    let out = 'NaN';
+    for (let i = parts.length - 1; i >= 0; i--) {
+      const colon = parts[i].indexOf(':');
+      out = colon === -1 ? `(${parts[i]})` : `((${parts[i].slice(0, colon)}) ? (${parts[i].slice(colon + 1)}) : ${out})`;
+    }
+    s = s.slice(0, open) + `(${out})` + s.slice(close + 1);
+  }
+  s = s.replace(/([a-zA-Z]\w*)''\(/g, '$1__d2(').replace(/([a-zA-Z]\w*)'\(/g, '$1__d1(');
+  for (let guard = 0; guard < 20; guard++) {
+    const at = s.indexOf('d/dx(');
+    if (at === -1) break;
+    let depth = 0;
+    let end = at + 4;
+    for (; end < s.length; end++) {
+      if (s[end] === '(') depth++;
+      else if (s[end] === ')' && --depth === 0) break;
+    }
+    const inner = s.slice(at + 5, end);
+    s = s.slice(0, at) + `(${derivative(inner, 'x').toString()})` + s.slice(end + 1);
+  }
+  return s;
+}
+
+// The scope every row evaluates in: slider values plus the functions `f(x) = ...` rows define,
+// each with numeric first and second derivatives for f'(x) and f''(x).
+export function buildScope(exprs, sliderValues) {
+  const scope = { ...sliderValues };
+  const H = 1e-4;
+  for (const expr of exprs) {
+    const def = parseFunctionDef(expr);
+    if (!def) continue;
+    let body;
+    try { body = parse(desugar(def.body)).compile(); } catch { continue; }
+    const f = (v) => body.evaluate({ ...scope, [def.param]: v });
+    scope[def.name] = f;
+    scope[`${def.name}__d1`] = (v) => (f(v + H) - f(v - H)) / (2 * H);
+    scope[`${def.name}__d2`] = (v) => (f(v + H) - 2 * f(v) + f(v - H)) / (H * H);
+  }
+  return scope;
 }
 
 export function evaluate(expr) {
@@ -60,11 +142,21 @@ export function evaluate(expr) {
   const cleaned = expr.trim();
   if (!cleaned) return { fn: null, implicitFn: null, error: null };
 
+  const def = parseFunctionDef(cleaned);
+  if (def) {
+    try {
+      parse(desugar(def.body));
+      return { fn: (x, scope) => scope[def.name](x), implicitFn: null, error: null };
+    } catch (e) {
+      return { fn: null, implicitFn: null, error: e.message };
+    }
+  }
+
   const ineq = splitInequality(cleaned);
   if (ineq) {
     try {
-      const lc = parse(ineq.lhs).compile();
-      const rc = parse(ineq.rhs).compile();
+      const lc = parse(desugar(ineq.lhs)).compile();
+      const rc = parse(desugar(ineq.rhs)).compile();
       // region where sign * implicitFn > 0, edge where it is 0
       const implicitFn = (x, y, sliders) =>
         lc.evaluate({ x, y, ...sliders }) - rc.evaluate({ x, y, ...sliders });
@@ -77,7 +169,7 @@ export function evaluate(expr) {
   const polar = cleaned.match(/^r\s*=\s*(.+)$/i);
   if (polar) {
     try {
-      const rc = parse(polar[1]).compile();
+      const rc = parse(desugar(polar[1])).compile();
       const paramFn = (t, sliders) => {
         const r = rc.evaluate({ theta: t, t, ...sliders });
         return [r * Math.cos(t), r * Math.sin(t)];
@@ -91,7 +183,7 @@ export function evaluate(expr) {
   const pair = splitPair(cleaned);
   if (pair) {
     try {
-      const [xn, yn] = pair.map((p) => parse(p));
+      const [xn, yn] = pair.map((p) => parse(desugar(p)));
       const [xc, yc] = [xn.compile(), yn.compile()];
       if (usesT(xn) || usesT(yn)) {
         const paramFn = (t, sliders) => [xc.evaluate({ t, ...sliders }), yc.evaluate({ t, ...sliders })];
@@ -109,8 +201,8 @@ export function evaluate(expr) {
     const lhs = cleaned.slice(0, idx).trim();
     const rhs = cleaned.slice(idx + 1).trim();
     try {
-      const lc = parse(lhs).compile();
-      const rc = parse(rhs).compile();
+      const lc = parse(desugar(lhs)).compile();
+      const rc = parse(desugar(rhs)).compile();
       const implicitFn = (x, y, sliders) =>
         lc.evaluate({ x, y, ...sliders }) - rc.evaluate({ x, y, ...sliders });
       return { fn: null, implicitFn, error: null };
@@ -121,7 +213,7 @@ export function evaluate(expr) {
 
   const stripped = cleaned.replace(/^y\s*=\s*/i, '').trim();
   try {
-    const compiled = parse(stripped).compile();
+    const compiled = parse(desugar(stripped)).compile();
     return { fn: (x, sliders) => compiled.evaluate({ x, ...sliders }), implicitFn: null, error: null };
   } catch (e) {
     return { fn: null, implicitFn: null, error: e.message };

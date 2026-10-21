@@ -46,7 +46,7 @@ Native SwiftUI app in `ios/` (xcodegen), both destinations from one target via
 Guideline 5.6 notice cited quality/completeness, and the 150-line shell was the finding. No web
 assets are bundled any more; `npm run build:ios` is gone.
 
-- `App/Expression.swift`: recursive-descent parser replacing mathjs. Verified against real
+- `App/Expression.swift`: recursive-descent parser replacing mathjs. `App/Rows.swift` sorts a row into its kind and desugars Desmos shorthand, `App/Lists.swift` expands list rows, `App/KeyPoints.swift` finds roots, extrema and intersections. Verified against real
   mathjs across 3,636 sample points. One deliberate divergence: mathjs rejects `x(x+1)`
   ("x is not a function"), this reads it as multiplication, strictly more permissive, so
   nothing that graphs on the web fails here.
@@ -67,8 +67,8 @@ xcodebuild build -scheme Grapher-iOS -destination 'platform=macOS' \
   -derivedDataPath /tmp/dd-curvely-mac -skipPackagePluginValidation -allowProvisioningUpdates
 
 # parser self-check, no framework needed
-swiftc -o /tmp/curvecheck ios/App/Expression.swift ios/App/Palette.swift ios/App/PNG.swift \
-  ios/Checks/main.swift && /tmp/curvecheck
+swiftc -o /tmp/curvecheck ios/App/Expression.swift ios/App/Rows.swift ios/App/Lists.swift \
+  ios/App/KeyPoints.swift ios/App/Palette.swift ios/App/PNG.swift ios/Checks/main.swift && /tmp/curvecheck
 ```
 
 Native-only capabilities the web build cannot offer: equations persist across launches, and the

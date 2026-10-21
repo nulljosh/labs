@@ -7,13 +7,15 @@ struct Equation: Identifiable {
     var source: String
     var colorIndex: Int
     var hidden = false
+    /// Set on the copies a list row draws, `L` -> one element. Never persisted.
+    var bindings: [String: Double] = [:]
     private(set) var compiled: CompiledExpression
 
     init(id: UUID = UUID(), source: String, colorIndex: Int) {
         self.id = id
         self.source = source
         self.colorIndex = colorIndex
-        self.compiled = compileExpression(source)
+        self.compiled = compileRow(source)
     }
 
     var color: Color { Palette.color(at: colorIndex) }
@@ -21,8 +23,15 @@ struct Equation: Identifiable {
 
     mutating func update(source newSource: String) {
         source = newSource
-        compiled = compileExpression(newSource)
+        compiled = compileRow(newSource)
     }
+}
+
+/// A list definition is fine as is; a row holding list literals is checked in its rewritten
+/// form, which is what actually gets drawn. Mirrors evaluateRow in src/utils/lists.js.
+func compileRow(_ source: String) -> CompiledExpression {
+    if parseListDef(source) != nil { return CompiledExpression(function: nil, implicitFunction: nil, error: nil) }
+    return compileExpression(expandRow(source, lists: [:]).source)
 }
 
 /// The two curves the web app opens with (src/App.jsx INITIAL).

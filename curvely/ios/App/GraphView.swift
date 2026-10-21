@@ -204,6 +204,7 @@ struct GraphView: View {
 
     private func drawCurves(_ context: inout GraphicsContext, size: CGSize, center: CGPoint) {
         for equation in equations {
+            let vars = self.vars.with(equation.bindings)
             if let point = equation.compiled.point {
                 let (x, y) = point(vars)
                 guard x.isFinite, y.isFinite else { continue }
@@ -299,7 +300,10 @@ struct GraphView: View {
     /// probe gets its coordinates, like the web app's hover readout.
     private func drawKeyPoints(_ context: inout GraphicsContext, size: CGSize, center: CGPoint) {
         let curves = equations.compactMap { equation in
-            equation.compiled.function.map { fn in (fn: { fn($0, vars) }, colorIndex: equation.colorIndex) }
+            equation.compiled.function.map { fn in
+                let vars = self.vars.with(equation.bindings)
+                return (fn: { fn($0, vars) }, colorIndex: equation.colorIndex)
+            }
         }
         guard !curves.isEmpty else { return }
         let points = keyPoints(

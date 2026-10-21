@@ -1,5 +1,28 @@
 # Curvely Roadmap
 
+## v3 to v10 (Joshua's ask 2026-10-21: "loop to v5-10")
+One major version per real feature batch, each on web, iOS and Mac, submitted once the last one clears review. Order is a proposal, Joshua can reshuffle.
+- [x] v3 Functions: `f(x) = x^2` then `f(x+1)`, derivatives `f'(x)` and `d/dx`, piecewise `{x < 0: -x, x}`, domain limits `sin(x) {0 < x < 5}`. Built 2026-10-21 on web, iOS and Mac; web live, native ships as 3.0.0 after 2.0.0 clears review.
+- [x] v4 Lists: `L = [1, 2, 3]`, ranges `[1...10]`, `(L, L^2)` and `sin(x) + [0, 1, 2]` draw once per element, `[(1, 2), (2, 4)]` plots a point list. Built 2026-10-21 on all three. An editable table UI moves to v31-40.
+- v5 Sliders grown up: play button that animates, min/max/step per slider, slider for t and theta ranges.
+- v6 Saved graphs: a list of named graphs, a share link on web (state in the URL), iCloud sync on native.
+- v7 Look: per-row colour picker, line style (solid, dashed, points), labels on points.
+- v8 Statistics: regressions `y1 ~ m x1 + b` over a table, mean, median, stdev.
+- v9 Accessibility: audio trace (hear the curve, like Desmos), full VoiceOver graph description, larger type.
+- v10 Apple extras: widgets with a saved graph, Shortcuts action, Apple Pencil handwriting into a row.
+
+## v11 to v100 (Joshua 2026-10-21: "keep building out roadmap to v100, loop forever, ship every major")
+One major per batch, same rule as above: all three platforms, tests, live check, submitted when the last one clears. Ten versions per line, in order.
+- v11-20 Calculus: integrals with shaded area, tangent line at a point, Taylor polynomials on a slider, limits, slope fields, a solve row (`solve x^3 = 2`), sums and products, complex numbers, vectors as arrows, implicit derivatives.
+- v21-30 Geometry: segments, polygons, circles by centre and radius, angle readouts, translate/rotate/reflect, loci, compass constructions, distance readouts, polygon area, snapping.
+- v31-40 Data: CSV import, editable tables, histograms, box plots, scatter with trend, residual plots, normal and binomial distributions, random samples, t-tests, quantiles.
+- v41-50 3D: z = f(x, y) surfaces, orbit and zoom, parametric surfaces, contour plots, 3D vector fields, level sets, lighting, STL export, AR on iPhone, Vision Pro.
+- v51-60 Teaching: notes rows, folders, images on the plane, step-through animation, hide and reveal, presentation mode, classroom share codes, printable worksheets, LaTeX export, answer checking.
+- v61-70 Input: a math keyboard on iOS, Pencil handwriting, voice ("graph y equals x squared"), plain-English rows via an on-device model, LaTeX paste, photo of a textbook to rows, Siri, Spotlight, Shortcuts, Live Activities for animations.
+- v71-80 Cloud: jaybulb-api accounts, live collaboration, comments, version history, a public gallery, embeds for blogs, MCP tools for agents, user plugins, offline-first sync, PDF/SVG/video export.
+- v81-90 Engine and platforms: WebGPU rendering, interval-arithmetic plotting, adaptive sampling, million-point data, watchOS glance, tvOS presenting, Android via KMP, Windows and Linux PWA, the TUI grown up, Raycast extension.
+- v91-100 Finish: themes, an accessibility audit to AAA, 30 languages, onboarding tour, sonification v2, a scientific calculator mode, unit conversions, a finance mode, performance budget in CI, and a v100 retrospective on the landing.
+
 ## v2.0.0 (Desmos basics), started 2026-10-21
 Each item lands on web, iOS and Mac together. Submit 2.0.0 once all are in and 1.2.6 has cleared review.
 - [x] Tap a curve's dot to hide or show it (persists on native).
@@ -17,7 +40,7 @@ equation panel. 1.2.5 work is on main: collapsible panel, Mac scroll-wheel zoom,
 - [x] Support and privacy URLs moved to curvely.jaybulb.com 2026-10-21 (heyitsmejosh.com has lapsed).
 - [x] Light mode on web, iOS and Mac, follows the system setting. 2026-10-21
 
-- [ ] Verify iPad layout visually on simulator -- 2026-09-02. Code review found no
+- [x] Verify iPad layout visually on simulator -- 2026-09-02, done 2026-10-21 (iPad 13 inch shot for 1.2.6). Code review found no
   structural iPad issue: `ContentView` already branches on `horizontalSizeClass`
   (compact -> stacked, regular -> 320pt sidebar + graph `HStack`), and the one
   `.frame(maxWidth: 600)` found nearby is inside `ExportSheet`, bounding the exported PNG

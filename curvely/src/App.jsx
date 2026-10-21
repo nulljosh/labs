@@ -1,15 +1,15 @@
 import { useState, useCallback, useMemo } from 'react';
 import Graph from './components/Graph.jsx';
 import EquationList from './components/EquationList.jsx';
-import { evaluate, parseSlider } from './utils/evaluate.js';
+import { evaluate, parseSlider, buildScope } from './utils/evaluate.js';
 import { colorAt } from './utils/colors.js';
+import { parseListDef, expandRow, evaluateRow } from './utils/lists.js';
 import { useWebMCP } from './lib/webmcp.js';
 
 let nextId = 3;
 
 function makeEq(id, expr = '') {
-  const { fn, implicitFn, error } = evaluate(expr);
-  return { id, expr, fn, implicitFn, error, color: colorAt(id - 1) };
+  return { id, expr, ...evaluateRow(expr), color: colorAt(id - 1) };
 }
 
 const INITIAL = [
@@ -29,10 +29,31 @@ export default function App() {
     .filter(Boolean)
     .map((s) => ({ ...s, value: sliderValues[s.name] ?? s.value })), [equations, sliderValues]);
 
-  const sliderScope = useMemo(() =>
-    Object.fromEntries(sliders.map((s) => [s.name, s.value])), [sliders]);
+  const sliderScope = useMemo(() => buildScope(
+    equations.map((eq) => eq.expr),
+    Object.fromEntries(sliders.map((s) => [s.name, s.value])),
+  ), [equations, sliders]);
 
-  const curves = useMemo(() => equations.filter((eq) => !eq.hidden && !parseSlider(eq.expr)), [equations]);
+  // A row that uses a list draws once per element; each copy binds the list to one value.
+  // ponytail: the bound values are spread into the scope per evaluation, fine for lists of a few hundred.
+  const curves = useMemo(() => {
+    const lists = Object.fromEntries(equations.map((eq) => parseListDef(eq.expr)).filter(Boolean).map((l) => [l.name, l.items]));
+    const bind = (c, b) => ({
+      ...c,
+      fn: c.fn && ((x, s) => c.fn(x, { ...s, ...b })),
+      implicitFn: c.implicitFn && ((x, y, s) => c.implicitFn(x, y, { ...s, ...b })),
+      paramFn: c.paramFn && ((t, s) => c.paramFn(t, { ...s, ...b })),
+      pointFn: c.pointFn && ((s) => c.pointFn({ ...s, ...b })),
+    });
+    return equations
+      .filter((eq) => !eq.hidden && !parseSlider(eq.expr))
+      .flatMap((eq) => {
+        const { source, binds } = expandRow(eq.expr, lists);
+        if (binds.length === 1 && !Object.keys(binds[0]).length) return [eq];
+        const compiled = { ...eq, ...evaluate(source) };
+        return binds.map((b) => bind(compiled, b));
+      });
+  }, [equations]);
 
   const handleSliderChange = useCallback((name, value) => {
     setSliderValues((prev) => ({ ...prev, [name]: value }));
@@ -40,7 +61,7 @@ export default function App() {
 
   const handleChange = useCallback((id, expr) => {
     setEquations((prev) =>
-      prev.map((eq) => eq.id === id ? { ...eq, expr, ...evaluate(expr) } : eq)
+      prev.map((eq) => eq.id === id ? { ...eq, expr, fn: null, implicitFn: null, paramFn: null, pointFn: null, inequality: null, ...evaluateRow(expr) } : eq)
     );
   }, []);
 

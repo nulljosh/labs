@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import { evaluate, parseSlider } from '../utils/evaluate.js';
+import { parseSlider } from '../utils/evaluate.js';
+import { evaluateRow } from '../utils/lists.js';
 
 export default function EquationRow({ eq, slider, onChange, onRemove, onToggle, onSliderChange, showRemove }) {
   const [invalid, setInvalid] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => {
       try {
-        const { fn, error } = evaluate(eq.expr);
+        const { fn, error } = evaluateRow(eq.expr);
         setInvalid(fn === null && !!error);
       } catch {
         setInvalid(true);
