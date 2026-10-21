@@ -320,3 +320,6 @@ Two gotchas hit on the way, both worth remembering:
   - **Status: DRAFTED, NOT FILED.** Filing is Resolution Center, which is browser-only (`asc web review` is read-only). Blocked on Joshua. Reply order in the draft is Talli, Curvely, Doorstock; hold Sparkjar and NYC Survive.
   - Verified via API 2026-08-27: submission is UNRESOLVED_ISSUES with a single appStoreVersion item REJECTED, no phantom-IAP item, so the "mislabeled inAppPurchaseVersion" trap does not apply. `asc validate` and `asc review doctor` are otherwise clean, confirming this is a guideline call and not a readiness gap.
 - [ ] native (kmp) port — sibling apps have one, this doesn't (project-sync 2026-09-05)
+
+## Ingested 2026-10-21
+- [ ] Doorstock: what is it? Loop the roadmap to version 100. (Q: is this the bcgd garage-door site that ships as Doorstock, and should the loop run in this repo?)
