@@ -10,7 +10,7 @@
 @font-face { font-family: 'Choice Display'; src: url(/fonts/ChoiceDisplay-SemiBold.woff2) format('woff2'); font-weight: 500 600; font-display: swap; }
 @font-face { font-family: 'Choice Display'; src: url(/fonts/ChoiceDisplay-Bold.woff2) format('woff2'); font-weight: 700; font-display: swap; }
 :root {
-  --bc-teal: #1B5959; --bc-deep: #134040; --bc-charcoal: #3A3E40; --bc-sage: #8DA6A6; --bc-surface: #F2F2F2;
+  --bc-teal: #1B5959; --bc-deep: #134040; --bc-charcoal: #3A3E40; --bc-sage: #8DA6A6; --bc-surface: #F2F2F2; --bc-ink: #0E3030;
   --head: 'Choice Display', sans-serif; --body: 'Open Sans', sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,7 +22,7 @@ h2 { font-size: 36px; margin: 56px 0 20px; }
 .lead { font-size: 18px; margin-top: 8px; }
 .top { display: flex; align-items: center; gap: 24px; }
 .top img { height: 72px; }
-.swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
 .sw { border-radius: 12px; overflow: hidden; border: 1px solid rgba(0,0,0,.08); }
 .sw div { height: 120px; }
 .sw p { padding: 12px; font-size: 14px; }
@@ -42,7 +42,7 @@ h2 { font-size: 36px; margin: 56px 0 20px; }
 .call { background: var(--bc-charcoal); border-color: rgba(255,255,255,.35); }
 .book { background: var(--bc-teal); }
 .nav { display: flex; gap: 4px; background: var(--bc-sage); border-radius: 8px; overflow: hidden; }
-.nav span { padding: 18px 14px; font: 600 14px var(--body); text-transform: uppercase; color: var(--bc-deep); }
+.nav span { padding: 18px 14px; font: 600 14px var(--body); text-transform: uppercase; color: var(--bc-ink); }
 .nav .on { color: var(--bc-teal); box-shadow: inset 0 -4px 0 var(--bc-teal); }
 .card { text-align: center; background: var(--bc-surface); border-bottom: 2px solid var(--bc-deep); padding: 20px; max-width: 260px; }
 .ico { width: 72px; height: 72px; border-radius: 50%; background: var(--bc-teal); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; color: #fff; }
@@ -56,6 +56,11 @@ h2 { font-size: 36px; margin: 56px 0 20px; }
 .app .sw2 div { width: 56px; height: 56px; border-radius: 12px; }
 .rules { columns: 2; gap: 32px; }
 .rules li { margin: 0 0 8px 18px; }
+@media (max-width: 760px) {
+  .wrap { padding: 32px 20px; } h1 { font-size: 44px; } .top { flex-wrap: wrap; }
+  .swatches { grid-template-columns: repeat(2, 1fr); } .type, .parts { grid-template-columns: minmax(0, 1fr); }
+  .specimen { padding: 24px; } .specimen .big { font-size: 72px; } .nav { flex-wrap: wrap; } .rules { columns: 1; }
+}
 </style>
 </head>
 <body>
@@ -69,6 +74,7 @@ h2 { font-size: 36px; margin: 56px 0 20px; }
     <div class="sw"><div style="background:#3A3E40"></div><p><b>Charcoal</b>#3A3E40 · text, top bar</p></div>
     <div class="sw"><div style="background:#8DA6A6"></div><p><b>Sage</b>#8DA6A6 · nav, accents</p></div>
     <div class="sw"><div style="background:#F2F2F2"></div><p><b>Surface</b>#F2F2F2 · cards</p></div>
+    <div class="sw"><div style="background:#0E3030"></div><p><b>Ink</b>#0E3030 · text on sage</p></div>
   </div>
 
   <h2>Typeface</h2>

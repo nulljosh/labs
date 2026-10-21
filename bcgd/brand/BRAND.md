@@ -12,6 +12,7 @@ It matches bcgaragedoors.ca. Never swap in the portfolio look.
 | Body text, top bar, call button | `--bc-charcoal` | `#3A3E40` |
 | Nav bar, muted accents | `--bc-sage` | `#8DA6A6` |
 | Cards and light bands | `--bc-surface` | `#F2F2F2` |
+| Text on sage (nav, sage cards), 5.5:1 | `--bc-ink` | `#0E3030` |
 
 Type: **Choice Display** for headings, in sentence case, 700 (600 for subheads). It is our own cut of Barlow Condensed: renamed, tracking opened 16/1000 em for big headlines, numbers proportional, Latin only, about 15 KB per weight, self-hosted from `src/web/fonts/`. Rebuild it with `python brand/fonts/make.py` (needs fonttools and brotli). Licence: SIL OFL 1.1, in `brand/fonts/OFL.txt`. Open Sans for everything else, from Google Fonts.
 

@@ -806,6 +806,7 @@
         --bc-charcoal: #3A3E40;
         --bc-sage: #8DA6A6;
         --bc-surface: #F2F2F2;
+              --bc-ink: #0E3030;
         --bc-font-head: 'Choice Display', sans-serif;
         --bc-font-body: 'Open Sans', sans-serif;
             --sx-pad: 40px;
@@ -842,7 +843,7 @@
         .sx-nav { background: var(--bc-sage); border-bottom: 1px solid rgba(0,0,0,.15); }
         .sx-nav ul { list-style: none; display: flex; align-items: stretch; }
         .sx-nav li { position: relative; }
-        .sx-nav a { display: flex; align-items: center; gap: 10px; height: 80px; padding: 0 20px; font: 600 18px 'Open Sans', sans-serif; text-transform: uppercase; color: var(--bc-deep); text-decoration: none; }
+        .sx-nav a { display: flex; align-items: center; gap: 10px; height: 80px; padding: 0 20px; font: 600 18px 'Open Sans', sans-serif; text-transform: uppercase; color: var(--bc-ink); text-decoration: none; }
         .sx-nav a:hover { color: #fff; }
         .sx-nav a.is-active { color: var(--bc-teal); box-shadow: inset 0 -4px 0 var(--bc-teal); }
         .sx-caret { width: 10px; height: 6px; fill: currentColor; }
@@ -880,7 +881,7 @@
         .sx-lead-grid::before { content: ""; position: absolute; left: var(--sx-pad); right: var(--sx-pad); top: -25px; bottom: -25px; background: var(--bc-teal); clip-path: polygon(0 0, 50% 0, 50% 25px, 100% 25px, 100% 100%, 50% 100%, 50% calc(100% - 25px), 0 calc(100% - 25px)); }
         .sx-lead-card { position: relative; background: var(--bc-sage); margin-left: 25px; padding: 50px 40px; color: #fff; display: flex; flex-direction: column; justify-content: center; }
         .sx-lead-card h2 { color: var(--bc-deep); font-size: 48px; }
-        .sx-lead-card p { color: #fff; }
+        .sx-lead-card p { color: var(--bc-ink); }
         .sx-lead-photo { position: relative; margin-right: 25px; margin-top: 25px; }
         .sx-lead-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -1010,13 +1011,6 @@
 <!-- READING PROGRESS BAR -->
     <div class="progress-bar" id="progressBar"></div>
 
-    <!-- SVG SPRITE -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
-        <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-        </symbol>
-    </svg>
-
     <!-- TOP BRAND + NAV -->
     <header class="sx-header">
         <div class="sx-top"><div class="sx-wrap">
@@ -1090,7 +1084,7 @@
     <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
 
     <!-- STICKY MOBILE CALL -->
-    <div class="mobile-call-btn"><a href="tel:6042400180"><svg width="20" height="20"><use href="/#icon-phone"/></svg>CALL ANYTIME (604) 240-0180</a></div>
+    <div class="mobile-call-btn"><a href="tel:6042400180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>CALL ANYTIME (604) 240-0180</a></div>
 
     <script>
         // Click-to-load YouTube
