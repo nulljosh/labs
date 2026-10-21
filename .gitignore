@@ -44,3 +44,6 @@ roost/
 node_modules/
 .next/
 .env.local
+
+# curvely left labs on 2026-10-21, it is its own repo: nulljosh/curvely
+curvely/
