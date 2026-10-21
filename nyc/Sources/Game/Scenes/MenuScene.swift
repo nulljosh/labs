@@ -10,16 +10,14 @@ final class MenuScene: SKScene {
     var onNewGame: (() -> Void)?
     var onLoadGame: ((Int) -> Void)?
 
-    /// Soft rounded system face, falls back to Helvetica if the design is unavailable.
+    /// Plain San Francisco (the system face), the same as the HUD. Helvetica Neue if SpriteKit can't load it.
     private func chill(_ weight: ChillWeight = .semibold) -> String {
         #if os(macOS)
-        let base = NSFont.systemFont(ofSize: 24, weight: weight == .bold ? .bold : weight == .regular ? .regular : .semibold)
-        if let d = base.fontDescriptor.withDesign(.rounded), let f = NSFont(descriptor: d, size: 24) { return f.fontName }
+        let name = NSFont.systemFont(ofSize: 24, weight: weight == .bold ? .bold : weight == .regular ? .regular : .semibold).fontName
         #else
-        let base = UIFont.systemFont(ofSize: 24, weight: weight == .bold ? .bold : weight == .regular ? .regular : .semibold)
-        if let d = base.fontDescriptor.withDesign(.rounded) { return UIFont(descriptor: d, size: 24).fontName }
+        let name = UIFont.systemFont(ofSize: 24, weight: weight == .bold ? .bold : weight == .regular ? .regular : .semibold).fontName
         #endif
-        return "HelveticaNeue-Medium"
+        return name.isEmpty ? "HelveticaNeue-Medium" : name
     }
     private enum ChillWeight { case regular, semibold, bold }
 
