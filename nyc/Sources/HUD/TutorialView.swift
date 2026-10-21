@@ -26,7 +26,7 @@ struct TutorialView: View {
         case 6: ("COMMAND",    "Click a colonist (or drag a box around several). Click the ground to move them. Click a resource to gather it. Esc to deselect.", "Tap a colonist")
         case 7: ("UPKEEP",     "Every building burns materials. Let the pile hit zero and they break until you gather more.", "Tap to continue")
         case 8: ("RAIDS",      "Every third night scavengers rob the stockpile. Put a survivor on PATROL near your buildings and they turn back.", "Tap to continue")
-        case 9: ("GOOD LUCK",  "Tap PAUSE to pause. Tap SAVE to save. Good luck.",                                   "Tap to dismiss")
+        case 9: ("GOOD LUCK",  "Tap PAUSE to pause. Save from SETTINGS. Good luck.",                                   "Tap to dismiss")
         default: ("", "", "")
         }
     }
@@ -99,7 +99,9 @@ struct TutorialView: View {
         timerTask?.cancel()
         timerTask = Task { @MainActor in
             try? await Task.sleep(nanoseconds: 30_000_000_000)
-            guard !Task.isCancelled, gameState.tutorialStep != nil else { return }
+            // Reading steps move on by themselves; steps that wait for the player (pick a colonist,
+            // open BUILD, place a shelter) never skip ahead of them.
+            guard !Task.isCancelled, gameState.tutorialStep != nil, !isInteractiveStep else { return }
             advance()
         }
     }

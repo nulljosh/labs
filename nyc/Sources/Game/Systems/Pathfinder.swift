@@ -1,9 +1,11 @@
 import Foundation
-import GameplayKit
 
+/// Shortest walking route on the tile grid (4-way, every step costs the same), so a breadth-first
+/// search is exact. Replaced GKGridGraph on 2026-10-21: removing the ~10k wall nodes from a full grid
+/// graph is quadratic and froze New Game for about 7 seconds. A walkable bitmap builds in microseconds.
 @MainActor
 final class Pathfinder {
-    private var graph: GKGridGraph<GKGridGraphNode>?
+    private var walkable: [Bool] = []
     private let columns: Int
     private let rows: Int
 
@@ -12,66 +14,56 @@ final class Pathfinder {
         self.rows = rows
     }
 
-    func buildGraph(grid: [[TileType]]) {
-        graph = GKGridGraph(
-            fromGridStartingAt: vector_int2(0, 0),
-            width: Int32(columns),
-            height: Int32(rows),
-            diagonalsAllowed: false
-        )
-        guard let graph else { return }
+    private func index(_ col: Int, _ row: Int) -> Int? {
+        guard col >= 0, col < columns, row >= 0, row < rows else { return nil }
+        return row * columns + col
+    }
 
-        var wallNodes: [GKGridGraphNode] = []
-        for row in 0..<rows {
-            for col in 0..<columns {
-                if !grid[row][col].isWalkable {
-                    if let node = graph.node(atGridPosition: vector_int2(Int32(col), Int32(row))) {
-                        wallNodes.append(node)
-                    }
-                }
+    func buildGraph(grid: [[TileType]]) {
+        walkable = Array(repeating: false, count: columns * rows)
+        for row in 0..<min(rows, grid.count) {
+            for col in 0..<min(columns, grid[row].count) where grid[row][col].isWalkable {
+                walkable[row * columns + col] = true
             }
         }
-        graph.remove(wallNodes)
     }
 
     func removeNode(col: Int, row: Int) {
-        guard let graph else { return }
-        if let node = graph.node(atGridPosition: vector_int2(Int32(col), Int32(row))) {
-            graph.remove([node])
-        }
+        if let i = index(col, row), i < walkable.count { walkable[i] = false }
     }
 
     func addNode(col: Int, row: Int) {
-        guard let graph else { return }
-        let pos = vector_int2(Int32(col), Int32(row))
-        if graph.node(atGridPosition: pos) == nil {
-            let newNode = GKGridGraphNode(gridPosition: pos)
-            graph.add([newNode])
-            let neighbors = [
-                vector_int2(pos.x - 1, pos.y),
-                vector_int2(pos.x + 1, pos.y),
-                vector_int2(pos.x, pos.y - 1),
-                vector_int2(pos.x, pos.y + 1)
-            ]
-            for nPos in neighbors {
-                if let neighbor = graph.node(atGridPosition: nPos) {
-                    newNode.addConnections(to: [neighbor], bidirectional: true)
-                }
-            }
-        }
+        if let i = index(col, row), i < walkable.count { walkable[i] = true }
     }
 
+    /// Start to end inclusive, or empty when either end is blocked or unreachable.
     func findPath(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) -> [(col: Int, row: Int)] {
-        guard let graph else { return [] }
-        guard let startNode = graph.node(atGridPosition: vector_int2(Int32(fromCol), Int32(fromRow))),
-              let endNode = graph.node(atGridPosition: vector_int2(Int32(toCol), Int32(toRow))) else {
-            return []
+        guard let start = index(fromCol, fromRow), let end = index(toCol, toRow),
+              start < walkable.count, walkable[start], walkable[end] else { return [] }
+        if start == end { return [(fromCol, fromRow)] }
+        var cameFrom = Array(repeating: -1, count: walkable.count)
+        cameFrom[start] = start
+        var queue = [start]
+        var head = 0
+        search: while head < queue.count {
+            let cur = queue[head]; head += 1
+            let col = cur % columns, row = cur / columns
+            for (dc, dr) in [(1, 0), (-1, 0), (0, 1), (0, -1)] {
+                guard let next = index(col + dc, row + dr), walkable[next], cameFrom[next] == -1 else { continue }
+                cameFrom[next] = cur
+                if next == end { break search }
+                queue.append(next)
+            }
         }
-        let path = graph.findPath(from: startNode, to: endNode)
-        return path.compactMap { node -> (col: Int, row: Int)? in
-            guard let gridNode = node as? GKGridGraphNode else { return nil }
-            return (Int(gridNode.gridPosition.x), Int(gridNode.gridPosition.y))
+        guard cameFrom[end] != -1 else { return [] }
+        var path: [(col: Int, row: Int)] = []
+        var cur = end
+        while cur != start {
+            path.append((cur % columns, cur / columns))
+            cur = cameFrom[cur]
         }
+        path.append((fromCol, fromRow))
+        return path.reversed()
     }
 
     /// Path to the tile, or to a neighbour when the tile itself is blocked (nodes can sit on

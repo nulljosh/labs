@@ -97,6 +97,7 @@ struct HUDView: View {
                 }
                 .padding(24)
                 .liquidGlass(in: RoundedRectangle(cornerRadius: Theme.radiusLg), fallback: .ultraThinMaterial)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
 
             // Save indicator
