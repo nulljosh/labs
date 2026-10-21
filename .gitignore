@@ -46,5 +46,6 @@ node_modules/
 
 # curvely left labs on 2026-10-21, it is its own repo: nulljosh/curvely
 curvely/
-# nyc left labs on 2026-10-21, it is its own repo: nulljosh/nyc
+# gastown (ex-nyc) left labs on 2026-10-21, it is its own repo: nulljosh/gastown
+gastown/
 nyc/
