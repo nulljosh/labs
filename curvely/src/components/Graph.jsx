@@ -1,5 +1,6 @@
 import { useRef, useEffect, useCallback, useState } from 'react';
 import { isAsymptoteJump, T_MAX } from '../utils/evaluate.js';
+import { keyPoints } from '../utils/keypoints.js';
 
 // Read from tokens.css so the canvas follows the light/dark setting with the rest of the UI.
 function graphColors() {
@@ -56,6 +57,10 @@ export default function Graph({ equations, sliders }) {
   const pinch = useRef(null);
   const lastTap = useRef(0);
   const [trace, setTrace] = useState(null); // { px, py, x, y, color }
+  // Key points cost a few thousand evaluations, so they are found once the view stops
+  // moving and cached against the view they were found for.
+  const keys = useRef({ sig: null, pts: [] });
+  const keyTimer = useRef(null);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -169,6 +174,27 @@ export default function Graph({ equations, sliders }) {
       }
     });
 
+    // key points: roots, extrema, intersections
+    const sig = [scale, ox, oy, W, H].join('|');
+    if (keys.current.sig === sig && keys.current.eqs === equations && keys.current.sl === sliders) {
+      ctx.fillStyle = colors.bg;
+      ctx.lineWidth = 2;
+      for (const p of keys.current.pts) {
+        ctx.strokeStyle = colors.axis;
+        ctx.beginPath();
+        ctx.arc(cx + p.x * scale, cy - p.y * scale, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+      }
+    } else {
+      clearTimeout(keyTimer.current);
+      keyTimer.current = setTimeout(() => {
+        const fns = equations.filter((eq) => eq.fn).map((eq) => ({ fn: (x) => eq.fn(x, sliders), color: eq.color }));
+        keys.current = { sig, eqs: equations, sl: sliders, pts: keyPoints(fns, -cx / scale, (W - cx) / scale) };
+        draw();
+      }, 150);
+    }
+
     // hover trace: filled dot + coordinate readout at the nearest curve point
     if (trace) {
       ctx.fillStyle = trace.color;
@@ -275,6 +301,11 @@ export default function Graph({ equations, sliders }) {
     const cx = canvas.offsetWidth / 2 + ox;
     const cy = canvas.offsetHeight / 2 + oy;
     const x = (px - cx) / scale;
+    for (const p of keys.current.pts) {
+      const kx = cx + p.x * scale;
+      const ky = cy - p.y * scale;
+      if (Math.hypot(kx - px, ky - py) < 12) return { d: 0, px: kx, py: ky, x: p.x, y: p.y, color: p.color };
+    }
     let best = null;
     for (const eq of equations) {
       if (!eq.fn) continue;

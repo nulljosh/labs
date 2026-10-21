@@ -192,4 +192,19 @@ if let image = makeTestImage(width: 8, height: 4), let data = pngData(from: imag
     check(false, "could not build a test image to export")
 }
 
+
+// MARK: - keypoints.test.js
+
+func hasPoint(_ points: [KeyPoint], _ x: Double, _ y: Double) -> Bool {
+    points.contains { abs($0.x - x) < 1e-4 && abs($0.y - y) < 1e-4 }
+}
+let parabola = keyPoints([({ $0 * $0 - 1 }, 0)], xMin: -5, xMax: 5)
+check(parabola.count == 3 && hasPoint(parabola, -1, 0) && hasPoint(parabola, 1, 0) && hasPoint(parabola, 0, -1),
+      "x^2 - 1 has two roots and a vertex")
+let crossing = keyPoints([({ $0 * $0 }, 0), ({ 2 * $0 }, 1)], xMin: -5, xMax: 5)
+check(hasPoint(crossing, 0, 0) && hasPoint(crossing, 2, 4), "x^2 meets 2x at 0 and 2")
+check(keyPoints([({ 1 / $0 }, 0)], xMin: -5, xMax: 5).isEmpty, "1/x has no key points")
+let tangent = keyPoints([({ tan($0) }, 0)], xMin: -2, xMax: 2)
+check(tangent.count == 1 && hasPoint(tangent, 0, 0), "tan keeps its root, drops its asymptotes")
+
 print("ok — \(checks) checks passed")

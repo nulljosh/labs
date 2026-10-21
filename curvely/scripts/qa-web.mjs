@@ -23,8 +23,10 @@ await send('Page.enable'); await send('Page.navigate', { url: BASE }); await sle
 ok('loads with 2 equations', await count('.eq-input') === 2);
 ok('fonts: Curvely Sans loaded', await ev(`document.fonts.check('16px "Curvely Sans"')`));
 const base = await curvePx(); ok('curves drawn on canvas', base > 500, 'px=' + base);
-await click('.dot-btn'); await sleep(150); const hiddenPx = await curvePx(); ok('dot hides its curve', hiddenPx < base, `px=${hiddenPx}`);
-await click('.dot-btn'); await sleep(150); ok('dot shows it again', await curvePx() === base);
+await sleep(400); const settled = await curvePx(); // key point dots land after the view settles
+await click('.dot-btn'); await sleep(400); const hiddenPx = await curvePx(); ok('dot hides its curve', hiddenPx < settled, `px=${hiddenPx}`);
+await click('.dot-btn'); await sleep(400); ok('dot shows it again', await curvePx() === settled);
+ok('key points drawn', await ev(`(()=>{const c=document.querySelector('canvas');const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let n=0;for(let i=0;i<d.length;i+=4){const g=d[i];if(Math.abs(d[i]-d[i+1])<8&&Math.abs(d[i]-d[i+2])<8&&g>60&&g<200)n++}return n})()`) > 0);
 await click('.add-btn'); await sleep(100); ok('add equation -> 3 rows', await count('.eq-input') === 3);
 await click('.chip', 'cos(x)'); await sleep(100); ok('quick example chip adds a row', await count('.eq-input') === 4 && await ev(`document.querySelectorAll('.eq-input')[3].value`) === 'cos(x)');
 await type(2, 'a=3'); await sleep(200); ok('a=3 makes a slider', await count('input[type=range]') === 1);

@@ -81,6 +81,8 @@ struct GraphView: View {
     var vars: Vars = [:]
     @Binding var transform: GraphTransform
 
+    /// Where the user last tapped (iOS) or is hovering (Mac): a key point near it shows its coordinates.
+    @State private var probe: CGPoint?
     @State private var panStart: CGSize?
     @State private var pinchStart: Double?
     #if os(macOS)
@@ -96,15 +98,18 @@ struct GraphView: View {
                 drawAxes(&context, size: size, center: center)
                 drawLabels(&context, size: size, center: center)
                 drawCurves(&context, size: size, center: center)
+                drawKeyPoints(&context, size: size, center: center)
             }
             .background(Theme.graphBackground)
             .contentShape(Rectangle())
             .gesture(panGesture(in: geometry.size))
             .gesture(pinchGesture(in: geometry.size))
             .onTapGesture(count: 2) { transform = GraphTransform() }
+            .onTapGesture { probe = $0 }
             #if os(macOS)
             .onContinuousHover { phase in
                 if case .active(let point) = phase { hoverPoint = point } else { hoverPoint = nil }
+                probe = hoverPoint
             }
             .onAppear { installScrollZoom(in: geometry.size) }
             .onChange(of: geometry.size) { _, size in installScrollZoom(in: size) }
@@ -265,6 +270,38 @@ struct GraphView: View {
                 )
             }
         }
+    }
+
+    /// Roots, extrema and intersections of the y = f(x) curves as small dots. A dot near the
+    /// probe gets its coordinates, like the web app's hover readout.
+    private func drawKeyPoints(_ context: inout GraphicsContext, size: CGSize, center: CGPoint) {
+        let curves = equations.compactMap { equation in
+            equation.compiled.function.map { fn in (fn: { fn($0, vars) }, colorIndex: equation.colorIndex) }
+        }
+        guard !curves.isEmpty else { return }
+        let points = keyPoints(
+            curves,
+            xMin: -center.x / transform.scale,
+            xMax: (size.width - center.x) / transform.scale
+        )
+        var nearest: (point: KeyPoint, at: CGPoint, distance: Double)?
+        for point in points {
+            let at = CGPoint(x: center.x + point.x * transform.scale, y: center.y - point.y * transform.scale)
+            let dot = Path(ellipseIn: CGRect(x: at.x - 3.5, y: at.y - 3.5, width: 7, height: 7))
+            context.fill(dot, with: .color(Theme.graphBackground))
+            context.stroke(dot, with: .color(Theme.axis), lineWidth: 2)
+            if let probe {
+                let distance = hypot(at.x - probe.x, at.y - probe.y)
+                if distance < 22, distance < (nearest?.distance ?? .infinity) { nearest = (point, at, distance) }
+            }
+        }
+        guard let nearest else { return }
+        let color = Palette.color(at: nearest.point.colorIndex)
+        context.fill(Path(ellipseIn: CGRect(x: nearest.at.x - 5, y: nearest.at.y - 5, width: 10, height: 10)), with: .color(color))
+        let label = Text(String(format: "(%.2f, %.2f)", nearest.point.x, nearest.point.y))
+            .font(Theme.font(12, .medium))
+            .foregroundStyle(color)
+        context.draw(label, at: CGPoint(x: nearest.at.x + 10, y: nearest.at.y - 12), anchor: .leading)
     }
 
     // MARK: - Gestures
