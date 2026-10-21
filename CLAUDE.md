@@ -12,7 +12,7 @@
 
 ## Repos
 
-**`~/Documents/Code` is the `labs` repo.** 23 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, oohaah, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), hamurapi, bcgd, nyc, inkpress. Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Curvely left the same way on 2026-10-21 (`nulljosh/curvely`, public, folder `curvely/`, ignored here; its earlier history stays in labs). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and in the allowlist but untracked, see roadmap. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`. 
+**`~/Documents/Code` is the `labs` repo.** 22 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, oohaah, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), hamurapi, bcgd, inkpress. Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Curvely left the same way on 2026-10-21 (`nulljosh/curvely`, public, folder `curvely/`, ignored here; its earlier history stays in labs), and so did NYC Survive (`nulljosh/nyc`, public, folder `nyc/`). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and in the allowlist but untracked, see roadmap. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`. 
 
 ### Apps
 Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
@@ -42,7 +42,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **atlin** (ex-brick, ex-roost) | Real rentals on a map, deal-ranked, 27 languages. Bundle ID still `com.nulljosh.brick`, Pages project still `roost` (neither can be renamed) · 6824157219 |
 | **hamurapi** (ex-hamurabi) | 1968 Hamurabi with a drawn city. Bundle ID and Worker still `hamurabi` · 6819131590 |
 | **toroid** | Game of Life on a torus · 6806324937 |
-| **nyc** | Times Square city sim (NYC Survive) · 6782618198 |
+| **nyc**. Own repo, not in labs | Times Square colony survival game (NYC Survive) · 6782618198 |
 | **bcgd** | Garage-door site, ships as **Doorstock** · 6791106082 |
 | **temida** (ex-themis, ex-atticus, ex-litigate) | Litigation tool, public repo (old history in private `temida-private`). Landing at temida.jaybulb.com (themis., atticus. and litigate. still serve); Pages project `themis`, bundle id and litigate:// scheme keep old names · 6787857503 |
 | **homeqi** | Feng shui home assessment (web, iOS reader-only) |

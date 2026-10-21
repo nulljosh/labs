@@ -5,8 +5,8 @@
 NYC Survive lives in the `labs` repo, in the `nyc/` folder.
 
 ```bash
-git clone https://github.com/nulljosh/labs.git
-cd labs/nyc
+git clone https://github.com/nulljosh/nyc.git
+cd nyc
 xcodegen generate && open NYCSurvive.xcodeproj
 ```
 

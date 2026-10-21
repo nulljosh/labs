@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80" height="80" alt="NYC Survive icon">
 
-![version](https://img.shields.io/badge/version-v1.1.0-blue) [![tests](https://github.com/nulljosh/labs/actions/workflows/nyc-test.yml/badge.svg)](https://github.com/nulljosh/labs/actions/workflows/nyc-test.yml) ![license](https://img.shields.io/badge/license-Apache%202.0-green)
+![version](https://img.shields.io/badge/version-v1.1.0-blue) [![tests](https://github.com/nulljosh/nyc/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/nyc/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-Apache%202.0-green)
 
 Reclaim Times Square.
 

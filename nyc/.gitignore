@@ -50,3 +50,7 @@ fastlane/report.xml
 .asc/reports/
 .wrangler/
 .build/
+
+# asc ship-run logs are local history
+.asc/runs/
+default.profraw
