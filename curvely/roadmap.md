@@ -4,8 +4,7 @@
 iOS + macOS 1.2.4 WAITING_FOR_REVIEW: full-screen graph, no header or zoom buttons, glass
 equation panel. 1.2.5 work is on main: collapsible panel, Mac scroll-wheel zoom, web +/-/0 keys.
 
-- [ ] Recapture App Store screenshots (iPhone, iPad, Mac). Every live shot still shows the old
-  header and zoom buttons. Upload with 1.2.5, screenshots only change on an editable version.
+- [x] Recapture App Store screenshots (iPhone, iPad, Mac). 1.2.6 (build 202610210815) uploaded on iOS and Mac 2026-10-21 from committed code (carries the 10-17 brand icon fix). New iPhone, iPad and Mac shots are on the 1.2.6 draft. NOT submitted: another session was mid-redesign of Curvely (fonts, Theme.swift, icon) at the same time, so whoever finishes that decides whether 1.2.6 ships as is or takes a new build.
 - [ ] Support URL on the listing still says grapher.heyitsmejosh.com; move it to curvely.
 
 - [ ] Verify iPad layout visually on simulator -- 2026-09-02. Code review found no
@@ -48,10 +47,10 @@ jaybulb.com purchase. Not a blocker for current work.
 - `curvely-tui` SwiftPM target (SwiftTUI). `swift build && ./.build/debug/curvely-tui "x^2" -5 5` fetches /api/sample and renders a text sparkline. mathjs stays server-side, not ported. Needs a real TTY.
 
 ## Ingested 2026-10-01
-- [ ] App Store screenshots are stale, refresh them.
+- [x] App Store screenshots are stale, refresh them. Done 2026-10-21, see the 1.2.6 note above.
 
 ## Ingested 2026-10-05
 - [ ] QA
 
 ## Ingested 2026-10-16
-- [ ] Stale App Store screenshots (live 1.2.5 listing shows a blank icon in the preview). (screenshot: notes/attachments/2026-10-16/app-store-screenshots-1.png)
+- [x] Stale App Store screenshots (live 1.2.5 listing shows a blank icon in the preview). New shots and the icon fix are staged on 1.2.6, live once it ships. (screenshot: notes/attachments/2026-10-16/app-store-screenshots-1.png)
