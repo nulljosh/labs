@@ -250,7 +250,7 @@ improvement notes in App Review Information -> Notes.
 - [ ] Come up with an original name for the game (currently just "NYC").
 - [ ] Write a script that plays through the whole game end to end (regression walkthrough).
 - [ ] Confirm autoplay is disabled and removed. Autoplay should only run when connected via a server, or when the playthrough script above is run explicitly. (Directive engine was deleted 2026-07, this is a verification pass, not a rebuild.)
-- [ ] Document the controls in a markdown file, and surface them to the player when they start a new game (tutorial or a controls screen).
+- [x] Document the controls in a markdown file (done 2026-10-21, `docs/CONTROLS.md`). Surfacing them to the player at game start is still open, see the bold item below.
 - [ ] **Hero: game simulation (full version, deferred).** Future iteration: a canvas running a render loop with the game simulating itself, instead of the current static drifting-tile wall. Slot into `nyc/landing/index.html` the same way: absolute layer at `z-index:0` behind `.hero .container`, the `.hero::after` scrim above it, and a `prefers-reduced-motion` bail-out. **Guardrail:** this is decoration on the marketing page only, it must not resurrect the deleted directive/autoplay engine, and must not touch `Sources/`.
 - [ ] **macOS screenshots still 0, and app previews still 0 on every platform.** macOS could not be
       touched this pass: MAC_OS 1.0.1 is IN_REVIEW (1.0.0 is READY_FOR_SALE), and uploading to a
@@ -272,7 +272,7 @@ improvement notes in App Review Information -> Notes.
       the directive engine was deleted 2026-07-02 and must not have crept back.
 - [ ] **Document the controls** in a markdown file, and surface them to the player when a new
       game starts (tutorial or first-run card), right now the controls aren't obvious once you
-      start, which is the top complaint.
+      start, which is the top complaint. Markdown part done 2026-10-21 (`docs/CONTROLS.md`); in-game surfacing still open.
 
 ## WebMCP + REST API rollout -- shipped 2026-08-27
 
