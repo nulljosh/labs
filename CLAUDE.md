@@ -24,7 +24,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **talli** | BC disability assistance tracker (DTC/RDSP/CDB) · 6782366555 |
 | **echo** (ex-notate, ex-voxprint, first named echo) | On-device transcription, WhisperKit. Store listing still Notate until Apple takes Echo; Xcode targets and Pages project still say Voxprint · 6782604262 |
 | **patois** (ex-tonchi, ex-lexly). Folder is `patois` | Gamified learning, 125 courses · 6783501611 (6783501927 is a stray dupe) |
-| **intake** (ex-healstack) | Health/supplement tracker. Store name and Pages project still `healstack` |
+| **machaon** (ex-intake, ex-healstack). Own repo, not in labs | Dose log, harm reduction library and health dashboard, named for the healer son of Asclepius. Pages project and bundle id stay `healstack`/`dose`; intake.jaybulb.com still serves · 6785764864 |
 | **melete** (ex-thinkpond, ex-hikko, ex-sparkjar). Folder is `melete` | Idea feed, named for the Muse of thought. Pages project still `sparkjar`; thinkpond. and hikko. hosts still serve · 6785162492 |
 | **mailbag** (ex-hagaki, siftbox, pare, sieve) | Inbox zero in one button. Store listing renamed Mailbag and resubmitted 2026-10-18; Google callback still on hagaki.jaybulb.com · 6811141466 |
 | **bookrank** | Book summaries, listen feature |
@@ -119,7 +119,7 @@ tripwire's README is the reference. Short sentences. Plain words. Say the proble
 ## Gotchas
 - `heyitsmejosh.com` lapsed 2026-10-13 on purpose. Everything lives at `<name>.jaybulb.com`. Native apps still hardcode the old host until their next build.
 - `npm i <pkg> --save-dev` on a pinned dep upgrades it silently. Edit package.json by hand and diff the lockfile.
-- Stripe is live on epiphany, intake, melete and talli. It cannot unlock in-app features under App Review, that needs IAP.
+- Stripe is live on epiphany, machaon, melete and talli. It cannot unlock in-app features under App Review, that needs IAP.
 - Social sign-in is blocked on console registrations. The code is done.
 - `mole clean` needs a real TTY for sudo. Run it yourself.
 
