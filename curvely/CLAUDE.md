@@ -14,7 +14,7 @@ npm run build
 - The app itself is client-side: pure client math (mathjs on web, a hand-written parser on iOS).
   The only server code is the stateless API below; nothing is stored server-side.
 - Canvas rendering only, no chart libs
-- Apple Liquid Glass UI, dark mode only. Glass helper `curvelyGlass` in `ios/App/Theme.swift`, `.glass` in `src/index.css`
+- Apple Liquid Glass UI, follows system light/dark. Glass helper `curvelyGlass` in `ios/App/Theme.swift`, `.glass` in `src/index.css`
 - Type is Curvely Sans (`brand/fonts`, built by `scripts/gen_font.py`), an exception to the system-font rule because Joshua asked for it
 - Mobile-first responsive
 

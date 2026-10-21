@@ -14,7 +14,6 @@ struct ContentView: View {
         content
             .overlay(alignment: .topTrailing) { exportButton }
             .background(Theme.graphBackground)
-            .preferredColorScheme(.dark)
             .onAppear(perform: restore)
             .sheet(item: $exportedImage) { export in
                 ExportSheet(export: export)

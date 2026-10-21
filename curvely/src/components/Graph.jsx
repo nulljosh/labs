@@ -2,8 +2,11 @@ import { useRef, useEffect, useCallback, useState } from 'react';
 import { isAsymptoteJump } from '../utils/evaluate.js';
 
 // Dark only, same values as ios/App/Theme.swift.
+// Read from tokens.css so the canvas follows the light/dark setting with the rest of the UI.
 function graphColors() {
-  return { grid: 'rgba(232,232,240,0.07)', axis: 'rgba(232,232,240,0.3)', label: 'rgba(232,232,240,0.5)', bg: '#0d0c0b' };
+  const css = getComputedStyle(document.documentElement);
+  const v = (name) => css.getPropertyValue(name).trim();
+  return { grid: v('--grid'), axis: v('--axis'), label: v('--axis-label'), bg: v('--bg') };
 }
 
 const MIN_SCALE = 10;
@@ -181,6 +184,12 @@ export default function Graph({ equations, sliders }) {
   }, [draw]);
 
   useEffect(() => { draw(); }, [draw]);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    mq.addEventListener('change', draw);
+    return () => mq.removeEventListener('change', draw);
+  }, [draw]);
 
   // zoom keeping the graph point under (px,py) fixed on screen
   const zoomAbout = useCallback((factor, px, py) => {

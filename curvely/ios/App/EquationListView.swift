@@ -44,7 +44,7 @@ struct EquationListView: View {
                             .foregroundStyle(Theme.secondary)
                             .padding(.horizontal, 12)
                             .frame(minHeight: 32)
-                            .background(Color.white.opacity(0.07), in: Capsule())
+                            .background(Theme.fill, in: Capsule())
                             .overlay(Capsule().strokeBorder(Theme.border, lineWidth: 1))
                     }
                     .buttonStyle(.plain)
@@ -112,7 +112,7 @@ struct EquationRowView: View {
             }
             .padding(.horizontal, 16)
             .frame(minHeight: 48)
-            .background(Color.white.opacity(0.07), in: Capsule())
+            .background(Theme.fill, in: Capsule())
             .overlay(Capsule().strokeBorder(Theme.border, lineWidth: 1))
 
             if let error = equation.error {
