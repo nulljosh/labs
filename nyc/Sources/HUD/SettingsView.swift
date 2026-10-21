@@ -18,13 +18,13 @@ struct SettingsView: View {
 
             VStack(alignment: .leading, spacing: 16) {
                 Text("SETTINGS")
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.nyc(size: 24, weight: .bold))
                     .foregroundStyle(Theme.cyan)
 
                 Divider().background(Theme.border)
 
                 Text("CONTROLS")
-                    .font(.system(size: 11, weight: .bold))
+                    .font(.nyc(size: 11, weight: .bold))
                     .foregroundStyle(Theme.yellow)
 
                 VStack(alignment: .leading, spacing: 8) {
@@ -45,7 +45,7 @@ struct SettingsView: View {
                 Divider().background(Theme.border)
 
                 Text("OPTIONS")
-                    .font(.system(size: 11, weight: .bold))
+                    .font(.nyc(size: 11, weight: .bold))
                     .foregroundStyle(Theme.yellow)
 
                 Toggle(isOn: Binding(
@@ -53,7 +53,7 @@ struct SettingsView: View {
                     set: { gameState.autoSaveEnabled = $0 }
                 )) {
                     Text("Auto-save")
-                        .font(.system(size: 13))
+                        .font(.nyc(size: 13))
                         .foregroundStyle(Theme.text1)
                 }
                 .toggleStyle(.switch)
@@ -70,7 +70,7 @@ struct SettingsView: View {
                     }
                 )) {
                     Text("Full screen")
-                        .font(.system(size: 13))
+                        .font(.nyc(size: 13))
                         .foregroundStyle(Theme.text1)
                 }
                 .toggleStyle(.switch)
@@ -82,7 +82,7 @@ struct SettingsView: View {
                     set: { gameState.soundEnabled = $0 }
                 )) {
                     Text("Sound effects")
-                        .font(.system(size: 13))
+                        .font(.nyc(size: 13))
                         .foregroundStyle(Theme.text1)
                 }
                 .toggleStyle(.switch)
@@ -90,7 +90,7 @@ struct SettingsView: View {
 
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Appearance")
-                        .font(.system(size: 13))
+                        .font(.nyc(size: 13))
                         .foregroundStyle(Theme.text1)
                     Picker("Appearance", selection: $themeChoice) {
                         ForEach(ThemeChoice.allCases, id: \.self) { choice in
@@ -107,19 +107,19 @@ struct SettingsView: View {
                 Divider().background(Theme.border)
 
                 Text("SAVE / LOAD")
-                    .font(.system(size: 11, weight: .bold))
+                    .font(.nyc(size: 11, weight: .bold))
                     .foregroundStyle(Theme.yellow)
 
                 let slots = SaveManager.shared.listSlots()
                 ForEach(0..<3, id: \.self) { i in
                     HStack {
                         if let slot = slots[i] {
-                            Text("Slot \(i + 1) — Day \(slot.dayCount)")
-                                .font(.system(size: 12))
+                            Text("Slot \(i + 1), Day \(slot.dayCount)")
+                                .font(.nyc(size: 12))
                                 .foregroundStyle(Theme.text1)
                         } else {
-                            Text("Slot \(i + 1) — Empty")
-                                .font(.system(size: 12))
+                            Text("Slot \(i + 1), empty")
+                                .font(.nyc(size: 12))
                                 .foregroundStyle(Theme.text3)
                         }
                         Spacer()
@@ -130,7 +130,7 @@ struct SettingsView: View {
                                 userInfo: ["slot": i + 1]
                             )
                         }
-                        .font(.system(size: 10, weight: .bold))
+                        .font(.nyc(size: 10, weight: .bold))
                         .foregroundStyle(Theme.accent)
                         .buttonStyle(.plain)
                     }
@@ -139,7 +139,7 @@ struct SettingsView: View {
                 Spacer()
 
                 Text("Tap outside to close")
-                    .font(.system(size: 11))
+                    .font(.nyc(size: 11))
                     .foregroundStyle(Theme.text3)
             }
             .padding(24)
@@ -161,11 +161,11 @@ struct SettingsView: View {
     private func controlRow(key: String, action: String) -> some View {
         HStack(spacing: 0) {
             Text(key)
-                .font(.system(size: 11, weight: .bold))
+                .font(.nyc(size: 11, weight: .bold))
                 .foregroundStyle(Theme.accent)
                 .frame(width: 110, alignment: .leading)
             Text(action)
-                .font(.system(size: 11))
+                .font(.nyc(size: 11))
                 .foregroundStyle(Theme.text2)
         }
     }

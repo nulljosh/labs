@@ -19,7 +19,7 @@ struct TutorialView: View {
         switch step {
         case 0: ("WELCOME",    "Welcome to NYC Survive. You control a group of survivors.",                           "Tap to continue")
         case 1: ("NEEDS",      "Colonists have NEEDS: hunger, oxygen, stress, sleep, health. Keep them alive.",      "Tap to continue")
-        case 2: ("STATS",      "Each colonist has RPG STATS — STR, INT, AGI, END, CHA. Tap a figure.",               "Tap a colonist")
+        case 2: ("STATS",      "Each colonist has RPG STATS: STR, INT, AGI, END, CHA. Tap a figure.",               "Tap a colonist")
         case 3: ("CAMERA",     "WASD or arrows to pan, scroll to zoom. On touch, drag to pan, pinch to zoom.",                                               "Tap to continue")
         case 4: ("BUILD",      "Tap BUILD to open the build menu. Buildings keep your colony running.",               "Tap BUILD")
         case 5: ("SHELTER",    "Place a SHELTER to reduce stress and let colonists sleep.",                            "Place a shelter")
@@ -31,7 +31,7 @@ struct TutorialView: View {
         }
     }
 
-    private var isInteractiveStep: Bool { step == 2 || step == 4 || step == 5 }
+    private var isInteractiveStep: Bool { [2, 4, 5, 6].contains(step) }
 
     var body: some View {
         ZStack {
@@ -43,28 +43,28 @@ struct TutorialView: View {
             VStack(spacing: 14) {
                 HStack {
                     Text("TUTORIAL \(step + 1)/10")
-                        .font(.system(size: 10))
+                        .font(.nyc(size: 10))
                         .foregroundStyle(Theme.text3)
                     Spacer()
                     Button(action: skip) {
                         Text("SKIP")
-                            .font(.system(size: 11, weight: .bold))
+                            .font(.nyc(size: 11, weight: .bold))
                             .foregroundStyle(Theme.red)
                     }
                     .buttonStyle(.plain)
                 }
 
                 Text(stepData.title)
-                    .font(.system(size: 22, weight: .bold))
+                    .font(.nyc(size: 22, weight: .bold))
                     .foregroundStyle(Theme.cyan)
 
                 Text(stepData.body)
-                    .font(.system(size: 13))
+                    .font(.nyc(size: 13))
                     .foregroundStyle(Theme.text1)
                     .multilineTextAlignment(.center)
 
                 Text(stepData.hint)
-                    .font(.system(size: 11))
+                    .font(.nyc(size: 11))
                     .foregroundStyle(Theme.yellow)
                     .opacity(hintPulse ? 1.0 : 0.4)
                     .animation(.easeInOut(duration: 0.9).repeatForever(autoreverses: true), value: hintPulse)

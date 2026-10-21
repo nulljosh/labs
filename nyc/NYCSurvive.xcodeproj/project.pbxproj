@@ -11,13 +11,17 @@
 		02E912E443029E820A236664 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C54789E79556FA1775A89 /* AudioManager.swift */; };
 		0533C0DDB2BF863D83D26D0E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB8E59CA64AAC68D9271EFF /* Resource.swift */; };
 		06D7CDEA381E2375B7943E58 /* SaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B2AEBC8EAAE1BD24D5090 /* SaveManager.swift */; };
+		11EDDE9FBC8406B9E057053B /* NYCSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 410EFC97AB98A89269730A5E /* NYCSans-Bold.ttf */; };
 		12317B05F72B5D21DB6F24B1 /* NeedsSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36295B5CB23AA72E528580 /* NeedsSystem.swift */; };
 		1575F6671F020DF66AEAEEC0 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDE73063F75A3FD12AD3EB7 /* TileMap.swift */; };
 		15B4DE22C8F1FA600AF28F8A /* BuildSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852054F2EBE0F76F774C060 /* BuildSystem.swift */; };
+		1DF548495BD7C2560FD34A71 /* NYCSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FB190203D3A390A7BF038B7 /* NYCSans-Semibold.ttf */; };
 		1F2A4D0D13E767C09E4E969C /* GameScene+Backdrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24F138BF1AA03A7B2527E46 /* GameScene+Backdrop.swift */; };
 		252E698CE926883069074DBB /* BuildMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544F474728B842695609312 /* BuildMenu.swift */; };
 		2599EFAB00A46E953D8641FC /* WorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D702C1A87282719DA4F0199 /* WorldGenerator.swift */; };
 		25E31E8C73E217531187C35A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9BBA495724A89451770D3 /* GameScene.swift */; };
+		288073BBD72C9F2AE3239674 /* NYCSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D74D0A0073C8CEE768991583 /* NYCSans-Regular.ttf */; };
+		2A35A16DA43D06FC618F833A /* NYCSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 410EFC97AB98A89269730A5E /* NYCSans-Bold.ttf */; };
 		2BC6F313EC3A0A29A9DB9921 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0D7149C43BC846540B8E3C /* Building.swift */; };
 		2DAFE8EB0D7D122AAFA98BED /* TimeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C698EA5D829B3189276D26 /* TimeSystem.swift */; };
 		2F37EBB862C45114CBAF8327 /* TileMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDE73063F75A3FD12AD3EB7 /* TileMap.swift */; };
@@ -29,6 +33,7 @@
 		3BA2869689D89410C64D7B02 /* TimeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C698EA5D829B3189276D26 /* TimeSystem.swift */; };
 		41C57ED1757B8A63A7F95D51 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB8E59CA64AAC68D9271EFF /* Resource.swift */; };
 		432FBB8AC41D437F48338CF7 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380E49196451FA445E2A4065 /* CameraController.swift */; };
+		51EA4AAB8B7CC152979ABD99 /* NYCSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87701C84880BE1ABE2AE9C75 /* NYCSans-Medium.ttf */; };
 		55BC393E63ADD5A2210D79B4 /* ResourceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3224EDEB15BF7951F877AF /* ResourceBar.swift */; };
 		57799C6F239B6A84280E397A /* ColonistPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8901915C46094E3EDCDC97 /* ColonistPanel.swift */; };
 		59DCD599448B559FB3025057 /* ResourceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3224EDEB15BF7951F877AF /* ResourceBar.swift */; };
@@ -49,10 +54,13 @@
 		841E712E2DFE05930CF91AA6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502457C288C5D0DB8F2216AF /* Theme.swift */; };
 		8D868B2494A91968A88EAE5C /* InputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610539CD021004A7786572C6 /* InputHandler.swift */; };
 		8DFE9E23E6ED2929FD5ACD63 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0D7149C43BC846540B8E3C /* Building.swift */; };
+		90E47C3569919EDB7E2CC19B /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71B9AC6CA07444FD0E0B6F24 /* OFL.txt */; };
 		98AB3F096C5BDF2421035C46 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C33D384D2910BBCF73190 /* SettingsView.swift */; };
+		98E83FFFC8065BAF00F6DB05 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71B9AC6CA07444FD0E0B6F24 /* OFL.txt */; };
 		998CC74E1346C78D1EB7ACA8 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D1B1D1E59674A173FAA173 /* HUDView.swift */; };
 		9A27F45B2E54BE052A678994 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5691499E000399842B3CB30D /* TutorialView.swift */; };
 		9B663A76E454526C753B4A17 /* InputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610539CD021004A7786572C6 /* InputHandler.swift */; };
+		9E1055852946B034C217E3AC /* NYCSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FB190203D3A390A7BF038B7 /* NYCSans-Semibold.ttf */; };
 		9F65F2C8D03F85B4005DF138 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861DB40895FE71F6960B9A9 /* MenuScene.swift */; };
 		A41D26FBF1F9FB7DFE5A3FEF /* SimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326800A355FDC8F9A4F56EBB /* SimTests.swift */; };
 		A5E03C4C185A60DEE7E25B40 /* NYC.icon in Resources */ = {isa = PBXBuildFile; fileRef = 72EEA1E52E12E0797D065E95 /* NYC.icon */; };
@@ -63,8 +71,10 @@
 		B4B741251519E1F30F97C3BB /* Colonist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E63894AD540CC50808099E /* Colonist.swift */; };
 		B7FE208BFCA074C64E2328A5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C33D384D2910BBCF73190 /* SettingsView.swift */; };
 		B9FF3F59C06F6C1A0201C9BC /* ResourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4AC760E2D96DFF4188FC46 /* ResourceModel.swift */; };
+		BCC38A7FCA272550630C1DA1 /* NYCSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D74D0A0073C8CEE768991583 /* NYCSans-Regular.ttf */; };
 		BFD0CE73B55C0DF6956DAF96 /* ResourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4AC760E2D96DFF4188FC46 /* ResourceModel.swift */; };
 		C320495C0AECC20593EECFF4 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861DB40895FE71F6960B9A9 /* MenuScene.swift */; };
+		C6AC3284690C6785FA698952 /* NYCSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87701C84880BE1ABE2AE9C75 /* NYCSans-Medium.ttf */; };
 		CA4613773EB3532475515757 /* ResourceSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59C23D94F770C687F4E5AE /* ResourceSystem.swift */; };
 		D2EC101C1DBDF2F469D401E5 /* BuildingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4334A20439528230C3EF3 /* BuildingModel.swift */; };
 		D30D1CD10A86D7D04C14AE15 /* NeedsSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36295B5CB23AA72E528580 /* NeedsSystem.swift */; };
@@ -100,6 +110,7 @@
 		064B2AEBC8EAAE1BD24D5090 /* SaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveManager.swift; sourceTree = "<group>"; };
 		06E63894AD540CC50808099E /* Colonist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colonist.swift; sourceTree = "<group>"; };
 		0852054F2EBE0F76F774C060 /* BuildSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildSystem.swift; sourceTree = "<group>"; };
+		0FB190203D3A390A7BF038B7 /* NYCSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NYCSans-Semibold.ttf"; sourceTree = "<group>"; };
 		12C698EA5D829B3189276D26 /* TimeSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSystem.swift; sourceTree = "<group>"; };
 		1E3224EDEB15BF7951F877AF /* ResourceBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceBar.swift; sourceTree = "<group>"; };
 		20D1B1D1E59674A173FAA173 /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
@@ -107,6 +118,7 @@
 		2FDE73063F75A3FD12AD3EB7 /* TileMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileMap.swift; sourceTree = "<group>"; };
 		326800A355FDC8F9A4F56EBB /* SimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimTests.swift; sourceTree = "<group>"; };
 		380E49196451FA445E2A4065 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		410EFC97AB98A89269730A5E /* NYCSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NYCSans-Bold.ttf"; sourceTree = "<group>"; };
 		4F36295B5CB23AA72E528580 /* NeedsSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsSystem.swift; sourceTree = "<group>"; };
 		502457C288C5D0DB8F2216AF /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		5691499E000399842B3CB30D /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
@@ -116,10 +128,12 @@
 		68E4A32F1DC7BC7E89470C44 /* Pathfinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pathfinder.swift; sourceTree = "<group>"; };
 		6917EAE44C0DC835136B5B42 /* NYCSurvive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NYCSurvive.entitlements; sourceTree = "<group>"; };
 		6D4AC760E2D96DFF4188FC46 /* ResourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceModel.swift; sourceTree = "<group>"; };
+		71B9AC6CA07444FD0E0B6F24 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		726C54789E79556FA1775A89 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		72EEA1E52E12E0797D065E95 /* NYC.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = NYC.icon; sourceTree = "<group>"; };
 		7D6AA4E11E5678AB148203FC /* TileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileType.swift; sourceTree = "<group>"; };
 		83D293A5A28FB06742D243FD /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info-iOS.plist"; sourceTree = "<group>"; };
+		87701C84880BE1ABE2AE9C75 /* NYCSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NYCSans-Medium.ttf"; sourceTree = "<group>"; };
 		8861DB40895FE71F6960B9A9 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		8CB8E59CA64AAC68D9271EFF /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		9A62DD5F691C3480F2FA3607 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -132,6 +146,7 @@
 		BDEEE672F22D8FEEA9446954 /* JobSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSystem.swift; sourceTree = "<group>"; };
 		BEA3839862AB73E3B0E324B9 /* NYCSurviveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSurviveApp.swift; sourceTree = "<group>"; };
 		C31054374AC2BC83D3D7B8BC /* View+Glass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Glass.swift"; sourceTree = "<group>"; };
+		D74D0A0073C8CEE768991583 /* NYCSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NYCSans-Regular.ttf"; sourceTree = "<group>"; };
 		D76C33D384D2910BBCF73190 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EDE4C6EF54870683E05DBBAD /* ColonistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColonistModel.swift; sourceTree = "<group>"; };
 		F0D9BBA495724A89451770D3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -160,6 +175,18 @@
 				8CB8E59CA64AAC68D9271EFF /* Resource.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		61C9D433BA5EF47AC16815EC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				410EFC97AB98A89269730A5E /* NYCSans-Bold.ttf */,
+				87701C84880BE1ABE2AE9C75 /* NYCSans-Medium.ttf */,
+				D74D0A0073C8CEE768991583 /* NYCSans-Regular.ttf */,
+				0FB190203D3A390A7BF038B7 /* NYCSans-Semibold.ttf */,
+				71B9AC6CA07444FD0E0B6F24 /* OFL.txt */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		64909640FCD1621C40B39D1E /* Sources */ = {
@@ -303,6 +330,7 @@
 				00038E1B47DA09A0EEF5B3C4 /* Assets.xcassets */,
 				83D293A5A28FB06742D243FD /* Info-iOS.plist */,
 				6917EAE44C0DC835136B5B42 /* NYCSurvive.entitlements */,
+				61C9D433BA5EF47AC16815EC /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -423,7 +451,12 @@
 				6622D5920C7BADC24CD17360 /* Assets.xcassets in Resources */,
 				7C9E43DB43314CB3BB1421DE /* Info-iOS.plist in Resources */,
 				755E64EF3E8C152DA8392330 /* NYC.icon in Resources */,
+				2A35A16DA43D06FC618F833A /* NYCSans-Bold.ttf in Resources */,
+				C6AC3284690C6785FA698952 /* NYCSans-Medium.ttf in Resources */,
+				BCC38A7FCA272550630C1DA1 /* NYCSans-Regular.ttf in Resources */,
+				9E1055852946B034C217E3AC /* NYCSans-Semibold.ttf in Resources */,
 				E4F3967534862056D528945D /* NYCSurvive.entitlements in Resources */,
+				98E83FFFC8065BAF00F6DB05 /* OFL.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +467,12 @@
 				D3401169DDD10E5C7E48E801 /* Assets.xcassets in Resources */,
 				74F87CE8CB27A9222EA5E49E /* Info-iOS.plist in Resources */,
 				A5E03C4C185A60DEE7E25B40 /* NYC.icon in Resources */,
+				11EDDE9FBC8406B9E057053B /* NYCSans-Bold.ttf in Resources */,
+				51EA4AAB8B7CC152979ABD99 /* NYCSans-Medium.ttf in Resources */,
+				288073BBD72C9F2AE3239674 /* NYCSans-Regular.ttf in Resources */,
+				1DF548495BD7C2560FD34A71 /* NYCSans-Semibold.ttf in Resources */,
 				3219F3B03FF203FEA6A75202 /* NYCSurvive.entitlements in Resources */,
+				90E47C3569919EDB7E2CC19B /* OFL.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

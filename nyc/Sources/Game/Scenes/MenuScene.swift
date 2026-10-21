@@ -10,14 +10,9 @@ final class MenuScene: SKScene {
     var onNewGame: (() -> Void)?
     var onLoadGame: ((Int) -> Void)?
 
-    /// Plain San Francisco (the system face), the same as the HUD. Helvetica Neue if SpriteKit can't load it.
+    /// NYC Sans, the same face as the HUD (see NYCFont in Theme.swift).
     private func chill(_ weight: ChillWeight = .semibold) -> String {
-        #if os(macOS)
-        let name = NSFont.systemFont(ofSize: 24, weight: weight == .bold ? .bold : weight == .regular ? .regular : .semibold).fontName
-        #else
-        let name = UIFont.systemFont(ofSize: 24, weight: weight == .bold ? .bold : weight == .regular ? .regular : .semibold).fontName
-        #endif
-        return name.isEmpty ? "HelveticaNeue-Medium" : name
+        NYCFont.name(weight == .bold ? .bold : weight == .regular ? .regular : .semibold)
     }
     private enum ChillWeight { case regular, semibold, bold }
 
@@ -135,10 +130,10 @@ final class MenuScene: SKScene {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "MMM d, HH:mm"
                 let dateStr = formatter.string(from: slot.timestamp)
-                label.text = "SLOT \(i + 1) -- Day \(slot.dayCount) | \(slot.colonistCount) alive | \(dateStr)"
+                label.text = "Slot \(i + 1): Day \(slot.dayCount), \(slot.colonistCount) alive, \(dateStr)"
                 label.fontColor = ScenePalette.accentWarm
             } else {
-                label.text = "SLOT \(i + 1) -- EMPTY --"
+                label.text = "Slot \(i + 1): empty"
                 label.fontColor = ScenePalette.disabled
             }
 

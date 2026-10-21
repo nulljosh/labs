@@ -1,5 +1,6 @@
 import SwiftUI
 import SpriteKit
+import CoreText
 #if canImport(UIKit)
 import UIKit
 #elseif canImport(AppKit)
@@ -209,7 +210,7 @@ struct GlassButton: View {
     var body: some View {
         Button(action: action) {
             Text(label)
-                .font(.system(size: 11, weight: .bold))
+                .font(.nyc(size: 11, weight: .bold))
                 .foregroundStyle(foreColor)
                 .padding(.horizontal, 14)
                 .padding(.vertical, 8)
@@ -241,5 +242,35 @@ struct GlassButton: View {
         if isDestructive { return Theme.red.opacity(0.3) }
         if isActive { return Theme.accent }
         return Theme.border
+    }
+}
+
+/// NYC Sans (scripts/gen_font.py): Inter renamed, proportional figures. Bundled in Resources/Fonts and
+/// registered for this process on first use, so there is no Info.plist font list to keep in step.
+enum NYCFont {
+    static let registered: Void = {
+        let urls = (Bundle.main.urls(forResourcesWithExtension: "ttf", subdirectory: nil) ?? [])
+            + (Bundle.main.urls(forResourcesWithExtension: "ttf", subdirectory: "Fonts") ?? [])
+        for url in urls where url.lastPathComponent.hasPrefix("NYCSans-") {
+            CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+        }
+    }()
+
+    /// PostScript name for a weight; anything lighter than medium is Regular.
+    static func name(_ weight: Font.Weight) -> String {
+        _ = registered
+        switch weight {
+        case .bold, .heavy, .black: return "NYCSans-Bold"
+        case .semibold: return "NYCSans-Semibold"
+        case .medium: return "NYCSans-Medium"
+        default: return "NYCSans-Regular"
+        }
+    }
+}
+
+extension Font {
+    /// The game's face at a fixed size, the drop-in for SwiftUI's `.system(size:weight:)`.
+    static func nyc(size: CGFloat, weight: Font.Weight = .regular) -> Font {
+        .custom(NYCFont.name(weight), fixedSize: size)
     }
 }

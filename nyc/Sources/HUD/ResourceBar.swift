@@ -20,7 +20,7 @@ struct ResourceBar: View {
             }
             Spacer()
             Text("\(gameState.colonists.filter { !$0.isDead }.count) alive")
-                .font(.system(size: 11, weight: .bold))
+                .font(.nyc(size: 11, weight: .bold))
                 .foregroundStyle(Theme.text2)
                 .fixedSize()
         }
@@ -38,16 +38,16 @@ struct ResourceBar: View {
 
         return HStack(spacing: 4) {
             Image(systemName: iconName)
-                .font(.system(size: 10, weight: .semibold))
+                .font(.nyc(size: 10, weight: .semibold))
                 .foregroundStyle(color)
                 .accessibilityLabel(label)
             Text("\(gameState.resources[type, default: 0])")
-                .font(.system(size: 12, weight: .semibold))
+                .font(.nyc(size: 12, weight: .semibold))
                 .foregroundStyle(Theme.text1)
                 .fixedSize()
             if showsWordLabels {
                 Text(label)
-                    .font(.system(size: 9, weight: .medium))
+                    .font(.nyc(size: 9, weight: .medium))
                     .foregroundStyle(Theme.text3)
                     .fixedSize()
             }
