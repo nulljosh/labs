@@ -13,12 +13,13 @@
 .sizes{display:flex;align-items:flex-end;gap:var(--sp-5);flex-wrap:wrap}
 .sizes img{border-radius:22.5%;display:block}
 .sizes figure{display:grid;gap:var(--sp-2);justify-items:center;font-size:13px;color:var(--sub)}
-.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--sp-3)}
+.sw{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-3)}
+@media (max-width:700px){.sw{grid-template-columns:repeat(2,1fr)}}
 .sw div{padding:var(--sp-4);min-height:112px;display:flex;flex-direction:column;justify-content:flex-end;font-size:13px;line-height:18px;border:1px solid var(--line)}
 .sw b{font-size:15px}
 .spec p{margin:0}
 .spec .big{font-size:clamp(48px,9vw,112px);line-height:1;font-weight:200;text-transform:uppercase}
-.spec .row{display:flex;gap:var(--sp-6);flex-wrap:wrap;margin-top:var(--sp-5);font-size:28px}
+.spec .row{display:flex;gap:var(--sp-6);flex-wrap:wrap;margin:var(--sp-5) 0;font-size:28px;line-height:1.3}
 .pane{position:relative;overflow:hidden;min-height:300px;background:var(--grain),var(--band);display:grid;place-items:center;padding:var(--sp-6)}
 .pane .g{width:min(420px,100%);padding:var(--sp-5);border-radius:28px}
 .pane .g .btn{width:100%;justify-content:center;height:48px;border-radius:999px;margin-top:var(--sp-3)}
@@ -43,9 +44,11 @@
 <div style="background:#38c8f0;color:#05212e"><b>Gradient top</b>#38c8f0</div>
 <div style="background:#0b6ba8;color:#fff"><b>Band, buttons</b>#0b6ba8</div>
 <div style="background:#4fb3ea;color:#05212e"><b>Accent text, dark</b>#4fb3ea</div>
-<div style="background:#0d0c0b;color:#e8e8f0"><b>Graph</b>#0d0c0b</div>
-<div style="background:#e8e8f0;color:#0d0c0b"><b>Text</b>#e8e8f0</div>
-</div><p class="body">The accent is for actions, links and the icon. Curves take eight plot colours, blue first.</p></section>
+<div style="background:#fbfbfd;color:#1d1d1f"><b>Graph, light</b>#fbfbfd</div>
+<div style="background:#1d1d1f;color:#fbfbfd"><b>Text, light</b>#1d1d1f</div>
+<div style="background:#0d0c0b;color:#e8e8f0"><b>Graph, dark</b>#0d0c0b</div>
+<div style="background:#e8e8f0;color:#0d0c0b"><b>Text, dark</b>#e8e8f0</div>
+</div><p class="body">The accent is for actions, links and the icon. The graph follows the system's light or dark setting. Curves take eight plot colours, blue first.</p></section>
 
 <section class="spec"><p class="label">Type</p><h2>Curvely Sans</h2>
 <p class="big">Curvely</p>
