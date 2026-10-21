@@ -331,3 +331,17 @@ nyc/ROADMAP.md
 
 ## Ingested 2026-10-16
 - [ ] Game still too confusing. Tutorial isn't playable because the window covers the build menu. Minimap doesn't work. App just needs a lot of updating. (screenshot: notes/attachments/2026-10-16/nyc-1.png)
+
+## QA 2026-10-21 (Mac, full pass)
+- [x] New Game froze ~7.7 s (GKGridGraph wall removal is quadratic). Pathfinder is a bitmap + BFS now: 0.05 s.
+- [x] Map clicks lost to 1 px hand jitter (became an empty drag-box that cleared the selection). 6 pt drag threshold.
+- [x] Tutorial: card click did nothing; step 7 hid the colonists behind a blocking scrim; interactive steps auto-advanced after 30 s; step 10 named a SAVE button that does not exist; Mac copy said Tap. All fixed.
+- [x] HUD log and clock unreadable in light mode; minimap was an empty labelled box (now draws the city); victory card sat top-left.
+- [x] Menu: live city behind it, capsule buttons with hover, NYC Sans (Inter, OFL, scripts/gen_font.py), Empire State icon, Dock name "NYC Survive", resizable window, Full screen in Settings.
+- [ ] **Balance: the game cannot be won in practice.** `scripts/playthrough.sh 200` (headless, DemoBot playing) keeps 18 alive for 200 days and reaches avg level 5.2 of the 8 needed. Gathering pays 1 XP per 5 ticks and level N costs N*100. The web game (web/js/systems.js:166) claims a ~1.5-2 h win because it also has quests (systems.js:390); native has none. Resources pile up unused (O2 14,000 by day 200). Fix: port quest XP from web, or pay gathering XP on every harvest, then rerun the playthrough until it wins around day 25-30 (about 2 h at 1x). Same rule on web and native.
+- [ ] Record the demo once it can win: `"NYC Survive.app/Contents/MacOS/NYC Survive" -demo 200` (menu, scripted tutorial, then DemoBot at 200 ticks/s, window floats on top) and record the window region with `screencapture -v -R`. Send the video.
+- [ ] First click into an inactive window only focuses it; MenuSKView.acceptsFirstMouse does not get through SwiftUI's host view.
+- [ ] Settings QA after the game: Full screen switch goes stale if the green window button is used; check save slots, sound, appearance.
+- [ ] Design system: in-app Theme.accent is still #0071e3 next to brand blue #3d7bff; HUD mixes yellow headers, cyan tutorial titles, red SKIP. Record the NYC Sans override in CLAUDE.md and brand/BRAND.md (as Coda does).
+- [ ] Landing (Joshua: C-): rebuild against hermes/landing for real, load NYC Sans from landing/fonts, add the missing dist copy step (no deploy.sh copies landing/ into dist/), deploy, check live at nyc.jaybulb.com.
+- [ ] Joshua 2026-10-21: refresh README and the other markdowns; switch LICENSE to Apache 2.0; add a privacy policy page (web/privacy.html exists, check it and link it).

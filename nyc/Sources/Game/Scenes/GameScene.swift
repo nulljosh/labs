@@ -4,11 +4,11 @@ import GameplayKit
 @MainActor
 final class GameScene: SKScene {
     let gameState: GameState
-    private var tileMap: TileMap!
-    private var timeSystem = TimeSystem()
+    var tileMap: TileMap!
+    var timeSystem = TimeSystem()
     private var needsSystem = NeedsSystem()
     private var resourceSystem = ResourceSystem()
-    private var buildSystem = BuildSystem()
+    var buildSystem = BuildSystem()
     var jobSystem = JobSystem()
     var pathfinder: Pathfinder!
     private var inputHandler = InputHandler()
@@ -20,6 +20,7 @@ final class GameScene: SKScene {
 
     private var lastUpdateTime: TimeInterval = 0
     var backdrop = MenuBackdropClock()
+    var demoBot = DemoBot()
 
     // Drag selection
     private var selectionStart: CGPoint?
@@ -171,10 +172,8 @@ final class GameScene: SKScene {
         let dt = lastUpdateTime == 0 ? 0 : currentTime - lastUpdateTime
         lastUpdateTime = currentTime
 
-        // SpriteKit resolves colours at assign time, so the scene has to repaint itself.
-        // Polling one Bool per frame catches every route into a theme change (our own
-        // settings toggle *and* the system flipping appearance) without wiring observers
-        // for each. ponytail: a Bool compare per frame, swap for an observer if it ever shows up in a profile.
+        // SpriteKit resolves colours at assign time, so repaint on any theme change (settings or system).
+        // ponytail: a Bool compare per frame; swap for an observer if it ever shows in a profile.
         if paintedDark != Theme.isDark {
             paintedDark = Theme.isDark
             backgroundColor = ScenePalette.background
@@ -185,17 +184,21 @@ final class GameScene: SKScene {
         let deep = gameState.currentHour >= 22 || gameState.currentHour < 4
         nightOverlay.alpha = gameState.isNight ? (deep ? 0.42 : 0.24) : 0
 
-        guard timeSystem.update(deltaTime: dt, gameState: gameState) else { return }
-
-        needsSystem.tick(gameState: gameState)
-        jobSystem.tick(gameState: gameState)
-        resourceSystem.tick(gameState: gameState, tileMap: tileMap)
-        needsSystem.recruitTick(gameState: gameState)
-        needsSystem.raidTick(gameState: gameState)
-        if !gameState.victoryShown, NeedsSystem.isVictory(gameState) {
-            gameState.victoryShown = true
-            gameState.isPaused = true
-            gameState.log("TIMES SQUARE RECLAIMED. Victory on day \(gameState.currentTick / NeedsSystem.ticksPerDay).")
+        let due = timeSystem.update(deltaTime: dt, gameState: gameState)
+        guard due > 0 else { return }
+        for _ in 0..<due where !gameState.isPaused {
+            timeSystem.advance(gameState)
+            needsSystem.tick(gameState: gameState)
+            jobSystem.tick(gameState: gameState)
+            resourceSystem.tick(gameState: gameState, tileMap: tileMap)
+            needsSystem.recruitTick(gameState: gameState)
+            needsSystem.raidTick(gameState: gameState)
+            if !gameState.victoryShown, NeedsSystem.isVictory(gameState) {
+                gameState.victoryShown = true
+                gameState.isPaused = true
+                gameState.log("TIMES SQUARE RECLAIMED. Victory on day \(gameState.currentTick / NeedsSystem.ticksPerDay).")
+            }
+            if DemoBot.speed != nil, !gameState.isMenuBackdrop { demoTick() }
         }
 
         // Auto-save every 60 ticks
@@ -280,8 +283,7 @@ final class GameScene: SKScene {
     override func mouseDragged(with event: NSEvent) {
         guard let start = selectionStart else { return }
         let current = event.location(in: self)
-        // A click with a little hand jitter is still a click. Without this, a 1 px wobble
-        // turned every click into an empty drag-box that cleared the selection.
+        // Jitter under 6 pt is a click, not an empty drag-box that clears the selection.
         if !dragMoved, hypot(current.x - start.x, current.y - start.y) < 6 * cameraController.cameraNode.xScale { return }
         dragMoved = true
         updateSelectionRect(from: start, to: current)
@@ -415,7 +417,7 @@ final class GameScene: SKScene {
         }
     }
 
-    private func placeBuilding(col: Int, row: Int) {
+    func placeBuilding(col: Int, row: Int) {
         guard let type = gameState.selectedBuildingType else { return }
         if let model = buildSystem.place(type: type, col: col, row: row, tileMap: tileMap, gameState: gameState, pathfinder: pathfinder) {
             let node = BuildingNode(model: model, tileSize: TileMap.tileSize)

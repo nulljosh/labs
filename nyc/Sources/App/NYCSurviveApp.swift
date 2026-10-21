@@ -24,12 +24,7 @@ struct NYCSurviveApp: App {
                 if showMenu {
                     GameSceneView(gameState: menuBackdrop, loadSlot: nil)
                     MenuSceneView(
-                        onNewGame: {
-                            gameState = GameState()
-                            gameState.tutorialStep = 0
-                            loadSlot = nil
-                            showMenu = false
-                        },
+                        onNewGame: startNewGame,
                         onLoadGame: { slot in
                             loadSlot = slot
                             gameState = GameState()
@@ -45,12 +40,26 @@ struct NYCSurviveApp: App {
                 }
             }
             .frame(minWidth: 960, minHeight: 600)
+            .task {
+                // `-demo`: keep the window above everything for a clean recording, show the menu, start.
+                guard DemoBot.speed != nil else { return }
+                NSApp.windows.first?.level = .floating
+                try? await Task.sleep(for: .seconds(3))
+                startNewGame()
+            }
             .preferredColorScheme(themeChoice.colorScheme)
             .onReceive(NotificationCenter.default.publisher(for: .themeDidChange)) { _ in
                 themeChoice = Theme.choice
             }
         }
         .defaultSize(width: 1280, height: 800)
+    }
+
+    private func startNewGame() {
+        gameState = GameState()
+        gameState.tutorialStep = 0
+        loadSlot = nil
+        showMenu = false
     }
 }
 
