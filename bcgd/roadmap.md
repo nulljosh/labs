@@ -2,6 +2,15 @@
 
 > Priority tier 4 (2026-10-17): portfolio and meta. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
 
+## Next: shop accounts so Dad and his crew share one stock list
+
+Today Doorstock keeps everything on the one device. Plan, all on jaybulb-api (Cloudflare D1), no Supabase:
+- [ ] Shops and members in D1: Dad signs up, creates the shop, gets a 6-letter join code (same pattern as the quotestreak clubs)
+- [ ] Parts and jobs tables scoped by shop, owner and employee roles; employees can count stock and move jobs, only the owner can delete or reset
+- [ ] Sign in screen in the apps (email and Apple), then sync: pull on open, push on every change
+- [ ] Settings gets a Team tile: show the code, list members, remove one
+- [ ] Move the web dashboard and the bcgd_leads forward off Supabase, then drop LEGACY_URL
+
 ## 2026-10-21, homepage now matches bcgaragedoors.ca (live at bcgd.jaybulb.com, grade B+)
 
 Shipped: new header and nav, hero, 15 service cards, process, benefits, why, reviews, areas, schedule with the booking form, FAQ, footer. Unsourced price ranges, "90 min" and "Smart Scheduling" are gone. Tests green, mobile has no overflow. Paused at 95% weekly usage.
