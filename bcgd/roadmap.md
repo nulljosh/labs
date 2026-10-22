@@ -14,8 +14,6 @@ A plan, not promises. Each version is one thing Dad or his crew would notice. Sh
 - [ ] 2.4 website leads land on the jobs board as Lead cards (bcgd_leads is already on jaybulb-api)
 
 ### v3 to v10: the day's work
-- [x] 3 Today screen per tech: my jobs, my parts, the route in Maps (built 2026-10-21, Mac + iPhone 3.0; waits on 2.0 review to submit)
-- [x] 4 assign a job to a crew member, they see it first (built 2026-10-21, Doorstock 4.0 rolls 3.0 in; waits on 2.0 review to submit)
 - [ ] 5 quick quote: door size, spring type, labour, a price Dad sets once
 - [ ] 6 customer history: name, address, every job and part, searchable
 - [ ] 7 photos on a job (before and after), stored on jaybulb-api
@@ -52,11 +50,6 @@ A plan, not promises. Each version is one thing Dad or his crew would notice. Sh
 ## Next: shop accounts so Dad and his crew share one stock list
 
 Today Doorstock keeps everything on the one device. Plan, all on jaybulb-api (Cloudflare D1), no Supabase:
-- [x] Shops and members in D1: Dad signs up, creates the shop, gets a 6-letter join code (same pattern as the quotestreak clubs)
-- [x] Parts and jobs tables scoped by shop, owner and employee roles; employees can count stock and move jobs, only the owner can delete or reset
-- [x] Sign in screen in the apps (email and Apple), then sync: pull on open, push on every change
-- [x] Settings gets a Team tile: show the code, list members, remove one
-- [x] Move the web dashboard and the bcgd_leads forward off Supabase, then drop LEGACY_URL
 
 ## 2026-10-21, homepage now matches bcgaragedoors.ca (live at bcgd.jaybulb.com, grade B+)
 
