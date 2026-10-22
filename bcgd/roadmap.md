@@ -2,6 +2,53 @@
 
 > Priority tier 4 (2026-10-17): portfolio and meta. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
 
+## Road to v100 (Doorstock, planned 2026-10-21)
+
+A plan, not promises. Each version is one thing Dad or his crew would notice. Ship in order, one in review at a time.
+
+### v2: the shop (now)
+- [ ] 2.0 clears review (in review now: tiles, jobs board, status track, tab fix)
+- [ ] 2.1 shop accounts: start a shop, join code, shared stock and jobs (built, tested, waiting on 2.0)
+- [ ] 2.2 sign in with Apple next to email (server already verifies Apple id tokens)
+- [ ] 2.3 iOS back in the store once the 4.3(a) appeal clears, same build as the Mac
+- [ ] 2.4 website leads land on the jobs board as Lead cards (bcgd_leads is already on jaybulb-api)
+
+### v3 to v10: the day's work
+- [ ] 3 Today screen per tech: my jobs, my parts, the route in Maps
+- [ ] 4 assign a job to a crew member, they see it first
+- [ ] 5 quick quote: door size, spring type, labour, a price Dad sets once
+- [ ] 6 customer history: name, address, every job and part, searchable
+- [ ] 7 photos on a job (before and after), stored on jaybulb-api
+- [ ] 8 low stock push notification to the owner
+- [ ] 9 scan a part barcode to count it
+- [ ] 10 offline first: queue every change when there is no signal, sync on reconnect
+
+### v11 to v25: the money
+- [ ] invoice from a finished job: parts plus labour, PDF, email to the customer
+- [ ] mark paid with method (cash, e-transfer, card) and a monthly total
+- [ ] supplier reorder that fills itself from low stock and remembers the supplier
+- [ ] parts cost and price, margin per job
+- [ ] GST on invoices, a year-end export for the accountant
+- [ ] web dashboard parity with the apps on the same shop data
+
+### v26 to v50: the crew
+- [ ] roles beyond owner and crew: office, lead tech
+- [ ] van stock: each truck is its own shelf, transfers between van and shop
+- [ ] time on job, clock in and out, hours per week
+- [ ] calendar view of scheduled jobs, drag to reschedule
+- [ ] customer gets a text when the tech is on the way
+- [ ] missed-call follow-up: a text back with the booking link
+- [ ] Apple Watch: today's next job and a tap to mark it done
+
+### v51 to v100: other shops
+- [ ] Doorstock for any garage door shop: sign up, start a shop, no setup call
+- [ ] parts catalogue presets for common brands (LiftMaster, Chamberlain, Genie)
+- [ ] multiple shops per owner, a switcher
+- [ ] Android through the KMP module
+- [ ] pricing: free for one shop, a small monthly fee per extra seat (decide with Joshua first)
+- [ ] reviews request after a paid job, linked to the shop's Google profile
+- [ ] v100: a shop runs its whole week in Doorstock and never opens a spreadsheet
+
 ## Next: shop accounts so Dad and his crew share one stock list
 
 Today Doorstock keeps everything on the one device. Plan, all on jaybulb-api (Cloudflare D1), no Supabase:
