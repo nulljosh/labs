@@ -1,6 +1,6 @@
 # Architecture
 
-Doorstock helps a garage door repair business run day to day. It tracks parts on the shelf, job quotes, and customer leads, and lets customers book a job online. There is a public website for customers, a dashboard app for the office, and iOS/macOS apps for technicians out on a job. Everyone signs in through Supabase using Apple or Google.
+Doorstock helps a garage door repair business run day to day. It tracks parts on the shelf, job quotes, and customer leads, and lets customers book a job online. There is a public website for customers, a dashboard app for the office, and iOS/macOS apps for technicians out on a job. The apps work signed out. Signing in (email and password on jaybulb-api) is only for sharing: the owner starts a shop, hands the crew a six-letter code, and everyone sees the same stock and jobs.
 
 ## How it runs
 
@@ -8,7 +8,7 @@ Doorstock helps a garage door repair business run day to day. It tracks parts on
 
 **Dashboard**: React app (`src/dashboard/src/App.jsx`), localhost:5180 in dev, deployed separately. Authenticated technician/manager logs in with email+password (via Supabase AuthGate), sees parts inventory (localStorage-backed) and job history, can add/edit jobs and parts, export jobs as CSV, download/restore backup.
 
-**iOS/macOS**: native SwiftUI apps (`src/ios/BCGD/`, `src/macos/Sources/`). Sign-in via Apple or Google, then access device-local inventory and job tracker. No cloud sync yet (jobs stay local to device).
+**iOS/macOS**: native SwiftUI apps (`src/ios/BCGD/`, `src/macos/Sources/`), same screen code in both. Each device keeps a full local copy. When it belongs to a shop, `Account.swift` syncs it with jaybulb-api every 30 seconds and on every change: stock counts go up as deltas (`doorstock_adjust`) so two people counting at once both land, other edits are pushed as whole items, and a pull asks only for writes after the last sequence number it saw. Only the owner can delete, reset or restore. The server side is `jaybulb-api/src/doorstock.js`, tested by `jaybulb-api/test/doorstock.mjs`.
 
 ## Web
 

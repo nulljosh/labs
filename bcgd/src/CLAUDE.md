@@ -6,8 +6,8 @@ Monorepo for BC Garage Doors -- customer-facing website, internal operations das
 ## Structure
 - `web/` -- Static HTML landing page + generated service/service-area pages. Live: bcgd.jaybulb.com
 - `dashboard/` -- Vite + React 19 operations dashboard. Inventory, jobs pipeline, website leads, Supabase auth, backup/restore. Live: bcgd-dashboard.jaybulb.com
-- `ios/` -- SwiftUI iPhone companion app (4 tabs, local persistence, builds + runs on sim)
-- `macos/` -- (planned) SwiftUI macOS companion app
+- `ios/` -- SwiftUI iPhone app (4 tabs, local copy, optional shop sync on jaybulb-api)
+- `macos/` -- SwiftUI Mac app, same screens, bottom nav bar
 
 ## Stack
 - **web/**: Static HTML. `node build.js` regenerates the service/area pages + sitemap from `data/*.json`; `index.html` is hand-maintained and is the single source of styles/header/footer

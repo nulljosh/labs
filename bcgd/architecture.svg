@@ -1,16 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="330" style="background:#fff;font-family:-apple-system,BlinkMacSystemFont,sans-serif" viewBox="0 0 640 330">
-<text x="320" y="28" fill="#333" font-size="16" font-weight="600" text-anchor="middle">BC Garage Doors Architecture</text>
-<rect width="200" height="40" x="105" y="55" fill="#f5f5f7" stroke="#d1d1d6" rx="8"/>
-<text x="205" y="72" fill="#333" font-size="12" text-anchor="middle">web/</text>
-<text x="205" y="86" fill="#333" font-size="12" text-anchor="middle">landing page</text>
-<rect width="200" height="40" x="335" y="55" fill="#f5f5f7" stroke="#d1d1d6" rx="8"/>
-<text x="435" y="72" fill="#333" font-size="12" text-anchor="middle">dashboard/</text>
-<text x="435" y="86" fill="#333" font-size="12" text-anchor="middle">inventory + stock</text>
-<rect width="200" height="40" x="220" y="145" fill="#b3541e" fill-opacity=".15" stroke="#b3541e" rx="8"/>
-<text x="320" y="162" fill="#333" font-size="12" font-weight="500" text-anchor="middle">src/</text>
-<text x="320" y="176" fill="#333" font-size="12" font-weight="500" text-anchor="middle">shared JS + tokens</text>
-<rect width="200" height="40" x="220" y="235" fill="#b3541e" fill-opacity=".15" stroke="#b3541e" rx="8"/>
-<text x="320" y="252" fill="#333" font-size="12" font-weight="500" text-anchor="middle">localStorage</text>
-<text x="320" y="266" fill="#333" font-size="12" font-weight="500" text-anchor="middle">inventory state</text>
-<path stroke="#d1d1d6" fill="none" d="M205 95v25M435 95v25M205 120H435M320 120V145M320 185V235"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="380" style="background:#fff;font-family:-apple-system,BlinkMacSystemFont,sans-serif" viewBox="0 0 720 380">
+<text x="360" y="28" fill="#333" font-size="16" font-weight="600" text-anchor="middle">BC Garage Doors and Doorstock</text>
+<rect width="150" height="44" x="24" y="56" fill="#f5f5f7" stroke="#d1d1d6" rx="8"/>
+<text x="99" y="74" fill="#333" font-size="12" text-anchor="middle">Website</text>
+<text x="99" y="90" fill="#666" font-size="11" text-anchor="middle">customer booking form</text>
+<rect width="150" height="44" x="196" y="56" fill="#f5f5f7" stroke="#d1d1d6" rx="8"/>
+<text x="271" y="74" fill="#333" font-size="12" text-anchor="middle">Doorstock for Mac</text>
+<text x="271" y="90" fill="#666" font-size="11" text-anchor="middle">bottom bar, local copy</text>
+<rect width="150" height="44" x="368" y="56" fill="#f5f5f7" stroke="#d1d1d6" rx="8"/>
+<text x="443" y="74" fill="#333" font-size="12" text-anchor="middle">Doorstock for iPhone</text>
+<text x="443" y="90" fill="#666" font-size="11" text-anchor="middle">tab bar, Face ID lock</text>
+<rect width="150" height="44" x="540" y="56" fill="#f5f5f7" stroke="#d1d1d6" rx="8"/>
+<text x="615" y="74" fill="#333" font-size="12" text-anchor="middle">Web dashboard</text>
+<text x="615" y="90" fill="#666" font-size="11" text-anchor="middle">reads website leads</text>
+<rect width="300" height="56" x="210" y="164" fill="#1b4fc4" fill-opacity=".1" stroke="#1b4fc4" rx="8"/>
+<text x="360" y="184" fill="#333" font-size="12" font-weight="600" text-anchor="middle">jaybulb-api (Cloudflare Worker)</text>
+<text x="360" y="200" fill="#666" font-size="11" text-anchor="middle">sign in, shops and join codes, push, pull since seq,</text>
+<text x="360" y="213" fill="#666" font-size="11" text-anchor="middle">stock counts as deltas, bcgd_leads</text>
+<rect width="300" height="56" x="210" y="272" fill="#1b4fc4" fill-opacity=".1" stroke="#1b4fc4" rx="8"/>
+<text x="360" y="292" fill="#333" font-size="12" font-weight="600" text-anchor="middle">D1</text>
+<text x="360" y="308" fill="#666" font-size="11" text-anchor="middle">doorstock_shops, doorstock_members,</text>
+<text x="360" y="321" fill="#666" font-size="11" text-anchor="middle">doorstock_items (one seq per shop), bcgd_leads</text>
+<path stroke="#d1d1d6" fill="none" d="M99 100v32M271 100v32M443 100v32M615 100v32M99 132H615M360 132V164M360 220V272"/>
+<text x="360" y="362" fill="#999" font-size="11" text-anchor="middle">The owner starts a shop and shares a six-letter code. Crew join and see the same stock and jobs.</text>
 </svg>
