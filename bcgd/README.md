@@ -2,7 +2,7 @@
 
 # BC Garage Doors
 
-![version](https://img.shields.io/badge/version-v4.0.0-blue)
+![version](https://img.shields.io/badge/version-v5.0.0-blue)
 ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fbcgd-black?logo=github)](https://github.com/nulljosh/labs/tree/main/bcgd)
 
 A website and a stock dashboard for Best Choice Garage Doors (bcgaragedoors.ca). One brings customers in. The other tells the shop what's on the shelf.

@@ -19,6 +19,8 @@ targets:
       - Sources
       - path: Assets.xcassets
         buildPhase: resources
+      - path: ../../Doorstock.icon
+        buildPhase: resources
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.joshuatrommel.bcgd
@@ -27,6 +29,6 @@ targets:
         CURRENT_PROJECT_VERSION: 202608271310
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_CFBundleDisplayName: Doorstock
-        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_APPICON_NAME: Doorstock
         INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.business
         ENABLE_HARDENED_RUNTIME: YES

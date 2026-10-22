@@ -1,5 +1,13 @@
 # Changelog
 
+## [v5.0.0] - 2026-10-21
+
+- One brand kit for the shop (teal, Choice Display) and Doorstock (blue), with a brand sheet at /brand/
+- Choice Display: our own headline face cut from Barlow Condensed, self-hosted
+- Doorstock 2.0: add and edit parts, job details with parts used, today view, stock history, reorder email, CSV and backup export, restore
+- New Doorstock icon, built with Icon Composer, wired into both apps
+- Website QA: phone icon on sub-pages, AA contrast on sage, 200 unused CSS rules gone
+
 ## [v4.0.0] - 2026-10-21
 
 - Website now looks like bcgaragedoors.ca: same header, nav, colours, fonts and real photos
