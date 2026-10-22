@@ -3,10 +3,6 @@ options:
   bundleIdPrefix: com.joshuatrommel
   deploymentTarget:
     iOS: "17.0"
-packages:
-  Supabase:
-    url: https://github.com/supabase-community/supabase-swift
-    from: 2.0.0
 targets:
   BCGD:
     type: application
@@ -14,9 +10,6 @@ targets:
     sources:
       - BCGD
       - path: ../../Doorstock.icon
-    dependencies:
-      - package: Supabase
-        product: Supabase
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.joshuatrommel.bcgd

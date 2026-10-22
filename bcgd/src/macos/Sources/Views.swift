@@ -72,6 +72,7 @@ extension Part {
 
 struct InventoryView: View {
     @Environment(Store.self) private var store
+    @Environment(Account.self) private var account
     @State private var search = ""
     @State private var editing: Part?
 
@@ -94,7 +95,7 @@ struct InventoryView: View {
                             LazyVGrid(columns: Grid.tiles, spacing: 12) {
                                 ForEach(parts) { part in
                                     PartTile(part: part) { editing = $0 }
-                                        .contextMenu { Button("Delete", systemImage: "trash", role: .destructive) { delete(part) } }
+                                        .contextMenu { if account.isOwner { Button("Delete", systemImage: "trash", role: .destructive) { delete(part) } } }
                                 }
                             }
                         }
@@ -206,6 +207,7 @@ extension JobStatus {
 
 struct JobsView: View {
     @Environment(Store.self) private var store
+    @Environment(Account.self) private var account
     @State private var newCustomer = ""
     @State private var adding = false
 
@@ -227,7 +229,7 @@ struct JobsView: View {
                                 NavigationLink(value: job.id) { JobCard(job: job) }
                                     .buttonStyle(.plain)
                                     .contextMenu {
-                                        Button("Delete", systemImage: "trash", role: .destructive) { store.jobs.removeAll { $0.id == job.id } }
+                                        if account.isOwner { Button("Delete", systemImage: "trash", role: .destructive) { store.jobs.removeAll { $0.id == job.id } } }
                                     }
                             }
                             if jobs.isEmpty { EmptyTile(symbol: status.symbol, text: "None") }

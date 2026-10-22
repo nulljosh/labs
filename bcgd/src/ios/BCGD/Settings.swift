@@ -5,6 +5,7 @@ import UniformTypeIdentifiers
 
 struct SettingsView: View {
     @Environment(Store.self) private var store
+    @Environment(Account.self) private var account
     @AppStorage("reorderEmail") private var reorderEmail = ""
     @State private var importing = false
     @State private var importResult: String?
@@ -14,6 +15,7 @@ struct SettingsView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 32) {
+                    TeamShelf()
                     Shelf("Reorders", symbol: "envelope") {
                         TextField("Supplier email", text: $reorderEmail)
                             .textFieldStyle(.plain)
@@ -24,8 +26,10 @@ struct SettingsView: View {
                             NavigationLink { HistoryView() } label: { ActionTile("Stock history", symbol: "clock.arrow.circlepath") }
                             ShareLink(item: store.exportFile("doorstock-inventory.csv", Data(store.csv.utf8))) { ActionTile("Export CSV", symbol: "tablecells") }
                             ShareLink(item: store.exportFile("doorstock-backup.json", store.backup)) { ActionTile("Export backup", symbol: "square.and.arrow.up") }
-                            Button { importing = true } label: { ActionTile("Restore backup", symbol: "square.and.arrow.down") }
-                            Button { resetting = true } label: { ActionTile("Reset stock", symbol: "arrow.counterclockwise", tint: .red) }
+                            if account.isOwner {
+                                Button { importing = true } label: { ActionTile("Restore backup", symbol: "square.and.arrow.down") }
+                                Button { resetting = true } label: { ActionTile("Reset stock", symbol: "arrow.counterclockwise", tint: .red) }
+                            }
                         }
                         .buttonStyle(.plain)
                     }

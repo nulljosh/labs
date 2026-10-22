@@ -113,8 +113,10 @@ final class Store {
     var jobs: [Job] { didSet { save() } }
     var history: [StockChange] { didSet { save() } }
 
-    // ponytail: UserDefaults JSON persistence, swap for shared API when dashboard sync lands
+    // Local copy in UserDefaults; Account syncs it with the shop when signed in.
     private static let key = "bcgd.store"
+    @ObservationIgnored var onChange: (() -> Void)?
+    @ObservationIgnored var onAdjust: ((UUID, Int) -> Void)?
 
     init() {
         let defaults = UserDefaults.standard
@@ -133,6 +135,12 @@ final class Store {
         if let data = try? JSONEncoder().encode(Saved(parts: parts, jobs: jobs, history: history)) {
             UserDefaults.standard.set(data, forKey: Self.key)
         }
+        onChange?()
+    }
+
+    func replace(parts: [Part], jobs: [Job]) {
+        self.parts = parts
+        self.jobs = jobs
     }
 
     var lowStockParts: [Part] { parts.filter(\.isLowStock) }
@@ -147,6 +155,7 @@ final class Store {
         let applied = new - parts[i].quantity
         guard applied != 0 else { return }
         parts[i].quantity = new
+        onAdjust?(id, applied)
         history.insert(StockChange(partName: parts[i].name, delta: applied, reason: reason), at: 0)
     }
 

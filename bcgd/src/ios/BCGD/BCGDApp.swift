@@ -3,17 +3,20 @@ import LocalAuthentication
 
 @main
 struct BCGDApp: App {
-    @State private var auth = AuthStore()
-    @State private var store = Store()
+    @State private var store: Store
+    @State private var account: Account
     @State private var unlocked = false
+
+    init() {
+        let store = Store()
+        _store = State(initialValue: store)
+        _account = State(initialValue: Account(store: store))
+    }
 
     var body: some Scene {
         WindowGroup {
             Group {
-                if auth.userId == nil {
-                    AccountGateView()
-                        .environment(auth)
-                } else if unlocked {
+                if unlocked {
                     TabView {
                         DashboardView()
                             .tabItem { Label("Dashboard", systemImage: "square.grid.2x2") }
@@ -26,22 +29,26 @@ struct BCGDApp: App {
                     }
                     .tint(.doorstock)
                     .environment(store)
-                    .environment(auth)
+                    .environment(account)
+                    // ponytail: poll every 30 s while open; a push channel can replace it if the crew grows
+                    .task {
+                        while !Task.isCancelled {
+                            if account.signedIn { try? await account.refreshShop() }
+                            try? await Task.sleep(for: .seconds(30))
+                        }
+                    }
                 } else {
                     LockScreen(unlocked: $unlocked)
                 }
             }
-            .onChange(of: unlocked) { _, isUnlocked in
-                if !isUnlocked { authenticate() }
-            }
-            .task { if auth.userId != nil { authenticate() } }
-            .onChange(of: auth.userId) { _, newValue in
-                if newValue != nil { authenticate() }
-            }
+            .task { authenticate() }
         }
     }
 
     private func authenticate() {
+        #if DEBUG
+        if UserDefaults.standard.bool(forKey: "skipLock") { unlocked = true; return } // QA on a simulator with someone else's passcode
+        #endif
         let context = LAContext()
         var error: NSError?
         guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
