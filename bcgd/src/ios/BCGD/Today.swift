@@ -14,14 +14,7 @@ struct TodayView: View {
                         } else {
                             LazyVGrid(columns: Grid.cards, spacing: 12) {
                                 ForEach(store.todayRoute) { job in
-                                    VStack(alignment: .leading, spacing: 8) {
-                                        NavigationLink(value: job.id) { JobCard(job: job) }.buttonStyle(.plain)
-                                        if let url = job.routeURL {
-                                            Link(destination: url) { Label("Route in Maps", systemImage: "arrow.triangle.turn.up.right.diamond") }
-                                                .buttonStyle(.bordered)
-                                                .buttonBorderShape(.capsule)
-                                        }
-                                    }
+                                    NavigationLink(value: job.id) { JobCard(job: job, showsRoute: true) }.buttonStyle(.plain)
                                 }
                             }
                         }

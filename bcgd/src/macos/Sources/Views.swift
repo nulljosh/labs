@@ -251,6 +251,7 @@ struct JobCard: View {
     @Environment(Store.self) private var store
     let job: Job
     var showsStatus = false
+    var showsRoute = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -260,12 +261,17 @@ struct JobCard: View {
             if let who = job.assignee.flatMap({ store.crewNames[$0] }) { fact("person", who) }
             if let date = job.scheduled { fact("clock", date.formatted(date: .abbreviated, time: .shortened)) }
             if !job.parts.isEmpty { fact("shippingbox", "\(job.parts.reduce(0) { $0 + $1.quantity }) parts") }
-            if let next = job.status.next {
-                Button(next.rawValue, systemImage: "arrow.right") { store.advance(job.id) }
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.capsule)
-                    .padding(.top, 4)
+            HStack(spacing: 8) {
+                if let next = job.status.next {
+                    Button(next.rawValue, systemImage: "arrow.right") { store.advance(job.id) }
+                }
+                if showsRoute, let url = job.routeURL {
+                    Link(destination: url) { Label("Route", systemImage: "arrow.triangle.turn.up.right.diamond") }
+                }
             }
+            .buttonStyle(.bordered)
+            .buttonBorderShape(.capsule)
+            .padding(.top, 4)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .cardBackground()
