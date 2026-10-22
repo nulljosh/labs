@@ -6,39 +6,38 @@ import UniformTypeIdentifiers
 struct DashboardView: View {
     @Environment(Store.self) private var store
     @AppStorage("reorderEmail") private var reorderEmail = ""
+    @State private var editing: Part?
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 12)], spacing: 12) {
+                VStack(alignment: .leading, spacing: 32) {
+                    LazyVGrid(columns: Grid.tiles, spacing: 12) {
                         StatTile(label: "Parts in stock", value: store.parts.reduce(0) { $0 + $1.quantity }, symbol: "shippingbox")
                         StatTile(label: "Low stock", value: store.lowStockParts.count, symbol: "exclamationmark.triangle", alert: !store.lowStockParts.isEmpty)
                         StatTile(label: "Open jobs", value: store.jobs.filter { $0.status != .paid }.count, symbol: "list.clipboard")
                         StatTile(label: "Jobs paid", value: store.jobs.filter { $0.status == .paid }.count, symbol: "checkmark.circle")
                     }
-                    Card("Today") {
+                    Shelf("Today", symbol: "calendar") {
                         if store.todayJobs.isEmpty {
-                            CardRow { Text("Nothing scheduled today").foregroundStyle(.secondary) }
-                        }
-                        ForEach(Array(store.todayJobs.enumerated()), id: \.element.id) { i, job in
-                            NavigationLink(value: job.id) {
-                                CardRow(divider: i > 0) { TodayRow(job: job); Spacer(); Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary) }
+                            EmptyTile(symbol: "sun.max", text: "Nothing scheduled today")
+                        } else {
+                            LazyVGrid(columns: Grid.cards, spacing: 12) {
+                                ForEach(store.todayJobs) { job in
+                                    NavigationLink(value: job.id) { JobCard(job: job, showsStatus: true) }.buttonStyle(.plain)
+                                }
                             }
-                            .buttonStyle(.plain)
                         }
                     }
                     if !store.lowStockParts.isEmpty {
-                        Card("Low stock") {
-                            ForEach(Array(store.lowStockParts.enumerated()), id: \.element.id) { i, part in
-                                CardRow(divider: i > 0) {
-                                    Text(part.name)
-                                    Spacer()
-                                    Text("\(part.quantity) left").foregroundStyle(.red).monospacedDigit()
-                                }
+                        Shelf("Low stock", symbol: "exclamationmark.triangle") {
+                            LazyVGrid(columns: Grid.tiles, spacing: 12) {
+                                ForEach(store.lowStockParts) { PartTile(part: $0) { editing = $0 } }
                             }
                             if let url = store.reorderURL(to: reorderEmail) {
-                                CardRow(divider: true) { Link("Email a reorder", destination: url) }
+                                Link(destination: url) { Label("Email a reorder", systemImage: "envelope") }
+                                    .buttonStyle(.bordered)
+                                    .buttonBorderShape(.capsule)
                             }
                         }
                     }
@@ -50,94 +49,26 @@ struct DashboardView: View {
             .background(Color.page)
             .navigationTitle("Doorstock")
             .navigationDestination(for: UUID.self) { JobDetailView(jobID: $0) }
-        }
-    }
-}
-
-// MARK: - Building blocks (8 point grid; cards 28, grouped lists 20)
-
-extension Color {
-    #if os(macOS)
-    static let page = Color(nsColor: .windowBackgroundColor)
-    static let card = Color(nsColor: .quaternarySystemFill)
-    #else
-    static let page = Color(uiColor: .systemGroupedBackground)
-    static let card = Color(uiColor: .secondarySystemGroupedBackground)
-    #endif
-}
-
-struct StatTile: View {
-    let label: String
-    let value: Int
-    let symbol: String
-    var alert = false
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Image(systemName: symbol)
-                .font(.title3)
-                .foregroundStyle(alert ? Color.red : Color.doorstock)
-                .padding(.bottom, 12)
-            Text("\(value)")
-                .font(.system(size: 34, weight: .bold, design: .rounded))
-                .monospacedDigit()
-            Text(label).font(.subheadline).foregroundStyle(.secondary)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(16)
-        .background(Color.card, in: RoundedRectangle(cornerRadius: 28, style: .continuous))
-    }
-}
-
-struct Card<Content: View>: View {
-    let title: String
-    @ViewBuilder let content: Content
-
-    init(_ title: String, @ViewBuilder content: () -> Content) {
-        self.title = title
-        self.content = content()
-    }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(title).font(.headline).padding(.leading, 4)
-            VStack(spacing: 0) { content }
-            .background(Color.card, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-        }
-    }
-}
-
-struct CardRow<Content: View>: View {
-    var divider = false
-    @ViewBuilder let content: Content
-
-    var body: some View {
-        HStack(spacing: 12) { content }
-            .padding(.vertical, 12)
-            .padding(.horizontal, 16)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .contentShape(Rectangle())
-            .overlay(alignment: .top) { if divider { Divider().padding(.leading, 16) } }
-    }
-}
-
-struct TodayRow: View {
-    @Environment(Store.self) private var store
-    let job: Job
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text(job.customer).font(.subheadline)
-            if !job.address.isEmpty { Text(job.address).font(.caption).foregroundStyle(.secondary) }
-            if !job.parts.isEmpty {
-                Text(job.parts.compactMap { p in store.part(p.partID).map { "\(p.quantity) × \($0.name)" } }.joined(separator: ", "))
-                    .font(.caption).foregroundStyle(Color.doorstock)
-            }
+            .sheet(item: $editing) { PartEditor(part: $0) }
         }
     }
 }
 
 // MARK: - Inventory
+
+extension Part {
+    var symbol: String {
+        switch category {
+        case "Cables": "cable.connector"
+        case "Hardware": "wrench.and.screwdriver"
+        case "Openers": "door.garage.open"
+        case "Rollers": "circle.circle"
+        case "Seals": "drop"
+        case "Springs": "arrow.up.and.down"
+        default: "shippingbox"
+        }
+    }
+}
 
 struct InventoryView: View {
     @Environment(Store.self) private var store
@@ -155,19 +86,25 @@ struct InventoryView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(categories, id: \.self) { category in
-                    Section(category) {
-                        ForEach(filtered.filter { $0.category == category }) { part in
-                            PartRow(part: part)
-                                .contentShape(Rectangle())
-                                .onTapGesture { editing = part }
-                                .swipeActions { Button("Delete", role: .destructive) { delete(part) } }
+            ScrollView {
+                VStack(alignment: .leading, spacing: 32) {
+                    ForEach(categories, id: \.self) { category in
+                        let parts = filtered.filter { $0.category == category }
+                        Shelf(category, symbol: parts[0].symbol) {
+                            LazyVGrid(columns: Grid.tiles, spacing: 12) {
+                                ForEach(parts) { part in
+                                    PartTile(part: part) { editing = $0 }
+                                        .contextMenu { Button("Delete", systemImage: "trash", role: .destructive) { delete(part) } }
+                                }
+                            }
                         }
                     }
+                    if categories.isEmpty { EmptyTile(symbol: "magnifyingglass", text: "No parts match") }
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(20)
             }
-            .insetList()
+            .background(Color.page)
             .searchable(text: $search)
             .navigationTitle("Inventory")
             .toolbar {
@@ -180,29 +117,36 @@ struct InventoryView: View {
     private func delete(_ part: Part) { store.parts.removeAll { $0.id == part.id } }
 }
 
-struct PartRow: View {
+struct PartTile: View {
     @Environment(Store.self) private var store
     let part: Part
+    let edit: (Part) -> Void
 
     var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 2) {
-                Text(part.name)
-                if part.isLowStock { Text("Low stock").font(.caption).foregroundStyle(.red) }
+        let low = part.isLowStock
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Image(systemName: part.symbol).font(.title3).foregroundStyle(low ? Color.red : Color.doorstock)
+                Spacer()
+                if low { Text("Low").font(.caption.weight(.semibold)).foregroundStyle(.red) }
             }
-            Spacer()
-            Stepper(value: quantity, in: 0...999) {
-                Text("\(part.quantity)").monospacedDigit().frame(minWidth: 32, alignment: .trailing)
+            Text(part.name).font(.subheadline.weight(.medium)).lineLimit(2, reservesSpace: true)
+            HStack(spacing: 8) {
+                Text("\(part.quantity)")
+                    .font(.system(size: 28, weight: .bold, design: .rounded))
+                    .monospacedDigit()
+                    .lineLimit(1)
+                    .fixedSize()
+                    .foregroundStyle(low ? Color.red : Color.primary)
+                Spacer()
+                RoundIcon(symbol: "minus") { store.adjust(part.id, by: -1, reason: "Count") }
+                    .disabled(part.quantity == 0)
+                RoundIcon(symbol: "plus") { store.adjust(part.id, by: 1, reason: "Count") }
             }
-            .fixedSize()
         }
-    }
-
-    private var quantity: Binding<Int> {
-        Binding(
-            get: { store.part(part.id)?.quantity ?? 0 },
-            set: { store.adjust(part.id, by: $0 - (store.part(part.id)?.quantity ?? 0), reason: "Count") }
-        )
+        .cardBackground()
+        .contentShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
+        .onTapGesture { edit(part) }
     }
 }
 
@@ -248,6 +192,18 @@ struct PartEditor: View {
 
 // MARK: - Jobs
 
+extension JobStatus {
+    var symbol: String {
+        switch self {
+        case .lead: "person.crop.circle.badge.plus"
+        case .quote: "doc.text"
+        case .scheduled: "calendar"
+        case .complete: "checkmark.seal"
+        case .paid: "dollarsign.circle"
+        }
+    }
+}
+
 struct JobsView: View {
     @Environment(Store.self) private var store
     @State private var newCustomer = ""
@@ -255,16 +211,35 @@ struct JobsView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(store.jobs) { job in
-                    NavigationLink(value: job.id) { JobRow(job: job) }
-                        .listRowSeparator(.hidden)
+            // ponytail: one board, columns by status; scrolls both ways so it fits a phone too
+            ScrollView([.horizontal, .vertical]) {
+                HStack(alignment: .top, spacing: 16) {
+                    ForEach(JobStatus.allCases, id: \.self) { status in
+                        let jobs = store.jobs.filter { $0.status == status }
+                        VStack(alignment: .leading, spacing: 12) {
+                            HStack {
+                                Label(status.rawValue, systemImage: status.symbol).font(.headline)
+                                Spacer()
+                                Text("\(jobs.count)").font(.subheadline).foregroundStyle(.secondary).monospacedDigit()
+                            }
+                            .padding(.horizontal, 4)
+                            ForEach(jobs) { job in
+                                NavigationLink(value: job.id) { JobCard(job: job) }
+                                    .buttonStyle(.plain)
+                                    .contextMenu {
+                                        Button("Delete", systemImage: "trash", role: .destructive) { store.jobs.removeAll { $0.id == job.id } }
+                                    }
+                            }
+                            if jobs.isEmpty { EmptyTile(symbol: status.symbol, text: "None") }
+                        }
+                        .frame(width: 232)
+                    }
                 }
-                .onDelete { store.jobs.remove(atOffsets: $0) }
+                .padding(20)
             }
-            .insetList()
-            .overlay { if store.jobs.isEmpty { Text("No jobs yet").foregroundStyle(.secondary) } }
+            .background(Color.page)
             .navigationTitle("Jobs")
+            .navigationDestination(for: UUID.self) { JobDetailView(jobID: $0) }
             .toolbar {
                 Button { adding = true } label: { Label("New job", systemImage: "plus") }
             }
@@ -277,34 +252,36 @@ struct JobsView: View {
                 }
                 Button("Cancel", role: .cancel) { newCustomer = "" }
             }
-            .navigationDestination(for: UUID.self) { JobDetailView(jobID: $0) }
         }
     }
 }
 
-struct JobRow: View {
+struct JobCard: View {
     @Environment(Store.self) private var store
     let job: Job
+    var showsStatus = false
 
     var body: some View {
-        HStack(spacing: 12) {
-            VStack(alignment: .leading, spacing: 4) {
-                Text(job.customer)
-                HStack(spacing: 8) {
-                    StatusPill(status: job.status)
-                    if let date = job.scheduled {
-                        Text(date.formatted(date: .abbreviated, time: .shortened)).font(.footnote).foregroundStyle(.secondary)
-                    }
-                }
-            }
-            Spacer()
+        VStack(alignment: .leading, spacing: 8) {
+            Text(job.customer).font(.body.weight(.semibold)).lineLimit(1)
+            if showsStatus { StatusPill(status: job.status) }
+            if !job.address.isEmpty { fact("mappin", job.address) }
+            if let date = job.scheduled { fact("clock", date.formatted(date: .abbreviated, time: .shortened)) }
+            if !job.parts.isEmpty { fact("shippingbox", "\(job.parts.reduce(0) { $0 + $1.quantity }) parts") }
             if let next = job.status.next {
                 Button(next.rawValue, systemImage: "arrow.right") { store.advance(job.id) }
                     .buttonStyle(.bordered)
                     .buttonBorderShape(.capsule)
+                    .padding(.top, 4)
             }
         }
-        .padding(.vertical, 4)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .cardBackground()
+        .contentShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
+    }
+
+    private func fact(_ symbol: String, _ text: String) -> some View {
+        Label(text, systemImage: symbol).font(.footnote).foregroundStyle(.secondary).lineLimit(1)
     }
 }
 
@@ -313,11 +290,11 @@ struct StatusPill: View {
 
     var body: some View {
         let tint = status == .paid ? Color.secondary : Color.doorstock
-        Text(status.rawValue)
+        Label(status.rawValue, systemImage: status.symbol)
             .font(.caption.weight(.semibold))
             .foregroundStyle(tint)
             .padding(.horizontal, 8)
-            .padding(.vertical, 2)
+            .padding(.vertical, 4)
             .background(tint.opacity(0.12), in: Capsule())
     }
 }
