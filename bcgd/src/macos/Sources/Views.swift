@@ -320,6 +320,7 @@ struct JobDetailView: View {
         @Bindable var store = store
         if let i = index {
             Form {
+                Section { StatusTrack(status: store.jobs[i].status) }
                 Section("Customer") {
                     TextField("Name", text: $store.jobs[i].customer)
                     TextField("Address", text: $store.jobs[i].address)
@@ -328,7 +329,6 @@ struct JobDetailView: View {
                 Section("When") { ScheduleField(date: $store.jobs[i].scheduled) }
                 Section("Parts") { JobPartsEditor(job: $store.jobs[i]) }
                 Section {
-                    LabeledContent("Status", value: store.jobs[i].status.rawValue)
                     if let next = store.jobs[i].status.next {
                         Button("Move to \(next.rawValue)") { store.advance(jobID) }
                     }
@@ -343,6 +343,29 @@ struct JobDetailView: View {
         } else {
             Text("This job was deleted.").foregroundStyle(.secondary)
         }
+    }
+}
+
+struct StatusTrack: View {
+    let status: JobStatus
+
+    var body: some View {
+        let reached = JobStatus.allCases.firstIndex(of: status) ?? 0
+        HStack(spacing: 0) {
+            ForEach(Array(JobStatus.allCases.enumerated()), id: \.offset) { i, step in
+                if i > 0 { Rectangle().fill(i <= reached ? Color.doorstock : Color.secondary.opacity(0.25)).frame(height: 2) }
+                VStack(spacing: 4) {
+                    Image(systemName: step.symbol)
+                        .font(.body.weight(.semibold))
+                        .frame(width: 40, height: 40)
+                        .foregroundStyle(i <= reached ? Color.white : Color.secondary)
+                        .background(i <= reached ? Color.doorstock : Color.secondary.opacity(0.12), in: Circle())
+                    Text(step.rawValue).font(.caption2).foregroundStyle(i == reached ? Color.primary : Color.secondary)
+                }
+                .fixedSize()
+            }
+        }
+        .padding(.vertical, 8)
     }
 }
 
@@ -377,67 +400,3 @@ struct JobPartsEditor: View {
     }
 }
 
-// MARK: - Settings
-
-struct SettingsView: View {
-    @Environment(Store.self) private var store
-    @AppStorage("reorderEmail") private var reorderEmail = ""
-    @State private var importing = false
-    @State private var importResult: String?
-
-    var body: some View {
-        NavigationStack {
-            Form {
-                Section("Reorders") {
-                    TextField("Supplier email", text: $reorderEmail)
-                }
-                Section("Data") {
-                    NavigationLink("Stock history") { HistoryView() }
-                    ShareLink("Export inventory (CSV)", item: store.exportFile("doorstock-inventory.csv", Data(store.csv.utf8)))
-                    ShareLink("Export backup", item: store.exportFile("doorstock-backup.json", store.backup))
-                    Button("Restore a backup") { importing = true }
-                    Button("Reset inventory to defaults", role: .destructive) { store.parts = Store.seedParts }
-                }
-                Section("About") {
-                    LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")
-                    Link("doorstock.jaybulb.com", destination: URL(string: "https://doorstock.jaybulb.com")!)
-                }
-            }
-            .formStyle(.grouped)
-            .navigationTitle("Settings")
-            .fileImporter(isPresented: $importing, allowedContentTypes: [.json]) { restore($0) }
-            .alert(importResult ?? "", isPresented: Binding(get: { importResult != nil }, set: { if !$0 { importResult = nil } })) {}
-        }
-    }
-
-    private func restore(_ result: Result<URL, Error>) {
-        guard case .success(let url) = result else { return }
-        let scoped = url.startAccessingSecurityScopedResource()
-        defer { if scoped { url.stopAccessingSecurityScopedResource() } }
-        let ok = (try? Data(contentsOf: url)).map(store.restore) ?? false
-        importResult = ok ? "Backup restored." : "That file isn't a Doorstock backup."
-    }
-}
-
-struct HistoryView: View {
-    @Environment(Store.self) private var store
-
-    var body: some View {
-        List(store.history) { change in
-            HStack {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(change.partName)
-                    Text("\(change.reason) · \(change.date.formatted(date: .abbreviated, time: .shortened))")
-                        .font(.caption).foregroundStyle(.secondary)
-                }
-                Spacer()
-                Text(change.delta > 0 ? "+\(change.delta)" : "\(change.delta)")
-                    .fontWeight(.semibold)
-                    .foregroundStyle(change.delta > 0 ? Color.doorstock : .red)
-            }
-        }
-        .insetList()
-        .overlay { if store.history.isEmpty { Text("No stock changes yet").foregroundStyle(.secondary) } }
-        .navigationTitle("Stock History")
-    }
-}

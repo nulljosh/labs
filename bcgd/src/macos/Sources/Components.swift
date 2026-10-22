@@ -94,3 +94,25 @@ struct RoundIcon: View {
         .buttonStyle(.plain)
     }
 }
+
+struct ActionTile: View {
+    let title: String
+    let symbol: String
+    var tint = Color.doorstock
+
+    init(_ title: String, symbol: String, tint: Color = .doorstock) {
+        self.title = title
+        self.symbol = symbol
+        self.tint = tint
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Image(systemName: symbol).font(.title2).foregroundStyle(tint)
+            Text(title).font(.subheadline.weight(.medium)).foregroundStyle(Color.primary)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .cardBackground()
+        .contentShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
+    }
+}
