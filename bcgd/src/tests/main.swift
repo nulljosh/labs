@@ -19,3 +19,15 @@ var job = saved.jobs[0]; job.parts = [JobPart(partID: saved.parts[0].id, quantit
 let again = Saved.decode(try! JSONEncoder().encode(Saved(parts: saved.parts, jobs: [job], history: [])))!
 assert(again.jobs[0].parts.first?.quantity == 2 && again.jobs[0].scheduled != nil, "new fields don't round trip")
 print("decode check ok")
+
+// Today: one route in time order, parts summed across jobs, shortage flagged, Maps link built.
+let now = Date()
+var a = Job(customer: "A"); a.status = .scheduled; a.scheduled = now.addingTimeInterval(60)
+var b = Job(customer: "B"); b.status = .scheduled; b.scheduled = now.addingTimeInterval(-60); b.address = "123 Main St, Surrey"
+let sp = saved.parts[0].id
+a.parts = [JobPart(partID: sp, quantity: 2)]; b.parts = [JobPart(partID: sp, quantity: 2)]
+let s = Store(); s.parts = saved.parts; s.jobs = [a, b]
+assert(s.todayRoute.map(\.customer) == ["B", "A"], "route not in time order")
+assert(s.todayNeeds.first?.needed == 4 && s.todayNeeds.first?.short == true, "needs not summed (3 on shelf, 4 needed)")
+assert(b.routeURL?.absoluteString == "https://maps.apple.com/?daddr=123%20Main%20St,%20Surrey" && a.routeURL == nil, "maps url wrong")
+print("today check ok")

@@ -80,6 +80,24 @@ struct Job: Identifiable, Codable {
     var isToday: Bool { scheduled.map(Calendar.current.isDateInToday) ?? false }
 }
 
+struct PartNeed: Identifiable {
+    let part: Part
+    let needed: Int
+    var id: UUID { part.id }
+    var short: Bool { part.quantity < needed }
+}
+
+extension Job {
+    /// Apple Maps directions to the address; opens Maps on both Mac and iPhone.
+    var routeURL: URL? {
+        let a = address.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !a.isEmpty else { return nil }
+        var c = URLComponents(string: "https://maps.apple.com/")
+        c?.queryItems = [URLQueryItem(name: "daddr", value: a)]
+        return c?.url
+    }
+}
+
 struct StockChange: Identifiable, Codable {
     var id = UUID()
     var date = Date()
@@ -147,6 +165,16 @@ final class Store {
     var todayJobs: [Job] { jobs.filter { $0.isToday && $0.status == .scheduled } }
 
     func part(_ id: UUID) -> Part? { parts.first { $0.id == id } }
+
+    /// Today's route in time order.
+    var todayRoute: [Job] { todayJobs.sorted { ($0.scheduled ?? .distantFuture) < ($1.scheduled ?? .distantFuture) } }
+
+    /// What today's jobs need off the shelf, summed per part. Jobs already past stock deduction need nothing.
+    var todayNeeds: [PartNeed] {
+        var totals: [UUID: Int] = [:]
+        for j in todayJobs where !j.stockDeducted { for p in j.parts { totals[p.partID, default: 0] += p.quantity } }
+        return parts.compactMap { part in totals[part.id].map { PartNeed(part: part, needed: $0) } }
+    }
 
     /// Every stock change goes through here so the history stays complete. Never below zero.
     func adjust(_ id: UUID, by delta: Int, reason: String) {

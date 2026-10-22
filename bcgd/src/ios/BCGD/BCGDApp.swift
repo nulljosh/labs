@@ -18,6 +18,8 @@ struct BCGDApp: App {
             Group {
                 if unlocked {
                     TabView {
+                        TodayView()
+                            .tabItem { Label("Today", systemImage: "sun.max") }
                         DashboardView()
                             .tabItem { Label("Dashboard", systemImage: "square.grid.2x2") }
                         InventoryView()

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Doorstock 3.0: a Today tab with the day's jobs in order, a Route in Maps button on each, and the parts to load with shortages flagged
+
 ## [v5.0.0] - 2026-10-21
 
 - One brand kit for the shop (teal, Choice Display) and Doorstock (blue), with a brand sheet at /brand/

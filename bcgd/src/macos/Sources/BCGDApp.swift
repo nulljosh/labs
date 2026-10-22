@@ -28,6 +28,7 @@ struct RootView: View {
     @Environment(Account.self) private var account
 
     private let sections = [
+        ("Today", "sun.max"),
         ("Dashboard", "square.grid.2x2"),
         ("Inventory", "shippingbox"),
         ("Jobs", "list.clipboard"),
@@ -37,10 +38,11 @@ struct RootView: View {
     var body: some View {
         Group {
             switch selectedTab {
-            case 1: InventoryView()
-            case 2: JobsView()
-            case 3: SettingsView()
-            default: DashboardView()
+            case 1: DashboardView()
+            case 2: InventoryView()
+            case 3: JobsView()
+            case 4: SettingsView()
+            default: TodayView()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -54,7 +56,7 @@ struct RootView: View {
         }
     }
 
-    /// Floating bottom bar, like the phone's tab bar. Cmd-1 to Cmd-4 jump straight to a section.
+    /// Floating bottom bar, like the phone's tab bar. Cmd-1 to Cmd-5 jump straight to a section.
     private var navBar: some View {
         HStack(spacing: 4) {
             ForEach(sections.indices, id: \.self) { i in
@@ -64,7 +66,7 @@ struct RootView: View {
                         Image(systemName: sections[i].1).font(.title3)
                         Text(sections[i].0).font(.caption.weight(.medium))
                     }
-                    .frame(width: 88, height: 48)
+                    .frame(width: 80, height: 48)
                     .foregroundStyle(on ? Color.doorstock : Color.secondary)
                     .background(on ? Color.doorstock.opacity(0.12) : Color.clear, in: Capsule())
                     .contentShape(Capsule())

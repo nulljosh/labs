@@ -10,6 +10,7 @@
 		2D5A0ED3ED1E0FCFF167A6BA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FD401AE46FE9AF389E853D /* Models.swift */; };
 		89149023C51A7A660927906A /* Doorstock.icon in Resources */ = {isa = PBXBuildFile; fileRef = 5207F07A399FBA34ECCD3AEA /* Doorstock.icon */; };
 		8B92F5ED1F8C86A2A4A85B54 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4062D7D22A645AA3FD1E1 /* Components.swift */; };
+		B187852FD17BE84C987BA9CE /* Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFE173D37CAB89165CE206 /* Today.swift */; };
 		BFB382A66AA9B14A5F7C2FAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC3A25A8B6CFCA7EFF658C5E /* Assets.xcassets */; };
 		CA3C5E7E11DBDDC6FC8EFF00 /* BCGDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61CDAD4DF22B2321C4FF178 /* BCGDApp.swift */; };
 		CF927CB2FBE8E502BD327D47 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21EC2ABD74B675CD08B2F35 /* Views.swift */; };
@@ -28,6 +29,7 @@
 		E21EC2ABD74B675CD08B2F35 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		E61CDAD4DF22B2321C4FF178 /* BCGDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCGDApp.swift; sourceTree = "<group>"; };
 		EC3A25A8B6CFCA7EFF658C5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FACFE173D37CAB89165CE206 /* Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today.swift; sourceTree = "<group>"; };
 		FBBCD1D99F4F34293B27EA41 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,6 +43,7 @@
 				C6FD401AE46FE9AF389E853D /* Models.swift */,
 				B432DEC3161F383E24135BB9 /* Settings.swift */,
 				B36EE619169ABBDFF004699D /* Team.swift */,
+				FACFE173D37CAB89165CE206 /* Today.swift */,
 				E21EC2ABD74B675CD08B2F35 /* Views.swift */,
 			);
 			path = Sources;
@@ -151,6 +154,7 @@
 				2D5A0ED3ED1E0FCFF167A6BA /* Models.swift in Sources */,
 				FFD1E552D6D6BFB8E1FEB984 /* Settings.swift in Sources */,
 				D8AF68D094C9075023AD3F03 /* Team.swift in Sources */,
+				B187852FD17BE84C987BA9CE /* Today.swift in Sources */,
 				CF927CB2FBE8E502BD327D47 /* Views.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,7 +169,7 @@
 				CODE_SIGN_ENTITLEMENTS = BCGD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 202610211838;
+				CURRENT_PROJECT_VERSION = 202610212248;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Doorstock;
@@ -174,7 +178,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshuatrommel.bcgd;
 				SDKROOT = macosx;
 			};
@@ -308,7 +312,7 @@
 				CODE_SIGN_ENTITLEMENTS = BCGD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 202610211838;
+				CURRENT_PROJECT_VERSION = 202610212248;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Doorstock;
@@ -317,7 +321,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshuatrommel.bcgd;
 				SDKROOT = macosx;
 			};

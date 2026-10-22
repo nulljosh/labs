@@ -18,17 +18,6 @@ struct DashboardView: View {
                         StatTile(label: "Open jobs", value: store.jobs.filter { $0.status != .paid }.count, symbol: "list.clipboard")
                         StatTile(label: "Jobs paid", value: store.jobs.filter { $0.status == .paid }.count, symbol: "checkmark.circle")
                     }
-                    Shelf("Today", symbol: "calendar") {
-                        if store.todayJobs.isEmpty {
-                            EmptyTile(symbol: "sun.max", text: "Nothing scheduled today")
-                        } else {
-                            LazyVGrid(columns: Grid.cards, spacing: 12) {
-                                ForEach(store.todayJobs) { job in
-                                    NavigationLink(value: job.id) { JobCard(job: job, showsStatus: true) }.buttonStyle(.plain)
-                                }
-                            }
-                        }
-                    }
                     if !store.lowStockParts.isEmpty {
                         Shelf("Low stock", symbol: "exclamationmark.triangle") {
                             LazyVGrid(columns: Grid.tiles, spacing: 12) {
