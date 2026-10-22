@@ -46,7 +46,7 @@ def short_title(text, limit=70):
 def main():
     repo = pathlib.Path(sys.argv[1]).expanduser().resolve()
     dry = "--dry-run" in sys.argv
-    rm = next((repo / n for n in ("roadmap.md", "ROADMAP.md") if (repo / n).exists()), None)
+    rm = next((repo / n for n in ("roadmap.md", "ROADMAP.md", "docs/roadmap.md", "docs/ROADMAP.md") if (repo / n).exists()), None)
     if not rm:
         sys.exit(f"no roadmap in {repo}")
     if sh("gh", "repo", "view", "--json", "name", cwd=repo).returncode:

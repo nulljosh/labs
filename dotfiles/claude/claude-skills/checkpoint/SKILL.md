@@ -18,10 +18,10 @@ One command to log the work so far everywhere. This is a checkpoint, not an endi
 1. **Collect** — from `~/Documents/Code`, for each repo with `.git`:
    `git log --oneline --since="12 hours ago"`. Skip repos with no commits.
 
-2. **Journal** — read `~/.claude/skills/journal/SKILL.md` in full first, especially the Voice section, before writing anything:
+2. **Journal** — read the journal procedure in `~/.agents/skills/notes-maintenance/SKILL.md` first (the old journal skill was merged into it), before writing anything:
    - Update the newest post in `~/Documents/Code/journal/_posts/`. Read `journal/CLAUDE.md` first. **The journal holds 3-5 big posts, one per few months. Never create a new post from a checkpoint** unless the newest post's `date:` is over ~2 months old. It got to 11 posts on 2026-09-20 because every checkpoint started a new one.
    - Posts are `categories: journal quarterly`: flowing prose paragraphs, no day headings, 1200-word cap. Fold new work into the paragraph it belongs to. If the post is at the cap, tighten existing wording to make room; do not drop facts and do not start a new file. A full post is never a reason to skip the journal; "at capacity, captured in wiki instead" is a failed checkpoint (happened 2026-09-20). If the post already has `##` day headings, append inside today's heading and never add a second heading for the same day.
-   - Write first person, like Joshua recapping his day to a friend — not third person, not a changelog. 2-5 sentences, pick what actually mattered, skip commit hashes/bundle IDs/error codes unless the story is genuinely about that error. See journal SKILL.md's Voice section for a bad/good example before writing.
+   - Write first person, like Joshua recapping his day to a friend — not third person, not a changelog. 2-5 sentences, pick what actually mattered, skip commit hashes/bundle IDs/error codes unless the story is genuinely about that error. See the notes-maintenance journal Voice rules for a bad/good example before writing.
    - **Run `python3 scripts/lint-posts.py` and fix every violation before committing.** It caps length, bans commit hashes, version and build numbers, em dashes and lists inside day sections, and rejects a second heading for the same weekday. `deploy.sh` runs it too and will refuse to publish. The session dump you were handed is long; the entry is not. Compress it, do not transcribe it.
    - Commit, deploy via `./scripts/deploy.sh` (never plain git push for deploy), and `git push`.
 
@@ -33,9 +33,9 @@ One command to log the work so far everywhere. This is a checkpoint, not an endi
 
 4. **Notes and roadmaps** — update `~/Documents/Code/notes/notes/master.md`:
    - `master.md`: bump the "Updated" date, refresh the Roadmap / Active Projects table and Ship Now list with current state, prune completed `- [x]` items.
-   - Run `~/.claude/skills/wiki-refresh/SKILL.md` (read it in full) across all three surfaces it covers (Obsidian vault, master.md, `~/Documents/Code/CLAUDE.md`): catch stale app names in index/current-state sections left over from any rename. Only touch current-state/index lines, never past wrap-log entries or entity-page changelog/history sections.
+   - Stale-name sweep (wiki-refresh was merged into notes-maintenance, read its `ingest` procedure) across all three surfaces it covers (Obsidian vault, master.md, `~/Documents/Code/CLAUDE.md`): catch stale app names in index/current-state sections left over from any rename. Only touch current-state/index lines, never past wrap-log entries or entity-page changelog/history sections.
    - **Roadmap sweep**: for each repo touched this session, `grep -c "^- \[ \]"` its `roadmap.md`/`ROADMAP.md` and spot-check open items against this session's commits/memory files — check off (`- [x]`) anything actually shipped, don't just leave it stale. Small drift check, not a full re-audit.
-   - **Roadmap prune**: after the sweep above, run the `roadmap-prune` skill on each repo touched this session (`python3 ~/.claude/skills/roadmap-prune/scripts/prune.py <repo>/roadmap.md`) to strip the `- [x]` items back out — history lives in git log, the roadmap file should only ever show what's still open. Commit the prune as part of that repo's wiki-wrap commit.
+   - **Roadmap prune**: after the sweep above, delete the `- [x]` lines from each touched repo roadmap.md by hand (the roadmap-prune skill is gone) to strip the `- [x]` items back out — history lives in git log, the roadmap file should only ever show what's still open. Commit the prune as part of that repo's wiki-wrap commit.
    - Bullet style, no frontmatter, no emojis (see notes/CLAUDE.md).
    - Commit + push.
 

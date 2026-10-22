@@ -6,6 +6,11 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [user]
 	email = trommatic@icloud.com
-	name = Joshua Trommel
+	name = nulljosh
 [core]
 	hooksPath = /Users/joshua/.git-hooks
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
