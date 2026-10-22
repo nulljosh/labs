@@ -1,61 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="980" height="680" style="background:#fff;font-family:-apple-system,BlinkMacSystemFont,sans-serif" viewBox="0 0 980 680">
-<text x="490" y="30" fill="#333" font-size="16" font-weight="600" text-anchor="middle">Doorstock screens</text>
-<g fill="none" stroke="#d1d1d6">
-<path d="M490 104V120M130 120H850M130 120V144M370 120V144M610 120V144M850 120V144"/>
-<path d="M90 196V236H560V256M610 196V256"/>
-<path stroke-dasharray="5 4" d="M130 196V226H370V196M250 226V256M710 170H726V370H710M850 196V256M850 308V340"/>
-<path d="M850 392V424M950 170H966V560H950"/>
-</g>
-<g fill="#1b4fc4" fill-opacity=".1" stroke="#1b4fc4">
-<rect width="300" height="52" x="340" y="52" rx="8"/>
-<rect width="200" height="52" x="30" y="144" rx="8"/>
-<rect width="200" height="52" x="270" y="144" rx="8"/>
-<rect width="200" height="52" x="510" y="144" rx="8"/>
-<rect width="200" height="52" x="750" y="144" rx="8"/>
-</g>
-<g fill="#f5f5f7" stroke="#d1d1d6">
-<rect width="200" height="52" x="150" y="256" rx="8"/>
-<rect width="200" height="66" x="510" y="256" rx="8"/>
-<rect width="200" height="40" x="510" y="350" rx="8"/>
-<rect width="200" height="52" x="750" y="256" rx="8"/>
-<rect width="200" height="52" x="750" y="340" rx="8"/>
-<rect width="200" height="66" x="750" y="424" rx="8"/>
-<rect width="200" height="80" x="750" y="520" rx="8"/>
-</g>
-<g fill="#333" font-size="12" text-anchor="middle">
-<text x="490" y="74" font-weight="600">Bottom bar on Mac, tab bar on iPhone</text>
-<text x="130" y="166" font-weight="600">Dashboard</text>
-<text x="370" y="166" font-weight="600">Inventory</text>
-<text x="610" y="166" font-weight="600">Jobs</text>
-<text x="850" y="166" font-weight="600">Settings</text>
-<text x="250" y="278">Part editor</text>
-<text x="610" y="278">Job detail</text>
-<text x="610" y="375">New job</text>
-<text x="850" y="278">Sign in</text>
-<text x="850" y="362">Start or join a shop</text>
-<text x="850" y="446">Shop card</text>
-<text x="850" y="542">Data tiles</text>
-</g>
-<g fill="#666" font-size="11" text-anchor="middle">
-<text x="490" y="92">Cmd-1 to Cmd-4 on Mac. Face ID unlocks the iPhone first.</text>
-<text x="130" y="184">stat tiles, low stock, today</text>
-<text x="370" y="184">part tiles, counts, search</text>
-<text x="610" y="184">a column for each status</text>
-<text x="850" y="184">team, reorders, data</text>
-<text x="250" y="296">name, category, count, reorder</text>
-<text x="610" y="296">status track, date, parts.</text>
-<text x="610" y="310">Complete takes the parts from stock.</text>
-<text x="850" y="296">email and password</text>
-<text x="850" y="380">a shop name, or a six-letter code</text>
-<text x="850" y="464">join code, crew, remove, leave,</text>
-<text x="850" y="478">sign out, delete account</text>
-<text x="850" y="560">stock history, export CSV,</text>
-<text x="850" y="574">export and restore a backup,</text>
-<text x="850" y="588">reset stock</text>
-</g>
-<g font-size="11" fill="#666">
-<path stroke="#d1d1d6" d="M30 630H62"/><text x="70" y="634">opens a page or shows inline</text>
-<path stroke="#d1d1d6" stroke-dasharray="5 4" d="M260 630H292"/><text x="300" y="634">opens a sheet, alert or dialog</text>
-<text x="30" y="662">Same screens on Mac and iPhone. Signing in is optional; without it everything stays on the device.</text>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" style="background:#fff;font-family:-apple-system,BlinkMacSystemFont,sans-serif" viewBox="0 0 1200 680">
+<text x="600" y="30" fill="#333" font-size="16" font-weight="600" text-anchor="middle">Doorstock screens</text>
+<g fill="none" stroke="#d1d1d6"><path d="M600 104V120M160 120H1040M160 120V144M380 120V144M600 120V144M820 120V144M1040 120V144"/></g>
+<rect width="300" height="52" x="450" y="52" rx="8" fill="#1b4fc4" fill-opacity=".1" stroke="#1b4fc4"/>
+<rect width="200" height="52" x="60" y="144" rx="8" fill="#1b4fc4" fill-opacity=".1" stroke="#1b4fc4"/><text x="160" y="166" fill="#333" font-size="12" font-weight="600" text-anchor="middle">Today</text><text x="160" y="184" fill="#666" font-size="11" text-anchor="middle">my jobs, route in Maps, parts to load</text>
+<rect width="200" height="52" x="280" y="144" rx="8" fill="#1b4fc4" fill-opacity=".1" stroke="#1b4fc4"/><text x="380" y="166" fill="#333" font-size="12" font-weight="600" text-anchor="middle">Dashboard</text><text x="380" y="184" fill="#666" font-size="11" text-anchor="middle">stat tiles, low stock</text>
+<rect width="200" height="52" x="500" y="144" rx="8" fill="#1b4fc4" fill-opacity=".1" stroke="#1b4fc4"/><text x="600" y="166" fill="#333" font-size="12" font-weight="600" text-anchor="middle">Inventory</text><text x="600" y="184" fill="#666" font-size="11" text-anchor="middle">part tiles, counts, search</text>
+<rect width="200" height="52" x="720" y="144" rx="8" fill="#1b4fc4" fill-opacity=".1" stroke="#1b4fc4"/><text x="820" y="166" fill="#333" font-size="12" font-weight="600" text-anchor="middle">Jobs</text><text x="820" y="184" fill="#666" font-size="11" text-anchor="middle">a column for each status</text>
+<rect width="200" height="52" x="940" y="144" rx="8" fill="#1b4fc4" fill-opacity=".1" stroke="#1b4fc4"/><text x="1040" y="166" fill="#333" font-size="12" font-weight="600" text-anchor="middle">Settings</text><text x="1040" y="184" fill="#666" font-size="11" text-anchor="middle">team, reorders, data</text>
+<text x="600" y="74" fill="#333" font-size="12" font-weight="600" text-anchor="middle">Bottom bar on Mac, tab bar on iPhone</text><text x="600" y="92" fill="#666" font-size="11" text-anchor="middle">Cmd-1 to Cmd-5 on Mac. Face ID unlocks the iPhone first.</text>
+<path d="M160 196V256" stroke="#d1d1d6" fill="none"/>
+<rect width="200" height="66" x="60" y="256" rx="8" fill="#f5f5f7" stroke="#d1d1d6"/><text x="160" y="278" fill="#333" font-size="12" text-anchor="middle">Job detail</text>
+<text x="160" y="296" fill="#666" font-size="11" text-anchor="middle">status track, assignee,</text>
+<text x="160" y="310" fill="#666" font-size="11" text-anchor="middle">parts. Complete takes stock.</text>
+<path d="M160 322V350" stroke="#d1d1d6" fill="none" stroke-dasharray="5 4"/>
+<rect width="200" height="60" x="60" y="350" rx="8" fill="#f5f5f7" stroke="#d1d1d6"/><text x="160" y="372" fill="#333" font-size="12" text-anchor="middle">Maps</text>
+<text x="160" y="390" fill="#666" font-size="11" text-anchor="middle">Route in Maps opens</text>
+<text x="160" y="404" fill="#666" font-size="11" text-anchor="middle">Apple Maps</text>
+<path d="M600 196V256" stroke="#d1d1d6" fill="none" stroke-dasharray="5 4"/>
+<rect width="200" height="52" x="500" y="256" rx="8" fill="#f5f5f7" stroke="#d1d1d6"/><text x="600" y="278" fill="#333" font-size="12" text-anchor="middle">New part</text>
+<text x="600" y="296" fill="#666" font-size="11" text-anchor="middle">name, category, count, reorder</text>
+<path d="M820 196V256" stroke="#d1d1d6" fill="none"/>
+<rect width="200" height="66" x="720" y="256" rx="8" fill="#f5f5f7" stroke="#d1d1d6"/><text x="820" y="278" fill="#333" font-size="12" text-anchor="middle">Job detail</text>
+<text x="820" y="296" fill="#666" font-size="11" text-anchor="middle">same page as from Today</text>
+<path d="M820 322V350" stroke="#d1d1d6" fill="none" stroke-dasharray="5 4"/>
+<rect width="200" height="40" x="720" y="350" rx="8" fill="#f5f5f7" stroke="#d1d1d6"/><text x="820" y="372" fill="#333" font-size="12" text-anchor="middle">New job</text>
+<text x="820" y="390" fill="#666" font-size="11" text-anchor="middle">a customer name</text>
+<path d="M1040 196V256" stroke="#d1d1d6" fill="none" stroke-dasharray="5 4"/>
+<rect width="200" height="52" x="940" y="256" rx="8" fill="#f5f5f7" stroke="#d1d1d6"/><text x="1040" y="278" fill="#333" font-size="12" text-anchor="middle">Sign in</text>
+<text x="1040" y="296" fill="#666" font-size="11" text-anchor="middle">email and password</text>
+<path d="M1040 312V340" stroke="#d1d1d6" fill="none" stroke-dasharray="5 4"/>
+<rect width="200" height="52" x="940" y="340" rx="8" fill="#f5f5f7" stroke="#d1d1d6"/><text x="1040" y="362" fill="#333" font-size="12" text-anchor="middle">Start or join a shop</text>
+<text x="1040" y="380" fill="#666" font-size="11" text-anchor="middle">a shop name, or a six-letter code</text>
+<path d="M1040 396V424" stroke="#d1d1d6" fill="none"/>
+<rect width="200" height="66" x="940" y="424" rx="8" fill="#f5f5f7" stroke="#d1d1d6"/><text x="1040" y="446" fill="#333" font-size="12" text-anchor="middle">Shop card</text>
+<text x="1040" y="464" fill="#666" font-size="11" text-anchor="middle">join code, crew, remove, leave,</text>
+<text x="1040" y="478" fill="#666" font-size="11" text-anchor="middle">sign out, delete account</text>
+<path d="M1040 492V520" stroke="#d1d1d6" fill="none"/>
+<rect width="200" height="80" x="940" y="520" rx="8" fill="#f5f5f7" stroke="#d1d1d6"/><text x="1040" y="542" fill="#333" font-size="12" text-anchor="middle">Data tiles</text>
+<text x="1040" y="560" fill="#666" font-size="11" text-anchor="middle">stock history, export CSV,</text>
+<text x="1040" y="574" fill="#666" font-size="11" text-anchor="middle">export and restore a backup,</text>
+<text x="1040" y="588" fill="#666" font-size="11" text-anchor="middle">reset stock</text>
+<g font-size="11" fill="#666"><path stroke="#d1d1d6" d="M30 630H62"/><text x="70" y="634">opens a page or shows inline</text><path stroke="#d1d1d6" stroke-dasharray="5 4" d="M260 630H292"/><text x="300" y="634">opens a sheet, alert or dialog</text><text x="30" y="662">Same screens on Mac and iPhone. Signing in is optional; without it everything stays on the device. Screenshots: docs/SCREENS.md</text></g></svg>

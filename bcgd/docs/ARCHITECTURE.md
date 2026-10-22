@@ -52,6 +52,8 @@ Doorstock helps a garage door repair business run day to day. It tracks parts on
 | `src/ios/BCGD/Auth.swift` | Apple/Google sign-in, session persistence, account gate view |
 | `src/ios/BCGD/Models.swift` | Decodable Part/Job types, Store (@Observable), color constants, device-local persistence |
 | `src/ios/BCGD/Views.swift` | Dashboard (stats), Inventory (parts list/add/edit), Jobs (job list/add/edit), Settings |
+| `src/ios/BCGD/Today.swift` | Today tab: the day's route (assigned jobs first), Route in Maps, parts to load with shortages |
+| `src/ios/BCGD/Team.swift`, `Account.swift` | Sign in, shop card, join code, sync with jaybulb-api. Jobs sync as JSON, so the assignee field needs no server change |
 
 ## macOS (Doorstock app)
 
@@ -60,6 +62,9 @@ Doorstock helps a garage door repair business run day to day. It tracks parts on
 | `src/macos/Sources/BCGDApp.swift` | App entry point, tab navigation (macOS sidebar), no auth gate (local-only builds assume auth already done) |
 | `src/macos/Sources/Models.swift` | Same as iOS: Part/Job types, Store, colors, persistence |
 | `src/macos/Sources/Views.swift` | Same as iOS: Dashboard, Inventory, Jobs, Settings views |
+| `src/macos/Sources/Today.swift`, `Team.swift`, `Account.swift` | Same files as iOS (kept byte for byte, only BCGDApp.swift differs) |
+
+Screenshots of every screen: `docs/SCREENS.md`. How they connect: `storyboard.svg`.
 
 ## Landing page
 
