@@ -33,7 +33,7 @@ struct TodayView: View {
                                     HStack {
                                         Text(n.part.name).lineLimit(1)
                                         Spacer()
-                                        Text("\(n.needed) needed, \(n.part.quantity) on the shelf")
+                                        Text("need \(n.needed), have \(n.part.quantity)")
                                             .font(.footnote)
                                             .foregroundStyle(n.short ? Color.red : Color.secondary)
                                     }
