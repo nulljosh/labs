@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="680" style="background:#fff;font-family:-apple-system,BlinkMacSystemFont,sans-serif" viewBox="0 0 980 680">
+<text x="490" y="30" fill="#333" font-size="16" font-weight="600" text-anchor="middle">Doorstock screens</text>
+<g fill="none" stroke="#d1d1d6">
+<path d="M490 104V120M130 120H850M130 120V144M370 120V144M610 120V144M850 120V144"/>
+<path d="M90 196V236H560V256M610 196V256"/>
+<path stroke-dasharray="5 4" d="M130 196V226H370V196M250 226V256M710 170H726V370H710M850 196V256M850 308V340"/>
+<path d="M850 392V424M950 170H966V560H950"/>
+</g>
+<g fill="#1b4fc4" fill-opacity=".1" stroke="#1b4fc4">
+<rect width="300" height="52" x="340" y="52" rx="8"/>
+<rect width="200" height="52" x="30" y="144" rx="8"/>
+<rect width="200" height="52" x="270" y="144" rx="8"/>
+<rect width="200" height="52" x="510" y="144" rx="8"/>
+<rect width="200" height="52" x="750" y="144" rx="8"/>
+</g>
+<g fill="#f5f5f7" stroke="#d1d1d6">
+<rect width="200" height="52" x="150" y="256" rx="8"/>
+<rect width="200" height="66" x="510" y="256" rx="8"/>
+<rect width="200" height="40" x="510" y="350" rx="8"/>
+<rect width="200" height="52" x="750" y="256" rx="8"/>
+<rect width="200" height="52" x="750" y="340" rx="8"/>
+<rect width="200" height="66" x="750" y="424" rx="8"/>
+<rect width="200" height="80" x="750" y="520" rx="8"/>
+</g>
+<g fill="#333" font-size="12" text-anchor="middle">
+<text x="490" y="74" font-weight="600">Bottom bar on Mac, tab bar on iPhone</text>
+<text x="130" y="166" font-weight="600">Dashboard</text>
+<text x="370" y="166" font-weight="600">Inventory</text>
+<text x="610" y="166" font-weight="600">Jobs</text>
+<text x="850" y="166" font-weight="600">Settings</text>
+<text x="250" y="278">Part editor</text>
+<text x="610" y="278">Job detail</text>
+<text x="610" y="375">New job</text>
+<text x="850" y="278">Sign in</text>
+<text x="850" y="362">Start or join a shop</text>
+<text x="850" y="446">Shop card</text>
+<text x="850" y="542">Data tiles</text>
+</g>
+<g fill="#666" font-size="11" text-anchor="middle">
+<text x="490" y="92">Cmd-1 to Cmd-4 on Mac. Face ID unlocks the iPhone first.</text>
+<text x="130" y="184">stat tiles, low stock, today</text>
+<text x="370" y="184">part tiles, counts, search</text>
+<text x="610" y="184">a column for each status</text>
+<text x="850" y="184">team, reorders, data</text>
+<text x="250" y="296">name, category, count, reorder</text>
+<text x="610" y="296">status track, date, parts.</text>
+<text x="610" y="310">Complete takes the parts from stock.</text>
+<text x="850" y="296">email and password</text>
+<text x="850" y="380">a shop name, or a six-letter code</text>
+<text x="850" y="464">join code, crew, remove, leave,</text>
+<text x="850" y="478">sign out, delete account</text>
+<text x="850" y="560">stock history, export CSV,</text>
+<text x="850" y="574">export and restore a backup,</text>
+<text x="850" y="588">reset stock</text>
+</g>
+<g font-size="11" fill="#666">
+<path stroke="#d1d1d6" d="M30 630H62"/><text x="70" y="634">opens a page or shows inline</text>
+<path stroke="#d1d1d6" stroke-dasharray="5 4" d="M260 630H292"/><text x="300" y="634">opens a sheet, alert or dialog</text>
+<text x="30" y="662">Same screens on Mac and iPhone. Signing in is optional; without it everything stays on the device.</text>
+</g>
+</svg>
