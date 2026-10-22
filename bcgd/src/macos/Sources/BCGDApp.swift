@@ -22,9 +22,9 @@ struct BCGDApp: App {
     }
 }
 
-// SceneStorage only works inside a View; on the App struct its setter is a no-op and tabs never switch.
+// Plain State on purpose: SceneStorage on the App struct never switched tabs, and here it stopped every sheet from opening.
 struct RootView: View {
-    @SceneStorage("selectedTab") private var selectedTab = 0
+    @State private var selectedTab = 0
     @Environment(Account.self) private var account
 
     private let sections = [
