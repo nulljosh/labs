@@ -57,6 +57,7 @@ struct Job: Identifiable, Codable {
     var status: JobStatus = .lead
     var created = Date()
     var scheduled: Date? = nil
+    var assignee: String? = nil   // shop member id; nil = anyone
     var parts: [JobPart] = []
     var stockDeducted = false
 
@@ -73,6 +74,7 @@ struct Job: Identifiable, Codable {
         status = try c.decodeIfPresent(JobStatus.self, forKey: .status) ?? .lead
         created = try c.decodeIfPresent(Date.self, forKey: .created) ?? Date()
         scheduled = try c.decodeIfPresent(Date.self, forKey: .scheduled)
+        assignee = try c.decodeIfPresent(String.self, forKey: .assignee)
         parts = try c.decodeIfPresent([JobPart].self, forKey: .parts) ?? []
         stockDeducted = try c.decodeIfPresent(Bool.self, forKey: .stockDeducted) ?? false
     }
@@ -133,6 +135,9 @@ final class Store {
 
     // Local copy in UserDefaults; Account syncs it with the shop when signed in.
     private static let key = "bcgd.store"
+    /// Set by Account: this device's member id and each member's short name. Not saved.
+    @ObservationIgnored var me: String?
+    var crewNames: [String: String] = [:]
     @ObservationIgnored var onChange: (() -> Void)?
     @ObservationIgnored var onAdjust: ((UUID, Int) -> Void)?
 
@@ -166,8 +171,14 @@ final class Store {
 
     func part(_ id: UUID) -> Part? { parts.first { $0.id == id } }
 
-    /// Today's route in time order.
-    var todayRoute: [Job] { todayJobs.sorted { ($0.scheduled ?? .distantFuture) < ($1.scheduled ?? .distantFuture) } }
+    /// Today's route: jobs assigned to me first, then time order.
+    var todayRoute: [Job] {
+        todayJobs.sorted {
+            let (a, b) = ($0.assignee == me && me != nil, $1.assignee == me && me != nil)
+            if a != b { return a }
+            return ($0.scheduled ?? .distantFuture) < ($1.scheduled ?? .distantFuture)
+        }
+    }
 
     /// What today's jobs need off the shelf, summed per part. Jobs already past stock deduction need nothing.
     var todayNeeds: [PartNeed] {

@@ -27,7 +27,12 @@ final class Account {
     // ponytail: `-apiBase http://127.0.0.1:8799` on launch points at a local Worker for QA; nothing persists it
     static let api = UserDefaults.standard.string(forKey: "apiBase").flatMap(URL.init(string:)) ?? URL(string: "https://api.jaybulb.com")!
     private(set) var email: String? = Keychain.get("email")
-    private(set) var shop: Shop?
+    private(set) var shop: Shop? {
+        didSet {
+            store.me = shop?.members.first { $0.me }?.id
+            store.crewNames = Dictionary(uniqueKeysWithValues: (shop?.members ?? []).map { ($0.id, $0.email.map { String($0.split(separator: "@").first ?? "") } ?? "crew") })
+        }
+    }
     private(set) var syncError: String?
     var signedIn: Bool { refreshToken != nil }
     var isOwner: Bool { shop?.role != "crew" }

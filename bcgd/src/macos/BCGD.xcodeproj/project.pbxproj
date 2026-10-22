@@ -169,7 +169,7 @@
 				CODE_SIGN_ENTITLEMENTS = BCGD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 202610212248;
+				CURRENT_PROJECT_VERSION = 202610212256;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Doorstock;
@@ -178,7 +178,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshuatrommel.bcgd;
 				SDKROOT = macosx;
 			};
@@ -312,7 +312,7 @@
 				CODE_SIGN_ENTITLEMENTS = BCGD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 202610212248;
+				CURRENT_PROJECT_VERSION = 202610212256;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Doorstock;
@@ -321,7 +321,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshuatrommel.bcgd;
 				SDKROOT = macosx;
 			};

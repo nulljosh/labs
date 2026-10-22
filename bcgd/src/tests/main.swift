@@ -31,3 +31,12 @@ assert(s.todayRoute.map(\.customer) == ["B", "A"], "route not in time order")
 assert(s.todayNeeds.first?.needed == 4 && s.todayNeeds.first?.short == true, "needs not summed (3 on shelf, 4 needed)")
 assert(b.routeURL?.absoluteString == "https://maps.apple.com/?daddr=123%20Main%20St,%20Surrey" && a.routeURL == nil, "maps url wrong")
 print("today check ok")
+
+// Assigned jobs come first on my Today tab, and the assignee survives a sync round trip.
+var c = Job(customer: "C"); c.status = .scheduled; c.scheduled = now.addingTimeInterval(3600); c.assignee = "me-id"
+s.jobs = [a, b, c]; s.me = "me-id"
+assert(s.todayRoute.first?.customer == "C", "my job not first")
+assert(Job.self == Job.self && (try! JSONDecoder().decode(Job.self, from: JSONEncoder().encode(c))).assignee == "me-id", "assignee lost")
+s.me = nil
+assert(s.todayRoute.first?.customer == "B", "no member: plain time order")
+print("assign check ok")

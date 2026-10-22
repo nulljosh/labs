@@ -2,7 +2,8 @@
 
 ## Unreleased
 
-- Doorstock 3.0: a Today tab with the day's jobs in order, a Route in Maps button on each, and the parts to load with shortages flagged
+- Doorstock 4.0: assign a job to a crew member from the job page; it sorts first on their Today tab and shows their name on the card
+- Doorstock 3.0 (ships inside 4.0): a Today tab with the day's jobs in order, a Route in Maps button on each, and the parts to load with shortages flagged
 
 ## [v5.0.0] - 2026-10-21
 

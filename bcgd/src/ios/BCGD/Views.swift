@@ -257,6 +257,7 @@ struct JobCard: View {
             Text(job.customer).font(.body.weight(.semibold)).lineLimit(1)
             if showsStatus { StatusPill(status: job.status) }
             if !job.address.isEmpty { fact("mappin", job.address) }
+            if let who = job.assignee.flatMap({ store.crewNames[$0] }) { fact("person", who) }
             if let date = job.scheduled { fact("clock", date.formatted(date: .abbreviated, time: .shortened)) }
             if !job.parts.isEmpty { fact("shippingbox", "\(job.parts.reduce(0) { $0 + $1.quantity }) parts") }
             if let next = job.status.next {
@@ -318,6 +319,14 @@ struct JobDetailView: View {
                     TextField("Notes", text: $store.jobs[i].detail, axis: .vertical)
                 }
                 Section("When") { ScheduleField(date: $store.jobs[i].scheduled) }
+                if !store.crewNames.isEmpty {
+                    Section {
+                        Picker("Assigned to", selection: $store.jobs[i].assignee) {
+                            Text("Anyone").tag(String?.none)
+                            ForEach(store.crewNames.sorted { $0.value < $1.value }, id: \.key) { Text($0.value).tag(Optional($0.key)) }
+                        }
+                    } footer: { Text("They see this job first on their Today tab.") }
+                }
                 Section("Parts") { JobPartsEditor(job: $store.jobs[i]) }
                 Section {
                     if let next = store.jobs[i].status.next {

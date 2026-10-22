@@ -15,7 +15,7 @@ A plan, not promises. Each version is one thing Dad or his crew would notice. Sh
 
 ### v3 to v10: the day's work
 - [x] 3 Today screen per tech: my jobs, my parts, the route in Maps (built 2026-10-21, Mac + iPhone 3.0; waits on 2.0 review to submit)
-- [ ] 4 assign a job to a crew member, they see it first
+- [x] 4 assign a job to a crew member, they see it first (built 2026-10-21, Doorstock 4.0 rolls 3.0 in; waits on 2.0 review to submit)
 - [ ] 5 quick quote: door size, spring type, labour, a price Dad sets once
 - [ ] 6 customer history: name, address, every job and part, searchable
 - [ ] 7 photos on a job (before and after), stored on jaybulb-api
