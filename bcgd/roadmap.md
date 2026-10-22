@@ -9,7 +9,7 @@ Today Doorstock keeps everything on the one device. Plan, all on jaybulb-api (Cl
 - [x] Parts and jobs tables scoped by shop, owner and employee roles; employees can count stock and move jobs, only the owner can delete or reset
 - [x] Sign in screen in the apps (email and Apple), then sync: pull on open, push on every change
 - [x] Settings gets a Team tile: show the code, list members, remove one
-- [ ] Move the web dashboard and the bcgd_leads forward off Supabase, then drop LEGACY_URL
+- [x] Move the web dashboard and the bcgd_leads forward off Supabase, then drop LEGACY_URL
 
 ## 2026-10-21, homepage now matches bcgaragedoors.ca (live at bcgd.jaybulb.com, grade B+)
 
