@@ -125,3 +125,6 @@ instead of the board. Both fixed.
 
 ## TUI pilot (2026-09-05)
 - `homeward-tui` SwiftPM target (SwiftTUI). `swift build && ./.build/debug/homeward-tui` lists active listings via plain URLSession against Supabase PostgREST (anon key, RLS-guarded, public by design — no Supabase SDK dependency pulled in for one read). Needs a real TTY.
+
+## Ingested 2026-10-22
+- [ ] Two photos of real flyers on poles, filed as proof of the problem Homeward solves (/Users/joshua/Documents/Code/notes/attachments/2026-10-22/homeward-1.png, /Users/joshua/Documents/Code/notes/attachments/2026-10-22/homeward-2.png). (1) "Trusted Tails", a family-owned pet service in Delta, Surrey, Langley and White Rock: pet check-in, pet waste management, dog walking, trustedtails.ca. A candidate for a local pet-services listing. (2) A taped, rain-soaked "MISSING - Cali" flyer: 1 yr old spayed female calico, escaped July 17 from the north side of Portage Park at 201A St (Langley), microchipped, no collar, call or text number on the flyer. Question: no note text came with the photos, so is this a pet-services directory idea, a "paper flyers fail" marketing shot for the landing, or both? Owner's phone number left off on purpose, see the PNG.
