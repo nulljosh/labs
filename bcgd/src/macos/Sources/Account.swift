@@ -111,8 +111,12 @@ final class Account {
 
     func refreshShop() async throws {
         let s = try await post("/rpc/doorstock_my_shop", [:])
+        let fresh = shop == nil && since == 0
         shop = try decodeShop(s)
-        if shop != nil { await sync() }
+        guard shop != nil else { return }
+        // First sign-in on this device to an existing shop: take the shop's data, don't merge this device's into it.
+        if fresh { resetSync(); store.replace(parts: [], jobs: []) }
+        await sync()
     }
 
     /// The owner's stock and jobs become the shop's.
