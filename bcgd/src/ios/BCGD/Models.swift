@@ -3,7 +3,20 @@ import SwiftUI
 
 extension Color {
     // Doorstock blue, from brand/tokens.css (--accent). The website keeps the shop's teal.
-    static let doorstock = Color(red: 0x1B / 255, green: 0x4F / 255, blue: 0xC4 / 255)
+    // Dark mode lifts it to --accent-light (#3a86ff) so it stays readable on black.
+    #if os(macOS)
+    static let doorstock = Color(nsColor: NSColor(name: nil) {
+        $0.bestMatch(from: [.aqua, .darkAqua]) == .darkAqua
+            ? NSColor(red: 0x3A / 255, green: 0x86 / 255, blue: 0xFF / 255, alpha: 1)
+            : NSColor(red: 0x1B / 255, green: 0x4F / 255, blue: 0xC4 / 255, alpha: 1)
+    })
+    #else
+    static let doorstock = Color(uiColor: UIColor {
+        $0.userInterfaceStyle == .dark
+            ? UIColor(red: 0x3A / 255, green: 0x86 / 255, blue: 0xFF / 255, alpha: 1)
+            : UIColor(red: 0x1B / 255, green: 0x4F / 255, blue: 0xC4 / 255, alpha: 1)
+    })
+    #endif
 }
 
 struct Part: Identifiable, Codable {

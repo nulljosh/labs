@@ -9,49 +9,115 @@ struct DashboardView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                Section("Today") {
-                    if store.todayJobs.isEmpty {
-                        Text("Nothing scheduled today").foregroundStyle(.secondary)
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 12)], spacing: 12) {
+                        StatTile(label: "Parts in stock", value: store.parts.reduce(0) { $0 + $1.quantity }, symbol: "shippingbox")
+                        StatTile(label: "Low stock", value: store.lowStockParts.count, symbol: "exclamationmark.triangle", alert: !store.lowStockParts.isEmpty)
+                        StatTile(label: "Open jobs", value: store.jobs.filter { $0.status != .paid }.count, symbol: "list.clipboard")
+                        StatTile(label: "Jobs paid", value: store.jobs.filter { $0.status == .paid }.count, symbol: "checkmark.circle")
                     }
-                    ForEach(store.todayJobs) { job in
-                        NavigationLink(value: job.id) { TodayRow(job: job) }
+                    Card("Today") {
+                        if store.todayJobs.isEmpty {
+                            CardRow { Text("Nothing scheduled today").foregroundStyle(.secondary) }
+                        }
+                        ForEach(Array(store.todayJobs.enumerated()), id: \.element.id) { i, job in
+                            NavigationLink(value: job.id) {
+                                CardRow(divider: i > 0) { TodayRow(job: job); Spacer(); Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary) }
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                    if !store.lowStockParts.isEmpty {
+                        Card("Low stock") {
+                            ForEach(Array(store.lowStockParts.enumerated()), id: \.element.id) { i, part in
+                                CardRow(divider: i > 0) {
+                                    Text(part.name)
+                                    Spacer()
+                                    Text("\(part.quantity) left").foregroundStyle(.red).monospacedDigit()
+                                }
+                            }
+                            if let url = store.reorderURL(to: reorderEmail) {
+                                CardRow(divider: true) { Link("Email a reorder", destination: url) }
+                            }
+                        }
                     }
                 }
-                Section("Stats") {
-                    statRow("Parts in stock", value: "\(store.parts.reduce(0) { $0 + $1.quantity })")
-                    statRow("Low stock items", value: "\(store.lowStockParts.count)")
-                    statRow("Open jobs", value: "\(store.jobs.filter { $0.status != .paid }.count)")
-                    statRow("Jobs paid", value: "\(store.jobs.filter { $0.status == .paid }.count)")
-                }
-                if !store.lowStockParts.isEmpty { lowStock }
+                .padding(20)
+                .frame(maxWidth: 760)
+                .frame(maxWidth: .infinity)
             }
+            .background(Color.page)
             .navigationTitle("Doorstock")
             .navigationDestination(for: UUID.self) { JobDetailView(jobID: $0) }
         }
     }
+}
 
-    private var lowStock: some View {
-        Section("Low Stock") {
-            ForEach(store.lowStockParts) { part in
-                HStack {
-                    Text(part.name)
-                    Spacer()
-                    Text("\(part.quantity)").foregroundStyle(.red).fontWeight(.semibold)
-                }
-            }
-            if let url = store.reorderURL(to: reorderEmail) {
-                Link("Email a reorder", destination: url)
-            }
+// MARK: - Building blocks (8 point grid; cards 28, grouped lists 20)
+
+extension Color {
+    #if os(macOS)
+    static let page = Color(nsColor: .windowBackgroundColor)
+    static let card = Color(nsColor: .quaternarySystemFill)
+    #else
+    static let page = Color(uiColor: .systemGroupedBackground)
+    static let card = Color(uiColor: .secondarySystemGroupedBackground)
+    #endif
+}
+
+struct StatTile: View {
+    let label: String
+    let value: Int
+    let symbol: String
+    var alert = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Image(systemName: symbol)
+                .font(.title3)
+                .foregroundStyle(alert ? Color.red : Color.doorstock)
+                .padding(.bottom, 12)
+            Text("\(value)")
+                .font(.system(size: 34, weight: .bold, design: .rounded))
+                .monospacedDigit()
+            Text(label).font(.subheadline).foregroundStyle(.secondary)
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(16)
+        .background(Color.card, in: RoundedRectangle(cornerRadius: 28, style: .continuous))
+    }
+}
+
+struct Card<Content: View>: View {
+    let title: String
+    @ViewBuilder let content: Content
+
+    init(_ title: String, @ViewBuilder content: () -> Content) {
+        self.title = title
+        self.content = content()
     }
 
-    private func statRow(_ label: String, value: String) -> some View {
-        HStack {
-            Text(label)
-            Spacer()
-            Text(value).fontWeight(.semibold).foregroundStyle(Color.doorstock)
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(title).font(.headline).padding(.leading, 4)
+            VStack(spacing: 0) { content }
+            .background(Color.card, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
         }
+    }
+}
+
+struct CardRow<Content: View>: View {
+    var divider = false
+    @ViewBuilder let content: Content
+
+    var body: some View {
+        HStack(spacing: 12) { content }
+            .padding(.vertical, 12)
+            .padding(.horizontal, 16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .contentShape(Rectangle())
+            .overlay(alignment: .top) { if divider { Divider().padding(.leading, 16) } }
     }
 }
 
@@ -101,6 +167,7 @@ struct InventoryView: View {
                     }
                 }
             }
+            .insetList()
             .searchable(text: $search)
             .navigationTitle("Inventory")
             .toolbar {
@@ -120,11 +187,14 @@ struct PartRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
-                Text(part.name).font(.subheadline)
+                Text(part.name)
                 if part.isLowStock { Text("Low stock").font(.caption).foregroundStyle(.red) }
             }
             Spacer()
-            Stepper("\(part.quantity)", value: quantity, in: 0...999).fixedSize()
+            Stepper(value: quantity, in: 0...999) {
+                Text("\(part.quantity)").monospacedDigit().frame(minWidth: 32, alignment: .trailing)
+            }
+            .fixedSize()
         }
     }
 
@@ -151,6 +221,7 @@ struct PartEditor: View {
                 if isNew { Stepper("Quantity: \(part.quantity)", value: $part.quantity, in: 0...999) }
                 Stepper("Low stock at: \(part.lowStockThreshold)", value: $part.lowStockThreshold, in: 0...99)
             }
+            .formStyle(.grouped)
             .navigationTitle(isNew ? "New Part" : "Edit Part")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
@@ -180,27 +251,32 @@ struct PartEditor: View {
 struct JobsView: View {
     @Environment(Store.self) private var store
     @State private var newCustomer = ""
+    @State private var adding = false
 
     var body: some View {
         NavigationStack {
             List {
-                Section {
-                    HStack {
-                        TextField("New job: customer name", text: $newCustomer)
-                        Button("Add") {
-                            store.jobs.insert(Job(customer: newCustomer), at: 0)
-                            newCustomer = ""
-                        }
-                        .disabled(newCustomer.isEmpty)
-                        .buttonStyle(.borderedProminent)
-                    }
-                }
                 ForEach(store.jobs) { job in
                     NavigationLink(value: job.id) { JobRow(job: job) }
+                        .listRowSeparator(.hidden)
                 }
                 .onDelete { store.jobs.remove(atOffsets: $0) }
             }
+            .insetList()
+            .overlay { if store.jobs.isEmpty { Text("No jobs yet").foregroundStyle(.secondary) } }
             .navigationTitle("Jobs")
+            .toolbar {
+                Button { adding = true } label: { Label("New job", systemImage: "plus") }
+            }
+            .alert("New job", isPresented: $adding) {
+                TextField("Customer name", text: $newCustomer)
+                Button("Add") {
+                    let name = newCustomer.trimmingCharacters(in: .whitespaces)
+                    if !name.isEmpty { store.jobs.insert(Job(customer: name), at: 0) }
+                    newCustomer = ""
+                }
+                Button("Cancel", role: .cancel) { newCustomer = "" }
+            }
             .navigationDestination(for: UUID.self) { JobDetailView(jobID: $0) }
         }
     }
@@ -211,18 +287,48 @@ struct JobRow: View {
     let job: Job
 
     var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 2) {
-                Text(job.customer).font(.subheadline)
-                Text(job.scheduled.map { "\(job.status.rawValue) · \($0.formatted(date: .abbreviated, time: .shortened))" } ?? job.status.rawValue)
-                    .font(.caption)
-                    .foregroundStyle(job.status == .paid ? Color.secondary : Color.doorstock)
+        HStack(spacing: 12) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(job.customer)
+                HStack(spacing: 8) {
+                    StatusPill(status: job.status)
+                    if let date = job.scheduled {
+                        Text(date.formatted(date: .abbreviated, time: .shortened)).font(.footnote).foregroundStyle(.secondary)
+                    }
+                }
             }
             Spacer()
             if let next = job.status.next {
-                Button(next.rawValue) { store.advance(job.id) }.buttonStyle(.bordered)
+                Button(next.rawValue, systemImage: "arrow.right") { store.advance(job.id) }
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.capsule)
             }
         }
+        .padding(.vertical, 4)
+    }
+}
+
+struct StatusPill: View {
+    let status: JobStatus
+
+    var body: some View {
+        let tint = status == .paid ? Color.secondary : Color.doorstock
+        Text(status.rawValue)
+            .font(.caption.weight(.semibold))
+            .foregroundStyle(tint)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 2)
+            .background(tint.opacity(0.12), in: Capsule())
+    }
+}
+
+extension View {
+    @ViewBuilder func insetList() -> some View {
+        #if os(macOS)
+        listStyle(.inset(alternatesRowBackgrounds: false))
+        #else
+        listStyle(.insetGrouped)
+        #endif
     }
 }
 
@@ -255,6 +361,7 @@ struct JobDetailView: View {
                     }
                 }
             }
+            .formStyle(.grouped)
             .navigationTitle(store.jobs[i].customer)
         } else {
             Text("This job was deleted.").foregroundStyle(.secondary)
@@ -319,6 +426,7 @@ struct SettingsView: View {
                     Link("doorstock.jaybulb.com", destination: URL(string: "https://doorstock.jaybulb.com")!)
                 }
             }
+            .formStyle(.grouped)
             .navigationTitle("Settings")
             .fileImporter(isPresented: $importing, allowedContentTypes: [.json]) { restore($0) }
             .alert(importResult ?? "", isPresented: Binding(get: { importResult != nil }, set: { if !$0 { importResult = nil } })) {}
@@ -341,7 +449,7 @@ struct HistoryView: View {
         List(store.history) { change in
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(change.partName).font(.subheadline)
+                    Text(change.partName)
                     Text("\(change.reason) · \(change.date.formatted(date: .abbreviated, time: .shortened))")
                         .font(.caption).foregroundStyle(.secondary)
                 }
@@ -351,6 +459,7 @@ struct HistoryView: View {
                     .foregroundStyle(change.delta > 0 ? Color.doorstock : .red)
             }
         }
+        .insetList()
         .overlay { if store.history.isEmpty { Text("No stock changes yet").foregroundStyle(.secondary) } }
         .navigationTitle("Stock History")
     }
