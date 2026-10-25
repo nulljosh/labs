@@ -7,7 +7,6 @@
 !keyrate/
 !clock/
 !weather/
-!oohaah/
 !evidna/
 !plan/
 !hormuz/
@@ -50,3 +49,5 @@ pan/
 # gastown (ex-nyc) left labs on 2026-10-21, it is its own repo: nulljosh/gastown
 gastown/
 nyc/
+# oohaah left labs on 2026-10-25, it is its own repo: nulljosh/oohaah
+oohaah/
