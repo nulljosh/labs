@@ -32,93 +32,6 @@ function save() {
 }
 
 
-function text(node, names) {
-  for (var i = 0; i < names.length; i++) {
-    var el = node.querySelector(names[i]);
-    if (el && el.textContent.trim()) return el.textContent.trim();
-  }
-  return '';
-}
-
-var IMG_EXT = /\.(jpe?g|png|gif|webp|avif)(\?|#|$)/i;
-
-// A media/enclosure element is an image if it says so, or - declaring neither type nor
-// medium - if the URL ends in an image extension.
-function isImageEl(el, url) {
-  var type = el.getAttribute('type');
-  if (type) return /^image\//i.test(type);
-  var medium = el.getAttribute('medium');
-  if (medium) return medium.toLowerCase() === 'image';
-  return IMG_EXT.test(url || '');
-}
-
-// Resolving against the entry link handles protocol-relative and plain relative srcs for
-// free. Anything not http(s) is refused so data: blobs never become an <img src>.
-function resolveImage(src, base) {
-  if (!src) return '';
-  try {
-    var u = new URL(src, base || location.href);
-    return (u.protocol === 'https:' || u.protocol === 'http:') ? u.href : '';
-  } catch (e) { return ''; }
-}
-
-// media:* beats <enclosure> beats the first <img> in the body. Mirrors FeedParser.pickImage
-// in the Swift app - the two parsers must agree or the same feed looks different per platform.
-function imageFor(node, html, link) {
-  var tags = ['media:thumbnail', 'media:content', 'enclosure'];
-  for (var i = 0; i < tags.length; i++) {
-    var els = node.getElementsByTagName(tags[i]);
-    for (var j = 0; j < els.length; j++) {
-      var url = els[j].getAttribute('url');
-      if (!url) continue;
-      if (tags[i] !== 'media:thumbnail' && !isImageEl(els[j], url)) continue;
-      var got = resolveImage(url, link);
-      if (got) return got;
-    }
-  }
-  var art = node.getElementsByTagName('itunes:image')[0];   // podcast and some blog feeds put the art here
-  if (art && resolveImage(art.getAttribute('href'), link)) return resolveImage(art.getAttribute('href'), link);
-  var srcs = imageSrcs(html || '');
-  for (var k = 0; k < srcs.length; k++) { var r = resolveImage(srcs[k], link); if (r) return r; }
-  return '';
-}
-
-// Every image URL the body offers: lazy-load attributes before src (often a placeholder), the first srcset
-// entry, 1 by 1 tracking pixels skipped. Mirrors JournalFeedService.imageSrcs in the app.
-function imageSrcs(html) {
-  var out = [], tags = html.match(/<img\b[^>]*>/gi) || [];
-  tags.forEach(function (t) {
-    if (/(width|height)\s*=\s*["']?1["'\s>]/i.test(t)) return;
-    var found = {}, re = /\b(data-src|data-lazy-src|data-original|srcset|src)\s*=\s*["']([^"']+)["']/gi, m;
-    while ((m = re.exec(t))) found[m[1].toLowerCase()] = m[2];
-    ['data-src', 'data-lazy-src', 'data-original', 'src', 'srcset'].forEach(function (k) {
-      if (found[k]) out.push(k === 'srcset' ? found[k].split(',')[0].trim().split(/\s+/)[0] : found[k]);
-    });
-  });
-  return out;
-}
-
-// RSS <item> and Atom <entry> differ only in tag names and where the link lives.
-function parse(xml, source) {
-  var doc = new DOMParser().parseFromString(xml, 'application/xml');
-  if (doc.querySelector('parsererror')) return [];
-  var nodes = doc.querySelectorAll('item, entry');
-  return Array.prototype.map.call(nodes, function (n) {
-    var link = text(n, ['link']) ||
-      (n.querySelector('link[href]') ? n.querySelector('link[href]').getAttribute('href') : '');
-    var d = text(n, ['pubDate', 'updated', 'published', 'dc\\:date']);
-    var html = text(n, ['content\\:encoded', 'content', 'description', 'summary']);
-    return {
-      title: text(n, ['title']) || '(untitled)',
-      url: link,
-      date: d ? new Date(d) : new Date(0),
-      html: html,
-      image: imageFor(n, html, link),
-      source: source
-    };
-  }).filter(function (e) { return e.url; });
-}
-
 async function refresh() {
   lastRefresh = Date.now();
   document.getElementById('entries').innerHTML = '<li class="muted">Loading…</li>';
@@ -129,24 +42,11 @@ async function refresh() {
       return parse(await r.text(), f.title);
     } catch (e) { return []; }
   }));
-  entries = [].concat.apply([], results).sort(function (a, b) { return b.date - a.date; });
+  // One row per story: outlets that share a newsroom (NY Post and NY Post Opinion) carry the same link.
+  var seen = {};
+  entries = [].concat.apply([], results).sort(function (a, b) { return b.date - a.date; })
+    .filter(function (e) { return !seen[e.url] && (seen[e.url] = true); });
   renderEntries();
-}
-
-function el(tag, cls, text) {
-  var n = document.createElement(tag);
-  if (cls) n.className = cls;
-  if (text != null) n.textContent = text;
-  return n;
-}
-
-// "BBC" stays BBC; "Hacker News" is HN; "The Province" is P. Mirrors EntryThumbnail.initials in the app.
-function initials(source) {
-  var t = String(source || '').trim();
-  if (t && t.length <= 4 && t === t.toUpperCase()) return t;
-  var letters = t.split(/\s+/).filter(function (w) { return w && w.toLowerCase() !== 'the'; })
-    .slice(0, 2).map(function (w) { return w[0].toUpperCase(); }).join('');
-  return letters || 'C';
 }
 
 function dateText(d, style) {
@@ -154,81 +54,8 @@ function dateText(d, style) {
 }
 
 function renderEntries() {
-  var ul = document.getElementById('entries');
-  ul.innerHTML = '';
-  if (!entries.length) { ul.appendChild(el('li', 'muted', 'No entries yet. Add a feed or refresh.')); return; }
-  entries.slice(0, 300).forEach(function (e) {
-    var btn = el('button', 'row');
-    // Every row gets the same square: the image, or the outlet's initials when there is none or it fails to load.
-    var mono = el('span', 'thumb mono', initials(e.source));
-    mono.dataset.page = e.url;
-    if (e.image) {
-      var img = el('img', 'thumb');
-      img.src = e.image; img.alt = ''; img.loading = 'lazy'; img.referrerPolicy = 'no-referrer';
-      img.onerror = function () { img.replaceWith(mono); };
-      btn.appendChild(img);
-    } else btn.appendChild(mono);
-    var txt = el('span', 'txt');
-    var b = el('b', '', e.title);
-    b.title = e.title;
-    b._v = Headline.variants(e.title, e.source);
-    txt.appendChild(b);
-    txt.appendChild(el('small', '', [e.source, dateText(e.date, 'medium')].filter(Boolean).join(' · ')));
-    btn.appendChild(txt);
-    btn.appendChild(el('span', 'chev', '›'));
-    btn.onclick = function () { open(e); };
-    var li = el('li'); li.appendChild(btn); ul.appendChild(li);
-  });
-  requestAnimationFrame(fitTitles);
-  ul.querySelectorAll('.mono').forEach(function (m) { if (previewSeen) previewSeen.observe(m); else preview(m); });
+  renderStories(document.getElementById('entries'), entries, open, true, 'No entries yet. Add a feed or pull to refresh.');
 }
-
-// No image in the feed: ask /og for the article's preview image as the row scrolls in, and remember the answer
-// (a miss too) so each page is asked once.
-var previews = {};
-try { previews = JSON.parse(localStorage.getItem('coranto.previews')) || {}; } catch (e) {}
-function preview(mono) {
-  var page = mono.dataset.page;
-  if (!page) return;
-  var show = function (src) {
-    if (!src || !mono.isConnected) return;
-    var img = el('img', 'thumb');
-    img.alt = ''; img.referrerPolicy = 'no-referrer';
-    img.onload = function () { if (mono.isConnected) mono.replaceWith(img); };
-    img.src = src;
-  };
-  if (page in previews) return show(previews[page]);
-  fetch('/og?url=' + encodeURIComponent(page)).then(function (r) { return r.ok ? r.json() : {}; }).then(function (d) {
-    previews[page] = d.image || '';
-    var keys = Object.keys(previews);
-    if (keys.length > 1000) keys.slice(0, keys.length - 1000).forEach(function (k) { delete previews[k]; });
-    try { localStorage.setItem('coranto.previews', JSON.stringify(previews)); } catch (e) {}
-    show(previews[page]);
-  }).catch(function () {});
-}
-var previewSeen = window.IntersectionObserver && new IntersectionObserver(function (seen) {
-  seen.forEach(function (x) { if (x.isIntersecting) { previewSeen.unobserve(x.target); preview(x.target); } });
-}, { rootMargin: '400px' });
-
-// Each title becomes the longest headline variant that fits its row, so it ends on a word, not "…".
-var measure = document.createElement('canvas').getContext('2d');
-function fitTitles() {
-  var bs = document.querySelectorAll('#entries b');
-  if (!bs.length) return;
-  var cs = getComputedStyle(bs[0]);
-  measure.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
-  bs.forEach(function (b) {
-    var w = b.clientWidth, v = b._v || [b.title];
-    // The canvas estimate jumps close; the live row has the final say (fonts may still be loading).
-    var i = Math.max(0, v.findIndex(function (x) { return measure.measureText(x).width <= w; }));
-    for (b.textContent = v[i]; b.scrollWidth > b.clientWidth && i < v.length - 1;) b.textContent = v[++i];
-  });
-}
-var fitTimer;
-addEventListener('resize', function () { clearTimeout(fitTimer); fitTimer = setTimeout(fitTitles, 100); });
-// Refit once the web font lands (it is wider than the fallback) and whenever the list changes width.
-if (document.fonts) { document.fonts.ready.then(fitTitles); document.fonts.addEventListener('loadingdone', fitTitles); }
-if (window.ResizeObserver) new ResizeObserver(function () { clearTimeout(fitTimer); fitTimer = setTimeout(fitTitles, 50); }).observe(document.getElementById('entries'));
 
 function renderFeeds() {
   var following = document.getElementById('following');
@@ -263,6 +90,7 @@ function renderFeeds() {
 }
 
 function show(e) {
+  if (window.Library) { Library.markRead(e); document.getElementById('save').textContent = Library.isSaved(e) ? 'Saved' : 'Save'; }
   var box = document.getElementById('article');
   box.innerHTML = '';
   box.appendChild(el('h2', '', e.title));
@@ -285,21 +113,24 @@ function show(e) {
 // Tabs live in the hash so the browser's back button works; an open story is one extra
 // history entry on top of Home.
 var current = null;
-function open(e) { current = e; history.pushState(null, '', '#story'); route(); }
+var homeScroll = 0;   // coming back from a story lands where you were, like the app
+function open(e) { if (location.hash.slice(1) === '' || location.hash === '#home') homeScroll = scrollY; current = e; history.pushState(null, '', '#story'); route(); }
 function route() {
   var tab = location.hash.slice(1) || 'home';
   if (tab === 'story' && !current) tab = 'home';
-  ['home', 'story', 'feeds', 'settings'].forEach(function (id) { document.getElementById(id).hidden = id !== tab; });
+  ['home', 'story', 'feeds', 'saved', 'history', 'settings'].forEach(function (id) { document.getElementById(id).hidden = id !== tab; });
   if (tab === 'story') show(current);
-  var lit = tab === 'story' ? 'home' : tab;
+  if (tab !== 'story' && window.renderLibrary) { renderLibrary(); if (tab === 'home') renderEntries(); }   // read and saved marks stay current
+  var lit = tab === 'story' ? 'home' : (tab === 'saved' || tab === 'history') ? 'feeds' : tab;
   document.querySelectorAll('.tabbar a').forEach(function (a) {
     if (a.dataset.tab === lit) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
   });
-  window.scrollTo(0, 0);
+  window.scrollTo(0, tab === 'home' ? homeScroll : 0);
+  refit();
 }
 addEventListener('hashchange', route);
 addEventListener('popstate', route);
-document.getElementById('back').onclick = function () { history.back(); };
+document.querySelectorAll('.back-btn[data-back]').forEach(function (b) { b.onclick = function () { history.back(); }; });
 // The system share sheet where there is one (phones, Safari), otherwise copy the link.
 document.getElementById('share').onclick = function () {
   if (!current) return;

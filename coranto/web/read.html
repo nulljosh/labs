@@ -15,19 +15,25 @@
 </head>
 <body>
 
-<main class="screen" id="home">
+<main class="screen plain" id="home">
   <!-- no title and no refresh button: the bar says Home, and you pull down to refresh (same as the app) -->
   <div class="pull" id="pull" aria-hidden="true"><span class="spin"></span></div>
   <div class="group"><ul class="rows" id="entries"><li class="muted">Loading…</li></ul></div>
 </main>
 
 <main class="screen" id="story" hidden>
-  <div class="story-bar"><button class="back-btn" id="back">&lsaquo; Home</button><button class="back-btn" id="share">Share</button></div>
+  <div class="story-bar"><button class="back-btn" data-back>&lsaquo; Back</button><span class="txt"></span><button class="back-btn" id="save">Save</button><button class="back-btn" id="share">Share</button></div>
   <article class="article" id="article"></article>
 </main>
 
 <main class="screen" id="feeds" hidden>
   <div class="head"><h1>Feeds</h1></div>
+  <!-- Apple News keeps these under Following; here they sit above the feeds, same as the app -->
+  <div class="group"><ul class="rows">
+    <li><a class="row" href="#saved"><span class="txt">Saved</span><small id="saved-count"></small><span class="chev">&rsaquo;</span></a></li>
+    <li><a class="row" href="#history"><span class="txt">History</span><span class="chev">&rsaquo;</span></a></li>
+  </ul></div>
+  <p class="label"></p>
   <div class="group"><form class="add" id="add-form">
     <input id="add" type="text" inputmode="url" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="Add feed URL (RSS or Atom)" aria-label="Feed URL">
     <button class="act" type="submit">Add</button>
@@ -37,6 +43,18 @@
   <div class="group"><ul class="rows" id="following"></ul></div>
   <p class="label" id="suggested-label">Suggested</p>
   <div class="group" id="suggested-group"><ul class="rows" id="suggested"></ul></div>
+</main>
+
+<main class="screen plain" id="saved" hidden>
+  <button class="back-btn" data-back>&lsaquo; Feeds</button>
+  <div class="head"><h1>Saved</h1></div>
+  <div class="group"><ul class="rows" id="saved-list"></ul></div>
+</main>
+
+<main class="screen plain" id="history" hidden>
+  <div class="story-bar"><button class="back-btn" data-back>&lsaquo; Feeds</button><button class="back-btn" id="history-clear">Clear</button></div>
+  <div class="head"><h1>History</h1></div>
+  <div class="group"><ul class="rows" id="history-list"></ul></div>
 </main>
 
 <main class="screen" id="settings" hidden>
@@ -72,7 +90,10 @@
 </nav>
 
 <script src="headline.js"></script>
+<script src="parse.js"></script>
+<script src="rows.js"></script>
 <script src="reader.js"></script>
+<script src="library.js"></script>
 <script src="account.js"></script>
 
   <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>

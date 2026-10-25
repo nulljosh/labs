@@ -13,8 +13,8 @@ Status: `todo`, `partial`, `done`, or `n/a` (with the reason). The loop works to
 | 3 | Web reader matches the app (bottom bar Home, Feeds, Settings) | | yes | same three screens, bottom bar, same seed list | done | 1.3.0 |
 | 4 | Share, copy link, open in browser from a story | yes | yes | share sheet and Open in Browser in the reader; web shares or copies the link | done | 1.4.0 |
 | 5 | Text size in the reader | yes | yes | Settings, 13 to 28 pt, app and web | done | 1.5.0 |
-| 6 | Saved stories | yes | yes | swipe or press and hold to save; Saved at the top of Feeds; stored whole so they open offline (app; web next) | partial | 1.10.0 |
-| 7 | History of read stories, read rows dimmed | yes | yes | History in Feeds, read rows dim (app; web next) | partial | 1.10.0 |
+| 6 | Saved stories | yes | yes | swipe or press and hold to save (app), Save in the reader (app and web); Saved at the top of Feeds; stored whole so they open offline | done | 1.11.0 |
+| 7 | History of read stories, read rows dimmed | yes | yes | History in Feeds, read rows dim, app and web | done | 1.11.0 |
 | 8 | Search stories and sources | yes | yes | none | todo | |
 | 9 | Offline reading with images | yes | | text cached, images not | partial | |
 | 10 | Same story grouped across outlets (full coverage) | yes | yes | none; port `sidewise/src/stories.js` | todo | |

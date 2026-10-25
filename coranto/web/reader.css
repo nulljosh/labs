@@ -28,6 +28,8 @@ button.row:hover { background: color-mix(in srgb, var(--text) 4%, transparent); 
 .row .mono { display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; color: var(--accent);
   background: color-mix(in srgb, var(--accent) 12%, transparent); }
 .row .chev { color: var(--sub); flex: none; font-size: 20px; }
+a.row { text-decoration: none; }
+a.row:hover { text-decoration: none; background: color-mix(in srgb, var(--text) 4%, transparent); }
 .act { flex: none; min-height: 44px; background: none; border: 0; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; padding: 0 var(--sp-2); }
 .row a { color: var(--accent); }
 .add { display: flex; gap: var(--sp-2); padding: 0 var(--sp-2) 0 var(--sp-4); align-items: center; min-height: 48px; }
@@ -63,11 +65,25 @@ button.row:hover { background: color-mix(in srgb, var(--text) 4%, transparent); 
   :root:not([data-theme="light"]) .tabbar a[aria-current="page"] { background: rgba(255, 255, 255, .12); } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
-/* Home is a plain list, flush with the view: no card, rows run edge to edge, hairlines inset to the text. */
-#home { padding-left: 0; padding-right: 0; padding-top: max(var(--sp-2), env(safe-area-inset-top)); }
-#home .group { background: none; border-radius: 0; }
-#home .row { padding: var(--sp-3) 20px; }
-#home ul.rows li + li { background: linear-gradient(var(--line), var(--line)) 88px 0 / calc(100% - 88px) 1px no-repeat; }
+/* Home, Saved and History are plain lists, flush with the view: no card, rows edge to edge, hairlines inset to
+   the text. News-app rows (Mobbin study): outlet and time above the headline, picture on the right. */
+#home { padding-top: max(var(--sp-2), env(safe-area-inset-top)); }
+.plain { padding-left: 0; padding-right: 0; }
+.plain > .head, .plain > .back-btn, .plain > .story-bar { padding: 0 20px; }
+.plain .group { background: none; border-radius: 0; }
+.plain .row { padding: var(--sp-3) 20px; }
+.plain ul.rows li + li { background: linear-gradient(var(--line), var(--line)) 20px 0 / calc(100% - 40px) 1px no-repeat; }
+.kick { display: block; font-size: 13px; line-height: 18px; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px; }
+.kick .src { color: var(--accent); font-weight: 600; }
+.kick .saved { color: var(--accent); }
+.row.read .title, .hero.read h3 { color: var(--sub); }
+.row.read .thumb { opacity: .6; }
+.row .thumb.icon { object-fit: contain; padding: 14px; background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.hero { display: block; width: 100%; text-align: left; background: none; border: 0; padding: var(--sp-2) 20px var(--sp-4); font: inherit; color: var(--text); cursor: pointer; }
+.hero img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; margin-bottom: var(--sp-2); background: var(--surface); }
+.hero h3 { font-family: var(--display); font-size: 22px; line-height: 28px; letter-spacing: -.02em; font-weight: 700; }
+.story-bar .txt { flex: 1; }
+.story-bar { gap: var(--sp-4); }
 .pull { height: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; transition: height .2s ease; }
 .pull .spin { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--line); border-top-color: var(--accent); opacity: .5; }
 .pull.ready .spin { opacity: 1; }

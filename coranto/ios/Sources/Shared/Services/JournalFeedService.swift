@@ -43,7 +43,9 @@ final class JournalFeedService: ObservableObject {
             if failures > 0 { errorMessage = "Couldn't load feeds. Pull to retry." }
             return
         }
-        entries = merged.sorted { $0.date > $1.date }
+        // One row per story: outlets that share a newsroom (NY Post and NY Post Opinion) carry the same link.
+        var seen = Set<String>()
+        entries = merged.sorted { $0.date > $1.date }.filter { seen.insert($0.id).inserted }
         saveCache()
     }
 
