@@ -1,6 +1,6 @@
 // ponytail: network-first for pages, cache-first for the hashed assets they name.
 // Bump CACHE to evict everything a previous version stored.
-const CACHE = "coranto-v11";
+const CACHE = "coranto-v12";
 const FILES = ["/", "/index.html","/privacy.html","/read.html","/support.html", "/manifest.webmanifest"];
 
 self.addEventListener("install", e => {

@@ -31,7 +31,7 @@ Status: `todo`, `partial`, `done`, or `n/a` (with the reason). The loop works to
 | 21 | Background refresh | yes | yes | refresh on open only | todo | |
 | 22 | Notifications for chosen sources | yes | yes | none | todo | |
 | 23 | Home Screen widgets | yes | yes | none | todo | |
-| 24 | iCloud sync of feeds, saved and history | yes | account | none | todo | |
+| 24 | Sync of feeds, saved and history | yes | account | optional Coranto account (jaybulb-api) syncs the feed list on app and web; saved and history follow when they exist | partial | 1.9.0 |
 | 25 | Siri and Shortcuts | yes | | none | todo | |
 | 26 | Listen to a story | News+ | | none; on-device speech | todo | |
 | 27 | Watch app at parity | yes | | list and story, old styling | partial | |
@@ -78,6 +78,8 @@ Coranto stays a reader and also becomes a Ghost-style writing client.
 - Phase 4, pages, tags, search.
 
 ## Ship notes
+- Before submitting any build with accounts (1.9.0 on): update the App Privacy answers in App Store Connect. Data collected: Email Address (linked to the user, App Functionality) and Other User Content (the feed list, linked, App Functionality). No tracking.
+- Account emails need `coranto` in authmail's THEMES; the app sends `Origin: https://coranto.jaybulb.com` and `redirect_to` so mails say Coranto.
 
 - `asc validate` dies on "multiple app infos found" while a review is open; check readiness by hand and use `asc review submit --dry-run`.
 - `whatsNew` can't be set on a platform's first release, and a failed field fails the whole localization PATCH.

@@ -28,6 +28,7 @@ function load() {
 }
 function save() {
   try { localStorage.setItem('inkpress.feeds', JSON.stringify(feeds)); } catch (e) {}
+  if (window.CorantoAccount) CorantoAccount.push();   // signed in: the account keeps the same list
 }
 
 

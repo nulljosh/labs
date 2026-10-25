@@ -12,6 +12,7 @@
 		22019299B142F9C6C8192940 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E099194237BF0D71FD3C6424 /* Feed.swift */; };
 		29C178A19D44680AB89AF4A0 /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409A12C7017D00F584C499DF /* EntryDetailView.swift */; };
 		403DD5DADFFAC0CA89707D0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D602399DFBE78D9E325E2FD /* Assets.xcassets */; };
+		46B12B5E12CA0E641A0659AC /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C7997BFD552FE881F61BEB /* Account.swift */; };
 		4A70E099F727159BAF52AFC1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752BAEFA1F38659693A2814 /* SettingsView.swift */; };
 		4B92EB0E011FD1103F257912 /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8286BB5BF361BF084AB417E5 /* EntryListView.swift */; };
 		5D7EBE7D411C4B9B8E890D29 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38ACDB28857F0E41D3C492E /* JournalEntry.swift */; };
@@ -23,6 +24,7 @@
 		844DF1D2B31BE048837E9B2A /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8286BB5BF361BF084AB417E5 /* EntryListView.swift */; };
 		86E9BAD47C687921CC8AA4BF /* CorantoMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC081E82D8DC8982014989E5 /* CorantoMacApp.swift */; };
 		8F9F9B61680D39A04A93C8E2 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38ACDB28857F0E41D3C492E /* JournalEntry.swift */; };
+		905AB453141DA196819A6B4D /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C7997BFD552FE881F61BEB /* Account.swift */; };
 		9FE0B89EBDFFB2477193B88C /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E099194237BF0D71FD3C6424 /* Feed.swift */; };
 		A38E084ADAA18B1D2FC59AFA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752BAEFA1F38659693A2814 /* SettingsView.swift */; };
 		A99290777413A4AF24674771 /* PreviewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77498857B3215CE9BF932E32 /* PreviewImage.swift */; };
@@ -38,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		0D602399DFBE78D9E325E2FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		31C7997BFD552FE881F61BEB /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		409A12C7017D00F584C499DF /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
 		4D618F75CD0D4C5B4BBCC223 /* AtomFeedParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomFeedParserTests.swift; sourceTree = "<group>"; };
 		5057187D84DB102600195FC9 /* Journal-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Journal-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +121,7 @@
 		D8526EDA74411E04E3C7FB57 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				31C7997BFD552FE881F61BEB /* Account.swift */,
 				4D618F75CD0D4C5B4BBCC223 /* AtomFeedParserTests.swift */,
 				EEC44D06947275059DED3B30 /* JournalFeedService.swift */,
 				77498857B3215CE9BF932E32 /* PreviewImage.swift */,
@@ -245,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46B12B5E12CA0E641A0659AC /* Account.swift in Sources */,
 				E84CA41D7192C38A6B4BBFFB /* AtomFeedParserTests.swift in Sources */,
 				726E2BDEC0363FC1A23D0AAD /* EntryDetailView.swift in Sources */,
 				844DF1D2B31BE048837E9B2A /* EntryListView.swift in Sources */,
@@ -264,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				905AB453141DA196819A6B4D /* Account.swift in Sources */,
 				0AA2FE07026FE572A011E8A2 /* AtomFeedParserTests.swift in Sources */,
 				86E9BAD47C687921CC8AA4BF /* CorantoMacApp.swift in Sources */,
 				29C178A19D44680AB89AF4A0 /* EntryDetailView.swift in Sources */,
@@ -332,7 +338,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.8.0;
+				MARKETING_VERSION = 1.9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -397,7 +403,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.8.0;
+				MARKETING_VERSION = 1.9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

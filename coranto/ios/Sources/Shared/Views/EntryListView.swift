@@ -3,6 +3,7 @@ import SwiftUI
 struct EntryListView: View {
     @StateObject private var feed: JournalFeedService
     @StateObject private var store: FeedStore
+    @StateObject private var account = Account()
     @State private var path: [JournalEntry] = []
 
     /// Both default to the real thing; the parameters exist so the macOS screenshot capture can
@@ -26,7 +27,7 @@ struct EntryListView: View {
                     .tabItem { Label("Home", systemImage: "newspaper") }.tag(0)
                 ManageFeedsView(store: store)
                     .tabItem { Label("Feeds", systemImage: "list.bullet.rectangle") }.tag(1)
-                SettingsView()
+                SettingsView(store: store, account: account)
                     .tabItem { Label("Settings", systemImage: "gearshape") }.tag(2)
             }
             #if os(iOS)
@@ -38,6 +39,7 @@ struct EntryListView: View {
         .environment(\.horizontalSizeClass, .compact)
         #endif
         .task(id: store.feeds) {
+            if account.signedIn { try? await account.push(store.feeds) }   // keep the account's copy current
             await feed.refresh(feeds: store.feeds)
             // ponytail: store screenshot hook so a frame can open on an article
             if CommandLine.arguments.contains("-selectFirst"), let first = feed.entries.first { path = [first] }
