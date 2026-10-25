@@ -3,6 +3,7 @@ import SwiftUI
 struct SettingsView: View {
     @ObservedObject var store: FeedStore
     @ObservedObject var account: Account
+    @ObservedObject var library: Library
     @AppStorage("readerTextSize") private var textSize = 17.0
     @State private var showSignIn = false
     @State private var confirmDelete = false
@@ -23,6 +24,13 @@ struct SettingsView: View {
                     Text("Account")
                 } footer: {
                     Text(account.message ?? "Optional. Your followed feeds follow you to every device and the web reader. Reading never needs an account.")
+                }
+                Section {
+                    LeanBar(counts: Coverage.readingLean(library.history))
+                } header: {
+                    Text("Your Reading")
+                } footer: {
+                    Text(library.history.isEmpty ? "Open a few stories to see how what you read leans." : "From the last \(library.history.count) stories you opened, rated outlets only.")
                 }
                 Section("Reading") {
                     Stepper(value: $textSize, in: 13...28) {

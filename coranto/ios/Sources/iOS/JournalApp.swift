@@ -10,6 +10,7 @@ struct JournalApp: App {
         headlineDemo()
         previewImageDemo()
         relativeTimeDemo()
+        coverageDemo()
         #endif
     }
 

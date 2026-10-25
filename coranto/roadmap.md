@@ -17,12 +17,12 @@ Status: `todo`, `partial`, `done`, or `n/a` (with the reason). The loop works to
 | 7 | History of read stories, read rows dimmed | yes | yes | History in Feeds, read rows dim, app and web | done | 1.11.0 |
 | 8 | Search stories and sources | yes | yes | search field on Home matches headlines and outlet names, app and web | done | 1.12.0 |
 | 9 | Offline reading with images | yes | | text cached, images not | partial | |
-| 10 | Same story grouped across outlets (full coverage) | yes | yes | none; port `sidewise/src/stories.js` | todo | |
-| 11 | Lean bar per story (left, center, right) | | yes | none; port Sidewise's outlet lean table | todo | |
-| 12 | Lean and owner label on each outlet | | yes | none | todo | |
-| 13 | Compare headlines side by side | | yes | none; Sidewise has the breakdown | todo | |
-| 14 | Blindspot: stories one side barely covers | | yes | none | todo | |
-| 15 | My news bias (lean of what you read) | | yes | none | todo | |
+| 10 | Same story grouped across outlets (full coverage) | yes | yes | ported from Sidewise: one row per story, "N sources" (app; web next) | partial | 1.13.0 |
+| 11 | Lean bar per story (left, center, right) | | yes | Coverage sheet from the reader (app; web next) | partial | 1.13.0 |
+| 12 | Lean and owner label on each outlet | | yes | in Feeds and the Coverage sheet (app; web next) | partial | 1.13.0 |
+| 13 | Compare headlines side by side | | yes | Coverage sheet groups headlines Left, Center, Right (app; web next) | partial | 1.13.0 |
+| 14 | Blindspot: stories one side barely covers | | yes | noted in the Coverage sheet (app; web next); a Blindspot filter comes with row 16 | partial | 1.13.0 |
+| 15 | My news bias (lean of what you read) | | yes | Your Reading in Settings (app; web next) | partial | 1.13.0 |
 | 16 | Today: top stories ranked by coverage | yes | yes | newest first | todo | |
 | 17 | Follow topics | yes | yes | sources only | todo | |
 | 18 | Mute a source or topic | yes | yes | unsubscribe only | partial | |

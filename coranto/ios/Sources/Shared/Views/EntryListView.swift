@@ -34,7 +34,7 @@ struct EntryListView: View {
                     .tabItem { Label("Home", systemImage: "newspaper") }.tag(0)
                 ManageFeedsView(store: store, library: library)
                     .tabItem { Label("Feeds", systemImage: "list.bullet.rectangle") }.tag(1)
-                SettingsView(store: store, account: account)
+                SettingsView(store: store, account: account, library: library)
                     .tabItem { Label("Settings", systemImage: "gearshape") }.tag(2)
             }
             #if os(iOS)
@@ -50,19 +50,22 @@ struct EntryListView: View {
             await feed.refresh(feeds: store.feeds)
             // ponytail: store screenshot hook so a frame can open on an article
             if CommandLine.arguments.contains("-selectFirst"), let first = feed.entries.first { path = [first] }
+            // `-showCoverage` opens the first story several outlets covered, with its Coverage sheet up
+            if CommandLine.arguments.contains("-showCoverage"), let s = feed.stories.first(where: { $0.publishers > 1 }) { path = [s.lead] }
         }
     }
 
     private var home: some View {
         // Search matches headlines and outlet names ("BBC" shows only BBC). While searching there is no hero.
         let q = query.trimmingCharacters(in: .whitespaces)
-        let shown = q.isEmpty ? feed.entries : feed.entries.filter { $0.title.localizedStandardContains(q) || $0.sourceTitle.localizedStandardContains(q) }
+        // One row per story (the same story from several outlets is grouped, Ground News style).
+        let shown = q.isEmpty ? feed.stories : feed.stories.filter { $0.entries.contains { $0.title.localizedStandardContains(q) || $0.sourceTitle.localizedStandardContains(q) } }
         // The hero is the newest story with a picture among the first few; everything else is a row.
-        let hero = q.isEmpty ? shown.prefix(5).first { $0.imageURL != nil } : nil
+        let hero = q.isEmpty ? shown.prefix(5).first { $0.lead.imageURL != nil } : nil
         return List {
             SearchField(text: $query).listRowSeparator(.hidden)
-            if let hero { HeroRow(entry: hero, library: library).listRowSeparator(.hidden) }
-            ForEach(shown.filter { $0.id != hero?.id }) { EntryRow(entry: $0, library: library) }
+            if let hero { HeroRow(entry: hero.lead, library: library, story: hero).listRowSeparator(.hidden) }
+            ForEach(shown.filter { $0.id != hero?.id }) { EntryRow(entry: $0.lead, library: library, story: $0) }
             if !q.isEmpty && shown.isEmpty {
                 Text("No stories match \u{201C}\(q)\u{201D}.").foregroundStyle(.secondary).listRowSeparator(.hidden)
             }
@@ -80,7 +83,7 @@ struct EntryListView: View {
         #if os(iOS)
         .toolbar(.hidden, for: .navigationBar)   // the tab bar already says Home; stories start at the top
         #endif
-        .navigationDestination(for: JournalEntry.self) { EntryDetailView(entry: $0, library: library) }
+        .navigationDestination(for: JournalEntry.self) { EntryDetailView(entry: $0, library: library, story: feed.story(for: $0)) }
     }
 }
 
@@ -89,6 +92,7 @@ struct EntryListView: View {
 struct EntryRow: View {
     let entry: JournalEntry
     @ObservedObject var library: Library
+    var story: Story? = nil
 
     var body: some View {
         let read = library.isRead(entry)
@@ -97,7 +101,7 @@ struct EntryRow: View {
             // headline, text on the left so every title starts on the same edge, the picture on the right.
             HStack(spacing: 12) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Kicker(entry: entry, saved: library.isSaved(entry))
+                    Kicker(entry: entry, saved: library.isSaved(entry), sources: story?.publishers ?? 1)
                     FittedTitle(variants: Headline.variants(entry.title, source: entry.sourceTitle))
                         .foregroundStyle(read ? .secondary : .primary)
                 }
@@ -130,6 +134,7 @@ struct EntryRow: View {
 struct Kicker: View {
     let entry: JournalEntry
     let saved: Bool
+    var sources = 1
 
     var body: some View {
         let ago = RelativeTime.short(entry.date)
@@ -137,6 +142,7 @@ struct Kicker: View {
             if !entry.sourceTitle.isEmpty { Text(entry.sourceTitle).fontWeight(.semibold).foregroundStyle(Color.corantoAccent) }
             if !entry.sourceTitle.isEmpty && !ago.isEmpty { Text("·").foregroundStyle(.secondary) }
             Text(ago).foregroundStyle(.secondary)
+            if sources > 1 { Text("· \(sources) sources").foregroundStyle(.secondary) }
             if saved { Image(systemName: "bookmark.fill").foregroundStyle(Color.corantoAccent).imageScale(.small) }
         }
         .font(.caption)
@@ -149,6 +155,7 @@ struct Kicker: View {
 struct HeroRow: View {
     let entry: JournalEntry
     @ObservedObject var library: Library
+    var story: Story? = nil
 
     /// The longest clean cut up to 90 characters, so even the hero ends on a whole phrase, never "…".
     static func headline(_ e: JournalEntry) -> String {
@@ -165,7 +172,7 @@ struct HeroRow: View {
                 .frame(maxWidth: .infinity)
                 .aspectRatio(16 / 9, contentMode: .fit)
                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                Kicker(entry: entry, saved: library.isSaved(entry))
+                Kicker(entry: entry, saved: library.isSaved(entry), sources: story?.publishers ?? 1)
                 Text(Self.headline(entry))
                     .font(.title2.weight(.bold))
                     .fixedSize(horizontal: false, vertical: true)

@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		0AA2FE07026FE572A011E8A2 /* AtomFeedParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D618F75CD0D4C5B4BBCC223 /* AtomFeedParserTests.swift */; };
 		12DCC45C4FC9899EDB64EE1C /* ScreenshotCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AFC48B26A5664C3A03261 /* ScreenshotCapture.swift */; };
+		1868DB2E4BD79DF8528AE669 /* CoverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4104A2D941F019E4AF96736A /* CoverageView.swift */; };
 		22019299B142F9C6C8192940 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E099194237BF0D71FD3C6424 /* Feed.swift */; };
 		29C178A19D44680AB89AF4A0 /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409A12C7017D00F584C499DF /* EntryDetailView.swift */; };
 		403DD5DADFFAC0CA89707D0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D602399DFBE78D9E325E2FD /* Assets.xcassets */; };
 		46B12B5E12CA0E641A0659AC /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C7997BFD552FE881F61BEB /* Account.swift */; };
 		4A70E099F727159BAF52AFC1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752BAEFA1F38659693A2814 /* SettingsView.swift */; };
 		4B92EB0E011FD1103F257912 /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8286BB5BF361BF084AB417E5 /* EntryListView.swift */; };
+		4F165CED438C3D62665BA2B1 /* Coverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE1E0BC7D447CF605C09BEC /* Coverage.swift */; };
 		5D7EBE7D411C4B9B8E890D29 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38ACDB28857F0E41D3C492E /* JournalEntry.swift */; };
 		5E4207888413B4552B1F5EFF /* Headline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE6D47556801B134F2EC3A /* Headline.swift */; };
 		65959DE874A252B4341CB060 /* ManageFeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EA21421125A16812D6815E /* ManageFeedsView.swift */; };
@@ -26,6 +28,7 @@
 		86E9BAD47C687921CC8AA4BF /* CorantoMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC081E82D8DC8982014989E5 /* CorantoMacApp.swift */; };
 		8F9F9B61680D39A04A93C8E2 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38ACDB28857F0E41D3C492E /* JournalEntry.swift */; };
 		905AB453141DA196819A6B4D /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C7997BFD552FE881F61BEB /* Account.swift */; };
+		9882265571DFE2993C113755 /* Coverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE1E0BC7D447CF605C09BEC /* Coverage.swift */; };
 		9FE0B89EBDFFB2477193B88C /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E099194237BF0D71FD3C6424 /* Feed.swift */; };
 		A38E084ADAA18B1D2FC59AFA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752BAEFA1F38659693A2814 /* SettingsView.swift */; };
 		A99290777413A4AF24674771 /* PreviewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77498857B3215CE9BF932E32 /* PreviewImage.swift */; };
@@ -35,6 +38,7 @@
 		C15D7670E1EE66A93FFE68D9 /* ManageFeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EA21421125A16812D6815E /* ManageFeedsView.swift */; };
 		CE1E8C2899A0802992715A37 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5CBADBDFC8F276FBD980DD /* Library.swift */; };
 		D68D92DD45C2273DB6D7258F /* Headline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE6D47556801B134F2EC3A /* Headline.swift */; };
+		D876C00CC9529585418D9013 /* CoverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4104A2D941F019E4AF96736A /* CoverageView.swift */; };
 		DB8D13B635949509602FFCC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B29B9530A60D6C424502F145 /* Assets.xcassets */; };
 		E61BA69145B78636C9AC2575 /* PreviewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77498857B3215CE9BF932E32 /* PreviewImage.swift */; };
 		E84CA41D7192C38A6B4BBFFB /* AtomFeedParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D618F75CD0D4C5B4BBCC223 /* AtomFeedParserTests.swift */; };
@@ -44,11 +48,13 @@
 		0D602399DFBE78D9E325E2FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31C7997BFD552FE881F61BEB /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		409A12C7017D00F584C499DF /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
+		4104A2D941F019E4AF96736A /* CoverageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageView.swift; sourceTree = "<group>"; };
 		4D618F75CD0D4C5B4BBCC223 /* AtomFeedParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomFeedParserTests.swift; sourceTree = "<group>"; };
 		5057187D84DB102600195FC9 /* Journal-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Journal-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57C34DF0FD4E76F2A5E5A7E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		77498857B3215CE9BF932E32 /* PreviewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImage.swift; sourceTree = "<group>"; };
 		7752BAEFA1F38659693A2814 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		7BE1E0BC7D447CF605C09BEC /* Coverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coverage.swift; sourceTree = "<group>"; };
 		8286BB5BF361BF084AB417E5 /* EntryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListView.swift; sourceTree = "<group>"; };
 		89EE6D47556801B134F2EC3A /* Headline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Headline.swift; sourceTree = "<group>"; };
 		8D47AA2800395326FC174076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -69,6 +75,7 @@
 		0BBCC13DA1639972FA036B2E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4104A2D941F019E4AF96736A /* CoverageView.swift */,
 				409A12C7017D00F584C499DF /* EntryDetailView.swift */,
 				8286BB5BF361BF084AB417E5 /* EntryListView.swift */,
 				F6EA21421125A16812D6815E /* ManageFeedsView.swift */,
@@ -144,6 +151,7 @@
 		E9F97BCFD3B705C4E9DB7415 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7BE1E0BC7D447CF605C09BEC /* Coverage.swift */,
 				E099194237BF0D71FD3C6424 /* Feed.swift */,
 				89EE6D47556801B134F2EC3A /* Headline.swift */,
 				B38ACDB28857F0E41D3C492E /* JournalEntry.swift */,
@@ -255,6 +263,8 @@
 			files = (
 				46B12B5E12CA0E641A0659AC /* Account.swift in Sources */,
 				E84CA41D7192C38A6B4BBFFB /* AtomFeedParserTests.swift in Sources */,
+				4F165CED438C3D62665BA2B1 /* Coverage.swift in Sources */,
+				1868DB2E4BD79DF8528AE669 /* CoverageView.swift in Sources */,
 				726E2BDEC0363FC1A23D0AAD /* EntryDetailView.swift in Sources */,
 				844DF1D2B31BE048837E9B2A /* EntryListView.swift in Sources */,
 				22019299B142F9C6C8192940 /* Feed.swift in Sources */,
@@ -277,6 +287,8 @@
 				905AB453141DA196819A6B4D /* Account.swift in Sources */,
 				0AA2FE07026FE572A011E8A2 /* AtomFeedParserTests.swift in Sources */,
 				86E9BAD47C687921CC8AA4BF /* CorantoMacApp.swift in Sources */,
+				9882265571DFE2993C113755 /* Coverage.swift in Sources */,
+				D876C00CC9529585418D9013 /* CoverageView.swift in Sources */,
 				29C178A19D44680AB89AF4A0 /* EntryDetailView.swift in Sources */,
 				4B92EB0E011FD1103F257912 /* EntryListView.swift in Sources */,
 				9FE0B89EBDFFB2477193B88C /* Feed.swift in Sources */,
@@ -344,7 +356,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.12.0;
+				MARKETING_VERSION = 1.13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,7 +421,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.12.0;
+				MARKETING_VERSION = 1.13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

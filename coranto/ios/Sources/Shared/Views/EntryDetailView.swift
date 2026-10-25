@@ -9,6 +9,8 @@ import UIKit
 struct EntryDetailView: View {
     let entry: JournalEntry
     @ObservedObject var library: Library
+    var story: Story? = nil
+    @State private var showCoverage = CommandLine.arguments.contains("-showCoverage")
     @AppStorage("readerTextSize") private var textSize = 17.0
 
     var body: some View {
@@ -20,9 +22,13 @@ struct EntryDetailView: View {
             .navigationBarTitleDisplayMode(.inline)
             #endif
             .onAppear { library.markRead(entry) }
+            .sheet(isPresented: $showCoverage) { if let story { CoverageView(story: story, library: library) } }
             .toolbar {
                 if let url = URL(string: entry.url) {
                     ToolbarItemGroup(placement: .primaryAction) {
+                        if let story, story.entries.count > 1 {
+                            Button { showCoverage = true } label: { Label("\(story.publishers) Sources", systemImage: "square.stack") }
+                        }
                         Button { library.toggleSave(entry) } label: {
                             Label(library.isSaved(entry) ? "Remove from Saved" : "Save", systemImage: library.isSaved(entry) ? "bookmark.fill" : "bookmark")
                         }

@@ -38,7 +38,7 @@ struct ManageFeedsView: View {
                     ForEach(store.feeds) { feed in
                         VStack(alignment: .leading, spacing: 2) {
                             Text(feed.title).font(.body)
-                            Text(feed.url).font(.caption).foregroundStyle(.secondary).lineLimit(1)
+                            Text(Self.about(feed)).font(.caption).foregroundStyle(.secondary).lineLimit(1)
                         }
                     }
                     .onDelete(perform: store.remove)
@@ -51,7 +51,7 @@ struct ManageFeedsView: View {
                                 HStack {
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text(feed.title).font(.body)
-                                        Text(feed.url).font(.caption)
+                                        Text(Self.about(feed)).font(.caption)
                                             .foregroundStyle(.secondary).lineLimit(1)
                                     }
                                     Spacer()
@@ -68,6 +68,12 @@ struct ManageFeedsView: View {
                 Button("OK", role: .cancel) {}
             }
         }
+    }
+
+    /// "Leans left · Canadian public broadcaster" for outlets Coranto rates; the address for anything else.
+    static func about(_ feed: Feed) -> String {
+        guard let o = Outlet.of(feed.title) else { return feed.url }
+        return (o.lean.map(Outlet.leanLabel) ?? "Not rated") + " · " + o.owner
     }
 
     private func add() {

@@ -2,7 +2,10 @@ import Foundation
 
 @MainActor
 final class JournalFeedService: ObservableObject {
-    @Published var entries: [JournalEntry] = []
+    @Published var entries: [JournalEntry] = [] { didSet { regroup() } }
+    /// The same story across outlets, grouped (Coverage.cluster); Home shows one row per story.
+    @Published private(set) var stories: [Story] = []
+    private var storyOf: [String: Story] = [:]
     @Published var isLoading = false
     @Published var errorMessage: String?
 
@@ -13,6 +16,14 @@ final class JournalFeedService: ObservableObject {
 
     init() {
         loadCache()
+        regroup()
+    }
+
+    func story(for entry: JournalEntry) -> Story? { storyOf[entry.id] }
+
+    private func regroup() {
+        stories = Coverage.cluster(entries)
+        storyOf = Dictionary(stories.flatMap { s in s.entries.map { ($0.id, s) } }, uniquingKeysWith: { a, _ in a })
     }
 
     /// Fetch every subscribed feed concurrently, tag each entry with its source, and merge.
