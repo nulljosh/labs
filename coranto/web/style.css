@@ -21,7 +21,7 @@ h1, h2 { font-family: var(--display); font-weight: 700; letter-spacing: -.02em; 
 .btn-primary:hover { background: color-mix(in srgb, var(--btn) 82%, #fff); }
 .btn-outline { background: var(--surface); color: var(--text); border-color: var(--line); }
 .btn-outline:hover { border-color: var(--text); }
-.btn:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+.btn:focus-visible, a:focus-visible, input:focus-visible { outline: 4px solid var(--ring); outline-offset: 2px; }
 
 footer { padding: var(--sp-6) 0 var(--sp-7); text-align: center; font-size: 15px; color: var(--sub); border-top: 1px solid var(--line); }
 footer p + p { margin-top: var(--sp-1); }

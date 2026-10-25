@@ -16,10 +16,8 @@
 <body>
 
 <main class="screen" id="home">
-  <!-- no big title: the bottom bar already says Home (same as the app) -->
-  <div class="head" style="justify-content:flex-end">
-    <button class="icon-btn" id="refresh" title="Refresh" aria-label="Refresh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"/></svg></button>
-  </div>
+  <!-- no title and no refresh button: the bar says Home, and you pull down to refresh (same as the app) -->
+  <div class="pull" id="pull" aria-hidden="true"><span class="spin"></span></div>
   <div class="group"><ul class="rows" id="entries"><li class="muted">Loading…</li></ul></div>
 </main>
 

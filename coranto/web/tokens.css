@@ -21,9 +21,9 @@
   --ring: color-mix(in srgb, var(--accent) 30%, transparent);
   --bg: #ffffff;
   --surface: #f5f5f7;
-  --line: #e2e2e6;
-  --text: #141414;            /* printer's black */
-  --sub: #5c5c66;
+  --line: #e5e5ea;
+  --text: #1d1d1f;
+  --sub: #6e6e73;
 
   /* type */
   --display: "Coranto Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -57,14 +57,14 @@
     --band: #0a4f9a;
     --band-sub: #cfe2fb;
     --band-art: #4f8fd6;
-    --bg: #0e0d0d;            /* ink black, no tint */
-    --surface: #1a1919;
-    --line: #2c2a2a;
-    --text: #f3f2f2;
-    --sub: #aaa6a6;
+    --bg: #000000;
+    --surface: #1c1c1e;
+    --line: #38383a;
+    --text: #f5f5f7;
+    --sub: #98989d;
   }
 }
 :root[data-theme="dark"] {
   --accent: #5aa9ff; --btn: #0a6fd6; --frame: #0a6fd6; --band: #0a4f9a; --band-sub: #cfe2fb; --band-art: #4f8fd6;
-  --bg: #0e0d0d; --surface: #1a1919; --line: #2c2a2a; --text: #f3f2f2; --sub: #aaa6a6;
+  --bg: #000000; --surface: #1c1c1e; --line: #38383a; --text: #f5f5f7; --sub: #98989d;
 }

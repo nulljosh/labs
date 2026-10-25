@@ -65,6 +65,7 @@ struct EntryListView: View {
                 .padding(.vertical, 6)
             }
         }
+        .listStyle(.plain)   // flush with the view, like Mail and News
         .refreshable { await feed.refresh(feeds: store.feeds) }
         .overlay {
             if feed.entries.isEmpty && feed.isLoading {
@@ -112,7 +113,7 @@ private struct EntryThumbnail: View {
             }
         }
         .frame(width: side, height: side)
-        .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
     }
 
     private var monogram: some View {

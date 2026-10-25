@@ -39,7 +39,9 @@ enum Headline {
             // Cut only where the next word starts a new phrase ("cars | that put", "drivers | at greatest"), so a cut
             // ends on a whole idea; with no such break, any word will do.
             let breaks = (3..<words.count).filter { phraseStarts.contains(words[$0].lowercased().trimmingCharacters(in: .punctuationCharacters)) }
-            for n in stride(from: words.count - 1, through: 3, by: -1) where breaks.isEmpty || breaks.contains(n) {
+            let cuts = Array(stride(from: words.count - 1, through: 3, by: -1))
+            // phrase breaks first; plain word cuts after them, as the last resort for a narrow row
+            for n in cuts.filter({ breaks.contains($0) }) + cuts.filter({ !breaks.contains($0) }) {
                 out.append(trimTail(words.prefix(n).joined(separator: " ")))
             }
         }

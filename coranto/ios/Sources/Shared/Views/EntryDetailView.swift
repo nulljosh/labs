@@ -56,14 +56,14 @@ struct EntryDetailView: View {
           h2 { font-size: 1.2em; margin: 24px 0 8px; }
           h3 { font-size: 1.05em; margin: 20px 0 8px; }
           p { margin: 0 0 14px; }
-          img { max-width: 100%; height: auto; border-radius: 8px; }
+          img { max-width: 100%; height: auto; border-radius: 12px; }
           pre, table, blockquote { display: block; overflow-x: auto; }
           code { font-size: 0.9em; }
           .date { color: gray; font-size: 13px; margin: 0 0 20px; }
           /* links in the brand blue, not WebKit's default purple; Theme.swift corantoAccent */
           a { color: #0059B3; }
           @media (prefers-color-scheme: dark) { a { color: #5aa9ff; } }
-          .hero { width: 100%; max-height: 50vh; object-fit: cover; border-radius: 8px; margin: 0 0 16px; }
+          .hero { width: 100%; max-height: 50vh; object-fit: cover; border-radius: 12px; margin: 0 0 16px; }
         </style></head><body>
         <h1>\(escape(entry.title))</h1>
         <p class="date">\(byline(for: entry))</p>

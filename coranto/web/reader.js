@@ -101,6 +101,7 @@ function parse(xml, source) {
 }
 
 async function refresh() {
+  lastRefresh = Date.now();
   document.getElementById('entries').innerHTML = '<li class="muted">Loading…</li>';
   var results = await Promise.all(feeds.map(async function (f) {
     try {
@@ -177,7 +178,9 @@ function fitTitles() {
 }
 var fitTimer;
 addEventListener('resize', function () { clearTimeout(fitTimer); fitTimer = setTimeout(fitTitles, 100); });
-if (document.fonts) document.fonts.ready.then(fitTitles);
+// Refit once the web font lands (it is wider than the fallback) and whenever the list changes width.
+if (document.fonts) { document.fonts.ready.then(fitTitles); document.fonts.addEventListener('loadingdone', fitTitles); }
+if (window.ResizeObserver) new ResizeObserver(function () { clearTimeout(fitTimer); fitTimer = setTimeout(fitTitles, 50); }).observe(document.getElementById('entries'));
 
 function renderFeeds() {
   var following = document.getElementById('following');
@@ -277,7 +280,27 @@ document.getElementById('add-form').addEventListener('submit', function (ev) {
   note.textContent = 'Paste any RSS or Atom feed URL to follow it.';
   save(); renderFeeds(); refresh();
 });
-document.getElementById('refresh').onclick = refresh;
+// Pull to refresh: drag down from the top of Home. Coming back to the tab after 15 minutes refreshes too, which
+// is how a desktop browser (no pull) stays current.
+var pullStart = null, pulled = 0, lastRefresh = Date.now(), pullEl = document.getElementById('pull');
+addEventListener('touchstart', function (ev) {
+  pullStart = (scrollY <= 0 && !document.getElementById('home').hidden) ? ev.touches[0].clientY : null;
+}, { passive: true });
+addEventListener('touchmove', function (ev) {
+  if (pullStart == null) return;
+  pulled = Math.max(0, Math.min(96, (ev.touches[0].clientY - pullStart) / 2));
+  pullEl.style.height = pulled + 'px';
+  pullEl.classList.toggle('ready', pulled >= 56);
+}, { passive: true });
+addEventListener('touchend', function () {
+  if (pullStart == null) return;
+  pullStart = null;
+  if (pulled >= 56) { pullEl.classList.add('busy'); refresh().then(done, done); } else done();
+  function done() { pulled = 0; pullEl.style.height = ''; pullEl.classList.remove('ready', 'busy'); }
+});
+document.addEventListener('visibilitychange', function () {
+  if (!document.hidden && Date.now() - lastRefresh > 15 * 6e4) refresh();
+});
 
 // Same range and default as the app's Settings stepper (13 to 28 pt, 17 default).
 var textSize = 17;
