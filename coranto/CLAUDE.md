@@ -1,5 +1,5 @@
 # Coranto
-iOS 1.0.6 and macOS 1.0.7 live. iOS 1.0.8 (build 202610250832, Coranto name, icon, doubled-body fix) WAITING_FOR_REVIEW since 2026-10-25. Web reader live at coranto.jaybulb.com/read.
+iOS 1.0.6 and macOS 1.0.7 live. 1.0.8 on iOS and Mac (build 202610250858: Coranto name, icon, bottom tab bar Home/Feeds/Settings, doubled-body fix) WAITING_FOR_REVIEW since 2026-10-25. Web reader live at coranto.jaybulb.com/read.
 
 ## Open
 - Nothing blocking on v1.0.5, awaiting Apple review. It seeds 16 curated news feeds on first launch (from newsline's list) instead of one blog, and fixes a date-parser bug where feeds stamping RFC822 zones by name (EDT, GMT) sorted to the top forever. See `roadmap.md`.
