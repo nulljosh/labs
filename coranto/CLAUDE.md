@@ -1,5 +1,5 @@
 # Coranto
-iOS 1.0.6 and macOS 1.0.7 live. iOS 1.0.8 draft created 2026-10-25 to carry the Coranto name and icon; needs a build. Web reader live at coranto.jaybulb.com/read.
+iOS 1.0.6 and macOS 1.0.7 live. iOS 1.0.8 (build 202610250832, Coranto name, icon, doubled-body fix) WAITING_FOR_REVIEW since 2026-10-25. Web reader live at coranto.jaybulb.com/read.
 
 ## Open
 - Nothing blocking on v1.0.5, awaiting Apple review. It seeds 16 curated news feeds on first launch (from newsline's list) instead of one blog, and fixes a date-parser bug where feeds stamping RFC822 zones by name (EDT, GMT) sorted to the top forever. See `roadmap.md`.
@@ -14,7 +14,7 @@ iOS 1.0.6 and macOS 1.0.7 live. iOS 1.0.8 draft created 2026-10-25 to carry the 
 
 ## Rules
 - Multi-feed RSS/Atom reader: iOS, macOS (`Coranto-macOS`, same bundle id, Universal Purchase) and a browser reader in `web/read.html`. Split from the `journal` repo 2026-07-21, that repo now holds only the Jekyll blog. No shared code between the two; `FeedStore.seedFeeds` in `ios/Sources/Shared/Models/Feed.swift` subscribes to the blog's `feed.xml` on first launch as one regular feed among the curated news seeds, same as anything a user adds themselves.
-- Renamed "Journal" to "Inkpress" 2026-07-06 (Apple's own Journal app), then "Inkpress" to "Coranto" 2026-10-25. ASC app id 6787759999, lives in the labs monorepo at `coranto/`. Coranto is set on the iOS 1.0.8 app info (Apple accepted it); the live listing says Inkpress until 1.0.8 ships.
+- Renamed "Journal" to "Inkpress" 2026-07-06 (Apple's own Journal app), then "Inkpress" to "Coranto" 2026-10-25. ASC app id 6787759999, lives in the labs monorepo at `coranto/`. Coranto is set on the iOS 1.0.8 app info (Apple accepted it); the live listing says Inkpress until 1.0.8 is approved.
 - Still on old names on purpose: bundle id `com.nulljosh.journal`, `journal.xcodeproj` and scheme `Journal-iOS`, Pages project `inkpress` (inkpress.jaybulb.com keeps serving, the live listing links there), localStorage key `inkpress.feeds` in `web/read.html`, Supabase tables `inkpress_posts`/`inkpress_contacts`, KMP package and applicationId `com.nulljosh.inkpress`.
 - Brand: clrs.cc blue, accent `#0059B3` (gradient top `#0074D9`), glyph is three feeds merging into one line, `Coranto.icon`. Web type is Coranto Sans and Coranto Display (renamed OFL Archivo and Archivo Narrow, `scripts/gen_font.py`); the apps stay on SF until a build bundles it.
 - **Superseded 2026-08-02**: the "no accounts, no writing feature" rule below is being phased out, Coranto is pivoting to also be a CMS/CRM client (WordPress/Ghost-inspired), staying an RSS reader too. See CMS/CRM Pivot roadmap in `roadmap.md`. Old rule, now historical: no accounts, no journaling/writing feature, no user-authored content, it only reads feeds.
