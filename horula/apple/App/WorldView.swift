@@ -3,20 +3,24 @@ import SwiftUI
 /// The analog face. The second hand sweeps every frame, like the web app; it ticks under reduced motion.
 struct ClockFace: View {
     @Environment(\.accessibilityReduceMotion) private var still
+    var zone: TimeZone = .current
+    var shift: TimeInterval = 0
+    var night: Bool? = nil   // set for the Mac grid: white face by day, black by night, like macOS Clock
     var body: some View {
         TimelineView(.animation(minimumInterval: still ? 1 : nil)) { ctx in
             Canvas { g, size in
                 let r = min(size.width, size.height) / 2, c = CGPoint(x: size.width / 2, y: size.height / 2)
-                g.fill(Path(ellipseIn: CGRect(x: c.x - r, y: c.y - r, width: 2 * r, height: 2 * r)), with: .color(.secondary.opacity(0.12)))
+                g.fill(Path(ellipseIn: CGRect(x: c.x - r, y: c.y - r, width: 2 * r, height: 2 * r)), with: .color(night == nil ? .secondary.opacity(0.12) : night! ? .black : .white))
                 for i in 0..<60 {
                     let a = Double(i) * .pi / 30, major = i % 5 == 0, r1 = r * (major ? 0.81 : 0.89)
                     var p = Path(); p.move(to: pt(c, a, r1)); p.addLine(to: pt(c, a, r * 0.94))
                     g.stroke(p, with: .color(.secondary), style: .init(lineWidth: major ? 3 : 1, lineCap: .round))
                 }
-                let cal = Calendar.current, d = ctx.date
+                var cal = Calendar.current; cal.timeZone = zone
+                let d = ctx.date.addingTimeInterval(shift), ink: Color = night == nil ? .primary : night! ? .white : .black
                 let s = Double(cal.component(.second, from: d)) + (still ? 0 : d.timeIntervalSince1970.truncatingRemainder(dividingBy: 1))
                 let m = Double(cal.component(.minute, from: d)) + s / 60, h = Double(cal.component(.hour, from: d) % 12) + m / 60
-                hand(g, c, h / 12, r * 0.5, 7, .primary); hand(g, c, m / 60, r * 0.76, 5, .primary)
+                hand(g, c, h / 12, r * 0.5, 7, ink); hand(g, c, m / 60, r * 0.76, 5, ink)
                 hand(g, c, s / 60, r * 0.86, 2, .horula, tail: r * 0.15)
                 g.fill(Path(ellipseIn: CGRect(x: c.x - 5, y: c.y - 5, width: 10, height: 10)), with: .color(.horula))
             }
@@ -75,6 +79,14 @@ struct WorldView: View {
                     }
                     .frame(maxWidth: .infinity).listRowBackground(Color.clear)
                 }
+                #if os(macOS)
+                Section {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 16)], spacing: 16) {
+                        ForEach(store.zones) { c in CityCard(city: c, shift: plan * 900) { detail = c } }
+                    }
+                    .listRowBackground(Color.clear)
+                }
+                #else
                 Section {
                     ForEach(store.zones) { c in
                         // one live row per city: a TimelineView around the ForEach would merge them into one cell
@@ -85,6 +97,7 @@ struct WorldView: View {
                     .onDelete { store.zones.remove(atOffsets: $0) }
                     .onMove { store.zones.move(fromOffsets: $0, toOffset: $1) }
                 }
+                #endif
                 Section("Plan across cities") {
                     HStack {
                         Slider(value: $plan, in: -48...48, step: 1).accessibilityLabel("Plan across cities")
@@ -140,6 +153,35 @@ struct CityRow: View {
         .contentShape(Rectangle())
     }
 }
+
+#if os(macOS)
+/// One city in the Mac grid: a small face, the name, the offset. Right click to remove.
+struct CityCard: View {
+    @Environment(Store.self) private var store
+    let city: City
+    let shift: TimeInterval
+    let open: () -> Void
+    var body: some View {
+        TimelineView(.everyMinute) { ctx in
+            let at = ctx.date.addingTimeInterval(shift)
+            Button(action: open) {
+                VStack(spacing: 6) {
+                    ClockFace(zone: TimeZone(identifier: city.zone) ?? .current, shift: shift, night: Cities.isDay(city, at: at).map { !$0 } ?? false)
+                        .frame(width: 112).padding(.bottom, 4)
+                    Text(city.city).font(.headline).lineLimit(1)
+                    Text(Clockwork.offsetLabel(zone: city.zone, at: at)).font(.caption).foregroundStyle(.secondary).lineLimit(1)
+                }
+                .frame(maxWidth: .infinity).padding(12)
+                .background(.quaternary.opacity(0.5), in: RoundedRectangle(cornerRadius: 16))
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("\(city.city), \(Clockwork.offsetLabel(zone: city.zone, at: at))")
+            .contextMenu { Button("Remove", role: .destructive) { store.zones.removeAll { $0.id == city.id } } }
+        }
+    }
+}
+#endif
 
 struct AddCity: View {
     @Environment(Store.self) private var store

@@ -113,3 +113,9 @@ test('offline shell covers the app and the cache follows the version', () => {
   assert.ok(!shell.some(f => f.endsWith('.html')), 'SHELL must use clean URLs, the host redirects .html');
   assert.match(sw, new RegExp(`const CACHE = 'horula-${L.VERSION.replaceAll('.', '\\.')}'`));
 });
+
+test('hand angles in a city', () => {
+  const at = new Date(Date.UTC(2026, 9, 25, 3, 30));   // 12:30 in Tokyo, 20:30 in Vancouver
+  assert.deepEqual(L.handAngles('Asia/Tokyo', at), { h: 15, m: 180 });
+  assert.deepEqual(L.handAngles('America/Vancouver', at), { h: 255, m: 180 });
+});

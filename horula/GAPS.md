@@ -51,5 +51,5 @@ Joshua's ask: keep comparing against the native iOS and Mac Clock apps and close
 - [x] 27. Stopwatch Lap and Start are round buttons at the sides, like iOS.
 - [x] 28. Timers: a "When Timer Ends" row and a round Start button, like iOS.
 - [x] 29. World Clock rows match iOS: time difference above the city, time with small AM or PM, swipe or Edit to delete.
-- [ ] 30. Mac: wide windows show world clocks as a grid of analog faces, like macOS Clock.
+- [x] 30. Mac: wide windows show world clocks as a grid of analog faces, like macOS Clock.
 - [x] 31. Mac: keyboard shortcuts like macOS Clock (Command 1 to 4 for tabs in the installed app, N for new; browsers keep Command N for a new window).
