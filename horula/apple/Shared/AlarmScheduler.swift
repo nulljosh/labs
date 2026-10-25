@@ -4,9 +4,6 @@ import UserNotifications
 #if os(iOS)
 import AlarmKit
 import SwiftUI
-
-/// What an alarm carries into the system alert.
-struct HorulaAlarm: AlarmMetadata { var label = "" }
 #endif
 
 // The reason a native app exists: alarms ring with the app closed and the phone locked.
@@ -25,16 +22,21 @@ final class AlarmScheduler {
         allowed = m.authorizationState == .authorized
         guard allowed == true else { return }
         for a in (try? m.alarms) ?? [] where a.countdownDuration == nil || a.schedule != nil { try? m.cancel(id: a.id) }
-        var list = store.alarms.filter(\.on).map { ($0.id, $0.label.isEmpty ? "Alarm" : $0.label, $0.time, $0.days, $0.skip == nil ? nil : Clockwork.nextFire($0, after: .now)) }
-        if store.sleep.on { list.append((Self.wakeID, "Good morning", store.sleep.wake, store.sleep.days, nil)) }
-        for (id, label, time, days, skipTo) in list {
+        var list = store.alarms.filter(\.on).map { ($0.id, $0.label.isEmpty ? "Alarm" : $0.label, $0.time, $0.days, $0.skip == nil ? nil : Clockwork.nextFire($0, after: .now), $0.snooze ? $0.snoozeMin : 0) }
+        if store.sleep.on { list.append((Self.wakeID, "Good morning", store.sleep.wake, store.sleep.days, nil, store.sleep.snooze ? 9 : 0)) }
+        for (id, label, time, days, skipTo, snooze) in list {
             let m2 = Clockwork.minutes(time)
             // ponytail: a skipped repeating alarm is scheduled once for its next real ring; the next sync restores the weekly rule
             let schedule: Alarm.Schedule = skipTo.map { .fixed($0) }
                 ?? .relative(.init(time: .init(hour: m2 / 60, minute: m2 % 60), repeats: days.isEmpty ? .never : .weekly(days.map(Self.weekday))))
-            let alert = AlarmPresentation.Alert(title: LocalizedStringResource(stringLiteral: label))
-            let attributes = AlarmAttributes<HorulaAlarm>(presentation: AlarmPresentation(alert: alert), metadata: HorulaAlarm(label: label), tintColor: .horula)
-            _ = try? await m.schedule(id: id, configuration: .alarm(schedule: schedule, attributes: attributes))
+            // Snooze is AlarmKit's secondary button: it counts down snoozeMin minutes as a Live Activity, then rings again.
+            let alert = snooze > 0
+                ? AlarmPresentation.Alert(title: LocalizedStringResource(stringLiteral: label), secondaryButton: AlarmButton(text: "Snooze", textColor: .white, systemImageName: "zzz"), secondaryButtonBehavior: .countdown)
+                : AlarmPresentation.Alert(title: LocalizedStringResource(stringLiteral: label))
+            let presentation = AlarmPresentation(alert: alert, countdown: .init(title: "Snoozing"))
+            let attributes = AlarmAttributes<HorulaAlarm>(presentation: presentation, metadata: HorulaAlarm(label: label), tintColor: .horula)
+            let config = AlarmManager.AlarmConfiguration(countdownDuration: snooze > 0 ? .init(preAlert: nil, postAlert: TimeInterval(snooze * 60)) : nil, schedule: schedule, attributes: attributes)
+            _ = try? await m.schedule(id: id, configuration: config)
         }
         #else
         let c = UNUserNotificationCenter.current()
@@ -54,8 +56,22 @@ final class AlarmScheduler {
         await syncTimers(store)
     }
 
-    /// Timers end as a notification everywhere for now. ponytail: AlarmKit countdowns need the Live Activity widget (v6 widgets step).
+    /// iPhone: each running timer is an AlarmKit countdown, shown as a Live Activity and rung like an alarm.
+    /// Elsewhere it ends as a notification. ponytail: a pause cancels the countdown and resume schedules what is left.
     func syncTimers(_ store: Store) async {
+        #if os(iOS)
+        let m = AlarmManager.shared
+        guard m.authorizationState == .authorized else { return }
+        for a in (try? m.alarms) ?? [] where a.schedule == nil { try? m.cancel(id: a.id) }
+        for t in store.timers {
+            guard let end = t.end, end > .now else { continue }
+            let label = t.label.isEmpty ? "Timer" : t.label
+            let presentation = AlarmPresentation(alert: .init(title: LocalizedStringResource(stringLiteral: label)), countdown: .init(title: LocalizedStringResource(stringLiteral: label)))
+            let attributes = AlarmAttributes<HorulaAlarm>(presentation: presentation, metadata: HorulaAlarm(label: label), tintColor: .horula)
+            _ = try? await m.schedule(id: t.id, configuration: .timer(duration: end.timeIntervalSinceNow, attributes: attributes))
+        }
+        return
+        #endif
         let c = UNUserNotificationCenter.current()
         _ = try? await c.requestAuthorization(options: [.alert, .sound])
         c.removePendingNotificationRequests(withIdentifiers: store.timers.map { "timer-\($0.id)" } + ["timer-none"])
