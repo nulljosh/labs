@@ -1,4 +1,6 @@
 wrangler.toml
 GAPS.md
 .assetsignore
+.gitignore
 .wrangler
+deploy.sh
