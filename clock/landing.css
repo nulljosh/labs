@@ -1,8 +1,8 @@
-/* Clock landing, after Bugle and Hermes: a white page in a thin vermilion rule, giant bold headlines set like a
+/* Clock landing, after Bugle and Hermes: a white page in a thin blue rule, giant bold headlines set like a
    masthead, tiny labels, small square buttons, and one full-bleed vermilion band where the clockwork
    sits in halftone. Every colour, both faces and the radii come from tokens.css. */
 :root {
-  /* film grain: white fractal noise, laid over every vermilion surface */
+  /* film grain: white fractal noise, laid over every blue surface */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .22 0 0 0 -.06'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 /* Halftone art: each image is a dot mask (art/*.png, drawn and dithered by scripts/gen_art.py), tinted with --band-art */

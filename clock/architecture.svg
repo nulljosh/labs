@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" font-family="-apple-system, Helvetica, sans-serif" font-size="14">
+  <rect width="880" height="300" fill="#fff"/>
+  <g stroke="#c7c7cc" stroke-width="2" fill="none">
+    <path d="M220 110H340"/><path d="M220 250H340"/><path d="M540 110H660"/><path d="M540 180H660"/><path d="M540 250H660"/>
+    <path d="M440 140V150"/><path d="M440 210V220"/>
+  </g>
+  <g fill="#f5f5f7" stroke="#d1d1d6">
+    <rect x="20" y="80" width="200" height="60" rx="14"/>
+    <rect x="20" y="220" width="200" height="60" rx="14"/>
+    <rect x="340" y="80" width="200" height="60" rx="14"/>
+    <rect x="340" y="150" width="200" height="60" rx="14" fill="#e6f1fb" stroke="#0a5fd6"/>
+    <rect x="340" y="220" width="200" height="60" rx="14"/>
+    <rect x="660" y="80" width="200" height="60" rx="14"/>
+    <rect x="660" y="150" width="200" height="60" rx="14"/>
+    <rect x="660" y="220" width="200" height="60" rx="14"/>
+  </g>
+  <g fill="#1d1d1f" text-anchor="middle">
+    <text x="120" y="106" font-weight="600">index.html</text><text x="120" y="126" fill="#6e6e73" font-size="12">landing, runs the app live</text>
+    <text x="120" y="246" font-weight="600">sw.js</text><text x="120" y="266" fill="#6e6e73" font-size="12">offline cache</text>
+    <text x="440" y="106" font-weight="600">app.html</text><text x="440" y="126" fill="#6e6e73" font-size="12">tabs, one frame loop</text>
+    <text x="440" y="176" font-weight="600">core.js</text><text x="440" y="196" fill="#6e6e73" font-size="12">store, sweep hand, sound, sun</text>
+    <text x="440" y="246" font-weight="600">tokens.css</text><text x="440" y="266" fill="#6e6e73" font-size="12">colour, type, grid</text>
+    <text x="760" y="106" font-weight="600">world.js</text><text x="760" y="126" fill="#6e6e73" font-size="12">cities and zones</text>
+    <text x="760" y="176" font-weight="600">alarms.js</text><text x="760" y="196" fill="#6e6e73" font-size="12">alarms and sleep</text>
+    <text x="760" y="246" font-weight="600">timers.js, stopwatch.js</text><text x="760" y="266" fill="#6e6e73" font-size="12">timers and laps</text>
+  </g>
+</svg>

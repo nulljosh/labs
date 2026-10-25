@@ -13,8 +13,8 @@ One bold flat white glyph on an accent gradient tile. No text, no outline, no em
 ## Colour
 | Role | Light | Dark |
 |---|---|---|
-| Accent, links, buttons, band | `#c2300a` vermilion | `#ff8a5c` (buttons `#d8400f`, band `#9c2406`) |
-| Icon gradient | `#f0662f` to `#c2300a` | same |
+| Accent, links, buttons, band | `#0a5fd6` blue | `#4da3ff` (buttons `#0a62d8`, band `#0a4aa8`) |
+| Icon gradient | `#3d9bff` to `#0a5fd6` | same |
 | Text | `#1d1d1f` | `#f5f5f7` |
 | Secondary text | `#6e6e73` | `#98989d` |
 | Background | `#ffffff` | `#000000` |
