@@ -76,14 +76,14 @@ struct WorldView: View {
                     .frame(maxWidth: .infinity).listRowBackground(Color.clear)
                 }
                 Section {
-                    TimelineView(.everyMinute) { ctx in
-                        let at = ctx.date.addingTimeInterval(plan * 900)
-                        ForEach(store.zones) { c in
-                            Button { detail = c } label: { CityRow(city: c, at: at) }.buttonStyle(.plain)
+                    ForEach(store.zones) { c in
+                        // one live row per city: a TimelineView around the ForEach would merge them into one cell
+                        TimelineView(.everyMinute) { ctx in
+                            Button { detail = c } label: { CityRow(city: c, at: ctx.date.addingTimeInterval(plan * 900)) }.buttonStyle(.plain)
                         }
-                        .onDelete { store.zones.remove(atOffsets: $0) }
-                        .onMove { store.zones.move(fromOffsets: $0, toOffset: $1) }
                     }
+                    .onDelete { store.zones.remove(atOffsets: $0) }
+                    .onMove { store.zones.move(fromOffsets: $0, toOffset: $1) }
                 }
                 Section("Plan across cities") {
                     HStack {

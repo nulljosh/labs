@@ -11,7 +11,7 @@ settings:
   base:
     SWIFT_VERSION: "5.0"
     MARKETING_VERSION: "6.0.0"
-    CURRENT_PROJECT_VERSION: "202610251300"
+    CURRENT_PROJECT_VERSION: "202610251430"
     DEVELOPMENT_TEAM: QMM486NPYC
     CODE_SIGN_STYLE: Automatic
     ENABLE_USER_SCRIPT_SANDBOXING: NO
@@ -29,7 +29,7 @@ targets:
       - path: ../Horula.icon
     dependencies:
       - target: HorulaWidgets-iOS
-      - target: HorulaWatch
+      # HorulaWatch joins in 6.1: Watch screenshots need a watchOS simulator runtime (no disk for it on 2026-10-25)
     settings:
       base:
         PRODUCT_NAME: Horula

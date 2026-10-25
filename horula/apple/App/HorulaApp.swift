@@ -4,6 +4,9 @@ import SwiftUI
 struct HorulaApp: App {
     @State private var store = Store()
     @State private var alarms = AlarmScheduler()
+    #if os(macOS)
+    @NSApplicationDelegateAdaptor private var delegate: SnapshotDelegate
+    #endif
 
     var body: some Scene {
         WindowGroup {
@@ -11,7 +14,7 @@ struct HorulaApp: App {
                 .environment(store)
                 .environment(alarms)
                 .tint(.horula)
-                .task { await alarms.sync(store) }
+                .task { if !Store.demo { await alarms.sync(store) } }
         }
         #if os(macOS)
         .defaultSize(width: 440, height: 820)
@@ -37,6 +40,27 @@ struct RootView: View {
 }
 
 #if os(macOS)
+/// `-snapshot /path.png`: the Mac app draws its own window to a PNG, for App Store screenshots.
+/// The app capturing itself needs no screen recording permission.
+final class SnapshotDelegate: NSObject, NSApplicationDelegate {
+    func applicationDidFinishLaunching(_ n: Notification) { Task { @MainActor in await Snapshot.ifAsked() } }
+}
+
+enum Snapshot {
+    @MainActor static func ifAsked() async {
+        let args = ProcessInfo.processInfo.arguments
+        guard let i = args.firstIndex(of: "-snapshot"), i + 1 < args.count else { return }
+        try? await Task.sleep(for: .seconds(1))
+        guard let w = NSApp.windows.first(where: { $0.contentView != nil && $0.frame.width > 100 }) else { return }
+        w.setContentSize(NSSize(width: 1440, height: 900)); w.center()
+        try? await Task.sleep(for: .seconds(2))
+        guard let v = w.contentView?.superview ?? w.contentView, let rep = v.bitmapImageRepForCachingDisplay(in: v.bounds) else { return }
+        v.cacheDisplay(in: v.bounds, to: rep)
+        try? rep.representation(using: .png, properties: [:])?.write(to: URL(fileURLWithPath: args[i + 1]))
+        NSApp.terminate(nil)
+    }
+}
+
 /// Command 1 to 4 switch tabs, like macOS Clock.
 struct TabCommands: Commands {
     @AppStorage("tab") private var tab: AppTab = .world

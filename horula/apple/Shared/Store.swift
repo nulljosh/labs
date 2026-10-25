@@ -16,7 +16,10 @@ final class Store {
     var recents: [Recent] { didSet { save("recents", recents) } }
     var stopwatch: StopwatchState { didSet { save("sw", stopwatch) } }
 
-    init(defaults: UserDefaults = UserDefaults(suiteName: Store.group) ?? .standard) {
+    /// `-demo` on the command line: seeded, believable data in a throwaway suite, for screenshots. Never touches real data.
+    static let demo = ProcessInfo.processInfo.arguments.contains("-demo")
+
+    init(defaults: UserDefaults = Store.demo ? Store.demoDefaults() : UserDefaults(suiteName: Store.group) ?? .standard) {
         self.defaults = defaults
         func load<T: Decodable>(_ k: String, _ fallback: T) -> T {
             guard let d = defaults.data(forKey: k), let v = try? JSONDecoder.clock.decode(T.self, from: d) else { return fallback }
@@ -28,6 +31,20 @@ final class Store {
         timers = load("timers", [])
         recents = load("recents", [])
         stopwatch = load("sw", StopwatchState())
+    }
+
+    private static func demoDefaults() -> UserDefaults {
+        let d = UserDefaults(suiteName: "horula-demo")!
+        d.removePersistentDomain(forName: "horula-demo")
+        func put<T: Encodable>(_ k: String, _ v: T) { d.set(try? JSONEncoder.clock.encode(v), forKey: k) }
+        put("zones", [City(city: "New York", zone: "America/New_York"), City(city: "London", zone: "Europe/London"), City(city: "Tokyo", zone: "Asia/Tokyo"), City(city: "Sydney", zone: "Australia/Sydney")])
+        var run = AlarmItem(time: "06:30", days: [1, 2, 3, 4, 5], label: "Run"); run.snoozeMin = 5
+        put("alarms", [run, AlarmItem(time: "07:15", days: [1, 2, 3, 4, 5], label: "Wake up"), AlarmItem(time: "09:00", days: [0, 6], label: "Weekend", on: false)])
+        put("sleep", SleepPlan(on: true, bed: "23:00", wake: "07:15", days: [1, 2, 3, 4, 5], wind: 30, snooze: true))
+        put("sw", StopwatchState(start: .now.addingTimeInterval(-83), acc: 0, laps: [19.4, 40.1, 61.8]))
+        put("timers", [TimerItem(dur: 300, label: "Tea", end: .now.addingTimeInterval(187), left: 300), TimerItem(dur: 1500, label: "Focus", end: .now.addingTimeInterval(1302), left: 1500)])
+        put("recents", [Recent(dur: 300, label: "Tea"), Recent(dur: 540, label: "Pasta")])
+        return d
     }
 
     private func save<T: Encodable>(_ k: String, _ v: T) {

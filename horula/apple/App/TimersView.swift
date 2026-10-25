@@ -27,10 +27,10 @@ struct TimersView: View {
                 }
                 if !store.timers.isEmpty {
                     Section("Running") {
-                        TimelineView(.periodic(from: .now, by: 0.25)) { ctx in
-                            ForEach(store.timers) { t in TimerRow(timer: t, now: ctx.date) }
-                                .onDelete { store.timers.remove(atOffsets: $0) }
+                        ForEach(store.timers) { t in
+                            TimelineView(.periodic(from: .now, by: 0.25)) { ctx in TimerRow(timer: t, now: ctx.date) }
                         }
+                        .onDelete { store.timers.remove(atOffsets: $0) }
                     }
                 }
                 if !store.recents.isEmpty {
