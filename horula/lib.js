@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '10.0.0';
+const VERSION = '11.0.0';
 // UI text in the reader's language: i18n.js fills I18N in the browser; node tests see English.
 const tr = (s, ...a) => ((typeof I18N === 'object' && I18N[s]) || s).replace(/\{(\d)\}/g, (_, i) => a[i]);
 // The chosen language's dates; undefined keeps the browser's own region (en-GB 24 hour, fr-CA) when it is the same language.
@@ -129,6 +129,27 @@ function offsetLabel(zone, now) {
   const day = tr(there.getDate() === here.getDate() ? 'Today' : there > here ? 'Tomorrow' : 'Yesterday');
   return `${day}, ${diff === 0 ? tr('same time') : (diff > 0 ? '+' : '') + diff + ' ' + tr('HRS')}`;
 }
+// Cities whose zone id is named after another city.
+const ALIASES = {
+  'San Francisco': 'America/Los_Angeles', 'Seattle': 'America/Los_Angeles', 'Portland': 'America/Los_Angeles', 'San Diego': 'America/Los_Angeles',
+  'Boston': 'America/New_York', 'Washington DC': 'America/New_York', 'Miami': 'America/New_York', 'Atlanta': 'America/New_York', 'Philadelphia': 'America/New_York',
+  'Dallas': 'America/Chicago', 'Houston': 'America/Chicago', 'Austin': 'America/Chicago', 'Las Vegas': 'America/Los_Angeles', 'Calgary': 'America/Edmonton',
+  'Ottawa': 'America/Toronto', 'Montreal': 'America/Toronto', 'Beijing': 'Asia/Shanghai', 'Mumbai': 'Asia/Kolkata', 'Delhi': 'Asia/Kolkata',
+  'New Delhi': 'Asia/Kolkata', 'Bangalore': 'Asia/Kolkata', 'Osaka': 'Asia/Tokyo', 'Kyoto': 'Asia/Tokyo', 'Abu Dhabi': 'Asia/Dubai',
+  'Barcelona': 'Europe/Madrid', 'Milan': 'Europe/Rome', 'Munich': 'Europe/Berlin', 'Frankfurt': 'Europe/Berlin', 'Zurich': 'Europe/Zurich',
+  'Manchester': 'Europe/London', 'Edinburgh': 'Europe/London', 'Melbourne': 'Australia/Melbourne', 'Auckland': 'Pacific/Auckland', 'Rio de Janeiro': 'America/Sao_Paulo',
+};
+// A city name or zone id to { city, zone }: the aliases, else any zone whose last part is that city. Null when unknown.
+function findZone(name) {
+  const n = String(name || '').trim().toLowerCase(), last = (z) => z.split('/').pop().replaceAll('_', ' ');
+  const alias = Object.keys(ALIASES).find(c => c.toLowerCase() === n);
+  if (alias) return { city: alias, zone: ALIASES[alias] };
+  const zones = Intl.supportedValuesOf('timeZone');
+  const z = n && (zones.find(z => z.toLowerCase() === n) || zones.find(z => last(z).toLowerCase() === n));
+  return z ? { city: last(z), zone: z } : null;
+}
+// Time left to a date as whole days and hh:mm:ss, for the countdown embed. Past dates read zero.
+const countdown = (ms) => { const s = Math.max(0, Math.floor(ms / 1000)); return { days: Math.floor(s / 86400), hms: `${pad(s / 3600 % 24)}:${pad(s / 60 % 60)}:${pad(s % 60)}` }; };
 // Interval timer: work and rest rounds. The phase after this one, or null when the last work round ends.
 function nextPhase(t) {
   if (t.phase === 'work' && t.round >= t.rounds) return null;
@@ -156,4 +177,4 @@ function handAngles(zone, at) {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hourCycle: 'h23', timeZone: zone }).formatToParts(at).map(x => [x.type, +x.value]));
   return { h: (p.hour % 12 + p.minute / 60) * 30, m: p.minute * 6 };
 }
-if (typeof module === 'object') module.exports = { VERSION, tr, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };
+if (typeof module === 'object') module.exports = { VERSION, findZone, countdown, tr, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };

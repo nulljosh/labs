@@ -62,9 +62,9 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [ ] Native app in the same 12 languages with a String Catalog.
 
 ## v11: a clock for other pages
-- [ ] `embed.html?city=Tokyo` gives a small live clock any site can drop in.
-- [ ] Countdown embed to a date, for launches and birthdays.
-- [ ] Embeds follow light and dark and need no script on the host page.
+- [x] `embed.html?city=Tokyo` gives a small live clock any site can drop in.
+- [x] Countdown embed to a date, for launches and birthdays.
+- [x] Embeds follow light and dark and need no script on the host page.
 
 ## v12: done right
 - [ ] Lighthouse 100 on performance, accessibility, best practices and SEO for both pages.

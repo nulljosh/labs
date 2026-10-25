@@ -1,13 +1,4 @@
 // World clocks: search by city name. Zone ids cover most cities; the rest are aliases.
-const ALIASES = {
-  'San Francisco': 'America/Los_Angeles', 'Seattle': 'America/Los_Angeles', 'Portland': 'America/Los_Angeles', 'San Diego': 'America/Los_Angeles',
-  'Boston': 'America/New_York', 'Washington DC': 'America/New_York', 'Miami': 'America/New_York', 'Atlanta': 'America/New_York', 'Philadelphia': 'America/New_York',
-  'Dallas': 'America/Chicago', 'Houston': 'America/Chicago', 'Austin': 'America/Chicago', 'Las Vegas': 'America/Los_Angeles', 'Calgary': 'America/Edmonton',
-  'Ottawa': 'America/Toronto', 'Montreal': 'America/Toronto', 'Beijing': 'Asia/Shanghai', 'Mumbai': 'Asia/Kolkata', 'Delhi': 'Asia/Kolkata',
-  'New Delhi': 'Asia/Kolkata', 'Bangalore': 'Asia/Kolkata', 'Osaka': 'Asia/Tokyo', 'Kyoto': 'Asia/Tokyo', 'Abu Dhabi': 'Asia/Dubai',
-  'Barcelona': 'Europe/Madrid', 'Milan': 'Europe/Rome', 'Munich': 'Europe/Berlin', 'Frankfurt': 'Europe/Berlin', 'Zurich': 'Europe/Zurich',
-  'Manchester': 'Europe/London', 'Edinburgh': 'Europe/London', 'Melbourne': 'Australia/Melbourne', 'Auckland': 'Pacific/Auckland', 'Rio de Janeiro': 'America/Sao_Paulo',
-};
 const allZones = Intl.supportedValuesOf ? Intl.supportedValuesOf('timeZone') : ['UTC', 'America/Vancouver', 'America/New_York', 'Europe/London', 'Asia/Tokyo'];
 const CITIES = new Map(Object.entries(ALIASES));
 allZones.forEach(z => { if (z.includes('/') && !z.startsWith('Etc/')) CITIES.set(z.split('/').pop().replaceAll('_', ' '), z); });

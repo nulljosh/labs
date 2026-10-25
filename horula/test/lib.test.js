@@ -173,3 +173,13 @@ test('every UI string has all 11 translations with the same blanks, and the page
   const missing = [...new Set(texts)].filter(s => !ctx.T[s]);
   assert.deepEqual(missing, [], 'add these to i18n.js');
 });
+
+test('embed: city lookup and countdown', () => {
+  assert.deepEqual(L.findZone('tokyo'), { city: 'Tokyo', zone: 'Asia/Tokyo' });
+  assert.deepEqual(L.findZone('San Francisco'), { city: 'San Francisco', zone: 'America/Los_Angeles' });
+  assert.deepEqual(L.findZone('America/New_York'), { city: 'New York', zone: 'America/New_York' });
+  assert.equal(L.findZone('Atlantis'), null);
+  assert.equal(L.findZone(''), null);
+  assert.deepEqual(L.countdown((2 * 86400 + 3 * 3600 + 4 * 60 + 5) * 1000 + 999), { days: 2, hms: '03:04:05' });
+  assert.deepEqual(L.countdown(-5000), { days: 0, hms: '00:00:00' });
+});

@@ -19,6 +19,17 @@ World clocks, alarms, a bedtime schedule, a stopwatch, timers and a nightstand m
 - **Nightstand.** Big digits, dimmed at night, screen kept awake.
 - **Sweep hand.** The second hand glides every frame instead of ticking.
 
+## Put a clock on your page
+
+One iframe, no script on your side. It follows light and dark on its own.
+
+```html
+<iframe src="https://horula.jaybulb.com/embed?city=Tokyo" width="320" height="120" style="border:0"></iframe>
+<iframe src="https://horula.jaybulb.com/embed?to=2026-12-25T00:00&label=Christmas" width="320" height="140" style="border:0"></iframe>
+```
+
+Add `&face=digital` to drop the dial, `&theme=dark` or `&theme=light` to pin a theme, `&bg=none` for a see-through background.
+
 ## Run it
 
 ```
