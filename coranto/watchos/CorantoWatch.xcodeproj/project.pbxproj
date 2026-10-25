@@ -1,0 +1,348 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39EFB62CDB3A1C7CD35AE267 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8FC199A69592B07CBBF2EE4 /* Assets.xcassets */; };
+		7F64B17DC7D8C74D83D4A3D4 /* WatchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC2BAFB617CE98702A106E1 /* WatchModels.swift */; };
+		8B2340BE1587A413375BD1D4 /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9A3B8D57111B7E68638F05 /* EntryDetailView.swift */; };
+		9852DD6DBC7769BFE02AED39 /* CorantoWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CB9C80F5B9E11676A5CDF4 /* CorantoWatchApp.swift */; };
+		A2CB7D5FB40F2236CCE84032 /* EntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC6D6F39D6E327AE78C8194 /* EntriesView.swift */; };
+		DF3205958DB3DFC8253A5797 /* PairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBDBC56D85F25F7ACFFF94E /* PairingView.swift */; };
+		E6109395BA8894D10241B469 /* WatchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7263537A1F461727384DC9EA /* WatchAPI.swift */; };
+		FEC694AFD850D768A841B107 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7F07B7196B4C81575749B0 /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1C67B3621B740F8244C98F17 /* CorantoWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorantoWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F9A3B8D57111B7E68638F05 /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
+		4A7F07B7196B4C81575749B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7263537A1F461727384DC9EA /* WatchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAPI.swift; sourceTree = "<group>"; };
+		7CC6D6F39D6E327AE78C8194 /* EntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesView.swift; sourceTree = "<group>"; };
+		A6CB9C80F5B9E11676A5CDF4 /* CorantoWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorantoWatchApp.swift; sourceTree = "<group>"; };
+		BEBDBC56D85F25F7ACFFF94E /* PairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingView.swift; sourceTree = "<group>"; };
+		C8FC199A69592B07CBBF2EE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EBC2BAFB617CE98702A106E1 /* WatchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchModels.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		137F11E453BD655B37740B60 = {
+			isa = PBXGroup;
+			children = (
+				F77041DF55503B416E52A845 /* Models */,
+				1668C54885C18FF0401C7F7F /* Views */,
+				2824D71219353ADD36FA5539 /* watchos */,
+				600CDFD9B64F685DD09DE386 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1668C54885C18FF0401C7F7F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7CC6D6F39D6E327AE78C8194 /* EntriesView.swift */,
+				3F9A3B8D57111B7E68638F05 /* EntryDetailView.swift */,
+				BEBDBC56D85F25F7ACFFF94E /* PairingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2824D71219353ADD36FA5539 /* watchos */ = {
+			isa = PBXGroup;
+			children = (
+				C8FC199A69592B07CBBF2EE4 /* Assets.xcassets */,
+				4A7F07B7196B4C81575749B0 /* ContentView.swift */,
+				A6CB9C80F5B9E11676A5CDF4 /* CorantoWatchApp.swift */,
+				F77041DF55503B416E52A845 /* Models */,
+				1668C54885C18FF0401C7F7F /* Views */,
+			);
+			name = watchos;
+			path = .;
+			sourceTree = "<group>";
+		};
+		600CDFD9B64F685DD09DE386 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C67B3621B740F8244C98F17 /* CorantoWatch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F77041DF55503B416E52A845 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7263537A1F461727384DC9EA /* WatchAPI.swift */,
+				EBC2BAFB617CE98702A106E1 /* WatchModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5DB09C764C17C8601D7A8ED1 /* CorantoWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C2EE9828B9C0A159EE2162C /* Build configuration list for PBXNativeTarget "CorantoWatch" */;
+			buildPhases = (
+				6EE978131B02794E26693DF0 /* Sources */,
+				2EA11E5548CA4473ED631E39 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CorantoWatch;
+			packageProductDependencies = (
+			);
+			productName = CorantoWatch;
+			productReference = 1C67B3621B740F8244C98F17 /* CorantoWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		738757AD0BE98E654E304C64 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					5DB09C764C17C8601D7A8ED1 = {
+						DevelopmentTeam = QMM486NPYC;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0723FDCF6004C787C601CB54 /* Build configuration list for PBXProject "CorantoWatch" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 137F11E453BD655B37740B60;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 600CDFD9B64F685DD09DE386 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5DB09C764C17C8601D7A8ED1 /* CorantoWatch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2EA11E5548CA4473ED631E39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39EFB62CDB3A1C7CD35AE267 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6EE978131B02794E26693DF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEC694AFD850D768A841B107 /* ContentView.swift in Sources */,
+				9852DD6DBC7769BFE02AED39 /* CorantoWatchApp.swift in Sources */,
+				A2CB7D5FB40F2236CCE84032 /* EntriesView.swift in Sources */,
+				8B2340BE1587A413375BD1D4 /* EntryDetailView.swift in Sources */,
+				DF3205958DB3DFC8253A5797 /* PairingView.swift in Sources */,
+				E6109395BA8894D10241B469 /* WatchAPI.swift in Sources */,
+				7F64B17DC7D8C74D83D4A3D4 /* WatchModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2030BBE5EE3A4EADCC9B7FB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.journal.watchos;
+				PRODUCT_NAME = Coranto;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		3248CE56EE4F436477253CDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		360A0F052611A0E20354FBE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		CB826A783C239FE87D6B8B16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.journal.watchos;
+				PRODUCT_NAME = Coranto;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0723FDCF6004C787C601CB54 /* Build configuration list for PBXProject "CorantoWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3248CE56EE4F436477253CDF /* Debug */,
+				360A0F052611A0E20354FBE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		1C2EE9828B9C0A159EE2162C /* Build configuration list for PBXNativeTarget "CorantoWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2030BBE5EE3A4EADCC9B7FB1 /* Debug */,
+				CB826A783C239FE87D6B8B16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 738757AD0BE98E654E304C64 /* Project object */;
+}

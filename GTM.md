@@ -10,7 +10,7 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | Notate | Mac 1.4.0, iOS 1.3.9 (1.4.0 pending release), web | Free + $0.99 IAP | posted | none | none | none |
 | Curvely | iOS + Mac 1.2.5, web | $0.99 | posted 09-12 | none | none | none |
 | Wordroot | iOS 1.0.4, Mac 1.0.1, web | $0.99 | posted 09-16 | none | none | none |
-| Inkpress | iOS 1.0.6, Mac 1.0.7, web | $0.99 | posted 09-14 | none | none | none |
+| Coranto (ex-Inkpress) | iOS 1.0.6, Mac 1.0.7, web | $0.99 | posted 09-14 | none | none | none |
 | NYC Survive | iOS + Mac 1.0.1, web | $0.99 | posted 09-20 | none | none | none |
 | Blockframe (ASC: Charblock) | iOS 1.1.1, web (wiretext.) | $0.99 | posted 09-21 | none | none | none |
 | Toroid | iOS + Mac 1.0, web | $0.99 | scheduled Tue Oct 6 12:01 AM PT | none | none | none |
@@ -119,7 +119,7 @@ revenue signal until PostHog or similar is added.
 | Litigate | 6787857503 | iOS 1.0.3 | free | none | none planned |
 | Bookrank | 6792376485 | iOS 1.0.5 in review | $0.99 upfront (2026-10-02) | none | selling the natural voices, not the summaries |
 | Hikko (ex-Sparkjar) | 6785162492 | iOS 1.0.1 · Mac 1.0.2 live, 3.0 in review (2026-10-04) | $1 Spark Pro | Stripe live (wired 2026-09-06) | Store name flips to Hikko when 3.0 is approved |
-| Inkpress | 6787759999 | iOS 1.0.6 · Mac 1.0.7 | free | none | Mac 1.0.7 approved 2026-08-30, first Mac release |
+| Coranto (ex-Inkpress) | 6787759999 | iOS 1.0.6 · Mac 1.0.7 | free | none | Mac 1.0.7 approved 2026-08-30, first Mac release |
 | Wordroot | 6794988021 | iOS 1.0.1 · Mac 1.0 · **Mac 1.0.1 REJECTED** | free | none | none planned |
 | Curvely | 6794988370 | iOS 1.2.2 · Mac 1.2.2 | free | none | 4.3(a) appeal WON, 1.2.2 approved 2026-08-30 |
 | Charwork | 6794988951 | iOS 1.1.1 | free | none | repo renamed from wiretext; ASC record still "Wiretext" |
