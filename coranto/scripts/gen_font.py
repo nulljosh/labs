@@ -1,10 +1,10 @@
-"""Coranto Sans and Coranto Display: Archivo (Omnibus-Type, SIL Open Font License 1.1, no reserved
-name), renamed.
+"""Coranto Sans and Coranto Display: Inter and Inter Tight (The Inter Project Authors, SIL Open Font License 1.1, no
+reserved name), renamed.
 
-Archivo is drawn after the late 1800s American grotesques that newspapers set their headlines in, which is what a
-coranto was: the first running news sheet. Sans for reading, a narrow Bold cut for headlines and labels. Same method as
-Talli Display and Coda's Quip Sans: pinned release, renamed, OFL shipped beside the fonts, original copyright kept in
-the name table. Latin only, web only for now (the apps stay on SF until a build bundles it), every build the same bytes.
+Inter is drawn for screens in the Helvetica and San Francisco line: a neutral sans serif with open shapes, real
+lowercase and proportional spacing. Sans for reading, Inter Tight Bold for headlines. Same method as Hermes Sans and
+Talli Display: pinned release, renamed, OFL shipped beside the fonts, original copyright kept in the name table.
+Latin only, web only for now (the apps use SF itself), every build the same bytes.
 
     uv run --with fonttools --with brotli python3 scripts/gen_font.py           # web/fonts/*.woff2 + OFL.txt
     uv run --with fonttools --with brotli python3 scripts/gen_font.py --check   # named Coranto, OFL present
@@ -15,21 +15,19 @@ import sys
 import urllib.request
 
 from fontTools.ttLib import TTFont
-from fontTools.varLib import instancer
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WEB = os.path.join(HERE, "web", "fonts")
-CDN = "https://cdn.jsdelivr.net/npm/@fontsource/"   # a source starting with @ is a full package path
-OFL = "https://raw.githubusercontent.com/google/fonts/main/ofl/archivo/OFL.txt"
-# family, style, weight (or variable-font axes to pin), source file
+CDN = "https://cdn.jsdelivr.net/npm/@fontsource/"
+OFL = ["https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+       "https://raw.githubusercontent.com/google/fonts/main/ofl/intertight/OFL.txt"]
+# family, style, weight, source file
 FACES = [
-    ("Coranto Sans", "Regular", 400, "archivo@5.2.5/files/archivo-latin-400-normal.woff2"),
-    ("Coranto Sans", "Medium", 500, "archivo@5.2.5/files/archivo-latin-500-normal.woff2"),
-    ("Coranto Sans", "Semibold", 600, "archivo@5.2.5/files/archivo-latin-600-normal.woff2"),
-    ("Coranto Sans", "Bold", 700, "archivo@5.2.5/files/archivo-latin-700-normal.woff2"),
-    # Display is Archivo's width axis pinned narrow, not Archivo Narrow: the Narrow family ships tabular digits only
-    # (every figure the same width), so dates and version numbers set like a typewriter. wdth 67 matches its width.
-    ("Coranto Display", "Bold", {"wdth": 67, "wght": 700}, "@fontsource-variable/archivo@5.2.5/files/archivo-latin-wdth-normal.woff2"),
+    ("Coranto Sans", "Regular", 400, "inter@5.2.5/files/inter-latin-400-normal.woff2"),
+    ("Coranto Sans", "Medium", 500, "inter@5.2.5/files/inter-latin-500-normal.woff2"),
+    ("Coranto Sans", "Semibold", 600, "inter@5.2.5/files/inter-latin-600-normal.woff2"),
+    ("Coranto Sans", "Bold", 700, "inter@5.2.5/files/inter-latin-700-normal.woff2"),
+    ("Coranto Display", "Bold", 700, "inter-tight@5.2.5/files/inter-tight-latin-700-normal.woff2"),
 ]
 
 
@@ -59,32 +57,30 @@ def rename(font, family, style):
 def check():
     """Self-check of the shipped files."""
     assert os.path.exists(os.path.join(WEB, "OFL.txt")), "the OFL must ship with the fonts"
-    assert "Archivo" in open(os.path.join(WEB, "OFL.txt")).read(), "OFL must carry the Archivo copyright"
+    assert "Inter Project Authors" in open(os.path.join(WEB, "OFL.txt")).read(), "OFL must carry the Inter copyright"
     for family, style, _, _ in FACES:
         f = TTFont(os.path.join(WEB, file_name(family, style) + ".woff2"))
         assert f["name"].getDebugName(1) == family and f["name"].getDebugName(6) == file_name(family, style)
-        assert "Archivo" in f["name"].getDebugName(0), "original copyright must stay in the name table"
+        assert "Inter" in f["name"].getDebugName(0), "original copyright must stay in the name table"
+        assert f.getBestCmap().get(ord("a")), "lowercase must be present"
         cmap, hm = f.getBestCmap(), f["hmtx"]
         assert len({hm[cmap[ord(d)]][0] for d in "0123456789"}) > 1, f"{family} {style} digits must be proportional"
-    print("font ok: Coranto Sans and Coranto Display (Archivo, OFL)")
+    print("font ok: Coranto Sans and Coranto Display (Inter and Inter Tight, OFL)")
 
 
 def main():
-    """Fetch Archivo, rename it, write the web files and the license."""
+    """Fetch Inter, rename it, write the web files and the license."""
     if "--check" in sys.argv:
         return check()
     os.makedirs(WEB, exist_ok=True)
-    for family, style, axes, src in FACES:
-        url = "https://cdn.jsdelivr.net/npm/" + src if src.startswith("@") else CDN + src
-        font = TTFont(io.BytesIO(fetch(url)))
-        if isinstance(axes, dict):
-            font = instancer.instantiateVariableFont(font, axes)
+    for family, style, _, src in FACES:
+        font = TTFont(io.BytesIO(fetch(CDN + src)))
         rename(font, family, style)
         font.flavor = "woff2"
         font.save(os.path.join(WEB, file_name(family, style) + ".woff2"), reorderTables=False)
         print(file_name(family, style))
     with open(os.path.join(WEB, "OFL.txt"), "wb") as f:
-        f.write(fetch(OFL))
+        f.write(b"\n\n".join(fetch(u) for u in OFL))
 
 
 if __name__ == "__main__":
