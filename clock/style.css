@@ -97,6 +97,18 @@ input[type="time"].wheel { font-size: 48px; font-weight: 200; height: 72px; text
 .stack button { height: 32px; min-width: 80px; font-size: 13px; padding: 0 var(--s3); }
 .group button.icon:not(.go) { background: var(--bg3); }
 #world .form { margin-top: var(--s5); }
+small.ap { font-size: .5em; font-weight: 400; margin-left: .12em; letter-spacing: 0; }
+.big small.ap { font-size: .42em; }
+button.zone { display: flex; align-items: center; gap: var(--s3); }
+button.zone .grow { display: block; min-width: 0; }
+button.zone .meta, button.zone .label { display: block; }
+.dn { flex: none; width: 20px; height: 20px; fill: none; stroke: var(--text2); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.scrub { margin: var(--s2) 0 var(--s4); padding: 0 var(--s4); }
+.scrub-head { display: flex; align-items: center; gap: var(--s2); min-height: var(--s6); }
+.scrub-head label { flex: 1; font-size: 13px; color: var(--text2); text-transform: uppercase; }
+.scrub-head span { font-size: 15px; }
+.scrub-head button.link { height: var(--s6); font-size: 15px; }
+input[type="range"] { height: var(--s6); padding: 0; background: none; accent-color: var(--accent); }
 .pick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr) auto); gap: var(--s2); align-items: center; }
 .pick select { text-align: center; font-size: 22px; height: 56px; }
 .pick span { color: var(--text2); font-size: 15px; }

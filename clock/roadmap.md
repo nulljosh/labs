@@ -11,9 +11,9 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] System type: SF, then Lato, then Helvetica. Bundled fonts removed.
 
 ## v3: world clock you can plan with
-- [ ] Each city shows day or night and the offset in words ("Tomorrow, 8 hours ahead").
-- [ ] Scrub: drag a slider and every city's time moves with it, to find a meeting hour.
-- [ ] Tap a city to see its sunrise and sunset.
+- [x] Each city shows day or night (sun or moon from its real sunrise, coordinates from IANA zone.tab) next to its offset, like iOS.
+- [x] Scrub: drag a slider and every city's time moves with it, to find a meeting hour.
+- [x] Tap a city to see its sunrise, sunset and hours of daylight.
 
 ## v4: alarms you trust
 - [ ] Alarm sound fades in over 30 seconds instead of starting loud.

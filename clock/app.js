@@ -24,7 +24,7 @@ document.addEventListener('visibilitychange', async () => { if (!$('stand').hidd
 
 // One loop drives everything; the stopwatch needs frames, the rest only seconds.
 let lastSec = -1;
-function everySecond(now) { drawClock(now); drawStand(now); tickTimers(); checkAlarms(now); if (now.getSeconds() === 0 && !worldEditing) drawZones(now); }
+function everySecond(now) { drawClock(now); drawStand(now); tickTimers(); checkAlarms(now); if (now.getSeconds() === 0 && !worldEditing) drawZones(); }
 function frame() {
   const now = new Date();
   if (!$('world').hidden) drawSweep(now);

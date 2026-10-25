@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '2.0.0';
+const VERSION = '3.0.0';
 const pad = (n, w = 2) => String(Math.floor(n)).padStart(w, '0');
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const DAY = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -48,10 +48,26 @@ function lapMarks(splits) {
   const best = Math.min(...splits), worst = Math.max(...splits);
   return best === worst ? { best: null, worst: null } : { best, worst };
 }
+// Time with its AM or PM split off, so it can be drawn smaller like iOS. 24 hour locales have no period.
+function splitAmPm(fmt, date) {
+  const parts = fmt.formatToParts(date), i = parts.findIndex(p => p.type === 'dayPeriod');
+  if (i < 0) return [parts.map(p => p.value).join(''), ''];
+  return [parts.filter((p, j) => j !== i && !(p.type === 'literal' && (j === i - 1 || j === i + 1))).map(p => p.value).join('').trim(), parts[i].value];
+}
+const timeHTML = (fmt, date) => { const [t, p] = splitAmPm(fmt, date); return esc(t) + (p ? `<small class="ap">${esc(p)}</small>` : ''); };
+// Sun up at this place right now? Checks the days either side so places across the date line work.
+function isDaytime(now, lat, lon) {
+  for (const k of [-1, 0, 1]) {
+    const t = sunTimes(new Date(now.getTime() + k * 864e5), lat, lon);
+    if (!t) return Math.abs(lat) > 60 && (lat > 0) === [3, 4, 5, 6, 7, 8].includes(now.getMonth());   // ponytail: polar day or night by season
+    if (now >= t.rise && now < t.set) return true;
+  }
+  return false;
+}
 function offsetLabel(zone, now) {
   const here = new Date(now.toLocaleString('en-US')), there = new Date(now.toLocaleString('en-US', { timeZone: zone }));
   const diff = Math.round((there - here) / 36e5 * 4) / 4;
   const day = there.getDate() === here.getDate() ? 'Today' : there > here ? 'Tomorrow' : 'Yesterday';
   return `${day}, ${diff === 0 ? 'same time' : (diff > 0 ? '+' : '') + diff + ' HRS'}`;
 }
-if (typeof module === 'object') module.exports = { VERSION, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel };
+if (typeof module === 'object') module.exports = { VERSION, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime };

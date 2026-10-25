@@ -38,6 +38,10 @@
     </div>
     <datalist id="cityList"></datalist>
     <div class="group" id="zones"></div>
+    <div class="scrub">
+      <div class="scrub-head"><label for="scrub">Plan across cities</label><span class="num" id="scrubText">Now</span><button class="link" id="scrubReset" hidden>Now</button></div>
+      <input type="range" id="scrub" min="-48" max="48" step="1" value="0" aria-describedby="scrubText">
+    </div>
   </section>
 
   <section id="alarms" hidden>
@@ -130,6 +134,19 @@
   <div class="what" id="standWhat"></div>
 </div>
 
+<dialog id="citySheet" aria-labelledby="cityTitle">
+  <form method="dialog">
+    <header><span></span><h1 id="cityTitle"></h1><button class="link" value="done">Done</button></header>
+    <div class="big" id="cityNow"></div>
+    <p class="sub" id="cityOffset"></p>
+    <div class="group">
+      <div class="row"><div class="grow label">Sunrise</div><div class="label" id="cityRise"></div></div>
+      <div class="row"><div class="grow label">Sunset</div><div class="label" id="citySet"></div></div>
+      <div class="row"><div class="grow label">Daylight</div><div class="label" id="cityLen"></div></div>
+    </div>
+  </form>
+</dialog>
+
 <dialog id="settingsSheet" aria-labelledby="settingsTitle">
   <form method="dialog">
     <header><span></span><h1 id="settingsTitle">Settings</h1><button class="link" value="done">Done</button></header>
@@ -144,6 +161,7 @@
 <div class="toast" id="toast" hidden role="status"></div>
 
 <script src="lib.js"></script>
+<script src="coords.js"></script>
 <script src="core.js"></script>
 <script src="world.js"></script>
 <script src="alarms.js"></script>

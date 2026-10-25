@@ -54,6 +54,23 @@ test('city offset words', () => {
   assert.equal(L.offsetLabel('Asia/Kolkata', new Date(2026, 9, 25, 12)), 'Tomorrow, +12.5 HRS');
 });
 
+test('AM and PM split off for small type', () => {
+  const d = new Date(2026, 9, 25, 15, 7, 9);
+  assert.deepEqual(L.splitAmPm(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit' }), d), ['3:07', 'PM']);
+  assert.deepEqual(L.splitAmPm(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' }), d), ['3:07:09', 'PM']);
+  assert.deepEqual(L.splitAmPm(new Intl.DateTimeFormat('en-GB', { hour: 'numeric', minute: '2-digit' }), d), ['15:07', '']);
+  assert.equal(L.timeHTML(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit' }), d), '3:07<small class="ap">PM</small>');
+});
+
+test('day or night by real sunrise', () => {
+  const noon = new Date(2026, 9, 25, 12), midnight = new Date(2026, 9, 25, 0, 30);
+  assert.equal(L.isDaytime(noon, 49.28, -123.12), true, 'Vancouver noon');
+  assert.equal(L.isDaytime(midnight, 49.28, -123.12), false, 'Vancouver midnight');
+  assert.equal(L.isDaytime(noon, 35.68, 139.69), false, 'Tokyo at Vancouver noon is 4am');
+  assert.equal(L.isDaytime(noon, -36.85, 174.76), true, 'Auckland across the date line, 8am');
+  assert.equal(L.isDaytime(new Date(2026, 5, 21, 12), 78.2, 15.6), true, 'Svalbard midnight sun');
+});
+
 test('escape', () => assert.equal(L.esc('<a href="x">&\'</a>'), '&lt;a href=&quot;x&quot;&gt;&amp;&#39;&lt;/a&gt;'));
 
 test('offline shell covers the app and the cache follows the version', () => {

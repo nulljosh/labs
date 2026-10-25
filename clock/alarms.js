@@ -23,11 +23,11 @@ function nextAlarm(now) {
 function drawAlarms() {
   const hours = ((toMin(sleep.wake) - toMin(sleep.bed) + 1440) % 1440) / 60;
   $('sleepRow').className = `row${sleep.on ? '' : ' off'}`;
-  $('sleepRow').innerHTML = `<button class="grow rowbtn" id="sleepEdit" aria-label="Edit sleep schedule"><div class="time">${hmOf(sleep.bed)} to ${hmOf(sleep.wake)}</div>
+  $('sleepRow').innerHTML = `<button class="grow rowbtn" id="sleepEdit" aria-label="Edit sleep schedule"><div class="time">${hmHTML(sleep.bed)} to ${hmHTML(sleep.wake)}</div>
     <div class="meta">${hours.toFixed(hours % 1 ? 1 : 0)} hours · ${repeatText(sleep.days)}${sleep.wind ? ` · Wind down ${sleep.wind} min` : ''}</div></button>
     <input type="checkbox" class="switch" id="sleepOn" ${sleep.on ? 'checked' : ''} aria-label="Sleep schedule on">`;
   $('alarmList').innerHTML = alarms.length ? alarms.map((a, i) => `
-    <div class="row${a.on ? '' : ' off'}"><button class="grow rowbtn" data-edit="${i}"><div class="time xl">${hmOf(a.time)}</div>
+    <div class="row${a.on ? '' : ' off'}"><button class="grow rowbtn" data-edit="${i}"><div class="time xl">${hmHTML(a.time)}</div>
     <div class="meta">${esc(a.label || 'Alarm')}${a.days.length ? ', ' + repeatText(a.days) : ''}</div></button>
     <input type="checkbox" class="switch" data-on="${i}" ${a.on ? 'checked' : ''} aria-label="Alarm ${a.time} on"></div>`).join('')
     : '<div class="empty">No alarms. Tap Add.</div>';

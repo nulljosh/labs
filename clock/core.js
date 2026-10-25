@@ -5,7 +5,9 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
 const hm = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit' });
-const hmOf = (t) => { const [h, m] = t.split(':').map(Number); const d = new Date(); d.setHours(h, m, 0, 0); return hm.format(d); };
+const atHm = (t) => { const [h, m] = t.split(':').map(Number); const d = new Date(); d.setHours(h, m, 0, 0); return d; };
+const hmOf = (t) => hm.format(atHm(t));
+const hmHTML = (t) => timeHTML(hm, atHm(t));   // small AM or PM, like iOS
 function toast(text) {
   const t = $('toast'); t.textContent = text; t.hidden = false;
   clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 3000);
@@ -93,7 +95,7 @@ function drawClock(now) {
   const s = now.getSeconds(), m = now.getMinutes() + s / 60, h = (now.getHours() % 12) + m / 60;
   $('hh').setAttribute('transform', `rotate(${h * 30})`);
   $('mh').setAttribute('transform', `rotate(${m * 6})`);
-  $('digital').textContent = timeFmt.format(now);
+  $('digital').innerHTML = timeHTML(timeFmt, now);
   $('date').textContent = dateFmt.format(now);
   const next = nextAlarm(now);
   $('nextAlarm').textContent = next ? `Next alarm ${DAY_LONG[next.at.getDay()]} ${hm.format(next.at)}` : '';
