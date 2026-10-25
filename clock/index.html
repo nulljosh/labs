@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clock</title>
+<meta name="description" content="A clock, world clocks, alarms, a stopwatch and timers in one page.">
+<style>
+:root {
+  --accent: #0a62d8;
+  --bg: #ffffff; --bg2: #f5f5f5; --text: #1d1d1f; --text2: #6e6e73;
+  --border: rgba(60, 60, 67, .18); --danger: #d70015;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px;
+  --control: 48px; --r-card: 28px; --r-group: 20px; --r-pill: 999px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --accent: #4da3ff; --bg: #000; --bg2: #1c1c1e; --text: #f5f5f7; --text2: #98989d; --border: rgba(84, 84, 88, .6); --danger: #ff453a; }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+main { max-width: 560px; margin: 0 auto; padding: var(--s5) var(--s4) calc(var(--control) + var(--s7) + env(safe-area-inset-bottom)); }
+h1 { font-size: 34px; line-height: 41px; letter-spacing: -.022em; margin: 0 0 var(--s5); }
+section[hidden] { display: none; }
+.num { font-variant-numeric: tabular-nums; }
+.big { font-size: 72px; line-height: 1; font-weight: 200; letter-spacing: -.02em; text-align: center; margin: var(--s5) 0; }
+.sub { color: var(--text2); font-size: 15px; line-height: 20px; text-align: center; }
+svg.face { display: block; width: min(320px, 80vw); height: auto; margin: 0 auto; }
+.face .rim { fill: var(--bg2); }
+.face .tick { stroke: var(--text2); stroke-linecap: round; }
+.face .hand { stroke: var(--text); stroke-linecap: round; }
+.face .sec { stroke: var(--accent); stroke-linecap: round; }
+.face .hub { fill: var(--accent); }
+.group { background: var(--bg2); border-radius: var(--r-group); margin: var(--s4) 0; overflow: hidden; }
+.row { display: flex; align-items: center; gap: var(--s3); min-height: var(--s7); padding: var(--s3) var(--s4); }
+.row + .row { border-top: .5px solid var(--border); }
+.row .grow { flex: 1; min-width: 0; }
+.row .label { font-size: 17px; line-height: 22px; }
+.row .meta { font-size: 13px; line-height: 18px; color: var(--text2); white-space: nowrap; }
+.row .label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row .time { font-size: 28px; font-weight: 300; white-space: nowrap; }
+.controls { display: flex; gap: var(--s3); justify-content: center; margin: var(--s4) 0; flex-wrap: wrap; }
+button, input, select {
+  font: inherit; font-size: 17px; height: var(--control); border-radius: var(--r-pill); border: 0;
+}
+button { padding: 0 var(--s5); background: var(--bg2); color: var(--text); cursor: pointer; min-width: 120px; }
+button.primary { background: var(--accent); color: #fff; }
+button.danger { color: var(--danger); }
+button.icon { min-width: 0; padding: 0 var(--s4); height: 32px; font-size: 15px; }
+input, select { padding: 0 var(--s4); background: var(--bg2); color: var(--text); min-width: 0; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.form { display: flex; gap: var(--s2); flex-wrap: wrap; }
+.form > * { flex: 1 1 140px; }
+nav {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(var(--s4) + env(safe-area-inset-bottom));
+  display: flex; gap: 2px; padding: var(--s1); border-radius: var(--r-pill); width: min(calc(100% - 2 * var(--s4)), 528px);
+  background: color-mix(in srgb, var(--bg2) 80%, transparent); backdrop-filter: blur(30px) saturate(190%);
+  -webkit-backdrop-filter: blur(30px) saturate(190%); border: .5px solid var(--border);
+}
+nav button { flex: 1; min-width: 0; height: 40px; padding: 0 var(--s1); background: transparent; color: var(--text2); font-size: 15px; }
+nav button[aria-current="page"] { background: var(--bg); color: var(--accent); }
+.ring { text-align: center; }
+.empty { color: var(--text2); text-align: center; padding: var(--s5); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<main>
+  <section id="clock">
+    <h1>Clock</h1>
+    <svg class="face" viewBox="-110 -110 220 220" aria-hidden="true">
+      <circle class="rim" r="106"/>
+      <g id="ticks"></g>
+      <line id="hh" class="hand" y2="-52" stroke-width="7"/>
+      <line id="mh" class="hand" y2="-80" stroke-width="5"/>
+      <line id="sh" class="sec" y1="16" y2="-90" stroke-width="2"/>
+      <circle class="hub" r="5"/>
+    </svg>
+    <div id="digital" class="big num" aria-live="off"></div>
+    <div id="date" class="sub"></div>
+    <div id="sun" class="sub"></div>
+  </section>
+
+  <section id="world" hidden>
+    <h1>World Clock</h1>
+    <div class="form">
+      <select id="zonePick" aria-label="Time zone"></select>
+      <button class="primary" id="zoneAdd">Add</button>
+    </div>
+    <div class="group" id="zones"></div>
+  </section>
+
+  <section id="alarms" hidden>
+    <h1>Alarms</h1>
+    <div class="form">
+      <input type="time" id="alarmTime" aria-label="Alarm time" required>
+      <input type="text" id="alarmLabel" placeholder="Label" aria-label="Alarm label" maxlength="40">
+      <button class="primary" id="alarmAdd">Add</button>
+    </div>
+    <div class="group" id="alarmList"></div>
+    <p class="sub">Alarms ring while this page is open.</p>
+  </section>
+
+  <section id="stopwatch" hidden>
+    <h1>Stopwatch</h1>
+    <div id="swTime" class="big num">00:00.00</div>
+    <div class="controls">
+      <button id="swLap">Lap</button>
+      <button class="primary" id="swStart">Start</button>
+    </div>
+    <div class="group" id="laps"></div>
+  </section>
+
+  <section id="timer" hidden>
+    <h1>Timer</h1>
+    <div id="tmTime" class="big num">05:00</div>
+    <div class="form">
+      <input type="number" id="tmMin" min="0" max="999" value="5" aria-label="Minutes">
+      <input type="number" id="tmSec" min="0" max="59" value="0" aria-label="Seconds">
+    </div>
+    <div class="controls">
+      <button id="tmFocus">Focus 25</button>
+      <button id="tmReset">Reset</button>
+      <button class="primary" id="tmStart">Start</button>
+    </div>
+  </section>
+</main>
+
+<nav aria-label="Sections">
+  <button data-tab="clock" aria-current="page">Clock</button>
+  <button data-tab="world">World</button>
+  <button data-tab="alarms">Alarms</button>
+  <button data-tab="stopwatch">Stopwatch</button>
+  <button data-tab="timer">Timer</button>
+</nav>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const pad = (n, w = 2) => String(Math.floor(n)).padStart(w, '0');
+// ponytail: localStorage only, per device. Sync needs an account; add with jaybulb-api if asked.
+const store = {
+  get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+};
+
+// Tabs, remembered across visits.
+function show(tab) {
+  document.querySelectorAll('main > section').forEach(s => s.hidden = s.id !== tab);
+  document.querySelectorAll('nav button').forEach(b => b.dataset.tab === tab ? b.setAttribute('aria-current', 'page') : b.removeAttribute('aria-current'));
+  store.set('tab', tab);
+}
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => show(b.dataset.tab));
+show(store.get('tab', 'clock'));
+
+// Sound: a short two-tone chime from WebAudio, nothing to download.
+let ctx;
+function chime() {
+  ctx ??= new (window.AudioContext || window.webkitAudioContext)();
+  [880, 660, 880].forEach((f, i) => {
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.frequency.value = f; o.connect(g); g.connect(ctx.destination);
+    const t = ctx.currentTime + i * 0.35;
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.3, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.3);
+    o.start(t); o.stop(t + 0.32);
+  });
+}
+function ring(title, body) {
+  chime();
+  if ('Notification' in window && Notification.permission === 'granted') new Notification(title, { body });
+}
+function askNotify() { if ('Notification' in window && Notification.permission === 'default') Notification.requestPermission(); }
+
+// Clock face.
+const ticks = $('ticks');
+for (let i = 0; i < 60; i++) {
+  const major = i % 5 === 0, a = i * 6 * Math.PI / 180, r1 = major ? 86 : 94;
+  const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  l.setAttribute('class', 'tick');
+  l.setAttribute('x1', r1 * Math.sin(a)); l.setAttribute('y1', -r1 * Math.cos(a));
+  l.setAttribute('x2', 100 * Math.sin(a)); l.setAttribute('y2', -100 * Math.cos(a));
+  l.setAttribute('stroke-width', major ? 3 : 1);
+  ticks.appendChild(l);
+}
+const timeFmt = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit', second: '2-digit' });
+const dateFmt = new Intl.DateTimeFormat(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+function drawClock(now) {
+  const s = now.getSeconds() + now.getMilliseconds() / 1000, m = now.getMinutes() + s / 60, h = (now.getHours() % 12) + m / 60;
+  $('hh').setAttribute('transform', `rotate(${h * 30})`);
+  $('mh').setAttribute('transform', `rotate(${m * 6})`);
+  $('sh').setAttribute('transform', `rotate(${Math.floor(s) * 6})`);
+  $('digital').textContent = timeFmt.format(now);
+  $('date').textContent = dateFmt.format(now);
+}
+
+// Sunrise and sunset from the NOAA approximation, only if location is allowed.
+function sunTimes(date, lat, lon) {
+  const rad = Math.PI / 180, day = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 864e5);
+  const g = 2 * Math.PI / 365 * (day - 1);
+  const decl = 0.006918 - 0.399912 * Math.cos(g) + 0.070257 * Math.sin(g) - 0.006758 * Math.cos(2 * g) + 0.000907 * Math.sin(2 * g);
+  const eqt = 229.18 * (0.000075 + 0.001868 * Math.cos(g) - 0.032077 * Math.sin(g) - 0.014615 * Math.cos(2 * g) - 0.040849 * Math.sin(2 * g));
+  const cosH = (Math.cos(90.833 * rad) / (Math.cos(lat * rad) * Math.cos(decl))) - Math.tan(lat * rad) * Math.tan(decl);
+  if (cosH > 1 || cosH < -1) return null; // polar day or night
+  const ha = Math.acos(cosH) / rad;
+  const utcMid = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
+  const at = (mins) => new Date(utcMid + mins * 60000);
+  return { rise: at(720 - 4 * (lon + ha) - eqt), set: at(720 - 4 * (lon - ha) - eqt) };
+}
+const hm = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit' });
+if ('geolocation' in navigator) navigator.geolocation.getCurrentPosition(p => {
+  const t = sunTimes(new Date(), p.coords.latitude, p.coords.longitude);
+  if (t) $('sun').textContent = `Sunrise ${hm.format(t.rise)} · Sunset ${hm.format(t.set)}`;
+}, () => {}, { maximumAge: 36e5 });
+
+// World clocks.
+const allZones = Intl.supportedValuesOf ? Intl.supportedValuesOf('timeZone') : ['UTC', 'America/Vancouver', 'America/New_York', 'Europe/London', 'Asia/Tokyo'];
+$('zonePick').innerHTML = allZones.map(z => `<option value="${z}">${z.replaceAll('_', ' ')}</option>`).join('');
+$('zonePick').value = 'Europe/London';
+let zones = store.get('zones', ['America/New_York', 'Europe/London', 'Asia/Tokyo']);
+function offsetLabel(zone, now) {
+  const here = new Date(now.toLocaleString('en-US')), there = new Date(now.toLocaleString('en-US', { timeZone: zone }));
+  const diff = Math.round((there - here) / 36e5 * 2) / 2;
+  const day = there.getDate() === here.getDate() ? 'Today' : there > here ? 'Tomorrow' : 'Yesterday';
+  return `${day}, ${diff === 0 ? 'same time' : (diff > 0 ? '+' : '') + diff + ' h'}`;
+}
+function drawZones(now) {
+  $('zones').innerHTML = zones.length ? zones.map((z, i) => `
+    <div class="row"><div class="grow"><div class="meta">${offsetLabel(z, now)}</div><div class="label">${z.split('/').pop().replaceAll('_', ' ')}</div></div>
+    <div class="time num">${new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit', timeZone: z }).format(now)}</div>
+    <button class="icon danger" data-rm="${i}" aria-label="Remove ${z}">Remove</button></div>`).join('') : '<div class="empty">No cities yet.</div>';
+}
+$('zones').onclick = (e) => { const i = e.target.dataset.rm; if (i != null) { zones.splice(+i, 1); store.set('zones', zones); drawZones(new Date()); } };
+$('zoneAdd').onclick = () => { const z = $('zonePick').value; if (!zones.includes(z)) { zones.push(z); store.set('zones', zones); drawZones(new Date()); } };
+
+// Alarms. Each rings once per day at its minute while the page is open.
+let alarms = store.get('alarms', []);
+function drawAlarms() {
+  $('alarmList').innerHTML = alarms.length ? alarms.map((a, i) => `
+    <div class="row"><div class="grow"><div class="time num">${a.time}</div><div class="meta">${a.label ? a.label.replace(/[<>&"]/g, '') : 'Alarm'}</div></div>
+    <input type="checkbox" data-on="${i}" ${a.on ? 'checked' : ''} aria-label="Alarm ${a.time} on" style="height:24px;width:24px">
+    <button class="icon danger" data-rm="${i}" aria-label="Delete alarm ${a.time}">Delete</button></div>`).join('') : '<div class="empty">No alarms.</div>';
+}
+$('alarmList').onclick = (e) => {
+  const { rm, on } = e.target.dataset;
+  if (rm != null) alarms.splice(+rm, 1);
+  else if (on != null) alarms[+on].on = e.target.checked;
+  else return;
+  store.set('alarms', alarms); drawAlarms();
+};
+$('alarmAdd').onclick = () => {
+  const time = $('alarmTime').value; if (!time) return $('alarmTime').focus();
+  alarms.push({ time, label: $('alarmLabel').value.trim(), on: true, last: '' });
+  alarms.sort((a, b) => a.time.localeCompare(b.time));
+  store.set('alarms', alarms); $('alarmLabel').value = ''; drawAlarms(); askNotify();
+};
+function checkAlarms(now) {
+  const t = `${pad(now.getHours())}:${pad(now.getMinutes())}`, today = now.toDateString();
+  alarms.forEach(a => { if (a.on && a.time === t && a.last !== today) { a.last = today; store.set('alarms', alarms); ring('Alarm', a.label || a.time); } });
+}
+
+// Stopwatch, timed off performance.now so it never drifts.
+let swStart = 0, swAcc = 0, swRun = false, laps = [];
+const fmtSw = (ms) => `${pad(ms / 60000)}:${pad(ms / 1000 % 60)}.${pad(ms / 10 % 100)}`;
+const swNow = () => swAcc + (swRun ? performance.now() - swStart : 0);
+$('swStart').onclick = () => {
+  if (swRun) { swAcc = swNow(); swRun = false; } else { swStart = performance.now(); swRun = true; }
+  $('swStart').textContent = swRun ? 'Stop' : 'Start';
+  $('swStart').className = swRun ? 'danger' : 'primary';
+  $('swLap').textContent = swRun || !swAcc ? 'Lap' : 'Reset';
+};
+$('swLap').onclick = () => {
+  if (swRun) laps.unshift(swNow());
+  else { swAcc = 0; laps = []; $('swLap').textContent = 'Lap'; }
+  $('laps').innerHTML = laps.map((t, i) => `<div class="row"><div class="grow label">Lap ${laps.length - i}</div><div class="label num">${fmtSw(t - (laps[i + 1] || 0))}</div></div>`).join('');
+};
+
+// Timer, also off the wall clock so a background tab still lands on time.
+let tmEnd = 0, tmLeft = 300000, tmRun = false;
+const fmtTm = (ms) => { const s = Math.ceil(ms / 1000); return s >= 3600 ? `${pad(s / 3600)}:${pad(s / 60 % 60)}:${pad(s % 60)}` : `${pad(s / 60)}:${pad(s % 60)}`; };
+const tmFromInputs = () => (Math.max(0, +$('tmMin').value || 0) * 60 + Math.min(59, Math.max(0, +$('tmSec').value || 0))) * 1000;
+['tmMin', 'tmSec'].forEach(id => $(id).oninput = () => { if (!tmRun) { tmLeft = tmFromInputs(); $('tmTime').textContent = fmtTm(tmLeft); } });
+function tmSet(run) { tmRun = run; $('tmStart').textContent = run ? 'Pause' : 'Start'; $('tmStart').className = run ? 'danger' : 'primary'; }
+$('tmStart').onclick = () => {
+  if (tmRun) { tmLeft = tmEnd - Date.now(); tmSet(false); return; }
+  if (tmLeft <= 0) tmLeft = tmFromInputs();
+  if (tmLeft <= 0) return;
+  tmEnd = Date.now() + tmLeft; tmSet(true); askNotify();
+};
+$('tmReset').onclick = () => { tmSet(false); tmLeft = tmFromInputs(); $('tmTime').textContent = fmtTm(tmLeft); };
+$('tmFocus').onclick = () => { $('tmMin').value = 25; $('tmSec').value = 0; $('tmReset').onclick(); $('tmStart').onclick(); };
+function tickTimer() {
+  if (!tmRun) return;
+  const left = tmEnd - Date.now();
+  if (left <= 0) { tmSet(false); tmLeft = 0; $('tmTime').textContent = '00:00'; ring('Timer done', 'Time is up.'); return; }
+  $('tmTime').textContent = fmtTm(left);
+}
+
+// One loop drives everything; the stopwatch needs frames, the rest only seconds.
+let lastSec = -1;
+function frame() {
+  const now = new Date();
+  if (swRun) $('swTime').textContent = fmtSw(swNow());
+  else if (!swAcc) $('swTime').textContent = fmtSw(0);
+  if (now.getSeconds() !== lastSec) {
+    lastSec = now.getSeconds();
+    drawClock(now); tickTimer(); checkAlarms(now);
+    if (lastSec === 0 || !$('zones').children.length) drawZones(now);
+  }
+  requestAnimationFrame(frame);
+}
+// rAF stalls in background tabs; this keeps alarms and timers firing there.
+setInterval(() => { const now = new Date(); tickTimer(); checkAlarms(now); }, 1000);
+drawAlarms(); drawZones(new Date()); frame();
+</script>
+</body>
+</html>
