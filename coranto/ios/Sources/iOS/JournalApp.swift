@@ -9,6 +9,7 @@ struct JournalApp: App {
         seedFeedsDemo()
         headlineDemo()
         previewImageDemo()
+        relativeTimeDemo()
         #endif
     }
 

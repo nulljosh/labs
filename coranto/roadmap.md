@@ -13,8 +13,8 @@ Status: `todo`, `partial`, `done`, or `n/a` (with the reason). The loop works to
 | 3 | Web reader matches the app (bottom bar Home, Feeds, Settings) | | yes | same three screens, bottom bar, same seed list | done | 1.3.0 |
 | 4 | Share, copy link, open in browser from a story | yes | yes | share sheet and Open in Browser in the reader; web shares or copies the link | done | 1.4.0 |
 | 5 | Text size in the reader | yes | yes | Settings, 13 to 28 pt, app and web | done | 1.5.0 |
-| 6 | Saved stories | yes | yes | none | todo | |
-| 7 | History of read stories, read rows dimmed | yes | yes | none | todo | |
+| 6 | Saved stories | yes | yes | swipe or press and hold to save; Saved at the top of Feeds; stored whole so they open offline (app; web next) | partial | 1.10.0 |
+| 7 | History of read stories, read rows dimmed | yes | yes | History in Feeds, read rows dim (app; web next) | partial | 1.10.0 |
 | 8 | Search stories and sources | yes | yes | none | todo | |
 | 9 | Offline reading with images | yes | | text cached, images not | partial | |
 | 10 | Same story grouped across outlets (full coverage) | yes | yes | none; port `sidewise/src/stories.js` | todo | |
@@ -40,6 +40,18 @@ Status: `todo`, `partial`, `done`, or `n/a` (with the reason). The loop works to
 | 30 | Factuality score per source | | yes | | n/a | no free source we can cite; we won't invent scores |
 | 31 | Puzzles, magazines, News+ narration | News+ | | | n/a | paid publisher content and licensing |
 | 32 | Weather, stocks and sports scores in Today | yes | | | n/a | needs licensed live data; not reading |
+
+## Mobbin study (2026-10-25)
+
+Apple News's "similar screens" on Mobbin lined up about 18 news apps (informed, Guardian, Yahoo News, Ground News, USA Today, BuzzFeed News, SCMP, Artifact, The Athletic, Yahoo Finance, NYT, Citizen, WSJ, The Bulletin). What they share, and where Coranto stands:
+- Text left, picture right, the outlet as a small label above the headline, time beside it: done 1.10.0.
+- A big hero for the top story: done 1.10.0.
+- Relative times ("4h ago"): done 1.10.0.
+- No disclosure arrows on rows: done 1.10.0.
+- Story clusters ("44 articles", "6 sources", "More on this story"): gap row 10.
+- Filter chips at the top (For You, Local, Top Stories): with rows 16 and 19.
+- Saved in reach (Guardian and USA Today put it in the tab bar; Coranto keeps it in Feeds): row 6.
+- LIVE badges: not in RSS, skip.
 
 ## Road to v100
 

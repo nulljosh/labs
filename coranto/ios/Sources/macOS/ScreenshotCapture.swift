@@ -76,9 +76,9 @@ enum ScreenshotCapture {
                      "freeze an arbitrary live headline into a store screenshot")
             }
             window.contentViewController = NSHostingController(
-                rootView: NavigationStack { EntryDetailView(entry: article) })
+                rootView: NavigationStack { EntryDetailView(entry: article, library: Library()) })
         case .feeds:
-            window.contentViewController = NSHostingController(rootView: ManageFeedsView(store: store))
+            window.contentViewController = NSHostingController(rootView: ManageFeedsView(store: store, library: Library()))
         }
 
         // CAPTURE_WIDTH=360 checks the narrow window for QA; store frames stay 1280x800.

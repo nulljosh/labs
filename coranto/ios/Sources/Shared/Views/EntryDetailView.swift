@@ -8,6 +8,7 @@ import UIKit
 
 struct EntryDetailView: View {
     let entry: JournalEntry
+    @ObservedObject var library: Library
     @AppStorage("readerTextSize") private var textSize = 17.0
 
     var body: some View {
@@ -18,9 +19,13 @@ struct EntryDetailView: View {
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
             #endif
+            .onAppear { library.markRead(entry) }
             .toolbar {
                 if let url = URL(string: entry.url) {
                     ToolbarItemGroup(placement: .primaryAction) {
+                        Button { library.toggleSave(entry) } label: {
+                            Label(library.isSaved(entry) ? "Remove from Saved" : "Save", systemImage: library.isSaved(entry) ? "bookmark.fill" : "bookmark")
+                        }
                         ShareLink(item: url)
                         Link(destination: url) { Label("Open in Browser", systemImage: "safari") }
                     }

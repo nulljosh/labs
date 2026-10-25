@@ -2,12 +2,22 @@ import SwiftUI
 
 struct ManageFeedsView: View {
     @ObservedObject var store: FeedStore
+    @ObservedObject var library: Library
     @State private var newFeed = ""
     @State private var showError = false
 
     var body: some View {
         NavigationStack {
             List {
+                // Apple News keeps these under Following; here they sit above the feeds.
+                Section {
+                    NavigationLink { StoryList(title: "Saved", entries: library.saved, library: library, empty: "Swipe right on a story, or press and hold it, to save it here. Saved stories open without a connection.") } label: {
+                        LabeledContent { Text("\(library.saved.count)") } label: { Label("Saved", systemImage: "bookmark") }
+                    }
+                    NavigationLink { StoryList(title: "History", entries: library.history, library: library, empty: "Stories you open show up here.", clear: library.clearHistory) } label: {
+                        Label("History", systemImage: "clock")
+                    }
+                }
                 Section {
                     HStack {
                         TextField("Add feed URL (RSS or Atom)", text: $newFeed)
@@ -63,5 +73,25 @@ struct ManageFeedsView: View {
     private func add() {
         guard store.add(urlString: newFeed) else { showError = true; return }
         newFeed = ""
+    }
+}
+
+/// Saved or History: the same rows as Home, opening the same reader.
+struct StoryList: View {
+    let title: String
+    let entries: [JournalEntry]
+    @ObservedObject var library: Library
+    let empty: String
+    var clear: (() -> Void)? = nil
+
+    var body: some View {
+        List(entries) { EntryRow(entry: $0, library: library) }
+            .listStyle(.plain)
+            .overlay { if entries.isEmpty { ContentUnavailableView(title, systemImage: title == "Saved" ? "bookmark" : "clock", description: Text(empty)) } }
+            .navigationTitle(title)
+            .navigationDestination(for: JournalEntry.self) { EntryDetailView(entry: $0, library: library) }
+            .toolbar {
+                if let clear, !entries.isEmpty { ToolbarItem(placement: .primaryAction) { Button("Clear", role: .destructive, action: clear) } }
+            }
     }
 }

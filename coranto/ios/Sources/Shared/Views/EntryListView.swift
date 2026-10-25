@@ -1,9 +1,15 @@
 import SwiftUI
+#if os(macOS)
+import AppKit
+#else
+import UIKit
+#endif
 
 struct EntryListView: View {
     @StateObject private var feed: JournalFeedService
     @StateObject private var store: FeedStore
     @StateObject private var account = Account()
+    @StateObject private var library = Library()
     @State private var path: [JournalEntry] = []
 
     /// Both default to the real thing; the parameters exist so the macOS screenshot capture can
@@ -25,7 +31,7 @@ struct EntryListView: View {
             Group {
                 NavigationStack(path: $path) { home }
                     .tabItem { Label("Home", systemImage: "newspaper") }.tag(0)
-                ManageFeedsView(store: store)
+                ManageFeedsView(store: store, library: library)
                     .tabItem { Label("Feeds", systemImage: "list.bullet.rectangle") }.tag(1)
                 SettingsView(store: store, account: account)
                     .tabItem { Label("Settings", systemImage: "gearshape") }.tag(2)
@@ -47,25 +53,11 @@ struct EntryListView: View {
     }
 
     private var home: some View {
-        List(feed.entries) { entry in
-            NavigationLink(value: entry) {
-                HStack(spacing: 12) {
-                    EntryThumbnail(url: entry.imageURL, page: entry.url, source: entry.sourceTitle)
-                    VStack(alignment: .leading, spacing: 4) {
-                        FittedTitle(variants: Headline.variants(entry.title, source: entry.sourceTitle))
-                        HStack(spacing: 6) {
-                            if !entry.sourceTitle.isEmpty {
-                                Text(entry.sourceTitle).fontWeight(.medium)
-                                Text("·")
-                            }
-                            Text(entry.date.formatted(date: .abbreviated, time: .omitted))
-                        }
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                    }
-                }
-                .padding(.vertical, 6)
-            }
+        // The hero is the newest story with a picture among the first few; everything else is a row.
+        let hero = feed.entries.prefix(5).first { $0.imageURL != nil }
+        return List {
+            if let hero { HeroRow(entry: hero, library: library).listRowSeparator(.hidden) }
+            ForEach(feed.entries.filter { $0.id != hero?.id }) { EntryRow(entry: $0, library: library) }
         }
         .listStyle(.plain)   // flush with the view, like Mail and News
         .refreshable { await feed.refresh(feeds: store.feeds) }
@@ -80,7 +72,120 @@ struct EntryListView: View {
         #if os(iOS)
         .toolbar(.hidden, for: .navigationBar)   // the tab bar already says Home; stories start at the top
         #endif
-        .navigationDestination(for: JournalEntry.self) { EntryDetailView(entry: $0) }
+        .navigationDestination(for: JournalEntry.self) { EntryDetailView(entry: $0, library: library) }
+    }
+}
+
+/// One story in a list: thumbnail, a title cut to fit, the outlet and how long ago. Swipe right or press and hold
+/// to save, share or copy the link. A story you have opened dims, like a read mail. Used by Home, Saved and History.
+struct EntryRow: View {
+    let entry: JournalEntry
+    @ObservedObject var library: Library
+
+    var body: some View {
+        let read = library.isRead(entry)
+        RowLink(entry: entry) {
+            // News-app convention (Mobbin: Yahoo, Artifact, USA Today, NYT, Guardian): the outlet above the
+            // headline, text on the left so every title starts on the same edge, the picture on the right.
+            HStack(spacing: 12) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Kicker(entry: entry, saved: library.isSaved(entry))
+                    FittedTitle(variants: Headline.variants(entry.title, source: entry.sourceTitle))
+                        .foregroundStyle(read ? .secondary : .primary)
+                }
+                Spacer(minLength: 0)
+                EntryThumbnail(url: entry.imageURL, page: entry.url, source: entry.sourceTitle)
+                    .opacity(read ? 0.6 : 1)
+            }
+            .padding(.vertical, 6)
+        }
+        .swipeActions(edge: .leading) {
+            Button { library.toggleSave(entry) } label: {
+                Label(library.isSaved(entry) ? "Unsave" : "Save", systemImage: library.isSaved(entry) ? "bookmark.slash" : "bookmark")
+            }
+            .tint(.corantoAccent)
+        }
+        .contextMenu {
+            Button { library.toggleSave(entry) } label: {
+                Label(library.isSaved(entry) ? "Remove from Saved" : "Save", systemImage: library.isSaved(entry) ? "bookmark.slash" : "bookmark")
+            }
+            if let url = URL(string: entry.url) {
+                ShareLink(item: url)
+                Button { Pasteboard.copy(entry.url) } label: { Label("Copy Link", systemImage: "link") }
+                Link(destination: url) { Label("Open in Browser", systemImage: "safari") }
+            }
+        }
+    }
+}
+
+/// "BBC · 2h ago" above a headline; the outlet in the accent, a bookmark when saved.
+struct Kicker: View {
+    let entry: JournalEntry
+    let saved: Bool
+
+    var body: some View {
+        let ago = RelativeTime.short(entry.date)
+        HStack(spacing: 4) {
+            if !entry.sourceTitle.isEmpty { Text(entry.sourceTitle).fontWeight(.semibold).foregroundStyle(Color.corantoAccent) }
+            if !entry.sourceTitle.isEmpty && !ago.isEmpty { Text("·").foregroundStyle(.secondary) }
+            Text(ago).foregroundStyle(.secondary)
+            if saved { Image(systemName: "bookmark.fill").foregroundStyle(Color.corantoAccent).imageScale(.small) }
+        }
+        .font(.caption)
+        .lineLimit(1)
+    }
+}
+
+/// The top story, big: full-width picture, the outlet, and the whole headline (the one place a title gets more
+/// than a line). Every news app on Mobbin opens this way.
+struct HeroRow: View {
+    let entry: JournalEntry
+    @ObservedObject var library: Library
+
+    var body: some View {
+        RowLink(entry: entry) {
+            VStack(alignment: .leading, spacing: 8) {
+                AsyncImage(url: entry.imageURL) { phase in
+                    if case .success(let image) = phase { image.resizable().aspectRatio(contentMode: .fill) } else { Color.corantoAccent.opacity(0.12) }
+                }
+                .frame(maxWidth: .infinity)
+                .aspectRatio(16 / 9, contentMode: .fit)
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                Kicker(entry: entry, saved: library.isSaved(entry))
+                Text(Headline.clean(entry.title, source: entry.sourceTitle))
+                    .font(.title2.weight(.bold))
+                    .lineLimit(3)
+                    .foregroundStyle(library.isRead(entry) ? .secondary : .primary)
+            }
+            .padding(.vertical, 8)
+        }
+        .contextMenu {
+            Button { library.toggleSave(entry) } label: { Label(library.isSaved(entry) ? "Remove from Saved" : "Save", systemImage: "bookmark") }
+            if let url = URL(string: entry.url) { ShareLink(item: url) }
+        }
+    }
+}
+
+/// A navigation link without the disclosure arrow: news apps don't draw one, the whole row is the target.
+struct RowLink<Content: View>: View {
+    let entry: JournalEntry
+    @ViewBuilder let content: Content
+
+    var body: some View {
+        ZStack {
+            NavigationLink(value: entry) { EmptyView() }.opacity(0)
+            content
+        }
+    }
+}
+
+enum Pasteboard {
+    static func copy(_ s: String) {
+        #if os(iOS)
+        UIPasteboard.general.string = s
+        #else
+        NSPasteboard.general.clearContents(); NSPasteboard.general.setString(s, forType: .string)
+        #endif
     }
 }
 
@@ -110,10 +215,10 @@ private struct EntryThumbnail: View {
         Group {
             if let url = url ?? preview {
                 AsyncImage(url: url) { phase in
-                    if case .success(let image) = phase { image.resizable().aspectRatio(contentMode: .fill) } else { monogram }
+                    if case .success(let image) = phase { image.resizable().aspectRatio(contentMode: .fill) } else { outlet }
                 }
             } else {
-                monogram
+                outlet
             }
         }
         .frame(width: side, height: side)
@@ -122,11 +227,30 @@ private struct EntryThumbnail: View {
         .task(id: page) { if url == nil { preview = await PreviewImage.lookup(page) } }
     }
 
-    private var monogram: some View {
-        ZStack {
+    /// The outlet's own icon from its site (apple-touch-icon, then favicon), else its initials.
+    private var outlet: some View {
+        let host = URL(string: page)?.host
+        return ZStack {
             Color.corantoAccent.opacity(0.12)
-            Text(Self.initials(source)).font(.system(size: 17, weight: .bold)).foregroundStyle(Color.corantoAccent)
+            if let host, let touch = URL(string: "https://\(host)/apple-touch-icon.png"), let fav = URL(string: "https://\(host)/favicon.ico") {
+                AsyncImage(url: touch) { phase in
+                    switch phase {
+                    case .success(let image): image.resizable().aspectRatio(contentMode: .fill)
+                    case .failure:
+                        AsyncImage(url: fav) { p in
+                            if case .success(let icon) = p { icon.resizable().interpolation(.high).scaledToFit().frame(width: 28, height: 28) } else { monogram }
+                        }
+                    default: monogram
+                    }
+                }
+            } else {
+                monogram
+            }
         }
+    }
+
+    private var monogram: some View {
+        Text(Self.initials(source)).font(.system(size: 17, weight: .bold)).foregroundStyle(Color.corantoAccent)
     }
 
     /// "BBC" stays BBC; "Hacker News" is HN; "The Province" is P. Mirrors `initials` in web/read.html.

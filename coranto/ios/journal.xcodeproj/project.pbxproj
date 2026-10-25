@@ -20,6 +20,7 @@
 		65959DE874A252B4341CB060 /* ManageFeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EA21421125A16812D6815E /* ManageFeedsView.swift */; };
 		664458B2090B4F4F075E125D /* JournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B2FC2F32D71F065BB94DA3 /* JournalApp.swift */; };
 		6F088A5AEE55494C7947395F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37B11800C471845C1E93545 /* Theme.swift */; };
+		701EE35DBB53D1D4ABCE3ACA /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5CBADBDFC8F276FBD980DD /* Library.swift */; };
 		726E2BDEC0363FC1A23D0AAD /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409A12C7017D00F584C499DF /* EntryDetailView.swift */; };
 		844DF1D2B31BE048837E9B2A /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8286BB5BF361BF084AB417E5 /* EntryListView.swift */; };
 		86E9BAD47C687921CC8AA4BF /* CorantoMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC081E82D8DC8982014989E5 /* CorantoMacApp.swift */; };
@@ -32,6 +33,7 @@
 		BD71979F992F2F9CFF17813A /* JournalFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC44D06947275059DED3B30 /* JournalFeedService.swift */; };
 		C08C2D94423602690E01241B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37B11800C471845C1E93545 /* Theme.swift */; };
 		C15D7670E1EE66A93FFE68D9 /* ManageFeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EA21421125A16812D6815E /* ManageFeedsView.swift */; };
+		CE1E8C2899A0802992715A37 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5CBADBDFC8F276FBD980DD /* Library.swift */; };
 		D68D92DD45C2273DB6D7258F /* Headline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE6D47556801B134F2EC3A /* Headline.swift */; };
 		DB8D13B635949509602FFCC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B29B9530A60D6C424502F145 /* Assets.xcassets */; };
 		E61BA69145B78636C9AC2575 /* PreviewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77498857B3215CE9BF932E32 /* PreviewImage.swift */; };
@@ -56,6 +58,7 @@
 		B38ACDB28857F0E41D3C492E /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		D9B2FC2F32D71F065BB94DA3 /* JournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalApp.swift; sourceTree = "<group>"; };
 		E099194237BF0D71FD3C6424 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		EC5CBADBDFC8F276FBD980DD /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		EEC44D06947275059DED3B30 /* JournalFeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeedService.swift; sourceTree = "<group>"; };
 		F37B11800C471845C1E93545 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F6EA21421125A16812D6815E /* ManageFeedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFeedsView.swift; sourceTree = "<group>"; };
@@ -144,6 +147,7 @@
 				E099194237BF0D71FD3C6424 /* Feed.swift */,
 				89EE6D47556801B134F2EC3A /* Headline.swift */,
 				B38ACDB28857F0E41D3C492E /* JournalEntry.swift */,
+				EC5CBADBDFC8F276FBD980DD /* Library.swift */,
 				F37B11800C471845C1E93545 /* Theme.swift */,
 			);
 			path = Models;
@@ -258,6 +262,7 @@
 				664458B2090B4F4F075E125D /* JournalApp.swift in Sources */,
 				5D7EBE7D411C4B9B8E890D29 /* JournalEntry.swift in Sources */,
 				BD71979F992F2F9CFF17813A /* JournalFeedService.swift in Sources */,
+				CE1E8C2899A0802992715A37 /* Library.swift in Sources */,
 				65959DE874A252B4341CB060 /* ManageFeedsView.swift in Sources */,
 				A99290777413A4AF24674771 /* PreviewImage.swift in Sources */,
 				A38E084ADAA18B1D2FC59AFA /* SettingsView.swift in Sources */,
@@ -278,6 +283,7 @@
 				5E4207888413B4552B1F5EFF /* Headline.swift in Sources */,
 				8F9F9B61680D39A04A93C8E2 /* JournalEntry.swift in Sources */,
 				AE6DA9D742532DACE4479A05 /* JournalFeedService.swift in Sources */,
+				701EE35DBB53D1D4ABCE3ACA /* Library.swift in Sources */,
 				C15D7670E1EE66A93FFE68D9 /* ManageFeedsView.swift in Sources */,
 				E61BA69145B78636C9AC2575 /* PreviewImage.swift in Sources */,
 				12DCC45C4FC9899EDB64EE1C /* ScreenshotCapture.swift in Sources */,
@@ -338,7 +344,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.9.0;
+				MARKETING_VERSION = 1.10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -403,7 +409,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.9.0;
+				MARKETING_VERSION = 1.10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
