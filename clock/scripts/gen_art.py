@@ -40,9 +40,10 @@ def globe(cx, cy, r):
     return out
 
 def bell(cx, cy, r):
-    return (f'<path d="M{cx - r} {cy + r * .55} Q{cx - r} {cy - r * .2} {cx} {cy - r * .75} Q{cx + r} {cy - r * .2} {cx + r} {cy + r * .55} Z" fill="url(#s)"/>'
-            f'<rect x="{cx - r * 1.15}" y="{cy + r * .55}" width="{r * 2.3}" height="{r * .16}" rx="{r * .08}" fill="#fff"/><circle cx="{cx}" cy="{cy + r * .95}" r="{r * .22}" fill="#fff"/>'
-            + "".join(f'<path d="M{cx + d * r * 1.35} {cy - r * .1} q{d * r * .25} {r * .35} 0 {r * .7}" stroke="#fff" stroke-width="{r / 14}" fill="none" stroke-linecap="round"/>' for d in (-1, 1)))
+    top = cy - r * .15
+    return (f'<path d="M{cx - r * .72} {top} A{r * .72} {r * .72} 0 0 1 {cx + r * .72} {top} C{cx + r * .72} {cy + r * .35} {cx + r} {cy + r * .45} {cx + r * 1.05} {cy + r * .6} H{cx - r * 1.05} C{cx - r} {cy + r * .45} {cx - r * .72} {cy + r * .35} {cx - r * .72} {top} Z" fill="url(#s)"/>'
+            f'<circle cx="{cx}" cy="{top - r * .72 - r * .1}" r="{r * .12}" fill="#fff"/><path d="M{cx - r * .22} {cy + r * .72} A{r * .22} {r * .22} 0 0 0 {cx + r * .22} {cy + r * .72} Z" fill="#fff"/>'
+            + "".join(f'<path d="M{cx + d * r * 1.2} {cy - r * .45} q{d * r * .3} {r * .4} 0 {r * .8}" stroke="#fff" stroke-width="{r / 14}" fill="none" stroke-linecap="round"/>' for d in (-1, 1)))
 
 def hourglass(cx, cy, r):
     return (f'<path d="M{cx - r} {cy - r} H{cx + r} L{cx + r * .06} {cy} L{cx + r} {cy + r} H{cx - r} L{cx - r * .06} {cy} Z" fill="url(#l)"/>'
@@ -63,7 +64,7 @@ def pendulum(cx, cy, r):
 
 SCENES = {  # name: (w, h, markup)
     "stage": (1400, 933, lambda w, h: face(w * .5, h * .5, h * .46, s=22) + gear(w * .14, h * .22, h * .17, 18) + gear(w * .88, h * .8, h * .22, 22)),
-    "band": (1900, 1000, lambda w, h: face(w * .5, h * .62, h * .5, 10.1, 8.4, 41) + gear(w * .17, h * .5, h * .28, 24) + gear(w * .83, h * .45, h * .22, 18) + gear(w * .3, h * .88, h * .16, 14)),
+    "band": (1900, 1000, lambda w, h: face(w * .5, h * .52, h * .42, 10.1, 8.4, 41) + gear(w * .17, h * .5, h * .28, 24) + gear(w * .83, h * .45, h * .22, 18) + gear(w * .3, h * .88, h * .16, 14)),
     "world": (1200, 800, lambda w, h: globe(w * .5, h * .5, h * .42)),
     "alarm": (1200, 800, lambda w, h: bell(w * .5, h * .5, h * .34)),
     "timer": (1200, 800, lambda w, h: hourglass(w * .5, h * .5, h * .32)),
