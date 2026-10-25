@@ -24,6 +24,17 @@ class FeedParserTest {
         assertTrue(entries[0].dateMillis > 0)
     }
 
+    @Test fun prefersFullTextOverSummary() {
+        val xml = """
+            <rss><channel><item>
+              <title>T</title>
+              <description>Short</description>
+              <content:encoded><![CDATA[<p>Full</p>]]></content:encoded>
+            </item></channel></rss>
+        """.trimIndent()
+        assertEquals("<p>Full</p>", parseFeed(xml)[0].htmlContent)
+    }
+
     @Test fun parsesAtomEntry() {
         val xml = """
             <feed>

@@ -67,7 +67,11 @@ struct EntryListView: View {
             .sheet(isPresented: $showFeeds) {
                 ManageFeedsView(store: store)
             }
-            .task(id: store.feeds) { await feed.refresh(feeds: store.feeds) }
+            .task(id: store.feeds) {
+                await feed.refresh(feeds: store.feeds)
+                // ponytail: store screenshot hook so the iPad detail pane isn't empty
+                if CommandLine.arguments.contains("-selectFirst") { selectedEntryID = feed.entries.first?.id }
+            }
         } detail: {
             if let selectedEntry {
                 EntryDetailView(entry: selectedEntry)

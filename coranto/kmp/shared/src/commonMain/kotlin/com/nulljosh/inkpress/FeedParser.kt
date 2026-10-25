@@ -105,6 +105,7 @@ fun parseFeed(xml: String): List<JournalEntry> {
     var link = ""
     var date = ""
     var content = ""
+    var summary = "" // RSS feeds often send both a summary and the full text
     var mediaSrc = ""
     var enclosureSrc = ""
     var inItem = false
@@ -115,7 +116,7 @@ fun parseFeed(xml: String): List<JournalEntry> {
                 element = event.name
                 when {
                     event.name == "entry" || event.name == "item" -> {
-                        inItem = true; title = ""; link = ""; date = ""; content = ""
+                        inItem = true; title = ""; link = ""; date = ""; content = ""; summary = ""
                         mediaSrc = ""; enclosureSrc = ""
                     }
                     event.name == "link" && inItem -> event.attributes["href"]?.let { link = it }
@@ -139,12 +140,14 @@ fun parseFeed(xml: String): List<JournalEntry> {
                     "link" -> link += text
                     "date" -> date += text
                     "content" -> content += text
+                    "summary" -> summary += text
                 }
             }
             is XmlEvent.CData -> if (inItem) appendField(event.text, element) { field, text ->
                 when (field) {
                     "content" -> content += text
                     "title" -> title += text
+                    "summary" -> summary += text
                     else -> {}
                 }
             }
@@ -157,8 +160,8 @@ fun parseFeed(xml: String): List<JournalEntry> {
                             title = title.trim(),
                             url = entryUrl,
                             dateMillis = parseFeedDate(date.trim()),
-                            htmlContent = content,
-                            imageUrl = pickImage(mediaSrc, enclosureSrc, content, entryUrl),
+                            htmlContent = content.ifBlank { summary },
+                            imageUrl = pickImage(mediaSrc, enclosureSrc, content + summary, entryUrl),
                         ),
                     )
                 }
@@ -173,6 +176,7 @@ private inline fun appendField(text: String, element: String, apply: (String, St
         "title" -> apply("title", text)
         "link" -> apply("link", text)
         "published", "updated", "pubDate", "dc:date" -> apply("date", text)
-        "content", "content:encoded", "description", "summary" -> apply("content", text)
+        "content", "content:encoded" -> apply("content", text)
+        "description", "summary" -> apply("summary", text)
     }
 }

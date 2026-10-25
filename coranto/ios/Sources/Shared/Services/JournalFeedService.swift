@@ -68,6 +68,7 @@ final class FeedParser: NSObject, XMLParserDelegate {
     private var link = ""
     private var date = ""
     private var content = ""
+    private var summary = ""   // RSS feeds often send both a summary and the full text
     private var mediaSrc = ""
     private var enclosureSrc = ""
     private var inItem = false
@@ -83,7 +84,7 @@ final class FeedParser: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName: String?, attributes attributeDict: [String: String] = [:]) {
         element = elementName
         if elementName == "entry" || elementName == "item" {
-            inItem = true; title = ""; link = ""; date = ""; content = ""
+            inItem = true; title = ""; link = ""; date = ""; content = ""; summary = ""
             mediaSrc = ""; enclosureSrc = ""
         } else if elementName == "link", inItem,
                   attributeDict["rel"] == nil || attributeDict["rel"] == "alternate",
@@ -109,7 +110,8 @@ final class FeedParser: NSObject, XMLParserDelegate {
         case "title": title += string
         case "link": link += string                 // RSS puts the URL in element text
         case "published", "updated", "pubDate", "dc:date": date += string
-        case "content", "content:encoded", "description", "summary": content += string
+        case "content", "content:encoded": content += string
+        case "description", "summary": summary += string
         default: break
         }
     }
@@ -117,7 +119,8 @@ final class FeedParser: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
         guard inItem, let s = String(data: CDATABlock, encoding: .utf8) else { return }
         switch element {
-        case "content", "content:encoded", "description", "summary": content += s
+        case "content", "content:encoded": content += s
+        case "description", "summary": summary += s
         case "title": title += s
         default: break
         }
@@ -127,13 +130,14 @@ final class FeedParser: NSObject, XMLParserDelegate {
         guard elementName == "entry" || elementName == "item" else { return }
         inItem = false
         let entryURL = link.trimmingCharacters(in: .whitespacesAndNewlines)
+        let body = content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? summary : content
         entries.append(JournalEntry(
             title: title.trimmingCharacters(in: .whitespacesAndNewlines),
             url: entryURL,
             date: Self.parseDate(date.trimmingCharacters(in: .whitespacesAndNewlines)),
-            htmlContent: content,
+            htmlContent: body,
             imageURL: Self.pickImage(media: mediaSrc, enclosure: enclosureSrc,
-                                     html: content, entryURL: entryURL)
+                                     html: content + summary, entryURL: entryURL)
         ))
     }
 

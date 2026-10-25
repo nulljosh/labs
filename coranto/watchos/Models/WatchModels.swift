@@ -49,6 +49,7 @@ final class WatchFeedParser: NSObject, XMLParserDelegate {
     private var link = ""
     private var date = ""
     private var content = ""
+    private var summary = ""   // RSS feeds often send both a summary and the full text
     private var inItem = false
 
     static func parse(data: Data) -> [WatchEntry] {
@@ -63,7 +64,7 @@ final class WatchFeedParser: NSObject, XMLParserDelegate {
                 qualifiedName: String?, attributes attributeDict: [String: String] = [:]) {
         element = elementName
         if elementName == "entry" || elementName == "item" {
-            inItem = true; title = ""; link = ""; date = ""; content = ""
+            inItem = true; title = ""; link = ""; date = ""; content = ""; summary = ""
         } else if elementName == "link", inItem, let href = attributeDict["href"] {
             link = href
         }
@@ -75,7 +76,8 @@ final class WatchFeedParser: NSObject, XMLParserDelegate {
         case "title": title += string
         case "link": link += string
         case "published", "updated", "pubDate", "dc:date": date += string
-        case "content", "content:encoded", "description", "summary": content += string
+        case "content", "content:encoded": content += string
+        case "description", "summary": summary += string
         default: break
         }
     }
@@ -83,7 +85,8 @@ final class WatchFeedParser: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
         guard inItem, let s = String(data: CDATABlock, encoding: .utf8) else { return }
         switch element {
-        case "content", "content:encoded", "description", "summary": content += s
+        case "content", "content:encoded": content += s
+        case "description", "summary": summary += s
         case "title": title += s
         default: break
         }
@@ -97,7 +100,7 @@ final class WatchFeedParser: NSObject, XMLParserDelegate {
             title: title.trimmingCharacters(in: .whitespacesAndNewlines),
             url: link.trimmingCharacters(in: .whitespacesAndNewlines),
             date: Self.parseDate(date.trimmingCharacters(in: .whitespacesAndNewlines)),
-            htmlContent: content
+            htmlContent: content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? summary : content
         ))
     }
 
