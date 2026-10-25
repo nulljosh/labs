@@ -169,4 +169,16 @@ enum Clockwork {
         let f = now.timeIntervalSince(from) / to.timeIntervalSince(from)
         return (100 * cos(.pi * f), 18 * sin(.pi * f), false)
     }
+
+    /// Interval timer: work and rest rounds. The phase after this one, or nil when the last work round ends.
+    static func nextPhase(phase: String, round: Int, rounds: Int, work: TimeInterval, rest: TimeInterval) -> (phase: String, round: Int, dur: TimeInterval)? {
+        if phase == "work" && round >= rounds { return nil }
+        if phase == "work" && rest > 0 { return ("rest", round, rest) }
+        return ("work", round + 1, work)
+    }
+
+    /// Stopwatch laps (running totals) as a tab separated table, pastes straight into a spreadsheet.
+    static func lapsTable(_ laps: [TimeInterval]) -> String {
+        (["Lap\tSplit\tTotal"] + laps.enumerated().map { i, t in "\(i + 1)\t\(stopwatchText(t - (i > 0 ? laps[i - 1] : 0)))\t\(stopwatchText(t))" }).joined(separator: "\n")
+    }
 }

@@ -107,4 +107,16 @@ final class ClockworkTests: XCTestCase {
         let van = Clockwork.dialPoint(d(2026, 10, 25, 13), lat: 49.28, lon: -123.12, cal: cal)
         XCTAssertTrue(van.day); XCTAssertLessThan(van.y, -90)
     }
+
+    func testIntervalPhasesAndLapsTable() {
+        let a = Clockwork.nextPhase(phase: "work", round: 1, rounds: 3, work: 40, rest: 20)!
+        XCTAssertEqual(a.phase, "rest"); XCTAssertEqual(a.round, 1); XCTAssertEqual(a.dur, 20)
+        let b = Clockwork.nextPhase(phase: "rest", round: 1, rounds: 3, work: 40, rest: 20)!
+        XCTAssertEqual(b.phase, "work"); XCTAssertEqual(b.round, 2); XCTAssertEqual(b.dur, 40)
+        XCTAssertNil(Clockwork.nextPhase(phase: "work", round: 3, rounds: 3, work: 40, rest: 20), "no rest after the last round")
+        let c = Clockwork.nextPhase(phase: "work", round: 1, rounds: 3, work: 40, rest: 0)!
+        XCTAssertEqual(c.phase, "work"); XCTAssertEqual(c.round, 2)
+        XCTAssertEqual(Clockwork.lapsTable([20, 41.5]), "Lap\tSplit\tTotal\n1\t00:20.00\t00:20.00\n2\t00:21.50\t00:41.50")
+        XCTAssertEqual(Clockwork.lapsTable([]), "Lap\tSplit\tTotal")
+    }
 }

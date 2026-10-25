@@ -7,6 +7,10 @@ struct TimersView: View {
     @State private var m = 5
     @State private var s = 0
     @State private var label = ""
+    @State private var intervals = false
+    @State private var rest = 30
+    @State private var rounds = 8
+    private static let rests = [10, 15, 20, 30, 45, 60, 90, 120, 180, 300]
 
     var body: some View {
         NavigationStack {
@@ -16,9 +20,14 @@ struct TimersView: View {
                         wheel($h, 0..<24, "hours"); wheel($m, 0..<60, "min"); wheel($s, 0..<60, "sec")
                     }
                     TextField("Label", text: $label, prompt: Text("Timer"))
+                    Toggle("Intervals", isOn: $intervals).toggleStyle(.switch)
+                    if intervals {
+                        Picker("Rest", selection: $rest) { ForEach(Self.rests, id: \.self) { Text(Clockwork.durationText(TimeInterval($0))).tag($0) } }
+                        Picker("Rounds", selection: $rounds) { ForEach(2...20, id: \.self) { Text("\($0)").tag($0) } }
+                    }
                     HStack {
                         Spacer()
-                        Button("Start") { store.startTimer(TimeInterval(h * 3600 + m * 60 + s), label: label) }
+                        Button("Start") { store.startTimer(TimeInterval(h * 3600 + m * 60 + s), label: label, rest: intervals ? TimeInterval(rest) : nil, rounds: intervals ? rounds : nil) }
                             .font(.title3).frame(width: 84, height: 84).background(.green.opacity(0.2), in: Circle()).foregroundStyle(.green)
                             .buttonStyle(.plain).disabled(h + m + s == 0)
                         Spacer()
@@ -33,16 +42,18 @@ struct TimersView: View {
                         .onDelete { store.timers.remove(atOffsets: $0) }
                     }
                 }
+                if !store.presets.isEmpty {
+                    Section("Presets") {
+                        ForEach(store.presets, id: \.self) { r in saved(r) { EmptyView() } }
+                            .onDelete { store.presets.remove(atOffsets: $0) }
+                    }
+                }
                 if !store.recents.isEmpty {
                     Section("Recents") {
                         ForEach(store.recents, id: \.self) { r in
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(Clockwork.timerText(r.dur)).font(.system(size: 28, weight: .light))
-                                    Text(r.label.isEmpty ? Clockwork.durationText(r.dur) : r.label).font(.subheadline).foregroundStyle(.secondary)
-                                }
-                                Spacer()
-                                Button("Start") { store.startTimer(r.dur, label: r.label) }.buttonStyle(.bordered).buttonBorderShape(.capsule).tint(.green)
+                            saved(r) {
+                                Button("Pin") { if !store.presets.contains(r) { store.presets.append(r) } }
+                                    .buttonStyle(.bordered).buttonBorderShape(.capsule).disabled(store.presets.contains(r))
                             }
                         }
                     }
@@ -51,6 +62,19 @@ struct TimersView: View {
             .readableColumn()
             .navigationTitle("Timers")
             .onChange(of: store.timers) { Task { await scheduler.syncTimers(store) } }
+        }
+    }
+
+    /// A recent or preset timer row: its length, its label (and rounds), any extra button, then Start.
+    private func saved(_ r: Recent, @ViewBuilder extra: () -> some View) -> some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(Clockwork.timerText(r.dur)).font(.system(size: 28, weight: .light))
+                Text((r.label.isEmpty ? Clockwork.durationText(r.dur) : r.label) + (r.rounds.map { " · \($0) rounds" } ?? "")).font(.subheadline).foregroundStyle(.secondary)
+            }
+            Spacer()
+            extra()
+            Button("Start") { store.start(r) }.buttonStyle(.bordered).buttonBorderShape(.capsule).tint(.green)
         }
     }
 
@@ -77,13 +101,14 @@ struct TimerRow: View {
             .frame(width: 48, height: 48)
             VStack(alignment: .leading) {
                 Text(Clockwork.timerText(left)).font(.system(size: 28, weight: .light)).monospacedDigit()
-                Text([timer.label.isEmpty ? nil : timer.label, timer.end.map { "Ends " + $0.formatted(date: .omitted, time: .shortened) } ?? "Paused"]
+                Text([timer.rounds.map { "\(timer.phase == "rest" ? "Rest" : "Work") \(timer.round ?? 1) of \($0)" }, timer.label.isEmpty ? nil : timer.label, timer.end.map { "Ends " + $0.formatted(date: .omitted, time: .shortened) } ?? "Paused"]
                     .compactMap { $0 }.joined(separator: " · ")).font(.subheadline).foregroundStyle(.secondary)
             }
             Spacer()
             Button(timer.end == nil ? "Resume" : "Pause") { pause() }.buttonStyle(.bordered).buttonBorderShape(.capsule)
         }
-        .onChange(of: left <= 0) { _, done in if done, timer.end != nil { store.timers.removeAll { $0.id == timer.id } } }
+        // ponytail: an interval rolls on only while the app is open; closed, each phase ends as its own AlarmKit timer alert.
+        .onChange(of: left <= 0) { _, done in if done, timer.end != nil, !store.advance(timer.id) { store.timers.removeAll { $0.id == timer.id } } }
     }
     private func pause() {
         guard let i = store.timers.firstIndex(where: { $0.id == timer.id }) else { return }

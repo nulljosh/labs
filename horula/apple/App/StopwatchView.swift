@@ -35,9 +35,21 @@ struct StopwatchView: View {
             }
             .readableColumn()
             .navigationTitle("Stopwatch")
+            .toolbar {
+                if !sw.laps.isEmpty {
+                    ToolbarItem(placement: .primaryAction) { Button { copy(Clockwork.lapsTable(sw.laps)) } label: { Label("Copy Laps", systemImage: "doc.on.doc") } }
+                }
+            }
         }
     }
 
+    private func copy(_ s: String) {
+        #if os(iOS)
+        UIPasteboard.general.string = s
+        #else
+        NSPasteboard.general.clearContents(); NSPasteboard.general.setString(s, forType: .string)
+        #endif
+    }
     private func toggle() {
         var s = store.stopwatch
         if let start = s.start { s.acc += Date.now.timeIntervalSince(start); s.start = nil } else { s.start = .now }

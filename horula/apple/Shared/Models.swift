@@ -43,17 +43,27 @@ struct TimerItem: Codable, Hashable, Identifiable {
     var label = ""
     var end: Date?              // nil while paused
     var left: TimeInterval
+    // Interval timers only: dur is the current phase, work and rest the two lengths.
+    var work: TimeInterval? = nil
+    var rest: TimeInterval? = nil
+    var rounds: Int? = nil
+    var round: Int? = nil       // optional so timers saved before intervals still decode
+    var phase: String? = nil
     func remaining(_ now: Date = .now) -> TimeInterval { end.map { $0.timeIntervalSince(now) } ?? left }
 }
 
 struct Recent: Codable, Hashable {
     var dur: TimeInterval
     var label = ""
-    init(dur: TimeInterval, label: String = "") { self.dur = dur; self.label = label }
+    var rest: TimeInterval? = nil   // set for an interval timer, with rounds
+    var rounds: Int? = nil
+    init(dur: TimeInterval, label: String = "", rest: TimeInterval? = nil, rounds: Int? = nil) { self.dur = dur; self.label = label; self.rest = rest; self.rounds = rounds }
     init(from d: Decoder) throws {
         let c = try d.container(keyedBy: CodingKeys.self)
         dur = try c.decode(TimeInterval.self, forKey: .dur)
         label = try c.decodeIfPresent(String.self, forKey: .label) ?? ""
+        rest = try c.decodeIfPresent(TimeInterval.self, forKey: .rest)
+        rounds = try c.decodeIfPresent(Int.self, forKey: .rounds)
     }
 }
 
