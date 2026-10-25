@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ManageFeedsView: View {
     @ObservedObject var store: FeedStore
-    @Environment(\.dismiss) private var dismiss
     @State private var newFeed = ""
     @State private var showError = false
 
@@ -22,7 +21,7 @@ struct ManageFeedsView: View {
                             .disabled(newFeed.trimmingCharacters(in: .whitespaces).isEmpty)
                     }
                 } footer: {
-                    Text("Paste any RSS or Atom feed URL to follow it alongside your journal.")
+                    Text("Paste any RSS or Atom feed URL to follow it.")
                 }
 
                 Section("Following") {
@@ -55,12 +54,6 @@ struct ManageFeedsView: View {
                 }
             }
             .navigationTitle("Feeds")
-            #if os(iOS)
-            .navigationBarTitleDisplayMode(.inline)
-            #endif
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } }
-            }
             .alert("Invalid or duplicate URL", isPresented: $showError) {
                 Button("OK", role: .cancel) {}
             }

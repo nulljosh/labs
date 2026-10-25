@@ -53,7 +53,7 @@ struct EntryDetailView: View {
           /* links in the brand blue, not WebKit's default purple; Theme.swift corantoAccent */
           a { color: #0059B3; }
           @media (prefers-color-scheme: dark) { a { color: #5aa9ff; } }
-          .hero { width: 100%; border-radius: 8px; margin: 0 0 16px; }
+          .hero { width: 100%; max-height: 50vh; object-fit: cover; border-radius: 8px; margin: 0 0 16px; }
         </style></head><body>
         <h1>\(escape(entry.title))</h1>
         <p class="date">\(byline(for: entry))</p>
