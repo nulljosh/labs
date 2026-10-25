@@ -19,7 +19,7 @@ struct TimersView: View {
                     HStack(spacing: 0) {
                         wheel($h, 0..<24, "hours"); wheel($m, 0..<60, "min"); wheel($s, 0..<60, "sec")
                     }
-                    TextField("Label", text: $label, prompt: Text("Timer"))
+                    LabeledContent("Label") { TextField("Label", text: $label, prompt: Text("Timer")).labelsHidden().multilineTextAlignment(.trailing) }
                     Toggle("Intervals", isOn: $intervals).toggleStyle(.switch)
                     if intervals {
                         Picker("Rest", selection: $rest) { ForEach(Self.rests, id: \.self) { Text(Clockwork.durationText(TimeInterval($0))).tag($0) } }
@@ -80,6 +80,7 @@ struct TimersView: View {
 
     private func wheel(_ v: Binding<Int>, _ r: Range<Int>, _ unit: String) -> some View {
         Picker(unit, selection: v) { ForEach(r, id: \.self) { Text("\($0) \(unit)").tag($0) } }
+            .labelsHidden()   // the unit is in every item; a label beside it said it twice on the Mac
             #if os(iOS)
             .pickerStyle(.wheel)
             #endif
