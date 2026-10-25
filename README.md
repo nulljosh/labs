@@ -4,7 +4,7 @@
 
 ## In labs
 
-**Apps and games:** [coda](./coda), [curvely](https://github.com/nulljosh/curvely), [hamurapi](./hamurapi), [coranto](./coranto), [gastown](https://github.com/nulljosh/gastown), [toroid](./toroid), [bcgd](./bcgd), [homeward](./homeward), [homeqi](./homeqi), [costanza](./costanza), [swing](./swing), [dream](./dream), [numen](./numen)
+**Apps and games:** [coda](./coda), [curvely](https://github.com/nulljosh/curvely), [hamurapi](./hamurapi), [bugle](./bugle), [gastown](https://github.com/nulljosh/gastown), [toroid](./toroid), [bcgd](./bcgd), [homeward](./homeward), [homeqi](./homeqi), [costanza](./costanza), [swing](./swing), [dream](./dream), [numen](./numen)
 
 **Tools and sites:** [tripwire](./tripwire), [cadence](./cadence), [seamark](./seamark), [hormuz](./hormuz), [keyrate](./keyrate), [weather](./weather), [fieldbook](./fieldbook), [evidna](./evidna), [journal](./journal), [authmail](./authmail), [dotfiles](./dotfiles)
 

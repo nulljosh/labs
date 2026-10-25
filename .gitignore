@@ -27,7 +27,7 @@
 !pan/
 !hamurapi/
 !bcgd/
-!coranto/
+!bugle/
 !scripts/
 scripts/*
 !scripts/progress-svg.py

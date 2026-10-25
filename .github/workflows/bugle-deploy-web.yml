@@ -1,15 +1,15 @@
-name: coranto Check landing page
+name: bugle Check landing page
 
 on:
   push:
     branches: [main]
     paths:
-      - 'coranto/web/**'
-      - '.github/workflows/coranto-deploy-web.yml'
+      - 'bugle/web/**'
+      - '.github/workflows/bugle-deploy-web.yml'
   workflow_dispatch:
 defaults:
   run:
-    working-directory: coranto
+    working-directory: bugle
 
 concurrency:
   group: deploy-web
