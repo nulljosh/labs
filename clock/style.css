@@ -30,7 +30,6 @@ svg.face { display: block; width: min(320px, 80vw); height: auto; margin: 0 auto
 .group { background: var(--bg2); border-radius: var(--r-group); margin: var(--s2) 0 var(--s4); overflow: hidden; }
 .row { display: flex; align-items: center; gap: var(--s3); min-height: var(--s7); padding: var(--s3) var(--s4); }
 .row + .row { border-top: .5px solid var(--border); }
-#sleepRow .time { font-size: clamp(20px, 6vw, 28px); }
 button.rowbtn { display: block; height: auto; min-width: 0; padding: 0; border-radius: 12px; background: none; color: inherit; text-align: left; font-size: inherit; }
 .row .grow { flex: 1; min-width: 0; }
 .row .label { font-size: 17px; line-height: 22px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -97,6 +96,10 @@ input[type="time"].wheel { font-size: 48px; font-weight: 200; height: 72px; text
 .stack button { height: 32px; min-width: 80px; font-size: 13px; padding: 0 var(--s3); }
 .group button.icon:not(.go) { background: var(--bg3); }
 #world .form { margin-top: var(--s5); }
+h2.sleep-h { display: flex; align-items: center; gap: var(--s2); }
+h2.sleep-h .bed { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+button.pill { min-width: 0; height: 32px; padding: 0 var(--s4); font-size: 15px; font-weight: 600; background: var(--bg3); color: var(--accent); flex: none; }
+select.inline { width: auto; height: 32px; font-size: 15px; background: var(--bg3); }
 small.ap { font-size: .5em; font-weight: 400; margin-left: .12em; letter-spacing: 0; }
 .big small.ap { font-size: .42em; }
 button.zone { display: flex; align-items: center; gap: var(--s3); }

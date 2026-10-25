@@ -8,9 +8,9 @@ const hm = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digi
 const atHm = (t) => { const [h, m] = t.split(':').map(Number); const d = new Date(); d.setHours(h, m, 0, 0); return d; };
 const hmOf = (t) => hm.format(atHm(t));
 const hmHTML = (t) => timeHTML(hm, atHm(t));   // small AM or PM, like iOS
-function toast(text) {
+function toast(text, ms = 3000) {
   const t = $('toast'); t.textContent = text; t.hidden = false;
-  clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 3000);
+  clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, ms);
 }
 
 // Tabs, remembered across visits.
@@ -36,12 +36,12 @@ const SOUNDS = {
 };
 const soundOptions = Object.keys(SOUNDS).map(s => `<option>${s}</option>`).join('');
 ['aSound', 'sSound', 'tmSound'].forEach(id => $(id).innerHTML = soundOptions);
-function play(name = 'Radar') {
+function play(name = 'Radar', vol = 0.3) {
   const c = audio();
   (SOUNDS[name] || SOUNDS.Radar).forEach(([f, at]) => {
     const o = c.createOscillator(), g = c.createGain(), t = c.currentTime + at;
     o.frequency.value = f; o.connect(g); g.connect(c.destination);
-    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.3, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.3);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.3);
     o.start(t); o.stop(t + 0.32);
   });
 }
@@ -56,12 +56,15 @@ function ring({ when, what, sound, snooze, repeat, onStop }) {
   $('ringSnooze').hidden = !snooze; $('ringRepeat').hidden = !repeat;
   $('ringing').hidden = false; $('stand').hidden = true;
   clearInterval(ringLoop); clearTimeout(ringCap);
-  play(sound); ringLoop = setInterval(() => play(sound), 2000);
+  // Fades in over 30 seconds and buzzes where the phone allows it.
+  const t0 = Date.now(), buzz = () => navigator.vibrate?.([400, 200, 400]);
+  play(sound, fadeGain(0)); buzz();
+  ringLoop = setInterval(() => { play(sound, fadeGain(Date.now() - t0)); buzz(); }, 2000);
   ringCap = setTimeout(stopRing, 600000);
   notify(what, when);
   ($('ringSnooze').hidden ? $('ringStop') : $('ringSnooze')).focus();
 }
-function stopRing() { clearInterval(ringLoop); clearTimeout(ringCap); $('ringing').hidden = true; }
+function stopRing() { navigator.vibrate?.(0); clearInterval(ringLoop); clearTimeout(ringCap); $('ringing').hidden = true; }
 $('ringStop').onclick = () => { stopRing(); ringActions.onStop?.(); };
 $('ringSnooze').onclick = () => { stopRing(); ringActions.snooze?.(); };
 $('ringRepeat').onclick = () => { stopRing(); ringActions.repeat?.(); };

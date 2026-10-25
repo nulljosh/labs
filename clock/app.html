@@ -45,8 +45,8 @@
   </section>
 
   <section id="alarms" hidden>
-    <header><h1>Alarms</h1><button class="tool" id="alarmNew" aria-label="Add alarm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></header>
-    <h2>Sleep | Wake Up</h2>
+    <header><h1>Alarms</h1><span class="tools"><button class="link" id="alarmEdit">Edit</button><button class="tool" id="alarmNew" aria-label="Add alarm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></span></header>
+    <h2 class="sleep-h"><svg class="bed" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18V6M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5M6.5 11.5a1.5 1.5 0 1 0 0-.01"/></svg>Sleep | Wake Up</h2>
     <div class="group"><div class="row" id="sleepRow"></div></div>
     <h2>Other</h2>
     <div class="group" id="alarmList"></div>
@@ -101,7 +101,11 @@
     <label id="aDaysL">Repeat</label><div class="days" id="aDays" role="group" aria-labelledby="aDaysL"></div>
     <label for="aLabel">Label</label><input id="aLabel" maxlength="40" placeholder="Alarm">
     <label for="aSound">Sound</label><select id="aSound"></select>
-    <div class="group" style="margin-top:var(--s4)"><div class="row"><label class="grow" for="aSnooze">Snooze</label><input type="checkbox" class="switch" id="aSnooze" checked></div></div>
+    <div class="group" style="margin-top:var(--s4)">
+      <div class="row"><label class="grow" for="aSnooze">Snooze</label><input type="checkbox" class="switch" id="aSnooze" checked></div>
+      <div class="row"><label class="grow" for="aSnoozeMin">Snooze Length</label><select id="aSnoozeMin" class="inline"></select></div>
+    </div>
+    <button type="button" id="alarmSkip" style="width:100%;margin-bottom:var(--s2)">Skip Next Alarm</button>
     <button type="button" class="danger" id="alarmDelete" style="width:100%">Delete Alarm</button>
   </form>
 </dialog>
@@ -109,6 +113,7 @@
 <dialog id="sleepSheet" aria-labelledby="sleepSheetTitle">
   <form method="dialog" id="sleepForm">
     <header><button class="link" value="cancel" formnovalidate>Cancel</button><h1 id="sleepSheetTitle">Sleep Schedule</h1><button class="link" value="save">Done</button></header>
+    <div class="group"><div class="row"><label class="grow" for="sOn">Sleep Schedule</label><input type="checkbox" class="switch" id="sOn"></div></div>
     <div class="form"><div><label for="sBed">Bedtime</label><input type="time" id="sBed" required></div><div><label for="sWake">Wake Up</label><input type="time" id="sWake" required></div></div>
     <p class="sub" id="sHours"></p>
     <label id="sDaysL">Days</label><div class="days" id="sDays" role="group" aria-labelledby="sDaysL"></div>

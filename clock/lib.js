@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '3.0.0';
+const VERSION = '4.0.0';
 const pad = (n, w = 2) => String(Math.floor(n)).padStart(w, '0');
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const DAY = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -48,6 +48,19 @@ function lapMarks(splits) {
   const best = Math.min(...splits), worst = Math.max(...splits);
   return best === worst ? { best: null, worst: null } : { best, worst };
 }
+// Alarm volume climbs from a whisper to full over 30 seconds.
+const fadeGain = (ms) => 0.03 + 0.27 * Math.min(1, Math.max(0, ms) / 30000);
+// Next ring of an alarm, stepping past a skipped day.
+function nextFireOf(a, now) {
+  const at = fireTimes(a.time, a.days, now);
+  return at && a.skip === at.toDateString() ? fireTimes(a.time, a.days, at) : at;
+}
+// "Tomorrow Morning", "Today", "Friday Morning", like the iOS sleep row.
+function dayWord(at, now) {
+  const d = Math.round((new Date(at).setHours(0, 0, 0, 0) - new Date(now).setHours(0, 0, 0, 0)) / 864e5);
+  const word = d === 0 ? 'Today' : d === 1 ? 'Tomorrow' : new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(at);
+  return at.getHours() < 12 ? `${word} Morning` : word;
+}
 // Time with its AM or PM split off, so it can be drawn smaller like iOS. 24 hour locales have no period.
 function splitAmPm(fmt, date) {
   const parts = fmt.formatToParts(date), i = parts.findIndex(p => p.type === 'dayPeriod');
@@ -70,4 +83,4 @@ function offsetLabel(zone, now) {
   const day = there.getDate() === here.getDate() ? 'Today' : there > here ? 'Tomorrow' : 'Yesterday';
   return `${day}, ${diff === 0 ? 'same time' : (diff > 0 ? '+' : '') + diff + ' HRS'}`;
 }
-if (typeof module === 'object') module.exports = { VERSION, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime };
+if (typeof module === 'object') module.exports = { VERSION, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord };

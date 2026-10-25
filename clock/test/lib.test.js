@@ -71,6 +71,17 @@ test('day or night by real sunrise', () => {
   assert.equal(L.isDaytime(new Date(2026, 5, 21, 12), 78.2, 15.6), true, 'Svalbard midnight sun');
 });
 
+test('alarm fades in, skips a day, names the morning', () => {
+  assert.deepEqual([0, 15000, 60000].map(ms => L.fadeGain(ms).toFixed(3)), ['0.030', '0.165', '0.300']);
+  const now = new Date(2026, 9, 25, 8, 0);   // Sunday
+  const a = { time: '07:00', days: [1, 2, 3, 4, 5] };
+  assert.deepEqual(L.nextFireOf(a, now), new Date(2026, 9, 26, 7, 0));
+  assert.deepEqual(L.nextFireOf({ ...a, skip: new Date(2026, 9, 26).toDateString() }, now), new Date(2026, 9, 27, 7, 0), 'skips Monday');
+  assert.equal(L.dayWord(new Date(2026, 9, 26, 7), now), 'Tomorrow Morning');
+  assert.equal(L.dayWord(new Date(2026, 9, 25, 21), now), 'Today');
+  assert.equal(L.dayWord(new Date(2026, 9, 30, 6, 30), now), 'Friday Morning');
+});
+
 test('escape', () => assert.equal(L.esc('<a href="x">&\'</a>'), '&lt;a href=&quot;x&quot;&gt;&amp;&#39;&lt;/a&gt;'));
 
 test('offline shell covers the app and the cache follows the version', () => {

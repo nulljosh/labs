@@ -16,10 +16,11 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] Tap a city to see its sunrise, sunset and hours of daylight.
 
 ## v4: alarms you trust
-- [ ] Alarm sound fades in over 30 seconds instead of starting loud.
-- [ ] Skip just the next ring of a repeating alarm.
-- [ ] Vibrate on phones that allow it.
-- [ ] Warn once, in plain words, that a closed tab cannot ring.
+- [x] Alarm sound fades in over 30 seconds instead of starting loud.
+- [x] Skip just the next ring of a repeating alarm.
+- [x] Vibrate on phones that allow it.
+- [x] Warn once, in plain words, that a closed tab cannot ring.
+- [x] Snooze length from 1 to 15 minutes, Edit mode deletes alarms, iOS sleep row with Change. Fixed: Delete in the sheet could overwrite another alarm.
 
 ## v5: your clock, backed up
 - [ ] Export everything (alarms, cities, timers, sleep) to one file and import it on another device.

@@ -45,9 +45,9 @@ A web page cannot ring after it is closed or the phone is locked. iOS alarms can
 Joshua's ask: keep comparing against the native iOS and Mac Clock apps and close the gaps. One line per gap; each roadmap version closes the ones that fit it.
 
 - [x] 23. Times draw like iOS: big digits with a smaller AM or PM beside them (alarms, world clock rows, sleep row).
-- [ ] 24. Alarms header like iOS: Edit on the left, round + on the right; Edit mode deletes alarms from the list.
-- [ ] 25. Sleep | Wake Up row like iOS: bed icon, wake time big, "Tomorrow Morning", a CHANGE button.
-- [ ] 26. Snooze length you pick (1 to 15 minutes), new in iOS 26.
+- [x] 24. Alarms header like iOS: Edit on the left, round + on the right; Edit mode deletes alarms from the list.
+- [x] 25. Sleep | Wake Up row like iOS: bed icon, wake time big, "Tomorrow Morning", a CHANGE button.
+- [x] 26. Snooze length you pick (1 to 15 minutes), new in iOS 26.
 - [ ] 27. Stopwatch Lap and Start are round buttons at the sides, like iOS.
 - [ ] 28. Timers: a "When Timer Ends" row and a round Start button, like iOS.
 - [x] 29. World Clock rows match iOS: time difference above the city, time with small AM or PM, swipe or Edit to delete.
