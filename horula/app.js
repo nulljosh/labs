@@ -50,6 +50,8 @@ function frame() {
 // rAF stalls in background tabs; this keeps alarms and timers firing there.
 setInterval(() => { const now = new Date(); tickTimers(); checkAlarms(now); }, 1000);
 $('ver').textContent = VERSION;
+$('langPick').innerHTML = Object.entries(LANG_NAMES).map(([k, n]) => `<option value="${k}"${k === LANG ? ' selected' : ''}>${n}</option>`).join('');
+$('langPick').onchange = () => { store.set('lang', $('langPick').value); location.reload(); };
 $('settingsOpen').onclick = () => $('settingsSheet').showModal();
 
 // Backup: export everything to one file, import it on another device.
@@ -57,7 +59,7 @@ $('exportBtn').onclick = () => {
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([makeBackup({ alarms, sleep, zones, recents })], { type: 'application/json' }));
   a.download = `horula-backup-${new Date().toISOString().slice(0, 10)}.json`; a.click(); URL.revokeObjectURL(a.href);
-  toast('Backup saved');
+  toast(tr('Backup saved'));
 };
 $('importBtn').onclick = () => $('importFile').click();
 $('importFile').onchange = async () => {
@@ -65,7 +67,7 @@ $('importFile').onchange = async () => {
   try {
     const d = parseBackup(await f.text());
     Object.entries(d).forEach(([k, v]) => store.set(k, v));
-    toast(`Restored ${d.alarms?.length ?? 0} alarms and ${d.zones?.length ?? 0} cities`); setTimeout(() => location.reload(), 900);
+    toast(tr('Restored {0} alarms and {1} cities', d.alarms?.length ?? 0, d.zones?.length ?? 0)); setTimeout(() => location.reload(), 900);
   } catch (err) { toast(err.message); }
 };
 
@@ -90,15 +92,15 @@ addEventListener('keydown', (e) => {
 function runHash() {
   const a = parseHash(location.hash); if (!location.hash) return;
   history.replaceState(null, '', location.pathname + location.search);
-  if (!a) return toast('That link does not do anything');
+  if (!a) return toast(tr('That link does not do anything'));
   if (a.tab) show(a.tab);
-  if (a.timer) { show('timer'); startTimer(a.timer, a.label, 'Radar'); toast(`Timer for ${fmtDur(a.timer)}`); }
+  if (a.timer) { show('timer'); startTimer(a.timer, a.label, 'Radar'); toast(tr('Timer for {0}', fmtDur(a.timer))); }
   if (a.alarm) {
     show('alarms');
-    if (alarms.some(x => x.time === a.alarm && x.on && !x.days.length)) return toast(`Alarm at ${hmOf(a.alarm)} is already set`);
+    if (alarms.some(x => x.time === a.alarm && x.on && !x.days.length)) return toast(tr('Alarm at {0} is already set', hmOf(a.alarm)));
     alarms.push({ time: a.alarm, days: [], label: a.label, sound: 'Radar', snooze: true, snoozeMin: 9, on: true, last: '' });
     alarms.sort((x, y) => x.time.localeCompare(y.time)); saveAlarms(); drawAlarms();
-    toast(`Alarm in ${untilText(fireTimes(a.alarm, [], new Date()))}`);
+    toast(tr('Alarm in {0}', untilText(fireTimes(a.alarm, [], new Date()))));
   }
 }
 addEventListener('hashchange', runHash);

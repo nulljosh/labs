@@ -30,7 +30,7 @@ svg.face { display: block; width: min(320px, 80vw); height: auto; margin: 0 auto
 .group { background: var(--bg2); border-radius: var(--r-group); margin: var(--s2) 0 var(--s4); overflow: hidden; }
 .row { display: flex; align-items: center; gap: var(--s3); min-height: var(--s7); padding: var(--s3) var(--s4); }
 .row + .row { border-top: .5px solid var(--border); }
-button.rowbtn { display: block; height: auto; min-width: 0; padding: 0; border-radius: 12px; background: none; color: inherit; text-align: left; font-size: inherit; }
+button.rowbtn { display: block; height: auto; min-width: 0; padding: 0; border-radius: 12px; background: none; color: inherit; text-align: start; font-size: inherit; }
 .row .grow { flex: 1; min-width: 0; }
 .row .label { font-size: 17px; line-height: 22px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .row .meta { font-size: 13px; line-height: 18px; color: var(--text2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -51,7 +51,7 @@ button.danger { color: var(--danger); }
 #stopwatch .controls button, #tmStart { width: 84px; height: 84px; min-width: 0; padding: 0; border-radius: 50%; box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--bg2); }
 #stopwatch .controls .go, #tmStart { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--go-bg); }
 #stopwatch .controls .stop { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--stop-bg); }
-#timer .row input:not(.switch), #timer .row select { flex: 0 1 55%; height: auto; padding: 0; background: none; color: var(--text2); text-align: right; text-align-last: right; }
+#langPick, #timer .row input:not(.switch), #timer .row select { flex: 0 1 55%; height: auto; padding: 0; background: none; color: var(--text2); text-align: right; text-align-last: right; }
 button.link { background: none; color: var(--accent); min-width: 0; padding: 0 var(--s2); }
 button.icon { min-width: 0; padding: 0 var(--s4); height: 32px; font-size: 15px; }
 button:disabled { opacity: .4; cursor: default; }
@@ -64,6 +64,8 @@ input.switch { appearance: none; -webkit-appearance: none; flex: none; width: 51
 input.switch::before { content: ""; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.25); transition: transform .2s; }
 input.switch:checked { background: #34c759; }
 input.switch:checked::before { transform: translateX(20px); }
+[dir=rtl] input.switch:checked::before { transform: translateX(-20px); }
+[dir=rtl] input.switch::before { left: auto; right: 2px; }
 /* day chips */
 .days { display: flex; gap: var(--s1); justify-content: space-between; margin: var(--s2) 0 var(--s4); }
 .days button { min-width: 0; flex: 1; height: 40px; padding: 0; font-size: 15px; }
@@ -74,7 +76,7 @@ dialog { border: 0; padding: var(--s5) var(--s4) calc(var(--s5) + env(safe-area-
 dialog::backdrop { background: rgba(0,0,0,.4); }
 dialog header { margin-bottom: var(--s4); }
 #world header { flex-wrap: wrap-reverse; row-gap: var(--s2); }   /* narrow: buttons sit above the title, like iOS */
-#world header > .tools { margin-left: auto; }
+#world header > .tools { margin-inline-start: auto; }
 dialog header > span { width: 60px; }
 dialog .row a { color: var(--accent); text-decoration: none; }
 dialog h1 { font-size: 17px; line-height: 22px; font-weight: 600; }
@@ -123,8 +125,9 @@ select.inline { width: auto; height: 32px; font-size: 15px; background: var(--bg
 kbd { font: 600 13px var(--font); min-width: 28px; height: 28px; padding: 0 var(--s2); display: inline-grid; place-items: center; border-radius: 8px; background: var(--bg3); color: var(--text); }
 .keys .row { gap: var(--s1); }
 .keys .label { white-space: normal; }
-small.ap { font-size: .5em; font-weight: 400; margin-left: .12em; letter-spacing: 0; }
+small.ap { font-size: .5em; font-weight: 400; margin-inline-start: .12em; letter-spacing: 0; }
 .big small.ap { font-size: .42em; }
+small.ap:first-child { margin-inline: 0 .12em; }
 button.zone { display: flex; align-items: center; gap: var(--s3); }
 button.zone .grow { display: block; min-width: 0; }
 button.zone .meta, button.zone .label { display: block; }

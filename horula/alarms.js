@@ -16,7 +16,7 @@ let sleep = store.get('sleep', { on: false, bed: '23:00', wake: '07:00', days: [
 const saveAlarms = () => { store.set('alarms', alarms); store.set('snoozes', snoozes); };
 function nextAlarm(now) {
   const list = alarms.filter(a => a.on).map(a => ({ at: nextFireOf(a, now), label: a.label }));
-  if (sleep.on) list.push({ at: fireTimes(sleep.wake, sleep.days, now), label: 'Wake Up' });
+  if (sleep.on) list.push({ at: fireTimes(sleep.wake, sleep.days, now), label: tr('Wake Up') });
   snoozes.forEach(s => list.push({ at: new Date(s.at), label: s.label }));
   return list.filter(x => x.at).sort((a, b) => a.at - b.at)[0] || null;
 }
@@ -24,15 +24,15 @@ function drawAlarms() {
   // Sleep row like iOS: the wake time big, which morning, and one button to change it.
   const now = new Date(), wake = sleep.on && fireTimes(sleep.wake, sleep.days, now);
   $('sleepRow').innerHTML = wake
-    ? `<div class="grow"><div class="time xl">${hmHTML(sleep.wake)}</div><div class="meta">${dayWord(wake, now)}</div></div><button class="pill" id="sleepEdit">Change</button>`
-    : `<div class="grow"><div class="time">No Alarm</div><div class="meta">Set a bedtime and a wake up time</div></div><button class="pill" id="sleepEdit">Set Up</button>`;
+    ? `<div class="grow"><div class="time xl">${hmHTML(sleep.wake)}</div><div class="meta">${dayWord(wake, now)}</div></div><button class="pill" id="sleepEdit">${tr('Change')}</button>`
+    : `<div class="grow"><div class="time">${tr('No Alarm')}</div><div class="meta">${tr('Set a bedtime and a wake up time')}</div></div><button class="pill" id="sleepEdit">${tr('Set Up')}</button>`;
   $('alarmEdit').hidden = !alarms.length; if (!alarms.length) alarmEditing = false;
-  $('alarmEdit').textContent = alarmEditing ? 'Done' : 'Edit';
+  $('alarmEdit').textContent = tr(alarmEditing ? 'Done' : 'Edit');
   $('alarmList').innerHTML = alarms.length ? alarms.map((a, i) => {
     const skip = a.on && a.skip && nextFireOf(a, now) && fireTimes(a.time, a.days, now)?.toDateString() === a.skip;
     return `<div class="row${a.on ? '' : ' off'}"><button class="grow rowbtn" data-edit="${i}"><div class="time xl">${hmHTML(a.time)}</div>
-    <div class="meta">${esc(a.label || 'Alarm')}${a.days.length ? ', ' + repeatText(a.days) : ''}${skip ? ` · Skipping ${DAY_LONG[new Date(a.skip).getDay()]}` : ''}</div></button>
-    ${alarmEditing ? `<button class="icon danger" data-del="${i}" aria-label="Delete alarm ${a.time}">Delete</button>`
+    <div class="meta">${esc(a.label || tr('Alarm'))}${a.days.length ? ', ' + repeatText(a.days) : ''}${skip ? ` · ${tr('Skipping {0}', tr(DAY_LONG[new Date(a.skip).getDay()]))}` : ''}</div></button>
+    ${alarmEditing ? `<button class="icon danger" data-del="${i}" aria-label="${tr('Delete')} ${a.time}">${tr('Delete')}</button>`
       : `<input type="checkbox" class="switch" data-on="${i}" ${a.on ? 'checked' : ''} aria-label="Alarm ${a.time} on">`}</div>`;
   }).join('') : '<div class="empty">No alarms. Tap + to add one.</div>';
 }
@@ -44,7 +44,7 @@ $('alarmList').onclick = (e) => {
   const on = e.target.dataset.on;
   if (on != null) {
     alarms[+on].on = e.target.checked; saveAlarms(); drawAlarms();
-    if (e.target.checked) toast(`Alarm in ${untilText(nextFireOf(alarms[+on], new Date()))}`);
+    if (e.target.checked) toast(tr('Alarm in {0}', untilText(nextFireOf(alarms[+on], new Date()))));
     return;
   }
   const row = e.target.closest('[data-edit]'); if (row && !alarmEditing) openAlarm(+row.dataset.edit);
@@ -53,7 +53,7 @@ let editing = -1;
 function openAlarm(i) {
   editing = i;
   const a = alarms[i] || { time: `${pad(new Date().getHours())}:${pad(new Date().getMinutes())}`, days: [], label: '', sound: 'Radar', snooze: true, snoozeMin: 9 };
-  $('alarmSheetTitle').textContent = i < 0 ? 'Add Alarm' : 'Edit Alarm';
+  $('alarmSheetTitle').textContent = tr(i < 0 ? 'Add Alarm' : 'Edit Alarm');
   $('aTime').value = a.time; aDays.set(a.days); $('aLabel').value = a.label; $('aSound').value = a.sound; $('aSnooze').checked = a.snooze; $('aSnoozeMin').value = a.snoozeMin || 9;
   $('alarmSkip').hidden = !(a.on && a.days.length);   // skipping only makes sense for a repeating alarm
   $('alarmDelete').hidden = i < 0;
@@ -66,7 +66,7 @@ $('aSnoozeMin').innerHTML = Array.from({ length: 15 }, (_, i) => `<option value=
 $('alarmSkip').onclick = () => {
   const a = alarms[editing], at = fireTimes(a.time, a.days, new Date());
   a.skip = at.toDateString(); saveAlarms(); drawAlarms(); $('alarmSheet').close();
-  toast(`Skipping ${DAY_LONG[at.getDay()]}. Next alarm ${DAY_LONG[nextFireOf(a, new Date()).getDay()]}`);
+  toast(tr('Skipping {0}. Next alarm {1}', tr(DAY_LONG[at.getDay()]), tr(DAY_LONG[nextFireOf(a, new Date()).getDay()])));
 };
 $('alarmDelete').onclick = () => { alarms.splice(editing, 1); saveAlarms(); drawAlarms(); $('alarmSheet').close(); };
 $('alarmSheet').onclose = () => {
@@ -77,25 +77,25 @@ $('alarmSheet').onclose = () => {
   if (editing < 0) alarms.push(a); else alarms[editing] = a;
   alarms.sort((x, y) => x.time.localeCompare(y.time));
   saveAlarms(); drawAlarms(); askNotify();
-  if (!store.get('warned', false)) { store.set('warned', true); return toast('Keep this tab open. A closed tab cannot ring.', 6000); }
-  toast(`Alarm in ${untilText(fireTimes(a.time, a.days, new Date()))}`);
+  if (!store.get('warned', false)) { store.set('warned', true); return toast(tr('Keep this tab open. A closed tab cannot ring.'), 6000); }
+  toast(tr('Alarm in {0}', untilText(fireTimes(a.time, a.days, new Date()))));
 };
 $('sleepRow').onclick = (e) => {
   if (!e.target.closest('#sleepEdit')) return;
   $('sOn').checked = sleep.on || !sleep.everSet; $('sBed').value = sleep.bed; $('sWake').value = sleep.wake; sDays.set(sleep.days); $('sWind').value = sleep.wind; $('sSound').value = sleep.sound; $('sSnooze').checked = sleep.snooze;
   sleepHours(); $('sleepSheet').returnValue = ''; $('sleepSheet').showModal();
 };
-function sleepHours() { if ($('sBed').value && $('sWake').value) $('sHours').textContent = `${(((toMin($('sWake').value) - toMin($('sBed').value) + 1440) % 1440) / 60).toFixed(1).replace('.0', '')} hours of sleep`; }
+function sleepHours() { if ($('sBed').value && $('sWake').value) $('sHours').textContent = tr('{0} hours of sleep', (((toMin($('sWake').value) - toMin($('sBed').value) + 1440) % 1440) / 60).toFixed(1).replace('.0', '')); }
 $('sBed').oninput = $('sWake').oninput = sleepHours;
 $('sSound').onchange = () => play($('sSound').value);
 $('sleepSheet').onclose = () => {
   if ($('sleepSheet').returnValue !== 'save') return;
   sleep = { ...sleep, on: $('sOn').checked, everSet: true, bed: $('sBed').value, wake: $('sWake').value, days: sDays.get(), wind: +$('sWind').value, sound: $('sSound').value, snooze: $('sSnooze').checked };
   store.set('sleep', sleep); drawAlarms();
-  if (sleep.on) { askNotify(); toast(`Wake up in ${untilText(fireTimes(sleep.wake, sleep.days, new Date()))}`); }
+  if (sleep.on) { askNotify(); toast(tr('Wake up in {0}', untilText(fireTimes(sleep.wake, sleep.days, new Date())))); }
 };
 function snoozeFor(label, sound, min = 9) {
-  snoozes.push({ at: Date.now() + min * 60000, label, sound, min }); saveAlarms(); toast(`Snoozed for ${min} minute${min > 1 ? 's' : ''}`);
+  snoozes.push({ at: Date.now() + min * 60000, label, sound, min }); saveAlarms(); toast(tr('Snoozed for {0}', `${min} ${tr(min > 1 ? 'minutes' : 'minute')}`));
 }
 function checkAlarms(now) {
   if (!$('ringing').hidden) return;
@@ -105,7 +105,7 @@ function checkAlarms(now) {
       a.last = today;
       if (a.skip === today) { delete a.skip; saveAlarms(); drawAlarms(); continue; }   // skipped this one, ring next time
       if (!a.days.length) a.on = false; saveAlarms(); drawAlarms();
-      return ring({ when: hm.format(now), what: a.label || 'Alarm', sound: a.sound, snooze: a.snooze && (() => snoozeFor(a.label || 'Alarm', a.sound, a.snoozeMin)) });
+      return ring({ when: hm.format(now), what: a.label || tr('Alarm'), sound: a.sound, snooze: a.snooze && (() => snoozeFor(a.label || tr('Alarm'), a.sound, a.snoozeMin)) });
     }
   }
   const due = snoozes.findIndex(s => s.at <= now.getTime());
@@ -113,12 +113,12 @@ function checkAlarms(now) {
   if (!sleep.on) return;
   if (sleep.wake === t && sleep.lastWake !== today && sleep.days.includes(wd)) {
     sleep.lastWake = today; store.set('sleep', sleep);
-    return ring({ when: hm.format(now), what: 'Good morning', sound: sleep.sound, snooze: sleep.snooze && (() => snoozeFor('Good morning', sleep.sound)) });
+    return ring({ when: hm.format(now), what: tr('Good morning'), sound: sleep.sound, snooze: sleep.snooze && (() => snoozeFor(tr('Good morning'), sleep.sound)) });
   }
   const bedDay = new Date(now.getTime() + 864e5).getDay(); // bedtime belongs to the night before a wake day
   if (sleep.days.includes(bedDay) || sleep.days.includes(wd)) {
     const windAt = (toMin(sleep.bed) - sleep.wind + 1440) % 1440, nowMin = now.getHours() * 60 + now.getMinutes();
-    if (sleep.wind && nowMin === windAt && sleep.lastWind !== today) { sleep.lastWind = today; store.set('sleep', sleep); play('Gentle'); notify('Wind Down', `Bedtime at ${hmOf(sleep.bed)}`); toast(`Wind down. Bedtime at ${hmOf(sleep.bed)}`); }
-    if (sleep.bed === t && sleep.lastBed !== today) { sleep.lastBed = today; store.set('sleep', sleep); play('Gentle'); notify('Bedtime', `Wake up at ${hmOf(sleep.wake)}`); toast(`Bedtime. Wake up at ${hmOf(sleep.wake)}`); }
+    if (sleep.wind && nowMin === windAt && sleep.lastWind !== today) { sleep.lastWind = today; store.set('sleep', sleep); play('Gentle'); notify(tr('Wind Down'), tr('Bedtime at {0}', hmOf(sleep.bed))); toast(tr('Wind down. Bedtime at {0}', hmOf(sleep.bed))); }
+    if (sleep.bed === t && sleep.lastBed !== today) { sleep.lastBed = today; store.set('sleep', sleep); play('Gentle'); notify(tr('Bedtime'), tr('Wake up at {0}', hmOf(sleep.wake))); toast(tr('Bedtime. Wake up at {0}', hmOf(sleep.wake))); }
   }
 }

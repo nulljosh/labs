@@ -16,7 +16,7 @@ const store = DEMO ? { get: (k, d) => DEMO_DATA[k] ?? d, set: (k, v) => { DEMO_D
   get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
-const hm = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit' });
+const hm = new Intl.DateTimeFormat(LOCALE, { hour: 'numeric', minute: '2-digit' });
 const atHm = (t) => { const [h, m] = t.split(':').map(Number); const d = new Date(); d.setHours(h, m, 0, 0); return d; };
 const hmOf = (t) => hm.format(atHm(t));
 const hmHTML = (t) => timeHTML(hm, atHm(t));   // small AM or PM, like iOS
@@ -101,9 +101,9 @@ function ticksInto(g) {
   }
 }
 ticksInto($('ticks')); ticksInto($('swTicks'));
-const timeFmt = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit', second: '2-digit' });
-const dateFmt = new Intl.DateTimeFormat(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
-const shortDate = new Intl.DateTimeFormat(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+const timeFmt = new Intl.DateTimeFormat(LOCALE, { hour: 'numeric', minute: '2-digit', second: '2-digit' });
+const dateFmt = new Intl.DateTimeFormat(LOCALE, { weekday: 'long', month: 'long', day: 'numeric' });
+const shortDate = new Intl.DateTimeFormat(LOCALE, { weekday: 'short', month: 'short', day: 'numeric' });
 // Sweep: runs every frame, so the second hand glides instead of ticking. Reduced motion ticks once a second.
 const still = matchMedia('(prefers-reduced-motion: reduce)');
 function drawSweep(now) { $('sh').setAttribute('transform', `rotate(${(now.getSeconds() + (still.matches ? 0 : now.getMilliseconds() / 1000)) * 6})`); }
@@ -114,7 +114,7 @@ function drawClock(now) {
   $('digital').innerHTML = timeHTML(timeFmt, now);
   $('date').textContent = dateFmt.format(now);
   const next = nextAlarm(now);
-  $('nextAlarm').textContent = next ? `Next alarm ${DAY_LONG[next.at.getDay()]} ${hm.format(next.at)}` : '';
+  $('nextAlarm').textContent = next ? tr('Next alarm {0}', `${tr(DAY_LONG[next.at.getDay()])} ${hm.format(next.at)}`) : '';
 }
 
 // Sunrise and sunset, only if location is allowed.

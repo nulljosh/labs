@@ -4,8 +4,8 @@ const swNow = () => sw.acc + (sw.start ? Date.now() - sw.start : 0);
 const saveSw = () => store.set('sw', sw);
 function swButtons() {
   const run = !!sw.start;
-  $('swStart').textContent = run ? 'Stop' : 'Start'; $('swStart').className = run ? 'stop' : 'go';
-  $('swLap').textContent = run || !sw.acc ? 'Lap' : 'Reset'; $('swLap').disabled = !run && !sw.acc;
+  $('swStart').textContent = tr(run ? 'Stop' : 'Start'); $('swStart').className = run ? 'stop' : 'go';
+  $('swLap').textContent = tr(run || !sw.acc ? 'Lap' : 'Reset'); $('swLap').disabled = !run && !sw.acc;
   $('swDigital').hidden = sw.analog; $('swAnalog').toggleAttribute('hidden', !sw.analog); // SVG has no .hidden property
 }
 function swToggle() {
@@ -18,7 +18,7 @@ function swLapReset() {
   saveSw(); swButtons(); drawLaps();
 }
 $('swStart').onclick = swToggle;
-$('swCopy').onclick = () => navigator.clipboard.writeText(lapsTable(sw.laps)).then(() => toast('Laps copied'), () => toast('Copy is blocked here'));
+$('swCopy').onclick = () => navigator.clipboard.writeText(lapsTable(sw.laps)).then(() => toast(tr('Laps copied')), () => toast(tr('Copy is blocked here')));
 $('swLap').onclick = swLapReset;
 [$('swDigital'), $('swAnalog')].forEach(el => {
   el.onclick = () => { sw.analog = !sw.analog; saveSw(); swButtons(); };

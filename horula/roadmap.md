@@ -56,9 +56,10 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] Native parity for v9: presets, intervals and lap copy in the iPhone and Mac app.
 
 ## v10: every language
-- [ ] UI text in English, French, Spanish, German, Japanese, Chinese, Portuguese, Korean, Italian, Dutch, Arabic, Hindi.
-- [ ] Right to left layout for Arabic.
-- [ ] City search works in the local language.
+- [x] UI text in English, French, Spanish, German, Japanese, Chinese, Portuguese, Korean, Italian, Dutch, Arabic, Hindi.
+- [x] Right to left layout for Arabic.
+- [ ] City search works in the local language (needs a translated city list; the web UI is translated, city names are still English).
+- [ ] Native app in the same 12 languages with a String Catalog.
 
 ## v11: a clock for other pages
 - [ ] `embed.html?city=Tokyo` gives a small live clock any site can drop in.

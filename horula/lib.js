@@ -1,5 +1,9 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '9.0.0';
+const VERSION = '10.0.0';
+// UI text in the reader's language: i18n.js fills I18N in the browser; node tests see English.
+const tr = (s, ...a) => ((typeof I18N === 'object' && I18N[s]) || s).replace(/\{(\d)\}/g, (_, i) => a[i]);
+// The chosen language's dates; undefined keeps the browser's own region (en-GB 24 hour, fr-CA) when it is the same language.
+const LOCALE = typeof LANG === 'string' ? (navigator.language?.startsWith(LANG) ? undefined : LANG) : 'en-US';
 const pad = (n, w = 2) => String(Math.floor(n)).padStart(w, '0');
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const DAY = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -7,11 +11,11 @@ const DAY_LONG = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const toMin = (t) => { const [h, m] = t.split(':').map(Number); return h * 60 + m; };
 function repeatText(days) {
   const d = [...days].sort().join('');
-  if (!d) return 'Never';
-  if (d === '0123456') return 'Every day';
-  if (d === '12345') return 'Weekdays';
-  if (d === '06') return 'Weekends';
-  return [...days].sort().map(i => DAY_LONG[i]).join(' ');
+  if (!d) return tr('Never');
+  if (d === '0123456') return tr('Every day');
+  if (d === '12345') return tr('Weekdays');
+  if (d === '06') return tr('Weekends');
+  return [...days].sort().map(i => tr(DAY_LONG[i])).join(' ');
 }
 function fireTimes(time, days, now) {
   // Next moment this hh:mm fires, today or later, on an allowed day.
@@ -24,7 +28,7 @@ function fireTimes(time, days, now) {
 }
 function untilText(at, now = new Date()) {
   const mins = Math.max(1, Math.round((at - now) / 60000)), h = Math.floor(mins / 60), m = mins % 60;
-  return [h && `${h} hour${h > 1 ? 's' : ''}`, m && `${m} minute${m > 1 ? 's' : ''}`].filter(Boolean).join(' ');
+  return [h && `${h} ${tr(h > 1 ? 'hours' : 'hour')}`, m && `${m} ${tr(m > 1 ? 'minutes' : 'minute')}`].filter(Boolean).join(' ');
 }
 // Sunrise and sunset from the NOAA approximation.
 function sunTimes(date, lat, lon) {
@@ -40,7 +44,7 @@ function sunTimes(date, lat, lon) {
   return { rise: at(720 - 4 * (lon + ha) - eqt), set: at(720 - 4 * (lon - ha) - eqt) };
 }
 const fmtTm = (ms) => { const s = Math.max(0, Math.ceil(ms / 1000)); return s >= 3600 ? `${pad(s / 3600)}:${pad(s / 60 % 60)}:${pad(s % 60)}` : `${pad(s / 60)}:${pad(s % 60)}`; };
-const fmtDur = (ms) => { const s = Math.round(ms / 1000), h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, r = s % 60; return [h && `${h} hr`, m && `${m} min`, r && `${r} sec`].filter(Boolean).join(' '); };
+const fmtDur = (ms) => { const s = Math.round(ms / 1000), h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, r = s % 60; return [h && `${h} ${tr('hr')}`, m && `${m} ${tr('min')}`, r && `${r} ${tr('sec')}`].filter(Boolean).join(' '); };
 const fmtSw = (ms) => `${pad(ms / 60000)}:${pad(ms / 1000 % 60)}.${pad(ms / 10 % 100)}`;
 // Best and worst lap need two different splits; equal splits mark nothing.
 function lapMarks(splits) {
@@ -58,8 +62,8 @@ function nextFireOf(a, now) {
 // "Tomorrow Morning", "Today", "Friday Morning", like the iOS sleep row.
 function dayWord(at, now) {
   const d = Math.round((new Date(at).setHours(0, 0, 0, 0) - new Date(now).setHours(0, 0, 0, 0)) / 864e5);
-  const word = d === 0 ? 'Today' : d === 1 ? 'Tomorrow' : new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(at);
-  return at.getHours() < 12 ? `${word} Morning` : word;
+  const word = d === 0 ? tr('Today') : d === 1 ? tr('Tomorrow') : new Intl.DateTimeFormat(LOCALE, { weekday: 'long' }).format(at);
+  return at.getHours() < 12 ? tr('{0} Morning', word) : word;
 }
 // "10m", "1h30m", "90s", "5:00", "1:02:03" or a bare number of minutes, to milliseconds. Over a day or nonsense is null.
 function parseDuration(s) {
@@ -83,8 +87,8 @@ function parseHash(hash) {
 const BACKUP_KEYS = ['alarms', 'sleep', 'zones', 'recents', 'presets'];
 const makeBackup = (state) => JSON.stringify({ app: 'clock', v: 1, saved: new Date().toISOString(), ...Object.fromEntries(BACKUP_KEYS.map(k => [k, state[k]])) }, null, 2);
 function parseBackup(text) {
-  let d; try { d = JSON.parse(text); } catch { throw new Error('That file is not a Horula backup'); }
-  if (!d || d.app !== 'clock' || d.v !== 1) throw new Error('That file is not a Horula backup');
+  let d; try { d = JSON.parse(text); } catch { throw new Error(tr('That file is not a Horula backup')); }
+  if (!d || d.app !== 'clock' || d.v !== 1) throw new Error(tr('That file is not a Horula backup'));
   const str = (v, n) => typeof v === 'string' ? v.slice(0, n) : '';
   const days = (v) => Array.isArray(v) ? [...new Set(v.filter(x => Number.isInteger(x) && x >= 0 && x <= 6))] : [];
   const zoneOk = (z) => { try { new Intl.DateTimeFormat('en-US', { timeZone: z }); return true; } catch { return false; } };
@@ -98,7 +102,7 @@ function parseBackup(text) {
   if (Array.isArray(d.presets)) out.presets = timerList(d.presets, 20);
   const s = d.sleep;
   if (s && HM.test(s.bed) && HM.test(s.wake)) out.sleep = { on: !!s.on, everSet: true, bed: s.bed, wake: s.wake, days: days(s.days), wind: [0, 15, 30, 45, 60].includes(s.wind) ? s.wind : 30, sound: str(s.sound, 20) || 'Gentle', snooze: s.snooze !== false };
-  if (!Object.keys(out).length) throw new Error('That backup is empty');
+  if (!Object.keys(out).length) throw new Error(tr('That backup is empty'));
   return out;
 }
 // Time with its AM or PM split off, so it can be drawn smaller like iOS. 24 hour locales have no period.
@@ -107,7 +111,9 @@ function splitAmPm(fmt, date) {
   if (i < 0) return [parts.map(p => p.value).join(''), ''];
   return [parts.filter((p, j) => j !== i && !(p.type === 'literal' && (j === i - 1 || j === i + 1))).map(p => p.value).join('').trim(), parts[i].value];
 }
-const timeHTML = (fmt, date) => { const [t, p] = splitAmPm(fmt, date); return esc(t) + (p ? `<small class="ap">${esc(p)}</small>` : ''); };
+// The period goes where the language puts it: after in English, before in Japanese, Chinese and Korean.
+const timeHTML = (fmt, date) => { const [t, p] = splitAmPm(fmt, date), ap = p ? `<small class="ap">${esc(p)}</small>` : '';
+  return fmt.formatToParts(date)[0].type === 'dayPeriod' ? ap + esc(t) : esc(t) + ap; };
 // Sun up at this place right now? Checks the days either side so places across the date line work.
 function isDaytime(now, lat, lon) {
   for (const k of [-1, 0, 1]) {
@@ -120,8 +126,8 @@ function isDaytime(now, lat, lon) {
 function offsetLabel(zone, now) {
   const here = new Date(now.toLocaleString('en-US')), there = new Date(now.toLocaleString('en-US', { timeZone: zone }));
   const diff = Math.round((there - here) / 36e5 * 4) / 4;
-  const day = there.getDate() === here.getDate() ? 'Today' : there > here ? 'Tomorrow' : 'Yesterday';
-  return `${day}, ${diff === 0 ? 'same time' : (diff > 0 ? '+' : '') + diff + ' HRS'}`;
+  const day = tr(there.getDate() === here.getDate() ? 'Today' : there > here ? 'Tomorrow' : 'Yesterday');
+  return `${day}, ${diff === 0 ? tr('same time') : (diff > 0 ? '+' : '') + diff + ' ' + tr('HRS')}`;
 }
 // Interval timer: work and rest rounds. The phase after this one, or null when the last work round ends.
 function nextPhase(t) {
@@ -150,4 +156,4 @@ function handAngles(zone, at) {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hourCycle: 'h23', timeZone: zone }).formatToParts(at).map(x => [x.type, +x.value]));
   return { h: (p.hour % 12 + p.minute / 60) * 30, m: p.minute * 6 };
 }
-if (typeof module === 'object') module.exports = { VERSION, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };
+if (typeof module === 'object') module.exports = { VERSION, tr, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };
