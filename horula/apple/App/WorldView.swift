@@ -15,7 +15,7 @@ struct ClockFace: View {
                 for i in 0..<60 {
                     let a = Double(i) * .pi / 30, major = i % 5 == 0, r1 = r * (major ? 0.81 : 0.89)
                     var p = Path(); p.move(to: pt(c, a, r1)); p.addLine(to: pt(c, a, r * 0.94))
-                    g.stroke(p, with: .color(.secondary), style: .init(lineWidth: major ? 3 : 1, lineCap: .round))
+                    g.stroke(p, with: .color(night == nil ? .secondary : night! ? .white.opacity(0.6) : .black.opacity(0.5)), style: .init(lineWidth: major ? 3 : 1, lineCap: .round))
                 }
                 var cal = Calendar.current; cal.timeZone = zone
                 let d = ctx.date.addingTimeInterval(shift), ink: Color = hands ?? (night == nil ? .primary : night! ? .white : .black)

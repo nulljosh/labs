@@ -40,7 +40,7 @@ struct AlarmsView: View {
                                 .opacity(a.on ? 1 : 0.5).frame(maxWidth: .infinity, alignment: .leading).contentShape(Rectangle())
                             }
                             .buttonStyle(.plain)
-                            Toggle("Alarm \(a.time)", isOn: $a.on).labelsHidden().tint(.green)
+                            Toggle("Alarm \(a.time)", isOn: $a.on).labelsHidden().toggleStyle(.switch).tint(.green)
                         }
                     }
                     .onDelete { store.alarms.remove(atOffsets: $0) }

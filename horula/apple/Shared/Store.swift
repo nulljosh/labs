@@ -33,7 +33,7 @@ final class Store {
         stopwatch = load("sw", StopwatchState())
     }
 
-    private static func demoDefaults() -> UserDefaults {
+    static func demoDefaults() -> UserDefaults {
         let d = UserDefaults(suiteName: "horula-demo")!
         d.removePersistentDomain(forName: "horula-demo")
         func put<T: Encodable>(_ k: String, _ v: T) { d.set(try? JSONEncoder.clock.encode(v), forKey: k) }

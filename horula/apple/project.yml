@@ -137,6 +137,21 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.nulljosh.clock.tests
         GENERATE_INFOPLIST_FILE: YES
 
+  # Mac App Store screenshots drawn off screen in the test runner: no app launch, nothing on the display.
+  # TEST_RUNNER_HORULA_SHOTS=/some/folder xcodebuild test -scheme HorulaSnapshots
+  HorulaSnapshots:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - Snapshots
+      - path: App
+        excludes: ["HorulaApp.swift"]
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nulljosh.clock.snapshots
+        GENERATE_INFOPLIST_FILE: YES
+
 schemes:
   Horula-iOS:
     build: { targets: { Horula-iOS: all } }
@@ -147,3 +162,6 @@ schemes:
   HorulaTests:
     build: { targets: { HorulaTests: all } }
     test: { targets: [HorulaTests] }
+  HorulaSnapshots:
+    build: { targets: { HorulaSnapshots: all } }
+    test: { targets: [HorulaSnapshots] }

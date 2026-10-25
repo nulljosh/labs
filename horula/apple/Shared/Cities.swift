@@ -24,7 +24,7 @@ enum Cities {
     }()
 
     static let coords: [String: [Double]] = {
-        guard let url = Bundle.main.url(forResource: "coords", withExtension: "json"),
+        guard let url = Bundle(for: BundleToken.self).url(forResource: "coords", withExtension: "json"),
               let d = try? Data(contentsOf: url), let m = try? JSONDecoder().decode([String: [Double]].self, from: d) else { return [:] }
         return m
     }()
@@ -34,3 +34,6 @@ enum Cities {
         return Clockwork.isDaytime(now, lat: p[0], lon: p[1])
     }
 }
+
+/// The bundle this file is compiled into: the app, a widget, or the snapshot tests.
+private final class BundleToken {}
