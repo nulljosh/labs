@@ -87,7 +87,7 @@ h3 { font-size: 30px; line-height: 32px; }
 .prod a { color: var(--accent); font-size: 15px; text-decoration: none; }
 .prod a:hover { text-decoration: underline; }
 
-/* Footer: brand and link columns, the name set like a masthead, one fine line */
+/* Footer: brand and link columns, a row of glyphs, one fine line */
 .foot { padding: var(--sp-8) var(--sp-4) var(--sp-5); background: var(--bg); overflow: hidden; border-top: 1px solid var(--line); }
 .foot-top { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--sp-4); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-7); }
 .foot-brand { display: grid; gap: var(--sp-2); align-content: start; }
@@ -99,8 +99,10 @@ h3 { font-size: 30px; line-height: 32px; }
 .foot-cols .label { margin-bottom: var(--sp-2); }
 .foot-cols a { color: var(--text); text-decoration: none; font-size: 15px; }
 .foot-cols a:hover { color: var(--accent); }
-.masthead { margin-top: var(--sp-7); font: 700 clamp(64px, 20vw, 340px)/.8 var(--display); text-align: center; color: var(--accent); letter-spacing: -.035em; }
-.legal { margin-top: var(--sp-5); font-size: var(--size-footnote); line-height: 16px; color: var(--sub); text-align: center; }
+.glyphs { margin-top: var(--sp-7); padding-top: var(--sp-6); border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-5); color: var(--accent); }
+.glyphs svg { flex: 1 1 0; max-width: 128px; height: auto; aspect-ratio: 1; fill: none; stroke: currentColor; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.glyphs .glyph-mark { stroke-width: 80; }
+.legal { margin-top: var(--sp-6); font-size: var(--size-footnote); line-height: 16px; color: var(--sub); text-align: center; }
 .legal a { color: inherit; }
 
 .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
