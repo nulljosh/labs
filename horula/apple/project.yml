@@ -1,0 +1,81 @@
+name: Horula
+options:
+  bundleIdPrefix: com.nulljosh
+  deploymentTarget:
+    iOS: "26.1"
+    macOS: "26.0"
+  xcodeVersion: "27.0"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "6.0.0"
+    CURRENT_PROJECT_VERSION: "202610251300"
+    DEVELOPMENT_TEAM: QMM486NPYC
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    GENERATE_INFOPLIST_FILE: YES
+    INFOPLIST_KEY_CFBundleDisplayName: Horula
+    INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+
+targets:
+  Horula-iOS:
+    type: application
+    platform: iOS
+    sources:
+      - path: App
+      - path: Shared
+      - path: ../Horula.icon
+    settings:
+      base:
+        PRODUCT_NAME: Horula
+        PRODUCT_BUNDLE_IDENTIFIER: com.nulljosh.clock   # kept from before the rename: it is the App Store record's id
+        INFOPLIST_FILE: iOS/Info.plist
+        CODE_SIGN_ENTITLEMENTS: iOS/Horula.entitlements
+        TARGETED_DEVICE_FAMILY: "1"                      # iPhone first; iPad needs its own screenshot set
+        ASSETCATALOG_COMPILER_APPICON_NAME: Horula
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
+
+  Horula-macOS:
+    type: application
+    platform: macOS
+    sources:
+      - path: App
+      - path: Shared
+      - path: ../Horula.icon
+    settings:
+      base:
+        PRODUCT_NAME: Horula
+        PRODUCT_BUNDLE_IDENTIFIER: com.nulljosh.clock   # same id as iOS: universal purchase, one App Store record
+        INFOPLIST_FILE: macOS/Info.plist
+        CODE_SIGN_ENTITLEMENTS: macOS/Horula.entitlements
+        ENABLE_HARDENED_RUNTIME: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: Horula
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
+        PRODUCT_MODULE_NAME: Horula_macOS
+
+  HorulaTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - Tests
+      - path: Shared/Clockwork.swift
+      - path: Shared/Models.swift
+      - path: Shared/Store.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nulljosh.clock.tests
+        GENERATE_INFOPLIST_FILE: YES
+
+schemes:
+  Horula-iOS:
+    build: { targets: { Horula-iOS: all } }
+    archive: { config: Release }
+  Horula-macOS:
+    build: { targets: { Horula-macOS: all } }
+    archive: { config: Release }
+  HorulaTests:
+    build: { targets: { HorulaTests: all } }
+    test: { targets: [HorulaTests] }

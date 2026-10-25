@@ -1,0 +1,97 @@
+import XCTest
+
+// The same cases as test/lib.test.js, so the web and native apps cannot drift apart.
+final class ClockworkTests: XCTestCase {
+    var cal: Calendar = { var c = Calendar(identifier: .gregorian); c.timeZone = TimeZone(identifier: "America/Vancouver")!; return c }()
+    func d(_ y: Int, _ mo: Int, _ day: Int, _ h: Int = 0, _ mi: Int = 0, _ s: Int = 0) -> Date {
+        cal.date(from: DateComponents(year: y, month: mo, day: day, hour: h, minute: mi, second: s))!
+    }
+
+    func testRepeatText() {
+        XCTAssertEqual(Clockwork.repeatText([]), "Never")
+        XCTAssertEqual(Clockwork.repeatText([6, 0, 1, 2, 3, 4, 5]), "Every day")
+        XCTAssertEqual(Clockwork.repeatText([5, 1, 2, 3, 4]), "Weekdays")
+        XCTAssertEqual(Clockwork.repeatText([6, 0]), "Weekends")
+        XCTAssertEqual(Clockwork.repeatText([3, 1]), "Mon Wed")
+    }
+
+    func testNextAlarm() {
+        let now = d(2026, 10, 25, 8)   // Sunday 08:00
+        XCTAssertEqual(Clockwork.fireTime("09:30", days: [], after: now, cal: cal), d(2026, 10, 25, 9, 30))
+        XCTAssertEqual(Clockwork.fireTime("07:00", days: [], after: now, cal: cal), d(2026, 10, 26, 7))
+        XCTAssertEqual(Clockwork.fireTime("08:00", days: [], after: now, cal: cal), d(2026, 10, 26, 8), "this very minute waits a day")
+        XCTAssertEqual(Clockwork.fireTime("07:00", days: [6], after: now, cal: cal), d(2026, 10, 31, 7), "Saturday only")
+        let dst = Clockwork.fireTime("07:00", days: [], after: d(2026, 10, 31, 22), cal: cal)!   // clocks fall back Nov 1
+        XCTAssertEqual(cal.component(.day, from: dst), 1); XCTAssertEqual(cal.component(.hour, from: dst), 7)
+        XCTAssertEqual(Clockwork.untilText(d(2026, 10, 25, 15, 12), from: now), "7 hours 12 minutes")
+        XCTAssertEqual(Clockwork.untilText(d(2026, 10, 25, 8, 0, 20), from: now), "1 minute")
+    }
+
+    func testSkipAndDayWord() {
+        let now = d(2026, 10, 25, 8)
+        var a = AlarmItem(time: "07:00", days: [1, 2, 3, 4, 5])
+        XCTAssertEqual(Clockwork.nextFire(a, after: now, cal: cal), d(2026, 10, 26, 7))
+        a.skip = "2026-10-26"
+        XCTAssertEqual(Clockwork.nextFire(a, after: now, cal: cal), d(2026, 10, 27, 7), "skips Monday")
+        XCTAssertEqual(Clockwork.dayWord(d(2026, 10, 26, 7), from: now, cal: cal), "Tomorrow Morning")
+        XCTAssertEqual(Clockwork.dayWord(d(2026, 10, 25, 21), from: now, cal: cal), "Today")
+        XCTAssertEqual(Clockwork.dayWord(d(2026, 10, 30, 6, 30), from: now, cal: cal), "Friday Morning")
+    }
+
+    func testSun() {
+        let t = Clockwork.sunTimes(on: d(2026, 6, 21), lat: 49.28, lon: -123.12, cal: cal)!
+        func mins(_ x: Date) -> Int { cal.component(.hour, from: x) * 60 + cal.component(.minute, from: x) }
+        XCTAssertLessThanOrEqual(abs(mins(t.rise) - (5 * 60 + 7)), 5)
+        XCTAssertLessThanOrEqual(abs(mins(t.set) - (21 * 60 + 22)), 5)
+        XCTAssertNil(Clockwork.sunTimes(on: d(2026, 6, 21), lat: 80, lon: 0, cal: cal), "polar day")
+        XCTAssertTrue(Clockwork.isDaytime(d(2026, 10, 25, 12), lat: 49.28, lon: -123.12, cal: cal))
+        XCTAssertFalse(Clockwork.isDaytime(d(2026, 10, 25, 0, 30), lat: 49.28, lon: -123.12, cal: cal))
+        XCTAssertFalse(Clockwork.isDaytime(d(2026, 10, 25, 12), lat: 35.68, lon: 139.69, cal: cal), "Tokyo at 4am")
+        XCTAssertTrue(Clockwork.isDaytime(d(2026, 10, 25, 12), lat: -36.85, lon: 174.76, cal: cal), "Auckland across the date line")
+    }
+
+    func testOffset() {
+        let here = TimeZone(identifier: "America/Vancouver")!, noon = d(2026, 10, 25, 12)
+        XCTAssertEqual(Clockwork.offsetLabel(zone: "America/Vancouver", at: noon, here: here), "Today, same time")
+        XCTAssertEqual(Clockwork.offsetLabel(zone: "America/Toronto", at: noon, here: here), "Today, +3 HRS")
+        XCTAssertEqual(Clockwork.offsetLabel(zone: "Asia/Tokyo", at: noon, here: here), "Tomorrow, +16 HRS")
+        XCTAssertEqual(Clockwork.offsetLabel(zone: "Asia/Kolkata", at: noon, here: here), "Tomorrow, +12.5 HRS")
+    }
+
+    func testFormats() {
+        XCTAssertEqual(Clockwork.timerText(300), "05:00")
+        XCTAssertEqual(Clockwork.timerText(299.001), "05:00")
+        XCTAssertEqual(Clockwork.timerText(3723), "01:02:03")
+        XCTAssertEqual(Clockwork.durationText(3723), "1 hr 2 min 3 sec")
+        XCTAssertEqual(Clockwork.stopwatchText(61.23), "01:01.23")
+        XCTAssertTrue(Clockwork.lapMarks([5, 5, 5]) == (nil, nil))
+        XCTAssertTrue(Clockwork.lapMarks([5, 3, 8]) == (3, 8))
+    }
+
+    func testDurations() {
+        XCTAssertEqual(Clockwork.parseDuration("10m"), 600); XCTAssertEqual(Clockwork.parseDuration("1h30m"), 5400)
+        XCTAssertEqual(Clockwork.parseDuration("90s"), 90); XCTAssertEqual(Clockwork.parseDuration("5:00"), 300)
+        XCTAssertEqual(Clockwork.parseDuration("1:02:03"), 3723); XCTAssertEqual(Clockwork.parseDuration("25"), 1500)
+        for bad in ["", "abc", "0", "25h", "-5m", "m"] { XCTAssertNil(Clockwork.parseDuration(bad), bad) }
+    }
+
+    func testBackupFromTheWebApp() throws {
+        let web = #"{"app":"clock","v":1,"alarms":[{"time":"07:30","days":[1,2],"label":"Gym","sound":"Radar","on":true,"snooze":true,"snoozeMin":5}],"zones":[{"city":"Tokyo","zone":"Asia/Tokyo"}],"recents":[{"dur":300000,"label":"Tea"}],"sleep":{"on":true,"bed":"23:00","wake":"07:00","days":[0,1],"wind":30,"snooze":true}}"#
+        let b = try Backup.parse(Data(web.utf8))
+        XCTAssertEqual(b.alarms?.first?.label, "Gym"); XCTAssertEqual(b.alarms?.first?.snoozeMin, 5)
+        XCTAssertEqual(b.zones?.first?.zone, "Asia/Tokyo"); XCTAssertEqual(b.recents?.first?.dur, 300); XCTAssertEqual(b.sleep?.wake, "07:00")
+        XCTAssertThrowsError(try Backup.parse(Data("nope".utf8)))
+        XCTAssertThrowsError(try Backup.parse(Data(#"{"app":"other","v":1}"#.utf8)))
+        let dirty = try Backup.parse(Data(#"{"app":"clock","v":1,"alarms":[{"time":"99:99"},{"time":"06:00","days":[9,1,1],"label":"\#(String(repeating: "x", count: 500))","snoozeMin":99}],"zones":[{"city":"X","zone":"Mars/Base"}]}"#.utf8))
+        XCTAssertEqual(dirty.alarms?.map { [$0.time, "\($0.days)", "\($0.label.count)", "\($0.snoozeMin)"] }, [["06:00", "[1]", "40", "9"]])
+        XCTAssertEqual(dirty.zones?.count, 0)
+    }
+
+    func testRoundTrip() throws {
+        let s = Store(defaults: UserDefaults(suiteName: "horula-test-\(UUID())")!)
+        s.alarms = [AlarmItem(time: "06:15", days: [1], label: "Run")]
+        s.recents = [Recent(dur: 540, label: "Pasta")]
+        let back = try Backup.parse(s.backup())
+        XCTAssertEqual(back.alarms?.first?.label, "Run"); XCTAssertEqual(back.recents?.first?.dur, 540)
+    }
+}

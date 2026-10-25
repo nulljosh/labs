@@ -9,3 +9,7 @@ Horula.icon
 brand
 roadmap.md
 test
+apple
+*.xcodeproj
+build
+ExportOptions*.plist

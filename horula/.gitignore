@@ -1,1 +1,4 @@
 .wrangler/
+apple/*.xcodeproj/
+apple/build/
+build/

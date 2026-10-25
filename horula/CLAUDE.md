@@ -16,6 +16,14 @@ iOS Clock on the web: world clocks, alarms, sleep, stopwatch, timers, nightstand
 - `GAPS.md` is the parity checklist against iOS Clock. Close a gap, tick it, test headless at 390px in light and dark.
 - `roadmap.md` runs v2 to v10. One version per release: tick its lines, bump `CACHE`, deploy, tag `horula-vN.0.0` in labs.
 
+## Native app (`apple/`, v6 and up)
+- SwiftUI, one codebase for iPhone and Mac (`xcodegen generate` in `apple/`; the `.xcodeproj` and `build/` are not committed). App Store record 6826916379, bundle `com.nulljosh.clock` on both platforms (universal purchase), app group `group.com.nulljosh.clock`.
+- `Shared/Clockwork.swift` is `lib.js` ported line for line; `Tests/ClockworkTests.swift` runs the same cases as `test/lib.test.js`. Change one, change both.
+- Alarms: AlarmKit on iPhone (iOS 26.1+, rings closed and on silent); Mac and Watch have no AlarmKit and use notifications. `AlarmScheduler.sync` cancels and reschedules everything from the Store.
+- Backups use the web format (`app: 'clock'`, recents in milliseconds), so web and native import each other.
+- `apple/` is in `.assetsignore`: never let native source deploy. Curl one native path after a deploy and expect 404.
+- Native gates, not the web ones: Swift tests pass, generic builds pass for every platform, `asc validate`, then the first `asc review submit` (the real gate). Tag `horula-native-vN.0.0`.
+
 ## The loop
 A `/loop` ships `roadmap.md` one version at a time until v10. Each tick: build the next open version, `node --test`, headless QA at 390px light and dark, deploy, commit, push, tag.
 
