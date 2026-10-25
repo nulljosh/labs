@@ -1,0 +1,66 @@
+/* Clock design tokens. One source for the landing and the app. Shared system: 8 point grid, one radius set,
+   48 point capsule controls. Vermilion is the only colour Clock owns. */
+@font-face { font-family: "Clock Sans"; src: url("fonts/ClockSans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Clock Sans"; src: url("fonts/ClockSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Clock Sans"; src: url("fonts/ClockSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Clock Sans"; src: url("fonts/ClockSans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+/* Clock Sans is Inter, Clock Display is Inter Tight Bold (SIL OFL 1.1, fonts/OFL.txt) */
+@font-face { font-family: "Clock Display"; src: url("fonts/ClockDisplay-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+:root {
+  /* colour */
+  --accent: #c2300a;          /* actions and links; vermilion, AA on paper */
+  --btn: #c2300a;             /* solid buttons, white label */
+  --frame: #f0662f;           /* the thin rule down the window edges */
+  --band: #c2300a;            /* full-bleed sections, white text AA */
+  --band-sub: #fde4d9;        /* secondary text on the band, AA */
+  --band-art: #f59a74;        /* halftone on the band */
+  --band-line: rgba(255, 255, 255, .26);
+  --accent-light: #f0662f;    /* icon gradient top */
+  --accent-deep: #c2300a;     /* icon gradient bottom */
+  --ring: color-mix(in srgb, var(--accent) 30%, transparent);
+  --bg: #ffffff;
+  --surface: #f5f5f7;
+  --line: #e5e5ea;
+  --text: #1d1d1f;
+  --sub: #6e6e73;
+
+  /* type */
+  --display: "Clock Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font: "Clock Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --size-title: 34px;         /* section heads: 40 line */
+  --size-headline: 20px;      /* card heads: 28 line */
+  --size-body: 17px;          /* 24 line */
+  --size-footnote: 13px;      /* 16 line */
+
+  /* space: the 8 point grid */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
+  --measure: 680px;
+  --wrap: 1120px;
+
+  /* shape */
+  --control: 48px;
+  --r-card: 28px;
+  --r-group: 20px;
+  --r-row: 8px;
+  --r-pill: 999px;
+  --r-sq: 2px;                /* landing buttons and panels */
+  --r-icon: 22.5%;
+  --motion: .2s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --accent: #ff8a5c;
+    --btn: #d8400f;
+    --frame: #d8400f;
+    --band: #9c2406;
+    --band-sub: #fbd9cb;
+    --band-art: #e0734a;
+    --bg: #000000;
+    --surface: #1c1c1e;
+    --line: #38383a;
+    --text: #f5f5f7;
+    --sub: #98989d;
+  }
+}

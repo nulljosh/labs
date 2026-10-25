@@ -4,3 +4,6 @@ GAPS.md
 .gitignore
 .wrangler
 deploy.sh
+scripts
+Clock.icon
+brand

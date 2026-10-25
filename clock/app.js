@@ -27,6 +27,7 @@ let lastSec = -1;
 function everySecond(now) { drawClock(now); drawStand(now); tickTimers(); checkAlarms(now); if (now.getSeconds() === 0 && !worldEditing) drawZones(now); }
 function frame() {
   const now = new Date();
+  if (!$('clock').hidden) drawSweep(now);
   if (!$('stopwatch').hidden) drawSw();
   if (now.getSeconds() !== lastSec) { lastSec = now.getSeconds(); everySecond(now); }
   requestAnimationFrame(frame);

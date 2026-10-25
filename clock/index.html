@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js')</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Clock. World clocks, alarms and timers.</title>
+<meta name="description" content="A clock for your phone, Mac or any browser. World clocks, alarms, a bedtime schedule, a stopwatch, timers and a nightstand mode. Works offline. No account.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://clock.jaybulb.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clock">
+<meta property="og:title" content="Clock. World clocks, alarms and timers.">
+<meta property="og:description" content="World clocks, alarms, a stopwatch and timers in one page. Works offline.">
+<meta property="og:url" content="https://clock.jaybulb.com/">
+<meta property="og:image" content="https://clock.jaybulb.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/ClockDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+<header class="nav" aria-label="Site">
+  <nav class="nav-links" aria-label="Main">
+    <a href="#features">Features</a>
+    <a href="#get">Get it</a>
+  </nav>
+  <a class="nav-brand" href="#top" aria-label="Clock home"><img src="icon.svg" alt="" width="28" height="28"><span>Clock</span></a>
+  <div class="nav-end">
+    <a class="btn btn-solid" href="app.html">Open Clock</a>
+  </div>
+</header>
+
+<!-- Art drawn for this page by scripts/gen_art.py and dithered to halftone. Nothing borrowed. -->
+<main id="top">
+<section class="hero">
+  <div class="wrap center">
+    <p class="label">One hand, always moving</p>
+    <h1>Clock</h1>
+    <p class="lead">World clocks, alarms, a stopwatch and timers in one page. It works offline and installs like an app.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="app.html">Open Clock</a>
+      <a class="btn btn-ghost" href="#features">See what it does</a>
+    </div>
+    <p class="fine">iPhone, Mac, Android and any browser. Free. No account.</p>
+  </div>
+
+  <div class="demo-wrap reveal">
+    <div class="stage">
+      <div class="art stage-art" style="--img: url(art/stage.png)" aria-hidden="true"></div>
+      <iframe class="app" src="app.html" title="Clock, live. Try the tabs, set a timer." loading="lazy"></iframe>
+    </div>
+    <p class="demo-hint">The real app, live. Set a timer or add a city.</p>
+  </div>
+</section>
+
+<section class="band" id="features">
+  <div class="band-head">
+    <div class="art band-art" style="--img: url(art/band.png)" aria-hidden="true"></div>
+    <div class="band-copy reveal">
+      <p class="label">Everything that tells time</p>
+      <h2>One page, every clock</h2>
+      <p>The clock you reach for ten times a day, without the ads, the account or the app store.</p>
+    </div>
+  </div>
+  <div class="frows">
+    <article class="frow reveal"><div class="art" style="--img: url(art/world.png)" aria-hidden="true"></div><div><p class="label">World clocks</p><h3>Every city you care about</h3><p>Add a city and see its time, its day and how far ahead or behind it is. Sunrise and sunset too, if you allow your location.</p></div></article>
+    <article class="frow reveal"><div class="art" style="--img: url(art/alarm.png)" aria-hidden="true"></div><div><p class="label">Alarms</p><h3>Alarms and a bedtime</h3><p>Repeat on the days you pick, with snooze and a gentle sound. Set a bedtime and a wake time and Clock counts your sleep.</p></div></article>
+    <article class="frow reveal"><div class="art" style="--img: url(art/timer.png)" aria-hidden="true"></div><div><p class="label">Stopwatch and timers</p><h3>Run as many as you need</h3><p>A stopwatch with laps. Timers that run side by side and remember the ones you use most.</p></div></article>
+  </div>
+  <div class="cells">
+    <article class="cell reveal"><p class="label">Nightstand</p><h3>A bedside clock</h3><p>Big digits that dim at night. The screen stays on until you tap it.</p></article>
+    <article class="cell reveal"><p class="label">Offline</p><h3>Works without a signal</h3><p>It loads once and runs from your device after that.</p></article>
+    <article class="cell reveal"><p class="label">Private</p><h3>No account, no tracking</h3><p>Your alarms and cities stay on your device.</p></article>
+  </div>
+</section>
+
+<section class="sec" id="get">
+  <div class="wrap center">
+    <i class="mark reveal" aria-hidden="true"></i>
+    <p class="label reveal">Get it</p>
+    <h2 class="reveal">Keep it on your home screen</h2>
+    <p class="body reveal">Open Clock in any browser, then add it to your home screen or dock. It opens like an app.</p>
+    <div class="prods">
+      <article class="prod reveal">
+        <div class="art prod-art" style="--img: url(art/card-stopwatch.png)" aria-hidden="true"></div>
+        <p class="label">iPhone and iPad</p><h3>Add to Home Screen</h3><p>Share, then Add to Home Screen. It runs full screen.</p><a href="app.html">Open Clock &rarr;</a>
+      </article>
+      <article class="prod reveal">
+        <div class="art prod-art" style="--img: url(art/card-pendulum.png)" aria-hidden="true"></div>
+        <p class="label">Mac</p><h3>Add to Dock</h3><p>In Safari, File, then Add to Dock. In Chrome, Install Clock.</p><a href="app.html">Open Clock &rarr;</a>
+      </article>
+      <article class="prod reveal">
+        <div class="art prod-art" style="--img: url(art/card-night.png)" aria-hidden="true"></div>
+        <p class="label">Anywhere</p><h3>Android, Windows, Linux</h3><p>Any current browser. Install it from the address bar.</p><a href="app.html">Open Clock &rarr;</a>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>Clock</b><p>World clocks, alarms and timers.</p></div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div><p class="label">Clock</p><a href="app.html">Open Clock</a><a href="#features">Features</a><a href="#get">Install</a></div>
+      <div><p class="label">Source</p><a href="https://github.com/nulljosh/labs/tree/main/clock">GitHub</a><a href="https://github.com/nulljosh/labs/blob/main/clock/brand/BRAND.md">Brand kit</a></div>
+      <div><p class="label">More</p><a href="mailto:trommatic@icloud.com?subject=Clock">Feedback</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
+    </nav>
+  </div>
+  <p class="masthead" aria-hidden="true">Clock</p>
+  <p class="legal">&copy; 2026 Joshua Trommel &middot; MIT License</p>
+</footer>
+
+<script>
+// fade sections in as they scroll into view
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -10% 0px' });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
+</body>
+</html>

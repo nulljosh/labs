@@ -91,11 +91,12 @@ ticksInto($('ticks')); ticksInto($('swTicks'));
 const timeFmt = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit', second: '2-digit' });
 const dateFmt = new Intl.DateTimeFormat(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
 const shortDate = new Intl.DateTimeFormat(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+// Sweep: runs every frame, so the second hand glides instead of ticking.
+function drawSweep(now) { $('sh').setAttribute('transform', `rotate(${(now.getSeconds() + now.getMilliseconds() / 1000) * 6})`); }
 function drawClock(now) {
   const s = now.getSeconds(), m = now.getMinutes() + s / 60, h = (now.getHours() % 12) + m / 60;
   $('hh').setAttribute('transform', `rotate(${h * 30})`);
   $('mh').setAttribute('transform', `rotate(${m * 6})`);
-  $('sh').setAttribute('transform', `rotate(${s * 6})`);
   $('digital').textContent = timeFmt.format(now);
   $('date').textContent = dateFmt.format(now);
   const next = nextAlarm(now);
