@@ -81,7 +81,9 @@ enum ScreenshotCapture {
             window.contentViewController = NSHostingController(rootView: ManageFeedsView(store: store))
         }
 
-        window.setContentSize(size)
+        // CAPTURE_WIDTH=360 checks the narrow window for QA; store frames stay 1280x800.
+        let width = ProcessInfo.processInfo.environment["CAPTURE_WIDTH"].flatMap(Double.init) ?? size.width
+        window.setContentSize(NSSize(width: width, height: size.height))
         window.center()
         window.makeKeyAndOrderFront(nil)
         NSApp.activate()
@@ -91,7 +93,9 @@ enum ScreenshotCapture {
         // worse than a slow capture.
         spin(seconds: state == .feeds ? 2 : 8)
 
-        guard let content = window.contentView else { fail("window has no content view") }
+        // CAPTURE_FRAME=1 grabs the whole window (title bar and toolbar tabs) for QA, not the store.
+        let frame = ProcessInfo.processInfo.environment["CAPTURE_FRAME"] != nil
+        guard let content = frame ? window.contentView?.superview : window.contentView else { fail("window has no content view") }
         // The reading view is a WKWebView, which renders out of process: `cacheDisplay` walks
         // straight past it and yields an empty frame. Its own `takeSnapshot` is the only thing
         // that returns those pixels.

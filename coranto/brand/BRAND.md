@@ -28,7 +28,7 @@ The accent is for actions, links and the icon. Never brown, beige, purple or tea
 ## Type
 Two faces, both renamed from SIL OFL fonts by `scripts/gen_font.py`, license in `web/fonts/OFL.txt`.
 
-- **Coranto Display** is Archivo Narrow Bold. Headlines and small labels only, always in caps, like a newspaper masthead.
+- **Coranto Display** is Archivo Bold with its width axis pinned narrow (wdth 67). Not Archivo Narrow, whose digits are all one width. Proportional figures, natural spacing. Headlines and small labels only, always in caps, like a newspaper masthead.
 - **Coranto Sans** is Archivo, 400 to 700. Everything else. Archivo is drawn after the late 1800s grotesques papers set their news in.
 
 The apps use SF until a build bundles the fonts. Web scale: hero 64 to 232, section 52 to 112, card 30/32, body 17/24, footnote 13/16. Labels 14/16 at 0.1em tracking.

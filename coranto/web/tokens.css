@@ -4,7 +4,7 @@
 @font-face { font-family: "Coranto Sans"; src: url("fonts/CorantoSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 @font-face { font-family: "Coranto Sans"; src: url("fonts/CorantoSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
 @font-face { font-family: "Coranto Sans"; src: url("fonts/CorantoSans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
-/* Coranto Display: Archivo Narrow Bold (SIL OFL 1.1, fonts/OFL.txt), condensed caps for headlines and labels only */
+/* Coranto Display: Archivo Bold at wdth 67 (SIL OFL 1.1, fonts/OFL.txt), condensed caps for headlines and labels only */
 @font-face { font-family: "Coranto Display"; src: url("fonts/CorantoDisplay-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
 
 :root {

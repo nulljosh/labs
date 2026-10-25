@@ -15,7 +15,7 @@ h1, h2 { font-family: var(--display); font-weight: 700; text-transform: uppercas
 
 .container { max-width: 760px; margin: 0 auto; padding: 0 var(--sp-5); }
 
-.btn { height: 40px; padding: 0 var(--sp-4); border-radius: var(--r-sq); display: inline-flex; align-items: center; font: 700 15px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; border: 1px solid transparent; cursor: pointer; transition: background var(--motion), border-color var(--motion); }
+.btn { height: 40px; padding: 0 var(--sp-4); border-radius: var(--r-sq); display: inline-flex; align-items: center; font: 700 15px/1 var(--display); letter-spacing: .02em; text-transform: uppercase; border: 1px solid transparent; cursor: pointer; transition: background var(--motion), border-color var(--motion); }
 .btn:hover { text-decoration: none; }
 .btn-primary { background: var(--btn); color: #fff; }
 .btn-primary:hover { background: color-mix(in srgb, var(--btn) 82%, #fff); }

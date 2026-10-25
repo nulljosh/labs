@@ -1,189 +1,93 @@
 # Coranto Roadmap
 
-> Priority tier 3 (2026-10-17): active feature work, this month. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
+Joshua 2026-10-25: "build out roadmap to v100 then loop to it", then "compare gaps to other news apps like native Apple News and Ground News, loop until 0 remaining gaps, QA and test everything, until A+". The loop prompt lives at `~/.claude/loops/coranto.md`.
 
+## Gap matrix (vs Apple News and Ground News)
 
-## macOS + web (2026-08-28 submitted, 2026-08-30 approved)
-- **macOS 1.0.7 APPROVED 2026-08-30, first ever Mac release.** Version
-  `002bb992-bc3c-4866-8de8-a783a1b8bdaf`, build `202608282156`, submission
-  `daacdad3-5c27-4ac0-861e-bbef348b8801`, now READY_FOR_SALE. Shipped once thumbnails
-  landed, so the listing is not a text-only list. iOS 1.0.6 was left untouched in review.
-  The old 1.0.5 / 202608250940 Mac build predates the entry-card overflow fix and must
-  never be submitted; it is superseded.
-- `asc validate` CANNOT run on this app while an iOS review is open: the age-rating fetch
-  dies on "multiple app infos found" (one WAITING_FOR_REVIEW, one READY_FOR_DISTRIBUTION)
-  and validate has no `--app-info` flag. `asc metadata` does, so pass
-  `--app-info 19c32d48-1d0b-4fa5-8c67-d5b1cf09e2be`. Readiness had to be checked by hand:
-  build attached + VALID, encryption declared false, screenshot uploaded, metadata verified
-  by re-pull. `asc review submit --dry-run` is the closest substitute.
-- **`whatsNew` cannot be set on a first release for a platform**: App Store Connect
-  rejects it with "Attribute 'whatsNew' cannot be edited at this time", and the whole
-  localization PATCH fails atomically, so nothing else in the same apply lands either.
-  Drop the field and re-apply.
-- Web reader live at coranto.jaybulb.com/read (`web/read.html` + `functions/feed.js`
-  CORS proxy). Feeds/subscriptions in localStorage, no accounts.
-- Entry list rows show a thumbnail on iOS, macOS and web (2026-08-28). Priority is
-  `<media:thumbnail>`/`<media:content>` then `<enclosure type="image/*">` then the first
-  `<img>` in the body; protocol-relative and relative srcs resolve against the entry link,
-  and non-http(s) srcs are refused. No image means no thumbnail and an unchanged row - most
-  feeds carry none, so a reserved empty box would have indented the whole list for nothing.
-  The Swift and JS extractors mirror each other deliberately; change both or neither.
-- **Next:** macOS has still never shipped - no MAC_OS version record exists on 6787759999,
-  only the four IOS ones. Ship it as a first release now that the list is not text-only:
-  bump to 1.0.7, archive with raw `xcodebuild` + `asc builds upload --pkg` (`asc xcode
-  export` is iOS-only), push metadata BEFORE submit, reshoot the 1280x800 Mac screenshot
-  (`ios/.asc/screenshots/mac/01-list.png` predates thumbnails). Never submit the build
-  already sitting in ASC (202608250940, Aug 25) - it predates the overflow fix.
+Status: `todo`, `partial`, `done`, or `n/a` (with the reason). The loop works top to bottom. "0 remaining gaps" means no `todo` or `partial` rows. Each `n/a` has a reason Joshua can overrule.
 
-## Landing Page, animated hero + screenshot fix, shipped 2026-08-27
+| # | Feature | Apple News | Ground News | Coranto | Status | Version |
+|---|---------|-----------|-------------|---------|--------|---------|
+| 1 | Resizable window everywhere | yes | yes | Mac floor was 720 pt wide; iPad already resizes | done | 1.1.0 |
+| 2 | One-line list titles, full title on open (Joshua 2026-09-12) | | | one line on iPhone, iPad, Mac and web; Watch keeps two (one line is about 15 characters there) | done | 1.2.0 |
+| 3 | Web reader matches the app (bottom bar Home, Feeds, Settings) | | yes | same three screens, bottom bar, same seed list | done | 1.3.0 |
+| 4 | Share, copy link, open in browser from a story | yes | yes | share sheet and Open in Browser in the reader; web shares or copies the link | done | 1.4.0 |
+| 5 | Text size in the reader | yes | yes | Settings, 13 to 28 pt, app and web | done | 1.5.0 |
+| 6 | Saved stories | yes | yes | none | todo | |
+| 7 | History of read stories, read rows dimmed | yes | yes | none | todo | |
+| 8 | Search stories and sources | yes | yes | none | todo | |
+| 9 | Offline reading with images | yes | | text cached, images not | partial | |
+| 10 | Same story grouped across outlets (full coverage) | yes | yes | none; port `sidewise/src/stories.js` | todo | |
+| 11 | Lean bar per story (left, center, right) | | yes | none; port Sidewise's outlet lean table | todo | |
+| 12 | Lean and owner label on each outlet | | yes | none | todo | |
+| 13 | Compare headlines side by side | | yes | none; Sidewise has the breakdown | todo | |
+| 14 | Blindspot: stories one side barely covers | | yes | none | todo | |
+| 15 | My news bias (lean of what you read) | | yes | none | todo | |
+| 16 | Today: top stories ranked by coverage | yes | yes | newest first | todo | |
+| 17 | Follow topics | yes | yes | sources only | todo | |
+| 18 | Mute a source or topic | yes | yes | unsubscribe only | partial | |
+| 19 | Local news for your region | yes | yes | two Vancouver outlets seeded | partial | |
+| 20 | Follow sources, suggested sources | yes | yes | Feeds tab | done | 1.0.8 |
+| 21 | Background refresh | yes | yes | refresh on open only | todo | |
+| 22 | Notifications for chosen sources | yes | yes | none | todo | |
+| 23 | Home Screen widgets | yes | yes | none | todo | |
+| 24 | iCloud sync of feeds, saved and history | yes | account | none | todo | |
+| 25 | Siri and Shortcuts | yes | | none | todo | |
+| 26 | Listen to a story | News+ | | none; on-device speech | todo | |
+| 27 | Watch app at parity | yes | | list and story, old styling | partial | |
+| 28 | Light and dark mode | yes | yes | yes | done | 1.0.6 |
+| 29 | No account, no tracking | Apple ID | account | yes | done | 1.0.0 |
+| 30 | Factuality score per source | | yes | | n/a | no free source we can cite; we won't invent scores |
+| 31 | Puzzles, magazines, News+ narration | News+ | | | n/a | paid publisher content and licensing |
+| 32 | Weather, stocks and sports scores in Today | yes | | | n/a | needs licensed live data; not reading |
 
-Fixed two web/ bugs. Screenshots were rendering vertically stretched because the `img` height
-attribute locked aspect ratio while CSS `max-width` constrained width; added `height: auto` to
-restore proportions. Added animated hero matching Bookrank's style with drifting feed-headline
-cards instead of book covers, readability scrim, and prefers-reduced-motion guard. Deployed to
-Cloudflare Pages.
+## Road to v100
 
-## 1.0.5, newsline feed merge, `WAITING_FOR_REVIEW` 2026-08-25
+Minor version per row, major version per band. Each major gets the full QA below and a store submit if no review is open.
 
-Submitted 16:45 UTC. Build `202608250942`, version id `2d6c2b40-2dc8-4d7f-ad99-4ee610b0bbd0`,
-submission `a26ac12d-8e2b-4468-ba96-9f2f53ee70ba`. `marketingUrl` set to heyitsmejosh.com in
-the same window (it locks at READY_FOR_SALE), so Coranto comes off the cross-repo
-"still locked" list.
+- **1.x Reader core** (rows 2 to 9). **2.0** QA.
+- **2.x Ground News** (rows 10 to 15), by porting Sidewise's clustering and lean data to Swift and the web reader. **3.0** QA. Then one line to Joshua: Sidewise is now inside Coranto, so keep both, or retire Sidewise?
+- **3.x Today and topics** (rows 16 to 19). **4.0** QA.
+- **4.x Around the system** (rows 21 to 27). **5.0** = 0 gaps: side-by-side QA against Apple News and Ground News, then call it.
+- **5 to 9 Podcasts** (Joshua 2026-08-24, confirmed): enclosure audio, a player with background audio and lock-screen controls, resume position, downloads. Apple Podcasts is the design reference. Positioning check with Joshua before 5.0, since it turns a reader into a listener.
+- **10 to 19 Writing** (CMS phases 1 and 2 below). Gate: re-decide the backend first (the plan says Supabase, but the free tier is maxed and the fleet moved to Cloudflare D1), and confirm with Joshua that Coranto may drop "no account".
+- **20 to 29 Subscribers** (CRM phase 3). Same gate.
+- **30 to 49 Android** from `kmp/`. Gate: a Play developer account.
+- **50 to 99** speed, accessibility (VoiceOver, Dynamic Type, Reduce Motion), every language, design polish. Money is free or $1 only; ads (Joshua's 2026-09-12 note) go to him as one question, since "no tracking" is the pitch.
+- **100** one reader on iPhone, iPad, Mac, Watch, web and Android, in sync.
+- Past 100 the number just counts; take the most useful thing the last versions surfaced, bugs first.
 
-**Gotcha for next time:** `asc workflow run ship-ios` archived, exported and uploaded fine, then
-failed its `publish` step on `submission-blocking localization fields are missing: en-US:
-whatsNew`. Writing `metadata/version/<v>/en-US.json` is not enough, the workflow never pushes
-it. Run `asc metadata push --app <id> --version <v> --platform IOS --dir ./metadata` *before*
-the workflow. And do not just re-run `publish` to recover: the build is already uploaded, so it
-dies on "bundle version must be higher". Recover with `asc review submit --app <id> --version
-<v> --build-id <id> --confirm` against the build that already landed.
+## QA every major version
 
-Coranto no longer launches subscribed to one blog. `FeedStore.seedFeeds` now carries the 16
-curated outlets from newsline (`~/Documents/Code/newsline/src/feeds.js`) alongside the Journal
-feed, and Manage Feeds grew a **Suggested** section so a removed seed can be re-added. Only the
-*list* crossed over, Coranto still parses RSS/Atom itself, so there is no runtime dependency
-on the newsline Worker, and newsline's bias scores were dropped (no bias bar here).
+- Tests: `node test.mjs` (web), the DEBUG parser self-checks on launch, `cd kmp && ./gradlew :shared:allTests` (when a JDK is present).
+- Build iOS, Mac and Watch with no warnings added.
+- Screenshots: iPhone and iPad simulators with `-tab 0|1|2` and `-selectFirst`, light and dark; Mac with `scripts/capture-mac-shots.sh` and `CAPTURE_FRAME=1` for the toolbar tabs; web reader at 390 px and desktop; the landing (it iframes `read.html?embed`).
+- Live check after every web deploy: curl the pages and `/feed`.
 
-Closes the "Phase 3 merges: newsline → coranto" item in the cross-repo roadmap, and settles
-"Newsline: do NOT submit", its value now lives inside a shipping app.
+## Other open asks from Joshua
 
-Fixed in the same version, and worth remembering: `FeedParser.parseDate` only understood
-RFC822 zones written as an offset (`-0400`), not as a name (`EDT`, `GMT`). Unparsed dates fell
-back to `Date()`, so an entire feed could pin itself to the top of a newest-first list forever
-,  invisible with one feed, glaring with seventeen. Now tries a named-zone format too and falls
-back to `.distantPast`, so anything genuinely undated sinks instead of floating.
+- Expand the curated seed sources beyond the current set (2026-09-12). Check recency with Sidewise's `check-feeds.mjs` first: zombie feeds still return 200.
+- Audit the journal repo for personal data (2026-08-22). That's the Jekyll blog repo, not this one.
 
-## ASC state verified 2026-08-10
-Live state from `asc versions list --app 6787759999`:
+## CMS/CRM plan (scoped 2026-08-02, gated, see band 10)
 
-| Version | State | Created |
-|---|---|---|
-| 1.0.3 | `READY_FOR_SALE` | 2026-08-10 |
-| 1.0.2 | `READY_FOR_SALE` | 2026-07-05 |
+Coranto stays a reader and also becomes a Ghost-style writing client.
+- Phase 1, single-user write access. Tables `inkpress_posts` and `inkpress_contacts` exist on the shared `spark` Supabase project, RLS on, no policies, no rows, and no `user_id` column. Before any policy: add `user_id uuid not null references auth.users(id) default auth.uid()`, then one `using (user_id = auth.uid()) with check (user_id = auth.uid())` policy per table. Auth config on `spark` is shared by other apps, so diff before any PATCH. `status` has no CHECK and there is no `scheduled_at`.
+- Phase 2, compose, edit and publish with draft, scheduled and published states.
+- Phase 3, subscribers as contacts (name, email, notes, source).
+- Phase 4, pages, tags, search.
 
-**v1.0.3 APPROVED and LIVE** (approved 2026-08-10, icon redesign + loading indicator + multi-feed screenshot). **v1.0.4 READY** (blank-article fix via WKWebView rendering, not submitted; the 5.6 freeze lifted 2026-08-18 but no 1.0.4 version row or build exists yet, needs archive + upload). No `MAC_OS` version row exists on the record.
+## Ship notes
 
-## CMS/CRM pivot (scoped 2026-08-02, big, needs backend, phase before building)
-Goal: Coranto stays an RSS reader AND becomes a WordPress/Ghost-style CMS+CRM client. Currently pure read-only (no accounts, no write backend) per its own CLAUDE.md, this is a real scope change, not a bolt-on.
+- `asc validate` dies on "multiple app infos found" while a review is open; check readiness by hand and use `asc review submit --dry-run`.
+- `whatsNew` can't be set on a platform's first release, and a failed field fails the whole localization PATCH.
+- Article bodies render in a `WKWebView` on purpose; the `NSAttributedString` importer rendered blank bodies.
+- Thumbnails come from `media:thumbnail`/`media:content`, then `enclosure`, then the first `<img>`; the Swift and JS extractors mirror each other, so change both.
+- The feed parsers prefer `content:encoded` over `description` (2026-10-25); before that, both were glued together and stories showed their text twice.
 
-Phased so each phase ships something real instead of one giant unshippable build:
+## Shipped
 
-- [ ] **Phase 1, single-user authenticated write access. DEFINED 2026-08-13** (was "MISSING FROM THIS PLAN", noted 2026-08-04). Live DB state verified against the shared `spark` project (`tjsxsqlxjmanwvmywwvw`) on 2026-08-13:
-  - `inkpress_posts` (`id`, `title`, `body_html`, `status` default `'draft'`, `created_at`, `updated_at`, `published_at`) and `inkpress_contacts` (`id`, `email`, `name`, `source`, `created_at`) both exist, RLS **enabled**, **0 policies**, **0 rows**.
-  - RLS-on-with-no-policies means deny-all for `anon` and `authenticated`; only `service_role` (which bypasses RLS) can touch them today. Safe, but no client can read or write.
-  - **The blocking gap nobody had named: neither table has a `user_id` column.** The "missing RLS policies" cannot be written as-is, there is nothing for `auth.uid()` to match against. This must be fixed *first*; it is the actual first step of Phase 1, not a detail of Phase 2.
-
-  Steps, in order:
-  1. **Migration**: add `user_id uuid not null references auth.users(id) default auth.uid()` to both tables. Both are empty, so no backfill and no nullable-then-tighten dance.
-  2. **Policies**: one `for all using (user_id = auth.uid()) with check (user_id = auth.uid())` per table. This matches the established content-table pattern on this same DB (`brief_data`, `brief_documents`, `brief_checklist`). Do *not* copy the hardcoded-owner shortcut used by `brief_config`/`family_config` (`auth.uid() = '7453f262-…'::uuid`), that is a config-table pattern and would need a rewrite the moment a second author exists.
-  3. **Swift client**: add the Supabase Swift SDK and a sign-in screen, same pattern as litigate/epiphany. `auth.users` already has 8 rows on this shared project, so the account exists; this is wiring, not user creation.
-  4. **Verify**: signed-in insert succeeds, signed-out insert is refused by RLS. That second half is the test that actually proves the policies work.
-
-  Constraint: auth config (`site_url`, `uri_allow_list`) is **project-wide** on the shared `spark` DB and is also serving sparkjar/litigate/lexly. Diff before PATCHing; never blind-overwrite.
-
-  Two schema gaps to settle here or explicitly defer to Phase 2: `status` has no CHECK constraint (nothing enforces draft/scheduled/published), and there is no `scheduled_at` column, so the "scheduled" state has nowhere to store its publish time.
-- [ ] **Phase 2, CMS read+write MVP.** Compose/edit a post in-app, publish to the chosen backend (Phase 0). Draft/scheduled/published states like Ghost. Needs accounts (single-user auth is enough at first).
-- [ ] **Phase 3, CRM layer.** Contacts/subscribers list (name, email, notes, source), tied to the same backend. Newsletter-subscriber-as-CRM-contact is the natural Ghost-esque bridge, not a separate sales-pipeline CRM.
-- [ ] **Phase 4, polish.** Theming/pages (WordPress-style), tags/categories, search.
-
-Note: this pulls Coranto away from its current "general-purpose reader, no accounts, no user-authored content" rule in its own CLAUDE.md, update that file once Phase 0 is decided.
-
-### Article rendering (2026-08-10)
-- **Native SwiftUI article renderer (optional).** Reclassified 2026-08-13: this is conditional on a
-  future want, not a pending action, the current web view is the correct answer until one of the
-  triggers below actually appears. v1.0.4 renders post bodies in a
-  `WKWebView` (`ios/Sources/Shared/Views/EntryDetailView.swift`) after the previous
-  `NSAttributedString` HTML importer produced blank bodies, SwiftUI `Text` renders nothing
-  for an `AttributedString` containing an `NSTextAttachment`, which is what the importer
-  makes of the `<img>` opening every post. The web view works and is the right lazy answer.
-  Only revisit if offline image caching or a reader mode is wanted; that needs a real
-  HTML→blocks parser. Related: [[project_webview_wrapper_gaps]], this is a deliberate
-  web view for article bodies, not a whole-app WKWebView wrapper.
-
-## Ingested 2026-08-22
-- [ ] Audit the journal repo for sensitive/personal data and clean it up. From Notes: "Clean up any sensitive data, or anything personal. All info should remain about code, not personal relationships etc." Applies to the journal content repo and anything already deployed.
-
-## Landing page (2026-08-23)
-Pages exist and are pushed (`web/`: `index.html`, `privacy.html`, `support.html`).
-Everything below is account setup that needs Cloudflare and GitHub credentials, all
-of it is doable from a phone browser, no terminal required.
-
-- [ ] **Add the two repo secrets.** github.com/nulljosh/labs/tree/main/coranto > Settings > Secrets and
-  variables > Actions: `CLOUDFLARE_API_TOKEN` (My Profile > API Tokens > Create, template
-  "Edit Cloudflare Workers", or a custom token with Account > Cloudflare Pages > Edit) and
-  `CLOUDFLARE_ACCOUNT_ID` (right-hand sidebar of any Cloudflare dashboard page).
-  Only needed for the GitHub Actions path, if the Git integration above is connected,
-  Cloudflare builds on its own and the workflow is belt-and-braces.
-- [ ] **Confirm both pages load** at `/privacy.html` and `/support.html` before touching
-  App Store Connect.
-- [ ] Point App Store Connect at the real pages once `coranto.jaybulb.com` is
-  serving. `metadata/app-info/en-US.json` has `privacyPolicyUrl` and
-  `metadata/version/1.0.3/en-US.json` has `supportUrl`, both set to
-  `https://journal.heyitsmejosh.com`, the Jekyll blog homepage, which is neither a
-  privacy policy nor a support page. Should become
-  `https://coranto.jaybulb.com/privacy.html` and `.../support.html`. Left
-  unchanged for now because pointing Apple at URLs that do not resolve yet is worse
-  than the current wrong-but-live URL. Order: deploy Pages, confirm both pages load,
-  then edit the metadata and sync with `asc`.
-
-## 2026-08-23, needs real test coverage
-iOS 1.0.3 is Ready for Distribution and the App Store side is fine. The gap is testing, not review.
-- [ ] Add tests over the core write/save/publish path; run them before the next version bump.
-
-## Ingested 2026-08-24
-
-- [ ] Optional follow-up: mint a Pages-scoped Cloudflare token, add it as the `CLOUDFLARE_API_TOKEN` repo secret, and restore the deploy step (it is preserved as a comment in `.github/workflows/deploy-web.yml`). Needs the Cloudflare dashboard, the wrangler OAuth token can't create API tokens.
-- [ ] **Extend Coranto from a text/RSS reader into podcasts.** From Notes 2026-08-24, confirmed
-      the same day: this rides on Coranto rather than becoming a separate app, since the feed
-      plumbing already exists, a podcast feed is just RSS with `<enclosure>` audio. Use Apple's
-      Podcasts app as the design reference. Needs: enclosure parsing, an audio player with
-      background playback and lock-screen controls (`MPNowPlayingInfoCenter` / `AVAudioSession`),
-      per-episode playback position, and downloads for offline. Note this widens Coranto from a
-      reading product into a listening one, worth a positioning check before it grows further.
-
-## WebMCP + REST API rollout -- assessed and closed 2026-08-27
-
-Not doing this here. `web/` is a 91-line App Store landing page with zero `<script>` tags. The real app is iOS. Nothing for a browser agent to drive.
-
-A tool on a page like this would be `get_page_content`, which spends an
-agent's context restating text it can already read. That is noise, not
-coverage, and it makes the honest tools in the other repos harder to find.
-
-Shipped instead in: epiphany, healstack, roost, curvely, wiretext, litigate,
-cadence, sparkjar, lexly, talli, quotable, wordroot, newsline, nyc, notes,
-bookrank, homeward.
-
-## Ingested 2026-09-12
-- [ ] Expand curated seed sources beyond the current 16.
-- [ ] Explore ads (iAd-style) now that Coranto is a real newspaper-shaped app; users tolerate ads in news apps more than in games.
-- [ ] List row titles: truncate to one line, clean up formatting; full title only shows on open.
-
-## TUI pilot (2026-09-05)
-- `coranto-tui` SwiftPM target (SwiftTUI). `swift build && ./.build/debug/coranto-tui <feed-url>` fetches through the CORS proxy and lists item titles via Foundation's XMLParser. Needs a real TTY.
-
-## Ingested 2026-10-05
-- [ ] QA
-
-## Ingested 2026-10-16
-- [ ] What is this app? QA it. (also see root roadmap: compare and maybe merge with Sidewise) (screenshots: notes/attachments/2026-10-16/coranto-and-sidewise-1.png)
-- [ ] What is this app? QA it. (also see root roadmap: compare and maybe merge with Sidewise) (screenshots: notes/attachments/2026-10-16/coranto-and-sidewise-1.png)
+- 2026-10-25 1.0.8 (iOS and Mac, in review): renamed Inkpress to Coranto, blue brand and icon, bottom tab bar replaces the sidebar, Settings tab, doubled-text fix, dead upvote button removed, purple links fixed, old heyitsmejosh feeds migrated, coranto.jaybulb.com live.
+- 2026-08-30 macOS 1.0.7, first Mac release.
+- 2026-08-25 1.0.5, 16 curated news feeds seeded, named-zone date fix.
+- 2026-08-10 1.0.3, new icon, loading indicator.

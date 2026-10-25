@@ -2,70 +2,138 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coranto — read</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Coranto, read</title>
 <meta name="description" content="Read all your RSS and Atom feeds in one merged timeline, in the browser.">
 <meta name="theme-color" content="#0059B3">
 <link rel="icon" href="icon.svg">
 <link rel="stylesheet" href="style.css">
 <style>
-  .reader { max-width: 1100px; margin: 0 auto; padding: 24px 20px 60px; }
-  .bar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
-  .bar h1 { font-size: 22px; margin: 0; flex: 1; }
-  .bar input { flex: 1 1 260px; padding: 8px 10px; font: inherit; color: var(--text);
-    background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; }
-  .cols { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 24px; align-items: start; }
-  @media (max-width: 800px) { .cols { grid-template-columns: 1fr; } }
-  ul.entries { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
-  ul.entries li { border-bottom: 1px solid var(--border); }
-  ul.entries button { display: flex; gap: 10px; align-items: flex-start; width: 100%;
-    text-align: left; background: none;
-    border: 0; padding: 12px 8px; font: inherit; color: var(--text); cursor: pointer; }
-  ul.entries .txt { flex: 1; min-width: 0; }
-  ul.entries img.thumb { flex: 0 0 56px; width: 56px; height: 56px; object-fit: cover;
-    border-radius: 6px; background: var(--bg2); }
-  ul.entries button:hover, ul.entries button[aria-current="true"] { background: var(--bg2); }
-  ul.entries b { display: block; font-weight: 600; margin-bottom: 3px; }
-  ul.entries small { color: var(--text2); }
-  .article { border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; }
-  .article img { max-width: 100%; height: auto; border-radius: 8px; }
+  /* Same three screens as the app: Home, Feeds, Settings, behind a bottom bar. */
+  .screen { max-width: 760px; margin: 0 auto; padding: var(--sp-6) var(--sp-4) 120px; }
+  .screen[hidden] { display: none; }
+  .head { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+  .head h1 { font-size: 40px; flex: 1; }
+  .icon-btn { width: 40px; height: 40px; border-radius: var(--r-pill); border: 1px solid var(--line);
+    background: var(--surface); color: var(--text); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+  .icon-btn svg { width: 18px; height: 18px; }
+  .group { background: var(--surface); border-radius: var(--r-group); overflow: hidden; }
+  .group + .label, .note + .label { margin-top: var(--sp-5); }
+  .label { font-size: 13px; font-weight: 600; color: var(--sub); margin: 0 var(--sp-4) var(--sp-2); }
+  .note { font-size: 13px; color: var(--sub); margin: var(--sp-2) var(--sp-4) 0; }
+  ul.rows { list-style: none; }
+  ul.rows li + li { border-top: 1px solid var(--line); }
+  .row { display: flex; gap: var(--sp-3); align-items: center; width: 100%; min-height: 48px; text-align: left;
+    background: none; border: 0; padding: var(--sp-3) var(--sp-4); font: inherit; color: var(--text); }
+  button.row { cursor: pointer; }
+  button.row:hover { background: color-mix(in srgb, var(--text) 4%, transparent); }
+  .row .txt { flex: 1; min-width: 0; }
+  .row b { display: block; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row small { display: block; color: var(--sub); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row img.thumb { flex: 0 0 56px; width: 56px; height: 56px; object-fit: cover; border-radius: 6px; background: var(--line); }
+  .row .chev { color: var(--sub); flex: none; }
+  .act { flex: none; background: none; border: 0; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; padding: var(--sp-2); }
+  .row a { color: var(--accent); }
+  .add { display: flex; gap: var(--sp-2); padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--sp-4); align-items: center; }
+  .add input { flex: 1; min-width: 0; height: 40px; border: 0; background: none; font: inherit; color: var(--text); }
+  .add input:focus-visible { outline: none; }
+  .muted { color: var(--sub); padding: var(--sp-4); }
+  .story-bar { display: flex; justify-content: space-between; }
+  .back-btn { background: none; border: 0; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; padding: var(--sp-2) 0; margin-bottom: var(--sp-4); }
+  .article h2 { font-family: var(--font); text-transform: none; letter-spacing: 0; font-size: 28px; line-height: 1.25; margin-bottom: var(--sp-2); }
+  .article .meta { color: var(--sub); font-size: 13px; margin-bottom: var(--sp-5); }
+  .article { font-size: var(--read-size, 17px); }
+  .article p { margin-bottom: var(--sp-4); }
+  .stepper { display: flex; gap: var(--sp-1); }
+  .stepper button { width: 40px; height: 32px; border-radius: var(--r-row); border: 1px solid var(--line); background: var(--bg); color: var(--text); font: inherit; font-weight: 600; cursor: pointer; }
+  .article img { max-width: 100%; height: auto; max-height: 50vh; object-fit: cover; border-radius: 8px; }
   .article pre, .article table { display: block; overflow-x: auto; }
-  .feeds { margin: 0 0 16px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
-  .feeds li { font-size: 13px; background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 999px; padding: 3px 10px; }
-  .feeds button { background: none; border: 0; cursor: pointer; color: var(--text2); font: inherit; }
-  .muted { color: var(--text2); }
+  .tabbar { position: fixed; left: 50%; transform: translateX(-50%); bottom: max(var(--sp-4), env(safe-area-inset-bottom));
+    display: flex; gap: var(--sp-1); padding: var(--sp-1); border-radius: var(--r-pill); border: 1px solid var(--line);
+    background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .tabbar a { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 84px; padding: 6px var(--sp-3);
+    border-radius: var(--r-pill); color: var(--text); font-size: 11px; font-weight: 600; }
+  .tabbar a:hover { text-decoration: none; }
+  .tabbar a svg { width: 22px; height: 22px; }
+  .tabbar a[aria-current="page"] { color: var(--accent); background: var(--surface); }
 </style>
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="/icon-192.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <style>.embed .bar h1{display:none}</style>
-  <script>if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed')</script>
 </head>
 <body>
 
-<div class="reader">
-  <div class="bar">
-    <h1><a href="index.html">Coranto</a> — read</h1>
-    <input id="add" type="url" placeholder="Add feed URL (RSS or Atom), press Enter">
-    <button class="btn btn-outline" id="refresh">Refresh</button>
+<main class="screen" id="home">
+  <div class="head">
+    <h1>Coranto</h1>
+    <button class="icon-btn" id="refresh" title="Refresh" aria-label="Refresh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"/></svg></button>
   </div>
-  <ul class="feeds" id="feeds"></ul>
-  <div class="cols">
-    <ul class="entries" id="entries"><li class="muted" style="padding:12px 8px">Loading…</li></ul>
-    <div class="article" id="article"><p class="muted">Pick an entry.</p></div>
-  </div>
-</div>
+  <div class="group"><ul class="rows" id="entries"><li class="muted">Loading…</li></ul></div>
+</main>
+
+<main class="screen" id="story" hidden>
+  <div class="story-bar"><button class="back-btn" id="back">&lsaquo; Home</button><button class="back-btn" id="share">Share</button></div>
+  <article class="article" id="article"></article>
+</main>
+
+<main class="screen" id="feeds" hidden>
+  <div class="head"><h1>Feeds</h1></div>
+  <div class="group"><form class="add" id="add-form">
+    <input id="add" type="text" inputmode="url" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="Add feed URL (RSS or Atom)" aria-label="Feed URL">
+    <button class="act" type="submit">Add</button>
+  </form></div>
+  <p class="note" id="add-note">Paste any RSS or Atom feed URL to follow it.</p>
+  <p class="label">Following</p>
+  <div class="group"><ul class="rows" id="following"></ul></div>
+  <p class="label" id="suggested-label">Suggested</p>
+  <div class="group" id="suggested-group"><ul class="rows" id="suggested"></ul></div>
+</main>
+
+<main class="screen" id="settings" hidden>
+  <div class="head"><h1>Settings</h1></div>
+  <p class="label">Reading</p>
+  <div class="group"><ul class="rows">
+    <li><div class="row"><span class="txt">Text size <small id="size-label"></small></span>
+      <span class="stepper"><button id="size-down" aria-label="Smaller text">A&minus;</button><button id="size-up" aria-label="Larger text">A+</button></span></div></li>
+    <li><p class="row muted" id="size-sample" style="padding:var(--sp-3) var(--sp-4)">The quick brown fox reads the news.</p></li>
+  </ul></div>
+  <p class="label"></p>
+  <div class="group"><ul class="rows">
+    <li><a class="row" href="https://apps.apple.com/app/id6787759999">Get the app for iPhone, iPad and Mac</a></li>
+  </ul></div>
+  <p class="label"></p>
+  <div class="group"><ul class="rows">
+    <li><a class="row" href="index.html">Website</a></li>
+    <li><a class="row" href="privacy.html">Privacy</a></li>
+    <li><a class="row" href="support.html">Support</a></li>
+  </ul></div>
+</main>
+
+<nav class="tabbar" aria-label="Sections">
+  <a href="#" data-tab="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>Home</a>
+  <a href="#feeds" data-tab="feeds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>Feeds</a>
+  <a href="#settings" data-tab="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>Settings</a>
+</nav>
 
 <script>
-// ponytail: seed list mirrors FeedStore.seedFeeds in the iOS app. Two copies beats
+// ponytail: seed list mirrors FeedStore.seedFeeds and journalFeed in the app. Two copies beats
 // standing up an API to serve 17 URLs; if it drifts, nothing breaks but the defaults.
+var JOURNAL = { title: 'Journal', url: 'https://journal.jaybulb.com/feed.xml' };
 var SEEDS = [
-  ['Journal', 'https://journal.jaybulb.com/feed.xml'],
   ['CBC', 'https://www.cbc.ca/webfeed/rss/rss-topstories'],
   ['The Guardian', 'https://www.theguardian.com/world/rss'],
   ['NPR', 'https://feeds.npr.org/1001/rss.xml'],
   ['BBC', 'https://feeds.bbci.co.uk/news/world/rss.xml'],
+  ['Global News', 'https://globalnews.ca/feed/'],
+  ['NBC News', 'https://feeds.nbcnews.com/nbcnews/public/news'],
+  ['Wall Street Journal', 'https://feeds.content.dowjones.io/public/rss/RSSWorldNews'],
+  ['National Post', 'https://nationalpost.com/feed'],
+  ['Fox News', 'https://moxie.foxnews.com/google-publisher/latest.xml'],
+  ['NY Post', 'https://nypost.com/feed/'],
+  ['NY Post Opinion', 'https://nypost.com/opinion/feed/'],
+  ['Daily Wire', 'https://www.dailywire.com/feeds/rss.xml'],
+  ['Vancouver Sun', 'https://vancouversun.com/feed'],
+  ['The Province', 'https://theprovince.com/feed'],
   ['Hacker News', 'https://hnrss.org/frontpage'],
   ['Daring Fireball', 'https://daringfireball.net/feeds/main']
 ].map(function (f) { return { title: f[0], url: f[1] }; });
@@ -73,12 +141,13 @@ var SEEDS = [
 var feeds = load(), entries = [];
 
 function load() {
-  try { return JSON.parse(localStorage.getItem('inkpress.feeds')) || SEEDS; }
-  catch (e) { return SEEDS; }
+  try { return JSON.parse(localStorage.getItem('inkpress.feeds')) || SEEDS.slice(); }
+  catch (e) { return SEEDS.slice(); }
 }
 function save() {
   try { localStorage.setItem('inkpress.feeds', JSON.stringify(feeds)); } catch (e) {}
 }
+
 
 function text(node, names) {
   for (var i = 0; i < names.length; i++) {
@@ -150,8 +219,7 @@ function parse(xml, source) {
 }
 
 async function refresh() {
-  document.getElementById('entries').innerHTML =
-    '<li class="muted" style="padding:12px 8px">Loading…</li>';
+  document.getElementById('entries').innerHTML = '<li class="muted">Loading…</li>';
   var results = await Promise.all(feeds.map(async function (f) {
     try {
       var r = await fetch('/feed?url=' + encodeURIComponent(f.url));
@@ -163,108 +231,155 @@ async function refresh() {
   renderEntries();
 }
 
-function renderFeeds() {
-  var ul = document.getElementById('feeds');
-  ul.innerHTML = '';
-  feeds.forEach(function (f, i) {
-    var li = document.createElement('li');
-    li.textContent = f.title + ' ';
-    var b = document.createElement('button');
-    b.textContent = '×';
-    b.title = 'Unsubscribe';
-    b.onclick = function () { feeds.splice(i, 1); save(); renderFeeds(); refresh(); };
-    li.appendChild(b);
-    ul.appendChild(li);
-  });
+function el(tag, cls, text) {
+  var n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (text != null) n.textContent = text;
+  return n;
+}
+
+function dateText(d, style) {
+  return d.getTime() ? d.toLocaleDateString(undefined, { dateStyle: style }) : '';
 }
 
 function renderEntries() {
   var ul = document.getElementById('entries');
   ul.innerHTML = '';
-  if (!entries.length) {
-    ul.innerHTML = '<li class="muted" style="padding:12px 8px">No entries.</li>';
-    return;
-  }
+  if (!entries.length) { ul.appendChild(el('li', 'muted', 'No entries yet. Add a feed or refresh.')); return; }
   entries.slice(0, 300).forEach(function (e) {
-    var li = document.createElement('li');
-    var btn = document.createElement('button');
-    var t = document.createElement('b');
-    t.textContent = e.title;
-    var s = document.createElement('small');
-    s.textContent = e.source + ' · ' +
-      (e.date.getTime() ? e.date.toLocaleDateString(undefined, { dateStyle: 'medium' }) : '');
-    var txt = document.createElement('span');
-    txt.className = 'txt';
-    txt.appendChild(t); txt.appendChild(s);
+    var btn = el('button', 'row');
     if (e.image) {
-      var img = document.createElement('img');
-      img.className = 'thumb';
-      img.src = e.image;
-      img.alt = '';
-      img.loading = 'lazy';
-      img.referrerPolicy = 'no-referrer';
+      var img = el('img', 'thumb');
+      img.src = e.image; img.alt = ''; img.loading = 'lazy'; img.referrerPolicy = 'no-referrer';
       // Drop the element outright on a hotlink block, rather than leaving a broken icon.
       img.onerror = function () { img.remove(); };
       btn.appendChild(img);
     }
+    var txt = el('span', 'txt');
+    txt.appendChild(el('b', '', e.title));
+    txt.appendChild(el('small', '', [e.source, dateText(e.date, 'medium')].filter(Boolean).join(' · ')));
     btn.appendChild(txt);
-    btn.onclick = function () {
-      Array.prototype.forEach.call(ul.querySelectorAll('button'), function (b) {
-        b.removeAttribute('aria-current');
-      });
-      btn.setAttribute('aria-current', 'true');
-      show(e);
-    };
-    li.appendChild(btn);
-    ul.appendChild(li);
+    btn.appendChild(el('span', 'chev', '›'));
+    btn.onclick = function () { open(e); };
+    var li = el('li'); li.appendChild(btn); ul.appendChild(li);
+  });
+}
+
+function renderFeeds() {
+  var following = document.getElementById('following');
+  following.innerHTML = '';
+  feeds.forEach(function (f, i) {
+    var row = el('div', 'row');
+    var txt = el('span', 'txt');
+    txt.appendChild(el('b', '', f.title)); txt.appendChild(el('small', '', f.url));
+    var rm = el('button', 'act', 'Remove');
+    rm.setAttribute('aria-label', 'Remove ' + f.title);
+    rm.onclick = function () { feeds.splice(i, 1); save(); renderFeeds(); refresh(); };
+    row.appendChild(txt); row.appendChild(rm);
+    var li = el('li'); li.appendChild(row); following.appendChild(li);
+  });
+  if (!feeds.length) following.appendChild(el('li', 'muted', 'Not following anything yet.'));
+
+  var spare = [JOURNAL].concat(SEEDS).filter(function (s) {
+    return !feeds.some(function (f) { return f.url === s.url; });
+  });
+  var suggested = document.getElementById('suggested');
+  suggested.innerHTML = '';
+  document.getElementById('suggested-label').hidden = document.getElementById('suggested-group').hidden = !spare.length;
+  spare.forEach(function (s) {
+    var btn = el('button', 'row');
+    var txt = el('span', 'txt');
+    txt.appendChild(el('b', '', s.title)); txt.appendChild(el('small', '', s.url));
+    btn.appendChild(txt); btn.appendChild(el('span', 'act', '+'));
+    btn.setAttribute('aria-label', 'Follow ' + s.title);
+    btn.onclick = function () { feeds.push(s); save(); renderFeeds(); refresh(); };
+    var li = el('li'); li.appendChild(btn); suggested.appendChild(li);
   });
 }
 
 function show(e) {
   var box = document.getElementById('article');
   box.innerHTML = '';
-  var h = document.createElement('h2');
-  h.textContent = e.title;
-  var meta = document.createElement('p');
-  meta.className = 'muted';
-  meta.textContent = e.source + ' · ' +
-    (e.date.getTime() ? e.date.toLocaleDateString(undefined, { dateStyle: 'long' }) : '');
-  box.appendChild(h);
-  box.appendChild(meta);
+  box.appendChild(el('h2', '', e.title));
+  box.appendChild(el('p', 'meta', [e.source, dateText(e.date, 'long')].filter(Boolean).join(' · ')));
   // Feed HTML is untrusted: parse it inert and drop scripts and event handlers before
   // it ever reaches the live document.
   var frag = new DOMParser().parseFromString(e.html || '', 'text/html');
-  frag.querySelectorAll('script, style, iframe, object, embed, link').forEach(function (n) {
-    n.remove();
-  });
+  frag.querySelectorAll('script, style, iframe, object, embed, link').forEach(function (n) { n.remove(); });
   frag.querySelectorAll('*').forEach(function (n) {
     Array.prototype.slice.call(n.attributes).forEach(function (a) {
       if (/^on/i.test(a.name) || /^\s*javascript:/i.test(a.value)) n.removeAttribute(a.name);
     });
   });
-  Array.prototype.forEach.call(frag.body.childNodes, function (n) {
-    box.appendChild(document.importNode(n, true));
-  });
-  var link = document.createElement('p');
-  var a = document.createElement('a');
+  Array.prototype.forEach.call(frag.body.childNodes, function (n) { box.appendChild(document.importNode(n, true)); });
+  var p = el('p'), a = el('a', '', 'Open original');
   a.href = e.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
-  a.textContent = 'Open original →';
-  link.appendChild(a);
-  box.appendChild(link);
+  p.appendChild(a); box.appendChild(p);
 }
 
-document.getElementById('add').addEventListener('keydown', function (ev) {
-  if (ev.key !== 'Enter') return;
-  var v = this.value.trim();
+// Tabs live in the hash so the browser's back button works; an open story is one extra
+// history entry on top of Home.
+var current = null;
+function open(e) { current = e; history.pushState(null, '', '#story'); route(); }
+function route() {
+  var tab = location.hash.slice(1) || 'home';
+  if (tab === 'story' && !current) tab = 'home';
+  ['home', 'story', 'feeds', 'settings'].forEach(function (id) { document.getElementById(id).hidden = id !== tab; });
+  if (tab === 'story') show(current);
+  var lit = tab === 'story' ? 'home' : tab;
+  document.querySelectorAll('.tabbar a').forEach(function (a) {
+    if (a.dataset.tab === lit) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+  });
+  window.scrollTo(0, 0);
+}
+addEventListener('hashchange', route);
+addEventListener('popstate', route);
+document.getElementById('back').onclick = function () { history.back(); };
+// The system share sheet where there is one (phones, Safari), otherwise copy the link.
+document.getElementById('share').onclick = function () {
+  if (!current) return;
+  var btn = this;
+  if (navigator.share) { navigator.share({ title: current.title, url: current.url }).catch(function () {}); return; }
+  navigator.clipboard.writeText(current.url).then(function () {
+    btn.textContent = 'Link copied';
+    setTimeout(function () { btn.textContent = 'Share'; }, 1500);
+  });
+};
+
+document.getElementById('add-form').addEventListener('submit', function (ev) {
+  ev.preventDefault();
+  var input = document.getElementById('add'), note = document.getElementById('add-note');
+  var v = input.value.trim();
   if (!v) return;
   if (!/^https?:/i.test(v)) v = 'https://' + v;
-  if (feeds.some(function (f) { return f.url === v; })) { this.value = ''; return; }
-  try { feeds.push({ title: new URL(v).hostname, url: v }); } catch (e) { return; }
-  this.value = '';
+  var host;
+  try { host = new URL(v).hostname; } catch (e) { host = ''; }
+  if (!host || feeds.some(function (f) { return f.url === v; })) {
+    note.textContent = 'That is not a new feed URL.';
+    return;
+  }
+  feeds.push({ title: host, url: v });
+  input.value = '';
+  note.textContent = 'Paste any RSS or Atom feed URL to follow it.';
   save(); renderFeeds(); refresh();
 });
 document.getElementById('refresh').onclick = refresh;
 
+// Same range and default as the app's Settings stepper (13 to 28 pt, 17 default).
+var textSize = 17;
+try { textSize = +localStorage.getItem('coranto.textSize') || 17; } catch (e) {}
+function applySize(n) {
+  textSize = Math.min(28, Math.max(13, n));
+  document.documentElement.style.setProperty('--read-size', textSize + 'px');
+  document.getElementById('size-label').textContent = textSize + ' pt';
+  document.getElementById('size-sample').style.fontSize = textSize + 'px';
+  try { localStorage.setItem('coranto.textSize', textSize); } catch (e) {}
+}
+document.getElementById('size-down').onclick = function () { applySize(textSize - 1); };
+document.getElementById('size-up').onclick = function () { applySize(textSize + 1); };
+applySize(textSize);
+
+route();
 renderFeeds();
 refresh();
 </script>

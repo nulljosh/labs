@@ -50,7 +50,7 @@ struct EntryListView: View {
                 HStack(spacing: 12) {
                     EntryThumbnail(url: entry.imageURL)
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(entry.title).font(.headline).lineLimit(2)
+                        Text(entry.title).font(.headline).lineLimit(1)
                         HStack(spacing: 6) {
                             if !entry.sourceTitle.isEmpty {
                                 Text(entry.sourceTitle).fontWeight(.medium)

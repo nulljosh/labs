@@ -8,21 +8,31 @@ import UIKit
 
 struct EntryDetailView: View {
     let entry: JournalEntry
+    @AppStorage("readerTextSize") private var textSize = 17.0
 
     var body: some View {
-        ArticleWebView(html: Self.page(for: entry), baseURL: URL(string: entry.url))
+        ArticleWebView(html: Self.page(for: entry, textSize: textSize), baseURL: URL(string: entry.url))
+            .id(textSize)  // a new size rebuilds the page; the web view never reloads on its own
             .ignoresSafeArea(edges: .bottom)
             .navigationTitle(entry.title)
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
             #endif
+            .toolbar {
+                if let url = URL(string: entry.url) {
+                    ToolbarItemGroup(placement: .primaryAction) {
+                        ShareLink(item: url)
+                        Link(destination: url) { Label("Open in Browser", systemImage: "safari") }
+                    }
+                }
+            }
     }
 
     // ponytail: WKWebView instead of NSAttributedString's HTML importer. The importer
     // turns <img> into an NSTextAttachment, and SwiftUI's Text renders *nothing* for an
     // AttributedString containing one — every post starting with a banner image came up
     // blank. A web view also gets images, code blocks and links for free.
-    private static func page(for entry: JournalEntry) -> String {
+    private static func page(for entry: JournalEntry, textSize: Double) -> String {
         """
         <!doctype html><html><head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,18 +47,18 @@ struct EntryDetailView: View {
           body {
             font: -apple-system-body;
             font-family: -apple-system, system-ui;
-            font-size: 17px; line-height: 1.5;
+            font-size: \(Int(textSize))px; line-height: 1.5;
             margin: 0; padding: 16px 20px 40px;
             -webkit-text-size-adjust: 100%;
             overflow-wrap: break-word;
           }
-          h1 { font-size: 24px; margin: 0 0 4px; }
-          h2 { font-size: 20px; margin: 24px 0 8px; }
-          h3 { font-size: 18px; margin: 20px 0 8px; }
+          h1 { font-size: 1.4em; margin: 0 0 4px; }
+          h2 { font-size: 1.2em; margin: 24px 0 8px; }
+          h3 { font-size: 1.05em; margin: 20px 0 8px; }
           p { margin: 0 0 14px; }
           img { max-width: 100%; height: auto; border-radius: 8px; }
           pre, table, blockquote { display: block; overflow-x: auto; }
-          code { font-size: 15px; }
+          code { font-size: 0.9em; }
           .date { color: gray; font-size: 13px; margin: 0 0 20px; }
           /* links in the brand blue, not WebKit's default purple; Theme.swift corantoAccent */
           a { color: #0059B3; }

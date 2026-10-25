@@ -1,8 +1,8 @@
-"""Coranto Sans and Coranto Display: Archivo and Archivo Narrow (Omnibus-Type, SIL Open Font License 1.1, no reserved
+"""Coranto Sans and Coranto Display: Archivo (Omnibus-Type, SIL Open Font License 1.1, no reserved
 name), renamed.
 
 Archivo is drawn after the late 1800s American grotesques that newspapers set their headlines in, which is what a
-coranto was: the first running news sheet. Sans for reading, Narrow Bold for headlines and labels. Same method as
+coranto was: the first running news sheet. Sans for reading, a narrow Bold cut for headlines and labels. Same method as
 Talli Display and Coda's Quip Sans: pinned release, renamed, OFL shipped beside the fonts, original copyright kept in
 the name table. Latin only, web only for now (the apps stay on SF until a build bundles it), every build the same bytes.
 
@@ -15,18 +15,21 @@ import sys
 import urllib.request
 
 from fontTools.ttLib import TTFont
+from fontTools.varLib import instancer
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WEB = os.path.join(HERE, "web", "fonts")
-CDN = "https://cdn.jsdelivr.net/npm/@fontsource/"
+CDN = "https://cdn.jsdelivr.net/npm/@fontsource/"   # a source starting with @ is a full package path
 OFL = "https://raw.githubusercontent.com/google/fonts/main/ofl/archivo/OFL.txt"
-# family, style, weight, source file
+# family, style, weight (or variable-font axes to pin), source file
 FACES = [
     ("Coranto Sans", "Regular", 400, "archivo@5.2.5/files/archivo-latin-400-normal.woff2"),
     ("Coranto Sans", "Medium", 500, "archivo@5.2.5/files/archivo-latin-500-normal.woff2"),
     ("Coranto Sans", "Semibold", 600, "archivo@5.2.5/files/archivo-latin-600-normal.woff2"),
     ("Coranto Sans", "Bold", 700, "archivo@5.2.5/files/archivo-latin-700-normal.woff2"),
-    ("Coranto Display", "Bold", 700, "archivo-narrow@5.2.5/files/archivo-narrow-latin-700-normal.woff2"),
+    # Display is Archivo's width axis pinned narrow, not Archivo Narrow: the Narrow family ships tabular digits only
+    # (every figure the same width), so dates and version numbers set like a typewriter. wdth 67 matches its width.
+    ("Coranto Display", "Bold", {"wdth": 67, "wght": 700}, "@fontsource-variable/archivo@5.2.5/files/archivo-latin-wdth-normal.woff2"),
 ]
 
 
@@ -61,6 +64,8 @@ def check():
         f = TTFont(os.path.join(WEB, file_name(family, style) + ".woff2"))
         assert f["name"].getDebugName(1) == family and f["name"].getDebugName(6) == file_name(family, style)
         assert "Archivo" in f["name"].getDebugName(0), "original copyright must stay in the name table"
+        cmap, hm = f.getBestCmap(), f["hmtx"]
+        assert len({hm[cmap[ord(d)]][0] for d in "0123456789"}) > 1, f"{family} {style} digits must be proportional"
     print("font ok: Coranto Sans and Coranto Display (Archivo, OFL)")
 
 
@@ -69,8 +74,11 @@ def main():
     if "--check" in sys.argv:
         return check()
     os.makedirs(WEB, exist_ok=True)
-    for family, style, _, src in FACES:
-        font = TTFont(io.BytesIO(fetch(CDN + src)))
+    for family, style, axes, src in FACES:
+        url = "https://cdn.jsdelivr.net/npm/" + src if src.startswith("@") else CDN + src
+        font = TTFont(io.BytesIO(fetch(url)))
+        if isinstance(axes, dict):
+            font = instancer.instantiateVariableFont(font, axes)
         rename(font, family, style)
         font.flavor = "woff2"
         font.save(os.path.join(WEB, file_name(family, style) + ".woff2"), reorderTables=False)

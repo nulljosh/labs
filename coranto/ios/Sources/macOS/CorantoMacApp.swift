@@ -13,7 +13,7 @@ struct CorantoMacApp: App {
     var body: some Scene {
         WindowGroup {
             EntryListView()
-                .frame(minWidth: 720, minHeight: 480)
+                .frame(minWidth: 360, minHeight: 480)
                 .tint(.corantoAccent)
         }
         .defaultSize(width: 1280, height: 800)
