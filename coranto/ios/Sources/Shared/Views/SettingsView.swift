@@ -30,7 +30,7 @@ struct SettingsView: View {
                 } header: {
                     Text("Your Reading")
                 } footer: {
-                    Text(library.history.isEmpty ? "Open a few stories to see how what you read leans." : "From the last \(library.history.count) stories you opened, rated outlets only.")
+                    Text(library.history.isEmpty ? "Open a few stories to see how what you read leans." : "From the last \(library.history.count == 1 ? "story" : "\(library.history.count) stories") you opened, rated outlets only.")
                 }
                 Section("Reading") {
                     Stepper(value: $textSize, in: 13...28) {

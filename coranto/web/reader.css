@@ -105,3 +105,17 @@ a.row:hover { text-decoration: none; background: color-mix(in srgb, var(--text) 
 .search input { flex: 1; min-width: 0; border: 0; background: none; font: inherit; font-size: 17px; color: var(--text); height: 44px; }
 .search input:focus-visible { outline: none; }
 .search:focus-within { box-shadow: 0 0 0 4px var(--ring); }
+
+/* coverage: lean bar and every outlet's headline by side (Ground News style) */
+.leanbar { width: 100%; }
+.leanbar .track { display: flex; gap: 2px; height: 8px; border-radius: var(--r-pill); overflow: hidden; background: var(--line); }
+.leanbar .track.empty { opacity: .4; }
+.leanbar .track span { flex-basis: 6px; }
+.leanbar .left { background: #0074D9; } .leanbar .center { background: color-mix(in srgb, var(--sub) 60%, transparent); } .leanbar .right { background: #d70015; }
+.leanbar .legend { display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: var(--sub); margin-top: var(--sp-2); }
+.coverage { margin-top: var(--sp-6); padding-top: var(--sp-5); border-top: 1px solid var(--line); }
+.coverage h3 { font-family: var(--display); font-size: 22px; line-height: 28px; letter-spacing: -.02em; margin-bottom: var(--sp-3); }
+.coverage .note-line { font-size: 13px; line-height: 18px; color: var(--sub); margin: var(--sp-2) 0 0; }
+.coverage .label { margin: var(--sp-5) var(--sp-4) var(--sp-2); }
+.coverage .group { background: var(--surface); border-radius: var(--r-group); overflow: hidden; }
+.coverage .cov-title { display: block; font-size: 17px; line-height: 22px; color: var(--text); }

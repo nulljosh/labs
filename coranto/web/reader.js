@@ -20,7 +20,7 @@ var SEEDS = [
   ['Daring Fireball', 'https://daringfireball.net/feeds/main']
 ].map(function (f) { return { title: f[0], url: f[1] }; });
 
-var feeds = load(), entries = [];
+var feeds = load(), entries = [], stories = [], storyOf = {};
 
 function load() {
   try { return JSON.parse(localStorage.getItem('inkpress.feeds')) || SEEDS.slice(); }
@@ -46,6 +46,9 @@ async function refresh() {
   var seen = {};
   entries = [].concat.apply([], results).sort(function (a, b) { return b.date - a.date; })
     .filter(function (e) { return !seen[e.url] && (seen[e.url] = true); });
+  // One row per story: the same story from several outlets groups (Coverage.cluster), Ground News style.
+  stories = Coverage.cluster(entries); storyOf = {};
+  stories.forEach(function (st) { st.entries.forEach(function (e) { storyOf[e.url] = st; }); });
   renderEntries();
 }
 
@@ -56,7 +59,8 @@ function dateText(d, style) {
 // Search matches headlines and outlet names ("BBC" shows only BBC); while searching there is no hero. Same as the app.
 function renderEntries() {
   var q = document.getElementById('q').value.trim().toLowerCase();
-  var shown = q ? entries.filter(function (e) { return (e.title + ' ' + e.source).toLowerCase().indexOf(q) >= 0; }) : entries;
+  var shown = (q ? stories.filter(function (st) { return st.entries.some(function (e) { return (e.title + ' ' + e.source).toLowerCase().indexOf(q) >= 0; }); }) : stories)
+    .map(function (st) { return st.lead; });
   renderStories(document.getElementById('entries'), shown, open, !q,
     q ? 'No stories match \u201C' + q + '\u201D.' : 'No entries yet. Add a feed or pull to refresh.');
 }
@@ -68,7 +72,7 @@ function renderFeeds() {
   feeds.forEach(function (f, i) {
     var row = el('div', 'row');
     var txt = el('span', 'txt');
-    txt.appendChild(el('b', '', f.title)); txt.appendChild(el('small', '', f.url));
+    txt.appendChild(el('b', '', f.title)); txt.appendChild(el('small', '', Coverage.about(f)));
     var rm = el('button', 'act', 'Remove');
     rm.setAttribute('aria-label', 'Remove ' + f.title);
     rm.onclick = function () { feeds.splice(i, 1); save(); renderFeeds(); refresh(); };
@@ -86,7 +90,7 @@ function renderFeeds() {
   spare.forEach(function (s) {
     var btn = el('button', 'row');
     var txt = el('span', 'txt');
-    txt.appendChild(el('b', '', s.title)); txt.appendChild(el('small', '', s.url));
+    txt.appendChild(el('b', '', s.title)); txt.appendChild(el('small', '', Coverage.about(s)));
     btn.appendChild(txt); btn.appendChild(el('span', 'act', '+'));
     btn.setAttribute('aria-label', 'Follow ' + s.title);
     btn.onclick = function () { feeds.push(s); save(); renderFeeds(); refresh(); };
@@ -113,6 +117,8 @@ function show(e) {
   var p = el('p'), a = el('a', '', 'Open original');
   a.href = e.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
   p.appendChild(a); box.appendChild(p);
+  var st = storyOf[e.url];
+  if (st && st.entries.length > 1) box.appendChild(Coverage.section(st, open));
 }
 
 // Tabs live in the hash so the browser's back button works; an open story is one extra

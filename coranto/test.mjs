@@ -66,3 +66,22 @@ test("og refuses private hosts like the feed proxy", async () => {
   const r = await og({ request: new Request("https://coranto.jaybulb.com/og?url=" + encodeURIComponent("https://127.0.0.1/x")) });
   assert.equal(r.status, 400);
 });
+
+// Coverage grouping, shared rules with Coverage.swift (web/coverage.js is a classic script).
+const { readFileSync } = await import("node:fs");
+(await import("node:vm")).runInThisContext(readFileSync(new URL("./web/coverage.js", import.meta.url), "utf8"));
+
+test("coverage groups one story across outlets, counts newsrooms once, flags blindspots", () => {
+  const e = (title, source, t) => ({ title, source, url: source + t, date: new Date(t) });
+  const stories = Coverage.cluster([
+    e("Senate passes border funding bill after long debate", "Fox News", 3),
+    e("Border funding bill passes Senate", "NY Post", 2),
+    e("Senate approves border funding package", "NY Post Opinion", 1),
+    e("Apple ships new MacBook", "Daring Fireball", 0),
+  ]);
+  assert.equal(stories.length, 2);
+  const border = stories.find((s) => s.entries.length === 3);
+  assert.equal(border.publishers, 2);
+  assert.equal(border.blindspot, "right");
+  assert.deepEqual(stories.find((s) => s.entries.length === 1).counts, { left: 0, center: 0, right: 0 });
+});

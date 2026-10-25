@@ -31,6 +31,10 @@ function renderLibrary() {
     'Tap Save on a story to keep it here. Saved stories open without a connection.');
   renderStories(document.getElementById('history-list'), Library.history(), open, false, 'Stories you open show up here.');
   document.getElementById('history-clear').hidden = !Library.history().length;
+  var reading = document.getElementById('reading');   // Settings: how what you read leans
+  reading.innerHTML = ''; reading.appendChild(Coverage.bar(Coverage.readingLean(Library.history())));
+  document.getElementById('reading-note').textContent = Library.history().length
+    ? 'From the last ' + (Library.history().length === 1 ? 'story' : Library.history().length + ' stories') + ' you opened, rated outlets only.' : 'Open a few stories to see how what you read leans.';
 }
 
 document.getElementById('save').onclick = function () {
