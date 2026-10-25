@@ -97,6 +97,8 @@ final class FeedParser: NSObject, XMLParserDelegate {
                elementName == "media:thumbnail" || Self.isImage(attributeDict, url: u) {
                 mediaSrc = u
             }
+        } else if inItem, elementName == "itunes:image", mediaSrc.isEmpty, let u = attributeDict["href"] {
+            mediaSrc = u   // podcast and some blog feeds put the episode art here
         } else if inItem, elementName == "enclosure" {
             if enclosureSrc.isEmpty, let u = attributeDict["url"], Self.isImage(attributeDict, url: u) {
                 enclosureSrc = u
@@ -152,15 +154,32 @@ final class FeedParser: NSObject, XMLParserDelegate {
         return imageExtensions.contains(ext)
     }
 
-    private static let imgSrcRegex = try? NSRegularExpression(
-        pattern: "<img[^>]+src\\s*=\\s*[\"']([^\"']+)[\"']", options: .caseInsensitive)
+    private static let imgTagRegex = try? NSRegularExpression(pattern: "<img\\b[^>]*>", options: .caseInsensitive)
+    private static let attrRegex = try? NSRegularExpression(
+        pattern: "\\b(data-src|data-lazy-src|data-original|srcset|src)\\s*=\\s*[\"']([^\"']+)[\"']", options: .caseInsensitive)
 
-    static func firstImageSrc(inHTML html: String) -> String? {
-        guard let re = imgSrcRegex else { return nil }
+    /// Every image URL the body offers, in order: lazy-load attributes (data-src and friends) before `src`, which
+    /// is often a placeholder; the first `srcset` entry; tracking pixels (1 by 1) skipped. Mirrors `imageFor` in
+    /// web/reader.js.
+    static func imageSrcs(inHTML html: String) -> [String] {
+        guard let tagRe = imgTagRegex, let attrRe = attrRegex else { return [] }
         let ns = html as NSString
-        guard let m = re.firstMatch(in: html, range: NSRange(location: 0, length: ns.length)),
-              m.numberOfRanges > 1 else { return nil }
-        return ns.substring(with: m.range(at: 1))
+        var out: [String] = []
+        for tag in tagRe.matches(in: html, range: NSRange(location: 0, length: ns.length)) {
+            let t = ns.substring(with: tag.range)
+            if t.range(of: #"(width|height)\s*=\s*["']?1["'\s>]"#, options: [.regularExpression, .caseInsensitive]) != nil { continue }
+            let tns = t as NSString
+            var found: [String: String] = [:]
+            for m in attrRe.matches(in: t, range: NSRange(location: 0, length: tns.length)) {
+                found[tns.substring(with: m.range(at: 1)).lowercased()] = tns.substring(with: m.range(at: 2))
+            }
+            for key in ["data-src", "data-lazy-src", "data-original", "src", "srcset"] {
+                guard var v = found[key] else { continue }
+                if key == "srcset" { v = String(v.split(separator: ",").first?.split(separator: " ").first ?? "") }
+                out.append(v)
+            }
+        }
+        return out
     }
 
     /// Resolve a feed-supplied src against the entry link. Handles protocol-relative
@@ -189,8 +208,7 @@ final class FeedParser: NSObject, XMLParserDelegate {
         for candidate in [media, enclosure] where !candidate.isEmpty {
             if let u = resolve(candidate, against: entryURL) { return u }
         }
-        guard let src = firstImageSrc(inHTML: html) else { return nil }
-        return resolve(src, against: entryURL)
+        return imageSrcs(inHTML: html).lazy.compactMap { resolve($0, against: entryURL) }.first
     }
 
     /// Accept both ISO8601 (Atom) and RFC822 (RSS pubDate). Two RFC822 shapes, because the

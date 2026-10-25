@@ -8,6 +8,7 @@ struct JournalApp: App {
         feedParserDemo()
         seedFeedsDemo()
         headlineDemo()
+        previewImageDemo()
         #endif
     }
 

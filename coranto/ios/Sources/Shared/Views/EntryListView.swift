@@ -48,7 +48,7 @@ struct EntryListView: View {
         List(feed.entries) { entry in
             NavigationLink(value: entry) {
                 HStack(spacing: 12) {
-                    EntryThumbnail(url: entry.imageURL, source: entry.sourceTitle)
+                    EntryThumbnail(url: entry.imageURL, page: entry.url, source: entry.sourceTitle)
                     VStack(alignment: .leading, spacing: 4) {
                         FittedTitle(variants: Headline.variants(entry.title, source: entry.sourceTitle))
                         HStack(spacing: 6) {
@@ -99,12 +99,14 @@ private struct FittedTitle: View {
 /// initials on a blue tile (Joshua 2026-10-25: a mix of rows with and without thumbnails looked funny).
 private struct EntryThumbnail: View {
     let url: URL?
+    let page: String
     let source: String
+    @State private var preview: URL?
     private let side: CGFloat = 56
 
     var body: some View {
         Group {
-            if let url {
+            if let url = url ?? preview {
                 AsyncImage(url: url) { phase in
                     if case .success(let image) = phase { image.resizable().aspectRatio(contentMode: .fill) } else { monogram }
                 }
@@ -114,6 +116,8 @@ private struct EntryThumbnail: View {
         }
         .frame(width: side, height: side)
         .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+        // no image in the feed: ask the article page for its preview image before settling on initials
+        .task(id: page) { if url == nil { preview = await PreviewImage.lookup(page) } }
     }
 
     private var monogram: some View {

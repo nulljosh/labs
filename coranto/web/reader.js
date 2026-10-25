@@ -75,8 +75,26 @@ function imageFor(node, html, link) {
       if (got) return got;
     }
   }
-  var m = /<img[^>]+src\s*=\s*["']([^"']+)["']/i.exec(html || '');
-  return m ? resolveImage(m[1], link) : '';
+  var art = node.getElementsByTagName('itunes:image')[0];   // podcast and some blog feeds put the art here
+  if (art && resolveImage(art.getAttribute('href'), link)) return resolveImage(art.getAttribute('href'), link);
+  var srcs = imageSrcs(html || '');
+  for (var k = 0; k < srcs.length; k++) { var r = resolveImage(srcs[k], link); if (r) return r; }
+  return '';
+}
+
+// Every image URL the body offers: lazy-load attributes before src (often a placeholder), the first srcset
+// entry, 1 by 1 tracking pixels skipped. Mirrors JournalFeedService.imageSrcs in the app.
+function imageSrcs(html) {
+  var out = [], tags = html.match(/<img\b[^>]*>/gi) || [];
+  tags.forEach(function (t) {
+    if (/(width|height)\s*=\s*["']?1["'\s>]/i.test(t)) return;
+    var found = {}, re = /\b(data-src|data-lazy-src|data-original|srcset|src)\s*=\s*["']([^"']+)["']/gi, m;
+    while ((m = re.exec(t))) found[m[1].toLowerCase()] = m[2];
+    ['data-src', 'data-lazy-src', 'data-original', 'src', 'srcset'].forEach(function (k) {
+      if (found[k]) out.push(k === 'srcset' ? found[k].split(',')[0].trim().split(/\s+/)[0] : found[k]);
+    });
+  });
+  return out;
 }
 
 // RSS <item> and Atom <entry> differ only in tag names and where the link lives.
@@ -142,6 +160,7 @@ function renderEntries() {
     var btn = el('button', 'row');
     // Every row gets the same square: the image, or the outlet's initials when there is none or it fails to load.
     var mono = el('span', 'thumb mono', initials(e.source));
+    mono.dataset.page = e.url;
     if (e.image) {
       var img = el('img', 'thumb');
       img.src = e.image; img.alt = ''; img.loading = 'lazy'; img.referrerPolicy = 'no-referrer';
@@ -160,7 +179,35 @@ function renderEntries() {
     var li = el('li'); li.appendChild(btn); ul.appendChild(li);
   });
   requestAnimationFrame(fitTitles);
+  ul.querySelectorAll('.mono').forEach(function (m) { if (previewSeen) previewSeen.observe(m); else preview(m); });
 }
+
+// No image in the feed: ask /og for the article's preview image as the row scrolls in, and remember the answer
+// (a miss too) so each page is asked once.
+var previews = {};
+try { previews = JSON.parse(localStorage.getItem('coranto.previews')) || {}; } catch (e) {}
+function preview(mono) {
+  var page = mono.dataset.page;
+  if (!page) return;
+  var show = function (src) {
+    if (!src || !mono.isConnected) return;
+    var img = el('img', 'thumb');
+    img.alt = ''; img.referrerPolicy = 'no-referrer';
+    img.onload = function () { if (mono.isConnected) mono.replaceWith(img); };
+    img.src = src;
+  };
+  if (page in previews) return show(previews[page]);
+  fetch('/og?url=' + encodeURIComponent(page)).then(function (r) { return r.ok ? r.json() : {}; }).then(function (d) {
+    previews[page] = d.image || '';
+    var keys = Object.keys(previews);
+    if (keys.length > 1000) keys.slice(0, keys.length - 1000).forEach(function (k) { delete previews[k]; });
+    try { localStorage.setItem('coranto.previews', JSON.stringify(previews)); } catch (e) {}
+    show(previews[page]);
+  }).catch(function () {});
+}
+var previewSeen = window.IntersectionObserver && new IntersectionObserver(function (seen) {
+  seen.forEach(function (x) { if (x.isIntersecting) { previewSeen.unobserve(x.target); preview(x.target); } });
+}, { rootMargin: '400px' });
 
 // Each title becomes the longest headline variant that fits its row, so it ends on a word, not "…".
 var measure = document.createElement('canvas').getContext('2d');

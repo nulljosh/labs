@@ -52,3 +52,17 @@ test("headline variants cut at a clause first, never on a filler word", () => {
   assert.ok(variants("Show HN: I put employees inside S&P 500 bubbles").some((x) => x.startsWith("Show HN:")));
   for (const x of v) assert.ok(!["to", "the", "of", "at"].includes(x.split(" ").pop()), x);
 });
+
+// /og: the article preview image, the last thumbnail catch.
+const { ogImage, onRequestGet: og } = await import("./functions/og.js");
+
+test("og image reads either attribute order and resolves relative URLs", () => {
+  assert.equal(ogImage('<meta property="og:image" content="https://x.com/i.jpg?a=1&amp;b=2">', "https://e.com/s"), "https://x.com/i.jpg?a=1&b=2");
+  assert.equal(ogImage('<meta content="/p.png" name="twitter:image">', "https://e.com/a/s"), "https://e.com/p.png");
+  assert.equal(ogImage("<title>none</title>", "https://e.com/"), null);
+});
+
+test("og refuses private hosts like the feed proxy", async () => {
+  const r = await og({ request: new Request("https://coranto.jaybulb.com/og?url=" + encodeURIComponent("https://127.0.0.1/x")) });
+  assert.equal(r.status, 400);
+});
