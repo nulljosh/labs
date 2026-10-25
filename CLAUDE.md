@@ -12,7 +12,7 @@
 
 ## Repos
 
-**`~/Documents/Code` is the `labs` repo.** 22 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, oohaah, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), hamurapi, bcgd, coranto (ex-inkpress). Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Curvely, now Pan (renamed 2026-10-21, store name still Curvely until Apple accepts), left the same way on 2026-10-21 (`nulljosh/pan`, public, folder `pan/`, ignored here; its earlier history stays in labs), and so did Gastown, ex-NYC Survive (`nulljosh/gastown`, public, folder `gastown/`). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and in the allowlist but untracked, see roadmap. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`. 
+**`~/Documents/Code` is the `labs` repo.** 22 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, oohaah, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), hamurapi, bcgd, coranto (ex-inkpress), clock. Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Curvely, now Pan (renamed 2026-10-21, store name still Curvely until Apple accepts), left the same way on 2026-10-21 (`nulljosh/pan`, public, folder `pan/`, ignored here; its earlier history stays in labs), and so did Gastown, ex-NYC Survive (`nulljosh/gastown`, public, folder `gastown/`). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and in the allowlist but untracked, see roadmap. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`. 
 
 ### Apps
 Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
@@ -55,6 +55,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **numen** | Free-form calculator canvas |
 | **tripwire** | API drift and CI-failure watcher |
 | **seamark** | Read values off rendered charts (npm lib) |
+| **clock** | iOS Clock on the web: world clocks, alarms, sleep, stopwatch, timers, nightstand. One file, PWA, clock.jaybulb.com |
 | **keyrate** | Typing test, one file |
 | **weather** | Forecast page, Open-Meteo, one file |
 | **fieldbook** | Every field of science + math explained plainly |

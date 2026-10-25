@@ -1,0 +1,4 @@
+name = "clock"
+compatibility_date = "2026-10-01"
+assets = { directory = "." }
+routes = [{ pattern = "clock.jaybulb.com", custom_domain = true }]
