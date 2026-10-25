@@ -100,6 +100,9 @@ h2.sleep-h { display: flex; align-items: center; gap: var(--s2); }
 h2.sleep-h .bed { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 button.pill { min-width: 0; height: 32px; padding: 0 var(--s4); font-size: 15px; font-weight: 600; background: var(--bg3); color: var(--accent); flex: none; }
 select.inline { width: auto; height: 32px; font-size: 15px; background: var(--bg3); }
+kbd { font: 600 13px var(--font); min-width: 28px; height: 28px; padding: 0 var(--s2); display: inline-grid; place-items: center; border-radius: 8px; background: var(--bg3); color: var(--text); }
+.keys .row { gap: var(--s1); }
+.keys .label { white-space: normal; }
 small.ap { font-size: .5em; font-weight: 400; margin-left: .12em; letter-spacing: 0; }
 .big small.ap { font-size: .42em; }
 button.zone { display: flex; align-items: center; gap: var(--s3); }

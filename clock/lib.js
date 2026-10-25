@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '4.0.0';
+const VERSION = '5.0.0';
 const pad = (n, w = 2) => String(Math.floor(n)).padStart(w, '0');
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const DAY = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -61,6 +61,44 @@ function dayWord(at, now) {
   const word = d === 0 ? 'Today' : d === 1 ? 'Tomorrow' : new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(at);
   return at.getHours() < 12 ? `${word} Morning` : word;
 }
+// "10m", "1h30m", "90s", "5:00", "1:02:03" or a bare number of minutes, to milliseconds. Over a day or nonsense is null.
+function parseDuration(s) {
+  s = String(s || '').trim().toLowerCase();
+  let sec = null, m;
+  if ((m = s.match(/^(\d+):(\d{1,2})(?::(\d{1,2}))?$/))) sec = m[3] == null ? +m[1] * 60 + +m[2] : +m[1] * 3600 + +m[2] * 60 + +m[3];
+  else if ((m = s.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/)) && s) sec = (+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0);
+  else if (/^\d+$/.test(s)) sec = +s * 60;
+  return sec > 0 && sec <= 86400 ? sec * 1000 : null;
+}
+const HM = /^([01]\d|2[0-3]):[0-5]\d$/;
+// Links that do things: #timer=10m, #alarm=07:30&label=Gym, #tab=alarms.
+function parseHash(hash) {
+  const p = new URLSearchParams(String(hash).replace(/^#/, '')), label = (p.get('label') || '').slice(0, 40);
+  if (p.has('timer')) { const ms = parseDuration(p.get('timer')); return ms ? { timer: ms, label } : null; }
+  if (p.has('alarm')) { const t = p.get('alarm').padStart(5, '0'); return HM.test(t) ? { alarm: t, label } : null; }
+  if (p.has('tab')) { const t = { world: 'world', alarms: 'alarms', stopwatch: 'stopwatch', timer: 'timer', timers: 'timer' }[p.get('tab')]; return t ? { tab: t } : null; }
+  return null;
+}
+// Backups: one JSON file. Import checks every field, since the file comes from outside.
+const BACKUP_KEYS = ['alarms', 'sleep', 'zones', 'recents'];
+const makeBackup = (state) => JSON.stringify({ app: 'clock', v: 1, saved: new Date().toISOString(), ...Object.fromEntries(BACKUP_KEYS.map(k => [k, state[k]])) }, null, 2);
+function parseBackup(text) {
+  let d; try { d = JSON.parse(text); } catch { throw new Error('That file is not a Clock backup'); }
+  if (!d || d.app !== 'clock' || d.v !== 1) throw new Error('That file is not a Clock backup');
+  const str = (v, n) => typeof v === 'string' ? v.slice(0, n) : '';
+  const days = (v) => Array.isArray(v) ? [...new Set(v.filter(x => Number.isInteger(x) && x >= 0 && x <= 6))] : [];
+  const zoneOk = (z) => { try { new Intl.DateTimeFormat('en-US', { timeZone: z }); return true; } catch { return false; } };
+  const out = {};
+  if (Array.isArray(d.alarms)) out.alarms = d.alarms.filter(a => a && HM.test(a.time)).slice(0, 100).map(a => ({
+    time: a.time, days: days(a.days), label: str(a.label, 40), sound: str(a.sound, 20) || 'Radar', on: a.on !== false,
+    snooze: a.snooze !== false, snoozeMin: Number.isInteger(a.snoozeMin) && a.snoozeMin >= 1 && a.snoozeMin <= 15 ? a.snoozeMin : 9, last: '' }));
+  if (Array.isArray(d.zones)) out.zones = d.zones.filter(z => z && typeof z.zone === 'string' && zoneOk(z.zone)).slice(0, 50).map(z => ({ city: str(z.city, 60) || z.zone.split('/').pop(), zone: z.zone }));
+  if (Array.isArray(d.recents)) out.recents = d.recents.filter(r => r && Number.isFinite(r.dur) && r.dur >= 1000 && r.dur <= 864e5).slice(0, 6).map(r => ({ dur: r.dur, label: str(r.label, 40), sound: str(r.sound, 20) || 'Radar' }));
+  const s = d.sleep;
+  if (s && HM.test(s.bed) && HM.test(s.wake)) out.sleep = { on: !!s.on, everSet: true, bed: s.bed, wake: s.wake, days: days(s.days), wind: [0, 15, 30, 45, 60].includes(s.wind) ? s.wind : 30, sound: str(s.sound, 20) || 'Gentle', snooze: s.snooze !== false };
+  if (!Object.keys(out).length) throw new Error('That backup is empty');
+  return out;
+}
 // Time with its AM or PM split off, so it can be drawn smaller like iOS. 24 hour locales have no period.
 function splitAmPm(fmt, date) {
   const parts = fmt.formatToParts(date), i = parts.findIndex(p => p.type === 'dayPeriod');
@@ -83,4 +121,4 @@ function offsetLabel(zone, now) {
   const day = there.getDate() === here.getDate() ? 'Today' : there > here ? 'Tomorrow' : 'Yesterday';
   return `${day}, ${diff === 0 ? 'same time' : (diff > 0 ? '+' : '') + diff + ' HRS'}`;
 }
-if (typeof module === 'object') module.exports = { VERSION, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord };
+if (typeof module === 'object') module.exports = { VERSION, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };

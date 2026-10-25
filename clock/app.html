@@ -159,7 +159,31 @@
       <div class="row"><div class="grow label">Version</div><div class="meta" id="ver"></div></div>
       <div class="row"><div class="grow label">Website</div><a class="meta" href="https://clock.jaybulb.com/" target="_blank" rel="noopener">clock.jaybulb.com</a></div>
     </div>
+    <h2>Backup</h2>
+    <div class="group">
+      <div class="row"><div class="grow"><div class="label">Export</div><div class="meta">Alarms, cities and timers in one file</div></div><button type="button" class="pill" id="exportBtn">Export</button></div>
+      <div class="row"><div class="grow"><div class="label">Import</div><div class="meta">Replaces what is here with the file</div></div><button type="button" class="pill" id="importBtn">Import</button></div>
+    </div>
+    <input type="file" id="importFile" accept="application/json,.json" hidden>
+    <div class="group"><div class="row"><div class="grow label">Keyboard Shortcuts</div><button type="button" class="pill" id="keysBtn">Show</button></div></div>
     <p class="sub">Everything stays on this device. No account, no tracking.</p>
+  </form>
+</dialog>
+
+<dialog id="keysSheet" aria-labelledby="keysTitle">
+  <form method="dialog">
+    <header><span></span><h1 id="keysTitle">Keyboard Shortcuts</h1><button class="link" value="done">Done</button></header>
+    <div class="group keys">
+      <div class="row"><div class="grow label">World Clock, Alarms, Stopwatch, Timers</div><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd></div>
+      <div class="row"><div class="grow label">New alarm, city or timer</div><kbd>N</kbd></div>
+      <div class="row"><div class="grow label">Edit list</div><kbd>E</kbd></div>
+      <div class="row"><div class="grow label">Nightstand</div><kbd>S</kbd></div>
+      <div class="row"><div class="grow label">Start or stop stopwatch</div><kbd>Space</kbd></div>
+      <div class="row"><div class="grow label">Lap or reset</div><kbd>L</kbd></div>
+      <div class="row"><div class="grow label">Settings</div><kbd>,</kbd></div>
+      <div class="row"><div class="grow label">This list</div><kbd>?</kbd></div>
+    </div>
+    <p class="sub">In the installed Mac app, Command 1 to 4 switch tabs too. Links work as well: add #timer=10m or #alarm=07:30 to the address.</p>
   </form>
 </dialog>
 

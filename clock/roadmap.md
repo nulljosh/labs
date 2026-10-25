@@ -23,9 +23,9 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] Snooze length from 1 to 15 minutes, Edit mode deletes alarms, iOS sleep row with Change. Fixed: Delete in the sheet could overwrite another alarm.
 
 ## v5: your clock, backed up
-- [ ] Export everything (alarms, cities, timers, sleep) to one file and import it on another device.
-- [ ] Links that do things: `app.html#timer=10m` starts a timer, `#alarm=07:30` adds an alarm, so Shortcuts and bookmarks can drive it.
-- [ ] Keyboard shortcuts on every tab, listed behind `?`.
+- [x] Export everything (alarms, cities, timers, sleep) to one file and import it on another device.
+- [x] Links that do things: `app.html#timer=10m` starts a timer, `#alarm=07:30` adds an alarm, so Shortcuts and bookmarks can drive it.
+- [x] Keyboard shortcuts on every tab, listed behind `?`.
 
 ## v6: nightstand faces
 - [ ] Choose a face: big digits, analog, or a sun dial that tracks the day.
