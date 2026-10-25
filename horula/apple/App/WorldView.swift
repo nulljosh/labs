@@ -93,6 +93,7 @@ struct WorldView: View {
                     if plan != 0 { Button("Back to now") { plan = 0 } }
                 }
             }
+            .readableColumn()
             .navigationTitle("World Clock")
             .toolbar {
                 #if os(iOS)

@@ -48,6 +48,7 @@ struct TimersView: View {
                     }
                 }
             }
+            .readableColumn()
             .navigationTitle("Timers")
             .onChange(of: store.timers) { Task { await scheduler.syncTimers(store) } }
         }

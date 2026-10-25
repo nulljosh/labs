@@ -35,7 +35,7 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] Find a name Apple accepts: Horula (Latin, "little hour"; Clock was taken). One name everywhere: store, site, folder.
 - [x] SwiftUI app for iPhone and Mac with the same tabs, alarms that ring when the app is closed (AlarmKit), timers, stopwatch. iPad later (needs its own screenshot set).
 - [x] Widgets: Home Screen, Lock Screen and StandBy (world clocks, next alarm), Live Activity for snooze and timers.
-- [ ] Apple Watch app: built (world clock, stopwatch, timers, face widgets); ships in 6.1 once a watchOS simulator runtime fits on disk for its screenshots.
+- [ ] Apple Watch app: built (world clock, stopwatch, timers, face widgets), screenshots taken (apple/shots/watch-up, gitignored). Ships in 6.1 right after 6.0 is approved: embed HorulaWatch in the iOS target, bump, upload, add the Watch Ultra set, submit.
 - [ ] Icon Composer icon, screenshots, privacy, submitted for review. iPhone done 2026-10-25; Mac waits on screenshots (the Mac app's self-snapshot needs an unlocked screen).
 
 ## v7: everywhere else

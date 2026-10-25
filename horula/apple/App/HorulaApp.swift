@@ -50,8 +50,12 @@ enum Snapshot {
     @MainActor static func ifAsked() async {
         let args = ProcessInfo.processInfo.arguments
         guard let i = args.firstIndex(of: "-snapshot"), i + 1 < args.count else { return }
-        try? await Task.sleep(for: .seconds(1))
-        guard let w = NSApp.windows.first(where: { $0.contentView != nil && $0.frame.width > 100 }) else { return }
+        var found: NSWindow?
+        for _ in 0..<60 where found == nil {   // a debug build can take several seconds to put up its first window
+            try? await Task.sleep(for: .milliseconds(250))
+            found = NSApp.windows.first { $0.contentView != nil && $0.frame.width > 100 }   // hidden launch: not visible, still drawable
+        }
+        guard let w = found else { return }
         w.setContentSize(NSSize(width: 1440, height: 900)); w.center()
         try? await Task.sleep(for: .seconds(2))
         guard let v = w.contentView?.superview ?? w.contentView, let rep = v.bitmapImageRepForCachingDisplay(in: v.bounds) else { return }

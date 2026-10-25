@@ -20,3 +20,14 @@ extension Color {
     }
 }
 
+
+extension View {
+    /// Mac windows can be very wide; keep lists in a readable column like macOS Clock. No effect on iPhone.
+    func readableColumn() -> some View {
+        #if os(macOS)
+        frame(maxWidth: 640).frame(maxWidth: .infinity)
+        #else
+        self
+        #endif
+    }
+}

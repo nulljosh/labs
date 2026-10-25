@@ -49,6 +49,7 @@ struct AlarmsView: View {
                     Section { Text("Alarms are turned off for Horula in Settings, so they cannot ring.").foregroundStyle(.red) }
                 }
             }
+            .readableColumn()
             .navigationTitle("Alarms")
             .toolbar {
                 #if os(iOS)

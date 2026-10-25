@@ -33,6 +33,7 @@ struct StopwatchView: View {
                 }
                 .listStyle(.plain)
             }
+            .readableColumn()
             .navigationTitle("Stopwatch")
         }
     }

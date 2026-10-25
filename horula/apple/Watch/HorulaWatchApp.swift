@@ -7,12 +7,13 @@ import UserNotifications
 @main
 struct HorulaWatchApp: App {
     @State private var store = Store()
+    @AppStorage("wpage") private var page = 0   // -wpage 1 on launch picks a page, for screenshots
     var body: some Scene {
         WindowGroup {
-            TabView {
-                WatchWorld()
-                WatchStopwatch()
-                WatchTimers()
+            TabView(selection: $page) {
+                WatchWorld().tag(0)
+                WatchStopwatch().tag(1)
+                WatchTimers().tag(2)
             }
             .tabViewStyle(.verticalPage)
             .environment(store)
@@ -80,7 +81,10 @@ struct WatchTimers: View {
                 List {
                     ForEach(store.timers) { t in
                         HStack {
-                            Text(Clockwork.timerText(t.remaining(ctx.date))).font(.title3).monospacedDigit()
+                            VStack(alignment: .leading, spacing: 0) {
+                                Text(Clockwork.timerText(t.remaining(ctx.date))).font(.title3).monospacedDigit()
+                                if !t.label.isEmpty { Text(t.label).font(.caption).foregroundStyle(.secondary) }
+                            }
                             Spacer()
                             Button { store.timers.removeAll { $0.id == t.id }; Task { await notify() } } label: { Image(systemName: "xmark") }
                         }
