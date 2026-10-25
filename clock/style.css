@@ -15,7 +15,7 @@ h1 { font-family: var(--display); font-size: 34px; line-height: 41px; letter-spa
 h2 { font-size: 13px; line-height: 18px; font-weight: 400; text-transform: uppercase; color: var(--text2); margin: var(--s5) var(--s4) var(--s2); }
 section[hidden], [hidden] { display: none !important; }
 .num { font-variant-numeric: tabular-nums; }
-.big { font-family: var(--display); font-size: 52px; white-space: nowrap; line-height: 1; font-weight: 700; letter-spacing: -.035em; text-align: center; margin: var(--s5) 0; }
+.big { font-family: var(--display); font-size: clamp(34px, 12vw, 52px); white-space: nowrap; line-height: 1; font-weight: 700; letter-spacing: -.035em; text-align: center; margin: var(--s5) 0; }
 .sub { color: var(--text2); font-size: 15px; line-height: 20px; text-align: center; margin: var(--s2) 0; }
 svg.face { display: block; width: min(320px, 80vw); height: auto; margin: 0 auto; }
 .face .rim { fill: var(--bg2); }
@@ -97,7 +97,7 @@ nav {
   background: color-mix(in srgb, var(--bg2) 80%, transparent); backdrop-filter: blur(30px) saturate(190%);
   -webkit-backdrop-filter: blur(30px) saturate(190%); border: .5px solid var(--border);
 }
-nav button { flex: 1 1 auto; min-width: 0; height: 40px; padding: 0 var(--s2); background: transparent; color: var(--text2); font-size: 14px; letter-spacing: -.01em; }
+nav button { flex: 1 1 auto; min-width: 0; height: 40px; padding: 0 var(--s2); background: transparent; color: var(--text2); font-size: clamp(12px, 3.6vw, 14px); letter-spacing: -.01em; }
 nav button[aria-current="page"] { background: var(--bg); color: var(--accent); }
 .empty { color: var(--text2); text-align: center; padding: var(--s5); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
