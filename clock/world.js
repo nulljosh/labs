@@ -15,18 +15,12 @@ $('cityList').innerHTML = [...CITIES.keys()].sort().map(c => `<option value="${e
 const cityZone = (c) => typeof c === 'string' ? { city: c.split('/').pop().replaceAll('_', ' '), zone: c } : c;
 let zones = store.get('zones', ['America/New_York', 'Europe/London', 'Asia/Tokyo']).map(cityZone);
 let worldEditing = false;
-function offsetLabel(zone, now) {
-  const here = new Date(now.toLocaleString('en-US')), there = new Date(now.toLocaleString('en-US', { timeZone: zone }));
-  const diff = Math.round((there - here) / 36e5 * 4) / 4;
-  const day = there.getDate() === here.getDate() ? 'Today' : there > here ? 'Tomorrow' : 'Yesterday';
-  return `${day}, ${diff === 0 ? 'same time' : (diff > 0 ? '+' : '') + diff + ' HRS'}`;
-}
 function drawZones(now = new Date()) {
   $('zones').innerHTML = zones.length ? zones.map((z, i) => `
     <div class="row"><div class="grow"><div class="meta">${offsetLabel(z.zone, now)}</div><div class="label">${esc(z.city)}</div></div>
     ${worldEditing
       ? `<button class="icon" data-up="${i}" aria-label="Move ${esc(z.city)} up" ${i ? '' : 'disabled'}>Up</button><button class="icon danger" data-rm="${i}" aria-label="Remove ${esc(z.city)}">Remove</button>`
-      : `<div class="time num">${new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit', timeZone: z.zone }).format(now)}</div>`}
+      : `<div class="time">${new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit', timeZone: z.zone }).format(now)}</div>`}
     </div>`).join('') : '<div class="empty">No cities yet. Search above to add one.</div>';
 }
 $('zones').onclick = (e) => {

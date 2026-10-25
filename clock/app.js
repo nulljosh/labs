@@ -27,13 +27,15 @@ let lastSec = -1;
 function everySecond(now) { drawClock(now); drawStand(now); tickTimers(); checkAlarms(now); if (now.getSeconds() === 0 && !worldEditing) drawZones(now); }
 function frame() {
   const now = new Date();
-  if (!$('clock').hidden) drawSweep(now);
+  if (!$('world').hidden) drawSweep(now);
   if (!$('stopwatch').hidden) drawSw();
   if (now.getSeconds() !== lastSec) { lastSec = now.getSeconds(); everySecond(now); }
   requestAnimationFrame(frame);
 }
 // rAF stalls in background tabs; this keeps alarms and timers firing there.
 setInterval(() => { const now = new Date(); tickTimers(); checkAlarms(now); }, 1000);
+$('ver').textContent = VERSION;
+$('settingsOpen').onclick = () => $('settingsSheet').showModal();
 drawAlarms(); drawZones(); drawTimers(); swButtons(); drawLaps(); frame();
 
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});

@@ -28,6 +28,6 @@ No build step and no dependencies. State lives in `localStorage` on the device.
 
 ## Brand
 
-Icon, tokens and type are in `brand/BRAND.md`. Fonts come from `scripts/gen_font.py` and the halftone art from `scripts/gen_art.py`. Remaining gaps against the iOS Clock are in `GAPS.md`.
+Icon, tokens and type are in `brand/BRAND.md`. The halftone art comes from `scripts/gen_art.py`. Remaining gaps against the iOS Clock are in `GAPS.md`.
 
 MIT. See `WHITEPAPER.md` for how it works and `SECURITY.md` for reporting.

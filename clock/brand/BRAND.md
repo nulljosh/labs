@@ -23,10 +23,11 @@ One bold flat white glyph on an accent gradient tile. No text, no outline, no em
 The accent is for actions, links, the second hand and the icon. Never brown, beige, purple or teal.
 
 ## Type
-Two faces, both renamed from SIL OFL fonts by `scripts/gen_font.py`, license in `fonts/OFL.txt`.
+System sans only, nothing to download: San Francisco, then Lato, then Helvetica.
 
-- **Clock Display** is Inter Tight Bold. Headlines and the big time, tracked tight (-0.035em).
-- **Clock Sans** is Inter, 400 to 700. Everything else, with tabular figures for any number that changes.
+- **Titles** use SF Pro Display bold, tracked a little tight (-0.022em).
+- **The big readouts** (clock, stopwatch, timers) are light (300), the way iOS Clock draws them.
+- **Everything else** is SF Pro Text. Digits are proportional, except readouts that tick every second, which use tabular figures so they do not jump.
 
 ## Art
 Halftone dot masks of clockwork (a face, gears, a globe, a bell, an hourglass, a stopwatch, a pendulum, the moon), drawn by `scripts/gen_art.py`, nothing borrowed. Tinted with the band art colour.

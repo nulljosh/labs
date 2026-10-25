@@ -1,23 +1,11 @@
 const $ = (id) => document.getElementById(id);
-const pad = (n, w = 2) => String(Math.floor(n)).padStart(w, '0');
-const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // ponytail: localStorage only, per device. Cross-device sync needs an account; add with jaybulb-api if asked.
 const store = {
   get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
-const DAY = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-const DAY_LONG = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const hm = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit' });
 const hmOf = (t) => { const [h, m] = t.split(':').map(Number); const d = new Date(); d.setHours(h, m, 0, 0); return hm.format(d); };
-function repeatText(days) {
-  const d = [...days].sort().join('');
-  if (!d) return 'Never';
-  if (d === '0123456') return 'Every day';
-  if (d === '12345') return 'Weekdays';
-  if (d === '06') return 'Weekends';
-  return [...days].sort().map(i => DAY_LONG[i]).join(' ');
-}
 function toast(text) {
   const t = $('toast'); t.textContent = text; t.hidden = false;
   clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 3000);
@@ -30,7 +18,8 @@ function show(tab) {
   store.set('tab', tab);
 }
 document.querySelectorAll('nav button').forEach(b => b.onclick = () => show(b.dataset.tab));
-show(store.get('tab', 'clock'));
+const saved = store.get('tab', 'world');
+show(document.getElementById(saved)?.matches('main > section') ? saved : 'world');   // 'clock' was a tab before v2
 
 // Sound: tones from WebAudio, nothing to download. Browsers only allow audio
 // after a tap, so the first tap anywhere unlocks it for later alarms.
@@ -74,6 +63,12 @@ function stopRing() { clearInterval(ringLoop); clearTimeout(ringCap); $('ringing
 $('ringStop').onclick = () => { stopRing(); ringActions.onStop?.(); };
 $('ringSnooze').onclick = () => { stopRing(); ringActions.snooze?.(); };
 $('ringRepeat').onclick = () => { stopRing(); ringActions.repeat?.(); };
+// Focus stays inside the ringing view until it is dismissed.
+$('ringing').addEventListener('keydown', (e) => {
+  if (e.key !== 'Tab') return;
+  const b = [...$('ringing').querySelectorAll('button:not([hidden])')], i = b.indexOf(document.activeElement);
+  e.preventDefault(); b[(i + (e.shiftKey ? -1 : 1) + b.length) % b.length].focus();
+});
 
 // Clock face.
 function ticksInto(g) {
@@ -91,8 +86,9 @@ ticksInto($('ticks')); ticksInto($('swTicks'));
 const timeFmt = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit', second: '2-digit' });
 const dateFmt = new Intl.DateTimeFormat(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
 const shortDate = new Intl.DateTimeFormat(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
-// Sweep: runs every frame, so the second hand glides instead of ticking.
-function drawSweep(now) { $('sh').setAttribute('transform', `rotate(${(now.getSeconds() + now.getMilliseconds() / 1000) * 6})`); }
+// Sweep: runs every frame, so the second hand glides instead of ticking. Reduced motion ticks once a second.
+const still = matchMedia('(prefers-reduced-motion: reduce)');
+function drawSweep(now) { $('sh').setAttribute('transform', `rotate(${(now.getSeconds() + (still.matches ? 0 : now.getMilliseconds() / 1000)) * 6})`); }
 function drawClock(now) {
   const s = now.getSeconds(), m = now.getMinutes() + s / 60, h = (now.getHours() % 12) + m / 60;
   $('hh').setAttribute('transform', `rotate(${h * 30})`);
@@ -103,19 +99,7 @@ function drawClock(now) {
   $('nextAlarm').textContent = next ? `Next alarm ${DAY_LONG[next.at.getDay()]} ${hm.format(next.at)}` : '';
 }
 
-// Sunrise and sunset from the NOAA approximation, only if location is allowed.
-function sunTimes(date, lat, lon) {
-  const rad = Math.PI / 180, day = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 864e5);
-  const g = 2 * Math.PI / 365 * (day - 1);
-  const decl = 0.006918 - 0.399912 * Math.cos(g) + 0.070257 * Math.sin(g) - 0.006758 * Math.cos(2 * g) + 0.000907 * Math.sin(2 * g);
-  const eqt = 229.18 * (0.000075 + 0.001868 * Math.cos(g) - 0.032077 * Math.sin(g) - 0.014615 * Math.cos(2 * g) - 0.040849 * Math.sin(2 * g));
-  const cosH = (Math.cos(90.833 * rad) / (Math.cos(lat * rad) * Math.cos(decl))) - Math.tan(lat * rad) * Math.tan(decl);
-  if (cosH > 1 || cosH < -1) return null; // polar day or night
-  const ha = Math.acos(cosH) / rad;
-  const utcMid = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
-  const at = (mins) => new Date(utcMid + mins * 60000);
-  return { rise: at(720 - 4 * (lon + ha) - eqt), set: at(720 - 4 * (lon - ha) - eqt) };
-}
+// Sunrise and sunset, only if location is allowed.
 if ('geolocation' in navigator) navigator.geolocation.getCurrentPosition(p => {
   const t = sunTimes(new Date(), p.coords.latitude, p.coords.longitude);
   if (t) $('sun').textContent = `Sunrise ${hm.format(t.rise)} · Sunset ${hm.format(t.set)}`;

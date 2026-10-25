@@ -1,11 +1,14 @@
 # Clock roadmap
 
-v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below ships on its own: tested headless at 390px in light and dark, deployed with `./deploy.sh`, `CACHE` bumped in `sw.js`, tagged `clock-vN.0.0`. Web only, no build, no dependencies, no account.
+v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below ships on its own: tested headless at 390px in light and dark, deployed with `./deploy.sh`, `CACHE` bumped in `sw.js`, tagged `clock-vN.0.0`. Web only, no build, no dependencies, no account. Every version also closes the open `GAPS.md` round 2 lines (iOS 26 and macOS Clock) that fit it.
 
 ## v2: a floor under it
-- [ ] `node --test` suite for the pure parts: repeat text, next alarm, sunrise and sunset, timer end times, lap best and worst.
-- [ ] Accessibility pass: every control labelled, visible focus ring, reduced motion stops the sweep glide, ringing view traps focus.
-- [ ] Version shown at the bottom of the app, read from one constant.
+- [x] `node --test` suite for the pure parts: repeat text, next alarm, sunrise and sunset, timer end times, lap best and worst.
+- [x] Accessibility pass: every control labelled, visible focus ring, reduced motion stops the sweep glide, ringing view traps focus.
+- [x] Version shown in a new Settings sheet, read from one constant.
+- [x] Four tabs like iOS Clock (World Clock, Alarms, Stopwatch, Timers), each with an icon and a label; the clock face leads World Clock.
+- [x] Round header buttons like iOS, one header height on every tab, spacing on the 8 point grid.
+- [x] System type: SF, then Lato, then Helvetica. Bundled fonts removed.
 
 ## v3: world clock you can plan with
 - [ ] Each city shows day or night and the offset in words ("Tomorrow, 8 hours ahead").

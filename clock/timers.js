@@ -4,8 +4,6 @@ $('tmH').innerHTML = opts(24); $('tmM').innerHTML = opts(60); $('tmS').innerHTML
 $('tmM').value = 5;
 let timers = store.get('timers', []), recents = store.get('recents', []);
 const saveTimers = () => { store.set('timers', timers); store.set('recents', recents); };
-const fmtTm = (ms) => { const s = Math.max(0, Math.ceil(ms / 1000)); return s >= 3600 ? `${pad(s / 3600)}:${pad(s / 60 % 60)}:${pad(s % 60)}` : `${pad(s / 60)}:${pad(s % 60)}`; };
-const fmtDur = (ms) => { const s = Math.round(ms / 1000), h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, r = s % 60; return [h && `${h} hr`, m && `${m} min`, r && `${r} sec`].filter(Boolean).join(' '); };
 const timerLeft = (t) => t.end ? t.end - Date.now() : t.left;
 function startTimer(dur, label, sound) {
   if (dur <= 0) return toast('Pick a duration');
@@ -25,7 +23,7 @@ function drawTimers() {
       <button class="icon danger" data-cancel aria-label="Cancel timer">Cancel</button></div>
     </div>`).join('');
   $('tmRecent').innerHTML = recents.map((r, i) => `
-    <div class="row"><div class="grow"><div class="time num">${fmtTm(r.dur)}</div><div class="meta">${esc(r.label || fmtDur(r.dur))}</div></div>
+    <div class="row"><div class="grow"><div class="time">${fmtTm(r.dur)}</div><div class="meta">${esc(r.label || fmtDur(r.dur))}</div></div>
     <button class="icon go" data-recent="${i}" aria-label="Start ${fmtDur(r.dur)} timer">Start</button></div>`).join('');
   tickTimers();
 }

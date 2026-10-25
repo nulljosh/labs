@@ -13,14 +13,13 @@
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png?v=2" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
-<link rel="preload" href="fonts/ClockDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
-  <section id="clock">
-    <header><h1>Now</h1><button class="link" id="standOpen">Nightstand</button></header>
+  <section id="world">
+    <header><h1>World Clock</h1><span class="tools"><button class="link" id="worldEdit">Edit</button><button class="tool" id="standOpen" aria-label="Nightstand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></button><button class="tool" id="settingsOpen" aria-label="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></span></header>
     <svg class="face" viewBox="-110 -110 220 220" aria-hidden="true">
       <circle class="rim" r="106"/>
       <g id="ticks"></g>
@@ -33,10 +32,6 @@
     <div id="date" class="sub"></div>
     <div id="sun" class="sub"></div>
     <div id="nextAlarm" class="sub"></div>
-  </section>
-
-  <section id="world" hidden>
-    <header><h1>World Clock</h1><button class="link" id="worldEdit">Edit</button></header>
     <div class="form">
       <input id="citySearch" list="cityList" placeholder="Search for a city" aria-label="Search for a city" autocomplete="off">
       <button class="primary" id="cityAdd" style="flex:0 0 auto">Add</button>
@@ -46,9 +41,9 @@
   </section>
 
   <section id="alarms" hidden>
-    <header><h1>Alarms</h1><button class="link" id="alarmNew" aria-label="Add alarm">Add</button></header>
+    <header><h1>Alarms</h1><button class="tool" id="alarmNew" aria-label="Add alarm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></header>
     <h2>Sleep | Wake Up</h2>
-    <div class="group"><div class="row tap" id="sleepRow"></div></div>
+    <div class="group"><div class="row" id="sleepRow"></div></div>
     <h2>Other</h2>
     <div class="group" id="alarmList"></div>
     <p class="sub">Alarms ring while this page is open. Add it to your Home Screen to keep it handy.</p>
@@ -73,7 +68,7 @@
 
   <section id="timer" hidden>
     <header><h1>Timers</h1></header>
-    <div class="pick" aria-label="Duration">
+    <div class="pick" role="group" aria-label="Duration">
       <select id="tmH" aria-label="Hours"></select><span>h</span>
       <select id="tmM" aria-label="Minutes"></select><span>min</span>
       <select id="tmS" aria-label="Seconds"></select><span>s</span>
@@ -89,18 +84,17 @@
 </main>
 
 <nav aria-label="Sections">
-  <button data-tab="clock">Clock</button>
-  <button data-tab="world">World</button>
-  <button data-tab="alarms">Alarms</button>
-  <button data-tab="stopwatch">Stopwatch</button>
-  <button data-tab="timer">Timers</button>
+  <button data-tab="world"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15"/></svg><span>World Clock</span></button>
+  <button data-tab="alarms"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="7.5"/><path d="M12 9v4h3M3.5 6 6.5 3M20.5 6l-3-3M7 20l-1.5 2M17 20l1.5 2"/></svg><span>Alarms</span></button>
+  <button data-tab="stopwatch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="14" r="7.5"/><path d="M12 14V9.5M10 2.5h4M12 2.5v4M18.5 6.5l1.5-1.5"/></svg><span>Stopwatch</span></button>
+  <button data-tab="timer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 1-6.4 2.6"/><path d="M12 12 7.5 7.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg><span>Timers</span></button>
 </nav>
 
 <dialog id="alarmSheet" aria-labelledby="alarmSheetTitle">
   <form method="dialog" id="alarmForm">
     <header><button class="link" value="cancel" formnovalidate>Cancel</button><h1 id="alarmSheetTitle">Add Alarm</h1><button class="link" id="alarmSave" value="save">Save</button></header>
     <input type="time" id="aTime" class="wheel num" required aria-label="Alarm time">
-    <label>Repeat</label><div class="days" id="aDays"></div>
+    <label id="aDaysL">Repeat</label><div class="days" id="aDays" role="group" aria-labelledby="aDaysL"></div>
     <label for="aLabel">Label</label><input id="aLabel" maxlength="40" placeholder="Alarm">
     <label for="aSound">Sound</label><select id="aSound"></select>
     <div class="group" style="margin-top:var(--s4)"><div class="row"><label class="grow" for="aSnooze">Snooze</label><input type="checkbox" class="switch" id="aSnooze" checked></div></div>
@@ -113,7 +107,7 @@
     <header><button class="link" value="cancel" formnovalidate>Cancel</button><h1 id="sleepSheetTitle">Sleep Schedule</h1><button class="link" value="save">Done</button></header>
     <div class="form"><div><label for="sBed">Bedtime</label><input type="time" id="sBed" required></div><div><label for="sWake">Wake Up</label><input type="time" id="sWake" required></div></div>
     <p class="sub" id="sHours"></p>
-    <label>Days</label><div class="days" id="sDays"></div>
+    <label id="sDaysL">Days</label><div class="days" id="sDays" role="group" aria-labelledby="sDaysL"></div>
     <label for="sWind">Wind Down</label>
     <select id="sWind"><option value="0">Off</option><option value="15">15 minutes</option><option value="30">30 minutes</option><option value="45">45 minutes</option><option value="60">1 hour</option></select>
     <label for="sSound">Wake Up Sound</label><select id="sSound"></select>
@@ -136,8 +130,20 @@
   <div class="what" id="standWhat"></div>
 </div>
 
+<dialog id="settingsSheet" aria-labelledby="settingsTitle">
+  <form method="dialog">
+    <header><span></span><h1 id="settingsTitle">Settings</h1><button class="link" value="done">Done</button></header>
+    <div class="group">
+      <div class="row"><div class="grow label">Version</div><div class="meta" id="ver"></div></div>
+      <div class="row"><div class="grow label">Website</div><a class="meta" href="https://clock.jaybulb.com/" target="_blank" rel="noopener">clock.jaybulb.com</a></div>
+    </div>
+    <p class="sub">Everything stays on this device. No account, no tracking.</p>
+  </form>
+</dialog>
+
 <div class="toast" id="toast" hidden role="status"></div>
 
+<script src="lib.js"></script>
 <script src="core.js"></script>
 <script src="world.js"></script>
 <script src="alarms.js"></script>

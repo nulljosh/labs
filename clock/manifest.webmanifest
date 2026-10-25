@@ -2,7 +2,7 @@
   "name": "Clock",
   "short_name": "Clock",
   "description": "A clock, world clocks, alarms, sleep, a stopwatch and timers.",
-  "start_url": "app.html",
+  "start_url": "app",
   "scope": "./",
   "display": "standalone",
   "background_color": "#000000",

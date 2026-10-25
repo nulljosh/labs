@@ -52,8 +52,8 @@ reaches installed copies.
 ## Brand and type
 
 One accent, blue, for actions, links, the second hand and the icon. The icon is one idea, a sweep
-arc with a single hand. Two faces, renamed from Inter and Inter Tight under the SIL OFL, bundled
-and cached. Tokens, the 8 point grid and the radius set live in `tokens.css`, shared by the
+arc with a single hand. Type is the system sans: San Francisco on Apple devices, then Lato, then
+Helvetica, so nothing downloads. Tokens, the 8 point grid and the radius set live in `tokens.css`, shared by the
 landing page and the app. The landing runs the real app on the page with no frame around it.
 
 ## Limits

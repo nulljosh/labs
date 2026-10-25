@@ -1,11 +1,5 @@
 /* Clock design tokens. One source for the landing and the app. Shared system: 8 point grid, one radius set,
    48 point capsule controls. Blue is the only colour Clock owns. */
-@font-face { font-family: "Clock Sans"; src: url("fonts/ClockSans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Clock Sans"; src: url("fonts/ClockSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "Clock Sans"; src: url("fonts/ClockSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
-@font-face { font-family: "Clock Sans"; src: url("fonts/ClockSans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
-/* Clock Sans is Inter, Clock Display is Inter Tight Bold (SIL OFL 1.1, fonts/OFL.txt) */
-@font-face { font-family: "Clock Display"; src: url("fonts/ClockDisplay-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
 
 :root {
   /* colour */
@@ -26,8 +20,8 @@
   --sub: #6e6e73;
 
   /* type */
-  --display: "Clock Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font: "Clock Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;   /* system only: SF, then Lato, then Helvetica */
   --size-title: 34px;         /* section heads: 40 line */
   --size-headline: 20px;      /* card heads: 28 line */
   --size-body: 17px;          /* 24 line */

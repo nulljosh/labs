@@ -14,38 +14,24 @@ let alarms = store.get('alarms', []).map(a => ({ days: [], sound: 'Radar', snooz
 let snoozes = store.get('snoozes', []);
 let sleep = store.get('sleep', { on: false, bed: '23:00', wake: '07:00', days: [0, 1, 2, 3, 4, 5, 6], wind: 30, sound: 'Gentle', snooze: true });
 const saveAlarms = () => { store.set('alarms', alarms); store.set('snoozes', snoozes); };
-function fireTimes(time, days, now) {
-  // Next moment this hh:mm fires, today or later, on an allowed day.
-  const [h, m] = time.split(':').map(Number);
-  for (let i = 0; i < 8; i++) {
-    const d = new Date(now); d.setDate(d.getDate() + i); d.setHours(h, m, 0, 0);
-    if (d > now && (!days.length || days.includes(d.getDay()))) return d;
-  }
-  return null;
-}
 function nextAlarm(now) {
   const list = alarms.filter(a => a.on).map(a => ({ at: fireTimes(a.time, a.days, now), label: a.label }));
   if (sleep.on) list.push({ at: fireTimes(sleep.wake, sleep.days, now), label: 'Wake Up' });
   snoozes.forEach(s => list.push({ at: new Date(s.at), label: s.label }));
   return list.filter(x => x.at).sort((a, b) => a.at - b.at)[0] || null;
 }
-function untilText(at, now = new Date()) {
-  const mins = Math.max(1, Math.round((at - now) / 60000)), h = Math.floor(mins / 60), m = mins % 60;
-  return [h && `${h} hour${h > 1 ? 's' : ''}`, m && `${m} minute${m > 1 ? 's' : ''}`].filter(Boolean).join(' ');
-}
 function drawAlarms() {
   const hours = ((toMin(sleep.wake) - toMin(sleep.bed) + 1440) % 1440) / 60;
-  $('sleepRow').className = `row tap${sleep.on ? '' : ' off'}`;
-  $('sleepRow').innerHTML = `<div class="grow"><div class="time num">${hmOf(sleep.bed)} to ${hmOf(sleep.wake)}</div>
-    <div class="meta">${hours.toFixed(hours % 1 ? 1 : 0)} hours · ${repeatText(sleep.days)}${sleep.wind ? ` · Wind down ${sleep.wind} min` : ''}</div></div>
+  $('sleepRow').className = `row${sleep.on ? '' : ' off'}`;
+  $('sleepRow').innerHTML = `<button class="grow rowbtn" id="sleepEdit" aria-label="Edit sleep schedule"><div class="time">${hmOf(sleep.bed)} to ${hmOf(sleep.wake)}</div>
+    <div class="meta">${hours.toFixed(hours % 1 ? 1 : 0)} hours · ${repeatText(sleep.days)}${sleep.wind ? ` · Wind down ${sleep.wind} min` : ''}</div></button>
     <input type="checkbox" class="switch" id="sleepOn" ${sleep.on ? 'checked' : ''} aria-label="Sleep schedule on">`;
   $('alarmList').innerHTML = alarms.length ? alarms.map((a, i) => `
-    <div class="row tap${a.on ? '' : ' off'}" data-edit="${i}"><div class="grow"><div class="time xl num">${hmOf(a.time)}</div>
-    <div class="meta">${esc(a.label || 'Alarm')}${a.days.length ? ', ' + repeatText(a.days) : ''}</div></div>
+    <div class="row${a.on ? '' : ' off'}"><button class="grow rowbtn" data-edit="${i}"><div class="time xl">${hmOf(a.time)}</div>
+    <div class="meta">${esc(a.label || 'Alarm')}${a.days.length ? ', ' + repeatText(a.days) : ''}</div></button>
     <input type="checkbox" class="switch" data-on="${i}" ${a.on ? 'checked' : ''} aria-label="Alarm ${a.time} on"></div>`).join('')
     : '<div class="empty">No alarms. Tap Add.</div>';
 }
-const toMin = (t) => { const [h, m] = t.split(':').map(Number); return h * 60 + m; };
 $('alarmList').onclick = (e) => {
   const on = e.target.dataset.on;
   if (on != null) {
@@ -79,6 +65,7 @@ $('alarmSheet').onclose = () => {
 };
 $('sleepRow').onclick = (e) => {
   if (e.target.id === 'sleepOn') { sleep.on = e.target.checked; store.set('sleep', sleep); drawAlarms(); if (sleep.on) { askNotify(); toast(`Wake up in ${untilText(fireTimes(sleep.wake, sleep.days, new Date()))}`); } return; }
+  if (!e.target.closest('#sleepEdit')) return;
   $('sBed').value = sleep.bed; $('sWake').value = sleep.wake; sDays.set(sleep.days); $('sWind').value = sleep.wind; $('sSound').value = sleep.sound; $('sSnooze').checked = sleep.snooze;
   sleepHours(); $('sleepSheet').showModal();
 };
