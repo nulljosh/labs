@@ -644,3 +644,7 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] Product Hunt: lots of projects are missing (Joshua Tree for one). Are the posts stale too? Icon and other details are stale.
 - [ ] LLMs: build more evaluations.
 - [ ] Make skills: a Figma UI skill and a Dribbble/Mobbin UI skill.
+
+## Ingested 2026-10-25
+- [ ] Figma: research a Figma MCP and Claude skills etc, or build one ourselves? (Ultrathink.)
+- [ ] "Apps: Clock" (note body was just the word Clock). Unclear: a Clock app idea? Which project, or a new one? Question for Joshua.
