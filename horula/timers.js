@@ -2,19 +2,32 @@
 const opts = (n) => Array.from({ length: n }, (_, i) => `<option value="${i}">${i}</option>`).join('');
 $('tmH').innerHTML = opts(24); $('tmM').innerHTML = opts(60); $('tmS').innerHTML = opts(60);
 $('tmM').value = 5;
-let timers = store.get('timers', []), recents = store.get('recents', []);
-const saveTimers = () => { store.set('timers', timers); store.set('recents', recents); };
+const REST = [10, 15, 20, 30, 45, 60, 90, 120, 180, 300];
+$('tmRest').innerHTML = REST.map(s => `<option value="${s}">${fmtDur(s * 1000)}</option>`).join(''); $('tmRest').value = 30;
+$('tmRounds').innerHTML = Array.from({ length: 19 }, (_, i) => `<option>${i + 2}</option>`).join(''); $('tmRounds').value = 8;
+$('tmIv').onchange = () => document.querySelectorAll('#timer .iv').forEach(r => r.hidden = !$('tmIv').checked);
+let timers = store.get('timers', []), recents = store.get('recents', []), presets = store.get('presets', []);
+const saveTimers = () => { store.set('timers', timers); store.set('recents', recents); store.set('presets', presets); };
 const timerLeft = (t) => t.end ? t.end - Date.now() : t.left;
-function startTimer(dur, label, sound) {
+// iv is { rest, rounds } for an interval timer: dur is the work round, rest the pause between rounds.
+function startTimer(dur, label, sound, iv) {
   if (dur <= 0) return toast('Pick a duration');
-  timers.push({ id: Date.now() + Math.random(), dur, label, sound, end: Date.now() + dur, left: dur });
-  recents = [{ dur, label, sound }, ...recents.filter(r => r.dur !== dur || r.label !== label)].slice(0, 6);
+  const t = { id: Date.now() + Math.random(), dur, label, sound, end: Date.now() + dur, left: dur };
+  if (iv) Object.assign(t, { work: dur, rest: iv.rest, rounds: iv.rounds, round: 1, phase: 'work' });
+  timers.push(t);
+  recents = [{ dur, label, sound, ...(iv && { iv }) }, ...recents.filter(r => r.dur !== dur || r.label !== label || !!r.iv !== !!iv)].slice(0, 6);
   saveTimers(); drawTimers(); askNotify();
 }
-$('tmStart').onclick = () => startTimer((+$('tmH').value * 3600 + +$('tmM').value * 60 + +$('tmS').value) * 1000, $('tmLabel').value.trim(), $('tmSound').value);
+$('tmStart').onclick = () => startTimer((+$('tmH').value * 3600 + +$('tmM').value * 60 + +$('tmS').value) * 1000, $('tmLabel').value.trim(), $('tmSound').value,
+  $('tmIv').checked ? { rest: +$('tmRest').value * 1000, rounds: +$('tmRounds').value } : null);
+const timerMeta = (r) => esc(r.label || fmtDur(r.dur)) + (r.iv ? ` · ${r.iv.rounds} rounds` : '');
 const C = 2 * Math.PI * 24;
 function drawTimers() {
-  $('tmActiveWrap').hidden = !timers.length; $('tmRecentWrap').hidden = !recents.length;
+  $('tmActiveWrap').hidden = !timers.length; $('tmRecentWrap').hidden = !recents.length; $('tmPresetWrap').hidden = !presets.length;
+  $('tmPreset').innerHTML = presets.map((r, i) => `
+    <div class="row"><div class="grow"><div class="time">${fmtTm(r.dur)}</div><div class="meta">${timerMeta(r)}</div></div>
+    <button class="icon" data-unpin="${i}" aria-label="Remove ${esc(r.label || fmtDur(r.dur))} preset">Remove</button>
+    <button class="icon go" data-preset="${i}" aria-label="Start ${esc(r.label || fmtDur(r.dur))}">Start</button></div>`).join('');
   $('tmActive').innerHTML = timers.map((t) => `
     <div class="row" data-id="${t.id}">
       <svg class="ring" viewBox="0 0 56 56" aria-hidden="true"><circle class="track" cx="28" cy="28" r="24"/><circle class="bar" cx="28" cy="28" r="24" stroke-dasharray="${C}"/></svg>
@@ -23,7 +36,8 @@ function drawTimers() {
       <button class="icon danger" data-cancel aria-label="Cancel timer">Cancel</button></div>
     </div>`).join('');
   $('tmRecent').innerHTML = recents.map((r, i) => `
-    <div class="row"><div class="grow"><div class="time">${fmtTm(r.dur)}</div><div class="meta">${esc(r.label || fmtDur(r.dur))}</div></div>
+    <div class="row"><div class="grow"><div class="time">${fmtTm(r.dur)}</div><div class="meta">${timerMeta(r)}</div></div>
+    <button class="icon" data-pin="${i}" aria-label="Pin ${fmtDur(r.dur)} as a preset">Pin</button>
     <button class="icon go" data-recent="${i}" aria-label="Start ${fmtDur(r.dur)} timer">Start</button></div>`).join('');
   tickTimers();
 }
@@ -36,18 +50,36 @@ $('tmActive').onclick = (e) => {
   else return;
   saveTimers(); drawTimers();
 };
-$('tmRecent').onclick = (e) => { const i = e.target.dataset.recent; if (i != null) { const r = recents[+i]; startTimer(r.dur, r.label, r.sound); } };
+$('tmRecent').onclick = (e) => {
+  const { recent, pin } = e.target.dataset;
+  if (recent != null) { const r = recents[+recent]; startTimer(r.dur, r.label, r.sound, r.iv); }
+  else if (pin != null) { const r = recents[+pin]; if (!presets.some(p => p.dur === r.dur && p.label === r.label && !!p.iv === !!r.iv)) { presets.push(r); saveTimers(); drawTimers(); toast('Pinned'); } }
+};
+$('tmPreset').onclick = (e) => {
+  const { preset, unpin } = e.target.dataset;
+  if (preset != null) { const r = presets[+preset]; startTimer(r.dur, r.label, r.sound, r.iv); }
+  else if (unpin != null) { presets.splice(+unpin, 1); saveTimers(); drawTimers(); }
+};
 function tickTimers() {
   for (const t of [...timers]) {
     const left = timerLeft(t), row = $('tmActive').querySelector(`[data-id="${t.id}"]`);
+    // Interval rounds roll on with a short sound, a different one for rest; only the last round rings.
+    const next = t.end && left <= 0 && t.rounds && nextPhase(t);
+    if (next) {
+      Object.assign(t, next, { end: Date.now() + next.dur, left: next.dur });
+      play(next.phase === 'rest' ? (t.sound === 'Chimes' ? 'Gentle' : 'Chimes') : t.sound);
+      notify(t.label || 'Timer', `${next.phase === 'rest' ? 'Rest' : 'Work'}, round ${next.round} of ${t.rounds}`);
+      saveTimers(); drawTimers(); return;
+    }
     if (t.end && left <= 0 && $('ringing').hidden) {
       timers = timers.filter(x => x !== t); saveTimers(); drawTimers();
-      ring({ when: '00:00', what: t.label || 'Timer', sound: t.sound, repeat: () => startTimer(t.dur, t.label, t.sound) });
+      const iv = t.rounds && { rest: t.rest, rounds: t.rounds };
+      ring({ when: '00:00', what: t.label || 'Timer', sound: t.sound, repeat: () => startTimer(t.work || t.dur, t.label, t.sound, iv) });
       return;
     }
     if (!row) continue;
     row.querySelector('[data-left]').textContent = fmtTm(left);
-    row.querySelector('[data-meta]').textContent = `${t.label ? t.label + ' · ' : ''}${t.end ? 'Ends ' + hm.format(new Date(t.end)) : 'Paused'}`;
+    row.querySelector('[data-meta]').textContent = `${t.rounds ? `${t.phase === 'rest' ? 'Rest' : 'Work'} ${t.round} of ${t.rounds} · ` : ''}${t.label ? t.label + ' · ' : ''}${t.end ? 'Ends ' + hm.format(new Date(t.end)) : 'Paused'}`;
     row.querySelector('.bar').setAttribute('stroke-dashoffset', C * (1 - Math.max(0, left) / t.dur));
   }
 }

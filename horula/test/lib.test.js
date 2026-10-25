@@ -135,3 +135,21 @@ test('sun dial point', () => {
   const van = L.dialPoint(new Date(2026, 9, 25, 13, 0), 49.28, -123.12);
   assert.ok(van.day && van.y < -90, 'Vancouver early afternoon is near the top');
 });
+
+test('interval timer phases', () => {
+  const t = { work: 40000, rest: 20000, rounds: 3, round: 1, phase: 'work' };
+  assert.deepEqual(L.nextPhase(t), { phase: 'rest', round: 1, dur: 20000 });
+  assert.deepEqual(L.nextPhase({ ...t, phase: 'rest' }), { phase: 'work', round: 2, dur: 40000 });
+  assert.equal(L.nextPhase({ ...t, round: 3 }), null, 'no rest after the last round');
+  assert.deepEqual(L.nextPhase({ ...t, rest: 0 }), { phase: 'work', round: 2, dur: 40000 }, 'no rest goes straight to work');
+});
+
+test('laps table', () => {
+  assert.equal(L.lapsTable([20000, 41500]), 'Lap\tSplit\tTotal\n1\t00:20.00\t00:20.00\n2\t00:21.50\t00:41.50');
+  assert.equal(L.lapsTable([]), 'Lap\tSplit\tTotal');
+});
+
+test('backup keeps presets', () => {
+  const d = L.parseBackup(L.makeBackup({ presets: [{ dur: 240000, label: 'Tea', sound: 'Chimes' }, { dur: 5 }] }));
+  assert.deepEqual(d.presets, [{ dur: 240000, label: 'Tea', sound: 'Chimes' }]);
+});

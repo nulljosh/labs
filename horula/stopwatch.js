@@ -18,6 +18,7 @@ function swLapReset() {
   saveSw(); swButtons(); drawLaps();
 }
 $('swStart').onclick = swToggle;
+$('swCopy').onclick = () => navigator.clipboard.writeText(lapsTable(sw.laps)).then(() => toast('Laps copied'), () => toast('Copy is blocked here'));
 $('swLap').onclick = swLapReset;
 [$('swDigital'), $('swAnalog')].forEach(el => {
   el.onclick = () => { sw.analog = !sw.analog; saveSw(); swButtons(); };
@@ -29,7 +30,7 @@ function drawLaps() {
   const current = sw.start || sw.acc ? `<div class="row"><div class="grow label">Lap ${sw.laps.length + 1}</div><div class="label num" id="swCurrent">${fmtSw(total - (sw.laps.at(-1) || 0))}</div></div>` : '';
   $('laps').innerHTML = current + splits.map((d, i) => ({ d, i })).reverse().map(({ d, i }) =>
     `<div class="row${d === best ? ' best' : d === worst ? ' worst' : ''}"><div class="grow label">Lap ${i + 1}</div><div class="label num">${fmtSw(d)}</div></div>`).join('');
-  $('laps').hidden = !current;
+  $('laps').hidden = !current; $('swCopy').hidden = !sw.laps.length;
 }
 function drawSw() {
   const t = swNow();

@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '8.0.0';
+const VERSION = '9.0.0';
 const pad = (n, w = 2) => String(Math.floor(n)).padStart(w, '0');
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const DAY = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -80,7 +80,7 @@ function parseHash(hash) {
   return null;
 }
 // Backups: one JSON file. Import checks every field, since the file comes from outside.
-const BACKUP_KEYS = ['alarms', 'sleep', 'zones', 'recents'];
+const BACKUP_KEYS = ['alarms', 'sleep', 'zones', 'recents', 'presets'];
 const makeBackup = (state) => JSON.stringify({ app: 'clock', v: 1, saved: new Date().toISOString(), ...Object.fromEntries(BACKUP_KEYS.map(k => [k, state[k]])) }, null, 2);
 function parseBackup(text) {
   let d; try { d = JSON.parse(text); } catch { throw new Error('That file is not a Horula backup'); }
@@ -93,7 +93,9 @@ function parseBackup(text) {
     time: a.time, days: days(a.days), label: str(a.label, 40), sound: str(a.sound, 20) || 'Radar', on: a.on !== false,
     snooze: a.snooze !== false, snoozeMin: Number.isInteger(a.snoozeMin) && a.snoozeMin >= 1 && a.snoozeMin <= 15 ? a.snoozeMin : 9, last: '' }));
   if (Array.isArray(d.zones)) out.zones = d.zones.filter(z => z && typeof z.zone === 'string' && zoneOk(z.zone)).slice(0, 50).map(z => ({ city: str(z.city, 60) || z.zone.split('/').pop(), zone: z.zone }));
-  if (Array.isArray(d.recents)) out.recents = d.recents.filter(r => r && Number.isFinite(r.dur) && r.dur >= 1000 && r.dur <= 864e5).slice(0, 6).map(r => ({ dur: r.dur, label: str(r.label, 40), sound: str(r.sound, 20) || 'Radar' }));
+  const timerList = (v, n) => v.filter(r => r && Number.isFinite(r.dur) && r.dur >= 1000 && r.dur <= 864e5).slice(0, n).map(r => ({ dur: r.dur, label: str(r.label, 40), sound: str(r.sound, 20) || 'Radar' }));
+  if (Array.isArray(d.recents)) out.recents = timerList(d.recents, 6);
+  if (Array.isArray(d.presets)) out.presets = timerList(d.presets, 20);
   const s = d.sleep;
   if (s && HM.test(s.bed) && HM.test(s.wake)) out.sleep = { on: !!s.on, everSet: true, bed: s.bed, wake: s.wake, days: days(s.days), wind: [0, 15, 30, 45, 60].includes(s.wind) ? s.wind : 30, sound: str(s.sound, 20) || 'Gentle', snooze: s.snooze !== false };
   if (!Object.keys(out).length) throw new Error('That backup is empty');
@@ -121,6 +123,14 @@ function offsetLabel(zone, now) {
   const day = there.getDate() === here.getDate() ? 'Today' : there > here ? 'Tomorrow' : 'Yesterday';
   return `${day}, ${diff === 0 ? 'same time' : (diff > 0 ? '+' : '') + diff + ' HRS'}`;
 }
+// Interval timer: work and rest rounds. The phase after this one, or null when the last work round ends.
+function nextPhase(t) {
+  if (t.phase === 'work' && t.round >= t.rounds) return null;
+  if (t.phase === 'work' && t.rest > 0) return { phase: 'rest', round: t.round, dur: t.rest };
+  return { phase: 'work', round: t.round + 1, dur: t.work };
+}
+// Stopwatch laps as a tab separated table, pastes straight into a spreadsheet.
+const lapsTable = (laps) => ['Lap\tSplit\tTotal', ...laps.map((t, i) => `${i + 1}\t${fmtSw(t - (laps[i - 1] || 0))}\t${fmtSw(t)}`)].join('\n');
 // Nightstand burn-in guard: the face walks a slow 8px circle, one step a minute.
 const drift = (minute) => [Math.round(8 * Math.cos(minute * 0.7)), Math.round(8 * Math.sin(minute * 0.7))];
 // Where the sun dot sits on the nightstand's sun dial: over the horizon by day, a shallow dip under it by night.
@@ -140,4 +150,4 @@ function handAngles(zone, at) {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hourCycle: 'h23', timeZone: zone }).formatToParts(at).map(x => [x.type, +x.value]));
   return { h: (p.hour % 12 + p.minute / 60) * 30, m: p.minute * 6 };
 }
-if (typeof module === 'object') module.exports = { VERSION, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };
+if (typeof module === 'object') module.exports = { VERSION, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };

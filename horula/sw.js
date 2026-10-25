@@ -1,5 +1,5 @@
 // Offline: serve the shell from cache, refresh it in the background.
-const CACHE = 'horula-8.0.0';   // must contain VERSION from lib.js, test/lib.test.js checks
+const CACHE = 'horula-9.0.0';   // must contain VERSION from lib.js, test/lib.test.js checks
 // Clean URLs only: Cloudflare redirects /app.html to /app, and a cached redirect breaks the next launch.
 const SHELL = ['./', 'app', 'tokens.css', 'landing.css', 'style.css', 'lib.js', 'coords.js', 'core.js', 'world.js', 'alarms.js', 'stopwatch.js', 'timers.js', 'app.js', 'manifest.webmanifest', 'icon.svg'];
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL))); self.skipWaiting(); });

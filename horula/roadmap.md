@@ -49,9 +49,11 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] Dim slider right on the nightstand.
 
 ## v9: timers that do more
-- [ ] Preset timers you name and pin (tea 4:00, pasta 9:00).
-- [ ] Interval timer: work and rest rounds with a different sound for each.
-- [ ] Copy or download stopwatch laps as a table.
+- [x] Preset timers you name and pin (tea 4:00, pasta 9:00).
+- [x] Interval timer: work and rest rounds with a different sound for each.
+- [x] Copy or download stopwatch laps as a table.
+
+- [ ] Native parity for v9: presets, intervals and lap copy in the iPhone and Mac app.
 
 ## v10: every language
 - [ ] UI text in English, French, Spanish, German, Japanese, Chinese, Portuguese, Korean, Italian, Dutch, Arabic, Hindi.
