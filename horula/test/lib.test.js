@@ -167,7 +167,7 @@ test('every UI string has all 11 translations with the same blanks, and the page
     assert.deepEqual(Object.keys(ctx.LANG_TEXT[l]).sort(), Object.keys(ctx.T).sort(), `${l} has every string`);
     for (const [k, x] of Object.entries(ctx.LANG_TEXT[l])) { assert.ok(x, `${k} in ${l}`); assert.equal(blanks(x), blanks(k), `${k} in ${l}`); }
   }
-  let html = fs.readFileSync(path.join(root, 'app.html'), 'utf8').replace(/<script[\s\S]*?<\/script>|<svg[\s\S]*?<\/svg>|<kbd>[^<]*<\/kbd>/g, '');
+  let html = fs.readFileSync(path.join(root, 'app.html'), 'utf8').replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<svg[\s\S]*?<\/svg>|<kbd>[^<]*<\/kbd>/g, '');
   const texts = [...html.matchAll(/>([^<>]+)</g), ...html.matchAll(/(?:aria-label|placeholder)="([^"]+)"/g)].map(m => m[1].trim())
     .filter(s => s && /[a-z]{2}/.test(s) && !['Horula', 'horula.jaybulb.com'].includes(s));
   const missing = [...new Set(texts)].filter(s => !ctx.T[s]);

@@ -10,7 +10,6 @@ function closeStand() {
   if (document.fullscreenElement) document.exitFullscreen?.().catch(() => {});
 }
 // Three faces, a dim slider, and a slow drift so a screen left on all night does not burn in.
-const HERE = COORDS[Intl.DateTimeFormat().resolvedOptions().timeZone.split('/').pop().replaceAll('_', ' ')];
 ticksInto($('standTicks'));
 function drawStand(now) {
   if ($('stand').hidden) return;

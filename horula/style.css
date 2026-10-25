@@ -20,6 +20,7 @@ section[hidden], [hidden] { display: none !important; }
 .num { font-variant-numeric: tabular-nums; }
 .big { font-family: var(--display); font-size: clamp(40px, 14vw, 64px); white-space: nowrap; line-height: 1; font-weight: 300; letter-spacing: -.02em; text-align: center; margin: var(--s5) 0; }
 .sub { color: var(--text2); font-size: 15px; line-height: 20px; text-align: center; margin: var(--s2) 0; }
+#digital { min-height: 1em; } #world .sub { min-height: 20px; }   /* filled by script after first paint: hold the space so nothing below jumps */
 svg.face { display: block; width: min(320px, 80vw); height: auto; margin: 0 auto; }
 .face .rim { fill: var(--bg2); }
 .face .tick { stroke: var(--text2); stroke-linecap: round; }

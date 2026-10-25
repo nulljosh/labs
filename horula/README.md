@@ -6,18 +6,20 @@
 
 A clock that does what the iPhone clock does, in a browser tab. Horula is Latin for "little hour". Formerly Clock.
 
-World clocks, alarms, a bedtime schedule, a stopwatch, timers and a nightstand mode. It loads once, works offline and installs to your home screen or dock. No account, no tracking, one small page.
+World clocks, alarms, a bedtime schedule, a stopwatch, timers and a nightstand mode, in twelve languages. Native on iPhone and Mac too. It loads once, works offline and installs to your home screen or dock. No account, no tracking, one small page.
 
 **[horula.jaybulb.com →](https://horula.jaybulb.com)** · **[Open the app →](https://horula.jaybulb.com/app)**
 
 ## Features
 
-- **World clocks.** Add a city by name. Edit mode removes and reorders. Sunrise and sunset show if you allow your location.
+- **World clocks.** Add a city by name, see if the sun is up there, and slide time to plan across cities. Wide windows show a grid of dials.
 - **Alarms.** Repeat days, label, sound and snooze. Ringing takes the whole screen and repeats until you stop it.
 - **Sleep.** A bedtime, a wake time and a wind-down reminder. Hours of sleep are counted for you.
-- **Stopwatch and timers.** Laps, and as many timers as you want side by side.
-- **Nightstand.** Big digits, dimmed at night, screen kept awake.
+- **Stopwatch and timers.** Laps you can copy as a table, as many timers as you want, presets you pin and work and rest intervals.
+- **Nightstand.** Digits, a dial or a sun dial. It dims, turns red at night and drifts a little so the screen never burns in.
 - **Sweep hand.** The second hand glides every frame instead of ticking.
+- **Twelve languages.** Picked from your browser or in Settings, with right to left for Arabic.
+- **Backups.** One file with your alarms, cities and timers, shared with the iPhone and Mac app.
 
 ## Put a clock on your page
 

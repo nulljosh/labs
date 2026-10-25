@@ -160,4 +160,6 @@
   "Sun Dial": "Sol",
   "Next alarm {0}": "Próximo alarme {0}",
   "Brightness": "Brilho",
+  "Day": "Dia",
+  "Night": "Noite",
 };

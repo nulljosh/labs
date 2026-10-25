@@ -117,8 +117,7 @@ function drawClock(now) {
   $('nextAlarm').textContent = next ? tr('Next alarm {0}', `${tr(DAY_LONG[next.at.getDay()])} ${hm.format(next.at)}`) : '';
 }
 
-// Sunrise and sunset, only if location is allowed.
-if (!DEMO && 'geolocation' in navigator) navigator.geolocation.getCurrentPosition(p => {
-  const t = sunTimes(new Date(), p.coords.latitude, p.coords.longitude);
-  if (t) $('sun').textContent = `Sunrise ${hm.format(t.rise)} · Sunset ${hm.format(t.set)}`;
-}, () => {}, { maximumAge: 36e5 });
+// Sunrise and sunset where the device's time zone is named for a city we know. No location prompt.
+const HERE = COORDS[Intl.DateTimeFormat().resolvedOptions().timeZone.split('/').pop().replaceAll('_', ' ')];
+const hereSun = HERE && sunTimes(new Date(), HERE[0], HERE[1]);
+if (hereSun) $('sun').textContent = `${tr('Sunrise')} ${hm.format(hereSun.rise)} · ${tr('Sunset')} ${hm.format(hereSun.set)}`;

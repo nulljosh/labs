@@ -17,3 +17,4 @@ if (LANG !== 'en') {
   for (let n; (n = walk.nextNode());) { const k = n.nodeValue.trim(); if (I18N[k]) n.nodeValue = n.nodeValue.replace(k, I18N[k]); }
   document.querySelectorAll('[aria-label], [placeholder], [title]').forEach(el => ['aria-label', 'placeholder', 'title'].forEach(a => { const v = el.getAttribute(a); if (v && I18N[v]) el.setAttribute(a, I18N[v]); }));
 }
+document.documentElement.classList?.remove('i18n-wait');

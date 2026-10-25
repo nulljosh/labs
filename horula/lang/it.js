@@ -160,4 +160,6 @@
   "Sun Dial": "Sole",
   "Next alarm {0}": "Prossima sveglia {0}",
   "Brightness": "Luminosità",
+  "Day": "Giorno",
+  "Night": "Notte",
 };

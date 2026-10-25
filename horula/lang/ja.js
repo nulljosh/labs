@@ -160,4 +160,6 @@
   "Sun Dial": "太陽",
   "Next alarm {0}": "次のアラーム {0}",
   "Brightness": "明るさ",
+  "Day": "昼",
+  "Night": "夜",
 };

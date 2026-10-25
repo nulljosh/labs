@@ -160,4 +160,6 @@
   "Sun Dial": "太阳",
   "Next alarm {0}": "下一个闹钟 {0}",
   "Brightness": "亮度",
+  "Day": "白天",
+  "Night": "夜晚",
 };

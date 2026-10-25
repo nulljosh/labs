@@ -1,13 +1,14 @@
 # Horula Technical Whitepaper
 
-**v1.0** | October 2026
+**v12** | October 2026
 
 A clock for any browser. World clocks, alarms, a bedtime schedule, a stopwatch, timers and a
 nightstand mode in one static page, with no account and no server behind it.
 
 The iPhone Clock app is the best small tool on the phone and it does not exist anywhere else.
 Horula is the same set of tools as a page you can open on a Mac, a Windows laptop or an Android
-phone, and install like an app. It is plain HTML, CSS and JavaScript, about 550 lines in all.
+phone, and install like an app. It is plain HTML, CSS and JavaScript with no build step. A native
+SwiftUI app for iPhone, Mac and Watch ports the same helpers line for line and reads the same backups.
 
 ## How time is kept
 
@@ -36,8 +37,16 @@ audio after a tap, so the first interaction with the page unlocks it.
 
 World clocks use `Intl.DateTimeFormat` with an IANA zone, so every offset and every daylight
 saving rule comes from the browser, never from a table in the app. Cities are searched by name
-and mapped to zones. Sunrise and sunset use the NOAA approximation and run only if you allow
-location, and only on the device.
+and mapped to zones. Sunrise and sunset use the NOAA approximation with coordinates for each city,
+and for you from the city your time zone is named after, so nothing asks for your location. Wide
+windows draw each city as a small dial, white by day and black by night.
+
+## Languages and embeds
+
+Every string goes through `tr()`, which looks it up in one file per language keyed by the English
+text. Twelve languages ship, Arabic right to left, and dates follow the chosen language through
+`Intl`. A test fails if any language misses a string or drops a blank. `embed.html` is a clock or a
+countdown in an iframe that loads only the pure helpers, so a host page needs no script.
 
 ## State and offline
 

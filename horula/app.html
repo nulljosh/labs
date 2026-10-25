@@ -15,6 +15,9 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="style.css">
+<!-- Scripts are deferred so the clock paints sooner. A reader in another language sees nothing until i18n.js has translated the page, never a flash of English. -->
+<script>try { var l = JSON.parse(localStorage.getItem('lang')) || navigator.language || 'en'; if (!/^en/i.test(l)) document.documentElement.classList.add('i18n-wait'); } catch (e) {}</script>
+<style>.i18n-wait body { visibility: hidden; }</style>
 </head>
 <body>
 <main>
@@ -203,25 +206,25 @@
 
 <div class="toast" id="toast" hidden role="status"></div>
 
-<script src="lang/fr.js"></script>
-<script src="lang/es.js"></script>
-<script src="lang/de.js"></script>
-<script src="lang/ja.js"></script>
-<script src="lang/zh.js"></script>
-<script src="lang/pt.js"></script>
-<script src="lang/ko.js"></script>
-<script src="lang/it.js"></script>
-<script src="lang/nl.js"></script>
-<script src="lang/ar.js"></script>
-<script src="lang/hi.js"></script>
-<script src="i18n.js"></script>
-<script src="lib.js"></script>
-<script src="coords.js"></script>
-<script src="core.js"></script>
-<script src="world.js"></script>
-<script src="alarms.js"></script>
-<script src="stopwatch.js"></script>
-<script src="timers.js"></script>
-<script src="app.js"></script>
+<script src="lang/fr.js" defer></script>
+<script src="lang/es.js" defer></script>
+<script src="lang/de.js" defer></script>
+<script src="lang/ja.js" defer></script>
+<script src="lang/zh.js" defer></script>
+<script src="lang/pt.js" defer></script>
+<script src="lang/ko.js" defer></script>
+<script src="lang/it.js" defer></script>
+<script src="lang/nl.js" defer></script>
+<script src="lang/ar.js" defer></script>
+<script src="lang/hi.js" defer></script>
+<script src="i18n.js" defer></script>
+<script src="lib.js" defer></script>
+<script src="coords.js" defer></script>
+<script src="core.js" defer></script>
+<script src="world.js" defer></script>
+<script src="alarms.js" defer></script>
+<script src="stopwatch.js" defer></script>
+<script src="timers.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>

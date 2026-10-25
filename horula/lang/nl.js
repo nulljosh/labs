@@ -160,4 +160,6 @@
   "Sun Dial": "Zon",
   "Next alarm {0}": "Volgende wekker {0}",
   "Brightness": "Helderheid",
+  "Day": "Dag",
+  "Night": "Nacht",
 };

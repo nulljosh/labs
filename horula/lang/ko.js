@@ -160,4 +160,6 @@
   "Sun Dial": "태양",
   "Next alarm {0}": "다음 알람 {0}",
   "Brightness": "밝기",
+  "Day": "낮",
+  "Night": "밤",
 };
