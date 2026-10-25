@@ -1,12 +1,14 @@
-<img src="icon.svg" width="80" height="80" alt="Clock icon">
+<img src="icon.svg" width="80" height="80" alt="Horula icon">
 
 ![license](https://img.shields.io/badge/license-MIT-green)
 
-A clock that does what the iPhone clock does, in a browser tab.
+# Horula
+
+A clock that does what the iPhone clock does, in a browser tab. Horula is Latin for "little hour". Formerly Clock.
 
 World clocks, alarms, a bedtime schedule, a stopwatch, timers and a nightstand mode. It loads once, works offline and installs to your home screen or dock. No account, no tracking, one small page.
 
-**[clock.jaybulb.com →](https://clock.jaybulb.com)** · **[Open the app →](https://clock.jaybulb.com/app)**
+**[horula.jaybulb.com →](https://horula.jaybulb.com)** · **[Open the app →](https://horula.jaybulb.com/app)**
 
 ## Features
 
@@ -21,7 +23,7 @@ World clocks, alarms, a bedtime schedule, a stopwatch, timers and a nightstand m
 
 ```
 python3 -m http.server 8000     # then open localhost:8000
-./deploy.sh                      # Cloudflare Worker at clock.jaybulb.com; a push deploys nothing
+./deploy.sh                      # Cloudflare Worker at horula.jaybulb.com; a push deploys nothing
 ```
 
 No build step and no dependencies. State lives in `localStorage` on the device.

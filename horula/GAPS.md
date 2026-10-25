@@ -1,4 +1,4 @@
-# Clock vs iOS Clock: gaps
+# Horula vs iOS Clock: gaps
 
 Compared 2026-10-25 against the iOS Clock app (World Clock, Alarms, Stopwatch, Timers, Sleep, StandBy). One line per gap. Ticked means closed and tested headless in light and dark at 390px.
 

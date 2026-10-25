@@ -1,4 +1,4 @@
-// Footer band: Clock's things in a row (the mark, world, bell, stopwatch, hourglass, moon), cut like a line
+// Footer band: Horula's things in a row (the mark, world, bell, stopwatch, hourglass, moon), cut like a line
 // engraving in plain 2D canvas. Same method as Hermes' footer band. Faint rules run across the band; inside the glyphs they thicken, and thicken again on
 // the edge facing away from the light, so the glyphs look cut into the page. Drawn once per size and theme.
 // ponytail: static on purpose, a drifting light shader rendered as a black box on iPhone in Hermes.

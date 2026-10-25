@@ -1,4 +1,4 @@
-/* Clock landing, after Bugle and Hermes: a white page in a thin blue rule, giant bold headlines set like a
+/* Horula landing, after Bugle and Hermes: a white page in a thin blue rule, giant bold headlines set like a
    masthead, tiny labels, small square buttons, and one full-bleed vermilion band where the clockwork
    sits in halftone. Every colour, both faces and the radii come from tokens.css. */
 :root {
@@ -7,7 +7,7 @@
 }
 /* Halftone art: each image is a dot mask (art/*.png, drawn and dithered by scripts/gen_art.py), tinted with --band-art */
 .art { position: relative; overflow: hidden; background: var(--grain), var(--band); }
-.art::before { content: ""; position: absolute; inset: 0; background: var(--band-art); -webkit-mask: var(--img) center / cover no-repeat; mask: var(--img) center / cover no-repeat; }
+.art::before { content: ""; position: absolute; inset: -12% 0; transform: translate3d(0, var(--py, 0px), 0); background: var(--band-art); -webkit-mask: var(--img) center / cover no-repeat; mask: var(--img) center / cover no-repeat; }
 * { box-sizing: border-box; margin: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font); font-size: var(--size-body); line-height: 24px; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
@@ -41,7 +41,16 @@ h3 { font-size: 30px; line-height: 32px; }
 /* the thin rule down both edges of the window */
 @media (min-width: 900px) { body::after { content: ""; position: fixed; inset: 0; border-inline: 4px solid var(--frame); pointer-events: none; z-index: 30; } }
 
-.hero { padding: var(--sp-9) 0 var(--sp-8); }
+.hero { position: relative; overflow: hidden; margin-top: -57px; padding: calc(var(--sp-9) + 57px) 0 var(--sp-8);   /* runs up under the see-through header */ background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 12%, var(--bg)) 0, var(--bg) 70%); }
+.hero > * { position: relative; }
+/* the header's own background: a soft blue wash with halftone clockwork drifting behind it */
+.hero > .hero-art { position: absolute; inset: 0; height: 70%; pointer-events: none; -webkit-mask: linear-gradient(#000, transparent); mask: linear-gradient(#000, transparent); }
+.hero-art::before { content: ""; position: absolute; inset: -20% 0; background: color-mix(in srgb, var(--accent) 22%, transparent); -webkit-mask: var(--img) center / cover no-repeat; mask: var(--img) center / cover no-repeat; transform: translate3d(0, var(--py, 0px), 0); }
+.nav { transition: background var(--motion), box-shadow var(--motion); }
+.nav:not(.solid) { background: transparent; border-bottom-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+.nav.solid { box-shadow: 0 1px 12px rgba(0, 0, 0, .06); }
+/* feature rows: the real app in demo mode, scaled into the art */
+.art.live iframe { position: absolute; left: 50%; top: 50%; width: 390px; height: 760px; border: 0; border-radius: 40px; background: var(--bg); pointer-events: none; transform: translate(-50%, -50%) scale(var(--k, .5)); box-shadow: 0 24px 64px rgba(0, 0, 0, .28); }
 .lead { max-width: 560px; margin: var(--sp-6) auto 0; color: var(--sub); font-size: 20px; line-height: 28px; }
 .cta { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-6); }
 .center .cta { justify-content: center; }
@@ -115,6 +124,7 @@ h3 { font-size: 30px; line-height: 32px; }
 .js .reveal.in { opacity: 1; transform: none; }
 
 @media (max-width: 900px) {
+  .frow .art.live { aspect-ratio: 4 / 5; }
   .frow { grid-template-columns: 1fr; }
   .frow:nth-child(even) .art { order: 0; }
   .frow > div:not(.art) { padding: var(--sp-6) var(--sp-5) var(--sp-7); }
@@ -128,7 +138,7 @@ h3 { font-size: 30px; line-height: 32px; }
 @media (max-width: 600px) {
   .nav-links, .nav-get { display: none; }
   .wrap { padding: 0 var(--sp-4); }
-  .hero { padding-top: var(--sp-8); }
+  .hero { padding-top: calc(var(--sp-8) + 57px); }
   .cells { grid-template-columns: 1fr; }
   .cell, .cell:nth-child(2n), .cell:nth-child(3n), .cell:nth-last-child(-n+2) { border-right: 0; border-bottom: 1px solid var(--band-line); padding: var(--sp-5); }
   .cell:last-child { border-bottom: 0; }

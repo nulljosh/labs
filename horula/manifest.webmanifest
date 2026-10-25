@@ -1,6 +1,6 @@
 {
-  "name": "Clock",
-  "short_name": "Clock",
+  "name": "Horula",
+  "short_name": "Horula",
   "description": "A clock, world clocks, alarms, sleep, a stopwatch and timers.",
   "start_url": "app",
   "scope": "./",

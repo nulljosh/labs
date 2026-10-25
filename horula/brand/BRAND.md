@@ -1,11 +1,11 @@
-# Clock brand kit and design system
+# Horula brand kit and design system
 
 time, one hand sweeping
 
 ## The mark
 One bold flat white glyph on an accent gradient tile. No text, no outline, no emblem.
 
-- `../Clock.icon` is the source of truth (Icon Composer). Light and dark fills are set in it.
+- `../Horula.icon` is the source of truth (Icon Composer). Light and dark fills are set in it.
 - `../icon.svg` is the flat copy for READMEs (shown at 80 px). `icon-1024.png` is the App Store icon, no alpha.
 - `mark.svg` is the glyph alone in `currentColor` for your own background.
 - Clear space equal to the width of the glyph's thickest stroke. Smallest size 16 px.

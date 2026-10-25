@@ -12,7 +12,7 @@ The deployed site and the tip of `main`. Nothing else.
 
 ## What keeps you safe
 
-Clock has no account, no server and no analytics. Alarms, timers, cities and sleep settings live in your browser's `localStorage` and never leave the device. Nothing is sent anywhere.
+Horula has no account, no server and no analytics. Alarms, timers, cities and sleep settings live in your browser's `localStorage` and never leave the device. Nothing is sent anywhere.
 
 Location is asked for once, only to work out sunrise and sunset, and the math runs on the device. Notifications are asked for only when you set an alarm. Every string drawn from stored data is escaped before it reaches the page.
 

@@ -1,6 +1,18 @@
 const $ = (id) => document.getElementById(id);
+// Demo mode (?demo=world|alarms|stopwatch): the landing page shows the real app playing by itself,
+// from seeded data held in memory, so it never touches the visitor's own alarms, sound or permissions.
+const DEMO = new URLSearchParams(location.search).get('demo');
+const DEMO_DATA = DEMO && {
+  tab: { world: 'world', alarms: 'alarms', stopwatch: 'stopwatch', timer: 'timer' }[DEMO] || 'world',
+  zones: [{ city: 'New York', zone: 'America/New_York' }, { city: 'London', zone: 'Europe/London' }, { city: 'Tokyo', zone: 'Asia/Tokyo' }, { city: 'Sydney', zone: 'Australia/Sydney' }],
+  alarms: [{ time: '06:30', days: [1, 2, 3, 4, 5], label: 'Run', on: true }, { time: '07:15', days: [1, 2, 3, 4, 5], label: 'Wake up', on: true }, { time: '09:00', days: [0, 6], label: 'Weekend', on: false }],
+  sleep: { on: true, everSet: true, bed: '23:00', wake: '07:15', days: [1, 2, 3, 4, 5], wind: 30, sound: 'Gentle', snooze: true },
+  sw: { start: Date.now() - 83000, acc: 0, laps: [19400, 40100, 61800], analog: false },
+  timers: [{ id: 1, dur: 300000, label: 'Tea', end: Date.now() + 187000, left: 300000 }, { id: 2, dur: 1500000, label: 'Focus', end: Date.now() + 1302000, left: 1500000 }],
+  recents: [{ dur: 300000, label: 'Tea' }, { dur: 540000, label: 'Pasta' }], warned: true,
+};
 // ponytail: localStorage only, per device. Cross-device sync needs an account; add with jaybulb-api if asked.
-const store = {
+const store = DEMO ? { get: (k, d) => DEMO_DATA[k] ?? d, set: (k, v) => { DEMO_DATA[k] = v; } } : {
   get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
@@ -37,6 +49,7 @@ const SOUNDS = {
 const soundOptions = Object.keys(SOUNDS).map(s => `<option>${s}</option>`).join('');
 ['aSound', 'sSound', 'tmSound'].forEach(id => $(id).innerHTML = soundOptions);
 function play(name = 'Radar', vol = 0.3) {
+  if (DEMO) return;
   const c = audio();
   (SOUNDS[name] || SOUNDS.Radar).forEach(([f, at]) => {
     const o = c.createOscillator(), g = c.createGain(), t = c.currentTime + at;
@@ -46,7 +59,7 @@ function play(name = 'Radar', vol = 0.3) {
   });
 }
 const notify = (title, body) => { if ('Notification' in window && Notification.permission === 'granted') try { new Notification(title, { body, icon: 'icon.svg' }); } catch {} };
-const askNotify = () => { if ('Notification' in window && Notification.permission === 'default') Notification.requestPermission(); };
+const askNotify = () => { if (!DEMO && 'Notification' in window && Notification.permission === 'default') Notification.requestPermission(); };
 
 // Full screen ringing view. The sound repeats until Stop, capped at 10 minutes.
 let ringLoop, ringCap, ringActions = {};
@@ -105,7 +118,7 @@ function drawClock(now) {
 }
 
 // Sunrise and sunset, only if location is allowed.
-if ('geolocation' in navigator) navigator.geolocation.getCurrentPosition(p => {
+if (!DEMO && 'geolocation' in navigator) navigator.geolocation.getCurrentPosition(p => {
   const t = sunTimes(new Date(), p.coords.latitude, p.coords.longitude);
   if (t) $('sun').textContent = `Sunrise ${hm.format(t.rise)} · Sunset ${hm.format(t.set)}`;
 }, () => {}, { maximumAge: 36e5 });

@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '5.0.0';
+const VERSION = '5.1.0';
 const pad = (n, w = 2) => String(Math.floor(n)).padStart(w, '0');
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const DAY = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -83,8 +83,8 @@ function parseHash(hash) {
 const BACKUP_KEYS = ['alarms', 'sleep', 'zones', 'recents'];
 const makeBackup = (state) => JSON.stringify({ app: 'clock', v: 1, saved: new Date().toISOString(), ...Object.fromEntries(BACKUP_KEYS.map(k => [k, state[k]])) }, null, 2);
 function parseBackup(text) {
-  let d; try { d = JSON.parse(text); } catch { throw new Error('That file is not a Clock backup'); }
-  if (!d || d.app !== 'clock' || d.v !== 1) throw new Error('That file is not a Clock backup');
+  let d; try { d = JSON.parse(text); } catch { throw new Error('That file is not a Horula backup'); }
+  if (!d || d.app !== 'clock' || d.v !== 1) throw new Error('That file is not a Horula backup');
   const str = (v, n) => typeof v === 'string' ? v.slice(0, n) : '';
   const days = (v) => Array.isArray(v) ? [...new Set(v.filter(x => Number.isInteger(x) && x >= 0 && x <= 6))] : [];
   const zoneOk = (z) => { try { new Intl.DateTimeFormat('en-US', { timeZone: z }); return true; } catch { return false; } };

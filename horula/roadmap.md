@@ -1,6 +1,6 @@
-# Clock roadmap
+# Horula roadmap
 
-v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below ships on its own: tested headless at 390px in light and dark, deployed with `./deploy.sh`, `CACHE` bumped in `sw.js`, tagged `clock-vN.0.0`. Web only, no build, no dependencies, no account. Every version also closes the open `GAPS.md` round 2 lines (iOS 26 and macOS Clock) that fit it.
+v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below ships on its own: tested headless at 390px in light and dark, deployed with `./deploy.sh`, `CACHE` bumped in `sw.js`, tagged `horula-vN.0.0` (`clock-v1` to `v5` before the rename). Web only, no build, no dependencies, no account. Every version also closes the open `GAPS.md` round 2 lines (iOS 26 and macOS Clock) that fit it.
 
 ## v2: a floor under it
 - [x] `node --test` suite for the pure parts: repeat text, next alarm, sunrise and sunset, timer end times, lap best and worst.
@@ -27,27 +27,43 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] Links that do things: `app.html#timer=10m` starts a timer, `#alarm=07:30` adds an alarm, so Shortcuts and bookmarks can drive it.
 - [x] Keyboard shortcuts on every tab, listed behind `?`.
 
-## v6: nightstand faces
+## v5.1: landing that moves
+- [x] Header gets a real background, sections scroll with parallax art.
+- [x] Feature rows show the app working (live demo mode, looping), not still art.
+
+## v6: native on the App Store
+- [x] Find a name Apple accepts: Horula (Latin, "little hour"; Clock was taken). One name everywhere: store, site, folder.
+- [ ] SwiftUI app for iPhone, iPad and Mac with the same tabs, alarms that ring when the app is closed (AlarmKit), timers, stopwatch.
+- [ ] Widgets: Home Screen, Lock Screen and StandBy (world clocks, next alarm, running timer).
+- [ ] Apple Watch app: alarms, timers, stopwatch, world clock complications.
+- [ ] Icon Composer icon, screenshots, privacy, submitted for review.
+
+## v7: everywhere else
+- [ ] Windows: installable from the Microsoft Store (packaged web app).
+- [ ] Linux: Flatpak and a .deb that open the same app.
+- [ ] Joshua Tree: a native Horula for the Joshua Tree OS.
+
+## v8: nightstand faces
 - [ ] Choose a face: big digits, analog, or a sun dial that tracks the day.
 - [ ] Pixels drift a little every minute so a screen left on all night does not burn in.
 - [ ] Dim slider right on the nightstand.
 
-## v7: timers that do more
+## v9: timers that do more
 - [ ] Preset timers you name and pin (tea 4:00, pasta 9:00).
 - [ ] Interval timer: work and rest rounds with a different sound for each.
 - [ ] Copy or download stopwatch laps as a table.
 
-## v8: every language
+## v10: every language
 - [ ] UI text in English, French, Spanish, German, Japanese, Chinese, Portuguese, Korean, Italian, Dutch, Arabic, Hindi.
 - [ ] Right to left layout for Arabic.
 - [ ] City search works in the local language.
 
-## v9: a clock for other pages
+## v11: a clock for other pages
 - [ ] `embed.html?city=Tokyo` gives a small live clock any site can drop in.
 - [ ] Countdown embed to a date, for launches and birthdays.
 - [ ] Embeds follow light and dark and need no script on the host page.
 
-## v10: done right
+## v12: done right
 - [ ] Lighthouse 100 on performance, accessibility, best practices and SEO for both pages.
-- [ ] Landing refreshed for everything v2 to v9 added, with new art where a section needs it.
+- [ ] Landing refreshed for everything v2 to v11 added, with new art where a section needs it.
 - [ ] README, WHITEPAPER and CLAUDE.md current; launch kit ready.

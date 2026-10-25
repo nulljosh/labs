@@ -41,7 +41,7 @@ $('settingsOpen').onclick = () => $('settingsSheet').showModal();
 $('exportBtn').onclick = () => {
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([makeBackup({ alarms, sleep, zones, recents })], { type: 'application/json' }));
-  a.download = `clock-backup-${new Date().toISOString().slice(0, 10)}.json`; a.click(); URL.revokeObjectURL(a.href);
+  a.download = `horula-backup-${new Date().toISOString().slice(0, 10)}.json`; a.click(); URL.revokeObjectURL(a.href);
   toast('Backup saved');
 };
 $('importBtn').onclick = () => $('importFile').click();
@@ -89,4 +89,9 @@ function runHash() {
 addEventListener('hashchange', runHash);
 drawAlarms(); drawZones(); drawTimers(); swButtons(); drawLaps(); runHash(); frame();
 
-if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
+if (DEMO) document.documentElement.classList.add('demo');
+// Demo autoplay: the planner swings, an alarm flips, laps land, so the landing shows the app working.
+if (DEMO === 'world') { let t = 0; setInterval(() => { $('scrub').value = Math.round(Math.sin(t += 0.05) * 32); drawZones(); }, 120); }
+if (DEMO === 'alarms') setInterval(() => { const sw = $('alarmList').querySelector('[data-on="2"]'); if (sw) sw.click(); }, 2600);
+if (DEMO === 'stopwatch') setInterval(() => { if (sw.laps.length >= 7) { sw.laps = []; sw.start = Date.now(); sw.acc = 0; } else swLapReset(); drawLaps(); }, 3200);
+if (!DEMO && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});

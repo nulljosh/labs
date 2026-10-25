@@ -1,4 +1,4 @@
-# Clock Technical Whitepaper
+# Horula Technical Whitepaper
 
 **v1.0** | October 2026
 
@@ -6,7 +6,7 @@ A clock for any browser. World clocks, alarms, a bedtime schedule, a stopwatch, 
 nightstand mode in one static page, with no account and no server behind it.
 
 The iPhone Clock app is the best small tool on the phone and it does not exist anywhere else.
-Clock is the same set of tools as a page you can open on a Mac, a Windows laptop or an Android
+Horula is the same set of tools as a page you can open on a Mac, a Windows laptop or an Android
 phone, and install like an app. It is plain HTML, CSS and JavaScript, about 550 lines in all.
 
 ## How time is kept
@@ -43,7 +43,7 @@ location, and only on the device.
 
 All state is `localStorage` on the device, behind a four line `store` that survives a blocked or
 full store by falling back to defaults. Nothing syncs between devices. Sync would need an account,
-which is the one thing Clock is built to avoid.
+which is the one thing Horula is built to avoid.
 
 `sw.js` caches the shell on first visit and serves it from cache after that, refreshing in the
 background. The page works with no signal. Changing the cache name in `sw.js` is how a release
