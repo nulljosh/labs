@@ -35,3 +35,20 @@ test("refuses a feed larger than the cap", async () => {
     new Response("x", { headers: { "content-length": String(50 * 1024 * 1024) } });
   assert.equal((await call("https://example.com/big")).status, 413);
 });
+
+// Headline cleaning, shared rules with the Swift app (web/headline.js sets globalThis.Headline).
+await import("./web/headline.js");
+const { clean, variants } = globalThis.Headline;
+
+test("headline drops section tags, outlet names and asides", () => {
+  assert.equal(clean("Opinion | Congress’s Russia Problems"), "Congress’s Russia Problems");
+  assert.equal(clean("Storm hits coast - BBC News", "BBC"), "Storm hits coast");
+  assert.equal(clean("Rates fall (again) [Video]"), "Rates fall");
+});
+
+test("headline variants cut at a clause first, never on a filler word", () => {
+  const v = variants("Jaylen Brown ratchets up Jayson Tatum drama: ‘He should stay ready at all times’");
+  assert.equal(v[1], "Jaylen Brown ratchets up Jayson Tatum drama");
+  assert.ok(variants("Show HN: I put employees inside S&P 500 bubbles").some((x) => x.startsWith("Show HN:")));
+  for (const x of v) assert.ok(!["to", "the", "of", "at"].includes(x.split(" ").pop()), x);
+});

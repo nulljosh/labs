@@ -48,9 +48,9 @@ struct EntryListView: View {
         List(feed.entries) { entry in
             NavigationLink(value: entry) {
                 HStack(spacing: 12) {
-                    EntryThumbnail(url: entry.imageURL)
+                    EntryThumbnail(url: entry.imageURL, source: entry.sourceTitle)
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(entry.title).font(.headline).lineLimit(1)
+                        FittedTitle(variants: Headline.variants(entry.title, source: entry.sourceTitle))
                         HStack(spacing: 6) {
                             if !entry.sourceTitle.isEmpty {
                                 Text(entry.sourceTitle).fontWeight(.medium)
@@ -73,36 +73,61 @@ struct EntryListView: View {
                 ContentUnavailableView("No entries yet", systemImage: "doc.text", description: Text("Add a feed or pull to refresh"))
             }
         }
-        .navigationTitle("Coranto")
+        .navigationTitle("Coranto")   // still names the back button and the Mac window
+        #if os(iOS)
+        .toolbar(.hidden, for: .navigationBar)   // the tab bar already says Home; stories start at the top
+        #endif
         .navigationDestination(for: JournalEntry.self) { EntryDetailView(entry: $0) }
     }
 }
 
-/// ponytail: fixed box so a slow image can't resize the row mid-load, and nothing at all
-/// when the entry has no image — most feeds carry none, and a reserved empty square would
-/// indent every row in the list for nothing.
+/// The longest headline variant that fits on one line, so titles end on a word, not "…". The last child is the
+/// shortest variant allowed to truncate, for a window too narrow even for that.
+private struct FittedTitle: View {
+    let variants: [String]
+
+    var body: some View {
+        ViewThatFits(in: .horizontal) {
+            ForEach(variants, id: \.self) { Text($0).font(.headline).lineLimit(1).fixedSize(horizontal: true, vertical: false) }
+            Text(variants.last ?? "").font(.headline).lineLimit(1)
+        }
+    }
+}
+
+/// Every row gets the same square, so the list lines up: the story's image when it has one, otherwise the outlet's
+/// initials on a blue tile (Joshua 2026-10-25: a mix of rows with and without thumbnails looked funny).
 private struct EntryThumbnail: View {
     let url: URL?
+    let source: String
     private let side: CGFloat = 56
 
     var body: some View {
-        if let url {
-            AsyncImage(url: url) { phase in
-                fill(for: phase)
+        Group {
+            if let url {
+                AsyncImage(url: url) { phase in
+                    if case .success(let image) = phase { image.resizable().aspectRatio(contentMode: .fill) } else { monogram }
+                }
+            } else {
+                monogram
             }
-            .frame(width: side, height: side)
-            .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+        }
+        .frame(width: side, height: side)
+        .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+    }
+
+    private var monogram: some View {
+        ZStack {
+            Color.corantoAccent.opacity(0.12)
+            Text(Self.initials(source)).font(.system(size: 17, weight: .bold)).foregroundStyle(Color.corantoAccent)
         }
     }
 
-    /// Loading and failure share the placeholder, so a broken image leaves the row the same
-    /// height it started at rather than collapsing under the text.
-    @ViewBuilder
-    private func fill(for phase: AsyncImagePhase) -> some View {
-        if case .success(let image) = phase {
-            image.resizable().aspectRatio(contentMode: .fill)
-        } else {
-            Color.secondary.opacity(0.12)
-        }
+    /// "BBC" stays BBC; "Hacker News" is HN; "The Province" is P. Mirrors `initials` in web/read.html.
+    static func initials(_ source: String) -> String {
+        let trimmed = source.trimmingCharacters(in: .whitespaces)
+        if trimmed.count <= 4, trimmed == trimmed.uppercased(), !trimmed.isEmpty { return trimmed }
+        let words = trimmed.split(separator: " ").filter { $0.lowercased() != "the" }
+        let letters = words.prefix(2).compactMap(\.first).map { String($0).uppercased() }.joined()
+        return letters.isEmpty ? "C" : letters
     }
 }

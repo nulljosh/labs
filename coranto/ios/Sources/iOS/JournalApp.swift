@@ -7,6 +7,7 @@ struct JournalApp: App {
         // The self-checks were dead code until this call — nothing invoked them.
         feedParserDemo()
         seedFeedsDemo()
+        headlineDemo()
         #endif
     }
 
