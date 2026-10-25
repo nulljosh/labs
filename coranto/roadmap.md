@@ -21,7 +21,7 @@ Status: `todo`, `partial`, `done`, or `n/a` (with the reason). The loop works to
 | 11 | Lean bar per story (left, center, right) | | yes | Coverage sheet from the reader (app and web) | done | 1.14.0 |
 | 12 | Lean and owner label on each outlet | | yes | in Feeds and the Coverage sheet (app and web) | done | 1.14.0 |
 | 13 | Compare headlines side by side | | yes | Coverage sheet groups headlines Left, Center, Right (app and web) | done | 1.14.0 |
-| 14 | Blindspot: stories one side barely covers | | yes | noted in the Coverage sheet (app; web next); a Blindspot filter comes with row 16 | partial | 1.13.0 |
+| 14 | Blindspot: stories one side barely covers | | yes | noted in Coverage (app and web); a Blindspot filter comes with row 16 | done | 1.14.0 |
 | 15 | My news bias (lean of what you read) | | yes | Your Reading in Settings (app and web) | done | 1.14.0 |
 | 16 | Today: top stories ranked by coverage | yes | yes | newest first | todo | |
 | 17 | Follow topics | yes | yes | sources only | todo | |
