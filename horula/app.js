@@ -9,16 +9,31 @@ function closeStand() {
   $('stand').hidden = true; wakeLock?.release?.(); wakeLock = null;
   if (document.fullscreenElement) document.exitFullscreen?.().catch(() => {});
 }
+// Three faces, a dim slider, and a slow drift so a screen left on all night does not burn in.
+const HERE = COORDS[Intl.DateTimeFormat().resolvedOptions().timeZone.split('/').pop().replaceAll('_', ' ')];
+ticksInto($('standTicks'));
 function drawStand(now) {
   if ($('stand').hidden) return;
-  const h = now.getHours();
+  const h = now.getHours(), face = store.get('standFace', 'digits'), [dx, dy] = drift(Math.floor(now / 60000));
   $('stand').classList.toggle('night', h >= 22 || h < 7);
+  $('stand').dataset.face = face;
+  $('standFace').style.transform = `translate(${dx}px, ${dy}px)`;
+  $('standFace').style.opacity = store.get('standDim', 100) / 100;
+  $('standAnalog').toggleAttribute('hidden', face !== 'analog'); $('standSun').toggleAttribute('hidden', face !== 'sun');   // SVG has no .hidden property
+  document.querySelectorAll('[data-face]').forEach(b => b.setAttribute('aria-checked', b.dataset.face === face));
   $('standTime').textContent = hm.format(now).replace(/\s?[AP]M$/i, '');
+  $('standH').setAttribute('transform', `rotate(${(h % 12 + now.getMinutes() / 60) * 30})`);
+  $('standM').setAttribute('transform', `rotate(${now.getMinutes() * 6})`);
+  const p = dialPoint(now, HERE?.[0], HERE?.[1]);
+  $('standDot').setAttribute('cx', p.x.toFixed(1)); $('standDot').setAttribute('cy', p.y.toFixed(1)); $('standDot').classList.toggle('moon', !p.day);
   const next = nextAlarm(now);
   $('standWhat').textContent = `${shortDate.format(now)}${next ? ` · Alarm ${hm.format(next.at)}` : ''}`;
 }
 $('standOpen').onclick = openStand;
-$('stand').onclick = closeStand;
+$('stand').onclick = (e) => { if (!e.target.closest('#standBar')) closeStand(); };
+$('standBar').onclick = (e) => { const f = e.target.closest('[data-face]'); if (f) { store.set('standFace', f.dataset.face); drawStand(new Date()); } };
+$('standDim').value = store.get('standDim', 100);
+$('standDim').oninput = () => { store.set('standDim', +$('standDim').value); drawStand(new Date()); };
 addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('stand').hidden) closeStand(); });
 document.addEventListener('visibilitychange', async () => { if (!$('stand').hidden && document.visibilityState === 'visible') try { wakeLock = await navigator.wakeLock?.request('screen'); } catch {} });
 

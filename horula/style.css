@@ -91,6 +91,21 @@ input[type="time"].wheel { font-size: 48px; font-weight: 200; height: 72px; text
 #stand .when { font-size: min(30vw, 50vh); font-weight: 200; }
 #stand .what { color: #98989d; font-size: 17px; white-space: nowrap; }
 #stand.night { color: #ff3b30; }
+#standFace { display: flex; flex-direction: column; align-items: center; gap: var(--s4); transition: transform 2s, opacity .2s; }
+.standsvg { width: min(70vw, 60vh); height: auto; }
+.standsvg line, .standsvg .arc { stroke: currentColor; stroke-linecap: round; fill: none; }
+.standsvg .tick { stroke: currentColor; opacity: .6; }
+.standsvg circle { fill: currentColor; }
+.standsvg .arc { stroke-width: 2; stroke-dasharray: 2 6; opacity: .5; } .standsvg .horizon { stroke-width: 1; opacity: .35; }
+#standDot.moon { fill: #000; stroke: currentColor; stroke-width: 3; }
+#stand[data-face="analog"] .when { display: none; }
+#stand[data-face="sun"] .when { font-size: min(14vw, 18vh); }
+.standbar { position: absolute; bottom: calc(var(--s5) + env(safe-area-inset-bottom)); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--s4); opacity: .4; transition: opacity .2s; }
+.standbar:hover, .standbar:focus-within { opacity: 1; }
+.standbar .seg { display: flex; gap: 2px; padding: 2px; border-radius: var(--r-pill); background: #1c1c1e; }
+.standbar .seg button { min-width: 0; height: 36px; padding: 0 var(--s4); font-size: 15px; background: none; color: #98989d; }
+.standbar .seg button[aria-checked="true"] { background: #3a3a3c; color: #fff; }
+.standbar input { width: 140px; height: 36px; accent-color: #98989d; background: none; }
 #stand.night .what { color: #8a1f1a; }
 /* timers */
 .ring { flex: none; width: 56px; height: 56px; transform: rotate(-90deg); }

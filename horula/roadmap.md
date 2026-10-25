@@ -39,14 +39,14 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [ ] Icon Composer icon, screenshots, privacy, submitted for review. iPhone done 2026-10-25; Mac waits on screenshots (the Mac app's self-snapshot needs an unlocked screen).
 
 ## v7: everywhere else
-- [ ] Windows: installable from the Microsoft Store (packaged web app).
+- [ ] Windows: installable from the Microsoft Store (packaged web app). Parked: needs Joshua's Microsoft Partner Center account.
 - [ ] Linux: Flatpak and a .deb that open the same app.
 - [ ] Joshua Tree: a native Horula for the Joshua Tree OS.
 
 ## v8: nightstand faces
-- [ ] Choose a face: big digits, analog, or a sun dial that tracks the day.
-- [ ] Pixels drift a little every minute so a screen left on all night does not burn in.
-- [ ] Dim slider right on the nightstand.
+- [x] Choose a face: big digits, analog, or a sun dial that tracks the day.
+- [x] Pixels drift a little every minute so a screen left on all night does not burn in.
+- [x] Dim slider right on the nightstand.
 
 ## v9: timers that do more
 - [ ] Preset timers you name and pin (tea 4:00, pasta 9:00).

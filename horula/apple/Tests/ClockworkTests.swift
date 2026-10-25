@@ -94,4 +94,17 @@ final class ClockworkTests: XCTestCase {
         let back = try Backup.parse(s.backup())
         XCTAssertEqual(back.alarms?.first?.label, "Run"); XCTAssertEqual(back.recents?.first?.dur, 540)
     }
+
+    func testNightstandDriftAndDial() {
+        for m in 0..<200 { let v = Clockwork.drift(m); XCTAssertLessThanOrEqual(hypot(v.width, v.height), 8.8) }
+        XCTAssertNotEqual(Clockwork.drift(1), Clockwork.drift(2))
+        let noon = Clockwork.dialPoint(d(2026, 10, 25, 12), lat: nil, lon: nil, cal: cal)
+        XCTAssertTrue(noon.day); XCTAssertEqual(noon.x, 0, accuracy: 1e-9); XCTAssertEqual(noon.y, -100, accuracy: 1e-9)
+        let midnight = Clockwork.dialPoint(d(2026, 10, 26), lat: nil, lon: nil, cal: cal)
+        XCTAssertFalse(midnight.day); XCTAssertEqual(midnight.x, 0, accuracy: 1e-9); XCTAssertEqual(midnight.y, 18, accuracy: 1e-9)
+        let dawn = Clockwork.dialPoint(d(2026, 10, 25, 6), lat: nil, lon: nil, cal: cal)
+        XCTAssertTrue(dawn.day); XCTAssertEqual(dawn.x, -100, accuracy: 1e-9)
+        let van = Clockwork.dialPoint(d(2026, 10, 25, 13), lat: 49.28, lon: -123.12, cal: cal)
+        XCTAssertTrue(van.day); XCTAssertLessThan(van.y, -90)
+    }
 }

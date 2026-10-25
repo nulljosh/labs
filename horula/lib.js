@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '5.2.0';
+const VERSION = '8.0.0';
 const pad = (n, w = 2) => String(Math.floor(n)).padStart(w, '0');
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const DAY = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -121,9 +121,23 @@ function offsetLabel(zone, now) {
   const day = there.getDate() === here.getDate() ? 'Today' : there > here ? 'Tomorrow' : 'Yesterday';
   return `${day}, ${diff === 0 ? 'same time' : (diff > 0 ? '+' : '') + diff + ' HRS'}`;
 }
+// Nightstand burn-in guard: the face walks a slow 8px circle, one step a minute.
+const drift = (minute) => [Math.round(8 * Math.cos(minute * 0.7)), Math.round(8 * Math.sin(minute * 0.7))];
+// Where the sun dot sits on the nightstand's sun dial: over the horizon by day, a shallow dip under it by night.
+// ponytail: no known coordinates, or a polar day, falls back to a 6:00 to 18:00 sun.
+function dialPoint(now, lat, lon) {
+  const day0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const times = (k) => { const d = new Date(day0.getFullYear(), day0.getMonth(), day0.getDate() + k);
+    return (lat == null ? null : sunTimes(d, lat, lon)) || { rise: new Date(d.getTime() + 6 * 36e5), set: new Date(d.getTime() + 18 * 36e5) }; };
+  const t = times(0);
+  if (now >= t.rise && now < t.set) { const f = (now - t.rise) / (t.set - t.rise); return { x: -100 * Math.cos(Math.PI * f), y: -100 * Math.sin(Math.PI * f), day: true }; }
+  const [from, to] = now < t.rise ? [times(-1).set, t.rise] : [t.set, times(1).rise];
+  const f = (now - from) / (to - from);
+  return { x: 100 * Math.cos(Math.PI * f), y: 18 * Math.sin(Math.PI * f), day: false };
+}
 // Hour and minute hand angles in a city's own time, for the wide grid of faces.
 function handAngles(zone, at) {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hourCycle: 'h23', timeZone: zone }).formatToParts(at).map(x => [x.type, +x.value]));
   return { h: (p.hour % 12 + p.minute / 60) * 30, m: p.minute * 6 };
 }
-if (typeof module === 'object') module.exports = { VERSION, handAngles, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };
+if (typeof module === 'object') module.exports = { VERSION, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };

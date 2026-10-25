@@ -145,4 +145,28 @@ enum Clockwork {
         guard let v = sec, v > 0, v <= 86400 else { return nil }
         return TimeInterval(v)
     }
+
+    /// Nightstand burn-in guard: the face walks a slow 8 point circle, one step a minute.
+    static func drift(_ minute: Int) -> CGSize {
+        CGSize(width: (8 * cos(Double(minute) * 0.7)).rounded(), height: (8 * sin(Double(minute) * 0.7)).rounded())
+    }
+
+    /// Where the sun dot sits on the sun dial: over the horizon by day, a shallow dip under it by night.
+    /// ponytail: no coordinates, or a polar day, falls back to a 6:00 to 18:00 sun.
+    static func dialPoint(_ now: Date, lat: Double?, lon: Double?, cal: Calendar = .current) -> (x: Double, y: Double, day: Bool) {
+        let day0 = cal.startOfDay(for: now)
+        func times(_ k: Int) -> (rise: Date, set: Date) {
+            let d = cal.date(byAdding: .day, value: k, to: day0)!
+            if let lat, let lon, let t = sunTimes(on: d, lat: lat, lon: lon, cal: cal) { return t }
+            return (d.addingTimeInterval(6 * 3600), d.addingTimeInterval(18 * 3600))
+        }
+        let t = times(0)
+        if now >= t.rise && now < t.set {
+            let f = now.timeIntervalSince(t.rise) / t.set.timeIntervalSince(t.rise)
+            return (-100 * cos(.pi * f), -100 * sin(.pi * f), true)
+        }
+        let (from, to) = now < t.rise ? (times(-1).set, t.rise) : (t.set, times(1).rise)
+        let f = now.timeIntervalSince(from) / to.timeIntervalSince(from)
+        return (100 * cos(.pi * f), 18 * sin(.pi * f), false)
+    }
 }

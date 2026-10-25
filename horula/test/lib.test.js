@@ -119,3 +119,19 @@ test('hand angles in a city', () => {
   assert.deepEqual(L.handAngles('Asia/Tokyo', at), { h: 15, m: 180 });
   assert.deepEqual(L.handAngles('America/Vancouver', at), { h: 255, m: 180 });
 });
+
+test('nightstand drift stays within 8px and moves each minute', () => {
+  for (let m = 0; m < 200; m++) { const [x, y] = L.drift(m); assert.ok(Math.hypot(x, y) <= 8.8); }
+  assert.notDeepEqual(L.drift(1), L.drift(2));
+});
+
+test('sun dial point', () => {
+  const noon = L.dialPoint(new Date(2026, 9, 25, 12, 0), null, null);   // fallback sun, 6:00 to 18:00
+  assert.ok(noon.day && Math.abs(noon.x) < 1e-9 && Math.abs(noon.y + 100) < 1e-9);
+  const midnight = L.dialPoint(new Date(2026, 9, 26, 0, 0), null, null);
+  assert.ok(!midnight.day && Math.abs(midnight.x) < 1e-9 && Math.abs(midnight.y - 18) < 1e-9);
+  const dawn = L.dialPoint(new Date(2026, 9, 25, 6, 0), null, null);
+  assert.ok(dawn.day && Math.abs(dawn.x + 100) < 1e-9, 'sunrise sits on the left of the horizon');
+  const van = L.dialPoint(new Date(2026, 9, 25, 13, 0), 49.28, -123.12);
+  assert.ok(van.day && van.y < -90, 'Vancouver early afternoon is near the top');
+});
