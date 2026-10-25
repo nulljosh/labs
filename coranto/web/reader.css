@@ -98,3 +98,10 @@ a.row:hover { text-decoration: none; background: color-mix(in srgb, var(--text) 
 .act:disabled { opacity: .4; cursor: default; }
 .act.danger { color: #d70015; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .act.danger { color: #ff6961; } }
+
+/* capsule search, 44 points, leading magnifier (house Apple rules) */
+.search { display: flex; align-items: center; gap: var(--sp-2); height: 44px; margin: var(--sp-2) 20px var(--sp-2); padding: 0 14px; border-radius: var(--r-pill); background: var(--surface); color: var(--sub); }
+.search svg { width: 18px; height: 18px; flex: none; }
+.search input { flex: 1; min-width: 0; border: 0; background: none; font: inherit; font-size: 17px; color: var(--text); height: 44px; }
+.search input:focus-visible { outline: none; }
+.search:focus-within { box-shadow: 0 0 0 4px var(--ring); }

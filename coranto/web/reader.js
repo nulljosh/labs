@@ -53,9 +53,14 @@ function dateText(d, style) {
   return d.getTime() ? d.toLocaleDateString(undefined, { dateStyle: style }) : '';
 }
 
+// Search matches headlines and outlet names ("BBC" shows only BBC); while searching there is no hero. Same as the app.
 function renderEntries() {
-  renderStories(document.getElementById('entries'), entries, open, true, 'No entries yet. Add a feed or pull to refresh.');
+  var q = document.getElementById('q').value.trim().toLowerCase();
+  var shown = q ? entries.filter(function (e) { return (e.title + ' ' + e.source).toLowerCase().indexOf(q) >= 0; }) : entries;
+  renderStories(document.getElementById('entries'), shown, open, !q,
+    q ? 'No stories match \u201C' + q + '\u201D.' : 'No entries yet. Add a feed or pull to refresh.');
 }
+document.getElementById('q').addEventListener('input', function () { clearTimeout(this._t); this._t = setTimeout(renderEntries, 120); });
 
 function renderFeeds() {
   var following = document.getElementById('following');

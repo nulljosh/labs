@@ -11,6 +11,7 @@ struct EntryListView: View {
     @StateObject private var account = Account()
     @StateObject private var library = Library()
     @State private var path: [JournalEntry] = []
+    @State private var query = UserDefaults.standard.string(forKey: "search") ?? ""   // `-search BBC` for screenshots
 
     /// Both default to the real thing; the parameters exist so the macOS screenshot capture can
     /// hand in a pre-loaded service and a trimmed feed list without writing to the user's saved
@@ -53,11 +54,18 @@ struct EntryListView: View {
     }
 
     private var home: some View {
+        // Search matches headlines and outlet names ("BBC" shows only BBC). While searching there is no hero.
+        let q = query.trimmingCharacters(in: .whitespaces)
+        let shown = q.isEmpty ? feed.entries : feed.entries.filter { $0.title.localizedStandardContains(q) || $0.sourceTitle.localizedStandardContains(q) }
         // The hero is the newest story with a picture among the first few; everything else is a row.
-        let hero = feed.entries.prefix(5).first { $0.imageURL != nil }
+        let hero = q.isEmpty ? shown.prefix(5).first { $0.imageURL != nil } : nil
         return List {
+            SearchField(text: $query).listRowSeparator(.hidden)
             if let hero { HeroRow(entry: hero, library: library).listRowSeparator(.hidden) }
-            ForEach(feed.entries.filter { $0.id != hero?.id }) { EntryRow(entry: $0, library: library) }
+            ForEach(shown.filter { $0.id != hero?.id }) { EntryRow(entry: $0, library: library) }
+            if !q.isEmpty && shown.isEmpty {
+                Text("No stories match \u{201C}\(q)\u{201D}.").foregroundStyle(.secondary).listRowSeparator(.hidden)
+            }
         }
         .listStyle(.plain)   // flush with the view, like Mail and News
         .refreshable { await feed.refresh(feeds: store.feeds) }
@@ -142,6 +150,12 @@ struct HeroRow: View {
     let entry: JournalEntry
     @ObservedObject var library: Library
 
+    /// The longest clean cut up to 90 characters, so even the hero ends on a whole phrase, never "…".
+    static func headline(_ e: JournalEntry) -> String {
+        let v = Headline.variants(e.title, source: e.sourceTitle)
+        return v.first { $0.count <= 90 } ?? v.last ?? e.title
+    }
+
     var body: some View {
         RowLink(entry: entry) {
             VStack(alignment: .leading, spacing: 8) {
@@ -152,9 +166,9 @@ struct HeroRow: View {
                 .aspectRatio(16 / 9, contentMode: .fit)
                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                 Kicker(entry: entry, saved: library.isSaved(entry))
-                Text(Headline.clean(entry.title, source: entry.sourceTitle))
+                Text(Self.headline(entry))
                     .font(.title2.weight(.bold))
-                    .lineLimit(3)
+                    .fixedSize(horizontal: false, vertical: true)
                     .foregroundStyle(library.isRead(entry) ? .secondary : .primary)
             }
             .padding(.vertical, 8)
@@ -176,6 +190,31 @@ struct RowLink<Content: View>: View {
             NavigationLink(value: entry) { EmptyView() }.opacity(0)
             content
         }
+    }
+}
+
+/// A capsule search field with a leading magnifier and a clear button, 44 points tall (house Apple rules).
+struct SearchField: View {
+    @Binding var text: String
+
+    var body: some View {
+        HStack(spacing: 8) {
+            Image(systemName: "magnifyingglass").foregroundStyle(.secondary)
+            TextField("Search stories and outlets", text: $text)
+                .textFieldStyle(.plain)
+                .autocorrectionDisabled()
+                #if os(iOS)
+                .submitLabel(.search)
+                #endif
+            if !text.isEmpty {
+                Button { text = "" } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(.secondary) }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("Clear search")
+            }
+        }
+        .padding(.horizontal, 14)
+        .frame(height: 44)
+        .background(Color.secondary.opacity(0.12), in: Capsule())
     }
 }
 

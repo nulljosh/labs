@@ -15,7 +15,7 @@ Status: `todo`, `partial`, `done`, or `n/a` (with the reason). The loop works to
 | 5 | Text size in the reader | yes | yes | Settings, 13 to 28 pt, app and web | done | 1.5.0 |
 | 6 | Saved stories | yes | yes | swipe or press and hold to save (app), Save in the reader (app and web); Saved at the top of Feeds; stored whole so they open offline | done | 1.11.0 |
 | 7 | History of read stories, read rows dimmed | yes | yes | History in Feeds, read rows dim, app and web | done | 1.11.0 |
-| 8 | Search stories and sources | yes | yes | none | todo | |
+| 8 | Search stories and sources | yes | yes | search field on Home matches headlines and outlet names, app and web | done | 1.12.0 |
 | 9 | Offline reading with images | yes | | text cached, images not | partial | |
 | 10 | Same story grouped across outlets (full coverage) | yes | yes | none; port `sidewise/src/stories.js` | todo | |
 | 11 | Lean bar per story (left, center, right) | | yes | none; port Sidewise's outlet lean table | todo | |

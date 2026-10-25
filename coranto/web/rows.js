@@ -73,7 +73,9 @@ function heroRow(e, onOpen) {
   img.onerror = function () { img.remove(); };
   btn.appendChild(img);
   btn.appendChild(kicker(e));
-  btn.appendChild(el('h3', '', Headline.clean(e.title, e.source)));
+  // the longest clean cut up to 90 characters, so even the hero ends on a whole phrase (same as the app)
+  var v = Headline.variants(e.title, e.source);
+  btn.appendChild(el('h3', '', v.find(function (x) { return x.length <= 90; }) || v[v.length - 1]));
   btn.onclick = function () { onOpen(e); };
   var li = el('li', 'hero-item'); li.appendChild(btn);
   return li;
