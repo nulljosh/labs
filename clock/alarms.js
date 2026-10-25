@@ -70,6 +70,8 @@ $('alarmDelete').onclick = () => { alarms.splice(editing, 1); saveAlarms(); draw
 $('alarmSheet').onclose = () => {
   if ($('alarmSheet').returnValue !== 'save' || !$('aTime').value) return;
   const a = { time: $('aTime').value, days: aDays.get(), label: $('aLabel').value.trim(), sound: $('aSound').value, snooze: $('aSnooze').checked, on: true, last: '' };
+  const n = new Date();
+  if (a.time === `${pad(n.getHours())}:${pad(n.getMinutes())}`) a.last = n.toDateString();   // set for this very minute: next time, as the toast says
   if (editing < 0) alarms.push(a); else alarms[editing] = a;
   alarms.sort((x, y) => x.time.localeCompare(y.time));
   saveAlarms(); drawAlarms(); askNotify();
