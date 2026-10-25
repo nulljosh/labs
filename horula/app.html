@@ -77,9 +77,9 @@
       <select id="tmM" aria-label="Minutes"></select><span>min</span>
       <select id="tmS" aria-label="Seconds"></select><span>s</span>
     </div>
-    <div class="form" style="margin-top:var(--s3)">
-      <input id="tmLabel" placeholder="Label" aria-label="Timer label" maxlength="40">
-      <select id="tmSound" aria-label="When timer ends"></select>
+    <div class="group" style="margin-top:var(--s3)">
+      <label class="row"><span class="grow label">Label</span><input id="tmLabel" placeholder="Timer" maxlength="40"></label>
+      <label class="row"><span class="grow label">When Timer Ends</span><select id="tmSound"></select></label>
     </div>
     <div class="controls center"><button class="go" id="tmStart">Start</button></div>
     <div id="tmActiveWrap" hidden><h2>Running</h2><div class="group" id="tmActive"></div></div>

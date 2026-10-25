@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '5.1.0';
+const VERSION = '5.1.1';
 const pad = (n, w = 2) => String(Math.floor(n)).padStart(w, '0');
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const DAY = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];

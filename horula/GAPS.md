@@ -48,8 +48,8 @@ Joshua's ask: keep comparing against the native iOS and Mac Clock apps and close
 - [x] 24. Alarms header like iOS: Edit on the left, round + on the right; Edit mode deletes alarms from the list.
 - [x] 25. Sleep | Wake Up row like iOS: bed icon, wake time big, "Tomorrow Morning", a CHANGE button.
 - [x] 26. Snooze length you pick (1 to 15 minutes), new in iOS 26.
-- [ ] 27. Stopwatch Lap and Start are round buttons at the sides, like iOS.
-- [ ] 28. Timers: a "When Timer Ends" row and a round Start button, like iOS.
+- [x] 27. Stopwatch Lap and Start are round buttons at the sides, like iOS.
+- [x] 28. Timers: a "When Timer Ends" row and a round Start button, like iOS.
 - [x] 29. World Clock rows match iOS: time difference above the city, time with small AM or PM, swipe or Edit to delete.
 - [ ] 30. Mac: wide windows show world clocks as a grid of analog faces, like macOS Clock.
 - [x] 31. Mac: keyboard shortcuts like macOS Clock (Command 1 to 4 for tabs in the installed app, N for new; browsers keep Command N for a new window).
