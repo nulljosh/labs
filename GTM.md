@@ -28,6 +28,14 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | Lexly | Mac 1.1.5, iOS 1.1.3 (1.1.6 rejected) | Free | posted 09-17 | wait | wait | wait |
 | Joshua Tree | web + GitHub | Free | scheduled Thu Oct 15 12:01 AM PT | none | none | none |
 | Plank | web + GitHub | Free | scheduled Wed Oct 21 12:01 AM PT | none | none | none |
+| Horula | web, iOS + Mac in review | Free | scheduled Wed Oct 28 12:01 AM PT | none | none | none |
+| Mailbag | web, iOS, Mac | Free | scheduled Thu Oct 29 12:01 AM PT | none | none | none |
+| Airwell | web, iOS | $0.99 iOS, web free | scheduled Fri Oct 30 12:01 AM PT | none | none | none |
+| Atlin | web, iOS, Mac | Free | scheduled Mon Nov 2 12:01 AM PT | none | none | none |
+| Cartons | iOS, iPad, Mac, web | $0.99 | scheduled Tue Nov 3 12:01 AM PT | none | none | none |
+| Hermes | Mac, iPhone, iPad, web | Free on PH (price unverified) | scheduled Wed Nov 4 12:01 AM PT | none | none | none |
+| Hamurapi | web, iPhone + Mac pending | Web free, apps $0.99 after week one | scheduled Thu Nov 5 12:01 AM PT | none | none | none |
+| Vancouver Vice | web, Mac, Windows, Linux | Free | scheduled Fri Nov 6 12:01 AM PT | none | none | none |
 | Windgate, Siftbox, Madobe | nothing live, all REJECTED | n/a | wait | wait | wait | wait |
 
 Stripe: zero charges ever.
