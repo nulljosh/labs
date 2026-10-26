@@ -1,0 +1,23 @@
+name: noema chemistry
+on:
+  push:
+    branches: [main]
+    paths: ["noema/chemistry/**", ".github/workflows/noema-chemistry.yml"]
+  pull_request:
+    branches: [main]
+    paths: ["noema/chemistry/**", ".github/workflows/noema-chemistry.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: noema/chemistry
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m unittest discover -s tests -v
