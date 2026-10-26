@@ -23,16 +23,16 @@
 <text fill="currentColor" x="232" y="287" font-size="14" opacity="0.6">109</text>
 <rect x="48.0" y="373" width="11.0" height="11" fill="currentColor" opacity="0.5"/>
 <rect x="60.0" y="382" width="11.0" height="2" fill="currentColor" opacity="0.5"/>
-<rect x="72.0" y="363" width="11.0" height="21" fill="currentColor" opacity="0.5"/>
-<rect x="84.0" y="362" width="11.0" height="22" fill="currentColor" opacity="0.5"/>
+<rect x="72.0" y="364" width="11.0" height="20" fill="currentColor" opacity="0.5"/>
+<rect x="84.0" y="364" width="11.0" height="20" fill="currentColor" opacity="0.5"/>
 <rect x="96.0" y="379" width="11.0" height="5" fill="currentColor" opacity="0.5"/>
-<rect x="108.0" y="359" width="11.0" height="25" fill="currentColor" opacity="0.5"/>
-<rect x="120.0" y="367" width="11.0" height="17" fill="currentColor" opacity="0.5"/>
+<rect x="108.0" y="360" width="11.0" height="24" fill="currentColor" opacity="0.5"/>
+<rect x="120.0" y="368" width="11.0" height="16" fill="currentColor" opacity="0.5"/>
 <rect x="132.0" y="371" width="11.0" height="13" fill="currentColor" opacity="0.5"/>
 <rect x="144.0" y="361" width="11.0" height="23" fill="currentColor" opacity="0.5"/>
 <rect x="156.0" y="370" width="11.0" height="14" fill="currentColor" opacity="0.5"/>
 <rect x="168.0" y="377" width="11.0" height="7" fill="currentColor" opacity="0.5"/>
-<rect x="180.0" y="361" width="11.0" height="23" fill="currentColor" opacity="0.5"/>
+<rect x="180.0" y="362" width="11.0" height="22" fill="currentColor" opacity="0.5"/>
 <rect x="192.0" y="370" width="11.0" height="14" fill="currentColor" opacity="0.5"/>
 <rect x="204.0" y="381" width="11.0" height="3" fill="currentColor" opacity="0.5"/>
 <rect x="216.0" y="367" width="11.0" height="17" fill="currentColor" opacity="0.5"/>
@@ -42,8 +42,8 @@
 <text fill="currentColor" x="48" y="332" font-size="13" opacity="0.6">commits per day, 18 days</text>
 <rect x="560" y="136" width="200" height="180" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
 <text fill="currentColor" x="584" y="166" font-size="14" opacity="0.6">commits</text>
-<text fill="currentColor" x="584" y="198" font-size="28" font-weight="500">2203</text>
+<text fill="currentColor" x="584" y="198" font-size="28" font-weight="500">2127</text>
 <text fill="currentColor" x="584" y="232" font-size="14" opacity="0.6">projects touched</text>
-<text fill="currentColor" x="584" y="264" font-size="28" font-weight="500">25</text>
+<text fill="currentColor" x="584" y="264" font-size="28" font-weight="500">24</text>
 <text fill="currentColor" x="584" y="298" font-size="13" opacity="0.6">2026-08-25 to 2026-09-11</text>
 </svg>
