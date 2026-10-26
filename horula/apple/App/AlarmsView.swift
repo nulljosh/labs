@@ -10,6 +10,22 @@ struct AlarmsView: View {
         @Bindable var store = store
         NavigationStack {
             List {
+                TimelineView(.periodic(from: .now, by: 15)) { ctx in
+                    // Wake Up Check, like Alarmy: while an alarm's second ring is coming, one tap says you are up.
+                    if let c = store.pendingChecks(at: ctx.date).first, c.rang <= ctx.date {
+                        Section {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("Are you up?").font(.title2)
+                                    Text("Rings again at \(c.rang.addingTimeInterval(Clockwork.checkGap).formatted(date: .omitted, time: .shortened))").font(.subheadline).foregroundStyle(.secondary)
+                                }
+                                Spacer()
+                                Button("I'm Up") { store.awake = .now; Task { await scheduler.sync(store) } }
+                                    .buttonStyle(.borderedProminent).buttonBorderShape(.capsule).tint(.green)
+                            }
+                        }
+                    }
+                }
                 Section {
                     // Sleep row like iOS: the wake time big, which morning, one button to change it.
                     HStack {
@@ -112,6 +128,7 @@ struct AlarmSheet: View {
                     TextField("Label", text: $alarm.label, prompt: Text("Alarm"))
                     Toggle("Snooze", isOn: $alarm.snooze)
                     if alarm.snooze { Picker("Snooze Length", selection: $alarm.snoozeMin) { ForEach(1...15, id: \.self) { Text("\($0) min") } } }
+                    Toggle("Wake Up Check", isOn: $alarm.check)
                 }
                 if exists {
                     Section {

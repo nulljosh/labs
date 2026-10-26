@@ -201,6 +201,9 @@ enum Clockwork {
         return ("work", round + 1, work)
     }
 
+    /// Wake Up Check: how long after an alarm it rings again unless you confirm you are up.
+    static let checkGap: TimeInterval = 180
+
     /// What an interval timer says at a new phase, like Timer+: "Rest. Up next: Work" or "Work, 2 of 8".
     static func cueText(phase: String, round: Int, rounds: Int) -> String {
         phase == "rest" ? String(localized: "Rest") + ". " + String(localized: "Up next: \(String(localized: "Work"))")

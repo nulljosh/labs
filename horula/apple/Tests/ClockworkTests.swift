@@ -153,4 +153,15 @@ final class ClockworkTests: XCTestCase {
         XCTAssertEqual(Clockwork.cueText(phase: "rest", round: 1, rounds: 3), "Rest. Up next: Work")
         XCTAssertEqual(Clockwork.cueText(phase: "work", round: 2, rounds: 3), "Work, 2 of 3")
     }
+
+    func testWakeUpCheckPendsUntilImUp() {
+        let store = Store(defaults: UserDefaults(suiteName: "check-test")!)
+        store.alarms = []; store.awake = nil
+        var a = AlarmItem(time: "07:00"); a.check = true; store.alarms = [a]
+        let rang = Calendar.current.date(bySettingHour: 7, minute: 1, second: 0, of: .now)!
+        XCTAssertEqual(store.pendingChecks(at: rang).first?.rang, Calendar.current.date(bySettingHour: 7, minute: 0, second: 0, of: .now))
+        store.awake = rang
+        XCTAssertTrue(store.pendingChecks(at: rang).isEmpty)
+        UserDefaults().removePersistentDomain(forName: "check-test")
+    }
 }

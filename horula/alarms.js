@@ -54,7 +54,7 @@ function openAlarm(i) {
   editing = i;
   const a = alarms[i] || { time: `${pad(new Date().getHours())}:${pad(new Date().getMinutes())}`, days: [], label: '', sound: 'Radar', snooze: true, snoozeMin: 9 };
   $('alarmSheetTitle').textContent = tr(i < 0 ? 'Add Alarm' : 'Edit Alarm');
-  $('aTime').value = a.time; aDays.set(a.days); $('aLabel').value = a.label; $('aSound').value = a.sound; $('aSnooze').checked = a.snooze; $('aSnoozeMin').value = a.snoozeMin || 9;
+  $('aTime').value = a.time; aDays.set(a.days); $('aLabel').value = a.label; $('aSound').value = a.sound; $('aSnooze').checked = a.snooze; $('aSnoozeMin').value = a.snoozeMin || 9; $('aCheck').checked = !!a.check;
   $('alarmSkip').hidden = !(a.on && a.days.length);   // skipping only makes sense for a repeating alarm
   $('alarmDelete').hidden = i < 0;
   $('alarmSheet').returnValue = '';   // a dialog keeps the last returnValue; without this, Skip and Delete re-saved
@@ -71,7 +71,7 @@ $('alarmSkip').onclick = () => {
 $('alarmDelete').onclick = () => { alarms.splice(editing, 1); saveAlarms(); drawAlarms(); $('alarmSheet').close(); };
 $('alarmSheet').onclose = () => {
   if ($('alarmSheet').returnValue !== 'save' || !$('aTime').value) return;
-  const a = { time: $('aTime').value, days: aDays.get(), label: $('aLabel').value.trim(), sound: $('aSound').value, snooze: $('aSnooze').checked, snoozeMin: +$('aSnoozeMin').value, on: true, last: '' };
+  const a = { time: $('aTime').value, days: aDays.get(), label: $('aLabel').value.trim(), sound: $('aSound').value, snooze: $('aSnooze').checked, snoozeMin: +$('aSnoozeMin').value, check: $('aCheck').checked, on: true, last: '' };
   const n = new Date();
   if (a.time === `${pad(n.getHours())}:${pad(n.getMinutes())}`) a.last = n.toDateString();   // set for this very minute: next time, as the toast says
   if (editing < 0) alarms.push(a); else alarms[editing] = a;
@@ -97,7 +97,19 @@ $('sleepSheet').onclose = () => {
 function snoozeFor(label, sound, min = 9) {
   snoozes.push({ at: Date.now() + min * 60000, label, sound, min }); saveAlarms(); toast(tr('Snoozed for {0}', `${min} ${tr(min > 1 ? 'minutes' : 'minute')}`));
 }
+// Wake Up Check, like Alarmy: after Stop it rings again in 3 minutes unless you say you are up.
+let wake = store.get('wakeCheck', null);
+if (wake && Date.now() - wake.at > 600000) wake = null;   // a check left over from a closed tab is stale
+function wakeCheck(a) { wake = { at: Date.now() + 180000, label: a.label || tr('Alarm'), sound: a.sound }; store.set('wakeCheck', wake); showCheck(); }
+function showCheck() {
+  $('ringWhen').textContent = tr('Are you up?'); $('ringWhat').textContent = tr('Rings again at {0}', hm.format(new Date(wake.at)));
+  for (const b of ['ringSnooze', 'ringRepeat', 'ringStop']) $(b).hidden = true;
+  $('ringUp').hidden = false; $('ringing').hidden = false; $('ringUp').focus();
+}
+$('ringUp').onclick = () => { wake = null; store.set('wakeCheck', null); $('ringing').hidden = true; };
+if (wake) showCheck();
 function checkAlarms(now) {
+  if (wake && wake.at <= now.getTime()) { const w = wake; wake = null; store.set('wakeCheck', null); return ring({ when: hm.format(now), what: w.label, sound: w.sound, onStop: () => wakeCheck(w) }); }
   if (!$('ringing').hidden) return;
   const t = `${pad(now.getHours())}:${pad(now.getMinutes())}`, today = now.toDateString(), wd = now.getDay();
   for (const a of alarms) {
@@ -105,7 +117,7 @@ function checkAlarms(now) {
       a.last = today;
       if (a.skip === today) { delete a.skip; saveAlarms(); drawAlarms(); continue; }   // skipped this one, ring next time
       if (!a.days.length) a.on = false; saveAlarms(); drawAlarms();
-      return ring({ when: hm.format(now), what: a.label || tr('Alarm'), sound: a.sound, snooze: a.snooze && (() => snoozeFor(a.label || tr('Alarm'), a.sound, a.snoozeMin)) });
+      return ring({ when: hm.format(now), what: a.label || tr('Alarm'), sound: a.sound, snooze: a.snooze && (() => snoozeFor(a.label || tr('Alarm'), a.sound, a.snoozeMin)), onStop: a.check && (() => wakeCheck(a)) });
     }
   }
   const due = snoozes.findIndex(s => s.at <= now.getTime());

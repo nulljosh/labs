@@ -38,6 +38,11 @@ final class AlarmScheduler {
             let config = AlarmManager.AlarmConfiguration(countdownDuration: snooze > 0 ? .init(preAlert: nil, postAlert: TimeInterval(snooze * 60)) : nil, schedule: schedule, attributes: attributes)
             _ = try? await m.schedule(id: id, configuration: config)
         }
+        // ponytail: each check's second ring is one fixed alarm for the next ring only; opening the app or tapping I'm Up schedules the next.
+        for (a, rang) in store.pendingChecks() {
+            let attributes = AlarmAttributes<HorulaAlarm>(presentation: AlarmPresentation(alert: .init(title: "Wake Up Check")), metadata: HorulaAlarm(label: a.label), tintColor: .horula)
+            _ = try? await m.schedule(id: Self.checkID(a.id), configuration: .init(schedule: .fixed(rang.addingTimeInterval(Clockwork.checkGap)), attributes: attributes))
+        }
         #else
         let c = UNUserNotificationCenter.current()
         allowed = (try? await c.requestAuthorization(options: [.alert, .sound])) ?? false
@@ -51,6 +56,11 @@ final class AlarmScheduler {
                 if day >= 0 { when.weekday = day + 1 }
                 await Self.notify(id: "\(a.id)-\(day)", title: body, at: when, repeats: !a.days.isEmpty)
             }
+        }
+        for (a, rang) in store.pendingChecks() {
+            let at = rang.addingTimeInterval(Clockwork.checkGap)
+            try? await c.add(UNNotificationRequest(identifier: "check-\(a.id)", content: Self.content(String(localized: "Wake Up Check"), a.label.isEmpty ? String(localized: "Alarm") : a.label),
+                                                   trigger: UNTimeIntervalNotificationTrigger(timeInterval: max(1, at.timeIntervalSinceNow), repeats: false)))
         }
         #endif
         await syncTimers(store)
@@ -84,6 +94,8 @@ final class AlarmScheduler {
     }
 
     static let wakeID = UUID(uuidString: "00000000-0000-0000-0000-00000000a1a1")!
+    /// The second ring of an alarm's Wake Up Check: the alarm's id with its first byte changed.
+    static func checkID(_ id: UUID) -> UUID { UUID(uuidString: "C0" + id.uuidString.dropFirst(2))! }
 
     #if os(iOS)
     static func weekday(_ d: Int) -> Locale.Weekday {

@@ -17,6 +17,7 @@ final class Store {
     var presets: [Recent] { didSet { save("presets", presets) } }
     var countdowns: [Countdown] { didSet { save("countdowns", countdowns) } }
     var stopwatch: StopwatchState { didSet { save("sw", stopwatch) } }
+    var awake: Date? { didSet { save("awake", awake) } }   // when you last tapped I'm Up
 
     /// `-demo` on the command line: seeded, believable data in a throwaway suite, for screenshots. Never touches real data.
     static let demo = ProcessInfo.processInfo.arguments.contains("-demo")
@@ -35,6 +36,7 @@ final class Store {
         presets = load("presets", [])
         countdowns = load("countdowns", [])
         stopwatch = load("sw", StopwatchState())
+        awake = load("awake", nil)
     }
 
     static func demoDefaults() -> UserDefaults {
@@ -91,6 +93,13 @@ final class Store {
         return true
     }
 
+    /// Wake Up Check: each alarm still waiting for I'm Up, with when it rang. Its second ring is 3 minutes after.
+    func pendingChecks(at now: Date = .now) -> [(alarm: AlarmItem, rang: Date)] {
+        alarms.filter { $0.on && $0.check }.compactMap { a in
+            Clockwork.nextFire(a, after: now.addingTimeInterval(-Clockwork.checkGap)).flatMap { (awake ?? .distantPast) < $0 ? (a, $0) : nil }
+        }
+    }
+
     // MARK: backup, the web app's format
 
     func backup() -> Data {
@@ -139,6 +148,7 @@ enum Backup {
                 x.sound = str(a["sound"], 20).isEmpty ? "Radar" : str(a["sound"], 20)
                 x.snooze = a["snooze"] as? Bool != false
                 if let m = a["snoozeMin"] as? Int, (1...15).contains(m) { x.snoozeMin = m }
+                x.check = a["check"] as? Bool == true
                 return x
             }
         }

@@ -146,6 +146,11 @@ test('interval timer phases', () => {
   assert.equal(L.cueText({ phase: 'work', round: 2 }, 3), 'Work, 2 of 3');
 });
 
+test('backup keeps the wake up check', () => {
+  const b = L.parseBackup(JSON.stringify({ app: 'clock', v: 1, alarms: [{ time: '07:00', check: true }, { time: '08:00', check: 'yes' }] }));
+  assert.equal(b.alarms[0].check, true); assert.equal(b.alarms[1].check, undefined);
+});
+
 test('laps table', () => {
   assert.equal(L.lapsTable([20000, 41500]), 'Lap\tSplit\tTotal\n1\t00:20.00\t00:20.00\n2\t00:21.50\t00:41.50');
   assert.equal(L.lapsTable([]), 'Lap\tSplit\tTotal');

@@ -69,7 +69,7 @@ function ring({ when, what, sound, snooze, repeat, onStop }) {
   ringActions = { snooze, repeat, onStop };
   $('ringWhen').textContent = when; $('ringWhat').textContent = what;
   $('ringSnooze').hidden = !snooze; $('ringRepeat').hidden = !repeat;
-  $('ringing').hidden = false; $('stand').hidden = true;
+  $('ringing').hidden = false; $('stand').hidden = true; $('ringStop').hidden = false; $('ringUp').hidden = true;
   clearInterval(ringLoop); clearTimeout(ringCap);
   // Fades in over 30 seconds and buzzes where the phone allows it.
   const t0 = Date.now(), buzz = () => navigator.vibrate?.([400, 200, 400]);

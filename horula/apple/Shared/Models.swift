@@ -20,6 +20,7 @@ struct AlarmItem: Codable, Hashable, Identifiable {
     var snooze = true
     var snoozeMin = 9
     var skip: String?           // yyyy-MM-dd of one skipped ring
+    var check = false           // Wake Up Check: rings again 3 minutes later unless you say you are up
 
     init(time: String, days: [Int] = [], label: String = "", on: Bool = true) {
         self.time = time; self.days = days; self.label = label; self.on = on
@@ -35,6 +36,7 @@ struct AlarmItem: Codable, Hashable, Identifiable {
         snooze = try c.decodeIfPresent(Bool.self, forKey: .snooze) ?? true
         snoozeMin = try c.decodeIfPresent(Int.self, forKey: .snoozeMin) ?? 9
         skip = try? c.decodeIfPresent(String.self, forKey: .skip)
+        check = try c.decodeIfPresent(Bool.self, forKey: .check) ?? false
     }
 }
 
