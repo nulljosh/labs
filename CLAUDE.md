@@ -12,7 +12,7 @@
 
 ## Repos
 
-**`~/Documents/Code` is the `labs` repo.** 21 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, evidna, plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), hamurapi, bcgd, bugle (ex-coranto, ex-inkpress), horula (ex-clock). Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Curvely, now Pan (renamed 2026-10-21, store name still Curvely until Apple accepts), left the same way on 2026-10-21 (`nulljosh/pan`, public, folder `pan/`, ignored here; its earlier history stays in labs), and so did Gastown, ex-NYC Survive (`nulljosh/gastown`, public, folder `gastown/`). Oohaah left on 2026-10-25 (`nulljosh/oohaah`, private for now, folder `oohaah/`, history kept). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and in the allowlist but untracked, see roadmap. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`. 
+**`~/Documents/Code` is the `labs` repo.** 21 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, noema (ex-evidna, absorbed the old noema repo 2026-10-26), plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, homeward, dotfiles, journal, toroid, coda (ex-quotestreak), hamurapi, bcgd, bugle (ex-coranto, ex-inkpress), horula (ex-clock). Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Curvely, now Pan (renamed 2026-10-21, store name still Curvely until Apple accepts), left the same way on 2026-10-21 (`nulljosh/pan`, public, folder `pan/`, ignored here; its earlier history stays in labs), and so did Gastown, ex-NYC Survive (`nulljosh/gastown`, public, folder `gastown/`). Oohaah left on 2026-10-25 (`nulljosh/oohaah`, private for now, folder `oohaah/`, history kept). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and in the allowlist but untracked, see roadmap. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`. 
 
 ### Apps
 Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
@@ -60,8 +60,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **weather** | Forecast page, Open-Meteo, one file |
 | **fieldbook** | Every field of science + math explained plainly |
 | **hormuz** | Strait of Hormuz, oil prices, trading signals |
-| **noema** | Mathematics lab: SAT, number theory, small proofs. No GitHub remote yet |
-| **evidna** | Evidence-first biology lab, public HBB data |
+| **noema** (math + biology, ex-evidna) | One lab, two sides: `math/` (Collatz, SAT, Lean) and `biology/` (HBB, ex-Evidna). One site, `./deploy.sh`; noema.jaybulb.com and evidna.jaybulb.com |
 
 ### Big projects
 | Repo | What |

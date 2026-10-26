@@ -6,7 +6,7 @@
 
 **Apps and games:** [coda](./coda), [curvely](https://github.com/nulljosh/curvely), [hamurapi](./hamurapi), [bugle](./bugle), [gastown](https://github.com/nulljosh/gastown), [toroid](./toroid), [bcgd](./bcgd), [homeward](./homeward), [homeqi](./homeqi), [costanza](./costanza), [swing](./swing), [dream](./dream), [numen](./numen)
 
-**Tools and sites:** [tripwire](./tripwire), [cadence](./cadence), [seamark](./seamark), [hormuz](./hormuz), [keyrate](./keyrate), [weather](./weather), [fieldbook](./fieldbook), [evidna](./evidna), [journal](./journal), [authmail](./authmail), [dotfiles](./dotfiles)
+**Tools and sites:** [tripwire](./tripwire), [cadence](./cadence), [seamark](./seamark), [hormuz](./hormuz), [keyrate](./keyrate), [weather](./weather), [fieldbook](./fieldbook), [noema](./noema), [journal](./journal), [authmail](./authmail), [dotfiles](./dotfiles)
 
 **Experiments:** [bank](./bank), [credis](./credis), [canlii-app](./canlii-app), [agent-101](./agent-101), [video-speed-ext](./video-speed-ext), [launch](./launch), [runs](./runs)
 
