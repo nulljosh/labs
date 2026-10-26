@@ -147,3 +147,9 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 
 ## v21.6: flip face
 - [x] A Flip face on the nightstand, web, iPhone and Mac: hours and minutes on two split cards that turn when they change, red at night, still under reduced motion (matrix row 21.6).
+
+## v21.7 to v21.11: the rest of the matrix
+- [x] Spoken interval and routine cues, a Speak switch (21.7). Wake Up Check, a second ring 3 minutes after Stop unless you tap I'm Up (21.8). Routines, named timer steps run back to back (21.9). Sleep sounds, white, pink and brown noise made on the device with a sleep timer (21.10). Solve to Stop, three sums before the alarm stops, and on iPhone a sum to cancel the second ring (21.11).
+
+## v22: the matrix is done
+- [x] Every gap matrix row built on web, iPhone, Mac and Watch where it fits. The apple checks ran on every screen at 390 and 1280, light and dark: controls in a row share a height (the World header and the nightstand bar were fixed), every gap is on the grid, no console errors. Mac screens rendered off screen.

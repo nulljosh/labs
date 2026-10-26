@@ -34,7 +34,7 @@ svg.face { display: block; width: min(320px, 80vw); height: auto; margin: 0 auto
 .face text { fill: var(--text); font: 300 14px var(--font); text-anchor: middle; dominant-baseline: central; }
 .group { background: var(--bg2); border-radius: var(--r-group); margin: var(--s2) 0 var(--s4); overflow: hidden; }
 .row { display: flex; align-items: center; gap: var(--s3); min-height: var(--s7); padding: var(--s3) var(--s4); }
-.row + .row { border-top: .5px solid var(--border); }
+.row + .row, #rtSteps .row, #rtSteps + .row { border-top: .5px solid var(--border); }   /* the steps wrapper sits between rows */
 button.rowbtn { display: block; height: auto; min-width: 0; padding: 0; border-radius: 12px; background: none; color: inherit; text-align: start; font-size: inherit; }
 .row .grow { flex: 1; min-width: 0; }
 .row .label { font-size: 17px; line-height: 22px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -58,6 +58,7 @@ button.danger { color: var(--danger); }
 #stopwatch .controls .stop { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--stop-bg); }
 #langPick, #cityNick, #timer .row input:not(.switch), #timer .row select, #nzKind, #nzFor { flex: 0 1 55%; height: auto; padding: 0; background: none; color: var(--text2); text-align: right; text-align-last: right; }
 button.link { background: none; color: var(--accent); min-width: 0; padding: 0 var(--s2); }
+header button.link { height: 44px; }   /* one height with the round tools beside it */
 button.icon { min-width: 0; padding: 0 var(--s4); height: 32px; font-size: 15px; }
 button:disabled { opacity: .4; cursor: default; }
 input, select { padding: 0 var(--s4); background: var(--bg2); color: var(--text); min-width: 0; width: 100%; }
@@ -125,9 +126,9 @@ input[type="time"].wheel { font-size: 48px; font-weight: 200; height: 72px; text
 .standbar .seg { display: flex; gap: 2px; padding: 2px; border-radius: var(--r-pill); background: #1c1c1e; }
 .standbar .seg button { min-width: 0; height: 36px; padding: 0 var(--s3); font-size: 15px; background: none; color: #98989d; }
 .standbar .seg button[aria-checked="true"] { background: #3a3a3c; color: #fff; }
-.standbar .chime { min-width: 0; height: 36px; padding: 0 var(--s4); font-size: 15px; background: #1c1c1e; color: #98989d; }
+.standbar .chime { min-width: 0; height: 40px; padding: 0 var(--s4); font-size: 15px; background: #1c1c1e; color: #98989d; }
 .standbar .chime[aria-pressed="true"] { background: #3a3a3c; color: #fff; }
-.standbar input { width: 140px; height: 36px; accent-color: #98989d; background: none; }
+.standbar input[type="range"] { width: 140px; height: 40px; margin: 0; accent-color: #98989d; background: none; }
 #stand.night .what { color: #8a1f1a; }
 /* timers */
 .ring { flex: none; width: 56px; height: 56px; transform: rotate(-90deg); }
