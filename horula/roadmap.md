@@ -85,7 +85,7 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 
 ## v16: native in every language
 - [x] The iPhone and Mac app in the same twelve languages, from a String Catalog.
-- [ ] App Store listing text in the same languages (docs/store/<locale>).
+- [x] App Store listing text in the same languages (docs/store, one file per locale, for 6.1).
 
 ## v17: tell people
 - [x] Launch kit in horula/launch/: Product Hunt, Show HN, X and three Reddit drafts, a gallery and a checklist. Posting is Joshua's.
