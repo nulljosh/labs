@@ -110,7 +110,7 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 | 21 | +1 min on a running timer | Timer+ | S | done |
 | 21.1 | Your own name for a city ("Mum", "Office") | World Clock Time Widget | S | done |
 | 21.2 | Count down to a date ("Vacation, 1 month 29 days") | Timer+, MultiTimer | M | done |
-| 21.3 | Daylight saving dates in the city detail | timeanddate | S | open |
+| 21.3 | Daylight saving dates in the city detail | timeanddate | S | done |
 | 21.4 | Watch: edit an alarm (time, repeat, label, snooze) and a city detail with sunrise and sunset, like watchOS Clock | watchOS Clock | S | open |
 | 21.5 | Hourly chime on the nightstand | Flip Clock | S | open |
 | 21.6 | Flip digits face on the nightstand | Flip Clock | M | open |
@@ -134,3 +134,6 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 ## v21.2.1: Liquid Glass pass
 - [x] Web tab bar is the glass twin (blur, saturate, brightness, bright top edge, soft shadow) and turns solid under Reduce Transparency; nothing in the content layer is glass.
 - [x] World Clock toolbar in two groups (views, then Add City) with a spacer; the nightstand's floating controls sit on regular glass.
+
+## v21.3: daylight saving dates
+- [x] The city sheet shows the next clock change ("Clocks go back, Sun, Nov 1, 2:00 AM") on web, iPhone and Mac, hidden where clocks never change (matrix row 21.3). Vancouver has no row now: BC keeps daylight time all year from 2026.

@@ -132,6 +132,13 @@ final class ClockworkTests: XCTestCase {
         XCTAssertEqual(Clockwork.spanText(Clockwork.dateSpan("2026-10-24", now: now, cal: cal)!), "1 day ago")
     }
 
+    func testNextClockChange() {
+        let now = Date(timeIntervalSince1970: 1_792_996_200)   // 2026-10-26 06:30 UTC
+        let ny = Clockwork.nextShift(zone: "America/New_York", after: now)!
+        XCTAssertEqual(ny.at, Date(timeIntervalSince1970: 1_793_512_800)); XCTAssertEqual(ny.from, -4 * 3600); XCTAssertEqual(ny.to, -5 * 3600)
+        XCTAssertNil(Clockwork.nextShift(zone: "Asia/Tokyo", after: now))
+    }
+
     func testSunOverheadAndNightLine() {
         var utc = Calendar(identifier: .gregorian); utc.timeZone = TimeZone(identifier: "UTC")!
         let june = Clockwork.subsolar(utc.date(from: DateComponents(year: 2026, month: 6, day: 21, hour: 12))!)

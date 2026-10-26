@@ -236,3 +236,12 @@ test('countdowns to a date', () => {
   const back = L.parseBackup(JSON.stringify({ app: 'clock', v: 1, countdowns: [{ label: 'Trip', date: '2026-12-24' }, { date: 'soon' }] }));
   assert.deepEqual(back.countdowns, [{ label: 'Trip', date: '2026-12-24' }]);
 });
+
+test('next clock change', () => {
+  const now = new Date('2026-10-26T06:30:00Z'), v = L.nextShift('America/New_York', now);
+  assert.equal(v.at.toISOString(), '2026-11-01T06:00:00.000Z'); assert.deepEqual([v.from, v.to], [-240, -300]);
+  assert.equal(L.nextShift('America/Vancouver', now), null);   // BC keeps daylight time all year from 2026 (tzdata 2026e)
+  assert.equal(L.nextShift('Europe/London', new Date('2026-12-01T00:00:00Z')).at.toISOString(), '2027-03-28T01:00:00.000Z');
+  assert.equal(L.nextShift('Australia/Sydney', now).at.toISOString(), '2027-04-03T16:00:00.000Z');
+  assert.equal(L.nextShift('Asia/Tokyo', now), null);
+});

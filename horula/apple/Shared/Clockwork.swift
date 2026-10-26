@@ -138,6 +138,12 @@ enum Clockwork {
         return s.past ? String(localized: "\(t) ago") : t
     }
 
+    /// A zone's next clock change within a year, like nextShift in lib.js: when, and seconds ahead of UTC before and after. nil where clocks never change.
+    static func nextShift(zone: String, after now: Date = .now) -> (at: Date, from: Int, to: Int)? {
+        guard let tz = TimeZone(identifier: zone), let at = tz.nextDaylightSavingTimeTransition(after: now), at.timeIntervalSince(now) <= 366 * 86400 else { return nil }
+        return (at, tz.secondsFromGMT(for: now), tz.secondsFromGMT(for: at))
+    }
+
     static func stopwatchText(_ t: TimeInterval) -> String {
         let cs = Int(t * 100)
         return String(format: "%02d:%02d.%02d", cs / 6000, cs / 100 % 60, cs % 100)

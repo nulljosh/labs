@@ -60,6 +60,8 @@
   "Seconds": "秒",
   "Duration": "时长",
   "Label": "标签",
+  "Clocks go forward": "时钟拨快",
+  "Clocks go back": "时钟拨慢",
   "Countdowns": "倒数日",
   "Countdown": "倒数日",
   "Date": "日期",

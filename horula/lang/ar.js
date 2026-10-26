@@ -60,6 +60,8 @@
   "Seconds": "الثواني",
   "Duration": "المدة",
   "Label": "التسمية",
+  "Clocks go forward": "تقديم الساعة",
+  "Clocks go back": "تأخير الساعة",
   "Countdowns": "العد التنازلي",
   "Countdown": "عد تنازلي",
   "Date": "التاريخ",

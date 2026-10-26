@@ -60,6 +60,8 @@
   "Seconds": "Secondes",
   "Duration": "Durée",
   "Label": "Libellé",
+  "Clocks go forward": "Avance de l'heure",
+  "Clocks go back": "Recul de l'heure",
   "Countdowns": "Comptes à rebours",
   "Countdown": "Compte à rebours",
   "Date": "Date",

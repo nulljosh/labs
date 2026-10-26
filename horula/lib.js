@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '21.2.1';
+const VERSION = '21.3.0';
 // UI text in the reader's language: i18n.js fills I18N in the browser; node tests see English.
 const tr = (s, ...a) => ((typeof I18N === 'object' && I18N[s]) || s).replace(/\{(\d)\}/g, (_, i) => a[i]);
 // The chosen language's dates; undefined keeps the browser's own region (en-GB 24 hour, fr-CA) when it is the same language.
@@ -142,6 +142,18 @@ function isDaytime(now, lat, lon) {
   }
   return false;
 }
+// Minutes a zone is ahead of UTC at a moment.
+const zoneMin = (zone, at) => { const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: zone, hourCycle: 'h23', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }).formatToParts(at).map(x => [x.type, +x.value]));
+  return Math.round((Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute) - Math.floor(at / 60000) * 60000) / 60000); };
+// A zone's next clock change within a year, like timeanddate: { at, from, to } in minutes ahead of UTC, or null where clocks never change.
+function nextShift(zone, now) {
+  const from = zoneMin(zone, now); let lo = +now, hi = 0;
+  for (let d = 1; d <= 366 && !hi; d++) { const t = +now + d * 864e5; if (zoneMin(zone, new Date(t)) !== from) hi = t; else lo = t; }   // a day at a time, then halve to the minute
+  if (!hi) return null;
+  while (hi - lo > 60000) { const mid = Math.floor((lo + hi) / 2); if (zoneMin(zone, new Date(mid)) === from) lo = mid; else hi = mid; }
+  const at = new Date(Math.floor(hi / 60000) * 60000);
+  return { at, from, to: zoneMin(zone, at) };
+}
 function offsetLabel(zone, now) {
   const here = new Date(now.toLocaleString('en-US')), there = new Date(now.toLocaleString('en-US', { timeZone: zone }));
   const diff = Math.round((there - here) / 36e5 * 4) / 4;
@@ -216,4 +228,4 @@ function handAngles(zone, at) {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hourCycle: 'h23', timeZone: zone }).formatToParts(at).map(x => [x.type, +x.value]));
   return { h: (p.hour % 12 + p.minute / 60) * 30, m: p.minute * 6 };
 }
-if (typeof module === 'object') module.exports = { VERSION, dateSpan, spanText, subsolar, terminatorLat, nightPath, dayPath, findZone, countdown, tr, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };
+if (typeof module === 'object') module.exports = { VERSION, nextShift, dateSpan, spanText, subsolar, terminatorLat, nightPath, dayPath, findZone, countdown, tr, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };

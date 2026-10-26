@@ -61,6 +61,11 @@ function openCity(i) {
   $('cityRise').innerHTML = t ? timeHTML(f, t.rise) : tr('None today');
   $('citySet').innerHTML = t ? timeHTML(f, t.set) : tr('None today');
   $('cityLen').textContent = t ? `${Math.floor((t.set - t.rise) / 36e5)} hr ${Math.round((t.set - t.rise) / 60000 % 60)} min` : tr(isDaytime(now, c[0], c[1]) ? 'Sun all day' : 'Dark all day');
+  // The next clock change, read on the wall clock as it turns ("Sun, Nov 1, 2:00 AM"); hidden where clocks never change.
+  const sh = nextShift(z.zone, now);
+  $('cityShiftRow').hidden = !sh;
+  if (sh) { $('cityShiftLabel').textContent = tr(sh.to > sh.from ? 'Clocks go forward' : 'Clocks go back');
+    $('cityShift').textContent = new Intl.DateTimeFormat(LOCALE, { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: 'UTC' }).format(new Date(+sh.at + sh.from * 60000)); }
   $('citySheet').showModal();
 }
 // Your own name for a city ("Mum", "Office"); empty goes back to the real name.

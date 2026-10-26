@@ -276,6 +276,10 @@ struct CityDetail: View {
                     LabeledContent("Sunrise") { if let t { TimeText(date: t.rise, zone: tz, size: 17, weight: .regular) } else { Text("None today") } }
                     LabeledContent("Sunset") { if let t { TimeText(date: t.set, zone: tz, size: 17, weight: .regular) } else { Text("None today") } }
                     LabeledContent("Daylight", value: t.map { Clockwork.durationText($0.set.timeIntervalSince($0.rise)).replacingOccurrences(of: #" \d+ sec"#, with: "", options: .regularExpression) } ?? "None today")
+                    if let s = Clockwork.nextShift(zone: city.zone, after: now) {
+                        // Read on the wall clock as it turns ("Sun, Nov 1, 2:00 AM").
+                        LabeledContent(s.to > s.from ? LocalizedStringKey("Clocks go forward") : "Clocks go back", value: s.at.formatted(Date.FormatStyle(timeZone: TimeZone(secondsFromGMT: s.from) ?? tz).weekday(.abbreviated).month(.abbreviated).day().hour().minute()))
+                    }
                 }
             }
             .navigationTitle(current.name)

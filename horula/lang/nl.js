@@ -60,6 +60,8 @@
   "Seconds": "Seconden",
   "Duration": "Duur",
   "Label": "Label",
+  "Clocks go forward": "Klok gaat vooruit",
+  "Clocks go back": "Klok gaat terug",
   "Countdowns": "Aftellers",
   "Countdown": "Aftellen",
   "Date": "Datum",

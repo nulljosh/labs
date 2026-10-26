@@ -60,6 +60,8 @@
   "Seconds": "Sekunden",
   "Duration": "Dauer",
   "Label": "Name",
+  "Clocks go forward": "Uhren vorstellen",
+  "Clocks go back": "Uhren zurückstellen",
   "Countdowns": "Countdowns",
   "Countdown": "Countdown",
   "Date": "Datum",

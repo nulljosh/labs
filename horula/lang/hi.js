@@ -60,6 +60,8 @@
   "Seconds": "सेकंड",
   "Duration": "अवधि",
   "Label": "लेबल",
+  "Clocks go forward": "घड़ी आगे होगी",
+  "Clocks go back": "घड़ी पीछे होगी",
   "Countdowns": "उलटी गिनतियाँ",
   "Countdown": "उलटी गिनती",
   "Date": "तारीख़",

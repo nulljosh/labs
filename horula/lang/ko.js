@@ -60,6 +60,8 @@
   "Seconds": "초",
   "Duration": "시간",
   "Label": "레이블",
+  "Clocks go forward": "시계를 앞당김",
+  "Clocks go back": "시계를 늦춤",
   "Countdowns": "카운트다운",
   "Countdown": "카운트다운",
   "Date": "날짜",

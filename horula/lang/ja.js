@@ -60,6 +60,8 @@
   "Seconds": "秒",
   "Duration": "時間",
   "Label": "ラベル",
+  "Clocks go forward": "時計を進める",
+  "Clocks go back": "時計を戻す",
   "Countdowns": "カウントダウン",
   "Countdown": "カウントダウン",
   "Date": "日付",

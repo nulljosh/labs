@@ -60,6 +60,8 @@
   "Seconds": "Segundos",
   "Duration": "Duración",
   "Label": "Etiqueta",
+  "Clocks go forward": "Se adelanta la hora",
+  "Clocks go back": "Se atrasa la hora",
   "Countdowns": "Cuentas atrás",
   "Countdown": "Cuenta atrás",
   "Date": "Fecha",
