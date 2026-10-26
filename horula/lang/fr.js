@@ -60,6 +60,8 @@
   "Seconds": "Secondes",
   "Duration": "Durée",
   "Label": "Libellé",
+  "Solve to Stop": "Résoudre pour arrêter",
+  "Answer": "Réponse",
   "Sleep Sounds": "Sons pour dormir",
   "White Noise": "Bruit blanc",
   "Pink Noise": "Bruit rose",

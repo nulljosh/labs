@@ -60,6 +60,8 @@
   "Seconds": "초",
   "Duration": "시간",
   "Label": "레이블",
+  "Solve to Stop": "풀어야 정지",
+  "Answer": "정답",
   "Sleep Sounds": "수면 사운드",
   "White Noise": "백색 소음",
   "Pink Noise": "핑크 소음",

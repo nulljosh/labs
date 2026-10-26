@@ -60,6 +60,8 @@
   "Seconds": "सेकंड",
   "Duration": "अवधि",
   "Label": "लेबल",
+  "Solve to Stop": "रोकने के लिए हल करें",
+  "Answer": "उत्तर",
   "Sleep Sounds": "नींद की ध्वनियाँ",
   "White Noise": "व्हाइट नॉइज़",
   "Pink Noise": "पिंक नॉइज़",

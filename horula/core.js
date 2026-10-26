@@ -65,8 +65,9 @@ const askNotify = () => { if (!DEMO && 'Notification' in window && Notification.
 
 // Full screen ringing view. The sound repeats until Stop, capped at 10 minutes.
 let ringLoop, ringCap, ringActions = {};
-function ring({ when, what, sound, snooze, repeat, onStop }) {
-  ringActions = { snooze, repeat, onStop };
+function ring({ when, what, sound, snooze, repeat, onStop, mission }) {
+  ringActions = { snooze, repeat, onStop, mission, solved: 0 };
+  $('ringMath').hidden = true; document.querySelector('#ringing .controls').hidden = false;
   $('ringWhen').textContent = when; $('ringWhat').textContent = what;
   $('ringSnooze').hidden = !snooze; $('ringRepeat').hidden = !repeat;
   $('ringing').hidden = false; $('stand').hidden = true; $('ringStop').hidden = false; $('ringUp').hidden = true;
@@ -80,7 +81,20 @@ function ring({ when, what, sound, snooze, repeat, onStop }) {
   ($('ringSnooze').hidden ? $('ringStop') : $('ringSnooze')).focus();
 }
 function stopRing() { navigator.vibrate?.(0); clearInterval(ringLoop); clearTimeout(ringCap); $('ringing').hidden = true; }
-$('ringStop').onclick = () => { stopRing(); ringActions.onStop?.(); };
+// A mission alarm (Solve to Stop) keeps ringing through three sums; Stop only shows the first.
+function nextSum() {
+  ringActions.sum = mathProblem(); $('ringQ').textContent = `${ringActions.sum.q} =`;
+  $('ringLeft').textContent = tr('{0} of {1}', ringActions.solved + 1, 3); $('ringA').value = ''; $('ringA').focus();
+}
+$('ringStop').onclick = () => {
+  if (!ringActions.mission) { stopRing(); return ringActions.onStop?.(); }
+  document.querySelector('#ringing .controls').hidden = true; $('ringMath').hidden = false; nextSum();
+};
+$('ringA').oninput = () => {
+  if (+$('ringA').value !== ringActions.sum.a) return;
+  if (++ringActions.solved < 3) return nextSum();
+  stopRing(); ringActions.onStop?.();
+};
 $('ringSnooze').onclick = () => { stopRing(); ringActions.snooze?.(); };
 $('ringRepeat').onclick = () => { stopRing(); ringActions.repeat?.(); };
 // Focus stays inside the ringing view until it is dismissed.

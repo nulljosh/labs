@@ -60,6 +60,8 @@
   "Seconds": "الثواني",
   "Duration": "المدة",
   "Label": "التسمية",
+  "Solve to Stop": "حل لإيقاف المنبه",
+  "Answer": "الإجابة",
   "Sleep Sounds": "أصوات النوم",
   "White Noise": "ضوضاء بيضاء",
   "Pink Noise": "ضوضاء وردية",

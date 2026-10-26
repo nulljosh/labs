@@ -139,6 +139,7 @@
       <div class="row"><label class="grow" for="aSnooze">Snooze</label><input type="checkbox" class="switch" id="aSnooze" checked></div>
       <div class="row"><label class="grow" for="aSnoozeMin">Snooze Length</label><select id="aSnoozeMin" class="inline"></select></div>
       <div class="row"><label class="grow" for="aCheck">Wake Up Check</label><input type="checkbox" class="switch" id="aCheck"></div>
+      <div class="row"><label class="grow" for="aMission">Solve to Stop</label><input type="checkbox" class="switch" id="aMission"></div>
     </div>
     <button type="button" id="alarmSkip" style="width:100%;margin-bottom:var(--s2)">Skip Next Alarm</button>
     <button type="button" class="danger" id="alarmDelete" style="width:100%">Delete Alarm</button>
@@ -167,6 +168,11 @@
     <button id="ringRepeat">Repeat</button>
     <button class="stop" id="ringStop">Stop</button>
     <button class="go" id="ringUp" hidden>I'm Up</button>
+  </div>
+  <div class="controls" id="ringMath" hidden>
+    <label class="what" for="ringA" id="ringQ"></label>
+    <input id="ringA" inputmode="numeric" autocomplete="off" aria-describedby="ringLeft">
+    <div class="what" id="ringLeft"></div>
   </div>
 </div>
 
@@ -240,7 +246,7 @@
 <div class="toast" id="toast" hidden role="status"></div>
 
 <!-- The app scripts in order (async = false keeps it), the reader's language and city names first when not English. -->
-<script>[self.LANG_FILE && 'lang/' + LANG_FILE + '.js', self.LANG_FILE && 'cities/' + LANG_FILE + '.js', 'i18n.js', 'lib.js', 'coords.js', 'core.js', 'world.js', 'noise.js', 'alarms.js', 'stopwatch.js', 'timers.js', 'app.js'].filter(Boolean)
+<script>[self.LANG_FILE && 'lang/' + LANG_FILE + '.js', self.LANG_FILE && 'cities/' + LANG_FILE + '.js', 'i18n.js', 'lib.js', 'coords.js', 'core.js', 'world.js', 'wake.js', 'alarms.js', 'stopwatch.js', 'timers.js', 'app.js'].filter(Boolean)
   .forEach(function (src) { var s = document.createElement('script'); s.src = src; s.async = false; document.body.appendChild(s); });</script>
 </body>
 </html>

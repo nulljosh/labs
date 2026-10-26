@@ -11,4 +11,9 @@ function noise(kind, n, rand = Math.random) {
   for (let i = 0; i < n && drift; i++) out[i] -= drift * i / (n - 1);
   return out;
 }
-if (typeof module === 'object') module.exports = { noise };
+// Alarm mission, like Alarmy: a sum to solve before an alarm stops. Two numbers from 12 to 89, so it takes a moment awake.
+function mathProblem(rand = Math.random) {
+  const x = 12 + Math.floor(rand() * 78), y = 12 + Math.floor(rand() * 78);
+  return { q: `${x} + ${y}`, a: x + y };
+}
+if (typeof module === 'object') module.exports = { noise, mathProblem };

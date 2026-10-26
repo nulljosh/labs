@@ -60,6 +60,8 @@
   "Seconds": "Sekunden",
   "Duration": "Dauer",
   "Label": "Name",
+  "Solve to Stop": "Zum Stoppen lösen",
+  "Answer": "Antwort",
   "Sleep Sounds": "Schlafklänge",
   "White Noise": "Weißes Rauschen",
   "Pink Noise": "Rosa Rauschen",

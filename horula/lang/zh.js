@@ -60,6 +60,8 @@
   "Seconds": "秒",
   "Duration": "时长",
   "Label": "标签",
+  "Solve to Stop": "解题后停止",
+  "Answer": "答案",
   "Sleep Sounds": "助眠声音",
   "White Noise": "白噪音",
   "Pink Noise": "粉红噪音",

@@ -5,6 +5,9 @@ struct AlarmsView: View {
     @Environment(AlarmScheduler.self) private var scheduler
     @State private var editing: AlarmItem?
     @State private var sleepSheet = false
+    @State private var sum = AlarmsView.newSum()
+    @State private var answer = ""
+    static func newSum() -> (q: String, a: Int) { var g = SystemRandomNumberGenerator(); return Clockwork.mathProblem(using: &g) }
 
     var body: some View {
         @Bindable var store = store
@@ -20,8 +23,21 @@ struct AlarmsView: View {
                                     Text("Rings again at \(c.rang.addingTimeInterval(Clockwork.checkGap).formatted(date: .omitted, time: .shortened))").font(.subheadline).foregroundStyle(.secondary)
                                 }
                                 Spacer()
-                                Button("I'm Up") { store.awake = .now; Task { await scheduler.sync(store) } }
-                                    .buttonStyle(.borderedProminent).buttonBorderShape(.capsule).tint(.green)
+                                if !c.alarm.mission {
+                                    Button("I'm Up") { store.awake = .now; Task { await scheduler.sync(store) } }
+                                        .buttonStyle(.borderedProminent).buttonBorderShape(.capsule).tint(.green)
+                                }
+                            }
+                            // Solve to Stop: iPhone's own Stop cannot be held back, so the sum is what cancels the second ring.
+                            if c.alarm.mission {
+                                LabeledContent(sum.q + " =") {
+                                    TextField("Answer", text: $answer).labelsHidden().multilineTextAlignment(.trailing).monospacedDigit()
+                                        #if os(iOS)
+                                        .keyboardType(.numberPad)
+                                        #endif
+                                }
+                                .font(.title2)
+                                .onChange(of: answer) { if Int(answer) == sum.a { answer = ""; sum = Self.newSum(); store.awake = .now; Task { await scheduler.sync(store) } } }
                             }
                         }
                     }
@@ -130,6 +146,7 @@ struct AlarmSheet: View {
                     Toggle("Snooze", isOn: $alarm.snooze)
                     if alarm.snooze { Picker("Snooze Length", selection: $alarm.snoozeMin) { ForEach(1...15, id: \.self) { Text("\($0) min") } } }
                     Toggle("Wake Up Check", isOn: $alarm.check)
+                    Toggle("Solve to Stop", isOn: $alarm.mission)
                 }
                 if exists {
                     Section {

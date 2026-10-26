@@ -54,7 +54,7 @@ function openAlarm(i) {
   editing = i;
   const a = alarms[i] || { time: `${pad(new Date().getHours())}:${pad(new Date().getMinutes())}`, days: [], label: '', sound: 'Radar', snooze: true, snoozeMin: 9 };
   $('alarmSheetTitle').textContent = tr(i < 0 ? 'Add Alarm' : 'Edit Alarm');
-  $('aTime').value = a.time; aDays.set(a.days); $('aLabel').value = a.label; $('aSound').value = a.sound; $('aSnooze').checked = a.snooze; $('aSnoozeMin').value = a.snoozeMin || 9; $('aCheck').checked = !!a.check;
+  $('aTime').value = a.time; aDays.set(a.days); $('aLabel').value = a.label; $('aSound').value = a.sound; $('aSnooze').checked = a.snooze; $('aSnoozeMin').value = a.snoozeMin || 9; $('aCheck').checked = !!a.check; $('aMission').checked = !!a.mission;
   $('alarmSkip').hidden = !(a.on && a.days.length);   // skipping only makes sense for a repeating alarm
   $('alarmDelete').hidden = i < 0;
   $('alarmSheet').returnValue = '';   // a dialog keeps the last returnValue; without this, Skip and Delete re-saved
@@ -71,7 +71,7 @@ $('alarmSkip').onclick = () => {
 $('alarmDelete').onclick = () => { alarms.splice(editing, 1); saveAlarms(); drawAlarms(); $('alarmSheet').close(); };
 $('alarmSheet').onclose = () => {
   if ($('alarmSheet').returnValue !== 'save' || !$('aTime').value) return;
-  const a = { time: $('aTime').value, days: aDays.get(), label: $('aLabel').value.trim(), sound: $('aSound').value, snooze: $('aSnooze').checked, snoozeMin: +$('aSnoozeMin').value, check: $('aCheck').checked, on: true, last: '' };
+  const a = { time: $('aTime').value, days: aDays.get(), label: $('aLabel').value.trim(), sound: $('aSound').value, snooze: $('aSnooze').checked, snoozeMin: +$('aSnoozeMin').value, check: $('aCheck').checked, mission: $('aMission').checked, on: true, last: '' };
   const n = new Date();
   if (a.time === `${pad(n.getHours())}:${pad(n.getMinutes())}`) a.last = n.toDateString();   // set for this very minute: next time, as the toast says
   if (editing < 0) alarms.push(a); else alarms[editing] = a;
@@ -113,13 +113,13 @@ function nzPlay() {
 $('nzPlay').onclick = () => nz ? nzStop() : nzPlay();
 $('nzKind').onchange = $('nzFor').onchange = () => { if (nz) { nzStop(); nzPlay(); } };
 nzDraw();
-function snoozeFor(label, sound, min = 9) {
-  snoozes.push({ at: Date.now() + min * 60000, label, sound, min }); saveAlarms(); toast(tr('Snoozed for {0}', `${min} ${tr(min > 1 ? 'minutes' : 'minute')}`));
+function snoozeFor(label, sound, min = 9, mission = false) {
+  snoozes.push({ at: Date.now() + min * 60000, label, sound, min, mission }); saveAlarms(); toast(tr('Snoozed for {0}', `${min} ${tr(min > 1 ? 'minutes' : 'minute')}`));
 }
 // Wake Up Check, like Alarmy: after Stop it rings again in 3 minutes unless you say you are up.
 let wake = store.get('wakeCheck', null);
 if (wake && Date.now() - wake.at > 600000) wake = null;   // a check left over from a closed tab is stale
-function wakeCheck(a) { wake = { at: Date.now() + 180000, label: a.label || tr('Alarm'), sound: a.sound }; store.set('wakeCheck', wake); showCheck(); }
+function wakeCheck(a) { wake = { at: Date.now() + 180000, label: a.label || tr('Alarm'), sound: a.sound, mission: a.mission }; store.set('wakeCheck', wake); showCheck(); }
 function showCheck() {
   $('ringWhen').textContent = tr('Are you up?'); $('ringWhat').textContent = tr('Rings again at {0}', hm.format(new Date(wake.at)));
   for (const b of ['ringSnooze', 'ringRepeat', 'ringStop']) $(b).hidden = true;
@@ -128,7 +128,7 @@ function showCheck() {
 $('ringUp').onclick = () => { wake = null; store.set('wakeCheck', null); $('ringing').hidden = true; };
 if (wake) showCheck();
 function checkAlarms(now) {
-  if (wake && wake.at <= now.getTime()) { const w = wake; wake = null; store.set('wakeCheck', null); return ring({ when: hm.format(now), what: w.label, sound: w.sound, onStop: () => wakeCheck(w) }); }
+  if (wake && wake.at <= now.getTime()) { const w = wake; wake = null; store.set('wakeCheck', null); return ring({ when: hm.format(now), what: w.label, sound: w.sound, mission: w.mission, onStop: () => wakeCheck(w) }); }
   if (!$('ringing').hidden) return;
   const t = `${pad(now.getHours())}:${pad(now.getMinutes())}`, today = now.toDateString(), wd = now.getDay();
   for (const a of alarms) {
@@ -136,11 +136,11 @@ function checkAlarms(now) {
       a.last = today;
       if (a.skip === today) { delete a.skip; saveAlarms(); drawAlarms(); continue; }   // skipped this one, ring next time
       if (!a.days.length) a.on = false; saveAlarms(); drawAlarms();
-      return ring({ when: hm.format(now), what: a.label || tr('Alarm'), sound: a.sound, snooze: a.snooze && (() => snoozeFor(a.label || tr('Alarm'), a.sound, a.snoozeMin)), onStop: a.check && (() => wakeCheck(a)) });
+      return ring({ when: hm.format(now), what: a.label || tr('Alarm'), sound: a.sound, snooze: a.snooze && (() => snoozeFor(a.label || tr('Alarm'), a.sound, a.snoozeMin, a.mission)), onStop: a.check && (() => wakeCheck(a)), mission: a.mission });
     }
   }
   const due = snoozes.findIndex(s => s.at <= now.getTime());
-  if (due >= 0) { const [s] = snoozes.splice(due, 1); saveAlarms(); return ring({ when: hm.format(now), what: s.label, sound: s.sound, snooze: () => snoozeFor(s.label, s.sound, s.min) }); }
+  if (due >= 0) { const [s] = snoozes.splice(due, 1); saveAlarms(); return ring({ when: hm.format(now), what: s.label, sound: s.sound, mission: s.mission, snooze: () => snoozeFor(s.label, s.sound, s.min, s.mission) }); }
   if (!sleep.on) return;
   if (sleep.wake === t && sleep.lastWake !== today && sleep.days.includes(wd)) {
     sleep.lastWake = today; store.set('sleep', sleep);

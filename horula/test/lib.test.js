@@ -1,7 +1,7 @@
 process.env.TZ = 'America/Vancouver';   // before any Date: fireTimes and offsetLabel read local time
 const test = require('node:test'), assert = require('node:assert/strict');
 const fs = require('node:fs'), path = require('node:path');
-const L = { ...require('../lib.js'), ...require('../noise.js') };
+const L = { ...require('../lib.js'), ...require('../wake.js') };
 const root = path.join(__dirname, '..');
 
 test('repeat text', () => {
@@ -158,6 +158,14 @@ test('sleep noise', () => {
   assert.ok(step(L.noise('brown', 44100, rand)) < step(L.noise('white', 44100, rand)) / 5, 'brown is smoother than white');
 });
 
+test('alarm mission sums', () => {
+  let seed = 7; const rand = () => (seed = seed * 16807 % 2147483647) / 2147483647;
+  for (let i = 0; i < 200; i++) {
+    const p = L.mathProblem(rand), [x, y] = p.q.split(' + ').map(Number);
+    assert.ok(x >= 12 && x <= 89 && y >= 12 && y <= 89 && p.a === x + y, p.q);
+  }
+});
+
 test('routine steps', () => {
   const t = { steps: [{ label: 'Warm up', dur: 300000 }, { label: '', dur: 60000 }], step: 0 };
   assert.deepEqual(L.nextStep(t), { step: 1, dur: 60000 });
@@ -169,7 +177,8 @@ test('routine steps', () => {
 });
 
 test('backup keeps the wake up check', () => {
-  const b = L.parseBackup(JSON.stringify({ app: 'clock', v: 1, alarms: [{ time: '07:00', check: true }, { time: '08:00', check: 'yes' }] }));
+  const b = L.parseBackup(JSON.stringify({ app: 'clock', v: 1, alarms: [{ time: '07:00', check: true, mission: true }, { time: '08:00', check: 'yes' }] }));
+  assert.equal(b.alarms[0].mission, true); assert.equal(b.alarms[1].mission, undefined);
   assert.equal(b.alarms[0].check, true); assert.equal(b.alarms[1].check, undefined);
 });
 

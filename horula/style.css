@@ -95,6 +95,8 @@ input[type="time"].wheel { font-size: 48px; font-weight: 200; height: 72px; text
 .full .what { font-size: 22px; line-height: 28px; color: var(--text2); }
 .full .controls { width: min(100%, 360px); flex-direction: column; }
 .full .controls button { width: 100%; }
+#ringA { text-align: center; font-size: 34px; height: 64px; }
+.full #ringQ { font-size: 34px; line-height: 40px; color: var(--text); }   /* the sum is the task, read half asleep */
 #stand { background: #000; color: #fff; cursor: pointer; user-select: none; }
 #stand .when { font-size: min(30vw, 50vh); font-weight: 200; }
 #stand .what { color: #98989d; font-size: 17px; white-space: nowrap; }

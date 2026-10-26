@@ -60,6 +60,8 @@
   "Seconds": "秒",
   "Duration": "時間",
   "Label": "ラベル",
+  "Solve to Stop": "解いて停止",
+  "Answer": "答え",
   "Sleep Sounds": "睡眠サウンド",
   "White Noise": "ホワイトノイズ",
   "Pink Noise": "ピンクノイズ",

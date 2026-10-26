@@ -184,4 +184,12 @@ final class ClockworkTests: XCTestCase {
             XCTAssert(peak > 0.01 && peak <= 1, "\(kind) peak \(peak)")
         }
     }
+
+    func testMathProblem() {
+        var g = SystemRandomNumberGenerator()
+        for _ in 0..<200 {
+            let p = Clockwork.mathProblem(using: &g), n = p.q.split(separator: " + ").compactMap { Int($0) }
+            XCTAssertEqual(n.count, 2); XCTAssert(n.allSatisfy { (12...89).contains($0) }); XCTAssertEqual(n.reduce(0, +), p.a)
+        }
+    }
 }

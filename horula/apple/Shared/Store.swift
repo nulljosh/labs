@@ -112,7 +112,7 @@ final class Store {
 
     /// Wake Up Check: each alarm still waiting for I'm Up, with when it rang. Its second ring is 3 minutes after.
     func pendingChecks(at now: Date = .now) -> [(alarm: AlarmItem, rang: Date)] {
-        alarms.filter { $0.on && $0.check }.compactMap { a in
+        alarms.filter { $0.on && ($0.check || $0.mission) }.compactMap { a in
             Clockwork.nextFire(a, after: now.addingTimeInterval(-Clockwork.checkGap)).flatMap { (awake ?? .distantPast) < $0 ? (a, $0) : nil }
         }
     }
@@ -169,6 +169,7 @@ enum Backup {
                 x.snooze = a["snooze"] as? Bool != false
                 if let m = a["snoozeMin"] as? Int, (1...15).contains(m) { x.snoozeMin = m }
                 x.check = a["check"] as? Bool == true
+                x.mission = a["mission"] as? Bool == true
                 return x
             }
         }

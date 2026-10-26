@@ -60,6 +60,8 @@
   "Seconds": "Seconden",
   "Duration": "Duur",
   "Label": "Label",
+  "Solve to Stop": "Oplossen om te stoppen",
+  "Answer": "Antwoord",
   "Sleep Sounds": "Slaapgeluiden",
   "White Noise": "Witte ruis",
   "Pink Noise": "Roze ruis",

@@ -204,6 +204,12 @@ enum Clockwork {
     /// Wake Up Check: how long after an alarm it rings again unless you confirm you are up.
     static let checkGap: TimeInterval = 180
 
+    /// Alarm mission, like Alarmy and wake.js: a sum of two numbers from 12 to 89.
+    static func mathProblem<R: RandomNumberGenerator>(using rng: inout R) -> (q: String, a: Int) {
+        let x = Int.random(in: 12...89, using: &rng), y = Int.random(in: 12...89, using: &rng)
+        return ("\(x) + \(y)", x + y)
+    }
+
     /// Sleep sounds, the same filters as lib.js: white, pink (Paul Kellet's) and brown noise, one sample per call.
     struct Noise {
         let kind: String
