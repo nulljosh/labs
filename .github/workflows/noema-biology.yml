@@ -1,15 +1,15 @@
-name: evidna Tests
+name: noema biology
 on:
   push:
     branches: [main]
-    paths: ["evidna/**", ".github/workflows/evidna-test.yml"]
+    paths: ["noema/biology/**", ".github/workflows/noema-biology.yml"]
   pull_request:
     branches: [main]
-    paths: ["evidna/**", ".github/workflows/evidna-test.yml"]
+    paths: ["noema/biology/**", ".github/workflows/noema-biology.yml"]
   workflow_dispatch:
 defaults:
   run:
-    working-directory: evidna
+    working-directory: noema/biology
 
 permissions:
   contents: read
