@@ -55,11 +55,11 @@ struct WorldWidgetView: View {
         let list = Array(e.zones.prefix(small ? 1 : 3))
         switch family {
         case .accessoryInline:
-            if let c = list.first { (Text("\(c.city) ") + Text(e.date, style: .time)).environment(\.timeZone, TimeZone(identifier: c.zone) ?? .current) }
+            if let c = list.first { (Text("\(c.name) ") + Text(e.date, style: .time)).environment(\.timeZone, TimeZone(identifier: c.zone) ?? .current) }
         case .accessoryRectangular:
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(list) { c in
-                    HStack { Text(c.city).lineLimit(1); Spacer(); Text(e.date, style: .time).environment(\.timeZone, TimeZone(identifier: c.zone) ?? .current) }
+                    HStack { Text(c.name).lineLimit(1); Spacer(); Text(e.date, style: .time).environment(\.timeZone, TimeZone(identifier: c.zone) ?? .current) }
                 }
             }.font(.caption)
         default:
@@ -67,7 +67,7 @@ struct WorldWidgetView: View {
                 ForEach(list) { c in
                     HStack(alignment: .firstTextBaseline) {
                         VStack(alignment: .leading, spacing: 0) {
-                            Text(c.city).font(.headline).lineLimit(1)
+                            Text(c.name).font(.headline).lineLimit(1)
                             Text(Clockwork.offsetLabel(zone: c.zone, at: e.date)).font(.caption2).foregroundStyle(.secondary).lineLimit(1)
                         }
                         Spacer(minLength: 4)

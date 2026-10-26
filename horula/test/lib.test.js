@@ -216,6 +216,7 @@ test('city names: one file per language, every key a city the search knows', () 
   for (const l of langs) {
     vm.runInNewContext(fs.readFileSync(path.join(root, 'cities', l + '.js'), 'utf8'), ctx);
     for (const [c, n] of Object.entries(ctx.CITY_TEXT[l])) { assert.ok(known.has(c), `${c} in ${l}`); assert.ok(n && !/[<>"&]/.test(n), `${c} in ${l}`); }
+    assert.equal(fs.readFileSync(path.join(root, 'apple/Shared', `cities-${l}.json`), 'utf8').trim(), JSON.stringify(ctx.CITY_TEXT[l]), `native ${l} matches web`);
   }
   assert.equal(ctx.CITY_TEXT.ja.Tokyo, '東京'); assert.equal(ctx.CITY_TEXT.hi.Mumbai, 'मुम्बई');
 });

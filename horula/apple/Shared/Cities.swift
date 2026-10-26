@@ -29,10 +29,27 @@ enum Cities {
         return m
     }()
 
+    /// City names in the app's language (cities-<code>.json, from scripts/gen_cities.mjs). Stored and backed up
+    /// in English; only what the reader sees changes.
+    static let names: [String: String] = {
+        let b = Bundle(for: BundleToken.self), code = String((b.preferredLocalizations.first ?? "en").prefix(2))
+        guard let url = b.url(forResource: "cities-\(code)", withExtension: "json"),
+              let d = try? Data(contentsOf: url), let m = try? JSONDecoder().decode([String: String].self, from: d) else { return [:] }
+        return m
+    }()
+
+    /// Every city in the reader's alphabet order, for the search list.
+    static let byName: [City] = all.sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending }
+
     static func isDay(_ c: City, at now: Date) -> Bool? {
         guard let p = coords[c.city], p.count == 2 else { return nil }
         return Clockwork.isDaytime(now, lat: p[0], lon: p[1])
     }
+}
+
+extension City {
+    /// The name the reader sees: in their language when we have it, else English.
+    var name: String { Cities.names[city] ?? city }
 }
 
 /// The bundle this file is compiled into: the app, a widget, or the snapshot tests.

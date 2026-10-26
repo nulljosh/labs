@@ -30,7 +30,7 @@ struct WatchWorld: View {
                 List(store.zones) { c in
                     VStack(alignment: .leading, spacing: 2) {
                         HStack {
-                            Text(c.city).font(.headline).lineLimit(1)
+                            Text(c.name).font(.headline).lineLimit(1)
                             Spacer()
                             if let day = Cities.isDay(c, at: ctx.date) { Image(systemName: day ? "sun.max" : "moon").foregroundStyle(.secondary) }
                         }

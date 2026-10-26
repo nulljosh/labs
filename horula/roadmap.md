@@ -59,7 +59,7 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] UI text in English, French, Spanish, German, Japanese, Chinese, Portuguese, Korean, Italian, Dutch, Arabic, Hindi.
 - [x] Right to left layout for Arabic.
 - [x] City search works in the local language, and cities show in it (15.2.0: cities/<code>.js from CLDR and Wikidata, scripts/gen_cities.mjs).
-- [ ] The native app shows and searches cities in the reader's language too, from the same tables.
+- [x] The native app shows and searches cities in the reader's language too, from the same tables (apple/Shared/cities-<code>.json, ships in 6.1).
 
 ## v11: a clock for other pages
 - [x] `embed.html?city=Tokyo` gives a small live clock any site can drop in.

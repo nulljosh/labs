@@ -147,7 +147,7 @@ struct CityRow: View {
         HStack(spacing: 12) {
             VStack(alignment: .leading, spacing: 2) {
                 Text(Clockwork.offsetLabel(zone: city.zone, at: at)).font(.footnote).foregroundStyle(.secondary)
-                Text(city.city).font(.title3)
+                Text(city.name).font(.title3)
             }
             Spacer()
             if let day = Cities.isDay(city, at: at) {
@@ -183,7 +183,7 @@ struct WorldMap: View {
                 let c = pt(p[0], p[1]), end = p[1] + 180 > 300
                 g.fill(Path(ellipseIn: CGRect(x: c.x - 4, y: c.y - 4, width: 8, height: 8)), with: .color(.horula))
                 let t = at.formatted(Date.FormatStyle(timeZone: TimeZone(identifier: z.zone) ?? .current).hour().minute())
-                g.draw(Text("\(z.city) \(t)").font(.caption), at: CGPoint(x: c.x + (end ? -8 : 8), y: c.y), anchor: end ? .trailing : .leading)
+                g.draw(Text("\(z.name) \(t)").font(.caption), at: CGPoint(x: c.x + (end ? -8 : 8), y: c.y), anchor: end ? .trailing : .leading)
             }
         }
         .aspectRatio(2, contentMode: .fit)
@@ -204,7 +204,7 @@ struct CityCard: View {
                 VStack(spacing: 6) {
                     ClockFace(zone: TimeZone(identifier: city.zone) ?? .current, shift: shift, night: Cities.isDay(city, at: at).map { !$0 } ?? false)
                         .frame(width: 112).padding(.bottom, 4)
-                    Text(city.city).font(.headline).lineLimit(1)
+                    Text(city.name).font(.headline).lineLimit(1)
                     Text(Clockwork.offsetLabel(zone: city.zone, at: at)).font(.caption).foregroundStyle(.secondary).lineLimit(1)
                 }
                 .frame(maxWidth: .infinity).padding(12)
@@ -212,7 +212,7 @@ struct CityCard: View {
                 .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
-            .accessibilityLabel("\(city.city), \(Clockwork.offsetLabel(zone: city.zone, at: at))")
+            .accessibilityLabel("\(city.name), \(Clockwork.offsetLabel(zone: city.zone, at: at))")
             .contextMenu { Button("Remove", role: .destructive) { store.zones.removeAll { $0.id == city.id } } }
         }
     }
@@ -225,8 +225,8 @@ struct AddCity: View {
     @State private var q = ""
     var body: some View {
         NavigationStack {
-            List(Cities.all.filter { q.isEmpty || $0.city.localizedCaseInsensitiveContains(q) }) { c in
-                Button(c.city) {
+            List(Cities.byName.filter { q.isEmpty || $0.name.localizedCaseInsensitiveContains(q) || $0.city.localizedCaseInsensitiveContains(q) }) { c in
+                Button(c.name) {
                     if !store.zones.contains(where: { $0.city == c.city }) { store.zones.append(c) }
                     dismiss()
                 }
@@ -260,7 +260,7 @@ struct CityDetail: View {
                     LabeledContent("Daylight", value: t.map { Clockwork.durationText($0.set.timeIntervalSince($0.rise)).replacingOccurrences(of: #" \d+ sec"#, with: "", options: .regularExpression) } ?? "None today")
                 }
             }
-            .navigationTitle(city.city)
+            .navigationTitle(city.name)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
         }
     }
