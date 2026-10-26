@@ -92,6 +92,17 @@ Kit state: launch/ already exists (no `Post:` line, so ready to submit) for Horu
 - Done 2026-10-26: Horula Oct 28, Mailbag Oct 29, Airwell Oct 30, Atlin Nov 2, Cartons Nov 3, Hermes Nov 4, Hamurapi Nov 5, Vancouver Vice Nov 6. `/my/products` after: 20 posted, 9 scheduled (with Intake Oct 27), 0 drafts.
 - Skip private apps and anything whose README says it is not a product. Never create two drafts for the same app: reuse the draft URL (pass it as the second argument).
 
+### Keeping Product Hunt pages current (renames, pricing, images; verified 2026-10-26)
+
+PH keeps whatever name, URL and logo the product had at launch, so every rename leaves a stale page. After any rename (see the `rename` skill) or price change:
+1. `python3 <skill-dir>/ph_audit.py` reads every product's edit page (`/products/<slug>/edit`). Slugs never change on rename (inkpress is Bugle, quotestreak is Coda, lexly is Patois, sparkjar is Melete, nyc-survive is Gastown, blockframe is Icelus, healstack is Machaon), so match by slug, not name.
+2. Compare against truth: name and URL from the repo README and live `<title>`, tagline and description from the live page's og tags, pricing from GTM.md. PH pricing: `free` when everything is free, `free_options` when the web app is free and the store app or an IAP costs money, `payment_required` only when nothing is free.
+3. Edit `REN` and `PRICING` in `ph_fix.py`, run `python3 <skill-dir>/ph_fix.py <slug>...`. It sets the fields, picks the pricing radio, pastes the logo URL (`brand/icon-1024.png` on raw.githubusercontent.com; labs apps live under `labs/main/<app>/`) and clicks Save changes. Rerun `ph_audit.py` to confirm.
+4. A scheduled launch has its own name and tagline on `/posts/<slug>/edit`. Fix that too before launch day.
+- Only ONE script may drive the PH tab at a time. A leftover audit loop and a fix run raced on 2026-10-26 and each read the other's page. Before starting, `pgrep -f "ph_|readall|fix.py"` must print nothing.
+- Hold a rename on PH until the store listing has it (Notate stays until Apple accepts Echo, Curvely until the Pan listing clears).
+- Gallery images are not replaced by the script; old screenshots that show an old name still need a manual swap.
+
 ## Mechanics
 
 `python3 <skill-dir>/mech.py <app> <url> <tagline> <description>` does gallery, og.png,
