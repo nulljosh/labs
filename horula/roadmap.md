@@ -97,3 +97,7 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 ## v19: the Watch catches up
 - [x] Timers open on a grid of quick timers, like watchOS (GAPS 36).
 - [x] Alarms on the Watch: list, switches, ring by notification (GAPS 37).
+
+## v20: the Watch gets the rest
+- [x] Custom tile on the Watch timer grid, hours and minutes (GAPS 38).
+- [x] Analog stopwatch on the Watch, the same dial as the phone, now in Shared (GAPS 39).

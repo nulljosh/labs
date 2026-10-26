@@ -64,3 +64,5 @@ Joshua's ask: keep comparing against the native iOS and Mac Clock apps and close
 - [x] 35. StandBy has a World face: the map with the lit half and your spot, the time under it (web and native nightstand).
 - [x] 36. Apple Watch Timers open on a grid of quick timers (1, 3, 5, 10, 15, 30 minutes, 1 and 2 hours), like watchOS Clock.
 - [x] 37. Apple Watch has Alarms: the list, switches, and a ring by notification, like watchOS Clock.
+- [x] 38. Apple Watch timer grid ends with a Custom tile that picks hours and minutes, like watchOS Clock.
+- [x] 39. Apple Watch stopwatch has the analog face too: tap the time to switch, like watchOS Stopwatch.

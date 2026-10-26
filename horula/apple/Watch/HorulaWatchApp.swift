@@ -47,11 +47,18 @@ struct WatchWorld: View {
 
 struct WatchStopwatch: View {
     @Environment(Store.self) private var store
+    @AppStorage("swAnalog") private var analog = false   // tap the time for the dial, like the phone
     var body: some View {
         let sw = store.stopwatch, running = sw.start != nil
         VStack {
             TimelineView(.animation(minimumInterval: 0.05, paused: !running)) { ctx in
-                Text(Clockwork.stopwatchText(sw.elapsed(ctx.date))).font(.system(size: 34, weight: .light)).monospacedDigit().minimumScaleFactor(0.6)
+                let t = sw.elapsed(ctx.date)
+                Group {
+                    if analog { StopwatchDial(total: t, lap: sw.laps.last.map { t - $0 }) }
+                    else { Text(Clockwork.stopwatchText(t)).font(.system(size: 34, weight: .light)).monospacedDigit().minimumScaleFactor(0.6) }
+                }
+                .contentShape(Rectangle())
+                .onTapGesture { analog.toggle() }
             }
             HStack {
                 Button(running || sw.acc == 0 ? "Lap" : "Reset") {
@@ -77,6 +84,9 @@ struct WatchTimers: View {
     @Environment(Store.self) private var store
     // The grid watchOS Clock opens on.
     private let quick: [TimeInterval] = [60, 180, 300, 600, 900, 1800, 3600, 7200]
+    @State private var custom = false
+    @State private var hours = 0
+    @State private var minutes = 20
     var body: some View {
         NavigationStack {
             TimelineView(.periodic(from: .now, by: 1)) { ctx in
@@ -99,11 +109,23 @@ struct WatchTimers: View {
                             }
                             .buttonStyle(.bordered).buttonBorderShape(.roundedRectangle(radius: 16))
                         }
+                        Button { custom = true } label: { Text("Custom").font(.headline).frame(maxWidth: .infinity, minHeight: 56) }
+                            .buttonStyle(.bordered).buttonBorderShape(.roundedRectangle(radius: 16))
                     }
                 }
                 .onChange(of: ctx.date) { store.timers.removeAll { $0.end.map { $0 <= ctx.date } ?? false } }
             }
             .navigationTitle("Timers")
+            .sheet(isPresented: $custom) {
+                VStack {
+                    HStack {
+                        Picker("Hours", selection: $hours) { ForEach(0..<24, id: \.self) { Text(verbatim: "\($0)").tag($0) } }
+                        Picker("Minutes", selection: $minutes) { ForEach(0..<60, id: \.self) { Text(verbatim: "\($0)").tag($0) } }
+                    }
+                    Button("Start") { store.startTimer(TimeInterval(hours * 3600 + minutes * 60), label: ""); custom = false; sync() }
+                        .tint(.green).disabled(hours + minutes == 0)
+                }
+            }
         }
     }
     private func sync() { Task { await AlarmScheduler().sync(store) } }
