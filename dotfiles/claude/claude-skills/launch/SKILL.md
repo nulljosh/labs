@@ -101,7 +101,10 @@ PH keeps whatever name, URL and logo the product had at launch, so every rename 
 4. A scheduled launch has its own name and tagline on `/posts/<slug>/edit`. Fix that too before launch day.
 - Only ONE script may drive the PH tab at a time. A leftover audit loop and a fix run raced on 2026-10-26 and each read the other's page. Before starting, `pgrep -f "ph_|readall|fix.py"` must print nothing.
 - Hold a rename on PH until the store listing has it (Notate stays until Apple accepts Echo, Curvely until the Pan listing clears).
-- Gallery images are not replaced by the script; old screenshots that show an old name still need a manual swap.
+- Gallery: `ph_gallery.py <slug>` adds one current image by URL (site og image, or a fresh 1270x760 headless Chrome shot of the live site committed to `launch/gallery/00-live.png` and served from raw.githubusercontent.com), removes the old tiles (`[data-test=gallery-media-remove]`) and saves (`[data-test=product-edit-submit]`). Check the og image is really an image first: `curl -sI` must say `image/`, not `text/html` (Coda and Melete og.png were SPA fallbacks on 2026-10-26).
+- Never type with System Events: Joshua is usually typing in another app and the keystrokes land there. "Paste a URL" prompts are answered through accessibility instead (`ax_prompt` in ph_submit.py sets text field 1 of group 1 of tab group 1 of splitter group 1 and clicks OK).
+- Other Claude sessions share this Safari. Work in a window of its own (`make new document`), never in a tab next to someone else's: a background tab hangs `do JavaScript`.
+- Product pages for Curbfind and Plank redirect to their launch page; their pricing lives there and was already Free.
 
 ## Mechanics
 

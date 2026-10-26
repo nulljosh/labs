@@ -8,7 +8,38 @@ def js(code,t=15):
     p=subprocess.Popen(['osascript',S+'ph_js.scpt',code],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
     try: o,e=p.communicate(timeout=t); return o.strip()
     except subprocess.TimeoutExpired: p.kill(); return None
+def raise_ph():
+    subprocess.run(['osascript','-e','''tell application "Safari"
+repeat with w in windows
+repeat with t in tabs of w
+if (URL of t) contains "producthunt.com" then
+set index of w to 1
+return
+end if
+end repeat
+end repeat
+end tell'''])
+def ax_prompt(text):
+    r=subprocess.run(['osascript','-e','''tell application "System Events" to tell process "Safari"
+repeat with w in windows
+try
+set g to group 1 of tab group 1 of splitter group 1 of w
+if exists button "OK" of g then
+set value of text field 1 of g to %s
+delay 0.3
+click button "OK" of g
+return "ok"
+end if
+end try
+end repeat
+return "none"
+end tell'''%json.dumps(text)],capture_output=True,text=True)
+    return r.stdout.strip()
 def sysev(text):
+    r=ax_prompt(text)
+    if r=='ok': return
+    print('  ax prompt not found, NOT typing (user may be active)'); return
+    raise_ph()
     subprocess.run(['osascript','-e','tell application "Safari" to activate','-e','delay 0.5','-e','tell application "System Events" to keystroke %s'%json.dumps(text),'-e','delay 0.4','-e','tell application "System Events" to key code 36'])
 def nav(url):
     for _ in range(20):
