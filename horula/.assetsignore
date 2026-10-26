@@ -13,3 +13,4 @@ apple
 *.xcodeproj
 build
 ExportOptions*.plist
+launch

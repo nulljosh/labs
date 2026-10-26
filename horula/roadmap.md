@@ -69,7 +69,7 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [ ] Lighthouse 100 on performance, accessibility, best practices and SEO for both pages. Landing is 100 on all four; the app is 99/100/100/100 (throttled first paint 1.3 s, largest paint 1.9 s). Next step: inline the shell CSS.
 - [x] Landing refreshed for everything v2 to v11 added, with new art where a section needs it.
 - [x] README, WHITEPAPER and CLAUDE.md current.
-- [ ] Launch kit (Product Hunt, HN, X posts) in launch/horula/.
+- [x] Launch kit in horula/launch/: Product Hunt, Show HN, X and three Reddit drafts, a gallery and a checklist. Posting is Joshua's.
 
 ## v13: a map of the day
 - [x] World Clock has a map, like macOS Clock: every known city as a dot, night shaded by the real line between day and night, your cities named with their time.
@@ -88,5 +88,5 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [ ] App Store listing text in the same languages (docs/store/<locale>).
 
 ## v17: tell people
-- [ ] Launch kit in launch/horula/: Product Hunt, Show HN and X posts, with the embed as the hook.
+- [x] Launch kit in horula/launch/: Product Hunt, Show HN, X and three Reddit drafts, a gallery and a checklist. Posting is Joshua's.
 
