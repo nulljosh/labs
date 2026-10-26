@@ -60,6 +60,7 @@
   "Seconds": "Seconden",
   "Duration": "Duur",
   "Label": "Label",
+  "Chime": "Uurslag",
   "Clocks go forward": "Klok gaat vooruit",
   "Clocks go back": "Klok gaat terug",
   "Countdowns": "Aftellers",

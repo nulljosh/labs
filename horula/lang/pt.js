@@ -60,6 +60,7 @@
   "Seconds": "Segundos",
   "Duration": "Duração",
   "Label": "Rótulo",
+  "Chime": "Badalada",
   "Clocks go forward": "Relógios adiantam",
   "Clocks go back": "Relógios atrasam",
   "Countdowns": "Contagens regressivas",

@@ -1,7 +1,7 @@
 // Nightstand: giant clock, screen kept awake, red after 22:00 until 07:00.
 let wakeLock;
 async function openStand() {
-  $('stand').hidden = false; drawStand(new Date());
+  $('stand').hidden = false; chimed = new Date().getHours(); drawStand(new Date());
   try { wakeLock = await navigator.wakeLock?.request('screen'); } catch {}
   try { await document.documentElement.requestFullscreen?.(); } catch {}
 }
@@ -13,6 +13,7 @@ function closeStand() {
 ticksInto($('standTicks'));
 function drawStand(now) {
   if ($('stand').hidden) return;
+  if (store.get('standChime', false) && now.getMinutes() === 0 && chimed !== now.getHours()) { chimed = now.getHours(); play('Chimes', 0.12); }
   const h = now.getHours(), face = store.get('standFace', 'digits'), [dx, dy] = drift(Math.floor(now / 60000));
   $('stand').classList.toggle('night', h >= 22 || h < 7);
   $('stand').dataset.face = face;
@@ -38,6 +39,11 @@ function drawStand(now) {
 $('standOpen').onclick = openStand;
 $('stand').onclick = (e) => { if (!e.target.closest('#standBar')) closeStand(); };
 $('standBar').onclick = (e) => { const f = e.target.closest('[data-face]'); if (f) { store.set('standFace', f.dataset.face); drawStand(new Date()); } };
+// Hourly chime, like Flip Clock: a soft Chimes on the hour while the nightstand is up. Off until you turn it on.
+let chimed = -1;
+const showChime = () => $('standChime').setAttribute('aria-pressed', store.get('standChime', false));
+showChime();
+$('standChime').onclick = () => { store.set('standChime', !store.get('standChime', false)); showChime(); };
 $('standDim').value = store.get('standDim', 100);
 $('standDim').oninput = () => { store.set('standDim', +$('standDim').value); drawStand(new Date()); };
 addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('stand').hidden) closeStand(); });

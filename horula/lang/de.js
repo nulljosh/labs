@@ -60,6 +60,7 @@
   "Seconds": "Sekunden",
   "Duration": "Dauer",
   "Label": "Name",
+  "Chime": "Stundenschlag",
   "Clocks go forward": "Uhren vorstellen",
   "Clocks go back": "Uhren zurückstellen",
   "Countdowns": "Countdowns",

@@ -6,6 +6,7 @@ struct Nightstand: View {
     @Environment(\.dismiss) private var dismiss
     @AppStorage("standFace") private var face = "digits"
     @AppStorage("standDim") private var dim = 1.0
+    @AppStorage("standChime") private var chime = false   // hourly chime, like Flip Clock; off until turned on
     private static let here: [Double]? = Cities.coords[TimeZone.current.identifier.split(separator: "/").last.map { $0.replacingOccurrences(of: "_", with: " ") } ?? ""]
     var body: some View {
         TimelineView(.periodic(from: .now, by: 1)) { ctx in
@@ -38,6 +39,7 @@ struct Nightstand: View {
                         Picker("Face", selection: $face) { Text("Digits").tag("digits"); Text("Analog").tag("analog"); Text("Sun Dial").tag("sun"); Text("World").tag("world") }
                             .pickerStyle(.segmented).frame(maxWidth: 340)
                         Slider(value: $dim, in: 0.15...1).frame(maxWidth: 160).accessibilityLabel("Brightness")
+                        Toggle(isOn: $chime) { Label("Chime", systemImage: "bell") }.toggleStyle(.button).labelStyle(.iconOnly)
                     }
                     .opacity(0.5).environment(\.colorScheme, .dark)
                     .padding(.horizontal, 16).padding(.vertical, 8)
@@ -47,6 +49,7 @@ struct Nightstand: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity).background(.black)
             .contentShape(Rectangle()).onTapGesture { dismiss() }
+            .onChange(of: h) { if chime { Chime.play() } }   // only on a change of hour, never on opening
         }
         #if os(iOS)
         .onAppear { UIApplication.shared.isIdleTimerDisabled = true }

@@ -60,6 +60,7 @@
   "Seconds": "Secondes",
   "Duration": "Durée",
   "Label": "Libellé",
+  "Chime": "Carillon",
   "Clocks go forward": "Avance de l'heure",
   "Clocks go back": "Recul de l'heure",
   "Countdowns": "Comptes à rebours",
