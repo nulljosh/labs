@@ -156,3 +156,6 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 
 ## v22.1: the Watch catches up
 - [x] The Watch shows "Are you up?" while a Wake Up Check or Solve to Stop alarm is about to ring again, with I'm Up or the sum, and the alarm screen gets the Solve to Stop switch. Before this the Watch's second ring could not be turned off from the Watch.
+
+## v22.2: rain
+- [x] Rain joins the sleep sounds on the web, iPhone and Mac: a pink noise bed with drops about twenty times a second, made on the device like the rest. The Watch has no sleep sounds on purpose, its speaker is not for a night of noise.

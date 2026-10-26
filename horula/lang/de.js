@@ -66,6 +66,7 @@
   "White Noise": "Weißes Rauschen",
   "Pink Noise": "Rosa Rauschen",
   "Brown Noise": "Braunes Rauschen",
+  "Rain": "Regen",
   "Stop After": "Stoppen nach",
   "Play": "Abspielen",
   "Stops at {0}": "Stoppt um {0}",

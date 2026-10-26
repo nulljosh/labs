@@ -66,6 +66,7 @@
   "White Noise": "Witte ruis",
   "Pink Noise": "Roze ruis",
   "Brown Noise": "Bruine ruis",
+  "Rain": "Regen",
   "Stop After": "Stop na",
   "Play": "Afspelen",
   "Stops at {0}": "Stopt om {0}",

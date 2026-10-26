@@ -66,6 +66,7 @@
   "White Noise": "白噪音",
   "Pink Noise": "粉红噪音",
   "Brown Noise": "棕色噪音",
+  "Rain": "雨声",
   "Stop After": "停止时间",
   "Play": "播放",
   "Stops at {0}": "{0}停止",

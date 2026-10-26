@@ -66,6 +66,7 @@
   "White Noise": "백색 소음",
   "Pink Noise": "핑크 소음",
   "Brown Noise": "브라운 소음",
+  "Rain": "빗소리",
   "Stop After": "정지 시간",
   "Play": "재생",
   "Stops at {0}": "{0}에 정지",

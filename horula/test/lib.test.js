@@ -148,7 +148,7 @@ test('interval timer phases', () => {
 
 test('sleep noise', () => {
   let seed = 1; const rand = () => (seed = seed * 16807 % 2147483647) / 2147483647;
-  for (const k of ['white', 'pink', 'brown']) {
+  for (const k of ['white', 'pink', 'brown', 'rain']) {
     const n = L.noise(k, 44100, rand), max = n.reduce((m, v) => Math.max(m, Math.abs(v)), 0);
     assert.ok(max > 0.01 && max <= 1, `${k} stays in range (${max})`);
   }

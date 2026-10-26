@@ -53,7 +53,7 @@ struct SleepSoundsSection: View {
 
     var body: some View {
         Section("Sleep Sounds") {
-            Picker("Sound", selection: $kind) { Text("White Noise").tag("white"); Text("Pink Noise").tag("pink"); Text("Brown Noise").tag("brown") }
+            Picker("Sound", selection: $kind) { Text("White Noise").tag("white"); Text("Pink Noise").tag("pink"); Text("Brown Noise").tag("brown"); Text("Rain").tag("rain") }
             Picker("Stop After", selection: $minutes) { ForEach([15, 30, 45, 60, 90, 120], id: \.self) { Text(Clockwork.durationText(TimeInterval($0 * 60))).tag($0) } }
             HStack {
                 if let end = sounds.end { Text("Stops at \(end.formatted(date: .omitted, time: .shortened))").foregroundStyle(.secondary) }

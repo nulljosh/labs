@@ -211,16 +211,20 @@ enum Clockwork {
     }
     static func newSum() -> (q: String, a: Int) { var g = SystemRandomNumberGenerator(); return mathProblem(using: &g) }
 
-    /// Sleep sounds, the same filters as lib.js: white, pink (Paul Kellet's) and brown noise, one sample per call.
+    /// Sleep sounds, the same filters as lib.js: white, pink (Paul Kellet's), brown noise and rain, one sample per call.
     struct Noise {
         let kind: String
-        private var b0 = 0.0, b1 = 0.0, b2 = 0.0, last = 0.0
+        private var b0 = 0.0, b1 = 0.0, b2 = 0.0, last = 0.0, drop = 0.0
         init(kind: String) { self.kind = kind }
         mutating func next(_ w: Double) -> Double {
             switch kind {
-            case "pink":
+            case "pink", "rain":
                 b0 = 0.99765 * b0 + w * 0.099046; b1 = 0.963 * b1 + w * 0.2965164; b2 = 0.57 * b2 + w * 1.0526913
-                return (b0 + b1 + b2 + w * 0.1848) * 0.11
+                let pink = (b0 + b1 + b2 + w * 0.1848) * 0.11
+                if kind == "pink" { return pink }
+                if abs(w) > 0.9995 { drop = 0.4 }   // a drop about 20 times a second, fading in a few ms
+                drop *= 0.997
+                return pink * 0.8 + drop * w
             case "brown": last = (last + 0.02 * w) / 1.02; return last * 3.5
             default: return w * 0.5
             }

@@ -66,6 +66,7 @@
   "White Noise": "ホワイトノイズ",
   "Pink Noise": "ピンクノイズ",
   "Brown Noise": "ブラウンノイズ",
+  "Rain": "雨",
   "Stop After": "停止まで",
   "Play": "再生",
   "Stops at {0}": "{0}に停止",

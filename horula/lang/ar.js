@@ -66,6 +66,7 @@
   "White Noise": "ضوضاء بيضاء",
   "Pink Noise": "ضوضاء وردية",
   "Brown Noise": "ضوضاء بنية",
+  "Rain": "مطر",
   "Stop After": "إيقاف بعد",
   "Play": "تشغيل",
   "Stops at {0}": "يتوقف في {0}",

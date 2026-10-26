@@ -178,7 +178,7 @@ final class ClockworkTests: XCTestCase {
     }
 
     func testNoiseStaysInRange() {
-        for kind in ["white", "pink", "brown"] {
+        for kind in ["white", "pink", "brown", "rain"] {
             var g = Clockwork.Noise(kind: kind), peak = 0.0
             for _ in 0..<44_100 { peak = max(peak, abs(g.next(.random(in: -1...1)))) }
             XCTAssert(peak > 0.01 && peak <= 1, "\(kind) peak \(peak)")

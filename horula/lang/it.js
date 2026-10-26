@@ -66,6 +66,7 @@
   "White Noise": "Rumore bianco",
   "Pink Noise": "Rumore rosa",
   "Brown Noise": "Rumore marrone",
+  "Rain": "Pioggia",
   "Stop After": "Ferma dopo",
   "Play": "Riproduci",
   "Stops at {0}": "Si ferma alle {0}",
