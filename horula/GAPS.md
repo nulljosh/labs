@@ -62,5 +62,5 @@ Joshua's ask: keep comparing against the native iOS and Mac Clock apps and close
 
 ## Round 4 (iOS 26 StandBy and watchOS 26 Clock, 2026-10-25)
 - [x] 35. StandBy has a World face: the map with the lit half and your spot, the time under it (web and native nightstand).
-- [ ] 36. Apple Watch Timers open on a grid of quick timers (1, 3, 5, 10, 15, 30 minutes, 1 and 2 hours), like watchOS Clock.
-- [ ] 37. Apple Watch has Alarms: the list, switches, and a ring by notification, like watchOS Clock.
+- [x] 36. Apple Watch Timers open on a grid of quick timers (1, 3, 5, 10, 15, 30 minutes, 1 and 2 hours), like watchOS Clock.
+- [x] 37. Apple Watch has Alarms: the list, switches, and a ring by notification, like watchOS Clock.

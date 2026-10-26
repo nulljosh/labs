@@ -99,7 +99,6 @@ targets:
     sources:
       - path: Watch
       - path: Shared
-        excludes: ["AlarmScheduler.swift"]
       - path: ../Horula.icon
     dependencies:
       - target: HorulaWatchWidgets

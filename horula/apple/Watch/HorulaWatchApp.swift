@@ -1,8 +1,8 @@
 import SwiftUI
 import UserNotifications
 
-// Horula on the wrist: world clocks, a stopwatch and timers. The watch keeps its own Store;
-// alarms stay on the phone, where AlarmKit already taps the wrist when they ring.
+// Horula on the wrist: world clocks, a stopwatch, timers and alarms. The watch keeps its own Store,
+// and its alarms and timers ring as notifications (watchOS has no AlarmKit), scheduled by AlarmScheduler.
 
 @main
 struct HorulaWatchApp: App {
@@ -14,6 +14,7 @@ struct HorulaWatchApp: App {
                 WatchWorld().tag(0)
                 WatchStopwatch().tag(1)
                 WatchTimers().tag(2)
+                WatchAlarms().tag(3)
             }
             .tabViewStyle(.verticalPage)
             .environment(store)
@@ -74,11 +75,12 @@ struct WatchStopwatch: View {
 
 struct WatchTimers: View {
     @Environment(Store.self) private var store
-    private let presets: [TimeInterval] = [60, 180, 300, 600, 900, 1800]
+    // The grid watchOS Clock opens on.
+    private let quick: [TimeInterval] = [60, 180, 300, 600, 900, 1800, 3600, 7200]
     var body: some View {
         NavigationStack {
             TimelineView(.periodic(from: .now, by: 1)) { ctx in
-                List {
+                ScrollView {
                     ForEach(store.timers) { t in
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
@@ -86,11 +88,17 @@ struct WatchTimers: View {
                                 if !t.label.isEmpty { Text(t.label).font(.caption).foregroundStyle(.secondary) }
                             }
                             Spacer()
-                            Button { store.timers.removeAll { $0.id == t.id }; Task { await notify() } } label: { Image(systemName: "xmark") }
+                            Button { store.timers.removeAll { $0.id == t.id }; sync() } label: { Image(systemName: "xmark") }
+                                .buttonStyle(.bordered).buttonBorderShape(.circle)
                         }
                     }
-                    ForEach(presets, id: \.self) { d in
-                        Button(Clockwork.durationText(d)) { store.startTimer(d, label: ""); Task { await notify() } }
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                        ForEach(quick, id: \.self) { d in
+                            Button { store.startTimer(d, label: ""); sync() } label: {
+                                Text(Clockwork.durationText(d)).font(.headline).frame(maxWidth: .infinity, minHeight: 56)
+                            }
+                            .buttonStyle(.bordered).buttonBorderShape(.roundedRectangle(radius: 16))
+                        }
                     }
                 }
                 .onChange(of: ctx.date) { store.timers.removeAll { $0.end.map { $0 <= ctx.date } ?? false } }
@@ -98,13 +106,5 @@ struct WatchTimers: View {
             .navigationTitle("Timers")
         }
     }
-    private func notify() async {
-        let c = UNUserNotificationCenter.current()
-        _ = try? await c.requestAuthorization(options: [.alert, .sound])
-        c.removeAllPendingNotificationRequests()
-        for t in store.timers { if let end = t.end, end > .now {
-            let n = UNMutableNotificationContent(); n.title = "Timer"; n.body = "Done"; n.sound = .default
-            try? await c.add(UNNotificationRequest(identifier: "\(t.id)", content: n, trigger: UNTimeIntervalNotificationTrigger(timeInterval: end.timeIntervalSinceNow, repeats: false)))
-        } }
-    }
+    private func sync() { Task { await AlarmScheduler().sync(store) } }
 }
