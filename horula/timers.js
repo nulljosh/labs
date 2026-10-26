@@ -32,7 +32,8 @@ function drawTimers() {
   $('tmActive').innerHTML = timers.map((t) => `
     <div class="row" data-id="${t.id}">
       <svg class="ring" viewBox="0 0 56 56" aria-hidden="true"><circle class="track" cx="28" cy="28" r="24"/><circle class="bar" cx="28" cy="28" r="24" stroke-dasharray="${C}"/></svg>
-      <div class="grow"><div class="time num" data-left></div><div class="meta" data-meta></div></div>
+      <div class="grow"><div class="time num" data-left></div><div class="meta" data-meta></div>
+      <button class="icon add" data-add aria-label="Add 1 minute">+1 ${tr('min')}</button></div>
       <div class="stack"><button class="icon ${t.end ? '' : 'go'}" data-pause aria-label="${t.end ? 'Pause' : 'Resume'} timer">${tr(t.end ? 'Pause' : 'Resume')}</button>
       <button class="icon danger" data-cancel aria-label="Cancel timer">${tr('Cancel')}</button></div>
     </div>`).join('');
@@ -48,6 +49,7 @@ $('tmActive').onclick = (e) => {
   const t = timers[i];
   if ('pause' in e.target.dataset) { if (t.end) { t.left = t.end - Date.now(); t.end = null; } else t.end = Date.now() + t.left; }
   else if ('cancel' in e.target.dataset) timers.splice(i, 1);
+  else if ('add' in e.target.dataset) { if (t.end) t.end += 60000; else t.left += 60000; t.dur += 60000; }   // like Timer+: one more minute, the ring rescales
   else return;
   saveTimers(); drawTimers();
 };

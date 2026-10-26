@@ -104,6 +104,8 @@ struct TimerRow: View {
                 Text(Clockwork.timerText(left)).font(.system(size: 28, weight: .light)).monospacedDigit()
                 Text([timer.rounds.map { (timer.phase == "rest" ? String(localized: "Rest") : String(localized: "Work")) + " " + String(localized: "\(timer.round ?? 1) of \($0)") }, timer.label.isEmpty ? nil : timer.label, timer.end.map { String(localized: "Ends \($0.formatted(date: .omitted, time: .shortened))") } ?? String(localized: "Paused")]
                     .compactMap { $0 }.joined(separator: " · ")).font(.subheadline).foregroundStyle(.secondary)
+                Button { store.addMinute(timer.id) } label: { Text(verbatim: "+1 " + String(localized: "min")) }
+                    .buttonStyle(.bordered).buttonBorderShape(.capsule).controlSize(.small).accessibilityLabel("Add 1 minute")
             }
             Spacer()
             Button(timer.end == nil ? "Resume" : "Pause") { pause() }.buttonStyle(.bordered).buttonBorderShape(.capsule)

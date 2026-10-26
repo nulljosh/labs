@@ -70,6 +70,12 @@ final class Store {
         let r = Recent(dur: dur, label: label, rest: rounds == nil ? nil : rest ?? 0, rounds: rounds)
         recents = Array(([r] + recents.filter { $0.dur != dur || $0.label != label || ($0.rounds == nil) != (rounds == nil) }).prefix(6))
     }
+    /// One more minute on a running or paused timer, like Timer+; the ring rescales.
+    func addMinute(_ id: UUID) {
+        guard let i = timers.firstIndex(where: { $0.id == id }) else { return }
+        if timers[i].end != nil { timers[i].end! += 60 } else { timers[i].left += 60 }
+        timers[i].dur += 60
+    }
     func start(_ r: Recent) { startTimer(r.dur, label: r.label, rest: r.rest, rounds: r.rounds) }
 
     /// An interval timer whose phase just ended rolls into the next one. False when it was the last round, or not an interval.

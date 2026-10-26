@@ -98,6 +98,8 @@ struct WatchTimers: View {
                                 if !t.label.isEmpty { Text(t.label).font(.caption).foregroundStyle(.secondary) }
                             }
                             Spacer()
+                            Button { store.addMinute(t.id); sync() } label: { Text(verbatim: "+1") }
+                                .buttonStyle(.bordered).buttonBorderShape(.circle).accessibilityLabel("Add 1 minute")
                             Button { store.timers.removeAll { $0.id == t.id }; sync() } label: { Image(systemName: "xmark") }
                                 .buttonStyle(.bordered).buttonBorderShape(.circle)
                         }
