@@ -212,8 +212,8 @@
 
 <div class="toast" id="toast" hidden role="status"></div>
 
-<!-- The app scripts in order (async = false keeps it), the reader's language file first when it is not English. -->
-<script>[self.LANG_FILE && 'lang/' + LANG_FILE + '.js', 'i18n.js', 'lib.js', 'coords.js', 'core.js', 'world.js', 'alarms.js', 'stopwatch.js', 'timers.js', 'app.js'].filter(Boolean)
+<!-- The app scripts in order (async = false keeps it), the reader's language and city names first when not English. -->
+<script>[self.LANG_FILE && 'lang/' + LANG_FILE + '.js', self.LANG_FILE && 'cities/' + LANG_FILE + '.js', 'i18n.js', 'lib.js', 'coords.js', 'core.js', 'world.js', 'alarms.js', 'stopwatch.js', 'timers.js', 'app.js'].filter(Boolean)
   .forEach(function (src) { var s = document.createElement('script'); s.src = src; s.async = false; document.body.appendChild(s); });</script>
 </body>
 </html>

@@ -2,8 +2,13 @@
 const allZones = Intl.supportedValuesOf ? Intl.supportedValuesOf('timeZone') : ['UTC', 'America/Vancouver', 'America/New_York', 'Europe/London', 'Asia/Tokyo'];
 const CITIES = new Map(Object.entries(ALIASES));
 allZones.forEach(z => { if (z.includes('/') && !z.startsWith('Etc/')) CITIES.set(z.split('/').pop().replaceAll('_', ' '), z); });
-// About 400 options: filled the first time someone searches, so the page starts light.
-$('citySearch').addEventListener('focus', () => { if (!$('cityList').children.length) $('cityList').innerHTML = [...CITIES.keys()].sort().map(c => `<option value="${esc(c)}">`).join(''); }, { once: true });
+// City names in the reader's language (cities/<code>.js, from CLDR); stored and backed up in English.
+const CITY_NAMES = self.CITY_TEXT?.[LANG] || {};
+const cityName = (c) => CITY_NAMES[c] || c;
+// The English key for a name typed in English or the reader's language.
+const cityKey = (name) => { const n = name.trim().toLowerCase(); return [...CITIES.keys()].find(c => c.toLowerCase() === n || cityName(c).toLowerCase() === n); };
+// About 450 options: filled the first time someone searches, so the page starts light.
+$('citySearch').addEventListener('focus', () => { if (!$('cityList').children.length) $('cityList').innerHTML = [...CITIES.keys()].map(cityName).sort((a, b) => a.localeCompare(b, LOCALE)).map(c => `<option value="${esc(c)}">`).join(''); }, { once: true });
 const cityZone = (c) => typeof c === 'string' ? { city: c.split('/').pop().replaceAll('_', ' '), zone: c } : c;
 let zones = store.get('zones', ['America/New_York', 'Europe/London', 'Asia/Tokyo']).map(cityZone);
 let worldEditing = false;
@@ -22,7 +27,7 @@ function drawMap(at) {
   $('mapNight').setAttribute('d', nightPath(at));
   $('mapPins').innerHTML = zones.map(z => { const c = COORDS[z.city]; if (!c) return '';
     const x = c[1] + 180, y = 90 - c[0], end = x > 300;
-    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.8"/><text x="${(x + (end ? -3 : 3)).toFixed(1)}" y="${(y + 1.5).toFixed(1)}"${end ? ' text-anchor="end"' : ''}>${esc(z.city)} ${esc(zoneFmt(z.zone).format(at))}</text>`; }).join('');
+    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.8"/><text x="${(x + (end ? -3 : 3)).toFixed(1)}" y="${(y + 1.5).toFixed(1)}"${end ? ' text-anchor="end"' : ''}>${esc(cityName(z.city))} ${esc(zoneFmt(z.zone).format(at))}</text>`; }).join('');
 }
 const dayAt = (z, at) => { const c = COORDS[z.city]; return c ? isDaytime(at, c[0], c[1]) : null; };
 function drawZones() {
@@ -33,10 +38,10 @@ function drawZones() {
   $('zones').innerHTML = zones.length ? zones.map((z, i) => {
     const day = dayAt(z, at);
     return `<div class="row">${worldEditing
-      ? `<div class="grow"><div class="meta">${offsetLabel(z.zone, at)}</div><div class="label">${esc(z.city)}</div></div>
-         <button class="icon" data-up="${i}" aria-label="Move ${esc(z.city)} up" ${i ? '' : 'disabled'}>${tr('Up')}</button><button class="icon danger" data-rm="${i}" aria-label="Remove ${esc(z.city)}">${tr('Remove')}</button>`
+      ? `<div class="grow"><div class="meta">${offsetLabel(z.zone, at)}</div><div class="label">${esc(cityName(z.city))}</div></div>
+         <button class="icon" data-up="${i}" aria-label="Move ${esc(cityName(z.city))} up" ${i ? '' : 'disabled'}>${tr('Up')}</button><button class="icon danger" data-rm="${i}" aria-label="Remove ${esc(cityName(z.city))}">${tr('Remove')}</button>`
       : `<button class="grow rowbtn zone" data-city="${i}">
-         ${miniFace(z, at, day)}<span class="grow"><span class="meta">${offsetLabel(z.zone, at)}</span><span class="label">${esc(z.city)}</span></span>
+         ${miniFace(z, at, day)}<span class="grow"><span class="meta">${offsetLabel(z.zone, at)}</span><span class="label">${esc(cityName(z.city))}</span></span>
          ${day == null ? '' : day ? SUN : MOON}<span class="time">${timeHTML(zoneFmt(z.zone), at)}</span></button>`}</div>`;
   }).join('') : `<div class="empty">${tr('No cities yet. Search above to add one.')}</div>`;
 }
@@ -47,7 +52,7 @@ function openCity(i) {
   const z = zones[i], c = COORDS[z.city], now = new Date(), f = zoneFmt(z.zone);
   const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'numeric', day: 'numeric', timeZone: z.zone }).formatToParts(now).map(p => [p.type, +p.value]));
   const t = c && sunTimes(new Date(parts.year, parts.month - 1, parts.day), c[0], c[1]);
-  $('cityTitle').textContent = z.city;
+  $('cityTitle').textContent = cityName(z.city);
   $('cityNow').innerHTML = `${timeHTML(f, now)}`;
   $('cityOffset').textContent = offsetLabel(z.zone, now);
   $('cityRise').innerHTML = t ? timeHTML(f, t.rise) : tr('None today');
@@ -67,11 +72,11 @@ $('zones').onclick = (e) => {
 $('worldEdit').onclick = () => { worldEditing = !worldEditing; $('worldEdit').textContent = tr(worldEditing ? 'Done' : 'Edit'); drawZones(); };
 function addCity() {
   const name = $('citySearch').value.trim();
-  const key = [...CITIES.keys()].find(c => c.toLowerCase() === name.toLowerCase());
+  const key = cityKey(name);
   if (!key) { toast(name ? tr('No city named {0}', name) : tr('Type a city name')); return; }
   if (!zones.some(z => z.city === key)) { zones.push({ city: key, zone: CITIES.get(key) }); store.set('zones', zones); }
   $('citySearch').value = ''; drawZones();
 }
 $('cityAdd').onclick = addCity;
 $('citySearch').onkeydown = (e) => { if (e.key === 'Enter') addCity(); };
-$('citySearch').onchange = () => { if (CITIES.has($('citySearch').value)) addCity(); };
+$('citySearch').onchange = () => { if (cityKey($('citySearch').value)) addCity(); };

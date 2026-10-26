@@ -207,3 +207,15 @@ test('the native String Catalog has every string in every language, same blanks 
   }
   for (const k of ['World Clock', 'Next alarm %@', 'Lap %lld', '%lld hr %lld min of sleep', 'Sun Dial']) assert.ok(cat.strings[k], k);
 });
+
+test('city names: one file per language, every key a city the search knows', () => {
+  const vm = require('node:vm'), ctx = {}; ctx.self = ctx;
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'lib.js'), 'utf8') + ';this.ALIASES = ALIASES;', ctx);
+  const known = new Set([...Object.keys(ctx.ALIASES), ...Intl.supportedValuesOf('timeZone').map(z => z.split('/').pop().replaceAll('_', ' '))]);
+  const langs = fs.readdirSync(path.join(root, 'lang')).map(f => f.replace('.js', ''));
+  for (const l of langs) {
+    vm.runInNewContext(fs.readFileSync(path.join(root, 'cities', l + '.js'), 'utf8'), ctx);
+    for (const [c, n] of Object.entries(ctx.CITY_TEXT[l])) { assert.ok(known.has(c), `${c} in ${l}`); assert.ok(n && !/[<>"&]/.test(n), `${c} in ${l}`); }
+  }
+  assert.equal(ctx.CITY_TEXT.ja.Tokyo, '東京'); assert.equal(ctx.CITY_TEXT.hi.Mumbai, 'मुम्बई');
+});
