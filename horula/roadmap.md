@@ -74,7 +74,7 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 
 ## v13: a map of the day
 - [x] World Clock has a map, like macOS Clock: every known city as a dot, night shaded by the real line between day and night, your cities named with their time.
-- [ ] Same map in the Mac app.
+- [x] Same map in the Mac app.
 
 ## v14: the stopwatch dial, like iOS
 - [ ] Analog stopwatch gets a small minute dial and a blue lap hand, like the iOS analog stopwatch.

@@ -119,4 +119,14 @@ final class ClockworkTests: XCTestCase {
         XCTAssertEqual(Clockwork.lapsTable([20, 41.5]), "Lap\tSplit\tTotal\n1\t00:20.00\t00:20.00\n2\t00:21.50\t00:41.50")
         XCTAssertEqual(Clockwork.lapsTable([]), "Lap\tSplit\tTotal")
     }
+
+    func testSunOverheadAndNightLine() {
+        var utc = Calendar(identifier: .gregorian); utc.timeZone = TimeZone(identifier: "UTC")!
+        let june = Clockwork.subsolar(utc.date(from: DateComponents(year: 2026, month: 6, day: 21, hour: 12))!)
+        XCTAssertEqual(june.lat, 23.44, accuracy: 0.3); XCTAssertEqual(june.lon, 0, accuracy: 1.5)
+        let dec = Clockwork.subsolar(utc.date(from: DateComponents(year: 2026, month: 12, day: 21, hour: 18))!)
+        XCTAssertEqual(dec.lat, -23.44, accuracy: 0.3); XCTAssertEqual(dec.lon, -90, accuracy: 1.5)
+        XCTAssertEqual(Clockwork.terminatorLat(june, lon: june.lon + 180), 90 - june.lat, accuracy: 0.01)
+        XCTAssertEqual(Clockwork.terminatorLat(june, lon: june.lon + 90), 0, accuracy: 0.01)
+    }
 }

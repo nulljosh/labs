@@ -181,4 +181,23 @@ enum Clockwork {
     static func lapsTable(_ laps: [TimeInterval]) -> String {
         (["Lap\tSplit\tTotal"] + laps.enumerated().map { i, t in "\(i + 1)\t\(stopwatchText(t - (i > 0 ? laps[i - 1] : 0)))\t\(stopwatchText(t))" }).joined(separator: "\n")
     }
+
+    /// Where the sun stands overhead at this moment, from the same NOAA terms as sunTimes.
+    static func subsolar(_ date: Date) -> (lat: Double, lon: Double) {
+        var utc = Calendar(identifier: .gregorian); utc.timeZone = TimeZone(identifier: "UTC")!
+        let c = utc.dateComponents([.hour, .minute, .second], from: date)
+        let mins = Double(c.hour! * 60 + c.minute!) + Double(c.second!) / 60
+        let day = Double(utc.ordinality(of: .day, in: .year, for: date)!)
+        let g = 2 * Double.pi / 365 * (day - 1 + (mins / 60 - 12) / 24)
+        let decl = 0.006918 - 0.399912 * cos(g) + 0.070257 * sin(g) - 0.006758 * cos(2 * g) + 0.000907 * sin(2 * g)
+        let eqt = 229.18 * (0.000075 + 0.001868 * cos(g) - 0.032077 * sin(g) - 0.014615 * cos(2 * g) - 0.040849 * sin(2 * g))
+        let lon = ((720 - mins - eqt) / 4 + 540).truncatingRemainder(dividingBy: 360) - 180
+        return (decl * 180 / .pi, lon)
+    }
+
+    /// The latitude where day meets night at a longitude.
+    static func terminatorLat(_ s: (lat: Double, lon: Double), lon: Double) -> Double {
+        let r = Double.pi / 180, d = (abs(s.lat) < 0.05 ? 0.05 : s.lat) * r
+        return atan(-cos((lon - s.lon) * r) / tan(d)) / r
+    }
 }

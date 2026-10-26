@@ -82,6 +82,10 @@ struct WorldView: View {
                 }
                 #if os(macOS)
                 Section {
+                    TimelineView(.everyMinute) { ctx in WorldMap(zones: store.zones, at: ctx.date.addingTimeInterval(plan * 900)) }
+                        .listRowBackground(Color.clear)
+                }
+                Section {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 16)], spacing: 16) {
                         ForEach(store.zones) { c in CityCard(city: c, shift: plan * 900) { detail = c } }
                     }
@@ -156,6 +160,37 @@ struct CityRow: View {
 }
 
 #if os(macOS)
+/// The map from macOS Clock: every city we know as a dot, night shaded along the real line, your cities pinned with their time.
+struct WorldMap: View {
+    let zones: [City]
+    let at: Date
+    var body: some View {
+        Canvas { g, size in
+            let k = size.width / 360
+            func pt(_ lat: Double, _ lon: Double) -> CGPoint { CGPoint(x: (lon + 180) * k, y: (90 - lat) * k) }
+            let card = Path(roundedRect: CGRect(origin: .zero, size: size), cornerRadius: 16)
+            g.clip(to: card); g.fill(card, with: .color(.secondary.opacity(0.08)))
+            for p in Cities.coords.values where p.count == 2 {
+                let c = pt(p[0], p[1]); g.fill(Path(ellipseIn: CGRect(x: c.x - 1, y: c.y - 1, width: 2, height: 2)), with: .color(.secondary.opacity(0.5)))
+            }
+            let s = Clockwork.subsolar(at), edge = s.lat > 0 ? size.height : 0
+            var night = Path(); night.move(to: CGPoint(x: 0, y: edge))
+            for x in stride(from: 0.0, through: 360, by: 3) { night.addLine(to: pt(Clockwork.terminatorLat(s, lon: x - 180), x - 180)) }
+            night.addLine(to: CGPoint(x: size.width, y: edge)); night.closeSubpath()
+            g.fill(night, with: .color(.black.opacity(0.25)))
+            for z in zones {
+                guard let p = Cities.coords[z.city], p.count == 2 else { continue }
+                let c = pt(p[0], p[1]), end = p[1] + 180 > 300
+                g.fill(Path(ellipseIn: CGRect(x: c.x - 4, y: c.y - 4, width: 8, height: 8)), with: .color(.horula))
+                let t = at.formatted(Date.FormatStyle(timeZone: TimeZone(identifier: z.zone) ?? .current).hour().minute())
+                g.draw(Text("\(z.city) \(t)").font(.caption), at: CGPoint(x: c.x + (end ? -8 : 8), y: c.y), anchor: end ? .trailing : .leading)
+            }
+        }
+        .aspectRatio(2, contentMode: .fit)
+        .accessibilityLabel("World map with day and night")
+    }
+}
+
 /// One city in the Mac grid: a small face, the name, the offset. Right click to remove.
 struct CityCard: View {
     @Environment(Store.self) private var store
