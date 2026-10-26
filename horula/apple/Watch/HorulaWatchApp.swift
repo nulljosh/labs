@@ -29,7 +29,7 @@ struct WatchWorld: View {
         NavigationStack {
             TimelineView(.everyMinute) { ctx in
                 List(store.zones) { c in
-                    VStack(alignment: .leading, spacing: 2) {
+                    NavigationLink { WatchCityDetail(city: c) } label: { VStack(alignment: .leading, spacing: 2) {
                         HStack {
                             Text(c.name).font(.headline).lineLimit(1)
                             Spacer()
@@ -37,7 +37,7 @@ struct WatchWorld: View {
                         }
                         Text(ctx.date, style: .time).font(.title2).environment(\.timeZone, TimeZone(identifier: c.zone) ?? .current)
                         Text(Clockwork.offsetLabel(zone: c.zone, at: ctx.date)).font(.caption2).foregroundStyle(.secondary)
-                    }
+                    } }
                 }
             }
             .navigationTitle("World Clock")

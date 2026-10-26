@@ -111,7 +111,7 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 | 21.1 | Your own name for a city ("Mum", "Office") | World Clock Time Widget | S | done |
 | 21.2 | Count down to a date ("Vacation, 1 month 29 days") | Timer+, MultiTimer | M | done |
 | 21.3 | Daylight saving dates in the city detail | timeanddate | S | done |
-| 21.4 | Watch: edit an alarm (time, repeat, label, snooze) and a city detail with sunrise and sunset, like watchOS Clock | watchOS Clock | S | open |
+| 21.4 | Watch: edit an alarm (time, repeat, label, snooze) and a city detail with sunrise and sunset, like watchOS Clock | watchOS Clock | S | done |
 | 21.5 | Hourly chime on the nightstand | Flip Clock | S | open |
 | 21.6 | Flip digits face on the nightstand | Flip Clock | M | open |
 | 21.7 | Spoken interval cues ("Rest. Up next: work") | Timer+ | S | open |
@@ -137,3 +137,7 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 
 ## v21.3: daylight saving dates
 - [x] The city sheet shows the next clock change ("Clocks go back, Sun, Nov 1, 2:00 AM") on web, iPhone and Mac, hidden where clocks never change (matrix row 21.3). Vancouver has no row now: BC keeps daylight time all year from 2026.
+
+## v21.4: the Watch pushes like watchOS Clock
+- [x] Tap an alarm on the Watch for its time, repeat days, label, snooze and Delete Alarm (matrix row 21.4).
+- [x] Tap a city on the Watch for its time, sunrise, sunset, length of day and next clock change.

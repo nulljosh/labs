@@ -11,11 +11,15 @@ struct WatchAlarms: View {
         NavigationStack {
             List {
                 ForEach($store.alarms) { $a in
-                    Toggle(isOn: $a.on) {
-                        VStack(alignment: .leading, spacing: 0) {
-                            Text(Self.at(a.time), style: .time).font(.title2)
-                            Text(a.label.isEmpty ? Clockwork.repeatText(a.days) : a.label).font(.caption).foregroundStyle(.secondary)
+                    HStack {
+                        // Tap the time for its settings, flip the switch to arm it, like watchOS Clock.
+                        NavigationLink { WatchAlarmEdit(id: a.id) } label: {
+                            VStack(alignment: .leading, spacing: 0) {
+                                Text(Self.at(a.time), style: .time).font(.title2)
+                                Text(a.label.isEmpty ? Clockwork.repeatText(a.days) : a.label).font(.caption).foregroundStyle(.secondary)
+                            }
                         }
+                        Toggle("Alarm", isOn: $a.on).labelsHidden()
                     }
                 }
                 .onDelete { store.alarms.remove(atOffsets: $0) }
