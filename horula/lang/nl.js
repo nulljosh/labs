@@ -60,6 +60,8 @@
   "Seconds": "Seconden",
   "Duration": "Duur",
   "Label": "Label",
+  "Speak": "Uitspreken",
+  "Up next: {0}": "Hierna: {0}",
   "Flip": "Klap",
   "Chime": "Uurslag",
   "Clocks go forward": "Klok gaat vooruit",

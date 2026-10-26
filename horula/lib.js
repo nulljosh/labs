@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '21.6.0';
+const VERSION = '21.7.0';
 // UI text in the reader's language: i18n.js fills I18N in the browser; node tests see English.
 const tr = (s, ...a) => ((typeof I18N === 'object' && I18N[s]) || s).replace(/\{(\d)\}/g, (_, i) => a[i]);
 // The chosen language's dates; undefined keeps the browser's own region (en-GB 24 hour, fr-CA) when it is the same language.
@@ -207,6 +207,8 @@ function nextPhase(t) {
   if (t.phase === 'work' && t.rest > 0) return { phase: 'rest', round: t.round, dur: t.rest };
   return { phase: 'work', round: t.round + 1, dur: t.work };
 }
+// What an interval timer says out loud at a new phase, like Timer+: "Rest. Up next: Work" or "Work, 2 of 8".
+const cueText = (next, rounds) => next.phase === 'rest' ? `${tr('Rest')}. ${tr('Up next: {0}', tr('Work'))}` : `${tr('Work')}, ${tr('{0} of {1}', next.round, rounds)}`;
 // Stopwatch laps as a tab separated table, pastes straight into a spreadsheet.
 const lapsTable = (laps) => ['Lap\tSplit\tTotal', ...laps.map((t, i) => `${i + 1}\t${fmtSw(t - (laps[i - 1] || 0))}\t${fmtSw(t)}`)].join('\n');
 // Nightstand burn-in guard: the face walks a slow 8px circle, one step a minute.
@@ -228,4 +230,4 @@ function handAngles(zone, at) {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hourCycle: 'h23', timeZone: zone }).formatToParts(at).map(x => [x.type, +x.value]));
   return { h: (p.hour % 12 + p.minute / 60) * 30, m: p.minute * 6 };
 }
-if (typeof module === 'object') module.exports = { VERSION, nextShift, dateSpan, spanText, subsolar, terminatorLat, nightPath, dayPath, findZone, countdown, tr, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };
+if (typeof module === 'object') module.exports = { VERSION, nextShift, dateSpan, spanText, subsolar, terminatorLat, nightPath, dayPath, findZone, countdown, tr, nextPhase, cueText, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };

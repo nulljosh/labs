@@ -60,6 +60,8 @@
   "Seconds": "सेकंड",
   "Duration": "अवधि",
   "Label": "लेबल",
+  "Speak": "बोलें",
+  "Up next: {0}": "अगला: {0}",
   "Flip": "फ़्लिप",
   "Chime": "घंटा ध्वनि",
   "Clocks go forward": "घड़ी आगे होगी",

@@ -60,6 +60,8 @@
   "Seconds": "Secondes",
   "Duration": "Durée",
   "Label": "Libellé",
+  "Speak": "Énoncer",
+  "Up next: {0}": "À suivre : {0}",
   "Flip": "Rabat",
   "Chime": "Carillon",
   "Clocks go forward": "Avance de l'heure",

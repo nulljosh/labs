@@ -60,6 +60,8 @@
   "Seconds": "秒",
   "Duration": "时长",
   "Label": "标签",
+  "Speak": "朗读",
+  "Up next: {0}": "接下来：{0}",
   "Flip": "翻页",
   "Chime": "整点报时",
   "Clocks go forward": "时钟拨快",

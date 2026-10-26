@@ -60,6 +60,8 @@
   "Seconds": "초",
   "Duration": "시간",
   "Label": "레이블",
+  "Speak": "음성 안내",
+  "Up next: {0}": "다음: {0}",
   "Flip": "플립",
   "Chime": "시보",
   "Clocks go forward": "시계를 앞당김",

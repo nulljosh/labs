@@ -6,6 +6,12 @@ const REST = [10, 15, 20, 30, 45, 60, 90, 120, 180, 300];
 $('tmRest').innerHTML = REST.map(s => `<option value="${s}">${fmtDur(s * 1000)}</option>`).join(''); $('tmRest').value = 30;
 $('tmRounds').innerHTML = Array.from({ length: 19 }, (_, i) => `<option>${i + 2}</option>`).join(''); $('tmRounds').value = 8;
 $('tmSound').onchange = () => play($('tmSound').value);   // hear it before you pick it, like iOS
+$('tmSpeak').checked = store.get('tmSpeak', false); $('tmSpeak').onchange = () => store.set('tmSpeak', $('tmSpeak').checked);
+// Spoken cues on a new interval phase, in the page's language; off until turned on.
+function say(text) {
+  if (!store.get('tmSpeak', false) || !window.speechSynthesis) return;
+  const u = new SpeechSynthesisUtterance(text); u.lang = document.documentElement.lang; speechSynthesis.speak(u);
+}
 $('tmIv').onchange = () => document.querySelectorAll('#timer .iv').forEach(r => r.hidden = !$('tmIv').checked);
 let timers = store.get('timers', []), recents = store.get('recents', []), presets = store.get('presets', []);
 const saveTimers = () => { store.set('timers', timers); store.set('recents', recents); store.set('presets', presets); };
@@ -89,6 +95,7 @@ function tickTimers() {
     if (next) {
       Object.assign(t, next, { end: Date.now() + next.dur, left: next.dur });
       play(next.phase === 'rest' ? (t.sound === 'Chimes' ? 'Gentle' : 'Chimes') : t.sound);
+      say(cueText(next, t.rounds));
       notify(t.label || tr('Timer'), `${tr(next.phase === 'rest' ? 'Rest' : 'Work')}, ${tr('{0} of {1}', next.round, t.rounds)}`);
       saveTimers(); drawTimers(); return;
     }

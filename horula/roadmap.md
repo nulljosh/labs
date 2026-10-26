@@ -114,7 +114,7 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 | 21.4 | Watch: edit an alarm (time, repeat, label, snooze) and a city detail with sunrise and sunset, like watchOS Clock | watchOS Clock | S | done |
 | 21.5 | Hourly chime on the nightstand | Flip Clock | S | done |
 | 21.6 | Flip digits face on the nightstand | Flip Clock | M | done |
-| 21.7 | Spoken interval cues ("Rest. Up next: work") | Timer+ | S | open |
+| 21.7 | Spoken interval cues ("Rest. Up next: work") | Timer+ | S | done |
 | 21.8 | Wake up check: a second ring a few minutes after you stop an alarm unless you confirm | Alarmy, Rise | M | open |
 | 21.9 | Routines: named timer steps that run in order | Timer+ | M | open |
 | 21.10 | Sleep sounds made on device (rain, brown noise) with a sleep timer | Alarmy, Sleep Cycle, Flip Clock | M | open |

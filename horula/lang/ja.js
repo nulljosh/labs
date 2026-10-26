@@ -60,6 +60,8 @@
   "Seconds": "秒",
   "Duration": "時間",
   "Label": "ラベル",
+  "Speak": "読み上げ",
+  "Up next: {0}": "次は{0}",
   "Flip": "フリップ",
   "Chime": "時報",
   "Clocks go forward": "時計を進める",

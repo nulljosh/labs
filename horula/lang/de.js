@@ -60,6 +60,8 @@
   "Seconds": "Sekunden",
   "Duration": "Dauer",
   "Label": "Name",
+  "Speak": "Ansagen",
+  "Up next: {0}": "Als Nächstes: {0}",
   "Flip": "Klapp",
   "Chime": "Stundenschlag",
   "Clocks go forward": "Uhren vorstellen",

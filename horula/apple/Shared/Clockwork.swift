@@ -201,6 +201,12 @@ enum Clockwork {
         return ("work", round + 1, work)
     }
 
+    /// What an interval timer says at a new phase, like Timer+: "Rest. Up next: Work" or "Work, 2 of 8".
+    static func cueText(phase: String, round: Int, rounds: Int) -> String {
+        phase == "rest" ? String(localized: "Rest") + ". " + String(localized: "Up next: \(String(localized: "Work"))")
+            : String(localized: "Work") + ", " + String(localized: "\(round) of \(rounds)")
+    }
+
     /// Stopwatch laps (running totals) as a tab separated table, pastes straight into a spreadsheet.
     static func lapsTable(_ laps: [TimeInterval]) -> String {
         (["Lap\tSplit\tTotal"] + laps.enumerated().map { i, t in "\(i + 1)\t\(stopwatchText(t - (i > 0 ? laps[i - 1] : 0)))\t\(stopwatchText(t))" }).joined(separator: "\n")

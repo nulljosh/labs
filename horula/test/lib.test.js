@@ -142,6 +142,8 @@ test('interval timer phases', () => {
   assert.deepEqual(L.nextPhase({ ...t, phase: 'rest' }), { phase: 'work', round: 2, dur: 40000 });
   assert.equal(L.nextPhase({ ...t, round: 3 }), null, 'no rest after the last round');
   assert.deepEqual(L.nextPhase({ ...t, rest: 0 }), { phase: 'work', round: 2, dur: 40000 }, 'no rest goes straight to work');
+  assert.equal(L.cueText({ phase: 'rest', round: 1 }, 3), 'Rest. Up next: Work');
+  assert.equal(L.cueText({ phase: 'work', round: 2 }, 3), 'Work, 2 of 3');
 });
 
 test('laps table', () => {

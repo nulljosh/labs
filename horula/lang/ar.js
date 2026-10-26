@@ -60,6 +60,8 @@
   "Seconds": "الثواني",
   "Duration": "المدة",
   "Label": "التسمية",
+  "Speak": "نطق",
+  "Up next: {0}": "التالي: {0}",
   "Flip": "قلّاب",
   "Chime": "رنين الساعة",
   "Clocks go forward": "تقديم الساعة",

@@ -60,6 +60,8 @@
   "Seconds": "Secondi",
   "Duration": "Durata",
   "Label": "Etichetta",
+  "Speak": "Annuncia",
+  "Up next: {0}": "Prossimo: {0}",
   "Flip": "Flip",
   "Chime": "Rintocco",
   "Clocks go forward": "Si sposta avanti l'ora",

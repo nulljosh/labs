@@ -148,4 +148,9 @@ final class ClockworkTests: XCTestCase {
         XCTAssertEqual(Clockwork.terminatorLat(june, lon: june.lon + 180), 90 - june.lat, accuracy: 0.01)
         XCTAssertEqual(Clockwork.terminatorLat(june, lon: june.lon + 90), 0, accuracy: 0.01)
     }
+
+    func testCueText() {
+        XCTAssertEqual(Clockwork.cueText(phase: "rest", round: 1, rounds: 3), "Rest. Up next: Work")
+        XCTAssertEqual(Clockwork.cueText(phase: "work", round: 2, rounds: 3), "Work, 2 of 3")
+    }
 }

@@ -60,6 +60,8 @@
   "Seconds": "Segundos",
   "Duration": "Duração",
   "Label": "Rótulo",
+  "Speak": "Falar",
+  "Up next: {0}": "A seguir: {0}",
   "Flip": "Flip",
   "Chime": "Badalada",
   "Clocks go forward": "Relógios adiantam",

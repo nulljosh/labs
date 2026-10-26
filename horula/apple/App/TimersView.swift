@@ -10,6 +10,7 @@ struct TimersView: View {
     @State private var intervals = false
     @State private var rest = 30
     @State private var rounds = 8
+    @AppStorage("tmSpeak") private var speak = false
     private static let rests = [10, 15, 20, 30, 45, 60, 90, 120, 180, 300]
 
     var body: some View {
@@ -24,6 +25,7 @@ struct TimersView: View {
                     if intervals {
                         Picker("Rest", selection: $rest) { ForEach(Self.rests, id: \.self) { Text(Clockwork.durationText(TimeInterval($0))).tag($0) } }
                         Picker("Rounds", selection: $rounds) { ForEach(2...20, id: \.self) { Text("\($0)").tag($0) } }
+                        Toggle("Speak", isOn: $speak).toggleStyle(.switch)
                     }
                     HStack {
                         Spacer()
@@ -91,6 +93,7 @@ struct TimersView: View {
 
 struct TimerRow: View {
     @Environment(Store.self) private var store
+    @AppStorage("tmSpeak") private var speak = false
     let timer: TimerItem
     let now: Date
     var body: some View {
@@ -112,7 +115,11 @@ struct TimerRow: View {
             Button(timer.end == nil ? "Resume" : "Pause") { pause() }.buttonStyle(.bordered).buttonBorderShape(.capsule)
         }
         // ponytail: an interval rolls on only while the app is open; closed, each phase ends as its own AlarmKit timer alert.
-        .onChange(of: left <= 0) { _, done in if done, timer.end != nil, !store.advance(timer.id) { store.timers.removeAll { $0.id == timer.id } } }
+        .onChange(of: left <= 0) { _, done in
+            guard done, timer.end != nil else { return }
+            if !store.advance(timer.id) { store.timers.removeAll { $0.id == timer.id } }
+            else if speak, let t = store.timers.first(where: { $0.id == timer.id }) { Chime.say(Clockwork.cueText(phase: t.phase ?? "work", round: t.round ?? 1, rounds: t.rounds ?? 1)) }
+        }
     }
     private func pause() {
         guard let i = store.timers.firstIndex(where: { $0.id == timer.id }) else { return }

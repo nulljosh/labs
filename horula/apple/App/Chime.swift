@@ -1,6 +1,6 @@
 import AVFoundation
 
-/// The web's Chimes tone (three notes, made on the device, nothing bundled), for the nightstand's hourly chime.
+/// The web's Chimes tone (three notes, made on the device, nothing bundled), for the nightstand's hourly chime, and spoken interval cues.
 enum Chime {
     private static var player: AVAudioPlayer?
 
@@ -11,6 +11,15 @@ enum Chime {
         player = try? AVAudioPlayer(data: wav)
         player?.volume = volume
         player?.play()
+    }
+
+    private static let voice = AVSpeechSynthesizer()
+    /// Says an interval cue out loud in the reader's language.
+    static func say(_ text: String) {
+        #if os(iOS)
+        try? AVAudioSession.sharedInstance().setCategory(.playback, options: [.duckOthers, .mixWithOthers])   // over the workout music, not instead of it
+        #endif
+        voice.speak(AVSpeechUtterance(string: text))
     }
 
     /// 16 bit mono WAV of the notes in core.js: 1047, 1319 and 1568 Hz, a quarter second apart, each fading out over 0.3 s.
