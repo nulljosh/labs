@@ -240,7 +240,11 @@ struct AddCity: View {
 
 struct CityDetail: View {
     let city: City
+    @Environment(Store.self) private var store
     @Environment(\.dismiss) private var dismiss
+    @State private var nick = ""
+    /// The live record, so the title follows the name as you type.
+    private var current: City { store.zones.first { $0.id == city.id } ?? city }
     var body: some View {
         let tz = TimeZone(identifier: city.zone) ?? .current, now = Date.now
         var cal = Calendar(identifier: .gregorian); cal.timeZone = tz
@@ -255,13 +259,26 @@ struct CityDetail: View {
                     }.frame(maxWidth: .infinity).listRowBackground(Color.clear)
                 }
                 Section {
+                    // Your own name for the city; empty goes back to the real one.
+                    LabeledContent("Name") {
+                        TextField("Name", text: $nick, prompt: Text(verbatim: city.realName))
+                            .labelsHidden().multilineTextAlignment(.trailing).textFieldStyle(.plain)
+                    }
+                    .onChange(of: nick) {
+                        guard let i = store.zones.firstIndex(where: { $0.id == city.id }) else { return }
+                        let v = String(nick.trimmingCharacters(in: .whitespaces).prefix(40))
+                        store.zones[i].nick = v.isEmpty ? nil : v
+                    }
+                }
+                Section {
                     LabeledContent("Sunrise") { if let t { TimeText(date: t.rise, zone: tz, size: 17, weight: .regular) } else { Text("None today") } }
                     LabeledContent("Sunset") { if let t { TimeText(date: t.set, zone: tz, size: 17, weight: .regular) } else { Text("None today") } }
                     LabeledContent("Daylight", value: t.map { Clockwork.durationText($0.set.timeIntervalSince($0.rise)).replacingOccurrences(of: #" \d+ sec"#, with: "", options: .regularExpression) } ?? "None today")
                 }
             }
-            .navigationTitle(city.name)
+            .navigationTitle(current.name)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
+            .onAppear { nick = city.nick ?? "" }
         }
     }
 }

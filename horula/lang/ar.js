@@ -60,6 +60,7 @@
   "Seconds": "الثواني",
   "Duration": "المدة",
   "Label": "التسمية",
+  "Name": "الاسم",
   "When Timer Ends": "عند انتهاء المؤقت",
   "Intervals": "فترات",
   "Rest": "راحة",

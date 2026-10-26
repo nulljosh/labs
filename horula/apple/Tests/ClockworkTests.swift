@@ -76,10 +76,10 @@ final class ClockworkTests: XCTestCase {
     }
 
     func testBackupFromTheWebApp() throws {
-        let web = #"{"app":"clock","v":1,"alarms":[{"time":"07:30","days":[1,2],"label":"Gym","sound":"Radar","on":true,"snooze":true,"snoozeMin":5}],"zones":[{"city":"Tokyo","zone":"Asia/Tokyo"}],"recents":[{"dur":300000,"label":"Tea"}],"sleep":{"on":true,"bed":"23:00","wake":"07:00","days":[0,1],"wind":30,"snooze":true}}"#
+        let web = #"{"app":"clock","v":1,"alarms":[{"time":"07:30","days":[1,2],"label":"Gym","sound":"Radar","on":true,"snooze":true,"snoozeMin":5}],"zones":[{"city":"Tokyo","zone":"Asia/Tokyo","nick":"Office"}],"recents":[{"dur":300000,"label":"Tea"}],"sleep":{"on":true,"bed":"23:00","wake":"07:00","days":[0,1],"wind":30,"snooze":true}}"#
         let b = try Backup.parse(Data(web.utf8))
         XCTAssertEqual(b.alarms?.first?.label, "Gym"); XCTAssertEqual(b.alarms?.first?.snoozeMin, 5)
-        XCTAssertEqual(b.zones?.first?.zone, "Asia/Tokyo"); XCTAssertEqual(b.recents?.first?.dur, 300); XCTAssertEqual(b.sleep?.wake, "07:00")
+        XCTAssertEqual(b.zones?.first?.zone, "Asia/Tokyo"); XCTAssertEqual(b.zones?.first?.nick, "Office"); XCTAssertEqual(b.recents?.first?.dur, 300); XCTAssertEqual(b.sleep?.wake, "07:00")
         XCTAssertThrowsError(try Backup.parse(Data("nope".utf8)))
         XCTAssertThrowsError(try Backup.parse(Data(#"{"app":"other","v":1}"#.utf8)))
         let dirty = try Backup.parse(Data(#"{"app":"clock","v":1,"alarms":[{"time":"99:99"},{"time":"06:00","days":[9,1,1],"label":"\#(String(repeating: "x", count: 500))","snoozeMin":99}],"zones":[{"city":"X","zone":"Mars/Base"}]}"#.utf8))

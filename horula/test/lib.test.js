@@ -93,10 +93,10 @@ test('durations and links', () => {
 });
 
 test('backup round trip, and import refuses junk', () => {
-  const state = { alarms: [{ time: '07:30', days: [1, 2], label: 'Gym', sound: 'Radar', on: true, snooze: true, snoozeMin: 5 }], zones: [{ city: 'Tokyo', zone: 'Asia/Tokyo' }],
+  const state = { alarms: [{ time: '07:30', days: [1, 2], label: 'Gym', sound: 'Radar', on: true, snooze: true, snoozeMin: 5 }], zones: [{ city: 'Tokyo', zone: 'Asia/Tokyo', nick: 'Office' }, { city: 'Paris', zone: 'Europe/Paris' }],
     recents: [{ dur: 300000, label: 'Tea', sound: 'Chimes' }], sleep: { on: true, bed: '23:00', wake: '07:00', days: [0, 1], wind: 30, sound: 'Gentle', snooze: true } };
   const back = L.parseBackup(L.makeBackup(state));
-  assert.equal(back.alarms[0].label, 'Gym'); assert.equal(back.alarms[0].snoozeMin, 5); assert.equal(back.zones[0].zone, 'Asia/Tokyo'); assert.equal(back.sleep.wake, '07:00');
+  assert.equal(back.alarms[0].label, 'Gym'); assert.equal(back.alarms[0].snoozeMin, 5); assert.equal(back.zones[0].zone, 'Asia/Tokyo'); assert.equal(back.zones[0].nick, 'Office'); assert.ok(!('nick' in back.zones[1])); assert.equal(back.sleep.wake, '07:00');
   assert.throws(() => L.parseBackup('nope'), /not a Horula backup/); assert.throws(() => L.parseBackup('{"app":"other","v":1}'), /not a Horula backup/);
   const dirty = L.parseBackup(JSON.stringify({ app: 'clock', v: 1, alarms: [{ time: '99:99' }, { time: '06:00', days: [9, 1, 1], label: 'x'.repeat(500), snoozeMin: 99 }], zones: [{ city: 'X', zone: 'Mars/Base' }] }));
   assert.deepEqual(dirty.alarms.map(a => [a.time, a.days, a.label.length, a.snoozeMin]), [['06:00', [1], 40, 9]]);

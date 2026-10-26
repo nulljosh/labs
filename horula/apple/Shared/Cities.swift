@@ -48,8 +48,9 @@ enum Cities {
 }
 
 extension City {
-    /// The name the reader sees: in their language when we have it, else English.
-    var name: String { Cities.names[city] ?? city }
+    /// The name the reader sees: their own if they gave one, else in their language when we have it, else English.
+    var name: String { nick ?? realName }
+    var realName: String { Cities.names[city] ?? city }
 }
 
 /// The bundle this file is compiled into: the app, a widget, or the snapshot tests.

@@ -60,6 +60,7 @@
   "Seconds": "Secondi",
   "Duration": "Durata",
   "Label": "Etichetta",
+  "Name": "Nome",
   "When Timer Ends": "Al termine",
   "Intervals": "Intervalli",
   "Rest": "Recupero",

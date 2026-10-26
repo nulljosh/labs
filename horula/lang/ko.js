@@ -60,6 +60,7 @@
   "Seconds": "초",
   "Duration": "시간",
   "Label": "레이블",
+  "Name": "이름",
   "When Timer Ends": "타이머 종료 시",
   "Intervals": "인터벌",
   "Rest": "휴식",

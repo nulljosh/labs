@@ -11,23 +11,30 @@ import XCTest
         UserDefaults.standard.set(true, forKey: "swAnalog")   // the dial makes the better screenshot
         for tab in AppTab.allCases {
             UserDefaults.standard.set(tab.rawValue, forKey: "tab")
-            let w = KeyWindow(contentRect: NSRect(x: 0, y: 0, width: 1440, height: 900), styleMask: [.titled, .closable, .miniaturizable, .resizable],
-                             backing: .buffered, defer: false)
-            w.isReleasedWhenClosed = false
-            let host = NSHostingView(rootView: RootView().environment(store).environment(AlarmScheduler()).tint(.horula))
-            host.sizingOptions = []   // or the window grows to the content's ideal height
-            w.contentView = host
-            // Far outside every display: the window server composites it (glass needs that) but it is never visible.
-            w.setFrame(NSRect(x: -30000, y: -30000, width: 1440, height: 900), display: false)   // the whole window is the App Store size
-            w.orderBack(nil)
-            w.contentView?.layoutSubtreeIfNeeded()
-            try await Task.sleep(for: .seconds(2))
-            let v = try XCTUnwrap(w.contentView?.superview ?? w.contentView)
-            let rep = try XCTUnwrap(v.bitmapImageRepForCachingDisplay(in: v.bounds))
-            v.cacheDisplay(in: v.bounds, to: rep)
-            try XCTUnwrap(rep.representation(using: .png, properties: [:])).write(to: URL(fileURLWithPath: "\(out)/horula-mac-\(tab.rawValue).png"))
-            w.close()
+            try await render(RootView().environment(store).environment(AlarmScheduler()).tint(.horula), 1440, 900, "\(out)/horula-mac-\(tab.rawValue).png")
         }
+        // The city sheet, with a name of your own, for QA rather than the store.
+        store.zones[0].nick = "Mum"
+        try await render(CityDetail(city: store.zones[0]).environment(store).tint(.horula), 480, 520, "\(out)/horula-mac-city.png")
+    }
+
+    private func render(_ view: some View, _ width: CGFloat, _ height: CGFloat, _ path: String) async throws {
+        let w = KeyWindow(contentRect: NSRect(x: 0, y: 0, width: width, height: height), styleMask: [.titled, .closable, .miniaturizable, .resizable],
+                         backing: .buffered, defer: false)
+        w.isReleasedWhenClosed = false
+        let host = NSHostingView(rootView: view)
+        host.sizingOptions = []   // or the window grows to the content's ideal height
+        w.contentView = host
+        // Far outside every display: the window server composites it (glass needs that) but it is never visible.
+        w.setFrame(NSRect(x: -30000, y: -30000, width: width, height: height), display: false)   // the whole window is the App Store size
+        w.orderBack(nil)
+        w.contentView?.layoutSubtreeIfNeeded()
+        try await Task.sleep(for: .seconds(2))
+        let v = try XCTUnwrap(w.contentView?.superview ?? w.contentView)
+        let rep = try XCTUnwrap(v.bitmapImageRepForCachingDisplay(in: v.bounds))
+        v.cacheDisplay(in: v.bounds, to: rep)
+        try XCTUnwrap(rep.representation(using: .png, properties: [:])).write(to: URL(fileURLWithPath: path))
+        w.close()
     }
 }
 

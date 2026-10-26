@@ -60,6 +60,7 @@
   "Seconds": "Seconden",
   "Duration": "Duur",
   "Label": "Label",
+  "Name": "Naam",
   "When Timer Ends": "Als timer afloopt",
   "Intervals": "Intervallen",
   "Rest": "Rust",

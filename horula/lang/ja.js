@@ -60,6 +60,7 @@
   "Seconds": "秒",
   "Duration": "時間",
   "Label": "ラベル",
+  "Name": "名前",
   "When Timer Ends": "終了時",
   "Intervals": "インターバル",
   "Rest": "休憩",

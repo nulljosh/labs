@@ -60,6 +60,7 @@
   "Seconds": "秒",
   "Duration": "时长",
   "Label": "标签",
+  "Name": "名称",
   "When Timer Ends": "计时结束时",
   "Intervals": "间歇",
   "Rest": "休息",

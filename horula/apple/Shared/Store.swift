@@ -141,7 +141,8 @@ enum Backup {
             out.zones = list.compactMap { z in
                 guard let id = z["zone"] as? String, TimeZone(identifier: id) != nil else { return nil }
                 let c = str(z["city"], 60)
-                return City(city: c.isEmpty ? id.split(separator: "/").last.map(String.init) ?? id : c, zone: id)
+                let nick = str(z["nick"], 40)
+                return City(city: c.isEmpty ? id.split(separator: "/").last.map(String.init) ?? id : c, zone: id, nick: nick.isEmpty ? nil : nick)
             }.prefix(50).map { $0 }
         }
         func timerList(_ v: Any?, _ n: Int) -> [Recent]? {

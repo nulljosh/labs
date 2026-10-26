@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '21.0.0';
+const VERSION = '21.1.0';
 // UI text in the reader's language: i18n.js fills I18N in the browser; node tests see English.
 const tr = (s, ...a) => ((typeof I18N === 'object' && I18N[s]) || s).replace(/\{(\d)\}/g, (_, i) => a[i]);
 // The chosen language's dates; undefined keeps the browser's own region (en-GB 24 hour, fr-CA) when it is the same language.
@@ -96,7 +96,7 @@ function parseBackup(text) {
   if (Array.isArray(d.alarms)) out.alarms = d.alarms.filter(a => a && HM.test(a.time)).slice(0, 100).map(a => ({
     time: a.time, days: days(a.days), label: str(a.label, 40), sound: str(a.sound, 20) || 'Radar', on: a.on !== false,
     snooze: a.snooze !== false, snoozeMin: Number.isInteger(a.snoozeMin) && a.snoozeMin >= 1 && a.snoozeMin <= 15 ? a.snoozeMin : 9, last: '' }));
-  if (Array.isArray(d.zones)) out.zones = d.zones.filter(z => z && typeof z.zone === 'string' && zoneOk(z.zone)).slice(0, 50).map(z => ({ city: str(z.city, 60) || z.zone.split('/').pop(), zone: z.zone }));
+  if (Array.isArray(d.zones)) out.zones = d.zones.filter(z => z && typeof z.zone === 'string' && zoneOk(z.zone)).slice(0, 50).map(z => ({ city: str(z.city, 60) || z.zone.split('/').pop(), zone: z.zone, ...(str(z.nick, 40) && { nick: str(z.nick, 40) }) }));
   const timerList = (v, n) => v.filter(r => r && Number.isFinite(r.dur) && r.dur >= 1000 && r.dur <= 864e5).slice(0, n).map(r => ({ dur: r.dur, label: str(r.label, 40), sound: str(r.sound, 20) || 'Radar' }));
   if (Array.isArray(d.recents)) out.recents = timerList(d.recents, 6);
   if (Array.isArray(d.presets)) out.presets = timerList(d.presets, 20);

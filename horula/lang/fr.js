@@ -60,6 +60,7 @@
   "Seconds": "Secondes",
   "Duration": "Durée",
   "Label": "Libellé",
+  "Name": "Nom",
   "When Timer Ends": "À la fin",
   "Intervals": "Intervalles",
   "Rest": "Repos",

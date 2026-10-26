@@ -60,6 +60,7 @@
   "Seconds": "सेकंड",
   "Duration": "अवधि",
   "Label": "लेबल",
+  "Name": "नाम",
   "When Timer Ends": "टाइमर खत्म होने पर",
   "Intervals": "अंतराल",
   "Rest": "आराम",

@@ -6,6 +6,7 @@ import Foundation
 struct City: Codable, Hashable, Identifiable {
     var city: String
     var zone: String
+    var nick: String?           // your own name for it ("Office"); nil shows the real one
     var id: String { zone + "|" + city }
 }
 

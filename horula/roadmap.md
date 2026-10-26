@@ -103,22 +103,26 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] Analog stopwatch on the Watch, the same dial as the phone, now in Shared (GAPS 39).
 
 ## Gap matrix (/mobbin, 2026-10-25)
-App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock Time Widget, timeanddate World Clock and Flip Clock, set beside ours. Skipped: ads, paywalls, sleep tracking by microphone, social, per-timer colours (blue only). One row per version, web and native together.
+App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock Time Widget, timeanddate World Clock and Flip Clock, set beside ours. Skipped: ads, paywalls, sleep tracking by microphone, social, per-timer colours (blue only). One row per minor version, web and native together. 22.0.0 ships when every row is done and the apple skill's checks pass on every screen.
 
 | v | Gap | Who has it | Size | Status |
 |---|---|---|---|---|
 | 21 | +1 min on a running timer | Timer+ | S | done |
-| 22 | Your own name for a city ("Mum", "Office") | World Clock Time Widget | S | open |
-| 23 | Count down to a date ("Vacation, 1 month 29 days") | Timer+, MultiTimer | M | open |
-| 24 | Daylight saving dates in the city detail | timeanddate | S | open |
-| 25 | Watch: edit an alarm (time, repeat, label, snooze) and a city detail with sunrise and sunset, like watchOS Clock | watchOS Clock | S | open |
-| 26 | Hourly chime on the nightstand | Flip Clock | S | open |
-| 27 | Flip digits face on the nightstand | Flip Clock | M | open |
-| 28 | Spoken interval cues ("Rest. Up next: work") | Timer+ | S | open |
-| 29 | Wake up check: a second ring a few minutes after you stop an alarm unless you confirm | Alarmy, Rise | M | open |
-| 30 | Routines: named timer steps that run in order | Timer+ | M | open |
-| 31 | Sleep sounds made on device (rain, brown noise) with a sleep timer | Alarmy, Sleep Cycle, Flip Clock | M | open |
-| 32 | Alarm missions (solve a sum to stop) | Alarmy, Rise | L | open |
+| 21.1 | Your own name for a city ("Mum", "Office") | World Clock Time Widget | S | done |
+| 21.2 | Count down to a date ("Vacation, 1 month 29 days") | Timer+, MultiTimer | M | open |
+| 21.3 | Daylight saving dates in the city detail | timeanddate | S | open |
+| 21.4 | Watch: edit an alarm (time, repeat, label, snooze) and a city detail with sunrise and sunset, like watchOS Clock | watchOS Clock | S | open |
+| 21.5 | Hourly chime on the nightstand | Flip Clock | S | open |
+| 21.6 | Flip digits face on the nightstand | Flip Clock | M | open |
+| 21.7 | Spoken interval cues ("Rest. Up next: work") | Timer+ | S | open |
+| 21.8 | Wake up check: a second ring a few minutes after you stop an alarm unless you confirm | Alarmy, Rise | M | open |
+| 21.9 | Routines: named timer steps that run in order | Timer+ | M | open |
+| 21.10 | Sleep sounds made on device (rain, brown noise) with a sleep timer | Alarmy, Sleep Cycle, Flip Clock | M | open |
+| 21.11 | Alarm missions (solve a sum to stop) | Alarmy, Rise | L | open |
 
 ## v21: one more minute
 - [x] +1 min on every running or paused timer, web, iPhone, Mac and Watch (matrix row 21).
+
+## v21.1: your own name for a city
+- [x] A Name field in the city sheet, web, iPhone and Mac; rows, the map, the Watch and backups carry it, empty goes back to the real name (matrix row 21.1).
+- [x] Fixed the Settings Language row, which sat indented inside its group.
