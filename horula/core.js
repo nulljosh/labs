@@ -45,6 +45,8 @@ const SOUNDS = {
   Chimes: [[1047, 0], [1319, .25], [1568, .5]],
   Beacon: [[660, 0], [990, .45]],
   Gentle: [[523, 0], [659, .5], [784, 1]],
+  Crystals: [[2093, 0], [1760, .12], [1568, .24], [1319, .36], [1568, .6], [2093, .72]],
+  'Slow Rise': [[392, 0], [523, .55], [659, 1.1], [784, 1.65]],
 };
 const soundOptions = Object.keys(SOUNDS).map(s => `<option>${s}</option>`).join('');
 ['aSound', 'sSound', 'tmSound'].forEach(id => $(id).innerHTML = soundOptions);

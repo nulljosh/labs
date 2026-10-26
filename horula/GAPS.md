@@ -57,5 +57,5 @@ Joshua's ask: keep comparing against the native iOS and Mac Clock apps and close
 ## Round 3 (iOS 26 and macOS 26 Clock, 2026-10-25)
 - [x] 32. macOS Clock world view has a map (web and Mac) with the day and night line.
 - [x] 33. iOS analog stopwatch has a minute sub-dial and a lap hand.
-- [ ] 34. iOS plays a sound when you pick it.
+- [x] 34. iOS plays a sound when you pick it.
 

@@ -81,8 +81,8 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [ ] The iPhone and Mac app get the analog stopwatch too (tap the digits to switch, like the web).
 
 ## v15: hear it before you pick it
-- [ ] Choosing an alarm or timer sound plays it once, like iOS.
-- [ ] Two more sounds, drawn in Web Audio like the others.
+- [x] Choosing an alarm or timer sound plays it once, like iOS.
+- [x] Two more sounds, drawn in Web Audio like the others.
 
 ## v16: native in every language
 - [ ] The iPhone and Mac app in the same twelve languages, from a String Catalog.

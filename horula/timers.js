@@ -5,6 +5,7 @@ $('tmM').value = 5;
 const REST = [10, 15, 20, 30, 45, 60, 90, 120, 180, 300];
 $('tmRest').innerHTML = REST.map(s => `<option value="${s}">${fmtDur(s * 1000)}</option>`).join(''); $('tmRest').value = 30;
 $('tmRounds').innerHTML = Array.from({ length: 19 }, (_, i) => `<option>${i + 2}</option>`).join(''); $('tmRounds').value = 8;
+$('tmSound').onchange = () => play($('tmSound').value);   // hear it before you pick it, like iOS
 $('tmIv').onchange = () => document.querySelectorAll('#timer .iv').forEach(r => r.hidden = !$('tmIv').checked);
 let timers = store.get('timers', []), recents = store.get('recents', []), presets = store.get('presets', []);
 const saveTimers = () => { store.set('timers', timers); store.set('recents', recents); store.set('presets', presets); };
