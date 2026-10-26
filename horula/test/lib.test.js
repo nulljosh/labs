@@ -1,7 +1,7 @@
 process.env.TZ = 'America/Vancouver';   // before any Date: fireTimes and offsetLabel read local time
 const test = require('node:test'), assert = require('node:assert/strict');
 const fs = require('node:fs'), path = require('node:path');
-const L = require('../lib.js');
+const L = { ...require('../lib.js'), ...require('../noise.js') };
 const root = path.join(__dirname, '..');
 
 test('repeat text', () => {
@@ -144,6 +144,18 @@ test('interval timer phases', () => {
   assert.deepEqual(L.nextPhase({ ...t, rest: 0 }), { phase: 'work', round: 2, dur: 40000 }, 'no rest goes straight to work');
   assert.equal(L.cueText({ phase: 'rest', round: 1 }, 3), 'Rest. Up next: Work');
   assert.equal(L.cueText({ phase: 'work', round: 2 }, 3), 'Work, 2 of 3');
+});
+
+test('sleep noise', () => {
+  let seed = 1; const rand = () => (seed = seed * 16807 % 2147483647) / 2147483647;
+  for (const k of ['white', 'pink', 'brown']) {
+    const n = L.noise(k, 44100, rand), max = n.reduce((m, v) => Math.max(m, Math.abs(v)), 0);
+    assert.ok(max > 0.01 && max <= 1, `${k} stays in range (${max})`);
+  }
+  const b = L.noise('brown', 44100, rand);
+  assert.ok(Math.abs(b[0] - b[b.length - 1]) < 1e-6, 'brown loops without a click');
+  const step = (a) => a.reduce((s, v, i) => i ? s + Math.abs(v - a[i - 1]) : 0, 0) / a.length;
+  assert.ok(step(L.noise('brown', 44100, rand)) < step(L.noise('white', 44100, rand)) / 5, 'brown is smoother than white');
 });
 
 test('routine steps', () => {

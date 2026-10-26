@@ -43,6 +43,7 @@ struct AlarmsView: View {
                         }
                     }
                 } header: { Label("Sleep | Wake Up", systemImage: "bed.double.fill") }
+                SleepSoundsSection()
 
                 Section("Other") {
                     if store.alarms.isEmpty { Text("No alarms. Tap + to add one.").foregroundStyle(.secondary) }

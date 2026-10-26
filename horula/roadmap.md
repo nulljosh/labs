@@ -117,7 +117,7 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 | 21.7 | Spoken interval cues ("Rest. Up next: work") | Timer+ | S | done |
 | 21.8 | Wake up check: a second ring a few minutes after you stop an alarm unless you confirm | Alarmy, Rise | M | done |
 | 21.9 | Routines: named timer steps that run in order | Timer+ | M | done |
-| 21.10 | Sleep sounds made on device (rain, brown noise) with a sleep timer | Alarmy, Sleep Cycle, Flip Clock | M | open |
+| 21.10 | Sleep sounds made on device (rain, brown noise) with a sleep timer | Alarmy, Sleep Cycle, Flip Clock | M | done |
 | 21.11 | Alarm missions (solve a sum to stop) | Alarmy, Rise | L | open |
 
 ## v21: one more minute

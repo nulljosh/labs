@@ -56,7 +56,7 @@ button.danger { color: var(--danger); }
 #stopwatch .controls button, #tmStart { width: 84px; height: 84px; min-width: 0; padding: 0; border-radius: 50%; box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--bg2); }
 #stopwatch .controls .go, #tmStart { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--go-bg); }
 #stopwatch .controls .stop { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--stop-bg); }
-#langPick, #cityNick, #timer .row input:not(.switch), #timer .row select { flex: 0 1 55%; height: auto; padding: 0; background: none; color: var(--text2); text-align: right; text-align-last: right; }
+#langPick, #cityNick, #timer .row input:not(.switch), #timer .row select, #nzKind, #nzFor { flex: 0 1 55%; height: auto; padding: 0; background: none; color: var(--text2); text-align: right; text-align-last: right; }
 button.link { background: none; color: var(--accent); min-width: 0; padding: 0 var(--s2); }
 button.icon { min-width: 0; padding: 0 var(--s4); height: 32px; font-size: 15px; }
 button:disabled { opacity: .4; cursor: default; }

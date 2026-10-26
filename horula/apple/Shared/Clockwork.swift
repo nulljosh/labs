@@ -204,6 +204,22 @@ enum Clockwork {
     /// Wake Up Check: how long after an alarm it rings again unless you confirm you are up.
     static let checkGap: TimeInterval = 180
 
+    /// Sleep sounds, the same filters as lib.js: white, pink (Paul Kellet's) and brown noise, one sample per call.
+    struct Noise {
+        let kind: String
+        private var b0 = 0.0, b1 = 0.0, b2 = 0.0, last = 0.0
+        init(kind: String) { self.kind = kind }
+        mutating func next(_ w: Double) -> Double {
+            switch kind {
+            case "pink":
+                b0 = 0.99765 * b0 + w * 0.099046; b1 = 0.963 * b1 + w * 0.2965164; b2 = 0.57 * b2 + w * 1.0526913
+                return (b0 + b1 + b2 + w * 0.1848) * 0.11
+            case "brown": last = (last + 0.02 * w) / 1.02; return last * 3.5
+            default: return w * 0.5
+            }
+        }
+    }
+
     /// A routine's running step: "Warm up, 1 of 3".
     static func stepText(_ steps: [Recent], _ i: Int) -> String {
         (steps[i].label.isEmpty ? String(localized: "Routine") : steps[i].label) + ", " + String(localized: "\(i + 1) of \(steps.count)")

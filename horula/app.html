@@ -55,6 +55,12 @@
     <header><h1>Alarms</h1><span class="tools"><button class="link" id="alarmEdit">Edit</button><button class="tool" id="alarmNew" aria-label="Add alarm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></span></header>
     <h2 class="sleep-h"><svg class="bed" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18V6M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5M6.5 11.5a1.5 1.5 0 1 0 0-.01"/></svg>Sleep | Wake Up</h2>
     <div class="group"><div class="row" id="sleepRow"></div></div>
+    <h2>Sleep Sounds</h2>
+    <div class="group">
+      <label class="row"><span class="grow label">Sound</span><select id="nzKind"><option value="white">White Noise</option><option value="pink">Pink Noise</option><option value="brown">Brown Noise</option></select></label>
+      <label class="row"><span class="grow label">Stop After</span><select id="nzFor"></select></label>
+      <div class="row"><span class="grow meta" id="nzLeft"></span><button class="icon go" id="nzPlay">Play</button></div>
+    </div>
     <h2>Other</h2>
     <div class="group" id="alarmList"></div>
     <p class="sub">Alarms ring while this page is open. Add it to your Home Screen to keep it handy.</p>
@@ -234,7 +240,7 @@
 <div class="toast" id="toast" hidden role="status"></div>
 
 <!-- The app scripts in order (async = false keeps it), the reader's language and city names first when not English. -->
-<script>[self.LANG_FILE && 'lang/' + LANG_FILE + '.js', self.LANG_FILE && 'cities/' + LANG_FILE + '.js', 'i18n.js', 'lib.js', 'coords.js', 'core.js', 'world.js', 'alarms.js', 'stopwatch.js', 'timers.js', 'app.js'].filter(Boolean)
+<script>[self.LANG_FILE && 'lang/' + LANG_FILE + '.js', self.LANG_FILE && 'cities/' + LANG_FILE + '.js', 'i18n.js', 'lib.js', 'coords.js', 'core.js', 'world.js', 'noise.js', 'alarms.js', 'stopwatch.js', 'timers.js', 'app.js'].filter(Boolean)
   .forEach(function (src) { var s = document.createElement('script'); s.src = src; s.async = false; document.body.appendChild(s); });</script>
 </body>
 </html>

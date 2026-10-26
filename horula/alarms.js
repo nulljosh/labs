@@ -94,6 +94,25 @@ $('sleepSheet').onclose = () => {
   store.set('sleep', sleep); drawAlarms();
   if (sleep.on) { askNotify(); toast(tr('Wake up in {0}', untilText(fireTimes(sleep.wake, sleep.days, new Date())))); }
 };
+// Sleep sounds: noise made on the device, looped, fading out over the last minute of the sleep timer.
+let nz = null;
+$('nzFor').innerHTML = [15, 30, 45, 60, 90, 120].map(m => `<option value="${m}">${fmtDur(m * 60000)}</option>`).join('');
+$('nzFor').value = store.get('nzFor', 30); $('nzKind').value = store.get('nzKind', 'pink');
+function nzDraw() { $('nzPlay').textContent = tr(nz ? 'Stop' : 'Play'); $('nzPlay').classList.toggle('go', !nz); $('nzLeft').textContent = nz ? tr('Stops at {0}', hm.format(new Date(nz.end))) : ''; }
+function nzStop() { if (!nz) return; try { nz.src.stop(); } catch {} clearTimeout(nz.timer); nz = null; nzDraw(); }
+function nzPlay() {
+  const c = audio(), kind = $('nzKind').value, mins = +$('nzFor').value, s = mins * 60;
+  store.set('nzKind', kind); store.set('nzFor', mins);
+  const buf = c.createBuffer(1, c.sampleRate * 8, c.sampleRate), src = c.createBufferSource(), g = c.createGain(), t = c.currentTime;
+  buf.copyToChannel(noise(kind, buf.length), 0);
+  src.buffer = buf; src.loop = true; src.connect(g); g.connect(c.destination);
+  g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.5, t + 3); g.gain.setValueAtTime(0.5, t + s - 60); g.gain.linearRampToValueAtTime(0.0001, t + s);
+  src.start(t);
+  nz = { src, end: Date.now() + s * 1000, timer: setTimeout(nzStop, s * 1000) }; nzDraw();
+}
+$('nzPlay').onclick = () => nz ? nzStop() : nzPlay();
+$('nzKind').onchange = $('nzFor').onchange = () => { if (nz) { nzStop(); nzPlay(); } };
+nzDraw();
 function snoozeFor(label, sound, min = 9) {
   snoozes.push({ at: Date.now() + min * 60000, label, sound, min }); saveAlarms(); toast(tr('Snoozed for {0}', `${min} ${tr(min > 1 ? 'minutes' : 'minute')}`));
 }
