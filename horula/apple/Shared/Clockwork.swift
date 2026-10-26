@@ -209,6 +209,7 @@ enum Clockwork {
         let x = Int.random(in: 12...89, using: &rng), y = Int.random(in: 12...89, using: &rng)
         return ("\(x) + \(y)", x + y)
     }
+    static func newSum() -> (q: String, a: Int) { var g = SystemRandomNumberGenerator(); return mathProblem(using: &g) }
 
     /// Sleep sounds, the same filters as lib.js: white, pink (Paul Kellet's) and brown noise, one sample per call.
     struct Noise {

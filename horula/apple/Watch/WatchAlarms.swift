@@ -6,10 +6,27 @@ struct WatchAlarms: View {
     @Environment(Store.self) private var store
     @State private var adding = false
     @State private var time = Date.now
+    @State private var sum = Clockwork.newSum()
+    @State private var answer = ""
     var body: some View {
         @Bindable var store = store
         NavigationStack {
             List {
+                TimelineView(.periodic(from: .now, by: 15)) { ctx in
+                    // Wake Up Check and Solve to Stop, as on the phone: the second ring goes away only from here.
+                    if let c = store.pendingChecks(at: ctx.date).first, c.rang <= ctx.date {
+                        Section {
+                            Text("Are you up?").font(.title3)
+                            Text("Rings again at \(c.rang.addingTimeInterval(Clockwork.checkGap).formatted(date: .omitted, time: .shortened))").font(.caption).foregroundStyle(.secondary)
+                            if c.alarm.mission {
+                                LabeledContent(sum.q + " =") { TextField("Answer", text: $answer).monospacedDigit() }
+                                    .onChange(of: answer) { if Int(answer) == sum.a { answer = ""; sum = Clockwork.newSum(); up() } }
+                            } else {
+                                Button("I'm Up") { up() }.tint(.green)
+                            }
+                        }
+                    }
+                }
                 ForEach($store.alarms) { $a in
                     HStack {
                         // Tap the time for its settings, flip the switch to arm it, like watchOS Clock.
@@ -45,5 +62,6 @@ struct WatchAlarms: View {
         }
         .onChange(of: store.alarms) { Task { await AlarmScheduler().sync(store) } }
     }
+    private func up() { store.awake = .now; Task { await AlarmScheduler().sync(store) } }
     static func at(_ hm: String) -> Date { let m = Clockwork.minutes(hm); return Calendar.current.date(bySettingHour: m / 60, minute: m % 60, second: 0, of: .now)! }
 }

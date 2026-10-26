@@ -5,9 +5,8 @@ struct AlarmsView: View {
     @Environment(AlarmScheduler.self) private var scheduler
     @State private var editing: AlarmItem?
     @State private var sleepSheet = false
-    @State private var sum = AlarmsView.newSum()
+    @State private var sum = Clockwork.newSum()
     @State private var answer = ""
-    static func newSum() -> (q: String, a: Int) { var g = SystemRandomNumberGenerator(); return Clockwork.mathProblem(using: &g) }
 
     var body: some View {
         @Bindable var store = store
@@ -37,7 +36,7 @@ struct AlarmsView: View {
                                         #endif
                                 }
                                 .font(.title2)
-                                .onChange(of: answer) { if Int(answer) == sum.a { answer = ""; sum = Self.newSum(); store.awake = .now; Task { await scheduler.sync(store) } } }
+                                .onChange(of: answer) { if Int(answer) == sum.a { answer = ""; sum = Clockwork.newSum(); store.awake = .now; Task { await scheduler.sync(store) } } }
                             }
                         }
                     }

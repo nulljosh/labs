@@ -153,3 +153,6 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 
 ## v22: the matrix is done
 - [x] Every gap matrix row built on web, iPhone, Mac and Watch where it fits. The apple checks ran on every screen at 390 and 1280, light and dark: controls in a row share a height (the World header and the nightstand bar were fixed), every gap is on the grid, no console errors. Mac screens rendered off screen.
+
+## v22.1: the Watch catches up
+- [x] The Watch shows "Are you up?" while a Wake Up Check or Solve to Stop alarm is about to ring again, with I'm Up or the sum, and the alarm screen gets the Solve to Stop switch. Before this the Watch's second ring could not be turned off from the Watch.

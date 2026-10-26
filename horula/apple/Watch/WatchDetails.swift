@@ -30,6 +30,7 @@ struct WatchAlarmEdit: View {
             TextField("Label", text: alarm.label, prompt: Text("Alarm"))
             Toggle("Snooze", isOn: alarm.snooze)
             Toggle("Wake Up Check", isOn: alarm.check)
+            Toggle("Solve to Stop", isOn: alarm.mission)
             Button("Delete Alarm", role: .destructive) { dismiss(); store.alarms.removeAll { $0.id == id } }
         }
         .navigationTitle("Edit Alarm")
