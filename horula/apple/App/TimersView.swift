@@ -58,6 +58,7 @@ struct TimersView: View {
                         }
                     }
                 }
+                CountdownSection()
             }
             .readableColumn()
             .navigationTitle("Timers")

@@ -26,7 +26,7 @@ const NATIVE = {
 };
 // Web templates as Swift interpolation keys: {n} becomes a positional %n$@ or %n$lld.
 const TEMPLATES = { 'Next alarm %@': ['Next alarm {0}', '@'], '%@ Morning': ['{0} Morning', '@'], 'Ends %@': ['Ends {0}', '@'], '%lld of %lld': ['{0} of {1}', 'lld lld'],
-  '%lld rounds': ['{0} rounds', 'lld'], 'Skipping %@': ['Skipping {0}', '@'], 'Restored %lld alarms and %lld cities': ['Restored {0} alarms and {1} cities', 'lld lld'] };
+  '%lld rounds': ['{0} rounds', 'lld'], '%@ ago': ['{0} ago', '@'], 'Skipping %@': ['Skipping {0}', '@'], 'Restored %lld alarms and %lld cities': ['Restored {0} alarms and {1} cities', 'lld lld'] };
 const strings = {};
 // Apple's codes: the Chinese here is simplified and the Portuguese Brazilian.
 const APPLE = { zh: 'zh-Hans', pt: 'pt-BR' };

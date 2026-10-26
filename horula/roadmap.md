@@ -109,7 +109,7 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 |---|---|---|---|---|
 | 21 | +1 min on a running timer | Timer+ | S | done |
 | 21.1 | Your own name for a city ("Mum", "Office") | World Clock Time Widget | S | done |
-| 21.2 | Count down to a date ("Vacation, 1 month 29 days") | Timer+, MultiTimer | M | open |
+| 21.2 | Count down to a date ("Vacation, 1 month 29 days") | Timer+, MultiTimer | M | done |
 | 21.3 | Daylight saving dates in the city detail | timeanddate | S | open |
 | 21.4 | Watch: edit an alarm (time, repeat, label, snooze) and a city detail with sunrise and sunset, like watchOS Clock | watchOS Clock | S | open |
 | 21.5 | Hourly chime on the nightstand | Flip Clock | S | open |
@@ -126,3 +126,7 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 ## v21.1: your own name for a city
 - [x] A Name field in the city sheet, web, iPhone and Mac; rows, the map, the Watch and backups carry it, empty goes back to the real name (matrix row 21.1).
 - [x] Fixed the Settings Language row, which sat indented inside its group.
+
+## v21.2: count down to a date
+- [x] Countdowns under the timers, web, iPhone and Mac: a label and a day, shown as "1 month, 29 days", "Today" or "24 days ago", in backups (matrix row 21.2).
+- [x] Web backups now carry timer presets too; they were left out.

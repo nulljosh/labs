@@ -63,7 +63,25 @@ $('tmPreset').onclick = (e) => {
   if (preset != null) { const r = presets[+preset]; startTimer(r.dur, r.label, r.sound, r.iv); }
   else if (unpin != null) { presets.splice(+unpin, 1); saveTimers(); drawTimers(); }
 };
+// Countdowns to a date ("Vacation, 1 month, 29 days"), like Timer+. Counted in days, so they redraw when the day turns.
+let countdowns = store.get('countdowns', []), cdDay = '';
+const cdFmt = new Intl.DateTimeFormat(LOCALE, { dateStyle: 'medium' });
+function drawCountdowns() {
+  cdDay = new Date().toDateString();
+  $('cdList').hidden = !countdowns.length;
+  $('cdList').innerHTML = countdowns.map((c, i) => { const name = esc(c.label || tr('Countdown'));
+    return `<div class="row"><div class="grow"><div class="label">${name}</div><div class="meta">${cdFmt.format(new Date(c.date + 'T00:00'))}</div></div>
+      <div class="label">${esc(spanText(dateSpan(c.date)))}</div><button class="icon danger" data-cdrm="${i}" aria-label="Remove ${name}">${tr('Remove')}</button></div>`; }).join('');
+}
+$('cdAdd').onclick = () => {
+  const date = $('cdDate').value; if (!date) return $('cdDate').focus();
+  countdowns = [...countdowns, { label: $('cdLabel').value.trim(), date }].sort((a, b) => a.date.localeCompare(b.date)).slice(0, 50);
+  store.set('countdowns', countdowns); $('cdLabel').value = ''; $('cdDate').value = ''; drawCountdowns();
+};
+$('cdList').onclick = (e) => { const i = e.target.dataset.cdrm; if (i == null) return; countdowns.splice(+i, 1); store.set('countdowns', countdowns); drawCountdowns(); };
+drawCountdowns();
 function tickTimers() {
+  if (cdDay !== new Date().toDateString()) drawCountdowns();
   for (const t of [...timers]) {
     const left = timerLeft(t), row = $('tmActive').querySelector(`[data-id="${t.id}"]`);
     // Interval rounds roll on with a short sound, a different one for rest; only the last round rings.

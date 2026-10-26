@@ -120,6 +120,24 @@ enum Clockwork {
         return [h > 0 ? "\(h) hr" : nil, m > 0 ? "\(m) min" : nil, r > 0 ? "\(r) sec" : nil].compactMap { $0 }.joined(separator: " ")
     }
 
+    /// Whole years, months and days from today to a yyyy-MM-dd date, like dateSpan in lib.js. nil for a malformed date.
+    static func dateSpan(_ ymd: String, now: Date = .now, cal: Calendar = .current) -> (years: Int, months: Int, days: Int, past: Bool, from: Date)? {
+        let p = ymd.split(separator: "-").compactMap { Int($0) }
+        guard p.count == 3, let target = cal.date(from: DateComponents(year: p[0], month: p[1], day: p[2])) else { return nil }
+        let today = cal.startOfDay(for: now), past = target < today
+        let c = cal.dateComponents([.year, .month, .day], from: past ? target : today, to: past ? today : target)
+        return (c.year ?? 0, c.month ?? 0, c.day ?? 0, past, past ? target : today)
+    }
+
+    /// "1 month, 29 days" in the reader's language, "Today", or "1 day ago", like spanText in lib.js.
+    static func spanText(_ s: (years: Int, months: Int, days: Int, past: Bool, from: Date)) -> String {
+        if s.years + s.months + s.days == 0 { return String(localized: "Today") }
+        let f = DateComponentsFormatter(); f.unitsStyle = .full; f.allowedUnits = [.year, .month, .day]
+        f.referenceDate = s.from   // without it 29 days reads as "1 month, 1 day"
+        let t = f.string(from: DateComponents(year: s.years, month: s.months, day: s.days)) ?? ""
+        return s.past ? String(localized: "\(t) ago") : t
+    }
+
     static func stopwatchText(_ t: TimeInterval) -> String {
         let cs = Int(t * 100)
         return String(format: "%02d:%02d.%02d", cs / 6000, cs / 100 % 60, cs % 100)

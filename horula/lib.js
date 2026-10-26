@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '21.1.0';
+const VERSION = '21.2.0';
 // UI text in the reader's language: i18n.js fills I18N in the browser; node tests see English.
 const tr = (s, ...a) => ((typeof I18N === 'object' && I18N[s]) || s).replace(/\{(\d)\}/g, (_, i) => a[i]);
 // The chosen language's dates; undefined keeps the browser's own region (en-GB 24 hour, fr-CA) when it is the same language.
@@ -84,7 +84,25 @@ function parseHash(hash) {
   return null;
 }
 // Backups: one JSON file. Import checks every field, since the file comes from outside.
-const BACKUP_KEYS = ['alarms', 'sleep', 'zones', 'recents', 'presets'];
+// Countdowns to a date: whole years, months and days from today to yyyy-mm-dd, in local days. past once it has gone by.
+function dateSpan(ymd, now = new Date()) {
+  const [y, m, d] = ymd.split('-').map(Number);
+  let a = new Date(now.getFullYear(), now.getMonth(), now.getDate()), b = new Date(y, m - 1, d);
+  const past = b < a; if (past) [a, b] = [b, a];
+  let months = (b.getFullYear() - a.getFullYear()) * 12 + b.getMonth() - a.getMonth();
+  if (b.getDate() < a.getDate()) months--;
+  const at = new Date(a.getFullYear(), a.getMonth() + months, 1);
+  at.setDate(Math.min(a.getDate(), new Date(at.getFullYear(), at.getMonth() + 1, 0).getDate()));   // Jan 31 plus a month is Feb 28
+  return { years: Math.floor(months / 12), months: months % 12, days: Math.round((b - at) / 864e5), past };   // round: a daylight saving day is 23 or 25 hours
+}
+// "1 month, 29 days" in the reader's language; today is "Today".
+function spanText(s) {
+  if (!s.years && !s.months && !s.days) return tr('Today');
+  const t = typeof Intl.DurationFormat === 'function' ? new Intl.DurationFormat(LOCALE, { style: 'long' }).format({ years: s.years, months: s.months, days: s.days })
+    : [s.years && `${s.years} y`, s.months && `${s.months} mo`, s.days && `${s.days} d`].filter(Boolean).join(' ');   // ponytail: older browsers get short units
+  return s.past ? tr('{0} ago', t) : t;
+}
+const BACKUP_KEYS = ['alarms', 'sleep', 'zones', 'recents', 'presets', 'countdowns'];
 const makeBackup = (state) => JSON.stringify({ app: 'clock', v: 1, saved: new Date().toISOString(), ...Object.fromEntries(BACKUP_KEYS.map(k => [k, state[k]])) }, null, 2);
 function parseBackup(text) {
   let d; try { d = JSON.parse(text); } catch { throw new Error(tr('That file is not a Horula backup')); }
@@ -100,6 +118,7 @@ function parseBackup(text) {
   const timerList = (v, n) => v.filter(r => r && Number.isFinite(r.dur) && r.dur >= 1000 && r.dur <= 864e5).slice(0, n).map(r => ({ dur: r.dur, label: str(r.label, 40), sound: str(r.sound, 20) || 'Radar' }));
   if (Array.isArray(d.recents)) out.recents = timerList(d.recents, 6);
   if (Array.isArray(d.presets)) out.presets = timerList(d.presets, 20);
+  if (Array.isArray(d.countdowns)) out.countdowns = d.countdowns.filter(c => c && /^\d{4}-\d{2}-\d{2}$/.test(c.date)).slice(0, 50).map(c => ({ label: str(c.label, 40), date: c.date }));
   const s = d.sleep;
   if (s && HM.test(s.bed) && HM.test(s.wake)) out.sleep = { on: !!s.on, everSet: true, bed: s.bed, wake: s.wake, days: days(s.days), wind: [0, 15, 30, 45, 60].includes(s.wind) ? s.wind : 30, sound: str(s.sound, 20) || 'Gentle', snooze: s.snooze !== false };
   if (!Object.keys(out).length) throw new Error(tr('That backup is empty'));
@@ -197,4 +216,4 @@ function handAngles(zone, at) {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hourCycle: 'h23', timeZone: zone }).formatToParts(at).map(x => [x.type, +x.value]));
   return { h: (p.hour % 12 + p.minute / 60) * 30, m: p.minute * 6 };
 }
-if (typeof module === 'object') module.exports = { VERSION, subsolar, terminatorLat, nightPath, dayPath, findZone, countdown, tr, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };
+if (typeof module === 'object') module.exports = { VERSION, dateSpan, spanText, subsolar, terminatorLat, nightPath, dayPath, findZone, countdown, tr, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };

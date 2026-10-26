@@ -120,6 +120,18 @@ final class ClockworkTests: XCTestCase {
         XCTAssertEqual(Clockwork.lapsTable([]), "Lap\tSplit\tTotal")
     }
 
+    func testCountdownsToADate() {
+        let now = cal.date(from: DateComponents(year: 2026, month: 10, day: 25, hour: 23, minute: 30))!
+        func span(_ d: String) -> [AnyHashable] { let s = Clockwork.dateSpan(d, now: now, cal: cal)!; return [s.years, s.months, s.days, s.past] }
+        XCTAssertEqual(span("2026-12-24"), [0, 1, 29, false]); XCTAssertEqual(span("2026-10-25"), [0, 0, 0, false])
+        XCTAssertEqual(span("2026-11-08"), [0, 0, 14, false], "across the November clock change")
+        XCTAssertEqual(span("2028-01-01"), [1, 2, 7, false]); XCTAssertEqual(span("2026-10-01"), [0, 0, 24, true])
+        XCTAssertNil(Clockwork.dateSpan("soon", now: now, cal: cal))
+        XCTAssertEqual(Clockwork.spanText(Clockwork.dateSpan("2026-10-25", now: now, cal: cal)!), "Today")
+        XCTAssertEqual(Clockwork.spanText(Clockwork.dateSpan("2026-12-24", now: now, cal: cal)!), "1 month, 29 days")
+        XCTAssertEqual(Clockwork.spanText(Clockwork.dateSpan("2026-10-24", now: now, cal: cal)!), "1 day ago")
+    }
+
     func testSunOverheadAndNightLine() {
         var utc = Calendar(identifier: .gregorian); utc.timeZone = TimeZone(identifier: "UTC")!
         let june = Clockwork.subsolar(utc.date(from: DateComponents(year: 2026, month: 6, day: 21, hour: 12))!)

@@ -16,6 +16,7 @@ import XCTest
         // The city sheet, with a name of your own, for QA rather than the store.
         store.zones[0].nick = "Mum"
         try await render(CityDetail(city: store.zones[0]).environment(store).tint(.horula), 480, 520, "\(out)/horula-mac-city.png")
+        try await render(List { CountdownSection() }.environment(store).tint(.horula), 520, 320, "\(out)/horula-mac-countdowns.png")
     }
 
     private func render(_ view: some View, _ width: CGFloat, _ height: CGFloat, _ path: String) async throws {

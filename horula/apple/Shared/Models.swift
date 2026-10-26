@@ -53,6 +53,12 @@ struct TimerItem: Codable, Hashable, Identifiable {
     func remaining(_ now: Date = .now) -> TimeInterval { end.map { $0.timeIntervalSince(now) } ?? left }
 }
 
+/// A countdown to a day ("Vacation"), stored as the web stores it: a yyyy-MM-dd date and a label.
+struct Countdown: Codable, Hashable {
+    var label = ""
+    var date: String
+}
+
 struct Recent: Codable, Hashable {
     var dur: TimeInterval
     var label = ""

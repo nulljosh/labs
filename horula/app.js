@@ -63,7 +63,7 @@ $('settingsOpen').onclick = () => $('settingsSheet').showModal();
 // Backup: export everything to one file, import it on another device.
 $('exportBtn').onclick = () => {
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([makeBackup({ alarms, sleep, zones, recents })], { type: 'application/json' }));
+  a.href = URL.createObjectURL(new Blob([makeBackup({ alarms, sleep, zones, recents, presets, countdowns })], { type: 'application/json' }));
   a.download = `horula-backup-${new Date().toISOString().slice(0, 10)}.json`; a.click(); URL.revokeObjectURL(a.href);
   toast(tr('Backup saved'));
 };

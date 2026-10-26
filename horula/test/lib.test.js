@@ -221,3 +221,18 @@ test('city names: one file per language, every key a city the search knows', () 
   }
   assert.equal(ctx.CITY_TEXT.ja.Tokyo, '東京'); assert.equal(ctx.CITY_TEXT.hi.Mumbai, 'मुम्बई');
 });
+
+test('countdowns to a date', () => {
+  const now = new Date(2026, 9, 25, 23, 30), span = (d) => { const s = L.dateSpan(d, now); return [s.years, s.months, s.days, s.past]; };
+  assert.deepEqual(span('2026-12-24'), [0, 1, 29, false]);
+  assert.deepEqual(span('2026-10-25'), [0, 0, 0, false]);
+  assert.deepEqual(span('2026-11-08'), [0, 0, 14, false]);   // across the November clock change
+  assert.deepEqual(span('2028-01-01'), [1, 2, 7, false]);
+  assert.deepEqual(span('2026-10-01'), [0, 0, 24, true]);
+  assert.deepEqual(L.dateSpan('2027-03-01', new Date(2027, 0, 31)), { years: 0, months: 1, days: 1, past: false });   // Jan 31 plus a month is Feb 28
+  assert.equal(L.spanText(L.dateSpan('2026-12-24', now)), '1 month, 29 days');
+  assert.equal(L.spanText(L.dateSpan('2026-10-25', now)), 'Today');
+  assert.equal(L.spanText(L.dateSpan('2026-10-24', now)), '1 day ago');
+  const back = L.parseBackup(JSON.stringify({ app: 'clock', v: 1, countdowns: [{ label: 'Trip', date: '2026-12-24' }, { date: 'soon' }] }));
+  assert.deepEqual(back.countdowns, [{ label: 'Trip', date: '2026-12-24' }]);
+});

@@ -15,6 +15,7 @@ final class Store {
     var timers: [TimerItem] { didSet { save("timers", timers) } }
     var recents: [Recent] { didSet { save("recents", recents) } }
     var presets: [Recent] { didSet { save("presets", presets) } }
+    var countdowns: [Countdown] { didSet { save("countdowns", countdowns) } }
     var stopwatch: StopwatchState { didSet { save("sw", stopwatch) } }
 
     /// `-demo` on the command line: seeded, believable data in a throwaway suite, for screenshots. Never touches real data.
@@ -32,6 +33,7 @@ final class Store {
         timers = load("timers", [])
         recents = load("recents", [])
         presets = load("presets", [])
+        countdowns = load("countdowns", [])
         stopwatch = load("sw", StopwatchState())
     }
 
@@ -47,6 +49,8 @@ final class Store {
         put("timers", [TimerItem(dur: 300, label: "Tea", end: .now.addingTimeInterval(187), left: 300), TimerItem(dur: 1500, label: "Focus", end: .now.addingTimeInterval(1302), left: 1500)])
         put("recents", [Recent(dur: 300, label: "Tea"), Recent(dur: 40, label: "Sprints", rest: 20, rounds: 8), Recent(dur: 540, label: "Pasta")])
         put("presets", [Recent(dur: 240, label: "Green tea"), Recent(dur: 1500, label: "Focus")])
+        let ymd = DateFormatter(); ymd.locale = Locale(identifier: "en_US_POSIX"); ymd.dateFormat = "yyyy-MM-dd"
+        put("countdowns", [Countdown(label: "Vacation", date: ymd.string(from: .now.addingTimeInterval(60 * 86400)))])
         return d
     }
 
@@ -91,9 +95,9 @@ final class Store {
 
     func backup() -> Data {
         struct R: Encodable { let dur: Double; let label: String }   // the web keeps durations in milliseconds
-        struct B: Encodable { let app = "clock", v = 1; let saved: String; let alarms: [AlarmItem]; let sleep: SleepPlan; let zones: [City]; let recents: [R]; let presets: [R] }
+        struct B: Encodable { let app = "clock", v = 1; let saved: String; let alarms: [AlarmItem]; let sleep: SleepPlan; let zones: [City]; let recents: [R]; let presets: [R]; let countdowns: [Countdown] }
         let b = B(saved: ISO8601DateFormatter().string(from: .now), alarms: alarms, sleep: sleep, zones: zones, recents: recents.map { R(dur: $0.dur * 1000, label: $0.label) },
-                  presets: presets.map { R(dur: $0.dur * 1000, label: $0.label) })
+                  presets: presets.map { R(dur: $0.dur * 1000, label: $0.label) }, countdowns: countdowns)
         let e = JSONEncoder.clock; e.outputFormatting = [.prettyPrinted, .sortedKeys]
         return (try? e.encode(b)) ?? Data()
     }
@@ -104,6 +108,7 @@ final class Store {
         if let z = b.zones { zones = z }
         if let r = b.recents { recents = r }
         if let p = b.presets { presets = p }
+        if let c = b.countdowns { countdowns = c }
         if let s = b.sleep { sleep = s }
         return (b.alarms?.count ?? 0, b.zones?.count ?? 0)
     }
@@ -114,7 +119,7 @@ extension JSONDecoder { static var clock: JSONDecoder { let d = JSONDecoder(); d
 
 /// Backup import. The file comes from outside, so every field is checked, like parseBackup in lib.js.
 enum Backup {
-    struct Parsed { var alarms: [AlarmItem]?; var zones: [City]?; var recents: [Recent]?; var presets: [Recent]?; var sleep: SleepPlan? }
+    struct Parsed { var alarms: [AlarmItem]?; var zones: [City]?; var recents: [Recent]?; var presets: [Recent]?; var countdowns: [Countdown]?; var sleep: SleepPlan? }
     enum Failure: LocalizedError {
         case notBackup, empty
         var errorDescription: String? { self == .notBackup ? "That file is not a Horula backup" : "That backup is empty" }
@@ -153,12 +158,16 @@ enum Backup {
         }
         out.recents = timerList(d["recents"], 6)
         out.presets = timerList(d["presets"], 20)
+        out.countdowns = (d["countdowns"] as? [[String: Any]]).map { list in list.compactMap { c in
+            guard let date = c["date"] as? String, date.wholeMatch(of: /\d{4}-\d{2}-\d{2}/) != nil else { return nil }
+            return Countdown(label: str(c["label"], 40), date: date)
+        }.prefix(50).map { $0 } }
         if let s = d["sleep"] as? [String: Any], let bed = s["bed"] as? String, let wake = s["wake"] as? String,
            bed.wholeMatch(of: hm) != nil, wake.wholeMatch(of: hm) != nil {
             let wind = s["wind"] as? Int ?? 30
             out.sleep = SleepPlan(on: s["on"] as? Bool ?? false, bed: bed, wake: wake, days: days(s["days"]), wind: [0, 15, 30, 45, 60].contains(wind) ? wind : 30, snooze: s["snooze"] as? Bool != false)
         }
-        if out.alarms == nil && out.zones == nil && out.recents == nil && out.presets == nil && out.sleep == nil { throw Failure.empty }
+        if out.alarms == nil && out.zones == nil && out.recents == nil && out.presets == nil && out.countdowns == nil && out.sleep == nil { throw Failure.empty }
         return out
     }
 }
