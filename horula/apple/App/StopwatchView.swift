@@ -70,10 +70,10 @@ struct StopwatchView: View {
         if s.start != nil { s.laps.append(s.elapsed()) } else { s = StopwatchState() }
         store.stopwatch = s
     }
-    private func row(_ name: String, _ t: TimeInterval, _ c: Color) -> some View {
+    private func row(_ name: LocalizedStringKey, _ t: TimeInterval, _ c: Color) -> some View {
         HStack { Text(name); Spacer(); Text(Clockwork.stopwatchText(t)).monospacedDigit() }.foregroundStyle(c)
     }
-    private func round(_ title: String, _ c: Color, disabled: Bool = false, action: @escaping () -> Void) -> some View {
+    private func round(_ title: LocalizedStringKey, _ c: Color, disabled: Bool = false, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Text(title).font(.title3).frame(width: 84, height: 84)
                 .background(c.opacity(0.2), in: Circle()).foregroundStyle(c == .secondary ? .primary : c)

@@ -22,6 +22,7 @@ iOS Clock on the web: world clocks, alarms, sleep, stopwatch, timers, nightstand
 - SwiftUI, one codebase for iPhone and Mac (`xcodegen generate` in `apple/`; the `.xcodeproj` and `build/` are not committed). App Store record 6826916379, bundle `com.nulljosh.clock` on both platforms (universal purchase), app group `group.com.nulljosh.clock`.
 - `Shared/Clockwork.swift` is `lib.js` ported line for line; `Tests/ClockworkTests.swift` runs the same cases as `test/lib.test.js`. Change one, change both.
 - Alarms: AlarmKit on iPhone (iOS 26.1+, rings closed and on silent); Mac and Watch have no AlarmKit and use notifications. `AlarmScheduler.sync` cancels and reschedules everything from the Store.
+- Native text comes from `Shared/Localizable.xcstrings`, generated from the web's `lang/*.js` plus a short native-only table by `node scripts/gen_xcstrings.mjs`. Rerun it after any lang change; a node test checks every string has all eleven languages. Pass `LocalizedStringKey` or `String(localized:)`, never a plain `String`, to anything the reader sees.
 - Backups use the web format (`app: 'clock'`, recents in milliseconds), so web and native import each other.
 - `apple/` is in `.assetsignore`: never let native source deploy. Curl one native path after a deploy and expect 404.
 - Native gates, not the web ones: Swift tests pass, generic builds pass for every platform, `asc validate`, then the first `asc review submit` (the real gate). Tag `horula-native-vN.0.0`.

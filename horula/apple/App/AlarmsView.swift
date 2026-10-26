@@ -70,7 +70,7 @@ struct AlarmsView: View {
         var s = a.label.isEmpty ? "Alarm" : a.label
         if !a.days.isEmpty { s += ", " + Clockwork.repeatText(a.days) }
         if a.on, let skip = a.skip, let real = Clockwork.fireTime(a.time, days: a.days, after: .now), Clockwork.dayKey(real) == skip {
-            s += " · Skipping " + Clockwork.dayShort[Calendar.current.component(.weekday, from: real) - 1]
+            s += " · " + String(localized: "Skipping \(String(localized: String.LocalizationValue(Clockwork.dayShort[Calendar.current.component(.weekday, from: real) - 1])))")
         }
         return s
     }

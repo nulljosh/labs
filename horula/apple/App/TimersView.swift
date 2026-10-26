@@ -70,7 +70,7 @@ struct TimersView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(Clockwork.timerText(r.dur)).font(.system(size: 28, weight: .light))
-                Text((r.label.isEmpty ? Clockwork.durationText(r.dur) : r.label) + (r.rounds.map { " · \($0) rounds" } ?? "")).font(.subheadline).foregroundStyle(.secondary)
+                Text((r.label.isEmpty ? Clockwork.durationText(r.dur) : r.label) + (r.rounds.map { " · " + String(localized: "\($0) rounds") } ?? "")).font(.subheadline).foregroundStyle(.secondary)
             }
             Spacer()
             extra()
@@ -79,7 +79,7 @@ struct TimersView: View {
     }
 
     private func wheel(_ v: Binding<Int>, _ r: Range<Int>, _ unit: String) -> some View {
-        Picker(unit, selection: v) { ForEach(r, id: \.self) { Text("\($0) \(unit)").tag($0) } }
+        Picker(LocalizedStringKey(unit), selection: v) { ForEach(r, id: \.self) { Text(verbatim: "\($0) \(String(localized: String.LocalizationValue(unit)))").tag($0) } }
             .labelsHidden()   // the unit is in every item; a label beside it said it twice on the Mac
             #if os(iOS)
             .pickerStyle(.wheel)
@@ -102,7 +102,7 @@ struct TimerRow: View {
             .frame(width: 48, height: 48)
             VStack(alignment: .leading) {
                 Text(Clockwork.timerText(left)).font(.system(size: 28, weight: .light)).monospacedDigit()
-                Text([timer.rounds.map { "\(timer.phase == "rest" ? "Rest" : "Work") \(timer.round ?? 1) of \($0)" }, timer.label.isEmpty ? nil : timer.label, timer.end.map { "Ends " + $0.formatted(date: .omitted, time: .shortened) } ?? "Paused"]
+                Text([timer.rounds.map { (timer.phase == "rest" ? String(localized: "Rest") : String(localized: "Work")) + " " + String(localized: "\(timer.round ?? 1) of \($0)") }, timer.label.isEmpty ? nil : timer.label, timer.end.map { String(localized: "Ends \($0.formatted(date: .omitted, time: .shortened))") } ?? String(localized: "Paused")]
                     .compactMap { $0 }.joined(separator: " · ")).font(.subheadline).foregroundStyle(.secondary)
             }
             Spacer()

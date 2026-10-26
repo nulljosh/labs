@@ -59,7 +59,6 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] UI text in English, French, Spanish, German, Japanese, Chinese, Portuguese, Korean, Italian, Dutch, Arabic, Hindi.
 - [x] Right to left layout for Arabic.
 - [ ] City search works in the local language (needs a translated city list; the web UI is translated, city names are still English).
-- [ ] Native app in the same 12 languages with a String Catalog.
 
 ## v11: a clock for other pages
 - [x] `embed.html?city=Tokyo` gives a small live clock any site can drop in.
@@ -85,7 +84,8 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] Two more sounds, drawn in Web Audio like the others.
 
 ## v16: native in every language
-- [ ] The iPhone and Mac app in the same twelve languages, from a String Catalog.
+- [x] The iPhone and Mac app in the same twelve languages, from a String Catalog.
+- [ ] App Store listing text in the same languages (docs/store/<locale>).
 
 ## v17: tell people
 - [ ] Launch kit in launch/horula/: Product Hunt, Show HN and X posts, with the embed as the hook.

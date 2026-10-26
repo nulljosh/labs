@@ -14,11 +14,11 @@ enum Clockwork {
     static func repeatText(_ days: [Int]) -> String {
         let d = Set(days).sorted()
         switch d {
-        case []: return "Never"
-        case [0, 1, 2, 3, 4, 5, 6]: return "Every day"
-        case [1, 2, 3, 4, 5]: return "Weekdays"
-        case [0, 6]: return "Weekends"
-        default: return d.map { dayShort[$0] }.joined(separator: " ")
+        case []: return String(localized: "Never")
+        case [0, 1, 2, 3, 4, 5, 6]: return String(localized: "Every day")
+        case [1, 2, 3, 4, 5]: return String(localized: "Weekdays")
+        case [0, 6]: return String(localized: "Weekends")
+        default: return d.map { String(localized: String.LocalizationValue(dayShort[$0])) }.joined(separator: " ")
         }
     }
 
@@ -55,9 +55,9 @@ enum Clockwork {
     /// "Tomorrow Morning", "Today", "Friday Morning", like the iOS sleep row.
     static func dayWord(_ at: Date, from now: Date, cal: Calendar = .current) -> String {
         let d = cal.dateComponents([.day], from: cal.startOfDay(for: now), to: cal.startOfDay(for: at)).day ?? 0
-        let f = DateFormatter(); f.calendar = cal; f.timeZone = cal.timeZone; f.locale = Locale(identifier: "en_US"); f.dateFormat = "EEEE"
-        let word = d == 0 ? "Today" : d == 1 ? "Tomorrow" : f.string(from: at)
-        return cal.component(.hour, from: at) < 12 ? "\(word) Morning" : word
+        let f = DateFormatter(); f.calendar = cal; f.timeZone = cal.timeZone; f.locale = Locale(identifier: Bundle.main.preferredLocalizations.first ?? "en"); f.dateFormat = "EEEE"
+        let word = d == 0 ? String(localized: "Today") : d == 1 ? String(localized: "Tomorrow") : f.string(from: at)
+        return cal.component(.hour, from: at) < 12 ? String(localized: "\(word) Morning") : word
     }
 
     // MARK: sun
@@ -102,10 +102,10 @@ enum Clockwork {
         let ha = a.dateComponents([.year, .month, .day], from: now), hb = b.dateComponents([.year, .month, .day], from: now)
         let same = ha == hb
         let ahead = (hb.year!, hb.month!, hb.day!) > (ha.year!, ha.month!, ha.day!)
-        let day = same ? "Today" : ahead ? "Tomorrow" : "Yesterday"
-        if diff == 0 { return "\(day), same time" }
+        let day = same ? String(localized: "Today") : ahead ? String(localized: "Tomorrow") : String(localized: "Yesterday")
+        if diff == 0 { return "\(day), \(String(localized: "same time"))" }
         let n = diff == diff.rounded() ? String(Int(diff)) : String(diff)
-        return "\(day), \(diff > 0 ? "+" : "")\(n) HRS"
+        return "\(day), \(diff > 0 ? "+" : "")\(n) \(String(localized: "HRS"))"
     }
 
     // MARK: formats

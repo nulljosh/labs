@@ -194,3 +194,14 @@ test('sun overhead and the night line', () => {
   assert.ok(L.nightPath(new Date(Date.UTC(2026, 5, 21, 12))).startsWith('M0 180L'), 'June: night holds the south pole');
   assert.ok(L.nightPath(new Date(Date.UTC(2026, 11, 21, 12))).startsWith('M0 0L'), 'December: night holds the north pole');
 });
+
+test('the native String Catalog has every string in every language, same blanks as the key', () => {
+  const cat = JSON.parse(fs.readFileSync(path.join(root, 'apple/Shared/Localizable.xcstrings'), 'utf8'));
+  const blanks = (s) => (s.match(/%(\d\$)?(lld|@)/g) || []).map(x => x.replace(/\d\$/, '')).sort().join();
+  const codes = ['ar', 'de', 'es', 'fr', 'hi', 'it', 'ja', 'ko', 'nl', 'pt-BR', 'zh-Hans'];
+  for (const [k, v] of Object.entries(cat.strings)) {
+    assert.deepEqual(Object.keys(v.localizations).sort(), codes, k);
+    for (const [l, x] of Object.entries(v.localizations)) { assert.ok(x.stringUnit.value, `${k} in ${l}`); assert.equal(blanks(x.stringUnit.value), blanks(k), `${k} in ${l}`); }
+  }
+  for (const k of ['World Clock', 'Next alarm %@', 'Lap %lld', '%lld hr %lld min of sleep', 'Sun Dial']) assert.ok(cat.strings[k], k);
+});

@@ -298,7 +298,7 @@ struct Nightstand: View {
                 VStack {
                     Spacer()
                     HStack(spacing: 16) {
-                        Picker("Face", selection: $face) { Text("Digits").tag("digits"); Text("Analog").tag("analog"); Text("Sun").tag("sun") }
+                        Picker("Face", selection: $face) { Text("Digits").tag("digits"); Text("Analog").tag("analog"); Text("Sun Dial").tag("sun") }
                             .pickerStyle(.segmented).frame(maxWidth: 260)
                         Slider(value: $dim, in: 0.15...1).frame(maxWidth: 160).accessibilityLabel("Brightness")
                     }
