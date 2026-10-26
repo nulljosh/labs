@@ -69,6 +69,39 @@ $('tmPreset').onclick = (e) => {
   if (preset != null) { const r = presets[+preset]; startTimer(r.dur, r.label, r.sound, r.iv); }
   else if (unpin != null) { presets.splice(+unpin, 1); saveTimers(); drawTimers(); }
 };
+// Routines, like Timer+: named steps (Warm up 5 min, Run 20 min, Cool down 5 min) that run back to back.
+// A step is the wheel's time and the Label field, so building one uses the controls already on screen.
+let routines = store.get('routines', []), draft = [];
+const fmtSteps = (steps) => `${tr('{0} steps', steps.length)} · ${fmtDur(steps.reduce((n, s) => n + s.dur, 0))}`;
+function drawRoutines() {
+  $('rtList').hidden = !routines.length;
+  $('rtList').innerHTML = routines.map((r, i) => { const name = esc(r.name || tr('Routine'));
+    return `<div class="row"><div class="grow"><div class="label">${name}</div><div class="meta">${fmtSteps(r.steps)} · ${esc(r.steps.map(s => s.label || fmtDur(s.dur)).join(', '))}</div></div>
+      <button class="icon" data-rtrm="${i}" aria-label="${tr('Remove')} ${name}">${tr('Remove')}</button><button class="icon go" data-rtgo="${i}" aria-label="${tr('Start')} ${name}">${tr('Start')}</button></div>`; }).join('');
+  $('rtSteps').innerHTML = draft.map((s, i) => `<div class="row"><div class="grow label">${i + 1}. ${esc(s.label || tr('Timer'))}</div><div class="meta">${fmtDur(s.dur)}</div>
+    <button class="icon danger" data-stepdel="${i}" aria-label="${tr('Remove')} ${i + 1}">${tr('Remove')}</button></div>`).join('');
+}
+function startRoutine(r) {
+  const s = r.steps[0];
+  timers.push({ id: Date.now() + Math.random(), dur: s.dur, label: r.name, sound: $('tmSound').value, end: Date.now() + s.dur, left: s.dur, steps: r.steps, step: 0 });
+  saveTimers(); drawTimers(); askNotify(); say(stepText(timers.at(-1)));
+}
+$('rtAdd').onclick = () => {
+  const dur = (+$('tmH').value * 3600 + +$('tmM').value * 60 + +$('tmS').value) * 1000; if (!dur) return toast(tr('Pick a duration'));
+  draft = [...draft, { dur, label: $('tmLabel').value.trim() }].slice(0, 30); $('tmLabel').value = ''; drawRoutines();
+};
+$('rtSave').onclick = () => {
+  if (!draft.length) return $('rtAdd').focus();
+  routines = [...routines, { name: $('rtName').value.trim(), steps: draft }].slice(0, 20); draft = []; $('rtName').value = '';
+  store.set('routines', routines); drawRoutines();
+};
+$('rtSteps').onclick = (e) => { const i = e.target.dataset.stepdel; if (i != null) { draft.splice(+i, 1); drawRoutines(); } };
+$('rtList').onclick = (e) => {
+  const { rtgo, rtrm } = e.target.dataset;
+  if (rtgo != null) startRoutine(routines[+rtgo]);
+  else if (rtrm != null) { routines.splice(+rtrm, 1); store.set('routines', routines); drawRoutines(); }
+};
+drawRoutines();
 // Countdowns to a date ("Vacation, 1 month, 29 days"), like Timer+. Counted in days, so they redraw when the day turns.
 let countdowns = store.get('countdowns', []), cdDay = '';
 const cdFmt = new Intl.DateTimeFormat(LOCALE, { dateStyle: 'medium' });
@@ -91,6 +124,12 @@ function tickTimers() {
   for (const t of [...timers]) {
     const left = timerLeft(t), row = $('tmActive').querySelector(`[data-id="${t.id}"]`);
     // Interval rounds roll on with a short sound, a different one for rest; only the last round rings.
+    const step = t.end && left <= 0 && t.steps && nextStep(t);
+    if (step) {
+      Object.assign(t, step, { end: Date.now() + step.dur, left: step.dur });
+      play(t.sound === 'Chimes' ? 'Gentle' : 'Chimes'); say(stepText(t)); notify(t.label || tr('Routine'), stepText(t));
+      saveTimers(); drawTimers(); return;
+    }
     const next = t.end && left <= 0 && t.rounds && nextPhase(t);
     if (next) {
       Object.assign(t, next, { end: Date.now() + next.dur, left: next.dur });
@@ -102,12 +141,12 @@ function tickTimers() {
     if (t.end && left <= 0 && $('ringing').hidden) {
       timers = timers.filter(x => x !== t); saveTimers(); drawTimers();
       const iv = t.rounds && { rest: t.rest, rounds: t.rounds };
-      ring({ when: '00:00', what: t.label || tr('Timer'), sound: t.sound, repeat: () => startTimer(t.work || t.dur, t.label, t.sound, iv) });
+      ring({ when: '00:00', what: t.label || tr('Timer'), sound: t.sound, repeat: t.steps ? () => startRoutine({ name: t.label, steps: t.steps }) : () => startTimer(t.work || t.dur, t.label, t.sound, iv) });
       return;
     }
     if (!row) continue;
     row.querySelector('[data-left]').textContent = fmtTm(left);
-    row.querySelector('[data-meta]').textContent = `${t.rounds ? `${tr(t.phase === 'rest' ? 'Rest' : 'Work')} ${tr('{0} of {1}', t.round, t.rounds)} · ` : ''}${t.label ? t.label + ' · ' : ''}${t.end ? tr('Ends {0}', hm.format(new Date(t.end))) : tr('Paused')}`;
+    row.querySelector('[data-meta]').textContent = `${t.steps ? `${esc(stepText(t))} · ` : ''}${t.rounds ? `${tr(t.phase === 'rest' ? 'Rest' : 'Work')} ${tr('{0} of {1}', t.round, t.rounds)} · ` : ''}${t.label ? t.label + ' · ' : ''}${t.end ? tr('Ends {0}', hm.format(new Date(t.end))) : tr('Paused')}`;
     row.querySelector('.bar').setAttribute('stroke-dashoffset', C * (1 - Math.max(0, left) / t.dur));
   }
 }

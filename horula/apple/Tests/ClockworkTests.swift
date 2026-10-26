@@ -164,4 +164,16 @@ final class ClockworkTests: XCTestCase {
         XCTAssertTrue(store.pendingChecks(at: rang).isEmpty)
         UserDefaults().removePersistentDomain(forName: "check-test")
     }
+
+    func testRoutineRunsStepsInOrder() {
+        let store = Store(defaults: UserDefaults(suiteName: "horula-test-\(UUID())")!)
+        store.timers = []
+        store.startRoutine(Routine(name: "Run", steps: [Recent(dur: 300, label: "Warm up"), Recent(dur: 60)]))
+        let id = store.timers[0].id
+        XCTAssertEqual(Clockwork.stepText(store.timers[0].steps!, 0), "Warm up, 1 of 2")
+        XCTAssertTrue(store.advance(id))
+        XCTAssertEqual(store.timers[0].dur, 60)
+        XCTAssertEqual(Clockwork.stepText(store.timers[0].steps!, 1), "Routine, 2 of 2")
+        XCTAssertFalse(store.advance(id), "nothing after the last step")
+    }
 }

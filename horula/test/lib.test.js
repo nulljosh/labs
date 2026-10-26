@@ -146,6 +146,16 @@ test('interval timer phases', () => {
   assert.equal(L.cueText({ phase: 'work', round: 2 }, 3), 'Work, 2 of 3');
 });
 
+test('routine steps', () => {
+  const t = { steps: [{ label: 'Warm up', dur: 300000 }, { label: '', dur: 60000 }], step: 0 };
+  assert.deepEqual(L.nextStep(t), { step: 1, dur: 60000 });
+  assert.equal(L.nextStep({ ...t, step: 1 }), null, 'nothing after the last step');
+  assert.equal(L.stepText(t), 'Warm up, 1 of 2');
+  assert.equal(L.stepText({ ...t, step: 1 }), 'Routine, 2 of 2');
+  const b = L.parseBackup(JSON.stringify({ app: 'clock', v: 1, routines: [{ name: 'Run', steps: [{ label: 'Go', dur: 60000 }, { dur: 5 }] }, { name: 'Empty', steps: [] }] }));
+  assert.deepEqual(b.routines, [{ name: 'Run', steps: [{ dur: 60000, label: 'Go' }] }]);
+});
+
 test('backup keeps the wake up check', () => {
   const b = L.parseBackup(JSON.stringify({ app: 'clock', v: 1, alarms: [{ time: '07:00', check: true }, { time: '08:00', check: 'yes' }] }));
   assert.equal(b.alarms[0].check, true); assert.equal(b.alarms[1].check, undefined);

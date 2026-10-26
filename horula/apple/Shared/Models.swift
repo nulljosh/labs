@@ -52,6 +52,9 @@ struct TimerItem: Codable, Hashable, Identifiable {
     var rounds: Int? = nil
     var round: Int? = nil       // optional so timers saved before intervals still decode
     var phase: String? = nil
+    // Routines only: every step, and which one is running.
+    var steps: [Recent]? = nil
+    var step: Int? = nil
     func remaining(_ now: Date = .now) -> TimeInterval { end.map { $0.timeIntervalSince(now) } ?? left }
 }
 
@@ -59,6 +62,12 @@ struct TimerItem: Codable, Hashable, Identifiable {
 struct Countdown: Codable, Hashable {
     var label = ""
     var date: String
+}
+
+/// A routine, like Timer+: named steps run back to back. A step is a length and a label.
+struct Routine: Codable, Hashable {
+    var name = ""
+    var steps: [Recent]
 }
 
 struct Recent: Codable, Hashable {

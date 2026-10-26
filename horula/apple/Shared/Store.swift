@@ -16,6 +16,7 @@ final class Store {
     var recents: [Recent] { didSet { save("recents", recents) } }
     var presets: [Recent] { didSet { save("presets", presets) } }
     var countdowns: [Countdown] { didSet { save("countdowns", countdowns) } }
+    var routines: [Routine] { didSet { save("routines", routines) } }
     var stopwatch: StopwatchState { didSet { save("sw", stopwatch) } }
     var awake: Date? { didSet { save("awake", awake) } }   // when you last tapped I'm Up
 
@@ -35,6 +36,7 @@ final class Store {
         recents = load("recents", [])
         presets = load("presets", [])
         countdowns = load("countdowns", [])
+        routines = load("routines", [])
         stopwatch = load("sw", StopwatchState())
         awake = load("awake", nil)
     }
@@ -53,6 +55,7 @@ final class Store {
         put("presets", [Recent(dur: 240, label: "Green tea"), Recent(dur: 1500, label: "Focus")])
         let ymd = DateFormatter(); ymd.locale = Locale(identifier: "en_US_POSIX"); ymd.dateFormat = "yyyy-MM-dd"
         put("countdowns", [Countdown(label: "Vacation", date: ymd.string(from: .now.addingTimeInterval(60 * 86400)))])
+        put("routines", [Routine(name: "Morning run", steps: [Recent(dur: 300, label: "Warm up"), Recent(dur: 1200, label: "Run"), Recent(dur: 300, label: "Cool down")])])
         return d
     }
 
@@ -82,10 +85,24 @@ final class Store {
         if timers[i].end != nil { timers[i].end! += 60 } else { timers[i].left += 60 }
         timers[i].dur += 60
     }
+    func startRoutine(_ r: Routine) {
+        guard let s = r.steps.first else { return }
+        var t = TimerItem(dur: s.dur, label: r.name, end: .now.addingTimeInterval(s.dur), left: s.dur)
+        t.steps = r.steps; t.step = 0
+        timers.append(t)
+    }
+
     func start(_ r: Recent) { startTimer(r.dur, label: r.label, rest: r.rest, rounds: r.rounds) }
 
     /// An interval timer whose phase just ended rolls into the next one. False when it was the last round, or not an interval.
     func advance(_ id: UUID) -> Bool {
+        if let i = timers.firstIndex(where: { $0.id == id }), let steps = timers[i].steps {
+            let n = (timers[i].step ?? 0) + 1
+            guard n < steps.count else { return false }
+            var t = timers[i]; t.step = n; t.dur = steps[n].dur; t.left = steps[n].dur; t.end = .now.addingTimeInterval(steps[n].dur)
+            timers[i] = t
+            return true
+        }
         guard let i = timers.firstIndex(where: { $0.id == id }), let rounds = timers[i].rounds, let work = timers[i].work,
               let next = Clockwork.nextPhase(phase: timers[i].phase ?? "work", round: timers[i].round ?? 1, rounds: rounds, work: work, rest: timers[i].rest ?? 0) else { return false }
         var t = timers[i]; t.phase = next.phase; t.round = next.round; t.dur = next.dur; t.left = next.dur; t.end = .now.addingTimeInterval(next.dur)
@@ -104,9 +121,11 @@ final class Store {
 
     func backup() -> Data {
         struct R: Encodable { let dur: Double; let label: String }   // the web keeps durations in milliseconds
-        struct B: Encodable { let app = "clock", v = 1; let saved: String; let alarms: [AlarmItem]; let sleep: SleepPlan; let zones: [City]; let recents: [R]; let presets: [R]; let countdowns: [Countdown] }
+        struct B: Encodable { let app = "clock", v = 1; let saved: String; let alarms: [AlarmItem]; let sleep: SleepPlan; let zones: [City]; let recents: [R]; let presets: [R]; let countdowns: [Countdown]; let routines: [RR] }
+        struct RR: Encodable { let name: String; let steps: [R] }
         let b = B(saved: ISO8601DateFormatter().string(from: .now), alarms: alarms, sleep: sleep, zones: zones, recents: recents.map { R(dur: $0.dur * 1000, label: $0.label) },
-                  presets: presets.map { R(dur: $0.dur * 1000, label: $0.label) }, countdowns: countdowns)
+                  presets: presets.map { R(dur: $0.dur * 1000, label: $0.label) }, countdowns: countdowns,
+                  routines: routines.map { RR(name: $0.name, steps: $0.steps.map { R(dur: $0.dur * 1000, label: $0.label) }) })
         let e = JSONEncoder.clock; e.outputFormatting = [.prettyPrinted, .sortedKeys]
         return (try? e.encode(b)) ?? Data()
     }
@@ -118,6 +137,7 @@ final class Store {
         if let r = b.recents { recents = r }
         if let p = b.presets { presets = p }
         if let c = b.countdowns { countdowns = c }
+        if let r = b.routines { routines = r }
         if let s = b.sleep { sleep = s }
         return (b.alarms?.count ?? 0, b.zones?.count ?? 0)
     }
@@ -128,7 +148,7 @@ extension JSONDecoder { static var clock: JSONDecoder { let d = JSONDecoder(); d
 
 /// Backup import. The file comes from outside, so every field is checked, like parseBackup in lib.js.
 enum Backup {
-    struct Parsed { var alarms: [AlarmItem]?; var zones: [City]?; var recents: [Recent]?; var presets: [Recent]?; var countdowns: [Countdown]?; var sleep: SleepPlan? }
+    struct Parsed { var alarms: [AlarmItem]?; var zones: [City]?; var recents: [Recent]?; var presets: [Recent]?; var countdowns: [Countdown]?; var routines: [Routine]?; var sleep: SleepPlan? }
     enum Failure: LocalizedError {
         case notBackup, empty
         var errorDescription: String? { self == .notBackup ? "That file is not a Horula backup" : "That backup is empty" }
@@ -168,6 +188,10 @@ enum Backup {
         }
         out.recents = timerList(d["recents"], 6)
         out.presets = timerList(d["presets"], 20)
+        out.routines = (d["routines"] as? [[String: Any]]).map { list in list.compactMap { r in
+            let steps = timerList(r["steps"], 30) ?? []
+            return steps.isEmpty ? nil : Routine(name: str(r["name"], 40), steps: steps)
+        }.prefix(20).map { $0 } }
         out.countdowns = (d["countdowns"] as? [[String: Any]]).map { list in list.compactMap { c in
             guard let date = c["date"] as? String, date.wholeMatch(of: /\d{4}-\d{2}-\d{2}/) != nil else { return nil }
             return Countdown(label: str(c["label"], 40), date: date)
@@ -177,7 +201,7 @@ enum Backup {
             let wind = s["wind"] as? Int ?? 30
             out.sleep = SleepPlan(on: s["on"] as? Bool ?? false, bed: bed, wake: wake, days: days(s["days"]), wind: [0, 15, 30, 45, 60].contains(wind) ? wind : 30, snooze: s["snooze"] as? Bool != false)
         }
-        if out.alarms == nil && out.zones == nil && out.recents == nil && out.presets == nil && out.countdowns == nil && out.sleep == nil { throw Failure.empty }
+        if out.alarms == nil && out.zones == nil && out.recents == nil && out.presets == nil && out.countdowns == nil && out.routines == nil && out.sleep == nil { throw Failure.empty }
         return out
     }
 }

@@ -204,6 +204,11 @@ enum Clockwork {
     /// Wake Up Check: how long after an alarm it rings again unless you confirm you are up.
     static let checkGap: TimeInterval = 180
 
+    /// A routine's running step: "Warm up, 1 of 3".
+    static func stepText(_ steps: [Recent], _ i: Int) -> String {
+        (steps[i].label.isEmpty ? String(localized: "Routine") : steps[i].label) + ", " + String(localized: "\(i + 1) of \(steps.count)")
+    }
+
     /// What an interval timer says at a new phase, like Timer+: "Rest. Up next: Work" or "Work, 2 of 8".
     static func cueText(phase: String, round: Int, rounds: Int) -> String {
         phase == "rest" ? String(localized: "Rest") + ". " + String(localized: "Up next: \(String(localized: "Work"))")

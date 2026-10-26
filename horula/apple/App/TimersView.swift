@@ -25,8 +25,8 @@ struct TimersView: View {
                     if intervals {
                         Picker("Rest", selection: $rest) { ForEach(Self.rests, id: \.self) { Text(Clockwork.durationText(TimeInterval($0))).tag($0) } }
                         Picker("Rounds", selection: $rounds) { ForEach(2...20, id: \.self) { Text("\($0)").tag($0) } }
-                        Toggle("Speak", isOn: $speak).toggleStyle(.switch)
                     }
+                    Toggle("Speak", isOn: $speak).toggleStyle(.switch)
                     HStack {
                         Spacer()
                         Button("Start") { store.startTimer(TimeInterval(h * 3600 + m * 60 + s), label: label, rest: intervals ? TimeInterval(rest) : nil, rounds: intervals ? rounds : nil) }
@@ -60,6 +60,7 @@ struct TimersView: View {
                         }
                     }
                 }
+                RoutineSection(dur: TimeInterval(h * 3600 + m * 60 + s), label: $label)
                 CountdownSection()
             }
             .readableColumn()
@@ -106,7 +107,7 @@ struct TimerRow: View {
             .frame(width: 48, height: 48)
             VStack(alignment: .leading) {
                 Text(Clockwork.timerText(left)).font(.system(size: 28, weight: .light)).monospacedDigit()
-                Text([timer.rounds.map { (timer.phase == "rest" ? String(localized: "Rest") : String(localized: "Work")) + " " + String(localized: "\(timer.round ?? 1) of \($0)") }, timer.label.isEmpty ? nil : timer.label, timer.end.map { String(localized: "Ends \($0.formatted(date: .omitted, time: .shortened))") } ?? String(localized: "Paused")]
+                Text([timer.steps.map { Clockwork.stepText($0, timer.step ?? 0) }, timer.rounds.map { (timer.phase == "rest" ? String(localized: "Rest") : String(localized: "Work")) + " " + String(localized: "\(timer.round ?? 1) of \($0)") }, timer.label.isEmpty ? nil : timer.label, timer.end.map { String(localized: "Ends \($0.formatted(date: .omitted, time: .shortened))") } ?? String(localized: "Paused")]
                     .compactMap { $0 }.joined(separator: " · ")).font(.subheadline).foregroundStyle(.secondary)
                 Button { store.addMinute(timer.id) } label: { Text(verbatim: "+1 " + String(localized: "min")) }
                     .buttonStyle(.bordered).buttonBorderShape(.capsule).controlSize(.small).accessibilityLabel("Add 1 minute")
@@ -118,7 +119,9 @@ struct TimerRow: View {
         .onChange(of: left <= 0) { _, done in
             guard done, timer.end != nil else { return }
             if !store.advance(timer.id) { store.timers.removeAll { $0.id == timer.id } }
-            else if speak, let t = store.timers.first(where: { $0.id == timer.id }) { Chime.say(Clockwork.cueText(phase: t.phase ?? "work", round: t.round ?? 1, rounds: t.rounds ?? 1)) }
+            else if speak, let t = store.timers.first(where: { $0.id == timer.id }) {
+                Chime.say(t.steps.map { Clockwork.stepText($0, t.step ?? 0) } ?? Clockwork.cueText(phase: t.phase ?? "work", round: t.round ?? 1, rounds: t.rounds ?? 1))
+            }
         }
     }
     private func pause() {

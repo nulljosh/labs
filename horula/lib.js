@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '21.8.0';
+const VERSION = '21.9.0';
 // UI text in the reader's language: i18n.js fills I18N in the browser; node tests see English.
 const tr = (s, ...a) => ((typeof I18N === 'object' && I18N[s]) || s).replace(/\{(\d)\}/g, (_, i) => a[i]);
 // The chosen language's dates; undefined keeps the browser's own region (en-GB 24 hour, fr-CA) when it is the same language.
@@ -102,7 +102,7 @@ function spanText(s) {
     : [s.years && `${s.years} y`, s.months && `${s.months} mo`, s.days && `${s.days} d`].filter(Boolean).join(' ');   // ponytail: older browsers get short units
   return s.past ? tr('{0} ago', t) : t;
 }
-const BACKUP_KEYS = ['alarms', 'sleep', 'zones', 'recents', 'presets', 'countdowns'];
+const BACKUP_KEYS = ['alarms', 'sleep', 'zones', 'recents', 'presets', 'countdowns', 'routines'];
 const makeBackup = (state) => JSON.stringify({ app: 'clock', v: 1, saved: new Date().toISOString(), ...Object.fromEntries(BACKUP_KEYS.map(k => [k, state[k]])) }, null, 2);
 function parseBackup(text) {
   let d; try { d = JSON.parse(text); } catch { throw new Error(tr('That file is not a Horula backup')); }
@@ -118,6 +118,7 @@ function parseBackup(text) {
   const timerList = (v, n) => v.filter(r => r && Number.isFinite(r.dur) && r.dur >= 1000 && r.dur <= 864e5).slice(0, n).map(r => ({ dur: r.dur, label: str(r.label, 40), sound: str(r.sound, 20) || 'Radar' }));
   if (Array.isArray(d.recents)) out.recents = timerList(d.recents, 6);
   if (Array.isArray(d.presets)) out.presets = timerList(d.presets, 20);
+  if (Array.isArray(d.routines)) out.routines = d.routines.filter(r => r && Array.isArray(r.steps)).map(r => ({ name: str(r.name, 40), steps: timerList(r.steps, 30).map(({ dur, label }) => ({ dur, label })) })).filter(r => r.steps.length).slice(0, 20);
   if (Array.isArray(d.countdowns)) out.countdowns = d.countdowns.filter(c => c && /^\d{4}-\d{2}-\d{2}$/.test(c.date)).slice(0, 50).map(c => ({ label: str(c.label, 40), date: c.date }));
   const s = d.sleep;
   if (s && HM.test(s.bed) && HM.test(s.wake)) out.sleep = { on: !!s.on, everSet: true, bed: s.bed, wake: s.wake, days: days(s.days), wind: [0, 15, 30, 45, 60].includes(s.wind) ? s.wind : 30, sound: str(s.sound, 20) || 'Gentle', snooze: s.snooze !== false };
@@ -207,6 +208,9 @@ function nextPhase(t) {
   if (t.phase === 'work' && t.rest > 0) return { phase: 'rest', round: t.round, dur: t.rest };
   return { phase: 'work', round: t.round + 1, dur: t.work };
 }
+// Routine (Timer+): named steps run back to back. The step after this one, or null after the last.
+const nextStep = (t) => t.step < t.steps.length - 1 ? { step: t.step + 1, dur: t.steps[t.step + 1].dur } : null;
+const stepText = (t) => `${t.steps[t.step].label || tr('Routine')}, ${tr('{0} of {1}', t.step + 1, t.steps.length)}`;
 // What an interval timer says out loud at a new phase, like Timer+: "Rest. Up next: Work" or "Work, 2 of 8".
 const cueText = (next, rounds) => next.phase === 'rest' ? `${tr('Rest')}. ${tr('Up next: {0}', tr('Work'))}` : `${tr('Work')}, ${tr('{0} of {1}', next.round, rounds)}`;
 // Stopwatch laps as a tab separated table, pastes straight into a spreadsheet.
@@ -230,4 +234,4 @@ function handAngles(zone, at) {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hourCycle: 'h23', timeZone: zone }).formatToParts(at).map(x => [x.type, +x.value]));
   return { h: (p.hour % 12 + p.minute / 60) * 30, m: p.minute * 6 };
 }
-if (typeof module === 'object') module.exports = { VERSION, nextShift, dateSpan, spanText, subsolar, terminatorLat, nightPath, dayPath, findZone, countdown, tr, nextPhase, cueText, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };
+if (typeof module === 'object') module.exports = { VERSION, nextShift, dateSpan, spanText, subsolar, terminatorLat, nightPath, dayPath, findZone, countdown, tr, nextPhase, cueText, nextStep, stepText, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };
