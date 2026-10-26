@@ -156,6 +156,7 @@
   "In the installed Mac app, Command 1 to 4 switch tabs too. Links work as well: add #timer=10m or #alarm=07:30 to the address.": "في تطبيق Mac المثبت، يبدّل Command من 1 إلى 4 التبويبات أيضًا. والروابط تعمل: أضف #timer=10m أو #alarm=07:30 إلى العنوان.",
   "Face": "الواجهة",
   "Digits": "أرقام",
+  "World": "العالم",
   "Analog": "تناظري",
   "Sun Dial": "الشمس",
   "Next alarm {0}": "المنبه التالي {0}",

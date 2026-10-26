@@ -156,6 +156,7 @@
   "In the installed Mac app, Command 1 to 4 switch tabs too. Links work as well: add #timer=10m or #alarm=07:30 to the address.": "Nell’app Mac installata anche Comando 1-4 cambia scheda. Funzionano anche i link: aggiungi #timer=10m o #alarm=07:30 all’indirizzo.",
   "Face": "Quadrante",
   "Digits": "Cifre",
+  "World": "Mondo",
   "Analog": "Analogico",
   "Sun Dial": "Sole",
   "Next alarm {0}": "Prossima sveglia {0}",

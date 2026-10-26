@@ -91,3 +91,9 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 ## v17: tell people
 - [x] Launch kit in horula/launch/: Product Hunt, Show HN, X and three Reddit drafts, a gallery and a checklist. Posting is Joshua's.
 
+## v18: the World face
+- [x] Nightstand gets StandBy's fourth face, World: every city as a dot, bright where the sun is up, you marked, the time below (GAPS 35). Web and native.
+
+## v19: the Watch catches up
+- [ ] Timers open on a grid of quick timers, like watchOS (GAPS 36).
+- [ ] Alarms on the Watch: list, switches, ring by notification (GAPS 37).

@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '15.2.0';
+const VERSION = '18.0.0';
 // UI text in the reader's language: i18n.js fills I18N in the browser; node tests see English.
 const tr = (s, ...a) => ((typeof I18N === 'object' && I18N[s]) || s).replace(/\{(\d)\}/g, (_, i) => a[i]);
 // The chosen language's dates; undefined keeps the browser's own region (en-GB 24 hour, fr-CA) when it is the same language.
@@ -147,6 +147,8 @@ function nightPath(date) {
   for (let x = 0; x <= 360; x += 3) pts.push(`${x} ${(90 - terminatorLat(s, x - 180)).toFixed(1)}`);
   return `M0 ${edge}L${pts.join('L')}L360 ${edge}Z`;
 }
+// The lit half: the same line, closed along the other pole.
+function dayPath(date) { const p = nightPath(date), e = p.match(/^M0 (\d+)/)[1], o = e === '0' ? '180' : '0'; return p.replace(`M0 ${e}L`, `M0 ${o}L`).replace(`L360 ${e}Z`, `L360 ${o}Z`); }
 // Cities whose zone id is named after another city.
 const ALIASES = {
   'San Francisco': 'America/Los_Angeles', 'Seattle': 'America/Los_Angeles', 'Portland': 'America/Los_Angeles', 'San Diego': 'America/Los_Angeles',
@@ -195,4 +197,4 @@ function handAngles(zone, at) {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hourCycle: 'h23', timeZone: zone }).formatToParts(at).map(x => [x.type, +x.value]));
   return { h: (p.hour % 12 + p.minute / 60) * 30, m: p.minute * 6 };
 }
-if (typeof module === 'object') module.exports = { VERSION, subsolar, terminatorLat, nightPath, findZone, countdown, tr, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };
+if (typeof module === 'object') module.exports = { VERSION, subsolar, terminatorLat, nightPath, dayPath, findZone, countdown, tr, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };

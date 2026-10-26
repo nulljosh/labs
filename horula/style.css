@@ -104,7 +104,8 @@ input[type="time"].wheel { font-size: 48px; font-weight: 200; height: 72px; text
 .standsvg .arc { stroke-width: 2; stroke-dasharray: 2 6; opacity: .5; } .standsvg .horizon { stroke-width: 1; opacity: .35; }
 #standDot.moon { fill: #000; stroke: currentColor; stroke-width: 3; }
 #stand[data-face="analog"] .when { display: none; }
-#stand[data-face="sun"] .when { font-size: min(14vw, 18vh); }
+#stand[data-face="sun"] .when, #stand[data-face="world"] .when { font-size: min(14vw, 18vh); }
+#standWorld { width: min(92vw, 70vh); } #standWorld .dim { opacity: .28; } #standHere { fill: var(--accent); } #stand.night #standHere { fill: currentColor; }
 .standbar { position: absolute; bottom: calc(var(--s5) + env(safe-area-inset-bottom)); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--s4); opacity: .4; transition: opacity .2s; }
 .standbar:hover, .standbar:focus-within { opacity: 1; }
 .standbar .seg { display: flex; gap: 2px; padding: 2px; border-radius: var(--r-pill); background: #1c1c1e; }

@@ -156,6 +156,7 @@
   "In the installed Mac app, Command 1 to 4 switch tabs too. Links work as well: add #timer=10m or #alarm=07:30 to the address.": "在已安装的 Mac 应用中，Command 1 到 4 也可切换标签页。链接同样可用：在地址后加 #timer=10m 或 #alarm=07:30。",
   "Face": "表盘",
   "Digits": "数字",
+  "World": "世界",
   "Analog": "指针",
   "Sun Dial": "太阳",
   "Next alarm {0}": "下一个闹钟 {0}",

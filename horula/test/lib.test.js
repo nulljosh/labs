@@ -195,6 +195,7 @@ test('sun overhead and the night line', () => {
   assert.ok(Math.abs(L.terminatorLat(june, june.lon + 90)) < 0.01, 'six hours off the sun: the line crosses the equator');
   assert.ok(L.nightPath(new Date(Date.UTC(2026, 5, 21, 12))).startsWith('M0 180L'), 'June: night holds the south pole');
   assert.ok(L.nightPath(new Date(Date.UTC(2026, 11, 21, 12))).startsWith('M0 0L'), 'December: night holds the north pole');
+  assert.ok(L.dayPath(new Date(Date.UTC(2026, 11, 21, 12))).startsWith('M0 180L'), 'December: day holds the south pole');
 });
 
 test('the native String Catalog has every string in every language, same blanks as the key', () => {

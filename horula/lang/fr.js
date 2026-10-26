@@ -156,6 +156,7 @@
   "In the installed Mac app, Command 1 to 4 switch tabs too. Links work as well: add #timer=10m or #alarm=07:30 to the address.": "Dans l’app Mac installée, Commande 1 à 4 change aussi d’onglet. Les liens marchent aussi : ajoutez #timer=10m ou #alarm=07:30 à l’adresse.",
   "Face": "Cadran",
   "Digits": "Chiffres",
+  "World": "Monde",
   "Analog": "Analogique",
   "Sun Dial": "Soleil",
   "Next alarm {0}": "Prochaine alarme {0}",

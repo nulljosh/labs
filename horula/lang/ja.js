@@ -156,6 +156,7 @@
   "In the installed Mac app, Command 1 to 4 switch tabs too. Links work as well: add #timer=10m or #alarm=07:30 to the address.": "インストールした Mac アプリでは Command 1〜4 でもタブを切り替えられます。アドレスに #timer=10m や #alarm=07:30 を付けるリンクも使えます。",
   "Face": "文字盤",
   "Digits": "数字",
+  "World": "ワールド",
   "Analog": "アナログ",
   "Sun Dial": "太陽",
   "Next alarm {0}": "次のアラーム {0}",

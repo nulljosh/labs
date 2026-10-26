@@ -9,7 +9,7 @@ function closeStand() {
   $('stand').hidden = true; wakeLock?.release?.(); wakeLock = null;
   if (document.fullscreenElement) document.exitFullscreen?.().catch(() => {});
 }
-// Three faces, a dim slider, and a slow drift so a screen left on all night does not burn in.
+// Four faces like StandBy (Digits, Analog, Sun Dial, World), a dim slider, and a slow drift so a screen left on all night does not burn in.
 ticksInto($('standTicks'));
 function drawStand(now) {
   if ($('stand').hidden) return;
@@ -19,6 +19,13 @@ function drawStand(now) {
   $('standFace').style.transform = `translate(${dx}px, ${dy}px)`;
   $('standFace').style.opacity = store.get('standDim', 100) / 100;
   $('standAnalog').toggleAttribute('hidden', face !== 'analog'); $('standSun').toggleAttribute('hidden', face !== 'sun');   // SVG has no .hidden property
+  $('standWorld').toggleAttribute('hidden', face !== 'world');
+  if (face === 'world') {
+    // World: every city as a dot, bright where the sun is up, and you.
+    if (!$('standDots').children.length) $('standDots').innerHTML = $('standLit').innerHTML = $('mapDots').innerHTML;
+    $('standDayPath').setAttribute('d', dayPath(now));
+    if (HERE) { $('standHere').setAttribute('cx', (HERE[1] + 180).toFixed(1)); $('standHere').setAttribute('cy', (90 - HERE[0]).toFixed(1)); }
+  }
   document.querySelectorAll('[data-face]').forEach(b => b.setAttribute('aria-checked', b.dataset.face === face));
   $('standTime').textContent = hm.format(now).replace(/\s?[AP]M$/i, '');
   $('standH').setAttribute('transform', `rotate(${(h % 12 + now.getMinutes() / 60) * 30})`);

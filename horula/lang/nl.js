@@ -156,6 +156,7 @@
   "In the installed Mac app, Command 1 to 4 switch tabs too. Links work as well: add #timer=10m or #alarm=07:30 to the address.": "In de geïnstalleerde Mac-app wisselen Command 1 tot 4 ook van tabblad. Links werken ook: zet #timer=10m of #alarm=07:30 achter het adres.",
   "Face": "Wijzerplaat",
   "Digits": "Cijfers",
+  "World": "Wereld",
   "Analog": "Analoog",
   "Sun Dial": "Zon",
   "Next alarm {0}": "Volgende wekker {0}",

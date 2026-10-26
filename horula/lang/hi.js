@@ -156,6 +156,7 @@
   "In the installed Mac app, Command 1 to 4 switch tabs too. Links work as well: add #timer=10m or #alarm=07:30 to the address.": "इंस्टॉल किए Mac ऐप में Command 1 से 4 भी टैब बदलते हैं। लिंक भी चलते हैं: पते में #timer=10m या #alarm=07:30 जोड़ें।",
   "Face": "डायल",
   "Digits": "अंक",
+  "World": "विश्व",
   "Analog": "एनालॉग",
   "Sun Dial": "सूर्य",
   "Next alarm {0}": "अगला अलार्म {0}",
