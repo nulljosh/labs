@@ -162,4 +162,5 @@
   "Brightness": "明るさ",
   "Day": "昼",
   "Night": "夜",
+  "World map with day and night": "昼と夜の世界地図",
 };

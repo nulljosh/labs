@@ -162,4 +162,5 @@
   "Brightness": "亮度",
   "Day": "白天",
   "Night": "夜晚",
+  "World map with day and night": "显示昼夜的世界地图",
 };

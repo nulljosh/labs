@@ -16,11 +16,20 @@ const MOON = `<svg class="dn" viewBox="0 0 24 24" role="img" aria-label="${tr('N
 const MINI_TICKS = Array.from({ length: 12 }, (_, i) => `<line class="tick" y1="-40" y2="-34" stroke-width="2" transform="rotate(${i * 30})"/>`).join('');
 const miniFace = (z, at, day) => { const a = handAngles(z.zone, at);
   return `<svg class="mini${day === false ? ' night' : ''}" viewBox="-50 -50 100 100" aria-hidden="true"><circle class="rim" r="47"/>${MINI_TICKS}<line class="hand" y2="-22" stroke-width="4" transform="rotate(${a.h})"/><line class="hand" y2="-34" stroke-width="3" transform="rotate(${a.m})"/><circle class="hub" r="3"/></svg>`; };
+// Wide windows get a map like macOS Clock: every city we know is a dot, night is shaded, your cities carry their time.
+$('mapDots').innerHTML = Object.values(COORDS).map(([la, lo]) => `<circle cx="${(lo + 180).toFixed(1)}" cy="${(90 - la).toFixed(1)}" r=".9"/>`).join('');
+function drawMap(at) {
+  $('mapNight').setAttribute('d', nightPath(at));
+  $('mapPins').innerHTML = zones.map(z => { const c = COORDS[z.city]; if (!c) return '';
+    const x = c[1] + 180, y = 90 - c[0], end = x > 300;
+    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.8"/><text x="${(x + (end ? -3 : 3)).toFixed(1)}" y="${(y + 1.5).toFixed(1)}"${end ? ' text-anchor="end"' : ''}>${esc(z.city)} ${esc(zoneFmt(z.zone).format(at))}</text>`; }).join('');
+}
 const dayAt = (z, at) => { const c = COORDS[z.city]; return c ? isDaytime(at, c[0], c[1]) : null; };
 function drawZones() {
   const shift = scrubMs(), at = new Date(Date.now() + shift);
   $('scrubText').textContent = shift ? tr('{0} from now', `${shift > 0 ? '+' : '-'}${Math.floor(Math.abs(shift) / 36e5)}:${pad(Math.abs(shift) / 60000 % 60)}`) : tr('Now');
   $('scrubReset').hidden = !shift;
+  drawMap(at);
   $('zones').innerHTML = zones.length ? zones.map((z, i) => {
     const day = dayAt(z, at);
     return `<div class="row">${worldEditing

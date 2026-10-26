@@ -162,4 +162,5 @@
   "Brightness": "السطوع",
   "Day": "نهار",
   "Night": "ليل",
+  "World map with day and night": "خريطة العالم بالليل والنهار",
 };

@@ -5,6 +5,7 @@
   --control: 48px; --r-card: 28px; --r-group: 20px; --r-pill: 999px;
 }
 @media (prefers-color-scheme: dark) {
+  .map #mapNight { fill: rgba(0, 0, 0, .65); }
   :root { --bg: #000; --bg2: #1c1c1e; --bg3: #2c2c2e; --text: #f5f5f7; --text2: #98989d; --border: rgba(84, 84, 88, .6); --danger: #ff453a; --go: #30d158; --go-bg: rgba(48, 209, 88, .2); --stop-bg: rgba(255, 69, 58, .2); }
 }
 * { box-sizing: border-box; }
@@ -132,6 +133,9 @@ small.ap:first-child { margin-inline: 0 .12em; }
 button.zone { display: flex; align-items: center; gap: var(--s3); }
 button.zone .grow { display: block; min-width: 0; }
 button.zone .meta, button.zone .label { display: block; }
+svg.map { display: none; }
+.map circle { fill: var(--text2); opacity: .45; } .map #mapNight { fill: rgba(0, 0, 0, .22); }
+.map #mapPins circle { fill: var(--accent); opacity: 1; } .map text { font-size: 4.5px; fill: var(--text); paint-order: stroke; stroke: var(--bg2); stroke-width: 1.2px; stroke-linejoin: round; }
 svg.mini { display: none; }
 /* Day faces are white and night faces black in both themes, like macOS Clock */
 .mini .rim { fill: #fff; stroke: rgba(0, 0, 0, .08); } .mini .tick { stroke: #6e6e73; stroke-linecap: round; } .mini .hand { stroke: #1d1d1f; stroke-linecap: round; } .mini .hub { fill: var(--accent); }
@@ -145,6 +149,7 @@ svg.mini { display: none; }
   #zones button.zone .grow { display: flex; flex-direction: column-reverse; }
   #zones button.zone .dn, #zones button.zone .time { display: none; }
   #zones svg.mini { display: block; width: 128px; height: 128px; }
+  svg.map { display: block; width: 100%; height: auto; margin: var(--s4) 0; border-radius: var(--r-group); background: var(--bg2); }
 }
 .dn { flex: none; width: 20px; height: 20px; fill: none; stroke: var(--text2); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .scrub { margin: var(--s2) 0 var(--s4); padding: 0 var(--s4); }

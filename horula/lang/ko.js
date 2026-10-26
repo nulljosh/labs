@@ -162,4 +162,5 @@
   "Brightness": "밝기",
   "Day": "낮",
   "Night": "밤",
+  "World map with day and night": "낮과 밤이 표시된 세계 지도",
 };

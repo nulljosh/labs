@@ -183,3 +183,14 @@ test('embed: city lookup and countdown', () => {
   assert.deepEqual(L.countdown((2 * 86400 + 3 * 3600 + 4 * 60 + 5) * 1000 + 999), { days: 2, hms: '03:04:05' });
   assert.deepEqual(L.countdown(-5000), { days: 0, hms: '00:00:00' });
 });
+
+test('sun overhead and the night line', () => {
+  const june = L.subsolar(new Date(Date.UTC(2026, 5, 21, 12)));
+  assert.ok(Math.abs(june.lat - 23.44) < 0.3 && Math.abs(june.lon) < 1.5, `June solstice noon UTC: ${june.lat}, ${june.lon}`);
+  const dec = L.subsolar(new Date(Date.UTC(2026, 11, 21, 18)));
+  assert.ok(Math.abs(dec.lat + 23.44) < 0.3 && Math.abs(dec.lon + 90) < 1.5, `December solstice 18:00 UTC: ${dec.lat}, ${dec.lon}`);
+  assert.ok(Math.abs(L.terminatorLat(june, june.lon + 180) - (90 - june.lat)) < 0.01, 'midnight side: dark up to 90 minus the sun');
+  assert.ok(Math.abs(L.terminatorLat(june, june.lon + 90)) < 0.01, 'six hours off the sun: the line crosses the equator');
+  assert.ok(L.nightPath(new Date(Date.UTC(2026, 5, 21, 12))).startsWith('M0 180L'), 'June: night holds the south pole');
+  assert.ok(L.nightPath(new Date(Date.UTC(2026, 11, 21, 12))).startsWith('M0 0L'), 'December: night holds the north pole');
+});

@@ -71,3 +71,21 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] Landing refreshed for everything v2 to v11 added, with new art where a section needs it.
 - [x] README, WHITEPAPER and CLAUDE.md current.
 - [ ] Launch kit (Product Hunt, HN, X posts) in launch/horula/.
+
+## v13: a map of the day
+- [x] World Clock has a map, like macOS Clock: every known city as a dot, night shaded by the real line between day and night, your cities named with their time.
+- [ ] Same map in the Mac app.
+
+## v14: the stopwatch dial, like iOS
+- [ ] Analog stopwatch gets a small minute dial and a blue lap hand, like the iOS analog stopwatch.
+
+## v15: hear it before you pick it
+- [ ] Choosing an alarm or timer sound plays it once, like iOS.
+- [ ] Two more sounds, drawn in Web Audio like the others.
+
+## v16: native in every language
+- [ ] The iPhone and Mac app in the same twelve languages, from a String Catalog.
+
+## v17: tell people
+- [ ] Launch kit in launch/horula/: Product Hunt, Show HN and X posts, with the embed as the hook.
+

@@ -162,4 +162,5 @@
   "Brightness": "Helligkeit",
   "Day": "Tag",
   "Night": "Nacht",
+  "World map with day and night": "Weltkarte mit Tag und Nacht",
 };

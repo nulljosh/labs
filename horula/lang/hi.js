@@ -162,4 +162,5 @@
   "Brightness": "चमक",
   "Day": "दिन",
   "Night": "रात",
+  "World map with day and night": "दिन और रात वाला विश्व मानचित्र",
 };

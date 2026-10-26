@@ -53,3 +53,9 @@ Joshua's ask: keep comparing against the native iOS and Mac Clock apps and close
 - [x] 29. World Clock rows match iOS: time difference above the city, time with small AM or PM, swipe or Edit to delete.
 - [x] 30. Mac: wide windows show world clocks as a grid of analog faces, like macOS Clock.
 - [x] 31. Mac: keyboard shortcuts like macOS Clock (Command 1 to 4 for tabs in the installed app, N for new; browsers keep Command N for a new window).
+
+## Round 3 (iOS 26 and macOS 26 Clock, 2026-10-25)
+- [x] 32. macOS Clock world view has a map (web; Mac app next) with the day and night line.
+- [ ] 33. iOS analog stopwatch has a minute sub-dial and a lap hand.
+- [ ] 34. iOS plays a sound when you pick it.
+

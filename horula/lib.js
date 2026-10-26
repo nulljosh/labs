@@ -1,5 +1,5 @@
 // Pure helpers: no DOM, no state. Loaded first by app.html, required by test/lib.test.js.
-const VERSION = '12.0.0';
+const VERSION = '13.0.0';
 // UI text in the reader's language: i18n.js fills I18N in the browser; node tests see English.
 const tr = (s, ...a) => ((typeof I18N === 'object' && I18N[s]) || s).replace(/\{(\d)\}/g, (_, i) => a[i]);
 // The chosen language's dates; undefined keeps the browser's own region (en-GB 24 hour, fr-CA) when it is the same language.
@@ -129,6 +129,24 @@ function offsetLabel(zone, now) {
   const day = tr(there.getDate() === here.getDate() ? 'Today' : there > here ? 'Tomorrow' : 'Yesterday');
   return `${day}, ${diff === 0 ? tr('same time') : (diff > 0 ? '+' : '') + diff + ' ' + tr('HRS')}`;
 }
+// Where the sun stands overhead at this moment, from the same NOAA terms as sunTimes.
+function subsolar(date) {
+  const rad = Math.PI / 180, mins = date.getUTCHours() * 60 + date.getUTCMinutes() + date.getUTCSeconds() / 60;
+  const day = Math.floor((Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()) - Date.UTC(date.getUTCFullYear(), 0, 0)) / 864e5);
+  const g = 2 * Math.PI / 365 * (day - 1 + (mins / 60 - 12) / 24);
+  const decl = 0.006918 - 0.399912 * Math.cos(g) + 0.070257 * Math.sin(g) - 0.006758 * Math.cos(2 * g) + 0.000907 * Math.sin(2 * g);
+  const eqt = 229.18 * (0.000075 + 0.001868 * Math.cos(g) - 0.032077 * Math.sin(g) - 0.014615 * Math.cos(2 * g) - 0.040849 * Math.sin(2 * g));
+  const lon = ((720 - mins - eqt) / 4 + 540) % 360 - 180;
+  return { lat: decl / rad, lon };
+}
+// The latitude where day meets night at a longitude.
+const terminatorLat = (s, lon) => { const rad = Math.PI / 180, d = (Math.abs(s.lat) < 0.05 ? 0.05 : s.lat) * rad; return Math.atan(-Math.cos((lon - s.lon) * rad) / Math.tan(d)) / rad; };
+// Night as an SVG path on a 360 by 180 map: x is longitude + 180, y is 90 - latitude. The dark side holds the pole in winter.
+function nightPath(date) {
+  const s = subsolar(date), edge = s.lat > 0 ? 180 : 0, pts = [];
+  for (let x = 0; x <= 360; x += 3) pts.push(`${x} ${(90 - terminatorLat(s, x - 180)).toFixed(1)}`);
+  return `M0 ${edge}L${pts.join('L')}L360 ${edge}Z`;
+}
 // Cities whose zone id is named after another city.
 const ALIASES = {
   'San Francisco': 'America/Los_Angeles', 'Seattle': 'America/Los_Angeles', 'Portland': 'America/Los_Angeles', 'San Diego': 'America/Los_Angeles',
@@ -177,4 +195,4 @@ function handAngles(zone, at) {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hourCycle: 'h23', timeZone: zone }).formatToParts(at).map(x => [x.type, +x.value]));
   return { h: (p.hour % 12 + p.minute / 60) * 30, m: p.minute * 6 };
 }
-if (typeof module === 'object') module.exports = { VERSION, findZone, countdown, tr, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };
+if (typeof module === 'object') module.exports = { VERSION, subsolar, terminatorLat, nightPath, findZone, countdown, tr, nextPhase, lapsTable, handAngles, drift, dialPoint, pad, esc, toMin, repeatText, fireTimes, untilText, sunTimes, fmtTm, fmtDur, fmtSw, lapMarks, offsetLabel, splitAmPm, timeHTML, isDaytime, fadeGain, nextFireOf, dayWord, parseDuration, parseHash, makeBackup, parseBackup };

@@ -162,4 +162,5 @@
   "Brightness": "Brilho",
   "Day": "Dia",
   "Night": "Noite",
+  "World map with day and night": "Mapa do mundo com dia e noite",
 };

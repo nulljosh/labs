@@ -162,4 +162,5 @@
   "Brightness": "Helderheid",
   "Day": "Dag",
   "Night": "Nacht",
+  "World map with day and night": "Wereldkaart met dag en nacht",
 };
