@@ -113,7 +113,7 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 | 21.3 | Daylight saving dates in the city detail | timeanddate | S | done |
 | 21.4 | Watch: edit an alarm (time, repeat, label, snooze) and a city detail with sunrise and sunset, like watchOS Clock | watchOS Clock | S | done |
 | 21.5 | Hourly chime on the nightstand | Flip Clock | S | done |
-| 21.6 | Flip digits face on the nightstand | Flip Clock | M | open |
+| 21.6 | Flip digits face on the nightstand | Flip Clock | M | done |
 | 21.7 | Spoken interval cues ("Rest. Up next: work") | Timer+ | S | open |
 | 21.8 | Wake up check: a second ring a few minutes after you stop an alarm unless you confirm | Alarmy, Rise | M | open |
 | 21.9 | Routines: named timer steps that run in order | Timer+ | M | open |
@@ -144,3 +144,6 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 
 ## v21.5: hourly chime
 - [x] A Chime switch on the nightstand, web, iPhone and Mac: a soft Chimes on the hour while it is up, never on opening, off until turned on (matrix row 21.5). The native tone is made on the device, like the web's.
+
+## v21.6: flip face
+- [x] A Flip face on the nightstand, web, iPhone and Mac: hours and minutes on two split cards that turn when they change, red at night, still under reduced motion (matrix row 21.6).

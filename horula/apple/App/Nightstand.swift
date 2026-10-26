@@ -23,6 +23,7 @@ struct Nightstand: View {
                     case "world":
                         Text(digits).font(.system(size: 96, weight: .thin)).minimumScaleFactor(0.2).lineLimit(1).monospacedDigit()
                         StandWorld(at: ctx.date, here: Self.here, ink: ink).frame(maxWidth: 900)
+                    case "flip": FlipCards(text: digits, ink: ink, night: night)
                     default: Text(digits).font(.system(size: 200, weight: .thin)).minimumScaleFactor(0.2).lineLimit(1).monospacedDigit()
                     }
                     Text(ctx.date.formatted(.dateTime.weekday(.abbreviated).month(.abbreviated).day())
@@ -36,7 +37,7 @@ struct Nightstand: View {
                 VStack {
                     Spacer()
                     HStack(spacing: 16) {
-                        Picker("Face", selection: $face) { Text("Digits").tag("digits"); Text("Analog").tag("analog"); Text("Sun Dial").tag("sun"); Text("World").tag("world") }
+                        Picker("Face", selection: $face) { Text("Digits").tag("digits"); Text("Analog").tag("analog"); Text("Sun Dial").tag("sun"); Text("World").tag("world"); Text("Flip").tag("flip") }
                             .pickerStyle(.segmented).frame(maxWidth: 340)
                         Slider(value: $dim, in: 0.15...1).frame(maxWidth: 160).accessibilityLabel("Brightness")
                         Toggle(isOn: $chime) { Label("Chime", systemImage: "bell") }.toggleStyle(.button).labelStyle(.iconOnly)
@@ -56,6 +57,25 @@ struct Nightstand: View {
         .onDisappear { UIApplication.shared.isIdleTimerDisabled = false }
         .statusBarHidden()
         #endif
+    }
+}
+
+/// Flip Clock's face: hours and minutes on two cards split across the middle; a card rolls when it changes.
+struct FlipCards: View {
+    let text: String
+    let ink: Color
+    let night: Bool
+    var body: some View {
+        HStack(spacing: 24) {
+            ForEach(Array(text.split(separator: ":").enumerated()), id: \.offset) { _, part in
+                Text(part).font(.system(size: 180, weight: .medium)).monospacedDigit().minimumScaleFactor(0.2).lineLimit(1)
+                    .contentTransition(.numericText()).animation(.easeOut(duration: 0.4), value: String(part))
+                    .padding(.horizontal, 20).padding(.vertical, 8)
+                    .background(night ? Color(red: 0.12, green: 0.03, blue: 0.03) : Color(white: 0.11), in: RoundedRectangle(cornerRadius: 24))
+                    .overlay { Rectangle().fill(.black).frame(height: 3) }   // the split
+            }
+        }
+        .foregroundStyle(ink)
     }
 }
 

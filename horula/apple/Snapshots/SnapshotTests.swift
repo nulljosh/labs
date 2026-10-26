@@ -9,6 +9,7 @@ import XCTest
         _ = NSApplication.shared
         let store = Store(defaults: Store.demoDefaults())
         UserDefaults.standard.set(true, forKey: "swAnalog")   // the dial makes the better screenshot
+        UserDefaults.standard.set("flip", forKey: "standFace")   // QA the newest face
         for tab in AppTab.allCases {
             UserDefaults.standard.set(tab.rawValue, forKey: "tab")
             try await render(RootView().environment(store).environment(AlarmScheduler()).tint(.horula), 1440, 900, "\(out)/horula-mac-\(tab.rawValue).png")

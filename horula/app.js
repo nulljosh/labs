@@ -29,6 +29,11 @@ function drawStand(now) {
   }
   document.querySelectorAll('[data-face]').forEach(b => b.setAttribute('aria-checked', b.dataset.face === face));
   $('standTime').textContent = hm.format(now).replace(/\s?[AP]M$/i, '');
+  if (face === 'flip') {
+    const cards = $('standTime').textContent.split(/[:.]/), el = $('standFlip');
+    if (el.children.length !== cards.length) el.innerHTML = cards.map(() => '<span class="card"></span>').join('');
+    cards.forEach((c, i) => { const k = el.children[i]; if (k.textContent !== c) { k.textContent = c; k.classList.remove('turn'); void k.offsetWidth; k.classList.add('turn'); } });
+  }
   $('standH').setAttribute('transform', `rotate(${(h % 12 + now.getMinutes() / 60) * 30})`);
   $('standM').setAttribute('transform', `rotate(${now.getMinutes() * 6})`);
   const p = dialPoint(now, HERE?.[0], HERE?.[1]);

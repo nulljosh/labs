@@ -60,6 +60,7 @@
   "Seconds": "Secondes",
   "Duration": "Durée",
   "Label": "Libellé",
+  "Flip": "Rabat",
   "Chime": "Carillon",
   "Clocks go forward": "Avance de l'heure",
   "Clocks go back": "Recul de l'heure",

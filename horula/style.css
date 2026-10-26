@@ -108,11 +108,20 @@ input[type="time"].wheel { font-size: 48px; font-weight: 200; height: 72px; text
 #standDot.moon { fill: #000; stroke: currentColor; stroke-width: 3; }
 #stand[data-face="analog"] .when { display: none; }
 #stand[data-face="sun"] .when, #stand[data-face="world"] .when { font-size: min(14vw, 18vh); }
+/* Flip, like Flip Clock: hours and minutes on two cards split across the middle; a card turns over when it changes. */
+#standFlip { display: none; gap: 3vw; font-size: min(26vw, 44vh); font-weight: 500; line-height: 1; }
+#stand[data-face="flip"] #standFlip { display: flex; } #stand[data-face="flip"] .when { display: none; }
+#standFlip .card { position: relative; padding: .08em .1em; border-radius: .1em; background: #1c1c1e; }
+#standFlip .card::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: max(2px, .012em); background: #000; }
+#stand.night #standFlip .card { background: #1f0807; }
+#standFlip .card.turn { animation: turn .4s ease-out; }
+@keyframes turn { from { transform: perspective(800px) rotateX(-75deg); } }
+@media (prefers-reduced-motion: reduce) { #standFlip .card.turn { animation: none; } }
 #standWorld { width: min(92vw, 70vh); } #standWorld .dim { opacity: .28; } #standHere { fill: var(--accent); } #stand.night #standHere { fill: currentColor; }
 .standbar { position: absolute; bottom: calc(var(--s5) + env(safe-area-inset-bottom)); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--s4); opacity: .4; transition: opacity .2s; }
 .standbar:hover, .standbar:focus-within { opacity: 1; }
 .standbar .seg { display: flex; gap: 2px; padding: 2px; border-radius: var(--r-pill); background: #1c1c1e; }
-.standbar .seg button { min-width: 0; height: 36px; padding: 0 var(--s4); font-size: 15px; background: none; color: #98989d; }
+.standbar .seg button { min-width: 0; height: 36px; padding: 0 var(--s3); font-size: 15px; background: none; color: #98989d; }
 .standbar .seg button[aria-checked="true"] { background: #3a3a3c; color: #fff; }
 .standbar .chime { min-width: 0; height: 36px; padding: 0 var(--s4); font-size: 15px; background: #1c1c1e; color: #98989d; }
 .standbar .chime[aria-pressed="true"] { background: #3a3a3c; color: #fff; }

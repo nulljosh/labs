@@ -60,6 +60,7 @@
   "Seconds": "秒",
   "Duration": "時間",
   "Label": "ラベル",
+  "Flip": "フリップ",
   "Chime": "時報",
   "Clocks go forward": "時計を進める",
   "Clocks go back": "時計を戻す",

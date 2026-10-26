@@ -60,6 +60,7 @@
   "Seconds": "秒",
   "Duration": "时长",
   "Label": "标签",
+  "Flip": "翻页",
   "Chime": "整点报时",
   "Clocks go forward": "时钟拨快",
   "Clocks go back": "时钟拨慢",

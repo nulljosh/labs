@@ -60,6 +60,7 @@
   "Seconds": "Segundos",
   "Duration": "Duración",
   "Label": "Etiqueta",
+  "Flip": "Abatible",
   "Chime": "Campanada",
   "Clocks go forward": "Se adelanta la hora",
   "Clocks go back": "Se atrasa la hora",

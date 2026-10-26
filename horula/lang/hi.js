@@ -60,6 +60,7 @@
   "Seconds": "सेकंड",
   "Duration": "अवधि",
   "Label": "लेबल",
+  "Flip": "फ़्लिप",
   "Chime": "घंटा ध्वनि",
   "Clocks go forward": "घड़ी आगे होगी",
   "Clocks go back": "घड़ी पीछे होगी",

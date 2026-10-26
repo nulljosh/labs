@@ -159,11 +159,12 @@
     <svg id="standAnalog" class="standsvg" viewBox="-110 -110 220 220" hidden aria-hidden="true"><g id="standTicks"></g><line id="standH" y2="-52" stroke-width="7"/><line id="standM" y2="-82" stroke-width="5"/><circle r="5"/></svg>
     <svg id="standSun" class="standsvg" viewBox="-112 -108 224 132" hidden aria-hidden="true"><path class="arc" d="M-100 0A100 100 0 0 1 100 0"/><path class="arc dip" d="M-100 0A100 18 0 0 0 100 0"/><line class="horizon" x1="-110" x2="110"/><circle id="standDot" r="9"/></svg>
     <svg id="standWorld" class="standsvg" viewBox="0 0 360 180" hidden aria-hidden="true"><clipPath id="standDay"><path id="standDayPath"/></clipPath><g id="standDots" class="dim"></g><g id="standLit" clip-path="url(#standDay)"></g><circle id="standHere" r="3.5"/></svg>
+    <div class="flip num" id="standFlip" aria-hidden="true"></div>
     <div class="when num" id="standTime"></div>
     <div class="what" id="standWhat"></div>
   </div>
   <div class="standbar" id="standBar">
-    <div class="seg" role="radiogroup" aria-label="Face"><button data-face="digits" role="radio">Digits</button><button data-face="analog" role="radio">Analog</button><button data-face="sun" role="radio">Sun Dial</button><button data-face="world" role="radio">World</button></div>
+    <div class="seg" role="radiogroup" aria-label="Face"><button data-face="digits" role="radio">Digits</button><button data-face="analog" role="radio">Analog</button><button data-face="sun" role="radio">Sun Dial</button><button data-face="world" role="radio">World</button><button data-face="flip" role="radio">Flip</button></div>
     <input type="range" id="standDim" min="15" max="100" step="5" aria-label="Brightness">
     <button id="standChime" class="chime" aria-pressed="false">Chime</button>
   </div>
