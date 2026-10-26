@@ -66,7 +66,7 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] Embeds follow light and dark and need no script on the host page.
 
 ## v12: done right
-- [ ] Lighthouse 100 on performance, accessibility, best practices and SEO for both pages. Landing is 100 on all four; the app is 99/100/100/100 (throttled first paint 1.3 s, largest paint 1.9 s). Next step: inline the shell CSS.
+- [x] Lighthouse 100 on performance, accessibility, best practices and SEO for both pages. The app got there in 15.1.0 by loading only the reader's language file.
 - [x] Landing refreshed for everything v2 to v11 added, with new art where a section needs it.
 - [x] README, WHITEPAPER and CLAUDE.md current.
 - [x] Launch kit in horula/launch/: Product Hunt, Show HN, X and three Reddit drafts, a gallery and a checklist. Posting is Joshua's.

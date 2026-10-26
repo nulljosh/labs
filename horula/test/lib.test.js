@@ -161,6 +161,8 @@ test('every UI string has all 11 translations with the same blanks, and the page
   for (const l of langs) vm.runInNewContext(fs.readFileSync(path.join(root, 'lang', l + '.js'), 'utf8'), ctx);
   vm.runInNewContext(fs.readFileSync(path.join(root, 'i18n.js'), 'utf8') + ';this.LANGS = LANGS;', ctx);
   assert.deepEqual(langs.sort(), [...ctx.LANGS].sort(), 'one file per language');
+  const guard = fs.readFileSync(path.join(root, 'app.html'), 'utf8').match(/var langs = \[([^\]]*)\]/)[1].match(/[a-z]{2}/g);
+  assert.deepEqual(guard, [...ctx.LANGS], 'app.html picks from the same languages as i18n.js');
   ctx.T = ctx.LANG_TEXT.fr;   // the key list; every language must have the same keys
   const blanks = (s) => (s.match(/\{\d\}/g) || []).sort().join();
   for (const l of langs) {
