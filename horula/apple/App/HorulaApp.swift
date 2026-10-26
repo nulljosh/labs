@@ -31,8 +31,33 @@ final class SnapshotDelegate: NSObject, NSApplicationDelegate {
 }
 
 enum Snapshot {
+    /// `-tour`: one window at exactly 1440x900, walks the four tabs light then World dark, printing
+    /// "SHOT <name> <windowid>" after each settles so the terminal can `screencapture -o -l<id>` it, then quits.
+    /// On screen, unlike `-snapshot`, because the macOS 26 glass tab labels draw blank off screen. Ask Joshua first.
+    @MainActor static func tour() async {
+        var found: NSWindow?
+        for _ in 0..<60 where found == nil {
+            try? await Task.sleep(for: .milliseconds(250))
+            found = NSApp.windows.first { $0.contentView != nil && $0.frame.width > 100 }
+        }
+        guard let w = found, let screen = w.screen ?? NSScreen.main else { NSApp.terminate(nil); return }
+        let v = screen.visibleFrame
+        w.setFrame(NSRect(x: v.midX - 720, y: v.maxY - 900, width: 1440, height: 900), display: true)
+        NSApp.activate(); w.makeKeyAndOrderFront(nil)
+        let steps: [(AppTab, NSAppearance.Name, String)] = [(.world, .aqua, "world"), (.alarms, .aqua, "alarms"), (.stopwatch, .aqua, "stopwatch"), (.timers, .aqua, "timers"), (.world, .darkAqua, "world-dark")]
+        for (tab, look, name) in steps {
+            NSApp.appearance = NSAppearance(named: look)
+            UserDefaults.standard.set(tab.rawValue, forKey: "tab")
+            try? await Task.sleep(for: .seconds(3))
+            print("SHOT \(name) \(w.windowNumber)"); fflush(stdout)
+            try? await Task.sleep(for: .seconds(2))
+        }
+        NSApp.terminate(nil)
+    }
+
     @MainActor static func ifAsked() async {
         let args = ProcessInfo.processInfo.arguments
+        if args.contains("-tour") { await tour(); return }
         guard let i = args.firstIndex(of: "-snapshot"), i + 1 < args.count else { return }
         var found: NSWindow?
         for _ in 0..<60 where found == nil {   // a debug build can take several seconds to put up its first window
