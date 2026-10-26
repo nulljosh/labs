@@ -73,6 +73,12 @@ Missing live URL → stop and report; don't launch a dead page.
 
 Prefer the Chrome extension on `/my/products` for the full product and launch state. Run `python3 <skill-dir>/producthunt.py list` when browser control is unavailable, or `page <product-url>` for a public page. The helper reads a `PRODUCTHUNT_TOKEN` environment variable or the macOS Keychain item `producthunt-api`. Product Hunt's [API docs](https://www.producthunt.com/v2/docs) describe a personal developer token for scripts; save it to Keychain locally, never in a repo or chat. With a token, `list` pages through the authenticated user's `madePosts`. This is launches, not necessarily every claimed Product Page. Without a token, it scans existing `launch/producthunt.md` links and verifies `nulljosh1` as maker on each public page; report that list as incomplete. Public profile requests may hit Cloudflare, and headless Chrome will not solve an account challenge. Do not present a challenge page as product data. Read access is sufficient here.
 
+### Missing-from-PH scan (verified 2026-10-26)
+
+Goal: shipped apps with no Product Hunt product. Order: (1) Chrome extension on `/my/products`; (2) if it says "not connected", Safari is already signed in: `osascript` a new tab to `https://www.producthunt.com/my/products`, wait 6s, `do JavaScript "document.body.innerText"` on `last tab of window 1` (store the result in a variable not named `r`), then close that tab. Read-only, never click Manage. Public profile and `producthunt.com/@nulljosh1` return 403 to curl; no token means `producthunt.py list` is incomplete.
+Diff the Products list against `~/Documents/Code` repos that have a live URL (`curl -sI`) or a store listing. PH keeps the OLD product name, so map renames first: Inkpress=Bugle, Quotestreak=Coda, Lexly=Patois, Sparkjar=Melete, NYC Survive=Gastown, Intake=Machaon, Curvely=Pan, Notate=Echo. Skip private (Temida, Homeroom) and nothing-live apps.
+Last scan: 21 products, 20 posted + Intake scheduled Oct 27. Not on PH, live web: Horula, Icelus, Surf, Vancouver Vice, Atlin, Mailbag, Conveyer. Store-only or unclear: Cartons, Hermes, Airwell, Hamurapi.
+
 ## Mechanics
 
 `python3 <skill-dir>/mech.py <app> <url> <tagline> <description>` does gallery, og.png,
