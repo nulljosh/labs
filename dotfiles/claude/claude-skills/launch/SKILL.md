@@ -78,6 +78,7 @@ Prefer the Chrome extension on `/my/products` for the full product and launch st
 Goal: shipped apps with no Product Hunt product. Order: (1) Chrome extension on `/my/products`; (2) if it says "not connected", Safari is already signed in: `osascript` a new tab to `https://www.producthunt.com/my/products`, wait 6s, `do JavaScript "document.body.innerText"` on `last tab of window 1` (store the result in a variable not named `r`), then close that tab. Read-only, never click Manage. Public profile and `producthunt.com/@nulljosh1` return 403 to curl; no token means `producthunt.py list` is incomplete.
 Diff the Products list against `~/Documents/Code` repos that have a live URL (`curl -sI`) or a store listing. PH keeps the OLD product name, so map renames first: Inkpress=Bugle, Quotestreak=Coda, Lexly=Patois, Sparkjar=Melete, NYC Survive=Gastown, Intake=Machaon, Curvely=Pan, Notate=Echo. Skip private (Temida, Homeroom) and nothing-live apps.
 Last scan: 21 products, 20 posted + Intake scheduled Oct 27. Not on PH, live web: Horula, Icelus, Surf, Vancouver Vice, Atlin, Mailbag, Conveyer. Store-only or unclear: Cartons, Hermes, Airwell, Hamurapi.
+Kit state: launch/ already exists (no `Post:` line, so ready to submit) for Horula, Icelus, Mailbag, Airwell. No kit yet: Surf, Vancouver Vice, Atlin, Conveyer, Cartons, Hermes, Hamurapi. Check `ls <app>/launch` before building so a kit is never rebuilt.
 
 ## Mechanics
 
