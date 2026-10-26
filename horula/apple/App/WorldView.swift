@@ -117,11 +117,13 @@ struct WorldView: View {
                 #if os(iOS)
                 ToolbarItem(placement: .topBarLeading) { EditButton() }
                 #endif
+                // Two groups on the glass, like Apple's apps: the views, then the one action.
                 ToolbarItemGroup(placement: .primaryAction) {
                     Button { stand = true } label: { Label("Nightstand", systemImage: "moon") }
                     Button { settings = true } label: { Label("Settings", systemImage: "gearshape") }
-                    Button { adding = true } label: { Label("Add City", systemImage: "plus") }
                 }
+                ToolbarSpacer(.fixed, placement: .primaryAction)
+                ToolbarItem(placement: .primaryAction) { Button { adding = true } label: { Label("Add City", systemImage: "plus") } }
             }
             .sheet(isPresented: $adding) { AddCity() }
             .sheet(isPresented: $settings) { SettingsView() }

@@ -39,7 +39,10 @@ struct Nightstand: View {
                             .pickerStyle(.segmented).frame(maxWidth: 340)
                         Slider(value: $dim, in: 0.15...1).frame(maxWidth: 160).accessibilityLabel("Brightness")
                     }
-                    .opacity(0.5).environment(\.colorScheme, .dark).padding(.bottom, 24)
+                    .opacity(0.5).environment(\.colorScheme, .dark)
+                    .padding(.horizontal, 16).padding(.vertical, 8)
+                    .glassEffect(.regular, in: .capsule)   // floating controls are the functional layer
+                    .padding(.bottom, 24)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity).background(.black)

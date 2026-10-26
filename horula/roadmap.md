@@ -130,3 +130,7 @@ App Store screens of Alarmy, Rise, Sleep Cycle, MultiTimer, Timer+, World Clock 
 ## v21.2: count down to a date
 - [x] Countdowns under the timers, web, iPhone and Mac: a label and a day, shown as "1 month, 29 days", "Today" or "24 days ago", in backups (matrix row 21.2).
 - [x] Web backups now carry timer presets too; they were left out.
+
+## v21.2.1: Liquid Glass pass
+- [x] Web tab bar is the glass twin (blur, saturate, brightness, bright top edge, soft shadow) and turns solid under Reduce Transparency; nothing in the content layer is glass.
+- [x] World Clock toolbar in two groups (views, then Add City) with a spacer; the nightstand's floating controls sit on regular glass.
