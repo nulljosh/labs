@@ -36,7 +36,7 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] SwiftUI app for iPhone and Mac with the same tabs, alarms that ring when the app is closed (AlarmKit), timers, stopwatch. iPad later (needs its own screenshot set).
 - [x] Widgets: Home Screen, Lock Screen and StandBy (world clocks, next alarm), Live Activity for snooze and timers.
 - [ ] Apple Watch app: built (world clock, stopwatch, timers, face widgets), screenshots taken (apple/shots/watch-up, gitignored). Ships in 6.1 right after 6.0 is approved: embed HorulaWatch in the iOS target, bump, upload, add the Watch Ultra set, submit.
-- [ ] Icon Composer icon, screenshots, privacy, submitted for review. iPhone done 2026-10-25; Mac waits on screenshots (the Mac app's self-snapshot needs an unlocked screen).
+- [x] Icon Composer icon, screenshots, privacy, submitted for review. iPhone 2026-10-25; Mac 2026-10-25 evening (shots via scripts/mac-tour.sh).
 
 ## v7: everywhere else
 - [ ] Windows: installable from the Microsoft Store (packaged web app). Parked: needs Joshua's Microsoft Partner Center account.
