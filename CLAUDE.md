@@ -60,7 +60,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **weather** | Forecast page, Open-Meteo, one file |
 | **fieldbook** | Every field of science + math explained plainly |
 | **hormuz** | Strait of Hormuz, oil prices, trading signals |
-| **noema** (math + biology, ex-evidna) | One lab, two sides: `math/` (Collatz, SAT, Lean) and `biology/` (HBB, ex-Evidna). One site, `./deploy.sh`; noema.jaybulb.com and evidna.jaybulb.com |
+| **noema** (STEM lab, ex-evidna) | One lab, a lane per field: `math/` (Collatz, SAT, Lean), `cs/` (Busy Beaver), `biology/` (HBB, ex-Evidna); more queued in its roadmap. One site, `./deploy.sh`; noema.jaybulb.com and evidna.jaybulb.com |
 
 ### Big projects
 | Repo | What |
