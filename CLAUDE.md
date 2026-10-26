@@ -70,7 +70,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **plank** | Small compiled language, one Python file. `homebrew-tap` is the one tap for plank-lang and nimble |
 | **vancouvervice** | GTA-style game in the real Vancouver, Unreal 5 |
 | **conveyer** | Claude plays Factorio, now Game Dev Tycoon |
-| **surf** (ex-cruise, ex-pwnlingo). Own repo | Duolingo autoplayer, Apache 2.0. The runner must stay up. Menu bar app lives at ~/Applications/Surf.app under launchd |
+| **duke** (ex-surf, ex-cruise, ex-pwnlingo). Own repo, named for Duke Kahanamoku | Plays while you sleep: Duolingo, Factorio, Game Dev Tycoon, FEZ. Apache 2.0. The runner must stay up. Menu bar app at ~/Applications/Duke.app under launchd (label still com.nulljosh.cruise-status). duke.jaybulb.com; `surf` is a symlink to the folder |
 | **gato** | Voice-first OS shell, local-only repo. "Leopard Gecko" is reserved for Joshua Tree's future distro |
 
 ### Sites & infra
