@@ -8,6 +8,7 @@ import XCTest
         guard let out = ProcessInfo.processInfo.environment["HORULA_SHOTS"] else { throw XCTSkip("set TEST_RUNNER_HORULA_SHOTS to a folder") }
         _ = NSApplication.shared
         let store = Store(defaults: Store.demoDefaults())
+        UserDefaults.standard.set(true, forKey: "swAnalog")   // the dial makes the better screenshot
         for tab in AppTab.allCases {
             UserDefaults.standard.set(tab.rawValue, forKey: "tab")
             let w = KeyWindow(contentRect: NSRect(x: 0, y: 0, width: 1440, height: 900), styleMask: [.titled, .closable, .miniaturizable, .resizable],
