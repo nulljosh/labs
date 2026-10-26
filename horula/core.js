@@ -101,6 +101,7 @@ function ticksInto(g) {
   }
 }
 ticksInto($('ticks')); ticksInto($('swTicks'));
+$('swMinTicks').innerHTML = Array.from({ length: 30 }, (_, i) => `<line class="tick" y1="-19" y2="${i % 5 ? -17.5 : -15.5}" stroke-width="${i % 5 ? .6 : 1}" transform="rotate(${i * 12})"/>`).join('');
 const timeFmt = new Intl.DateTimeFormat(LOCALE, { hour: 'numeric', minute: '2-digit', second: '2-digit' });
 const dateFmt = new Intl.DateTimeFormat(LOCALE, { weekday: 'long', month: 'long', day: 'numeric' });
 const shortDate = new Intl.DateTimeFormat(LOCALE, { weekday: 'short', month: 'short', day: 'numeric' });

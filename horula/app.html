@@ -63,8 +63,10 @@
     <svg id="swAnalog" class="face" viewBox="-110 -110 220 220" hidden role="button" tabindex="0" aria-label="Switch to digital stopwatch">
       <circle class="rim" r="106"/>
       <g id="swTicks"></g>
-      <text id="swSmall" y="40" class="num">00:00.00</text>
-      <line id="swHand" class="sec" y1="16" y2="-92" stroke-width="2"/>
+      <g transform="translate(0 -40)"><circle class="subrim" r="21"/><g id="swMinTicks"></g><line id="swMin" class="hand" y2="-17" stroke-width="1.6"/></g>
+      <text id="swSmall" y="44" class="num">00:00.00</text>
+      <line id="swLapHand" class="sec" y1="16" y2="-92" stroke-width="2" hidden/>
+      <line id="swHand" class="hand" y1="16" y2="-92" stroke-width="2"/>
       <circle class="hub" r="5"/>
     </svg>
     <div class="controls">

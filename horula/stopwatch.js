@@ -36,6 +36,10 @@ function drawSw() {
   const t = swNow();
   $('swDigital').textContent = fmtSw(t); $('swSmall').textContent = fmtSw(t);
   $('swHand').setAttribute('transform', `rotate(${(t / 1000 % 60) * 6})`);
+  // Like iOS: a small dial counts minutes to 30, and a blue hand runs the current lap once there is one.
+  $('swMin').setAttribute('transform', `rotate(${(t / 60000 % 30) * 12})`);
+  $('swLapHand').toggleAttribute('hidden', !sw.laps.length);
+  if (sw.laps.length) $('swLapHand').setAttribute('transform', `rotate(${((t - sw.laps.at(-1)) / 1000 % 60) * 6})`);
   const cur = $('swCurrent'); if (cur) cur.textContent = fmtSw(t - (sw.laps.at(-1) || 0));
 }
 addEventListener('keydown', (e) => {

@@ -77,7 +77,8 @@ v1 is live: full iOS Clock parity (see `GAPS.md`, 22 of 22). Every version below
 - [x] Same map in the Mac app.
 
 ## v14: the stopwatch dial, like iOS
-- [ ] Analog stopwatch gets a small minute dial and a blue lap hand, like the iOS analog stopwatch.
+- [x] Analog stopwatch gets a small minute dial and a blue lap hand, like the iOS analog stopwatch.
+- [ ] The iPhone and Mac app get the analog stopwatch too (tap the digits to switch, like the web).
 
 ## v15: hear it before you pick it
 - [ ] Choosing an alarm or timer sound plays it once, like iOS.

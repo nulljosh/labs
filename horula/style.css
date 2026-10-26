@@ -28,6 +28,7 @@ svg.face { display: block; width: min(320px, 80vw); height: auto; margin: 0 auto
 .face .hand { stroke: var(--text); stroke-linecap: round; }
 .face .sec { stroke: var(--accent); stroke-linecap: round; }
 .face .hub { fill: var(--accent); }
+.face .subrim { fill: none; stroke: var(--border); stroke-width: .6; }
 .face text { fill: var(--text); font: 300 14px var(--font); text-anchor: middle; dominant-baseline: central; }
 .group { background: var(--bg2); border-radius: var(--r-group); margin: var(--s2) 0 var(--s4); overflow: hidden; }
 .row { display: flex; align-items: center; gap: var(--s3); min-height: var(--s7); padding: var(--s3) var(--s4); }
