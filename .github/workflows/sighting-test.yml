@@ -1,15 +1,15 @@
-name: maera Tests
+name: sighting Tests
 on:
   push:
     branches: [main]
-    paths: ["maera/**", ".github/workflows/maera-test.yml"]
+    paths: ["sighting/**", ".github/workflows/sighting-test.yml"]
   pull_request:
     branches: [main]
-    paths: ["maera/**", ".github/workflows/maera-test.yml"]
+    paths: ["sighting/**", ".github/workflows/sighting-test.yml"]
   workflow_dispatch:
 defaults:
   run:
-    working-directory: maera
+    working-directory: sighting
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
