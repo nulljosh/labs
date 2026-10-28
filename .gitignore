@@ -31,6 +31,7 @@
 scripts/*
 !scripts/progress-svg.py
 !scripts/doc-digest.py
+!scripts/store-header.sh
 capu/
 byo-bot/
 byo-kv-database/
