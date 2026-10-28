@@ -31,7 +31,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **pan** (ex-tangent, ex-curvely, store still Curvely). Own repo, not in labs | Desmos-style grapher: functions, lists, sliders, 85 patterns · 6794988370 |
 | **icelus** (ex-morphis, ex-morpheus, ex-glyphbox, ex-glyphic, ex-blockprint, ex-blockframe, ex-wiretext). Own repo, not in labs | Describe a screen and it takes shape: a design tool on a real canvas, text underneath. Domain icelus.jaybulb.com; Pages project and bundle ID still `wiretext` · 6794988951 |
 | **hermes** (ex-tiller, ex-bosun, ex-palaemon, ex-talaria). Own repo, not in labs | Native Mac app for App Store Connect, a one-to-one clone of Helm over asc. Landing hermes.jaybulb.com |
-| **wordroot** | Etymology lookup: root tree, same-root words, saved words, widget, offline. 2.0.0 in review (2026-10-28) · 6794988021 |
+| **eponym** (ex-wordroot). Own repo `nulljosh/eponym` | Etymology dictionary: root tree, same-root words, saved words, widget, offline. 2.0.0 in review (2026-10-28), store listing still Wordroot until the next version; Pages project, host wordroot.jaybulb.com and bundle id `com.heyitsmejosh.etyma` stay · 6794988021 |
 | **coda** (ex-quotestreak) | Quote guessing game at coda.jaybulb.com. Store listing, Pages project, storage keys and RPCs still say quotestreak · 6804394619 |
 | **bugle** (ex-coranto, ex-inkpress) | Multi-feed RSS reader with Ground News-style coverage, renamed Coranto to Bugle 2026-10-25 (store name "Bugle News"; Apple refused plain Bugle). Store listing says Inkpress until the next version ships; Pages project, bundle id (`com.nulljosh.journal`) and inkpress.jaybulb.com stay · 6787759999 |
 | **sidewise** | RSS bias API + reader · 6806028670 |
@@ -98,7 +98,7 @@ Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28 and again on 2026-10-05. R
 - **DNS**: curl with `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish`. Not named `CLOUDFLARE_API_TOKEN` on purpose, that name breaks wrangler's OAuth.
 - **Apple**: xcodegen `project.yml`, no checked-in xcodeproj. SwiftUI, iOS 17+/macOS 14+. `asc xcode archive`/`export`.
 - **Other platforms**: Kotlin Multiplatform under `<repo>/kmp/`. A PWA is a fallback and does not count as coverage.
-- **/api + /mcp**: house Cloudflare Functions pattern (coda, bookrank, wordroot, curvely, icelus).
+- **/api + /mcp**: house Cloudflare Functions pattern (coda, bookrank, eponym, curvely, icelus).
 - No emojis in any UI. No demo accounts for screenshots. Use the gitignored `.env`.
 
 ## Repo standard (nimble is the reference)
@@ -107,7 +107,7 @@ Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28 and again on 2026-10-05. R
 - `WHITEPAPER.md`: H1 `<Name> Technical Whitepaper`, `**vX** | Month Year`, one-paragraph summary, core mechanic first, MIT footer, about 40 to 60 lines. Write it before the first push.
 - `.github/workflows/test.yml` where tests exist. GitHub description, homepage, topics set.
 - Icons 200x200 dark terminal style. Architecture SVGs Apple node-and-line, white bg.
-- **Landing in every repo** at `<name>.jaybulb.com` (Worker, `wrangler.toml` + `deploy.sh`, `landing/` or `docs/`), live before the ASC record. The real app runs directly on the page under the hero tagline, with no device frame or window around it (Joshua 2026-10-17). Never a screenshot where the app can run. Built on the shared tokens: 8 point grid, one radius set, 48 point capsule controls, system font. Reference: `airwell/web/index.html` and `wordroot/brand/tokens.css`. Older landings that still use a device frame (nimble `docs/index.html` and others) are being rebuilt.
+- **Landing in every repo** at `<name>.jaybulb.com` (Worker, `wrangler.toml` + `deploy.sh`, `landing/` or `docs/`), live before the ASC record. The real app runs directly on the page under the hero tagline, with no device frame or window around it (Joshua 2026-10-17). Never a screenshot where the app can run. Built on the shared tokens: 8 point grid, one radius set, 48 point capsule controls, system font. Reference: `airwell/web/index.html` and `eponym/brand/tokens.css`. Older landings that still use a device frame (nimble `docs/index.html` and others) are being rebuilt.
 
 ## Writing (READMEs, whitepapers, CLAUDE.md, roadmaps, journal, landing copy)
 tripwire's README is the reference. Short sentences. Plain words. Say the problem, then the thing, then stop. Talk to one person. Cut hedges, jargon, "leverage", "seamlessly", "robust". No em dashes, no emojis, no bullet walls where a sentence works. If it reads like a brochure or an AI wrote it, rewrite it. Prose only, never touches code.
