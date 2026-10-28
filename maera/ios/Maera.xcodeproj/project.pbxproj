@@ -1,0 +1,392 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C92000E6BBD56DFBC8E9E38 /* ListingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19E60F6D5ED60CE74464D1 /* ListingStore.swift */; };
+		3CC37F0493B879B04B56B3E4 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0CB025C5C8315A2A1C213696 /* Supabase */; };
+		4ED148D2DF974DC8713C07AD /* PostListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29D297ADEDB07BACB26294 /* PostListingView.swift */; };
+		6DA81C0D3292132025FF2A93 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6832F02566621752D34CEAE3 /* AuthView.swift */; };
+		779ABC48DA35DC2B7C4C0A50 /* ListingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AE001846AD120E6285F4E6 /* ListingsView.swift */; };
+		81C97E55E4782B28653A9A67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4E9ED0513A8A0895A6D13AE /* Assets.xcassets */; };
+		8FC6CE51A908A458FAE7E993 /* MaeraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7668D72E917F8B41D6C5B22E /* MaeraApp.swift */; };
+		AAE07CC0C84050EDC64283F7 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CDCD7ED4ACA28CC52D2C9 /* Listing.swift */; };
+		ACCF35307677CE96642308DA /* ListingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D65AD5CF31BAFB2D516834 /* ListingDetailView.swift */; };
+		CAAA698DB261C3CC3271AD2C /* SupabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41088ED0CF8C96A5F2B91AAD /* SupabaseClient.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2D29D297ADEDB07BACB26294 /* PostListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListingView.swift; sourceTree = "<group>"; };
+		41088ED0CF8C96A5F2B91AAD /* SupabaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseClient.swift; sourceTree = "<group>"; };
+		6832F02566621752D34CEAE3 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		69D65AD5CF31BAFB2D516834 /* ListingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailView.swift; sourceTree = "<group>"; };
+		7668D72E917F8B41D6C5B22E /* MaeraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaeraApp.swift; sourceTree = "<group>"; };
+		8C19E60F6D5ED60CE74464D1 /* ListingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingStore.swift; sourceTree = "<group>"; };
+		A5F4B96868B2CE7F313519A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AE5CDCD7ED4ACA28CC52D2C9 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		F3AE001846AD120E6285F4E6 /* ListingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsView.swift; sourceTree = "<group>"; };
+		F4E9ED0513A8A0895A6D13AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F7A0F1E4E2B188D12B2CB83D /* Maera.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Maera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		69F9E3403150317AEDD14D19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC37F0493B879B04B56B3E4 /* Supabase in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		59138CC3AC97D5A5108BFF0D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7A0F1E4E2B188D12B2CB83D /* Maera.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6C7E88927DB6B29A4FEE125B /* Maera */ = {
+			isa = PBXGroup;
+			children = (
+				F4E9ED0513A8A0895A6D13AE /* Assets.xcassets */,
+				6832F02566621752D34CEAE3 /* AuthView.swift */,
+				A5F4B96868B2CE7F313519A1 /* Info.plist */,
+				AE5CDCD7ED4ACA28CC52D2C9 /* Listing.swift */,
+				69D65AD5CF31BAFB2D516834 /* ListingDetailView.swift */,
+				8C19E60F6D5ED60CE74464D1 /* ListingStore.swift */,
+				F3AE001846AD120E6285F4E6 /* ListingsView.swift */,
+				7668D72E917F8B41D6C5B22E /* MaeraApp.swift */,
+				2D29D297ADEDB07BACB26294 /* PostListingView.swift */,
+				41088ED0CF8C96A5F2B91AAD /* SupabaseClient.swift */,
+			);
+			path = Maera;
+			sourceTree = "<group>";
+		};
+		E8DFB43757B5DDC2DA56ECC9 = {
+			isa = PBXGroup;
+			children = (
+				6C7E88927DB6B29A4FEE125B /* Maera */,
+				59138CC3AC97D5A5108BFF0D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C3EE291B704285C1C0B5BDE /* Maera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D9BC5DB93C8DDA41354A291 /* Build configuration list for PBXNativeTarget "Maera" */;
+			buildPhases = (
+				BCA4048F4F5B0EBF2C2ABE05 /* Sources */,
+				D35B27EF6945D53250B88D57 /* Resources */,
+				69F9E3403150317AEDD14D19 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Maera;
+			packageProductDependencies = (
+				0CB025C5C8315A2A1C213696 /* Supabase */,
+			);
+			productName = Maera;
+			productReference = F7A0F1E4E2B188D12B2CB83D /* Maera.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4D8E49BA01633F4B1143896 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					2C3EE291B704285C1C0B5BDE = {
+						DevelopmentTeam = QMM486NPYC;
+					};
+				};
+			};
+			buildConfigurationList = 17CB7D6859987B9D6D0BF0FE /* Build configuration list for PBXProject "Maera" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = E8DFB43757B5DDC2DA56ECC9;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EBED645458D2E8EC3BECD52A /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 59138CC3AC97D5A5108BFF0D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C3EE291B704285C1C0B5BDE /* Maera */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D35B27EF6945D53250B88D57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81C97E55E4782B28653A9A67 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCA4048F4F5B0EBF2C2ABE05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DA81C0D3292132025FF2A93 /* AuthView.swift in Sources */,
+				AAE07CC0C84050EDC64283F7 /* Listing.swift in Sources */,
+				ACCF35307677CE96642308DA /* ListingDetailView.swift in Sources */,
+				2C92000E6BBD56DFBC8E9E38 /* ListingStore.swift in Sources */,
+				779ABC48DA35DC2B7C4C0A50 /* ListingsView.swift in Sources */,
+				8FC6CE51A908A458FAE7E993 /* MaeraApp.swift in Sources */,
+				4ED148D2DF974DC8713C07AD /* PostListingView.swift in Sources */,
+				CAAA698DB261C3CC3271AD2C /* SupabaseClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		55248733A38EE282B32CA03F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		6E4A9C9C126CEC50D10B78D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		78A942B633145BE2BB2C9FD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Maera.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Maera/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Maera;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To attach a photo of the pet to your listing";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To attach a photo of the pet to your listing";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.homeward;
+				PRODUCT_NAME = Maera;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9AD6B49D37829A126A41706B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Maera.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Maera/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Maera;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To attach a photo of the pet to your listing";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To attach a photo of the pet to your listing";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.homeward;
+				PRODUCT_NAME = Maera;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17CB7D6859987B9D6D0BF0FE /* Build configuration list for PBXProject "Maera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E4A9C9C126CEC50D10B78D2 /* Debug */,
+				55248733A38EE282B32CA03F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2D9BC5DB93C8DDA41354A291 /* Build configuration list for PBXNativeTarget "Maera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78A942B633145BE2BB2C9FD3 /* Debug */,
+				9AD6B49D37829A126A41706B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EBED645458D2E8EC3BECD52A /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0CB025C5C8315A2A1C213696 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBED645458D2E8EC3BECD52A /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D4D8E49BA01633F4B1143896 /* Project object */;
+}
