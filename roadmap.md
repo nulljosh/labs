@@ -647,4 +647,3 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 
 ## Ingested 2026-10-25
 - [ ] Figma: research a Figma MCP and Claude skills etc, or build one ourselves? (Ultrathink.)
-- [x] "Apps: Clock". Built clock/ and shipped it at clock.jaybulb.com on 2026-10-25, with 22 of 22 gaps against iOS Clock closed.
