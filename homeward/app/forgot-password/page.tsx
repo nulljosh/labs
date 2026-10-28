@@ -23,20 +23,20 @@ export default function ForgotPassword() {
 
   if (sent) {
     return (
-      <div className="max-w-sm mx-auto px-4 py-10 font-sans text-sm">
-        <h1 className="text-lg font-bold mb-2">check your email</h1>
+      <div className="shell narrow">
+        <h1 style={{ fontSize: 34, lineHeight: "40px", fontWeight: 700, marginBottom: 8 }}>Check your email</h1>
         <p>If that account exists, a password reset link is on its way.</p>
       </div>
     );
   }
 
   return (
-    <div className="max-w-sm mx-auto px-4 py-10 font-sans text-sm">
-      <h1 className="text-lg font-bold mb-4">forgot password</h1>
+    <div className="shell narrow">
+      <h1 style={{ fontSize: 34, lineHeight: "40px", fontWeight: 700, marginBottom: 24 }}>forgot password</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        <input name="email" type="email" required placeholder="email" className="border border-zinc-300 rounded px-2 py-1" />
-        {error && <p className="text-red-600">{error}</p>}
-        <button disabled={submitting} className="bg-[#FF851B] text-[#111111] font-semibold rounded px-4 py-2 disabled:opacity-50">
+        <input name="email" type="email" required placeholder="email" />
+        {error && <p className="err">{error}</p>}
+        <button disabled={submitting} className="btn-solid">
           {submitting ? "sending..." : "send reset link"}
         </button>
       </form>

@@ -4,11 +4,9 @@
 
 .lp {
   /* orchard palette */
-  --accent: var(--clay); --accent-ink: #ffffff;
+  --accent: var(--btn); --accent-ink: var(--btn-ink);
   --link: var(--clay-deep); --link-hover: var(--text);
   --accent-soft: color-mix(in srgb, var(--accent) 9%, var(--bg));
-  --lost: #111111; --lost-bg: #FF4136;
-  --found: #111111; --found-bg: #2ECC40;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
@@ -67,11 +65,11 @@
     linear-gradient(90deg, var(--bg), transparent 20%, transparent 80%, var(--bg)),
     color-mix(in srgb, var(--bg) 50%, transparent);
 }
-.lp .hero-icon { width: 88px; height: 88px; border-radius: 20px; margin: 0 auto 1.75rem; display: block; }
+.lp .hero-icon { width: 88px; height: 88px; border-radius: 22.5%; margin: 0 auto 1.75rem; display: block; }
 .lp h1 { font-size: clamp(2.25rem, 6.5vw, 3.5rem); font-weight: 700; margin: 0 0 0.85rem; letter-spacing: -0.025em; line-height: 1.08; }
 .lp .hero p { font-size: clamp(1.05rem, 2.4vw, 1.25rem); color: var(--text2); max-width: 34rem; margin: 0 auto; }
 .lp .buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-.lp .btn { display: inline-block; padding: 0.7rem 1.5rem; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.98rem; border: 1.5px solid transparent; transition: transform 0.15s ease, opacity 0.15s ease; }
+.lp .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.5rem; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.98rem; border: 1.5px solid transparent; transition: transform 0.15s ease, opacity 0.15s ease; }
 .lp .btn:hover { text-decoration: none; transform: translateY(-1px); }
 .lp .btn-primary { background: var(--accent); color: var(--accent-ink); }
 .lp .btn-primary:hover { opacity: 0.9; }
@@ -81,18 +79,19 @@
 .lp h2 { font-size: clamp(1.5rem, 3.6vw, 2rem); font-weight: 700; text-align: center; margin: 0 0 2.25rem; letter-spacing: -0.02em; }
 .lp .features { padding: 4rem 0; }
 .lp .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }
-.lp .feature { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
+.lp .feature { background: var(--bg2); border: 0; border-radius: 28px; padding: 1.5rem; }
 .lp .feature h3 { margin: 0 0 0.4rem; font-size: 1rem; font-weight: 650; }
 .lp .feature p { margin: 0; color: var(--text2); font-size: 0.95rem; }
 .lp .feature a { display: inline-block; margin-top: 0.75rem; font-size: 0.9rem; font-weight: 500; color: var(--link); text-decoration: none; }
 .lp .feature a:hover { text-decoration: underline; }
 
 .lp .recent { padding: 0 0 4rem; }
-.lp .recent ul { list-style: none; margin: 0; padding: 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.lp .recent ul { list-style: none; margin: 0; padding: 0; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
 .lp .recent li + li { border-top: 1px solid var(--border); }
 .lp .recent a { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.7rem 1rem; text-decoration: none; color: var(--text); background: var(--bg2); }
 .lp .recent a:hover { background: var(--accent-soft); }
-.lp .recent .tag { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.1rem 0.35rem; border-radius: 4px; flex: none; }
+
+.lp .recent .tag { position: static; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.1rem 0.35rem; border-radius: 4px; flex: none; }
 .lp .recent .tag.lost  { color: var(--lost);  background: var(--lost-bg); }
 .lp .recent .tag.found { color: var(--found); background: var(--found-bg); }
 .lp .recent .where { margin-left: auto; color: var(--text2); font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

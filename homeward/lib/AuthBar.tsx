@@ -19,18 +19,18 @@ export default function AuthBar() {
 
   if (email) {
     return (
-      <span className="text-zinc-500">
+      <span style={{ color: "var(--text2)" }}>
         {email} ·{" "}
-        <button onClick={() => spark.auth.signOut()} className="text-[#0074D9] underline">
-          log out
+        <button onClick={() => spark.auth.signOut()} style={{ all: "unset", cursor: "pointer", color: "var(--accent)" }}>
+          Log out
         </button>
       </span>
     );
   }
 
   return (
-    <Link href="/login" className="text-[#0074D9] underline hover:text-[#001F3F]">
-      log in
+    <Link href="/login">
+      Log in
     </Link>
   );
 }

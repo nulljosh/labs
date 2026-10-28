@@ -23,12 +23,12 @@ export default function ResetPassword() {
   }
 
   return (
-    <div className="max-w-sm mx-auto px-4 py-10 font-sans text-sm">
-      <h1 className="text-lg font-bold mb-4">set a new password</h1>
+    <div className="shell narrow">
+      <h1 style={{ fontSize: 34, lineHeight: "40px", fontWeight: 700, marginBottom: 24 }}>set a new password</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        <input name="password" type="password" required minLength={6} placeholder="new password" className="border border-zinc-300 rounded px-2 py-1" />
-        {error && <p className="text-red-600">{error}</p>}
-        <button disabled={submitting} className="bg-[#FF851B] text-[#111111] font-semibold rounded px-4 py-2 disabled:opacity-50">
+        <input name="password" type="password" required minLength={6} placeholder="new password" />
+        {error && <p className="err">{error}</p>}
+        <button disabled={submitting} className="btn-solid">
           {submitting ? "saving..." : "save password"}
         </button>
       </form>

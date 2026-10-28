@@ -30,56 +30,37 @@ function ListingDetailInner() {
   }
 
   if (!listing) {
-    return <div className="max-w-xl mx-auto px-4 py-10 font-sans text-sm">loading...</div>;
+    return <div className="shell narrow">Loading...</div>;
   }
 
   return (
-    <div className="max-w-xl mx-auto px-4 py-6 font-sans text-sm">
-      <Link href="/board" className="text-[#0074D9] underline">
-        &larr; back
-      </Link>
-      <h1 className="text-xl font-bold mt-3 mb-1">
+    <div className="shell narrow">
+      <Link href="/board">&larr; Back to the board</Link>
+      <h1 style={{ fontSize: 34, lineHeight: "40px", fontWeight: 700, margin: "16px 0 8px" }}>
         {listing.type === "lost" ? "Lost" : "Found"}: {listing.pet_name || listing.species}
       </h1>
       {listing.status === "resolved" ? (
-        <p className="text-green-700 font-semibold mb-2">resolved</p>
+        <p style={{ color: "var(--found-bg)", fontWeight: 600 }}>Resolved</p>
       ) : (
-        loggedIn && (
-          <button
-            onClick={markFound}
-            className="mb-3 bg-[#2ECC40] text-[#111111] font-semibold rounded px-4 py-2"
-          >
-            mark found
-          </button>
-        )
+        loggedIn && <button onClick={markFound} className="btn-solid">Mark found</button>
       )}
       {listing.photo_url && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={listing.photo_url}
-          alt={listing.pet_name ?? listing.species}
-          className="rounded mb-3 w-full h-auto object-cover"
-        />
+        <img src={listing.photo_url} alt={listing.pet_name ?? listing.species} style={{ borderRadius: 28, width: "100%", height: "auto", marginTop: 16 }} />
       )}
-      <dl className="grid grid-cols-[120px_1fr] gap-y-1">
-        <dt className="text-zinc-500">species</dt>
-        <dd>{listing.species}</dd>
-        <dt className="text-zinc-500">color</dt>
-        <dd>{listing.color || "—"}</dd>
-        <dt className="text-zinc-500">tag / chip #</dt>
-        <dd>{listing.tag_number || "—"}</dd>
-        <dt className="text-zinc-500">sex</dt>
-        <dd>{listing.sex || "—"}</dd>
-        <dt className="text-zinc-500">reward</dt>
-        <dd>{listing.reward || "—"}</dd>
-        <dt className="text-zinc-500">last seen</dt>
-        <dd>{listing.last_seen_location}{listing.last_seen_at ? ` (${listing.last_seen_at})` : ""}</dd>
-        <dt className="text-zinc-500">notes</dt>
-        <dd>{listing.description || "—"}</dd>
-        <dt className="text-zinc-500">contact</dt>
+      <dl className="facts">
+        <dt>Species</dt><dd>{listing.species}</dd>
+        <dt>Color</dt><dd>{listing.color || "-"}</dd>
+        <dt>Tag or chip</dt><dd>{listing.tag_number || "-"}</dd>
+        <dt>Sex</dt><dd>{listing.sex || "-"}</dd>
+        <dt>Reward</dt><dd>{listing.reward || "-"}</dd>
+        <dt>Last seen</dt><dd>{listing.last_seen_location}{listing.last_seen_at ? ` (${listing.last_seen_at})` : ""}</dd>
+        <dt>Notes</dt><dd>{listing.description || "-"}</dd>
+        <dt>Contact</dt>
         <dd>
-          {listing.contact_phone && <div>{listing.contact_phone}</div>}
-          {listing.contact_email && <div>{listing.contact_email}</div>}
+          {listing.contact_phone && <div><a href={`tel:${listing.contact_phone}`}>{listing.contact_phone}</a></div>}
+          {listing.contact_email && <div><a href={`mailto:${listing.contact_email}`}>{listing.contact_email}</a></div>}
+          {!listing.contact_phone && !listing.contact_email && "-"}
         </dd>
       </dl>
     </div>
@@ -89,7 +70,7 @@ function ListingDetailInner() {
 // useSearchParams needs a Suspense boundary to prerender at build time.
 export default function ListingDetail() {
   return (
-    <Suspense fallback={<div className="max-w-xl mx-auto px-4 py-10 font-sans text-sm">loading...</div>}>
+    <Suspense fallback={<div className="shell narrow">Loading...</div>}>
       <ListingDetailInner />
     </Suspense>
   );

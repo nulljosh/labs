@@ -142,8 +142,8 @@ export default function Landing() {
       <section className="hero">
         <HeroWall parallaxRef={wallRef} />
         <div className="topbar">
-          <span className="name">homeward</span>
-          <span><Link href="/board">browse the board</Link> · <AuthBar /></span>
+          <span className="name">Homeward</span>
+          <span><Link href="/board">Browse the board</Link> · <AuthBar /></span>
         </div>
         <div className="container">
           {/* eslint-disable-next-line @next/next/no-img-element */}

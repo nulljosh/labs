@@ -128,3 +128,21 @@ instead of the board. Both fixed.
 
 ## Ingested 2026-10-22
 - Reference, not a task: two photos of real flyers on poles, filed as proof of the problem Homeward solves (/Users/joshua/Documents/Code/notes/attachments/2026-10-22/homeward-1.png, /Users/joshua/Documents/Code/notes/attachments/2026-10-22/homeward-2.png). (1) "Trusted Tails", a family-owned pet service in Delta, Surrey, Langley and White Rock: pet check-in, pet waste management, dog walking, trustedtails.ca. A candidate for a local pet-services listing. (2) A taped, rain-soaked "MISSING - Cali" flyer: 1 yr old spayed female calico, escaped July 17 from the north side of Portage Park at 201A St (Langley), microchipped, no collar, call or text number on the flyer. Decision: proof that paper flyers fail (rain-soaked, taped up, number half gone). No new feature from it. Owner's phone number left off on purpose, see the PNG.
+
+## /mobbin gap matrix (2026-10-28)
+Compared against PawBoost, Petco Love Lost, Finding Rover, Nextdoor, Tractive, Fi, Rover and Petco (App Store sheets).
+Skipped: GPS collars, pet sitting, shopping.
+
+| Gap | Who has it | Size | Status |
+|---|---|---|---|
+| House UI: capsule controls, photo-first cards, Lost/Found pill, light and dark | PawBoost, Petco Love Lost | S | done 2026-10-28 (web) |
+| Call and Share right on each card | PawBoost | S | done 2026-10-28 (web) |
+| Species and sex filter chips | PawBoost, Finding Rover | S | open |
+| Sort by newest, last seen date, distance | PawBoost | S | open |
+| Reunited tab (resolved listings, happy endings) | PawBoost | S | open |
+| Map on the listing detail and a map view of the board | PawBoost, Nextdoor | M | open |
+| Step-by-step post flow with photo first | PawBoost, Petco Love Lost | M | open |
+| Alerts for new lost pets near you | PawBoost, Petco Love Lost, Nextdoor | L | open |
+| Printable poster from a listing | PawBoost | M | open |
+| Photos on old listings point at a dead storage URL; board now falls back to a paw | - | S | open |
+| New name (Joshua 2026-10-28: Homeward has to go) | - | S | probing |

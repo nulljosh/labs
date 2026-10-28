@@ -5,6 +5,9 @@ import Link from "next/link";
 import { spark, Listing } from "@/lib/spark";
 import AuthBar from "@/lib/AuthBar";
 
+// Shown when a listing has no photo, or its photo fails to load.
+const PAW = '<svg width="56" height="56" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6" cy="9" r="2.2"/><circle cx="10" cy="5.5" r="2.2"/><circle cx="14" cy="5.5" r="2.2"/><circle cx="18" cy="9" r="2.2"/><path d="M12 11c-3 0-6 4-6 6.5 0 1.6 1.3 2.5 3 2.5 1.2 0 2-.6 3-.6s1.8.6 3 .6c1.7 0 3-.9 3-2.5C18 15 15 11 12 11z"/></svg>';
+
 export default function Home() {
   const [listings, setListings] = useState<Listing[]>([]);
   const [filter, setFilter] = useState<"all" | "lost" | "found">("all");
@@ -30,6 +33,13 @@ export default function Home() {
     spark.functions.invoke("notify-found", { body: { listingId: id } });
   }
 
+  async function share(l: Listing) {
+    const url = `${location.origin}/listing?id=${l.id}`;
+    const title = `${l.type === "lost" ? "Lost" : "Found"}: ${l.pet_name || l.species}`;
+    if (navigator.share) await navigator.share({ title, url }).catch(() => {});
+    else await navigator.clipboard?.writeText(url).catch(() => {});
+  }
+
   const filtered = listings.filter((l) => {
     if (filter !== "all" && l.type !== filter) return false;
     if (!query) return true;
@@ -38,65 +48,54 @@ export default function Home() {
   });
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6 font-sans text-sm">
-      <header className="flex items-baseline justify-between border-b border-zinc-300 pb-2 mb-4">
-        <Link href="/" className="text-xl font-bold">homeward</Link>
-        <div className="flex items-center gap-3">
-          <Link href="/post" className="text-[#0074D9] underline hover:text-[#001F3F]">
-            post a listing
-          </Link>
+    <div className="shell">
+      <header className="nav">
+        <Link href="/" className="brand"><img src="/icon.svg" alt="" width={32} height={32} />Homeward</Link>
+        <div className="end">
           <AuthBar />
+          <Link href="/post" className="btn-solid" style={{ display: "inline-flex", alignItems: "center", minHeight: 48, padding: "0 24px", borderRadius: 999, fontWeight: 600, color: "var(--btn-ink)" }}>Post a pet</Link>
         </div>
       </header>
 
-      <div className="flex gap-3 mb-4 items-center">
+      <div className="chips">
         {(["all", "lost", "found"] as const).map((f) => (
-          <button
-            key={f}
-            onClick={() => setFilter(f)}
-            className={`px-2 py-1 border rounded ${
-              filter === f ? "bg-[#FF851B] text-[#111111] font-semibold" : "border-zinc-300"
-            }`}
-          >
-            {f}
+          <button key={f} onClick={() => setFilter(f)} aria-pressed={filter === f}>
+            {f[0].toUpperCase() + f.slice(1)}
           </button>
         ))}
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="search name, species, location..."
-          className="ml-auto border border-zinc-300 rounded px-2 py-1 flex-1 max-w-xs"
+          placeholder="Search name, species, place"
+          aria-label="Search listings"
         />
       </div>
 
-      <ul className="divide-y divide-zinc-200">
+      <ul className="cards">
         {filtered.map((l) => (
-          <li key={l.id} className="py-2">
-            <Link href={`/listing?id=${l.id}`} className="flex items-baseline gap-2 hover:underline">
-              <span
-                className={`uppercase text-xs font-bold px-1 rounded ${
-                  l.type === "lost" ? "bg-[#FF4136] text-[#111111]" : "bg-[#2ECC40] text-[#111111]"
-                }`}
-              >
-                {l.type}
-              </span>
-              <span className="font-medium">{l.pet_name || l.species}</span>
-              <span className="text-zinc-500">— {l.species}, {l.color}</span>
-              <span className="text-zinc-400 ml-auto">{l.last_seen_location}</span>
+          <li key={l.id} className="pet">
+            <Link href={`/listing?id=${l.id}`}>
+              {l.photo_url ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="ph" src={l.photo_url} alt={l.pet_name ?? l.species} loading="lazy" onError={(e) => { e.currentTarget.replaceWith(Object.assign(document.createElement("div"), { className: "ph", innerHTML: PAW })); }} />
+              ) : (
+                <div className="ph" dangerouslySetInnerHTML={{ __html: PAW }} />
+              )}
+              <div className="body">
+                <span className="name">{l.pet_name || l.species}</span>
+                <span className="sub">{[l.species, l.color].filter(Boolean).join(", ")}</span>
+                <span className="sub">{l.last_seen_location}</span>
+              </div>
             </Link>
-            {loggedIn && (
-              <button
-                onClick={() => markFound(l.id)}
-                className="mt-1 text-xs border border-zinc-300 rounded px-2 py-0.5 text-zinc-600 hover:border-[#2ECC40] hover:text-[#2ECC40]"
-              >
-                mark found
-              </button>
-            )}
+            <span className={`tag ${l.type}`}>{l.type}</span>
+            <div className="actions">
+              {l.contact_phone && <a href={`tel:${l.contact_phone}`}>Call</a>}
+              <button onClick={() => share(l)}>Share</button>
+              {loggedIn && <button onClick={() => markFound(l.id)}>Mark found</button>}
+            </div>
           </li>
         ))}
-        {filtered.length === 0 && (
-          <li className="py-8 text-center text-zinc-400">no listings yet</li>
-        )}
+        {filtered.length === 0 && <li className="empty">No listings yet.</li>}
       </ul>
     </div>
   );
