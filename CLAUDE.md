@@ -31,7 +31,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **pan** (ex-tangent, ex-curvely, store still Curvely). Own repo, not in labs | Desmos-style grapher: functions, lists, sliders, 85 patterns · 6794988370 |
 | **icelus** (ex-morphis, ex-morpheus, ex-glyphbox, ex-glyphic, ex-blockprint, ex-blockframe, ex-wiretext). Own repo, not in labs | Describe a screen and it takes shape: a design tool on a real canvas, text underneath. Domain icelus.jaybulb.com; Pages project and bundle ID still `wiretext` · 6794988951 |
 | **hermes** (ex-tiller, ex-bosun, ex-palaemon, ex-talaria). Own repo, not in labs | Native Mac app for App Store Connect, a one-to-one clone of Helm over asc. Landing hermes.jaybulb.com |
-| **wordroot** | Etymology lookup |
+| **wordroot** | Etymology lookup: root tree, same-root words, saved words, widget, offline. 2.0.0 in review (2026-10-28) · 6794988021 |
 | **coda** (ex-quotestreak) | Quote guessing game at coda.jaybulb.com. Store listing, Pages project, storage keys and RPCs still say quotestreak · 6804394619 |
 | **bugle** (ex-coranto, ex-inkpress) | Multi-feed RSS reader with Ground News-style coverage, renamed Coranto to Bugle 2026-10-25 (store name "Bugle News"; Apple refused plain Bugle). Store listing says Inkpress until the next version ships; Pages project, bundle id (`com.nulljosh.journal`) and inkpress.jaybulb.com stay · 6787759999 |
 | **sidewise** | RSS bias API + reader · 6806028670 |
