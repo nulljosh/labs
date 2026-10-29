@@ -1,5 +1,0 @@
-.wrangler/
-apple/*.xcodeproj/
-apple/build/
-build/
-apple/shots/
