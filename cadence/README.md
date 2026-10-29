@@ -1,0 +1,47 @@
+<img src="icon.svg" width="80">
+
+# Cadence
+![version](https://img.shields.io/badge/version-v1.0.2-blue)
+![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fcadence-black?logo=github)](https://github.com/nulljosh/labs/tree/main/cadence)
+
+How much did you ship? Cadence pulls your GitHub commit history through the GraphQL API and draws it: streaks, best days, what's hot this month.
+
+<img src="progress.svg" width="460">
+
+## Screenshots
+
+<p>
+<img src="screenshots/cadence-1.jpg" alt="Cadence">
+</p>
+
+## Platforms
+- **web**: the dashboard at [cadence.jaybulb.com](https://cadence.jaybulb.com), Chart.js
+- **iOS**: SwiftUI, on the live API
+- **macOS**: SwiftUI, on the live API
+- **Terminal**: `swift build && ./.build/debug/cadence-tui` — see [tui/](tui/)
+
+## Stack
+Serverless functions in `api/` and plain JS on the front. MIT 2026 Joshua Trommel.
+
+## API
+- `GET /api/stats`: total30, streak, bestDay, daily map, perRepo
+- `GET /api/heatmap`: 365 days of {date: count}
+- `GET /api/projects`: repos by commits in the last 30 days
+
+## Whitepaper
+
+[Technical whitepaper](WHITEPAPER.md)
+
+## API and agent tools
+
+An agent can drive this app. [`docs/API.md`](docs/API.md) lists the HTTP surface, where there
+is one, and the WebMCP tools registered on `document.modelContext`. Tools come in three kinds:
+read-only, writes you can undo, and the few that ask a human first.
+
+## Architecture
+
+<img src="architecture.svg" width="600">
+
+## License
+
+MIT 2026, Joshua Trommel
