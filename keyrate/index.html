@@ -9,12 +9,12 @@
 <meta property="og:description" content="Words appear. You type them. You get one number.">
 <meta property="og:type" content="website">
 <link rel="icon" href="icon.svg">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1a17" media="(prefers-color-scheme: dark)">
 <link rel="stylesheet" href="https://jaybulb.com/tokens.css">
 <link rel="stylesheet" href="https://jaybulb.com/landing.css">
 <script defer src="https://jaybulb.com/landing.js" data-shape="bars"></script>
 <style>
-  :root, :root[data-theme] { --bg: #fff; --bg2: #f6f6f6; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background: var(--bg); color: var(--text);
@@ -28,6 +28,7 @@
 
   section { padding: 4rem 0; }
   .lp-stage { margin-top: 8px; }
+  .test-frame { display: block; width: 100%; height: 560px; border: 0; background: transparent; }
   h2 { font-size: clamp(1.5rem, 3.6vw, 2rem); font-weight: 700; letter-spacing: -.02em; text-align: center; margin-bottom: .6rem; }
   .lead { text-align: center; color: var(--text2); max-width: 34rem; margin: 0 auto 2.25rem; }
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
@@ -72,6 +73,7 @@
   </div>
 </header>
 <div class="lp-stage">
+  <iframe src="/app" title="Keyrate typing test" class="test-frame" loading="lazy"></iframe>
 </div>
 <section id="test" class="lp-reveal">
   <div class="container">

@@ -1,8 +1,6 @@
 <img src="icon.svg" width="80" style="border-radius:18px">
 
-# Keyrate
-
-![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fkeyrate-black?logo=github)](https://github.com/nulljosh/labs/tree/main/keyrate)
+![version](https://img.shields.io/badge/version-v1.0.0-blue) [![tests](https://github.com/nulljosh/labs/actions/workflows/keyrate-test.yml/badge.svg)](https://github.com/nulljosh/labs/actions/workflows/keyrate-test.yml) ![license](https://img.shields.io/badge/license-MIT-green)
 
 How fast do you type? Every site that answers wants an account, a theme picker and forty settings before it shows you a number.
 
@@ -27,7 +25,8 @@ Monkeytype is great. It is also a settings page with a typing test attached. Thi
 ## Run it
 
 ```
-15 / 30 / 60 seconds, or 25 / 50 words
+15 / 30 / 60 seconds, 25 / 50 words, or a quote
+punct          capitals, punctuation, numbers
 Tab            restart
 Enter          restart after a result
 ```
@@ -38,6 +37,10 @@ npx wrangler deploy
 ```
 
 Live at [keyrate.jaybulb.com](https://keyrate.jaybulb.com); the test itself is at [/app](https://keyrate.jaybulb.com/app).
+
+**Android and desktop:** `cd kmp && ./gradlew :composeApp:run` opens the Windows, Mac and Linux app, `:composeApp:assembleDebug` builds the Android one. Same scoring as the web, same tests.
+
+**iPhone, iPad and Mac:** `cd apple && xcodegen generate`, then open `Keyrate.xcodeproj` (`xcodebuild test -scheme Keyrate -destination 'platform=macOS'` runs the tests).
 
 **Terminal:** `swift build && ./.build/debug/keyrate-tui "target text" "typed text" 3.2` — see [tui/](tui/)
 

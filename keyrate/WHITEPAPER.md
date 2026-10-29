@@ -4,7 +4,7 @@
 
 Most typing sites bury the test under themes, accounts, and a leaderboard,
 when the only thing anyone actually opens the page for is the number.
-Keyrate is a typing test in one file. Words appear, you type them, the page tells you how fast. It borrows the idea from Monkeytype and 10fastfingers and drops everything that is not the test, because every one of those extras is a reason to distrust whether the number you get is the same number a stranger's site would give you. Live at [keyrate.heyitsmejosh.com](https://keyrate.heyitsmejosh.com); the test itself is at [/app](https://keyrate.heyitsmejosh.com/app).
+Keyrate is a typing test in one file. Words appear, you type them, the page tells you how fast. It borrows the idea from Monkeytype and 10fastfingers and drops everything that is not the test, because every one of those extras is a reason to distrust whether the number you get is the same number a stranger's site would give you. Live at [keyrate.jaybulb.com](https://keyrate.jaybulb.com); the test itself is at [/app](https://keyrate.jaybulb.com/app).
 
 ## Core Mechanic: Words Per Minute
 
@@ -18,7 +18,7 @@ From those two counts:
 - wpm is correct characters over five over minutes
 - accuracy is correct over total
 
-Nothing else is derived. The function is pure and has a three-case test.
+Nothing else is derived. The function is pure and has a three-case test. Accuracy is judged on the final text, so a typo you fixed does not count against you.
 
 ## Input
 
@@ -28,7 +28,7 @@ The visible text is rebuilt from the typed and target arrays on every keystroke,
 
 ## Word Stream
 
-Two hundred common English words, the same pool the reference sites use, picked at random with replacement so no memorized sequence can inflate a score. In timed mode the stream refills itself before the end comes into view. In word mode the list is fixed at the chosen count.
+Four hundred and sixty common English words, the same pool the reference sites use, picked at random with replacement so no memorized sequence can inflate a score. In timed mode the stream refills itself before the end comes into view. In word mode the list is fixed at the chosen count. Quote mode types one of ten short quotes. The punct toggle capitalizes some words, adds commas, periods and question marks, and swaps in the odd number.
 
 Three lines are visible. The active line is held second from the top by scrolling the container, so the eye never has to chase the text down or up the page.
 
@@ -38,10 +38,10 @@ When the clock runs out or the last word lands, the test blurs and the numbers a
 
 ## Hosting
 
-Cloudflare Workers static assets. `.assetsignore` keeps the docs and tests off the edge. The design tokens come from the shared `tokens.css` so it matches the rest of the site.
+Cloudflare Workers static assets. `.assetsignore` keeps the docs and tests off the edge. The design tokens come from the shared `tokens.css`, so light and dark follow the rest of the site.
 
 ## Out of scope
 
-Custom word lists, punctuation, quotes, themes, accounts and multiplayer. Any of these can be added, but none of them make the number more true, and that number is the only reason the page exists.
+Custom word lists, themes, accounts and multiplayer. Any of these can be added, but none of them make the number more true, and that number is the only reason the page exists.
 
 MIT. Copyright 2026 Joshua Trommel.
