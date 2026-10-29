@@ -56,7 +56,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **tripwire** | API drift and CI-failure watcher |
 | **seamark** | Read values off rendered charts. Repo archived 2026-10-29, it turned into Duke |
 | **horula** (ex-Clock) | iOS Clock on the web, going native: world clocks, alarms, sleep, stopwatch, timers, nightstand. PWA at horula.jaybulb.com (clock.jaybulb.com still serves); App Store record 6826916379 |
-| **keyrate** | Typing test, one file |
+| **keyrate** | Typing test: web, plus Android, desktop, iPhone, iPad and Mac ports sharing one set of score vectors |
 | **weather** | Forecast page, Open-Meteo, one file |
 | **fieldbook** | Every field of science + math explained plainly |
 | **hormuz** | Strait of Hormuz, oil prices, trading signals |

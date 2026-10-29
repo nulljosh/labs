@@ -2,27 +2,9 @@
 
 Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Each step ends with its check green. Keyrate stays one number with nothing attached: no accounts, themes or multiplayer.
 
-## Done 2026-10-29
-- [x] Android and desktop app in `kmp/`, scoring ported, 14 tests
-- [x] iOS and Mac SwiftUI app in `apple/`, one target, 12 tests, `Score.swift` shared with the TUI
-- [x] Web: dark mode, the test embedded on the landing, timed-run clamp, domain, docs
-- [x] Android launcher icon
-
 ## To v100
 
-### Web test
-- [x] v1: Commit the 2026-10-29 work (web fixes, kmp, apple) with keyrate paths only
-- [x] v2: Retake the README screenshots in light mode with the quote and punct buttons showing
-- [x] v3: Pull the test rules out of app/index.html into session.js, same API as Session.kt and Session.swift, tested with node --test
-- [x] v4: Web takes the whole input text (setText) so pasted or batched input lands like slow typing
-- [x] v5: Label the words, the mode chips and the result for screen readers; keep the timer quiet
-- [x] v6: Keyboard-only mode switch: Esc leaves the test for the mode chips, arrows move, Enter picks
-- [x] v7: Reloading keeps the chosen mode and the punct setting
-- [x] v8: Landing: the embedded test resizes to its content so the result never scrolls inside the frame
-- [x] v9: Quote mode never repeats the quote just typed (all four ports)
-
 ### Rules and scoring
-- [x] v10: Score vectors: one file of 30 cases, generated tests in node, Kotlin and Swift that must all agree
 - [ ] v11: One check script: node tests, vectors, gradle tests, xcodebuild tests, README refs; run before any push
 - [ ] v12: Whitepaper: how accuracy is counted (final text, not keystrokes) with a worked example
 - [ ] v13: Result also shows keystroke accuracy next to the final-text one, so both are honest
