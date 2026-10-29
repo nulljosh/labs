@@ -1,6 +1,6 @@
 # Codebase Notes (~/Documents/Code)
 
-*Refreshed 2026-10-20. This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money. Never write versions here, `asc versions list --app <id>` is the truth.*
+*Refreshed 2026-10-29. This file is a map. Each repo's `CLAUDE.md` and `roadmap.md` hold the detail. `GTM.md` holds the money. Never write versions here, `asc versions list --app <id>` is the truth.*
 
 ![Commits per month since Claude Code inception](progress.svg)
 
@@ -12,7 +12,7 @@
 
 ## Repos
 
-**`~/Documents/Code` is the `labs` repo.** 20 projects live in it as plain folders, history kept, and commit to `labs`: keyrate, weather, noema (ex-evidna, absorbed the old noema repo 2026-10-26), plan, hormuz, tripwire, cadence, fieldbook, dream, seamark, costanza, numen, homeqi, dotfiles, journal, toroid, coda (ex-quotestreak), hamurapi, bcgd, bugle (ex-coranto, ex-inkpress), horula (ex-clock). Icelus (ex-Glyphbox, ex-Glyphic, ex-Blockprint) left on 2026-10-18 and is its own repo (`nulljosh/icelus`, folder `icelus/`, ignored here). Curvely, now Pan (renamed 2026-10-21, store name still Curvely until Apple accepts), left the same way on 2026-10-21 (`nulljosh/pan`, public, folder `pan/`, ignored here; its earlier history stays in labs), and so did Gastown, ex-NYC Survive (`nulljosh/gastown`, public, folder `gastown/`). Sighting (ex-Maera, ex-Homeward) left on 2026-10-28 (`nulljosh/sighting`, public, folder `sighting/`, ignored here; its earlier history stays in labs). Oohaah left on 2026-10-25 (`nulljosh/oohaah`, private for now, folder `oohaah/`, history kept). Their CI is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and in the allowlist but untracked, see roadmap. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`. 
+**`~/Documents/Code` is the `labs` repo.** Small projects live in it as plain folders, history kept, and commit to `labs`: bcgd, homeqi, dream, cadence, fieldbook, tripwire, hormuz, keyrate, weather, dotfiles. Cadence, fieldbook, homeqi and dream are queued to leave next (GitHub rate-limited repo creation on 2026-10-29). Everything else is its own repo in a folder of the same name, gitignored here. On 2026-10-29 coda, bugle, horula, hamurapi, noema, toroid, journal, numen, costanza and seamark left this way with history kept and their CI moved into each repo's `.github/workflows/`; seamark and sidewise are archived. Earlier leavers: icelus (2026-10-18), pan and gastown (2026-10-21), oohaah (2026-10-25, private), sighting (2026-10-28). CI for what stays is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and untracked. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`.
 
 ### Apps
 Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
@@ -34,7 +34,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **eponym** (ex-wordroot). Own repo `nulljosh/eponym` | Etymology dictionary: root tree, same-root words, saved words, widget, offline. 2.0.0 in review (2026-10-28), store listing still Wordroot until the next version; Pages project, host wordroot.jaybulb.com and bundle id `com.heyitsmejosh.etyma` stay · 6794988021 |
 | **coda** (ex-quotestreak) | Quote guessing game at coda.jaybulb.com. Store listing, Pages project, storage keys and RPCs still say quotestreak · 6804394619 |
 | **bugle** (ex-coranto, ex-inkpress) | Multi-feed RSS reader with Ground News-style coverage, renamed Coranto to Bugle 2026-10-25 (store name "Bugle News"; Apple refused plain Bugle). Store listing says Inkpress until the next version ships; Pages project, bundle id (`com.nulljosh.journal`) and inkpress.jaybulb.com stay · 6787759999 |
-| **sidewise** | RSS bias API + reader · 6806028670 |
+| **sidewise** | Retired 2026-10-28, removed from sale, repo archived. Bugle replaced it · 6806028670 |
 | **plaintxt** | Plain text editor, iOS + macOS + CLI |
 | **blackcomb** (ex-madobe, ex-lucarne) | WebKit browser: start page, reading list, Float, Pair, site rules. Mac automation built and held until the Mac review clears. Bundle ID `com.nulljosh.lucarne` and Worker name `madobe` stay · 6809355192 |
 | **airwell** (ex-windgate) | Guided breathing. Folder is `breathe` · 6810806058 |
@@ -54,7 +54,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **cadence** | Commit-history tracker |
 | **numen** | Free-form calculator canvas |
 | **tripwire** | API drift and CI-failure watcher |
-| **seamark** | Read values off rendered charts (npm lib) |
+| **seamark** | Read values off rendered charts. Repo archived 2026-10-29, it turned into Duke |
 | **horula** (ex-Clock) | iOS Clock on the web, going native: world clocks, alarms, sleep, stopwatch, timers, nightstand. PWA at horula.jaybulb.com (clock.jaybulb.com still serves); App Store record 6826916379 |
 | **keyrate** | Typing test, one file |
 | **weather** | Forecast page, Open-Meteo, one file |

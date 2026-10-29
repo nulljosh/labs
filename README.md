@@ -4,9 +4,9 @@
 
 ## In labs
 
-**Apps and games:** [coda](./coda), [curvely](https://github.com/nulljosh/curvely), [hamurapi](./hamurapi), [bugle](./bugle), [gastown](https://github.com/nulljosh/gastown), [toroid](./toroid), [bcgd](./bcgd), [sighting](https://github.com/nulljosh/sighting), [homeqi](./homeqi), [costanza](./costanza), [swing](./swing), [dream](./dream), [numen](./numen)
+**Apps and sites:** [bcgd](./bcgd), [homeqi](./homeqi), [dream](./dream), [cadence](./cadence), [fieldbook](./fieldbook)
 
-**Tools and sites:** [tripwire](./tripwire), [cadence](./cadence), [seamark](./seamark), [hormuz](./hormuz), [keyrate](./keyrate), [weather](./weather), [fieldbook](./fieldbook), [noema](./noema), [journal](./journal), [authmail](./authmail), [dotfiles](./dotfiles)
+**Tools:** [tripwire](./tripwire), [hormuz](./hormuz), [keyrate](./keyrate), [weather](./weather), [authmail](./authmail), [dotfiles](./dotfiles), [scripts](./scripts)
 
 **Experiments:** [bank](./bank), [credis](./credis), [canlii-app](./canlii-app), [agent-101](./agent-101), [video-speed-ext](./video-speed-ext), [launch](./launch), [runs](./runs)
 
@@ -14,7 +14,7 @@ Native builds tag `<name>-native-v*` and run through `native-release.yml`. Deplo
 
 ## Not in labs
 
-Nimble, Epiphany, Patois, Notate, Joshua Tree, Turing and the rest of the fleet are their own repos. `CLAUDE.md` has the full map with what each one is.
+Nimble, Epiphany, Patois, Echo, Joshua Tree, Turing and the rest of the fleet are their own repos. On 2026-10-29 coda, bugle, horula, hamurapi, noema, toroid, journal, numen, costanza and seamark left labs for their own repos, history kept. Cadence, fieldbook, homeqi and dream are next. `CLAUDE.md` has the full map with what each one is.
 
 ## Root files
 
