@@ -1,0 +1,625 @@
+[
+ {
+  "typed": [
+   "the",
+   "quick",
+   "brown",
+   "fox",
+   "jumps"
+  ],
+  "target": [
+   "the",
+   "quick",
+   "brown",
+   "fox",
+   "jumps"
+  ],
+  "seconds": 60,
+  "expect": {
+   "wpm": 5,
+   "raw": 5,
+   "accuracy": 100,
+   "correct": 25,
+   "wrong": 0,
+   "correctWords": 5
+  }
+ },
+ {
+  "typed": [
+   "teh",
+   "cat"
+  ],
+  "target": [
+   "the",
+   "cat"
+  ],
+  "seconds": 30,
+  "expect": {
+   "wpm": 2,
+   "raw": 3,
+   "accuracy": 57,
+   "correct": 4,
+   "wrong": 3,
+   "correctWords": 1
+  }
+ },
+ {
+  "typed": [],
+  "target": [],
+  "seconds": 0,
+  "expect": {
+   "wpm": 0,
+   "raw": 0,
+   "accuracy": 100,
+   "correct": 0,
+   "wrong": 0,
+   "correctWords": 0
+  }
+ },
+ {
+  "typed": [
+   "catss"
+  ],
+  "target": [
+   "cat"
+  ],
+  "seconds": 60,
+  "expect": {
+   "wpm": 1,
+   "raw": 1,
+   "accuracy": 60,
+   "correct": 3,
+   "wrong": 2,
+   "correctWords": 0
+  }
+ },
+ {
+  "typed": [
+   "ca"
+  ],
+  "target": [
+   "cat"
+  ],
+  "seconds": 60,
+  "expect": {
+   "wpm": 0,
+   "raw": 0,
+   "accuracy": 100,
+   "correct": 2,
+   "wrong": 0,
+   "correctWords": 0
+  }
+ },
+ {
+  "typed": [
+   "a"
+  ],
+  "target": [
+   "a"
+  ],
+  "seconds": 60,
+  "expect": {
+   "wpm": 0,
+   "raw": 0,
+   "accuracy": 100,
+   "correct": 1,
+   "wrong": 0,
+   "correctWords": 1
+  }
+ },
+ {
+  "typed": [
+   "a",
+   "b"
+  ],
+  "target": [
+   "a",
+   "b"
+  ],
+  "seconds": 1,
+  "expect": {
+   "wpm": 36,
+   "raw": 36,
+   "accuracy": 100,
+   "correct": 3,
+   "wrong": 0,
+   "correctWords": 2
+  }
+ },
+ {
+  "typed": [
+   "the",
+   "be",
+   "of"
+  ],
+  "target": [
+   "the",
+   "be",
+   "of"
+  ],
+  "seconds": 2.5,
+  "expect": {
+   "wpm": 43,
+   "raw": 43,
+   "accuracy": 100,
+   "correct": 9,
+   "wrong": 0,
+   "correctWords": 3
+  }
+ },
+ {
+  "typed": [
+   "the",
+   "be",
+   "of"
+  ],
+  "target": [
+   "the",
+   "be",
+   "or"
+  ],
+  "seconds": 2.5,
+  "expect": {
+   "wpm": 38,
+   "raw": 43,
+   "accuracy": 89,
+   "correct": 8,
+   "wrong": 1,
+   "correctWords": 2
+  }
+ },
+ {
+  "typed": [
+   "x"
+  ],
+  "target": [
+   "the"
+  ],
+  "seconds": 60,
+  "expect": {
+   "wpm": 0,
+   "raw": 0,
+   "accuracy": 0,
+   "correct": 0,
+   "wrong": 1,
+   "correctWords": 0
+  }
+ },
+ {
+  "typed": [
+   "the"
+  ],
+  "target": [
+   "the",
+   "be",
+   "of",
+   "and"
+  ],
+  "seconds": 15,
+  "expect": {
+   "wpm": 2,
+   "raw": 2,
+   "accuracy": 100,
+   "correct": 3,
+   "wrong": 0,
+   "correctWords": 1
+  }
+ },
+ {
+  "typed": [
+   "the",
+   "be",
+   "of",
+   "and"
+  ],
+  "target": [
+   "the"
+  ],
+  "seconds": 15,
+  "expect": {
+   "wpm": 3,
+   "raw": 10,
+   "accuracy": 31,
+   "correct": 4,
+   "wrong": 9,
+   "correctWords": 1
+  }
+ },
+ {
+  "typed": [
+   "the",
+   "",
+   "be"
+  ],
+  "target": [
+   "the",
+   "of",
+   "be"
+  ],
+  "seconds": 10,
+  "expect": {
+   "wpm": 7,
+   "raw": 8,
+   "accuracy": 86,
+   "correct": 6,
+   "wrong": 1,
+   "correctWords": 2
+  }
+ },
+ {
+  "typed": [
+   "abcdefghijklmnop"
+  ],
+  "target": [
+   "abc"
+  ],
+  "seconds": 60,
+  "expect": {
+   "wpm": 1,
+   "raw": 3,
+   "accuracy": 19,
+   "correct": 3,
+   "wrong": 13,
+   "correctWords": 0
+  }
+ },
+ {
+  "typed": [
+   "hello",
+   "world"
+  ],
+  "target": [
+   "hello",
+   "world"
+  ],
+  "seconds": 0.001,
+  "expect": {
+   "wpm": 132000,
+   "raw": 132000,
+   "accuracy": 100,
+   "correct": 11,
+   "wrong": 0,
+   "correctWords": 2
+  }
+ },
+ {
+  "typed": [
+   "hello",
+   "world"
+  ],
+  "target": [
+   "hello",
+   "world"
+  ],
+  "seconds": 0.0004,
+  "expect": {
+   "wpm": 132000,
+   "raw": 132000,
+   "accuracy": 100,
+   "correct": 11,
+   "wrong": 0,
+   "correctWords": 2
+  }
+ },
+ {
+  "typed": [
+   "Hello",
+   "world"
+  ],
+  "target": [
+   "hello",
+   "world"
+  ],
+  "seconds": 12,
+  "expect": {
+   "wpm": 9,
+   "raw": 11,
+   "accuracy": 82,
+   "correct": 9,
+   "wrong": 2,
+   "correctWords": 1
+  }
+ },
+ {
+  "typed": [
+   "hello,",
+   "world."
+  ],
+  "target": [
+   "hello,",
+   "world."
+  ],
+  "seconds": 12,
+  "expect": {
+   "wpm": 13,
+   "raw": 13,
+   "accuracy": 100,
+   "correct": 13,
+   "wrong": 0,
+   "correctWords": 2
+  }
+ },
+ {
+  "typed": [
+   "hello",
+   "world"
+  ],
+  "target": [
+   "hello,",
+   "world."
+  ],
+  "seconds": 12,
+  "expect": {
+   "wpm": 10,
+   "raw": 11,
+   "accuracy": 91,
+   "correct": 10,
+   "wrong": 1,
+   "correctWords": 0
+  }
+ },
+ {
+  "typed": [
+   "123",
+   "456"
+  ],
+  "target": [
+   "123",
+   "456"
+  ],
+  "seconds": 7,
+  "expect": {
+   "wpm": 12,
+   "raw": 12,
+   "accuracy": 100,
+   "correct": 7,
+   "wrong": 0,
+   "correctWords": 2
+  }
+ },
+ {
+  "typed": [
+   "one",
+   "two",
+   "three",
+   "four",
+   "five",
+   "six",
+   "seven",
+   "eight",
+   "nine",
+   "ten"
+  ],
+  "target": [
+   "one",
+   "two",
+   "three",
+   "four",
+   "five",
+   "six",
+   "seven",
+   "eight",
+   "nine",
+   "ten"
+  ],
+  "seconds": 30,
+  "expect": {
+   "wpm": 19,
+   "raw": 19,
+   "accuracy": 100,
+   "correct": 48,
+   "wrong": 0,
+   "correctWords": 10
+  }
+ },
+ {
+  "typed": [
+   "one",
+   "two",
+   "thre",
+   "four",
+   "five",
+   "six",
+   "seven",
+   "eight",
+   "nine",
+   "ten"
+  ],
+  "target": [
+   "one",
+   "two",
+   "three",
+   "four",
+   "five",
+   "six",
+   "seven",
+   "eight",
+   "nine",
+   "ten"
+  ],
+  "seconds": 30,
+  "expect": {
+   "wpm": 18,
+   "raw": 19,
+   "accuracy": 98,
+   "correct": 46,
+   "wrong": 1,
+   "correctWords": 9
+  }
+ },
+ {
+  "typed": [
+   "one",
+   "two",
+   "three"
+  ],
+  "target": [
+   "one",
+   "two",
+   "three",
+   "four",
+   "five",
+   "six",
+   "seven",
+   "eight",
+   "nine",
+   "ten"
+  ],
+  "seconds": 60,
+  "expect": {
+   "wpm": 3,
+   "raw": 3,
+   "accuracy": 100,
+   "correct": 13,
+   "wrong": 0,
+   "correctWords": 3
+  }
+ },
+ {
+  "typed": [
+   "aaaa",
+   "bbbb"
+  ],
+  "target": [
+   "aaab",
+   "bbba"
+  ],
+  "seconds": 45,
+  "expect": {
+   "wpm": 2,
+   "raw": 2,
+   "accuracy": 67,
+   "correct": 6,
+   "wrong": 3,
+   "correctWords": 0
+  }
+ },
+ {
+  "typed": [
+   "the"
+  ],
+  "target": [
+   "the"
+  ],
+  "seconds": 0.06,
+  "expect": {
+   "wpm": 600,
+   "raw": 600,
+   "accuracy": 100,
+   "correct": 3,
+   "wrong": 0,
+   "correctWords": 1
+  }
+ },
+ {
+  "typed": [
+   "the",
+   "the",
+   "the",
+   "the",
+   "the"
+  ],
+  "target": [
+   "the",
+   "the",
+   "the",
+   "the",
+   "the"
+  ],
+  "seconds": 59.9,
+  "expect": {
+   "wpm": 4,
+   "raw": 4,
+   "accuracy": 100,
+   "correct": 19,
+   "wrong": 0,
+   "correctWords": 5
+  }
+ },
+ {
+  "typed": [
+   "quick"
+  ],
+  "target": [
+   "quack"
+  ],
+  "seconds": 4,
+  "expect": {
+   "wpm": 12,
+   "raw": 15,
+   "accuracy": 80,
+   "correct": 4,
+   "wrong": 1,
+   "correctWords": 0
+  }
+ },
+ {
+  "typed": [
+   "qu"
+  ],
+  "target": [
+   "quick"
+  ],
+  "seconds": 4,
+  "expect": {
+   "wpm": 6,
+   "raw": 6,
+   "accuracy": 100,
+   "correct": 2,
+   "wrong": 0,
+   "correctWords": 0
+  }
+ },
+ {
+  "typed": [
+   "quickly"
+  ],
+  "target": [
+   "quick"
+  ],
+  "seconds": 4,
+  "expect": {
+   "wpm": 15,
+   "raw": 21,
+   "accuracy": 71,
+   "correct": 5,
+   "wrong": 2,
+   "correctWords": 0
+  }
+ },
+ {
+  "typed": [
+   "a",
+   "b",
+   "c",
+   "d",
+   "e",
+   "f",
+   "g",
+   "h",
+   "i",
+   "j"
+  ],
+  "target": [
+   "a",
+   "b",
+   "c",
+   "d",
+   "e",
+   "f",
+   "g",
+   "h",
+   "i",
+   "j"
+  ],
+  "seconds": 6,
+  "expect": {
+   "wpm": 38,
+   "raw": 38,
+   "accuracy": 100,
+   "correct": 19,
+   "wrong": 0,
+   "correctWords": 10
+  }
+ }
+]

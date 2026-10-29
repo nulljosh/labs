@@ -22,7 +22,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [x] v9: Quote mode never repeats the quote just typed (all four ports)
 
 ### Rules and scoring
-- [ ] v10: Score vectors: one file of 30 cases, generated tests in node, Kotlin and Swift that must all agree
+- [x] v10: Score vectors: one file of 30 cases, generated tests in node, Kotlin and Swift that must all agree
 - [ ] v11: One check script: node tests, vectors, gradle tests, xcodebuild tests, README refs; run before any push
 - [ ] v12: Whitepaper: how accuracy is counted (final text, not keystrokes) with a worked example
 - [ ] v13: Result also shows keystroke accuracy next to the final-text one, so both are honest
