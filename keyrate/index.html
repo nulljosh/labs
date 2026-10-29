@@ -144,5 +144,12 @@
     <p class="foot-meta">Keyrate &middot; MIT License &middot; &copy; 2026 Joshua Trommel &middot; Made with <span class="heart">&hearts;</span> in Vancouver, BC</p>
   </div>
 </footer>
+<script>
+// the embedded test reports its height so the result never scrolls inside the frame
+addEventListener("message", e => {
+  if (e.origin !== location.origin || e.data?.keyrate !== "height") return
+  document.querySelector(".test-frame").style.height = Math.max(440, e.data.h) + "px"
+})
+</script>
 </body>
 </html>

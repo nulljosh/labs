@@ -12,14 +12,14 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 
 ### Web test
 - [x] v1: Commit the 2026-10-29 work (web fixes, kmp, apple) with keyrate paths only
-- [ ] v2: Retake the README screenshots in light mode with the quote and punct buttons showing
-- [ ] v3: Pull the test rules out of app/index.html into session.js, same API as Session.kt and Session.swift, tested with node --test
-- [ ] v4: Web takes the whole input text (setText) so pasted or batched input lands like slow typing
-- [ ] v5: Label the words, the mode chips and the result for screen readers; keep the timer quiet
-- [ ] v6: Keyboard-only mode switch: Esc leaves the test for the mode chips, arrows move, Enter picks
-- [ ] v7: Reloading keeps the chosen mode and the punct setting
-- [ ] v8: Landing: the embedded test resizes to its content so the result never scrolls inside the frame
-- [ ] v9: Quote mode never repeats the quote just typed (all four ports)
+- [x] v2: Retake the README screenshots in light mode with the quote and punct buttons showing
+- [x] v3: Pull the test rules out of app/index.html into session.js, same API as Session.kt and Session.swift, tested with node --test
+- [x] v4: Web takes the whole input text (setText) so pasted or batched input lands like slow typing
+- [x] v5: Label the words, the mode chips and the result for screen readers; keep the timer quiet
+- [x] v6: Keyboard-only mode switch: Esc leaves the test for the mode chips, arrows move, Enter picks
+- [x] v7: Reloading keeps the chosen mode and the punct setting
+- [x] v8: Landing: the embedded test resizes to its content so the result never scrolls inside the frame
+- [ ] v9 (web done): Quote mode never repeats the quote just typed (all four ports)
 
 ### Rules and scoring
 - [ ] v10: Score vectors: one file of 30 cases, generated tests in node, Kotlin and Swift that must all agree
