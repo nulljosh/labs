@@ -647,3 +647,7 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 
 ## Ingested 2026-10-25
 - [ ] Figma: research a Figma MCP and Claude skills etc, or build one ourselves? (Ultrathink.)
+
+## Ingested 2026-10-29
+- [ ] Sidewise: archive or delete the GitHub repo (nulljosh/sidewise, still public, not archived). It is Bugle now and the apps were retired 2026-10-28. Blocked by the auto-mode classifier on 2026-10-29, run `gh repo archive nulljosh/sidewise`.
+- [ ] Coda and Kernel had no GitHub homepage URL, now set (coda.jaybulb.com, kernel.jaybulb.com). Check the other split-out repos have one too.
