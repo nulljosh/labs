@@ -7,7 +7,7 @@ const THEMES = {
   intake:    { name: "Intake",          accent: "#5B9BD5", match: ["intake", "healstack", "dose"] },
   themis:    { name: "Themis",          accent: "#2B3550", match: ["themis", "atticus", "litigate", "docket"], icon: "https://themis.jaybulb.com/apple-touch-icon.png", paper: "white" },
   homeward:  { name: "Homeward",        accent: "#FF851B", match: ["homeward", "pets"] },
-  bookrank:  { name: "Bookrank",        accent: "#5B9BD5", match: ["bookrank"], icon: "https://bookrank.jaybulb.com/icon-192.png" },
+  kernel:    { name: "Kernel",          accent: "#A56200", match: ["kernel", "bookrank"], icon: "https://bookrank.jaybulb.com/icon-192.png", paper: "white" },
   bcgd:      { name: "BC Garage Doors", accent: "#B4661C", match: ["bcgd", "doorstock"] },
   brick:     { name: "Brick",           accent: "#2E7D32", match: ["brick", "roost"] },
   stanza:    { name: "Co-Stanza",       accent: "#171717", match: ["stanza"] },
