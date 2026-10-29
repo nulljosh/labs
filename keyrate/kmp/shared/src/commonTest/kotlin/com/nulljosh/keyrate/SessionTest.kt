@@ -4,6 +4,7 @@ import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
+import kotlin.test.assertNotEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
@@ -75,6 +76,13 @@ class SessionTest {
         assertEquals(s.target.size, s.total)
         typeAll(s, s.target.toList())
         assertTrue(s.done)
+    }
+
+    @Test fun quoteModeNeverRepeatsTheQuoteJustTyped() {
+        for (seed in 1..40) {
+            val first = Session(Mode(Kind.Quote), random = Random(seed)).target.joinToString(" ")
+            assertNotEquals(first, Session(Mode(Kind.Quote), random = Random(seed), avoid = first).target.joinToString(" "))
+        }
     }
 
     @Test fun trailingEmptyWordIsNotScored() {

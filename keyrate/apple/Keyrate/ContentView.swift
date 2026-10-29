@@ -1,13 +1,14 @@
 import SwiftUI
 
 private struct Palette {
-    let bg, text, dim, chip, bad, hi: Color
+    // dim is small text (4.5:1 needed), word is the large upcoming words (3:1 needed)
+    let bg, text, dim, word, chip, bad, hi: Color
     // Colours from the shared tokens (warm paper and charcoal), accent from brand/BRAND.md.
     static let light = Palette(bg: Color(red: 0.961, green: 0.941, blue: 0.894), text: Color(red: 0.122, green: 0.106, blue: 0.086),
-                               dim: Color(red: 0.122, green: 0.106, blue: 0.086).opacity(0.34), chip: Color(red: 0.922, green: 0.894, blue: 0.827),
+                               dim: Color(red: 0.122, green: 0.106, blue: 0.086).opacity(0.66), word: Color(red: 0.122, green: 0.106, blue: 0.086).opacity(0.52), chip: Color(red: 0.922, green: 0.894, blue: 0.827),
                                bad: Color(red: 0.753, green: 0.224, blue: 0.169), hi: Color(red: 0.902, green: 0.604, blue: 0).opacity(0.25))
     static let dark = Palette(bg: Color(red: 0.110, green: 0.102, blue: 0.090), text: Color(red: 0.953, green: 0.929, blue: 0.878),
-                              dim: Color(red: 0.953, green: 0.929, blue: 0.878).opacity(0.34), chip: Color(red: 0.149, green: 0.137, blue: 0.122),
+                              dim: Color(red: 0.953, green: 0.929, blue: 0.878).opacity(0.66), word: Color(red: 0.953, green: 0.929, blue: 0.878).opacity(0.52), chip: Color(red: 0.149, green: 0.137, blue: 0.122),
                               bad: Color(red: 0.851, green: 0.314, blue: 0.247), hi: Color(red: 0.902, green: 0.604, blue: 0).opacity(0.25))
 }
 
@@ -29,6 +30,7 @@ struct ContentView: View {
     @State private var session = Session(mode: modes[2])
     @State private var input = ""
     @State private var best = 0
+    @State private var lastQuote: String?
     @State private var clock = 0 // bumped on every tick so the countdown redraws
     @FocusState private var focus: Bool
     private let store = DefaultsStore()
@@ -54,6 +56,8 @@ struct ContentView: View {
                     .textFieldStyle(.plain)
                     .focused($focus)
                     .frame(width: 1, height: 1).opacity(0.01)
+                    .foregroundStyle(.clear).tint(.clear) // no stray caret dot under the words
+                    .accessibilityLabel("Type the words shown")
                     .autocorrectionDisabled()
                     #if os(iOS)
                     .textInputAutocapitalization(.never)
@@ -112,7 +116,7 @@ struct ContentView: View {
         var out = AttributedString()
         for c in 0..<max(t.count, ty.count) {
             var s = AttributedString(String(c >= t.count ? ty[c] : t[c]))
-            s.foregroundColor = c >= t.count ? p.bad.opacity(0.6) : c < ty.count ? (ty[c] == t[c] ? p.text : p.bad) : p.dim
+            s.foregroundColor = c >= t.count ? p.bad.opacity(0.6) : c < ty.count ? (ty[c] == t[c] ? p.text : p.bad) : p.word
             if wrongDone { s.underlineStyle = .single }
             if k == cur && c == ty.count { s.backgroundColor = p.hi }
             out += s
@@ -175,7 +179,8 @@ struct ContentView: View {
     }
 
     private func restart() {
-        session = Session(mode: mode, punct: punct)
+        session = Session(mode: mode, punct: punct, avoid: lastQuote)
+        if mode.kind == .quote { lastQuote = session.target.joined(separator: " ") }
         input = ""
         best = 0
         focus = true

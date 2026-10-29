@@ -22,9 +22,9 @@ val MODES = listOf(
 )
 
 /** One test, same rules as app/index.html. The UI feeds it text and clock readings, so it needs no timers of its own. */
-class Session(val mode: Mode, private val punct: Boolean = false, private val random: Random = Random) {
+class Session(val mode: Mode, private val punct: Boolean = false, private val random: Random = Random, avoid: String? = null) {
     val target: MutableList<String> = when (mode.kind) {
-        Kind.Quote -> QUOTES[random.nextInt(QUOTES.size)].split(" ").toMutableList()
+        Kind.Quote -> QUOTES.filter { it != avoid }.let { it[random.nextInt(it.size)] }.split(" ").toMutableList() // never the quote just typed
         Kind.Words -> pick(mode.n)
         Kind.Time -> pick(120)
     }

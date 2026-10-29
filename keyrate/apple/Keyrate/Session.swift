@@ -52,12 +52,14 @@ final class Session {
     private(set) var result: Stats?
     private var startMs: Int64 = 0
 
-    init(mode: Mode, punct: Bool = false, dice: Dice = .system) {
+    init(mode: Mode, punct: Bool = false, dice: Dice = .system, avoid: String? = nil) {
         self.mode = mode
         self.punct = punct
         self.dice = dice
         switch mode.kind {
-        case .quote: target = quotes[dice.int(quotes.count)].split(separator: " ").map(String.init)
+        case .quote: // never the quote just typed
+            let pool = quotes.filter { $0 != avoid }
+            target = pool[dice.int(pool.count)].split(separator: " ").map(String.init)
         case .words: target = pick(mode.n)
         case .time: target = pick(120)
         }

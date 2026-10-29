@@ -54,6 +54,7 @@ import androidx.compose.ui.input.key.type
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.AnnotatedString
@@ -77,10 +78,11 @@ import kotlin.math.roundToInt
 import kotlin.time.TimeSource
 
 // Colours from the shared tokens (warm paper and charcoal), accent from brand/BRAND.md.
-private class Palette(val bg: Color, val text: Color, val dim: Color, val chip: Color, val bad: Color, val hi: Color)
+// dim is small text (4.5:1 needed), word is the large upcoming words (3:1 needed)
+private class Palette(val bg: Color, val text: Color, val dim: Color, val word: Color, val chip: Color, val bad: Color, val hi: Color)
 
-private val Light = Palette(Color(0xFFF5F0E4), Color(0xFF1F1B16), Color(0x571F1B16), Color(0xFFEBE4D3), Color(0xFFC0392B), Color(0x40E69A00))
-private val Dark = Palette(Color(0xFF1C1A17), Color(0xFFF3EDE0), Color(0x57F3EDE0), Color(0xFF26231F), Color(0xFFD9503F), Color(0x40E69A00))
+private val Light = Palette(Color(0xFFF5F0E4), Color(0xFF1F1B16), Color(0xA81F1B16), Color(0x851F1B16), Color(0xFFEBE4D3), Color(0xFFC0392B), Color(0x40E69A00))
+private val Dark = Palette(Color(0xFF1C1A17), Color(0xFFF3EDE0), Color(0xA8F3EDE0), Color(0x85F3EDE0), Color(0xFF26231F), Color(0xFFD9503F), Color(0x40E69A00))
 
 
 @Composable
@@ -99,7 +101,10 @@ private fun TestScreen(store: Store, p: Palette) {
     var mode by remember { mutableStateOf(MODES[2]) }
     var punct by remember { mutableStateOf(false) }
     var round by remember { mutableIntStateOf(0) }
-    val session = remember(mode, punct, round) { Session(mode, punct) }
+    val lastQuote = remember { arrayOfNulls<String>(1) }
+    val session = remember(mode, punct, round) {
+        Session(mode, punct, avoid = lastQuote[0]).also { if (mode.kind == Kind.Quote) lastQuote[0] = it.target.joinToString(" ") }
+    }
     var rev by remember(session) { mutableIntStateOf(0) }
     var field by remember(session) { mutableStateOf(TextFieldValue("")) }
     var best by remember(session) { mutableIntStateOf(0) }
@@ -168,7 +173,7 @@ private fun TestScreen(store: Store, p: Palette) {
                     rev++
                 }
             },
-            modifier = Modifier.size(1.dp).focusRequester(focus).onFocusChanged { focused = it.isFocused }
+            modifier = Modifier.size(1.dp).semantics { contentDescription = "Type the words shown" }.focusRequester(focus).onFocusChanged { focused = it.isFocused }
                 .onPreviewKeyEvent { e ->
                     val restart = e.type == KeyEventType.KeyDown && (e.key == Key.Tab || (session.done && e.key == Key.Enter))
                     if (restart) round++
@@ -240,7 +245,7 @@ private fun wordsText(s: Session, p: Palette): Pair<AnnotatedString, Int> {
                 var style = when {
                     c >= t.length -> SpanStyle(color = p.bad.copy(alpha = .6f))
                     c < ty.length -> SpanStyle(color = if (ty[c] == t[c]) p.text else p.bad)
-                    else -> SpanStyle(color = p.dim)
+                    else -> SpanStyle(color = p.word)
                 }
                 if (wrongDone) style = style.merge(SpanStyle(textDecoration = TextDecoration.Underline))
                 if (k == cur && c == ty.length) style = style.merge(SpanStyle(background = p.hi))

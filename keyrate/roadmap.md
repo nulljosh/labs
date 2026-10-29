@@ -19,7 +19,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [x] v6: Keyboard-only mode switch: Esc leaves the test for the mode chips, arrows move, Enter picks
 - [x] v7: Reloading keeps the chosen mode and the punct setting
 - [x] v8: Landing: the embedded test resizes to its content so the result never scrolls inside the frame
-- [ ] v9 (web done): Quote mode never repeats the quote just typed (all four ports)
+- [x] v9: Quote mode never repeats the quote just typed (all four ports)
 
 ### Rules and scoring
 - [ ] v10: Score vectors: one file of 30 cases, generated tests in node, Kotlin and Swift that must all agree

@@ -93,6 +93,13 @@ final class SessionTests: XCTestCase {
         XCTAssertTrue(s.done)
     }
 
+    func testQuoteModeNeverRepeatsTheQuoteJustTyped() {
+        for seed in UInt64(1)...40 {
+            let first = Session(mode: Mode(kind: .quote), dice: .seeded(seed)).target.joined(separator: " ")
+            XCTAssertNotEqual(Session(mode: Mode(kind: .quote), dice: .seeded(seed), avoid: first).target.joined(separator: " "), first)
+        }
+    }
+
     func testPunctuationAddsMarksAndNumbers() {
         let s = Session(mode: Mode(kind: .words, n: 50), punct: true, dice: .seeded(7))
         XCTAssertTrue(s.target.contains { $0.contains { !$0.isLetter } })
