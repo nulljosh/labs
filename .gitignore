@@ -23,7 +23,6 @@
 !toroid/
 !pan/
 !bcgd/
-!bugle/
 !scripts/
 scripts/*
 !scripts/progress-svg.py
