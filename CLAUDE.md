@@ -27,7 +27,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **machaon** (ex-intake, ex-healstack). Own repo, not in labs | Dose log, harm reduction library and health dashboard, named for the healer son of Asclepius. Pages project and bundle id stay `healstack`/`dose`; intake.jaybulb.com still serves · 6785764864 |
 | **melete** (ex-thinkpond, ex-hikko, ex-sparkjar). Folder is `melete` | Idea feed, named for the Muse of thought. Pages project still `sparkjar`; thinkpond. and hikko. hosts still serve · 6785162492 |
 | **mailbag** (ex-hagaki, siftbox, pare, sieve) | Inbox zero in one button. Store listing renamed Mailbag and resubmitted 2026-10-18; Google callback still on hagaki.jaybulb.com · 6811141466 |
-| **bookrank** (app name Kernel, ex-Bookrank) | Book summaries, listen feature |
+| **kernel** (ex-bookrank). Own repo `nulljosh/kernel`, folder `kernel` (`bookrank` is a symlink) | Chapter summaries you read or hear. Pages project, bundle id `com.heyitsmejosh.spine` and bookrank.jaybulb.com stay · 6792376485 |
 | **pan** (ex-tangent, ex-curvely, store still Curvely). Own repo, not in labs | Desmos-style grapher: functions, lists, sliders, 85 patterns · 6794988370 |
 | **icelus** (ex-morphis, ex-morpheus, ex-glyphbox, ex-glyphic, ex-blockprint, ex-blockframe, ex-wiretext). Own repo, not in labs | Describe a screen and it takes shape: a design tool on a real canvas, text underneath. Domain icelus.jaybulb.com; Pages project and bundle ID still `wiretext` · 6794988951 |
 | **hermes** (ex-tiller, ex-bosun, ex-palaemon, ex-talaria). Own repo, not in labs | Native Mac app for App Store Connect, a one-to-one clone of Helm over asc. Landing hermes.jaybulb.com |
@@ -98,7 +98,7 @@ Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28 and again on 2026-10-05. R
 - **DNS**: curl with `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish`. Not named `CLOUDFLARE_API_TOKEN` on purpose, that name breaks wrangler's OAuth.
 - **Apple**: xcodegen `project.yml`, no checked-in xcodeproj. SwiftUI, iOS 17+/macOS 14+. `asc xcode archive`/`export`.
 - **Other platforms**: Kotlin Multiplatform under `<repo>/kmp/`. A PWA is a fallback and does not count as coverage.
-- **/api + /mcp**: house Cloudflare Functions pattern (coda, bookrank, eponym, curvely, icelus).
+- **/api + /mcp**: house Cloudflare Functions pattern (coda, kernel, eponym, curvely, icelus).
 - No emojis in any UI. No demo accounts for screenshots. Use the gitignored `.env`.
 
 ## Repo standard (nimble is the reference)
