@@ -1,7 +1,0 @@
-.wrangler
-.DS_Store
-*.xcuserdata*
-ios/.asc/artifacts
-ios/build
-node_modules
-node_modules/
