@@ -1,6 +1,0 @@
-.wrangler
-node_modules
-.runkey
-dist
-.DS_Store
-.build/

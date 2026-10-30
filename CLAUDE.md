@@ -12,7 +12,7 @@
 
 ## Repos
 
-**`~/Documents/Code` is the `labs` repo.** Small projects live in it as plain folders, history kept, and commit to `labs`: bcgd, homeqi, dream, cadence, fieldbook, tripwire, hormuz, keyrate, weather, dotfiles. Cadence, fieldbook, homeqi and dream are queued to leave next (GitHub rate-limited repo creation on 2026-10-29). Everything else is its own repo in a folder of the same name, gitignored here. On 2026-10-29 coda, bugle, horula, hamurapi, noema, toroid, journal, numen, costanza and seamark left this way with history kept and their CI moved into each repo's `.github/workflows/`; seamark and sidewise are archived. Earlier leavers: icelus (2026-10-18), pan and gastown (2026-10-21), oohaah (2026-10-25, private), sighting (2026-10-28). CI for what stays is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and untracked. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`.
+**`~/Documents/Code` is the `labs` repo.** Small projects live in it as plain folders, history kept, and commit to `labs`: bcgd, homeqi, dream, cadence, fieldbook, hormuz, keyrate, weather, dotfiles. Cadence, fieldbook, homeqi and dream are queued to leave next (GitHub rate-limited repo creation on 2026-10-29). Everything else is its own repo in a folder of the same name, gitignored here. On 2026-10-29 coda, bugle, horula, hamurapi, noema, toroid, journal, numen, costanza and seamark left this way with history kept and their CI moved into each repo's `.github/workflows/`; seamark and sidewise are archived. tripwire left 2026-10-30 (its fixer workflow went with it). Earlier leavers: icelus (2026-10-18), pan and gastown (2026-10-21), oohaah (2026-10-25, private), sighting (2026-10-28). CI for what stays is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and untracked. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`.
 
 ### Apps
 Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
@@ -53,7 +53,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **dream** | Dream journal, Workers AI |
 | **cadence** | Commit-history tracker |
 | **numen** | Free-form calculator canvas |
-| **tripwire** | API drift and CI-failure watcher |
+| **tripwire**. Own repo, not in labs | CI-failure fixer and API drift watcher |
 | **seamark** | Read values off rendered charts. Repo archived 2026-10-29, it turned into Duke |
 | **horula** (ex-Clock) | iOS Clock on the web, going native: world clocks, alarms, sleep, stopwatch, timers, nightstand. PWA at horula.jaybulb.com (clock.jaybulb.com still serves); App Store record 6826916379 |
 | **keyrate** | Typing test: web, plus Android, desktop, iPhone, iPad and Mac ports sharing one set of score vectors |
