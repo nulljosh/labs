@@ -45,3 +45,26 @@ APPS={
   cats=['Games'],tags=['Games','Tech','Gaming'],pricing='free',
   comment="Hi, I'm Josh, I built Vancouver Vice. Rent is four grand and it rains nine months a year, so I made a game about it.\n\nIt is a third person, GTA-style game set in the real city. The Unreal build streams Google's 3D scan of Vancouver, so you start outside the actual Apple Store on Georgia. You can play as Joshua downtown, Ben in Kits or Alexandre in Victoria and switch any time. Your family gets pulled in along the way.\n\nThe browser version runs on a phone or a computer, and there are builds for Mac, Windows and Linux on GitHub. It is a joke about the city I live in, made with real love for it.\n\nHappy to answer anything.",date='Nov 6'),
 }
+
+# 2026-10-30 backfill: one a week, PH caps scheduling at 30 days out
+sg=sections('sighting/launch/producthunt.md')
+APPS.update({
+'sighting':dict(name='Sighting',tagline='A lost and found board for pets, no account.',
+  desc=sg.split('Description (233): ',1)[1].split('\n',1)[0],
+  url='https://sighting.jaybulb.com/?ref=ph',github='https://github.com/nulljosh/sighting',
+  logo=RAW+'sighting/main/brand/icon-1024.png',gallery=[RAW+'sighting/main/launch/gallery/01-web.png'],
+  cats=['Pets','Social Networking'],tags=['Pets','Tech','Open Source'],pricing='free',
+  comment=sg.split('## First comment\n',1)[1].strip(),date='Nov 13'),
+'blackcomb':dict(name='Blackcomb',tagline='A WebKit browser with nothing in the way',
+  desc='A WebKit browser for Mac, iPhone and iPad. Tabs, a start page, a reading list it can read aloud, per-site rules, and a floating window on Mac. History stays on your device. Free.',
+  url='https://blackcomb.jaybulb.com/?ref=ph',github='https://github.com/nulljosh/blackcomb',
+  logo=RAW+'blackcomb/main/brand/icon-1024.png',gallery=[RAW+'blackcomb/main/launch/gallery/00-live.png'],
+  cats=['Browsers','Productivity'],tags=['Productivity','Mac','Tech'],pricing='free',
+  comment="Hi, I'm Josh, I built Blackcomb. It's named for the mountain above Whistler.\n\nI wanted a browser that is just WebKit with nothing in the way: address bar, tabs, back, forward. Then a few things I actually use. A start page with your reading list. Saved articles you can read offline or have read aloud. Per-site rules for scripts, images, dark mode and zoom. And on Mac, a floating window that stays on top while you work.\n\nHistory and bookmarks never leave your device, private tabs record nothing, and a tracker blocker is built in. The landing page is the browser itself, so you can try it right there. Free.\n\nHappy to answer anything.",date='Nov 20'),
+'turing':dict(name='Turing',tagline='Samantha, a small private AI that lives on your Mac',
+  desc='Samantha is a small, free, private AI that runs on your Mac. She paints, runs your apps, keeps notes and reminders, finds files, does the math and researches. Try her right on the page.',
+  url='https://turing.jaybulb.com/?ref=ph',github='https://github.com/nulljosh/turing',
+  logo=RAW+'turing/main/brand/icon-1024.png',gallery=[RAW+'turing/main/launch/gallery/00-live.png'],
+  cats=['AI assistants','Mac'],tags=['Artificial Intelligence','Mac','Open Source'],pricing='free',
+  comment="Hi, I'm Josh. Turing is where I build small language models on my own Mac, and Samantha is the first one.\n\nShe is tiny on purpose, a half-billion-parameter model I fine-tuned myself, so she runs on a Mac with nothing sent anywhere. She paints, opens and runs your apps, keeps notes and reminders, finds files, does the math, and researches with sources. Anything that writes, sends or leaves a file asks you first.\n\nYou can talk to her right on the page before you download anything. Free and open source, with the weights on Hugging Face.\n\nHappy to answer anything about the training.",date='Nov 27'),
+})

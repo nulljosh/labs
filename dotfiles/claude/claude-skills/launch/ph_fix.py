@@ -15,6 +15,9 @@ REN={
 'nyc-survive':dict(name='Gastown',tagline='Lead a crew through rainy Vancouver',site='https://gastown.jaybulb.com',desc='Lead a small crew through rainy Vancouver. Send them to work, build drills and generators that run on their own, and raise the Gastown Steam Clock. On Mac, iPhone and iPad, and in your browser.',logo=RAW+'gastown/main/brand/icon-1024.png'),
 'blockframe':dict(name='Icelus',tagline='Describe a screen. It takes shape.',site='https://icelus.jaybulb.com',desc='A design tool for people and agents. Describe a screen in a sentence and it takes shape on a real canvas. Text underneath, so it pastes anywhere. Free on the web.',logo=RAW+'icelus/main/brand/icon-1024.png'),
 'healstack':dict(name='Machaon',tagline='Track what you take, and what it does',site='https://machaon.jaybulb.com',desc='A personal substance tracker and educational wiki. Log doses, browse harm reduction info and track patterns over time. Your data stays yours.',logo=RAW+'machaon/main/brand/icon-1024.png'),
+'bookrank':dict(name='Kernel',tagline='Every chapter in plain words',site='https://kernel.jaybulb.com',desc='Chapter by chapter summaries of the books you own. Read them, or listen. Private to your account. iPhone, iPad, Mac and the web.',logo=RAW+'kernel/main/brand/icon-1024.png'),
+'curbfind':dict(name='Scrounger',tagline='A faster way to browse local classifieds',site='https://scrounger.jaybulb.com',desc='A faster way to browse Craigslist and local classifieds. Pick a city and search. Free on the web and the App Store.',logo=RAW+'scrounger/main/brand/icon-1024.png'),
+'sidewise-2':dict(name='Sidewise',tagline='Retired. Bugle replaced it.',site='https://sidewise.jaybulb.com',desc='Sidewise was retired on October 28, 2026 and removed from sale. Bugle, an RSS reader with every feed in one timeline, replaced it.',logo=None),
 }
 def set_logo(url):
     r=ph.js("(function(){var bs=[...document.querySelectorAll('button')].filter(b=>b.innerText.trim()=='Paste a URL');bs[0].click();return 'c'})()",5)
@@ -30,7 +33,7 @@ def fix(slug):
     p=PRICING.get(slug)
     if p: ph.js("document.querySelector('input[name=pricingType][value=%s]').click();1"%p)
     lg=None
-    if slug in REN: lg=set_logo(REN[slug]['logo']); time.sleep(3)
+    if slug in REN and REN[slug]['logo']: lg=set_logo(REN[slug]['logo']); time.sleep(3)
     ph.js("[...document.querySelectorAll('button')].find(b=>/Save changes/.test(b.innerText)).click();1"); time.sleep(4)
     print(slug,'logo:',lg,'|',ph.js("document.body.innerText.match(/(Saved|saved|Error|error|required)[^\\n]{0,60}/)&&document.body.innerText.match(/(Saved|saved|Error|error|required)[^\\n]{0,60}/)[0]"),flush=True)
 if __name__=='__main__':

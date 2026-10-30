@@ -124,8 +124,8 @@ def run(key):
     print(' draft',js("location.href"))
     setval('input[name=name]',a['name']); setval('input[name=tagline]',a['tagline']); setval('textarea[name=description]',a['desc']); time.sleep(2)
     # media
-    for g in a['gallery']: add_gallery(g)
-    if 'Logo Incomplete' in (js("document.body.innerText.replace(/\\n/g,' ')") or ''): add_logo(a['logo'])
+    # ponytail: Media dialog now ends in "Save media"; URL paste never saved, so ph_media sets the file inputs
+    import ph_media; ph_media.attach(key)
     # links
     click('Add links',False); time.sleep(2); click('Add link'); time.sleep(1)
     setval('input[name=url]',a['github'],"(document.querySelector('[role=dialog],dialog'))"); click('Done'); time.sleep(2)
