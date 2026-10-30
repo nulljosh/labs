@@ -66,7 +66,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.TRIPWIRE_GH_TOKEN }}
           WHY: ${{ steps.triage.outputs.skip }}
-        run: gh issue comment "$ISSUE" -R "$REPO" --body "tripwire skipped the fix: $WHY. A person needs to look at this one."
+        run: |
+          gh issue comment "$ISSUE" -R "$REPO" --body "tripwire skipped the fix: $WHY. A person needs to look at this one."
 
       - uses: actions/setup-node@v4
         if: steps.triage.outputs.skip == ''
