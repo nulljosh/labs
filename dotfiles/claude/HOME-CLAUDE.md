@@ -42,6 +42,7 @@ Open Chrome only for: visual rendering, OAuth-only flows, or UI with no API.
 
 ## Codebase
 All project work lives under `~/Documents/Code`. See its `CLAUDE.md`.
+Keep it small: a project gets its own GitHub repo only once it has a store listing or live domain, before that it's a folder in `labs`. No `-private` twin repos, no archived repos (delete), and a rename removes the old folder.
 
 ## Journal
 - Few, big entries. One entry per few months, not per week or per month. Merge new work into the current period's entry instead of creating another one; if a period has 10+ entries, consolidate them into one.

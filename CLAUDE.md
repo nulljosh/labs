@@ -12,7 +12,7 @@
 
 ## Repos
 
-**`~/Documents/Code` is the `labs` repo.** Small projects live in it as plain folders, history kept, and commit to `labs`: bcgd, homeqi, dream, cadence, fieldbook, hormuz, keyrate, weather, dotfiles. Cadence, fieldbook, homeqi and dream are queued to leave next (GitHub rate-limited repo creation on 2026-10-29). Everything else is its own repo in a folder of the same name, gitignored here. On 2026-10-29 coda, bugle, horula, hamurapi, noema, toroid, journal, numen, costanza and seamark left this way with history kept and their CI moved into each repo's `.github/workflows/`; seamark and sidewise are archived. tripwire left 2026-10-30 (its fixer workflow went with it). Earlier leavers: icelus (2026-10-18), pan and gastown (2026-10-21), oohaah (2026-10-25, private), sighting (2026-10-28). CI for what stays is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and untracked. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`.
+**`~/Documents/Code` is the `labs` repo.** Small projects live in it as plain folders, history kept, and commit to `labs`: bcgd, homeqi, dream, cadence, fieldbook, hormuz, keyrate, weather, dotfiles. Cadence, fieldbook, homeqi and dream are queued to leave next (GitHub rate-limited repo creation on 2026-10-29). Everything else is its own repo in a folder of the same name, gitignored here. On 2026-10-29 coda, bugle, horula, hamurapi, noema, toroid, journal, numen, costanza left this way with history kept and their CI moved into each repo's `.github/workflows/`. On 2026-10-30 the sidewise, seamark and conveyer repos were deleted, and the conveyer and seamark folders moved to `_attic/`. tripwire left 2026-10-30 (its fixer workflow went with it). Earlier leavers: icelus (2026-10-18), pan and gastown (2026-10-21), oohaah (2026-10-25, private), sighting (2026-10-28). CI for what stays is `.github/workflows/<name>-*.yml` at the root, native builds tag `<name>-native-v*`. Private side projects (hackrange, secretary, slicehack, logans-frenchies) live in the private `vault` repo at `vault/`. Old per-repo bundles are in `_attic/folded/`. `plan/` is on disk and untracked. The tracked non-project folders are `authmail`, `bank`, `canlii-app`, `credis`, `agent-101`, `video-speed-ext`, `launch`, `runs`, `scripts`.
 
 ### Apps
 Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
@@ -27,18 +27,18 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **machaon** (ex-intake, ex-healstack). Own repo, not in labs | Dose log, harm reduction library and health dashboard, named for the healer son of Asclepius. Pages project and bundle id stay `healstack`/`dose`; intake.jaybulb.com still serves · 6785764864 |
 | **melete** (ex-thinkpond, ex-hikko, ex-sparkjar). Folder is `melete` | Idea feed, named for the Muse of thought. Pages project still `sparkjar`; thinkpond. and hikko. hosts still serve · 6785162492 |
 | **mailbag** (ex-hagaki, siftbox, pare, sieve) | Inbox zero in one button. Store listing renamed Mailbag and resubmitted 2026-10-18; Google callback still on hagaki.jaybulb.com · 6811141466 |
-| **kernel** (ex-bookrank). Own repo `nulljosh/kernel`, folder `kernel` (`bookrank` is a symlink) | Chapter summaries you read or hear. Pages project serves kernel.jaybulb.com (live 2026-10-29) and still bookrank.jaybulb.com; bundle id `com.heyitsmejosh.spine` stays · 6792376485 |
+| **kernel** (ex-bookrank). Own repo `nulljosh/kernel`, folder `kernel`  | Chapter summaries you read or hear. Pages project serves kernel.jaybulb.com (live 2026-10-29) and still bookrank.jaybulb.com; bundle id `com.heyitsmejosh.spine` stays · 6792376485 |
 | **pan** (ex-tangent, ex-curvely, store still Curvely). Own repo, not in labs | Desmos-style grapher: functions, lists, sliders, 85 patterns · 6794988370 |
 | **icelus** (ex-morphis, ex-morpheus, ex-glyphbox, ex-glyphic, ex-blockprint, ex-blockframe, ex-wiretext). Own repo, not in labs | Describe a screen and it takes shape: a design tool on a real canvas, text underneath. Domain icelus.jaybulb.com; Pages project and bundle ID still `wiretext` · 6794988951 |
 | **hermes** (ex-tiller, ex-bosun, ex-palaemon, ex-talaria). Own repo, not in labs | Native Mac app for App Store Connect, a one-to-one clone of Helm over asc. Landing hermes.jaybulb.com |
 | **eponym** (ex-wordroot). Own repo `nulljosh/eponym` | Etymology dictionary: root tree, same-root words, saved words, widget, offline. 2.0.0 in review (2026-10-28), store listing still Wordroot until the next version; Pages project, host wordroot.jaybulb.com and bundle id `com.heyitsmejosh.etyma` stay · 6794988021 |
 | **coda** (ex-quotestreak) | Quote guessing game at coda.jaybulb.com. Store listing, Pages project, storage keys and RPCs still say quotestreak · 6804394619 |
 | **bugle** (ex-coranto, ex-inkpress) | Multi-feed RSS reader with Ground News-style coverage, renamed Coranto to Bugle 2026-10-25 (store name "Bugle News"; Apple refused plain Bugle). Store listing says Inkpress until the next version ships; Pages project, bundle id (`com.nulljosh.journal`) and inkpress.jaybulb.com stay · 6787759999 |
-| **sidewise** | Retired 2026-10-28, removed from sale, repo archived. Bugle replaced it · 6806028670 |
+| **sidewise** | Retired 2026-10-28, removed from sale, repo deleted 2026-10-30. Bugle replaced it · 6806028670 |
 | **plaintxt** | Plain text editor, iOS + macOS + CLI |
 | **blackcomb** (ex-madobe, ex-lucarne) | WebKit browser: start page, reading list, Float, Pair, site rules. Mac automation built and held until the Mac review clears. Bundle ID `com.nulljosh.lucarne` and Worker name `madobe` stay · 6809355192 |
 | **airwell** (ex-windgate) | Guided breathing. Folder is `breathe` · 6810806058 |
-| **scrounger** (ex-scrounge, ex-curbfind, ex-curbside). Own repo `nulljosh/scrounger`, folder `scrounger` (`scrounge` is a symlink) | Craigslist browser, every platform · 6809031662 |
+| **scrounger** (ex-scrounge, ex-curbfind, ex-curbside). Own repo `nulljosh/scrounger`, folder `scrounger` | Craigslist browser, every platform · 6809031662 |
 | **atlin** (ex-brick, ex-roost) | Real rentals on a map, deal-ranked, 27 languages. Bundle ID still `com.nulljosh.brick`, Pages project still `roost` (neither can be renamed) · 6824157219 |
 | **hamurapi** (ex-hamurabi) | 1968 Hamurabi with a drawn city. Bundle ID and Worker still `hamurabi` · 6819131590 |
 | **toroid** | Game of Life on a torus · 6806324937 |
@@ -54,7 +54,7 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **cadence** | Commit-history tracker |
 | **numen** | Free-form calculator canvas |
 | **tripwire**. Own repo, not in labs | CI-failure fixer and API drift watcher |
-| **seamark** | Read values off rendered charts. Repo archived 2026-10-29, it turned into Duke |
+| **seamark** | Read values off rendered charts. Repo deleted 2026-10-30, it became Duke |
 | **horula** (ex-Clock) | iOS Clock on the web, going native: world clocks, alarms, sleep, stopwatch, timers, nightstand. PWA at horula.jaybulb.com (clock.jaybulb.com still serves); App Store record 6826916379 |
 | **keyrate** | Typing test: web, plus Android, desktop, iPhone, iPad and Mac ports sharing one set of score vectors |
 | **weather** | Forecast page, Open-Meteo, one file |
@@ -69,9 +69,9 @@ Domains are `<name>.jaybulb.com` unless noted. A number is the ASC app id.
 | **turing** | Pipeline for small on-device language models. First model: Samantha. |
 | **plank** | Small compiled language, one Python file. `homebrew-tap` is the one tap for plank-lang and nimble |
 | **vancouvervice** | GTA-style game in the real Vancouver, Unreal 5 |
-| **conveyer** | Claude plays Factorio, now Game Dev Tycoon |
-| **duke** (ex-surf, ex-cruise, ex-pwnlingo). Own repo, named for Duke Kahanamoku | Plays while you sleep: Duolingo, Factorio, Game Dev Tycoon, FEZ. Apache 2.0. The runner must stay up. Menu bar app at ~/Applications/Duke.app under launchd (label still com.nulljosh.cruise-status). duke.jaybulb.com; `surf` is a symlink to the folder |
-| **gato** | Voice-first OS shell, local-only repo. "Leopard Gecko" is reserved for Joshua Tree's future distro |
+| **conveyer** | Claude plays Factorio, then Game Dev Tycoon. Repo deleted 2026-10-30, folder in `_attic/`, folded into Duke |
+| **duke** (ex-surf, ex-cruise, ex-pwnlingo). Own repo, named for Duke Kahanamoku | Plays while you sleep: Duolingo, Factorio, Game Dev Tycoon, FEZ. Apache 2.0. The runner must stay up. Menu bar app at ~/Applications/Duke.app under launchd (label still com.nulljosh.cruise-status). duke.jaybulb.com; |
+| **gato** | Voice-first OS shell, local-only repo, folder moved to `_attic/` on the LaCie 2026-10-30. "Leopard Gecko" is reserved for Joshua Tree's future distro |
 
 ### Sites & infra
 | Repo | What |
