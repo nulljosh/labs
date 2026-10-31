@@ -651,3 +651,6 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 ## Ingested 2026-10-29
 - [x] Sidewise: archived nulljosh/sidewise 2026-10-29. Seamark archived too.
 - [ ] Coda and Kernel had no GitHub homepage URL, now set (coda.jaybulb.com, kernel.jaybulb.com). Check the other split-out repos have one too.
+
+## Ingested 2026-10-30
+- [ ] notes, rag, brain, vault: do we need all of this? Fold into jaybulb-api? (Q: which ones to keep?)
