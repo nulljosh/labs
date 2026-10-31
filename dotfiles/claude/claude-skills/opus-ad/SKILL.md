@@ -5,6 +5,8 @@ description: Make a short launch film in the grammar of Anthropic's Opus 5.5 ad,
 
 # /opus-ad
 
+Two house styles: this one (the rim and fast cuts) and `/kimi-ad` (wordless: field lines, bars, one number, the app's screens in the geometry). Joshua picked the kimi cut for Kernel 20. Either way the film shows the real app: no shot is only shapes or flat colour for long, and the best screenshots go first.
+
 The reference is Anthropic's Opus 5.5 film (x.com/claudeai/status/2102435511222890900, 20 s), measured: 37 cuts, a D sub-bass under a D major 9 bell motif. Its grammar:
 - One shape, matched across every cut: a curved horizon at the same height, with a different world under it each time.
 - The cuts accelerate, about 1 s apart at first and 0.12 s at the end, and the music is cut to them: bells alone for the first 4 s, then a sub pulse on every cut, building.
@@ -15,7 +17,7 @@ From Apple's macOS reveal films: the name card is big and bold, centred, over th
 Borrow the grammar, never the brand. Use the app's own pictures, palette and typeface, and no Claude mark, Anthropic serif or their colours. Our design system wins: flat colours (the horizon glow is the one exception, in the app's own accent), the app's accent and type.
 
 ## 1. Gather pictures (12 to 20)
-Use the app's real material: product renders, real photos, app screenshots, the mascot, the mark. Go for close-ups with texture under the rim. Two kinds of shot are cheap and strong: a flat-colour disc per theme colour, and the mark's own curve. Make a contact sheet first:
+Use the app's real material: product renders, real photos, app screenshots, the mascot, the mark. Short on real photos of a place or object? Search Wikimedia Commons first (`commons.wikimedia.org/w/api.php`, keyless), public domain or CC-BY only, credit in the end card. Go for close-ups with texture under the rim. Two kinds of shot are cheap and strong: a flat-colour disc per theme colour, and the mark's own curve. Make a contact sheet first:
 `magick montage -font /System/Library/Fonts/Supplemental/Arial.ttf -label '%f' A B C ... -geometry 300x200+4+4 -tile 4x sheet.jpg`
 
 ## 2. Write the line
