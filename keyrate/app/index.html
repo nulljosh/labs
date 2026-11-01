@@ -88,10 +88,11 @@
     <div id="best"></div>
     <svg id="hist" width="240" height="40" role="img" aria-label="Recent runs" hidden></svg>
   </div>
-</main>
+<!-- inside main so every part of the page sits in a landmark; both are absolutely placed, so the layout is unchanged -->
 <input id="sink" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Type the words shown" aria-describedby="srWords hint">
 <p id="srWords" class="sr"></p>
 <p id="srResult" class="sr" role="status"></p>
+</main>
 
 <script type="module">
 import { Session } from '../session.js'

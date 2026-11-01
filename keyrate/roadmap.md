@@ -81,7 +81,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v73: Landing: swap each Coming soon for a real link as it ships
 - [ ] v74: Landing: a dark screenshot in each platform card
 - [x] (11-01: measured live: the lazy iframe still started at 122 ms, before first paint at 240; now its src is set on load, so it starts right after the hero paints and the page load event fell from 541 to 317 ms) v75: Landing speed pass: the embedded test loads after the hero
-- [ ] v76: Lighthouse accessibility 100 on / and /app
+- [x] (11-01: by axe-core, the engine Lighthouse scores with (Lighthouse itself could not be downloaded here): WCAG 2.1 AA plus best practice, zero violations on /, /app and /privacy in light and dark, live. Fixed: footer links and meta at 4.3:1 now darker, an aria-hidden rule that held the GitHub link, and the app's input outside any landmark) v76: Lighthouse accessibility 100 on / and /app
 - [x] (11-01: in code: web uses the shared --font-body stack, Apple .system, Compose its default sans, the terminal the terminal's own; no custom face anywhere. The on-screen Windows and Linux looks stay v40 and v41) v77: System font only, confirmed on every platform
 - [ ] (11-01: grep half done, no fetch, XMLHttpRequest, WebSocket, beacon, URLSession, HttpURLConnection or ktor in web, Swift or Kotlin, no INTERNET permission, no network entitlement; the firewall run is still to do) v78: Security pass: no network calls in any build, checked by grep and by a firewall run
 - [x] (11-01: a table per build, 2.0.x for the native ports, the deployed web, tip of main) v79: SECURITY.md lists the supported native versions

@@ -49,19 +49,19 @@
   .foot-dir { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 24px; max-width: 880px; margin: 0 auto; padding: 0 1.5rem 28px; text-align: left; }
   .foot-col h3 { margin: 0 0 8px; font-size: .75rem; font-weight: 600; color: var(--text); letter-spacing: .02em; }
   .foot-col ul { list-style: none; margin: 0; padding: 0; }
-  .foot-col a { position: relative; display: inline-block; padding: 5px 0; color: var(--text2); text-decoration: none; font-size: .8125rem; line-height: 1.35; }
+  .foot-col a { position: relative; display: inline-block; padding: 5px 0; color: color-mix(in srgb, var(--text2) 80%, var(--text)); /* text2 alone is 4.3:1 on the footer paper */ text-decoration: none; font-size: .8125rem; line-height: 1.35; }
   .foot-col a::after { content: ""; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; height: 44px; min-width: 44px; }
   .foot-col a:hover { color: var(--text); text-decoration: underline; }
   .foot-bar { max-width: 880px; margin: 0 auto; padding: 18px 1.5rem 0; border-top: 1px solid var(--border); }
-  .foot-meta { margin: 0; color: var(--text2); font-size: .78rem; line-height: 1.9; }
-  .foot-meta a { color: var(--text2); }
+  .foot-meta { margin: 0; color: color-mix(in srgb, var(--text2) 80%, var(--text)); font-size: .78rem; line-height: 1.9; }
+  .foot-meta a { color: inherit; }
   @media (max-width: 700px) { .foot-dir { grid-template-columns: repeat(2, 1fr); } footer .foot-rule { font-size: .5625rem; letter-spacing: .14em; gap: 10px; } }
   :focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
 </style>
 </head>
 <body>
 <main>
-<div class="lp-rule" aria-hidden="true"><span>Keyrate</span><span><a href="https://github.com/nulljosh/labs/tree/main/keyrate">GitHub</a></span></div>
+<div class="lp-rule"><span>Keyrate</span><span><a href="https://github.com/nulljosh/labs/tree/main/keyrate">GitHub</a></span></div>
 <header class="lp-hero">
   <span class="lp-mark"><img src="icon.svg" alt="" width="56" height="56"></span>
   <h1>Introducing <span class="brand">Keyrate.</span></h1>
