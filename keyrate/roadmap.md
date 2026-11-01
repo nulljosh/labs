@@ -73,7 +73,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] (blocked: publishing a public GitHub release needs Joshua's ok, 2026-11-01. Ready: `swift build -c release --arch arm64 --arch x86_64` makes a universal binary; plan is release keyrate-tui-v2.0.0 on labs with keyrate-tui-2.0.0-macos.tar.gz, then Formula/keyrate-tui.rb in homebrew-tap installing that binary, test `keyrate-tui --check`. Labs is 250 MB, too big for a source formula) v67: Homebrew formula for keyrate-tui in the house tap
 
 ### Quality, docs, CI
-- [ ] v68: keyrate-test.yml also runs the vectors check on Linux
+- [x] (11-01: a kotlin job runs :shared:jvmTest, VectorsTest against the same cases, on ubuntu-latest; node --test already covered the JS; run 41313404127 green) v68: keyrate-test.yml also runs the vectors check on Linux
 - [ ] v69: Playwright smoke test for the web: type a quote, see a result
 - [ ] v70: Whitepaper: the native apps, the shared vectors, the paste rule
 - [ ] v71: architecture.svg redrawn with the four ports and the vectors file
