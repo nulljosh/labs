@@ -61,10 +61,10 @@ final class SessionTests: XCTestCase {
         let ws = s.target
         typeAll(s, Array(ws.dropLast()))
         XCTAssertFalse(s.done)
-        s.setText(s.text + ws.last!, nowMs: 9_000)
+        s.setText(s.text + String(ws.last!.dropLast()), nowMs: 9_000)
         XCTAssertFalse(s.done)
-        s.setText(s.text + " ", nowMs: 9_100)
-        XCTAssertTrue(s.done)
+        s.setText(s.text + String(ws.last!.last!), nowMs: 9_100)
+        XCTAssertTrue(s.done) // ends on the last character, no space needed
         XCTAssertEqual(s.result?.correctWords, 25)
         XCTAssertEqual(s.result?.accuracy, 100)
     }

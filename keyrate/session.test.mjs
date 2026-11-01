@@ -9,13 +9,19 @@ const seeded = seed => () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 2 *
 const make = (kind, n, seed, extra = {}) => new Session({ kind, n, words: WORDS, quotes: QUOTES, random: seeded(seed), ...extra })
 const typeAll = (s, ws, t0 = 1000) => { let text = s.text; ws.forEach((w, i) => { text += w + ' '; s.setText(text, t0 + i * 100) }) }
 
-test('words mode finishes after the last space', () => {
+test('words mode finishes on the last character of a correct last word', () => {
   const s = make('words', 25, 1), ws = [...s.target]
   typeAll(s, ws.slice(0, -1))
   assert.equal(s.done, false)
-  s.setText(s.text + ws.at(-1), 9000); assert.equal(s.done, false)
-  s.setText(s.text + ' ', 9100); assert.equal(s.done, true)
+  s.setText(s.text + ws.at(-1).slice(0, -1), 9000); assert.equal(s.done, false)
+  s.setText(s.text + ws.at(-1).at(-1), 9100); assert.equal(s.done, true)
   assert.equal(s.result.correctWords, 25); assert.equal(s.result.accuracy, 100)
+})
+
+test('a wrong last word still needs the space', () => {
+  const s = make('words', 2, 9), [a, b] = s.target
+  s.setText(a + ' ' + b + 'x', 1000); assert.equal(s.done, false)
+  s.setText(a + ' ' + b + 'x ', 1100); assert.equal(s.done, true)
 })
 
 test('backspace steps back only into a wrong word', () => {

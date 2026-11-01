@@ -84,7 +84,9 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
         typed.clear()
         p.take(if (mode.kind == Kind.Time) p.size else total + 1).forEachIndexed { i, w -> typed.add(w.take((target.getOrNull(i)?.length ?: 0) + 8)) }
         tally(before)
-        if (mode.kind != Kind.Time && typed.size > total) finish(nowMs)
+        // Word and quote mode end on the last character of a correct last word; a wrong one still needs the space.
+        val lastRight = typed.size == total && total > 0 && typed[total - 1] == target[total - 1]
+        if (mode.kind != Kind.Time && (typed.size > total || lastRight)) finish(nowMs)
         else if (mode.kind == Kind.Time && typed.size > target.size - 30) target += pick(60)
         return true
     }

@@ -51,7 +51,9 @@ export class Session {
     const limit = this.kind === 'time' ? p.length : this.total + 1
     this.typed = p.slice(0, limit).map((w, i) => w.slice(0, (this.target[i]?.length ?? 0) + 8))
     this.tally(before)
-    if (this.kind !== 'time' && this.typed.length > this.total) this.finish(nowMs)
+    // Word and quote mode end on the last character of a correct last word; a wrong one still needs the space.
+    const lastRight = this.typed.length === this.total && this.typed.at(-1) === this.target[this.total - 1]
+    if (this.kind !== 'time' && (this.typed.length > this.total || lastRight)) this.finish(nowMs)
     else if (this.kind === 'time' && this.typed.length > this.target.length - 30) this.target.push(...this.pick(60))
     return true
   }

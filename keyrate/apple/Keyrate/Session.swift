@@ -110,7 +110,9 @@ final class Session {
         let limit = mode.kind == .time ? p.count : total + 1
         typed = p.prefix(limit).enumerated().map { i, w in String(w.prefix((i < target.count ? target[i].count : 0) + 8)) }
         tally(before)
-        if mode.kind != .time && typed.count > total {
+        // Word and quote mode end on the last character of a correct last word; a wrong one still needs the space.
+        let lastRight = typed.count == total && total > 0 && typed[total - 1] == target[total - 1]
+        if mode.kind != .time && (typed.count > total || lastRight) {
             finish(nowMs: nowMs)
         } else if mode.kind == .time && typed.count > target.count - 30 {
             target += pick(60)

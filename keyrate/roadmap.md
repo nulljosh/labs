@@ -13,7 +13,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [x] (11-01: 's and hyphenated pairs, numbers 1 in 25, all three ports) v16: Punct mode adds apostrophes and hyphens, numbers stay rare
 - [x] (11-01: words.js is the source, `node wordlist.mjs` writes Words.swift and Words.kt, a test fails if they drift) v17: Word list and quotes come from one source file; a script writes the Kotlin and Swift copies
 - [x] (11-01: 100 quotes; the 90 added are proverbs and lines by Shakespeare, Franklin, Emerson, Thoreau, Twain; the first 10 hand-picked ones stay, some are modern) v18: Quotes grow from 10 to 100 short lines, public domain only
-- [ ] v19: Word mode finishes on the last character of the last word, in all four ports
+- [x] (11-01: word and quote mode end on the last character of a correct last word, a wrong one still needs the space; web, Swift, Kotlin; the TUI only scores a finished attempt) v19: Word mode finishes on the last character of the last word, in all four ports
 
 ### Android
 - [ ] v20: Run the debug APK on an emulator and walk 15, 60, words and quote

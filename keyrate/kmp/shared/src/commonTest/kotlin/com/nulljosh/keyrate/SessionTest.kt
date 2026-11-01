@@ -45,10 +45,10 @@ class SessionTest {
         val words = s.target.toList()
         typeAll(s, words.dropLast(1))
         assertFalse(s.done)
-        s.setText(s.text + words.last(), 9_000)
+        s.setText(s.text + words.last().dropLast(1), 9_000)
         assertFalse(s.done)
-        s.setText(s.text + " ", 9_100)
-        assertTrue(s.done)
+        s.setText(s.text + words.last().last(), 9_100)
+        assertTrue(s.done) // ends on the last character, no space needed
         assertEquals(25, s.result!!.correctWords)
         assertEquals(100, s.result!!.accuracy)
     }
