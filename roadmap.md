@@ -202,6 +202,8 @@ top level first, they existed only in that clone).
 
 ## Cross-repo sweeps
 
+- [x] **Accessibility sweep of every landing** (2026-11-01): axe-core, WCAG 2.1 AA plus best practice, 30 live sites in light and dark. 15 sites fixed and deployed (contrast on epiphany, talli, kernel, icelus, machaon, airwell, hamurapi, blackcomb, scrounger, atlin, toroid, duke, eponym; landmarks on melete, sighting, gastown, eponym, toroid, scrounger; heading order on scrounger and atlin). Now 60 of 60 clean. Rerun: `node axe.mjs <urls>` with axe from sighting/node_modules and Playwright from epiphany.
+- [ ] **Shared --text2 is 4.3:1 on the cream paper** (jaybulb.com/tokens.css, #757068 on #f5f0e4). Fixed per site where it failed (keyrate, scrounger, toroid) because the shared file is never repainted unasked; #6b665e there would fix it everywhere. Joshua's call.
 - [ ] **Design system**, pick the project with the best one as source of truth, sync the rest.
 - [ ] **GitHub tidy**, simplify every project README and match the repo description to it. (11-01 pass: every public repo now has a description, homepage and topics; Costanza and Numen descriptions rewritten from their READMEs, which also lost their H1 and stale labs badge; Toroid done earlier. Same night: 21 READMEs moved to the nimble header (no H1, no GitHub badge), brain and scrounger got their icon line. Skipped: joshuatree (PRs only), vault, notes, homebrew-tap (local edits); jaybulb-api has no icon.svg. Left: a README-by-README simplify pass)
 - [ ] **Auth buttons**, Apple/Google/Facebook/email on all iOS/Mac apps (Apps.pdf mockup).
