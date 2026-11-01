@@ -20,7 +20,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v20: Run the debug APK on an emulator and walk 15, 60, words and quote
 - [ ] v21: Fix whatever the soft keyboard does to the hidden input (autocorrect, spaces)
 - [ ] v22: Adaptive launcher icon with the glyph on the accent tile
-- [ ] v23: allowBackup off so scores never leave the device through a backup
+- [x] (11-01: allowBackup and fullBackupContent off, data_extraction_rules.xml excludes everything from cloud backup and phone-to-phone transfer; XML checked, not yet built, no Android SDK on this Mac) v23: allowBackup off so scores never leave the device through a backup
 - [ ] v24: Dark theme walk on a device, both orientations
 - [ ] v25: Tablet and foldable layout: the words column stays 832dp wide and centred
 - [ ] v26: TalkBack pass: words, timer, result
@@ -28,7 +28,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v28: Play listing text and screenshots in a metadata folder, ready to paste
 - [ ] v29: keyrate-kmp.yml runs shared tests and assembleDebug, added only after a clean run on a fresh clone
 - [ ] v30: Keep the APK under 10 MB
-- [ ] v31: Back button and rotation keep the run alive
+- [x] (11-01: configChanges keeps the activity through rotation, Back moves the task behind like Android 12 does instead of finishing it; not yet built, no Android SDK here, v20 walk confirms) v31: Back button and rotation keep the run alive
 - [ ] v32: Hardware keyboard: Tab restarts, Enter restarts after a result
 - [ ] v33: Play pre-launch report read and fixed
 - [ ] v34: First Play internal-testing build uploaded (Joshua signs in)
@@ -37,7 +37,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 ### Desktop (Windows, Mac, Linux)
 - [ ] v36: Build the Dmg and open it on this Mac
 - [ ] v37: Build the Msi and the Deb on CI runners, not here
-- [ ] v38: Window remembers its size and position
+- [x] (11-01: Bounds.kt with BoundsTest, saved from the real AWT window on open, move and resize; checked live: seeded 300,200 at 1100 by 800 and the window opened there) v38: Window remembers its size and position
 - [ ] v39: Menu bar: New test and the six modes
 - [ ] v40: Windows font check: system sans, never a serif fallback
 - [ ] v41: Linux check on Wayland and X11
