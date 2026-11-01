@@ -27,7 +27,6 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v40: Windows font check: system sans, never a serif fallback
 - [ ] v41: Linux check on Wayland and X11
 - [ ] v43: Notarize the Mac Dmg (Joshua's account)
-- [x] (11-01: packaging/keyrate.cask.rb and packaging/nulljosh.Keyrate.winget.yaml, hashes fill in once the notarized Dmg (v43) and the CI Msi (v37) are released) v44: Winget and Homebrew cask manifests, drafted not submitted
 - [ ] v45: Desktop 2.0.1 from what the three platforms show
 
 ### iPhone, iPad, Mac (SwiftUI)
@@ -42,7 +41,6 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v62: Submit iOS and Mac for review (Joshua's yes)
 
 ### Terminal
-- [x] (11-01: released keyrate-tui-v2.0.0 on labs, universal binary, `brew install nulljosh/tap/keyrate-tui` installs and its test passes) v67: Homebrew formula for keyrate-tui in the house tap
 
 ### Quality, docs, CI
 - [ ] v73: Landing: swap each Coming soon for a real link as it ships

@@ -194,10 +194,6 @@ top level first, they existed only in that clone).
 
 ## Cross-repo sweeps
 
-- [x] **Accessibility sweep of every landing** (2026-11-01): axe-core, WCAG 2.1 AA plus best practice, 30 live sites in light and dark. 15 sites fixed and deployed (contrast on epiphany, talli, kernel, icelus, machaon, airwell, hamurapi, blackcomb, scrounger, atlin, toroid, duke, eponym; landmarks on melete, sighting, gastown, eponym, toroid, scrounger; heading order on scrounger and atlin). Now 60 of 60 clean. Rerun: `node axe.mjs <urls>` with axe from sighting/node_modules and Playwright from epiphany.
-- [x] **Accessibility sweep of every web app** (2026-11-01): the same axe check on 19 app pages (the /app, /play, /board and /browse views), light and dark. 11 fixed and deployed: echo (unnamed record button), toroid play (unnamed pattern picker and speed, old Conway back link), talli sign in (pinch zoom was disabled, 2:1 labels), patois and melete (muted grey near 2.3:1, melete close controls were spans), costanza, hamurapi, pan, scrounger (also a build that stopped at a new folder), sighting board, icelus (grey mirrored in Theme.swift). Now 38 of 38 clean.
-- [x] **Dead-link sweep of every landing** (2026-11-01): 569 links on 33 pages. Fixed: horula pointed at its old labs folder, talli linked a SECURITY.md that did not exist (now written), nimble cited a 2016 Next Web article that is gone (now the archive copy). The rest were GitHub rate limits (all 15 targets confirmed by the API), auth-gated pages, Cloudflare email protection and preconnect hints.
-- [x] (11-01: Joshua said handle it; --color-secondary light .60 to .64 in jaybulb.com/tokens.css, 4.9:1, deployed, axe clean on jaybulb, bugle, coda) **Shared --text2 is 4.3:1 on the cream paper** (jaybulb.com/tokens.css, #757068 on #f5f0e4). Fixed per site where it failed (keyrate, scrounger, toroid) because the shared file is never repainted unasked; #6b665e there would fix it everywhere. Joshua's call.
 - [ ] **Design system**, pick the project with the best one as source of truth, sync the rest.
 - [ ] **GitHub tidy**, simplify every project README and match the repo description to it. (11-01 pass: every public repo now has a description, homepage and topics; Costanza and Numen descriptions rewritten from their READMEs, which also lost their H1 and stale labs badge; Toroid done earlier. Same night: 21 READMEs moved to the nimble header (no H1, no GitHub badge), brain and scrounger got their icon line. Skipped: joshuatree (PRs only), vault, notes, homebrew-tap (local edits); jaybulb-api has no icon.svg. Left: a README-by-README simplify pass)
 - [ ] **Auth buttons**, Apple/Google/Facebook/email on all iOS/Mac apps (Apps.pdf mockup).
@@ -599,9 +595,5 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - Obsidian graph view "art" (2026-07-18): graph is force-directed. Export nodes/edges, render with d3 at fixed positions for a custom shape. Side project.
 
 ## Landing audit 2026-11-01 (live sites, desktop and phone)
-- [x] scrounger: live JS error "Onboarding is not defined" on the landing (desk and phone), and the H1 is the name, not the tagline (11-01: onboarding.js path fixed, tagline H1, static halftone hero with Get started, no iframe or zoom)
-- [x] gastown: tagline H1 "Raise the Steam Clock." live 11-01
 - [ ] oohaah: H1 is the app name; make the tagline the H1 (blocked: waits on Joshua's name pick, 2026-11-01)
-- [x] coda and plaintxt: the page scrolls sideways on a 390 px phone (11-01: .plat-row now wraps, both 390 wide, deployed)
-- [x] coda: signed-out visitors call /rpc/quotestreak_moderation and get a 403 (11-01: moderation.js checks quotableSignedIn first, deployed)
 - [ ] Echo, Talli, Airwell, Numen, Plank, Pan, Cyllene: fixed today (tagline H1, bold system type, no wrapping buttons)
