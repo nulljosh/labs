@@ -35,6 +35,7 @@ Real revenue to date: **$0**. Goal: 10 real sales or tips by Nov 1.
 | Cartons | iOS, iPad, Mac, web | $0.99 | scheduled Tue Nov 3 12:01 AM PT | none | none | none |
 | Hermes | Mac, iPhone, iPad, web | Free on PH (price unverified) | scheduled Wed Nov 4 12:01 AM PT | none | none | none |
 | Hamurapi | web, iPhone + Mac pending | Web free, apps $0.99 after week one | scheduled Thu Nov 5 12:01 AM PT | none | none | none |
+| Duke | duke.jaybulb.com, personal Mac runner | Free, never sold (Duolingo's terms forbid automation; MONEY.md) | none, by design | none | none | none |
 | Vancouver Vice | web, Mac, Windows, Linux | Free | scheduled Fri Nov 6 12:01 AM PT | none | none | none |
 | Windgate, Siftbox, Madobe | nothing live, all REJECTED | n/a | wait | wait | wait | wait |
 
