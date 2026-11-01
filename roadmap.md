@@ -599,8 +599,9 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - Obsidian graph view "art" (2026-07-18): graph is force-directed. Export nodes/edges, render with d3 at fixed positions for a custom shape. Side project.
 
 ## Landing audit 2026-11-01 (live sites, desktop and phone)
-- [ ] scrounger: live JS error "Onboarding is not defined" on the landing (desk and phone), and the H1 is the name, not the tagline
-- [ ] gastown and oohaah: H1 is the app name; make the tagline the H1 (oohaah waits on its new name)
+- [x] scrounger: live JS error "Onboarding is not defined" on the landing (desk and phone), and the H1 is the name, not the tagline (11-01: onboarding.js path fixed, tagline H1, static halftone hero with Get started, no iframe or zoom)
+- [x] gastown: tagline H1 "Raise the Steam Clock." live 11-01
+- [ ] oohaah: H1 is the app name; make the tagline the H1 (blocked: waits on Joshua's name pick, 2026-11-01)
 - [ ] coda and plaintxt: the page scrolls sideways on a 390 px phone; find the wide element
 - [ ] coda: signed-out visitors call /rpc/quotestreak_moderation and get a 403; skip the call when signed out
 - [ ] Echo, Talli, Airwell, Numen, Plank, Pan, Cyllene: fixed today (tagline H1, bold system type, no wrapping buttons)
