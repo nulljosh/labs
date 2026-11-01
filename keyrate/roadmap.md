@@ -55,14 +55,14 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [x] (11-01: @ScaledMetric on the word size, capped at 1.6 times; at the largest accessibility size the iPhone shows bigger words in the same three-line window. Chips and hint keep fixed sizes) v51: Dynamic Type: words scale with the system size without breaking the 3-line window
 - [x] (11-01: screenshots/appstore/6.9, typing and result in light and dark on the iPhone 17 Pro Max simulator, made by a DEBUG-only `-shot typing|result` that types a seeded 25 word run at about 85 wpm through the real setText, one typo fixed) v52: Light and dark App Store screenshots, no demo account
 - [ ] v53: asc: create the app record under the final name, probing Keyrate with Apple's name check first
-- [ ] v54: Bundle id, team, encryption answers and export options set
+- [x] (11-01: com.nulljosh.keyrate, team QMM486NPYC and ITSAppUsesNonExemptEncryption NO were already in project.yml; added apple/ExportOptions-iOS.plist and -mac.plist, automatic signing until v53 makes the profiles) v54: Bundle id, team, encryption answers and export options set
 - [ ] v55: Archive and run asc validate before any upload
 - [x] (11-01: metadata/app-info and metadata/version/2.0.0 en-US, one paragraph from the whitepaper, subtitle "A typing test, nothing else"; privacy page live at keyrate.jaybulb.com/privacy, generated from PRIVACY.md) v56: App Store text from the whitepaper, one paragraph, no feature list
 - [ ] v57: Privacy label: nothing collected, matching PRIVACY.md word for word
 - [ ] v58: TestFlight build 1 to Joshua's phone
 - [ ] v59: Real iPhone walk: keyboard, autocorrect off, copy and paste, rotation
 - [ ] v60: Fix what the real phone shows, TestFlight build 2
-- [ ] v61: Mac App Store build: sandbox on, hardened runtime, no network entitlement
+- [x] (11-01: config checked: Keyrate-mac.entitlements is app-sandbox only, no network client, ENABLE_HARDENED_RUNTIME YES; the signed build itself comes with v55) v61: Mac App Store build: sandbox on, hardened runtime, no network entitlement
 - [ ] v62: Submit iOS and Mac for review (Joshua's yes)
 
 ### Terminal
