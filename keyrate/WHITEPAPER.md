@@ -31,6 +31,10 @@ Accuracy is counted on the text you end with, not on every key you pressed. Say 
 
 That is 4 correct and 3 wrong, so accuracy is 4 out of 7, 57 percent. Had you typed "teh", backspaced twice and fixed it to "the", the final text matches and accuracy is 100 percent: the fixed typo cost you time, which already shows in wpm, but not accuracy. This is the same rule `score.js`, the Kotlin and Swift ports and `vectors.json` all check.
 
+### Pasting
+
+One input event that adds more than 20 characters is a paste, not typing. A run with a paste still shows its numbers, but it cannot set a best: the result says "pasted, not counted". Twenty leaves room for a phone keyboard's word suggestion or an autocorrect, which land a whole word at once. The same rule lives in `session.js` (`PASTE_MAX`) and both native ports.
+
 ## Input
 
 A hidden text input catches keystrokes. The page never reads keys directly for letters, so mobile keyboards, dead keys and input methods all work, since a raw keydown listener would have to reinvent everything the OS text field already does correctly. On each input event the current word is updated. A trailing space commits the word and moves on. Backspace at the start of a word steps back into the previous one, but only if that word was wrong, because a correct word should stay committed and not tempt you into re-typing something you already got right. A correct word is closed.

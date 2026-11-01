@@ -160,8 +160,8 @@ function showResult() {
   $('#rRaw').textContent = s.raw; $('#rChars').textContent = `${s.correct}/${s.wrong}`
   const label = kind === 'time' ? n + 's' : kind === 'quote' ? 'quote' : n + ' words'
   const key = `best:${kind}:${kind === 'quote' ? 1 : n}`
-  let best = 0; try { best = +localStorage.getItem(key) || 0; if (s.wpm > best) localStorage.setItem(key, best = s.wpm) } catch {}
-  $('#best').textContent = `best ${best} wpm · ${label}`
+  let best = 0; try { best = +localStorage.getItem(key) || 0; if (!session.pasted && s.wpm > best) localStorage.setItem(key, best = s.wpm) } catch {}
+  $('#best').textContent = `best ${best} wpm · ${label}${session.pasted ? ' · pasted, not counted' : ''}`
   // ponytail: last 30 runs as a sparkline, localStorage only
   try {
     const runs = (JSON.parse(localStorage.getItem('runs')) || []).concat(s.wpm).slice(-30)

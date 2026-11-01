@@ -21,6 +21,9 @@ val MODES = listOf(
     Mode(Kind.Words, 25), Mode(Kind.Words, 50), Mode(Kind.Quote),
 )
 
+/** The paste rule: one input that adds more than this many characters is a paste, not typing (session.js PASTE_MAX). */
+const val PASTE_MAX = 20
+
 /** One test, same rules as app/index.html. The UI feeds it text and clock readings, so it needs no timers of its own. */
 class Session(val mode: Mode, private val punct: Boolean = false, private val random: Random = Random, avoid: String? = null) {
     val target: MutableList<String> = when (mode.kind) {
@@ -40,6 +43,10 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
     var keys = 0
         private set
     var hits = 0
+        private set
+
+    /** A burst of more than [PASTE_MAX] characters in one input: the run cannot set a best. */
+    var pasted = false
         private set
 
     /** Words to finish in word and quote mode, seconds in timed mode. */
@@ -85,6 +92,7 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
         val after = text
         var i = 0
         while (i < before.length && i < after.length && before[i] == after[i]) i++
+        if (after.length - i > PASTE_MAX) pasted = true
         var start = 0
         typed.forEachIndexed { wi, w ->
             val t = target.getOrNull(wi) ?: ""

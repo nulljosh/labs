@@ -8,7 +8,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [x] v11: One check script: node tests, vectors, gradle tests, xcodebuild tests, README refs; run before any push (`./check.sh`; gradle step skips when Java is missing, not yet run on this Mac)
 - [x] (11-01) v12: Whitepaper: how accuracy is counted (final text, not keystrokes) with a worked example
 - [x] (11-01: web, iPhone/Mac and Kotlin show "keys" next to accuracy; node and Swift tests pass, Kotlin test written but not run here, no Java) v13: Result also shows keystroke accuracy next to the final-text one, so both are honest
-- [ ] v14: Decide the paste rule: a pasted burst should not set a best; write it down, then port it
+- [x] (11-01: over 20 characters in one input is a paste; the run shows but sets no best; whitepaper and all three ports) v14: Decide the paste rule: a pasted burst should not set a best; write it down, then port it
 - [ ] v15: Timed mode shows the real elapsed second once the run is over
 - [ ] v16: Punct mode adds apostrophes and hyphens, numbers stay rare
 - [ ] v17: Word list and quotes come from one source file; a script writes the Kotlin and Swift copies

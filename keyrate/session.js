@@ -1,5 +1,9 @@
 import { stats } from './score.js'
 
+// The paste rule: one input event that adds more than this many characters is a paste, not typing. An
+// autocorrect or a phone keyboard's suggestion stays well under it.
+export const PASTE_MAX = 20
+
 // One test, same rules as kmp/Session.kt and apple/Session.swift. The page feeds it text and clock readings,
 // so it needs no timers or DOM of its own. kind is 'time' (n seconds), 'words' (n words) or 'quote'.
 export class Session {
@@ -11,6 +15,7 @@ export class Session {
     this.startMs = 0
     this.keys = 0 // every character that arrived, judged when it arrived (keystroke accuracy)
     this.hits = 0
+    this.pasted = false // a burst of more than PASTE_MAX characters in one input: the run cannot set a best
     if (kind === 'quote') {
       const pool = quotes.filter(q => q !== avoid)
       this.target = pool[this.int(pool.length)].split(' ')
@@ -57,6 +62,7 @@ export class Session {
     const after = this.text
     let i = 0
     while (i < before.length && i < after.length && before[i] === after[i]) i++
+    if (after.length - i > PASTE_MAX) this.pasted = true
     let start = 0
     this.typed.forEach((w, wi) => {
       const t = this.target[wi] ?? ''

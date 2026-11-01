@@ -123,7 +123,7 @@ private fun TestScreen(store: Store, p: Palette) {
         }
     }
     val done = rev.let { session.done }
-    LaunchedEffect(done) { if (done) best = recordRun(store, mode, session.result!!.wpm) }
+    LaunchedEffect(done) { if (done) best = if (session.pasted) (store.get(mode.key)?.toIntOrNull() ?: 0) else recordRun(store, mode, session.result!!.wpm) }
 
     val lineHeight = 42.sp
     val windowHeight = with(LocalDensity.current) { (lineHeight * 3).toDp() }

@@ -82,7 +82,7 @@ struct ContentView: View {
             if session.started && !session.done { session.tick(nowMs: nowMs); clock += 1 }
         }
         .onChange(of: session.done) { _, done in
-            if done, let r = session.result { best = recordRun(store, mode, r.wpm) }
+            if done, let r = session.result { best = session.pasted ? Int(store.get(mode.key) ?? "") ?? 0 : recordRun(store, mode, r.wpm) }
         }
     }
 

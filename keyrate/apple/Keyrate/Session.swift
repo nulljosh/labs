@@ -40,6 +40,9 @@ struct Dice {
     }
 }
 
+/// The paste rule: one input that adds more than this many characters is a paste, not typing (session.js PASTE_MAX).
+let pasteMax = 20
+
 /// One test, same rules as app/index.html and kmp/Session.kt. The view feeds it text and clock readings.
 @Observable
 final class Session {
@@ -54,6 +57,8 @@ final class Session {
     /// Every character that arrived, judged when it arrived (keystroke accuracy).
     private(set) var keys = 0
     private(set) var hits = 0
+    /// A burst of more than pasteMax characters in one input: the run cannot set a best.
+    private(set) var pasted = false
 
     init(mode: Mode, punct: Bool = false, dice: Dice = .system, avoid: String? = nil) {
         self.mode = mode
@@ -116,6 +121,7 @@ final class Session {
         let b = Array(before), a = Array(text)
         var i = 0
         while i < b.count && i < a.count && b[i] == a[i] { i += 1 }
+        if a.count - i > pasteMax { pasted = true }
         var start = 0
         for (wi, w) in typed.enumerated() {
             let wc = Array(w), t = wi < target.count ? Array(target[wi]) : []

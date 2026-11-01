@@ -29,6 +29,17 @@ class SessionTest {
         assertEquals(100, Session(Mode(Kind.Time, 15)).keyAccuracy)
     }
 
+    @Test fun aPasteMarksTheRun() {
+        val typedRun = Session(Mode(Kind.Words, 25), random = Random(5))
+        typeAll(typedRun, typedRun.target.toList())
+        assertTrue(typedRun.done)
+        assertFalse(typedRun.pasted)
+        val pastedRun = Session(Mode(Kind.Words, 25), random = Random(5))
+        pastedRun.setText(pastedRun.target.joinToString(" ") + " ", 1_000)
+        assertTrue(pastedRun.done)
+        assertTrue(pastedRun.pasted)
+    }
+
     @Test fun wordsModeFinishesAfterTheLastSpace() {
         val s = Session(Mode(Kind.Words, 25), random = Random(1))
         val words = s.target.toList()

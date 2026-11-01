@@ -45,6 +45,17 @@ final class SessionTests: XCTestCase {
         XCTAssertEqual(Session(mode: Mode(kind: .time, n: 15)).keyAccuracy, 100)
     }
 
+    func testAPasteMarksTheRun() {
+        let typedRun = Session(mode: Mode(kind: .words, n: 25), dice: .seeded(5))
+        typeAll(typedRun, typedRun.target)
+        XCTAssertTrue(typedRun.done)
+        XCTAssertFalse(typedRun.pasted)
+        let pastedRun = Session(mode: Mode(kind: .words, n: 25), dice: .seeded(5))
+        pastedRun.setText(pastedRun.target.joined(separator: " ") + " ", nowMs: 1_000)
+        XCTAssertTrue(pastedRun.done)
+        XCTAssertTrue(pastedRun.pasted)
+    }
+
     func testWordsModeFinishesAfterTheLastSpace() {
         let s = Session(mode: Mode(kind: .words, n: 25), dice: .seeded(1))
         let ws = s.target

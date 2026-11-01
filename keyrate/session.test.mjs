@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { Session } from './session.js'
+import { Session, PASTE_MAX } from './session.js'
 import { stats } from './score.js'
 import { WORDS, QUOTES } from './words.js'
 
@@ -93,4 +93,14 @@ test('keystroke accuracy counts a fixed typo, final accuracy forgives it', () =>
   assert.equal(s.keys, keys); assert.equal(s.hits, keys - 1)
   assert.equal(s.keyAccuracy, Math.round(((keys - 1) / keys) * 100))
   assert.equal(make('time', 15, 4).keyAccuracy, 100) // nothing typed
+})
+
+test('a pasted burst marks the run so it cannot set a best; typing does not', () => {
+  const typed = make('words', 25, 5), ws = [...typed.target]
+  typeAll(typed, ws)
+  assert.equal(typed.done, true); assert.equal(typed.pasted, false)
+  const pasted = make('words', 25, 5)
+  pasted.setText(pasted.target.join(' ') + ' ', 1000)
+  assert.equal(pasted.done, true); assert.equal(pasted.pasted, true)
+  assert.ok(PASTE_MAX >= 12) // room for a phone's word suggestion
 })
