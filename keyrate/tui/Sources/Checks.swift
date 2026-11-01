@@ -21,5 +21,22 @@ func runChecks() {
     do {
         _ = stats(typed: [], target: [], seconds: 0) // must not divide by zero / crash
     }
+    // The shared vectors every port must agree on (vectors.json at the repo root, run from there).
+    if let d = FileManager.default.contents(atPath: "vectors.json"),
+       let cases = try? JSONSerialization.jsonObject(with: d) as? [[String: Any]] {
+        for c in cases {
+            let s = stats(typed: c["typed"] as! [String], target: c["target"] as! [String], seconds: (c["seconds"] as! NSNumber).doubleValue)
+            let e = c["expect"] as! [String: Int]
+            let got = ["wpm": s.wpm, "raw": s.raw, "accuracy": s.accuracy, "correct": s.correct, "wrong": s.wrong, "correctWords": s.correctWords]
+            for (k, v) in e { assert(got[k] == v, "vector \(c["typed"]!) \(k): \(got[k]!) != \(v)") }
+        }
+        print("keyrate-tui: \(cases.count) shared vectors agree")
+    } else {
+        print("keyrate-tui: run from the repo root to check vectors.json")
+    }
+    // A full words run through the shared Session: typing the target exactly scores 100 percent.
+    let run = Session(mode: modes[3], dice: .seeded(7))
+    run.setText(run.target.joined(separator: " "), nowMs: 1000)
+    assert(run.done && run.result?.accuracy == 100 && run.result?.correctWords == 25, "session run")
     print("keyrate-tui: all checks passed")
 }
