@@ -13,3 +13,4 @@ check.sh
 apple
 kmp
 tui
+smoke.mjs
