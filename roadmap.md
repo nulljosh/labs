@@ -649,7 +649,6 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] Figma: research a Figma MCP and Claude skills etc, or build one ourselves? (Ultrathink.)
 
 ## Ingested 2026-10-29
-- [x] Sidewise: archived nulljosh/sidewise 2026-10-29. Seamark archived too.
 - [ ] Coda and Kernel had no GitHub homepage URL, now set (coda.jaybulb.com, kernel.jaybulb.com). Check the other split-out repos have one too.
 
 ## Ingested 2026-10-30
@@ -657,3 +656,5 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 
 ## Ingested 2026-10-31
 - [ ] Sidewise: delete the app record (6806028670) from App Store Connect. It was retired 2026-10-28, iOS 1.0 shows Rejected and was never approved (notes/attachments/2026-10-31/sidewise-1.png). Apple only lets a never-approved record be deleted, so try `asc` first.
+
+- Obsidian graph view "art" (2026-07-18): graph is force-directed. Export nodes/edges, render with d3 at fixed positions for a custom shape. Side project.
