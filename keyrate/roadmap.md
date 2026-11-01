@@ -70,7 +70,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [x] (11-01: Session.swift and Words.swift are symlinks to the Apple app's; `--check` runs all 30 vectors.json cases and a seeded words run) v64: TUI shares the word list and rules through the same vectors
 - [x] (11-01: key=value lines with the apps' keys, best:words:25 and runs; follows $HOME) v65: TUI keeps best per mode in ~/.keyrate
 - [x] (11-01: Tab and Enter restart, Esc and Ctrl-C quit, Left and Right change the mode; SwiftTUI dropped, plain ANSI) v66: TUI: Tab restarts, Esc quits, the same keys as the desktop app
-- [ ] v67: Homebrew formula for keyrate-tui in the house tap
+- [ ] (blocked: publishing a public GitHub release needs Joshua's ok, 2026-11-01. Ready: `swift build -c release --arch arm64 --arch x86_64` makes a universal binary; plan is release keyrate-tui-v2.0.0 on labs with keyrate-tui-2.0.0-macos.tar.gz, then Formula/keyrate-tui.rb in homebrew-tap installing that binary, test `keyrate-tui --check`. Labs is 250 MB, too big for a source formula) v67: Homebrew formula for keyrate-tui in the house tap
 
 ### Quality, docs, CI
 - [ ] v68: keyrate-test.yml also runs the vectors check on Linux
