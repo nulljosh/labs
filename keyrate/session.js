@@ -74,6 +74,9 @@ export class Session {
     })
   }
 
+  // The finished run's time, as the counter shows it: whole seconds when timed, tenths otherwise.
+  get elapsed() { return this.done ? (this.kind === 'time' ? `${Math.round(this.seconds)}s` : `${this.seconds.toFixed(1)}s`) : '' }
+
   get keyAccuracy() { return this.keys ? Math.round((this.hits / this.keys) * 100) : 100 }
 
   tick(nowMs) {
@@ -85,7 +88,8 @@ export class Session {
     // timed runs stop at n seconds; a late tick must not shave the wpm
     const secs = (nowMs - this.startMs) / 1000
     const scored = this.typed.filter((w, i) => w || i < this.typed.length - 1)
-    this.result = stats(scored, this.target, this.kind === 'time' ? Math.min(secs, this.n) : secs)
+    this.seconds = this.kind === 'time' ? Math.min(secs, this.n) : secs // what the run is scored on, shown once it is over
+    this.result = stats(scored, this.target, this.seconds)
   }
 
   pick(k) {

@@ -88,7 +88,7 @@ struct ContentView: View {
 
     private var counter: String {
         _ = clock
-        if session.done { return " " }
+        if session.done { return session.elapsed }
         if mode.kind == .time { return String(session.remaining(nowMs: nowMs)) }
         return "\(min(session.typed.count - 1, session.total))/\(session.total)"
     }

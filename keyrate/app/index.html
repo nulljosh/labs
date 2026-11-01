@@ -170,7 +170,7 @@ function showResult() {
     hist.hidden = runs.length < 2
     if (runs.length > 1) hist.innerHTML = `<polyline points="${runs.map((v, i) => `${i / (runs.length - 1) * (W - 4) + 2},${H - 2 - v / max * (H - 4)}`).join(' ')}"/>`
   } catch {}
-  wordsEl.classList.add('blur'); result.classList.add('show'); live.innerHTML = '&nbsp;'
+  wordsEl.classList.add('blur'); result.classList.add('show'); live.textContent = session.elapsed
   hint.innerHTML = '<kbd>Enter</kbd> or <kbd>Tab</kbd> restarts.'
   $('#srResult').textContent = `${s.wpm} words per minute, ${s.accuracy} percent accuracy, ${session.keyAccuracy} percent of keys right, ${label}. Best ${best}.`
 }

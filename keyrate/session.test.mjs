@@ -104,3 +104,13 @@ test('a pasted burst marks the run so it cannot set a best; typing does not', ()
   assert.equal(pasted.done, true); assert.equal(pasted.pasted, true)
   assert.ok(PASTE_MAX >= 12) // room for a phone's word suggestion
 })
+
+test('once over, the counter shows the time the run is scored on', () => {
+  const w = make('words', 2, 6), [a, b] = w.target
+  w.setText(a + ' ', 1000); w.setText(a + ' ' + b + ' ', 3500)
+  assert.equal(w.elapsed, '2.5s')
+  const t = make('time', 15, 7)
+  t.setText(t.target[0], 1000); t.tick(17000)
+  assert.equal(t.elapsed, '15s') // a late tick never adds time
+  assert.equal(make('time', 15, 8).elapsed, '')
+})

@@ -149,7 +149,7 @@ private fun TestScreen(store: Store, p: Palette) {
         }
         Text(
             when {
-                done -> " "
+                done -> session.elapsed
                 mode.kind == Kind.Time -> session.remaining(nowMs()).toString()
                 else -> "${min(session.typed.size - 1, session.total)}/${session.total}"
             },

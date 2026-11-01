@@ -49,6 +49,11 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
     var pasted = false
         private set
 
+    /** What the finished run is scored on, shown in the counter once it is over. */
+    var scoredSeconds = 0.0
+        private set
+    val elapsed: String get() = if (mode.kind == Kind.Time) "${kotlin.math.round(scoredSeconds).toInt()}s" else "${kotlin.math.round(scoredSeconds * 10) / 10}s"
+
     /** Words to finish in word and quote mode, seconds in timed mode. */
     val total: Int get() = if (mode.kind == Kind.Quote) target.size else mode.n
     val started: Boolean get() = startMs != 0L
@@ -117,6 +122,7 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
         // timed runs stop at n seconds; a late tick must not shave the wpm
         val secs = (nowMs - startMs) / 1000.0
         val seconds = if (mode.kind == Kind.Time) minOf(secs, mode.n.toDouble()) else secs
+        scoredSeconds = seconds
         result = stats(typed.filterIndexed { i, w -> w.isNotEmpty() || i < typed.size - 1 }, target, seconds)
     }
 

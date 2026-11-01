@@ -59,6 +59,9 @@ final class Session {
     private(set) var hits = 0
     /// A burst of more than pasteMax characters in one input: the run cannot set a best.
     private(set) var pasted = false
+    /// What the finished run is scored on, shown in the counter once it is over.
+    private(set) var scoredSeconds = 0.0
+    var elapsed: String { mode.kind == .time ? "\(Int(scoredSeconds.rounded()))s" : String(format: "%.1fs", scoredSeconds) }
 
     init(mode: Mode, punct: Bool = false, dice: Dice = .system, avoid: String? = nil) {
         self.mode = mode
@@ -146,6 +149,7 @@ final class Session {
         // timed runs stop at n seconds; a late tick must not shave the wpm
         let secs = Double(nowMs - startMs) / 1000
         let seconds = mode.kind == .time ? min(secs, Double(mode.n)) : secs
+        scoredSeconds = seconds
         let scored = typed.enumerated().filter { !$0.element.isEmpty || $0.offset < typed.count - 1 }.map(\.element)
         result = stats(typed: scored, target: target, seconds: seconds)
     }
