@@ -203,7 +203,7 @@ top level first, they existed only in that clone).
 ## Cross-repo sweeps
 
 - [ ] **Design system**, pick the project with the best one as source of truth, sync the rest.
-- [ ] **GitHub tidy**, simplify every project README and match the repo description to it.
+- [ ] **GitHub tidy**, simplify every project README and match the repo description to it. (11-01 pass: every public repo now has a description, homepage and topics; Costanza and Numen descriptions rewritten from their READMEs, which also lost their H1 and stale labs badge; Toroid done earlier. Left: a README-by-README simplify pass)
 - [ ] **Auth buttons**, Apple/Google/Facebook/email on all iOS/Mac apps (Apps.pdf mockup).
 - [ ] **Stripe status audit**, only epiphany is known wired. Per app: live vs test keys present,
       webhook registered, whether reauthorization is actually needed. Confirm before scoping.
