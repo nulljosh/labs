@@ -22,6 +22,18 @@ Wrong letters go red. Backspace into a bad word to fix it. Tab restarts. Your be
 
 Monkeytype is great. It is also a settings page with a typing test attached. This is the test with nothing attached. One page, one script, no build step.
 
+## Platforms
+
+| Where | What | Status |
+|---|---|---|
+| Web | [keyrate.jaybulb.com/app](https://keyrate.jaybulb.com/app) | Live |
+| iPhone, iPad, Mac | `apple/`, SwiftUI | Not on the App Store yet |
+| Android | `kmp/`, Compose | Not on Google Play yet |
+| Mac, Windows, Linux desktop | `kmp/`, Compose Desktop (Dmg, Msi, Deb) | Builds, not released yet |
+| Terminal | `tui/`, `swift run keyrate-tui` | Builds, Homebrew formula pending |
+
+Every one of them checks itself against the same `vectors.json`, so a score means the same thing everywhere.
+
 ## Run it
 
 ```

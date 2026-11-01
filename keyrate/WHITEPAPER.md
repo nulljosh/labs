@@ -1,6 +1,6 @@
 # Keyrate Technical Whitepaper
 
-**v1.0.0** | September 2026
+**v2.0.0** | November 2026
 
 Most typing sites bury the test under themes, accounts, and a leaderboard,
 when the only thing anyone actually opens the page for is the number.
@@ -50,6 +50,18 @@ Three lines are visible. The active line is held second from the top by scrollin
 ## Results
 
 When the clock runs out or the last word lands, the test blurs and the numbers appear. The best result per mode is saved in `localStorage`, since a personal best is worth keeping locally without asking anyone to sign up for it. There is no server, no history and no leaderboard.
+
+## Native apps
+
+The same test runs in four more places, and each one has to give the same number for the same typing.
+
+- `kmp/` is Kotlin Multiplatform with Compose: the Android app, and the desktop app for Mac, Windows and Linux (a Dmg, an Msi and a Deb).
+- `apple/` is one SwiftUI target for iPhone, iPad and Mac.
+- `tui/` is the terminal app. It reuses the Apple app's `Session.swift` and `Words.swift` as symlinks, so its rules and words are not a third copy.
+
+What keeps them honest is `vectors.json`. `vectors.mjs` runs `score.js` over a list of cases (clean runs, typos, short words, empty input, near zero seconds, punctuation) and writes the expected numbers. The Kotlin port checks every case in `VectorsTest`, the Swift port in `VectorsTests` and in `keyrate-tui --check`, and the web in `vectors.test.mjs`. CI runs the web and Kotlin checks on Linux. A port that disagrees with `score.js` fails its tests, so a fix lands in `score.js` first and the vectors carry it everywhere else.
+
+The paste rule, the five character word and final text accuracy are the same in every port. Each app keeps bests on the device only: `localStorage` on the web, SharedPreferences on Android (left out of backups), `java.util.prefs` on the desktop, UserDefaults on Apple devices, and `~/.keyrate` in the terminal.
 
 ## Hosting
 

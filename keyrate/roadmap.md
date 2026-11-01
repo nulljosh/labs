@@ -75,9 +75,9 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 ### Quality, docs, CI
 - [x] (11-01: a kotlin job runs :shared:jvmTest, VectorsTest against the same cases, on ubuntu-latest; node --test already covered the JS; run 41313404127 green) v68: keyrate-test.yml also runs the vectors check on Linux
 - [x] (11-01: `node smoke.mjs [url]` picks quote, types what is shown, expects a result at 100 percent; passes on the live app; Playwright from epiphany with the installed Chrome, kept out of node --test and the deployed assets) v69: Playwright smoke test for the web: type a quote, see a result
-- [ ] v70: Whitepaper: the native apps, the shared vectors, the paste rule
+- [x] (11-01: a Native apps section, the four ports, how vectors.json keeps them honest, where each keeps bests; header now v2.0.0, November 2026; paste rule was already there) v70: Whitepaper: the native apps, the shared vectors, the paste rule
 - [ ] v71: architecture.svg redrawn with the four ports and the vectors file
-- [ ] v72: README: a platforms table with a store link per row as each ships
+- [x] (11-01: Platforms table, web live, the rest marked not yet released; swap in store links as each ships) v72: README: a platforms table with a store link per row as each ships
 - [ ] v73: Landing: swap each Coming soon for a real link as it ships
 - [ ] v74: Landing: a dark screenshot in each platform card
 - [ ] v75: Landing speed pass: the embedded test loads after the hero
