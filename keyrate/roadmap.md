@@ -5,22 +5,12 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 ## To v100
 
 ### Rules and scoring
-- [x] v11: One check script: node tests, vectors, gradle tests, xcodebuild tests, README refs; run before any push (`./check.sh`; gradle step skips when Java is missing, not yet run on this Mac)
-- [x] (11-01) v12: Whitepaper: how accuracy is counted (final text, not keystrokes) with a worked example
-- [x] (11-01: web, iPhone/Mac and Kotlin show "keys" next to accuracy; node and Swift tests pass, Kotlin test written but not run here, no Java) v13: Result also shows keystroke accuracy next to the final-text one, so both are honest
-- [x] (11-01: over 20 characters in one input is a paste; the run shows but sets no best; whitepaper and all three ports) v14: Decide the paste rule: a pasted burst should not set a best; write it down, then port it
-- [x] (11-01: the counter shows the scored time once a run is over, 15s or 23.4s, all three ports) v15: Timed mode shows the real elapsed second once the run is over
-- [x] (11-01: 's and hyphenated pairs, numbers 1 in 25, all three ports) v16: Punct mode adds apostrophes and hyphens, numbers stay rare
-- [x] (11-01: words.js is the source, `node wordlist.mjs` writes Words.swift and Words.kt, a test fails if they drift) v17: Word list and quotes come from one source file; a script writes the Kotlin and Swift copies
-- [x] (11-01: 100 quotes; the 90 added are proverbs and lines by Shakespeare, Franklin, Emerson, Thoreau, Twain; the first 10 hand-picked ones stay, some are modern) v18: Quotes grow from 10 to 100 short lines, public domain only
-- [x] (11-01: word and quote mode end on the last character of a correct last word, a wrong one still needs the space; web, Swift, Kotlin; the TUI only scores a finished attempt) v19: Word mode finishes on the last character of the last word, in all four ports
 
 ### Android
 (blocked 11-01: no Android SDK on this Mac, so the APK and emulator steps cannot run here. A JDK is now installed: `:shared:jvmTest` runs and all 18 shared tests pass, after fixing a missing paren in SessionTest.kt)
 - [ ] v20: Run the debug APK on an emulator and walk 15, 60, words and quote
 - [ ] v21: Fix whatever the soft keyboard does to the hidden input (autocorrect, spaces)
 - [ ] v22: Adaptive launcher icon with the glyph on the accent tile
-- [x] (11-01: allowBackup and fullBackupContent off, data_extraction_rules.xml excludes everything from cloud backup and phone-to-phone transfer; XML checked, not yet built, no Android SDK on this Mac) v23: allowBackup off so scores never leave the device through a backup
 - [ ] v24: Dark theme walk on a device, both orientations
 - [ ] v25: Tablet and foldable layout: the words column stays 832dp wide and centred
 - [ ] v26: TalkBack pass: words, timer, result
@@ -28,68 +18,38 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v28: Play listing text and screenshots in a metadata folder, ready to paste
 - [ ] v29: keyrate-kmp.yml runs shared tests and assembleDebug, added only after a clean run on a fresh clone
 - [ ] v30: Keep the APK under 10 MB
-- [x] (11-01: configChanges keeps the activity through rotation, Back moves the task behind like Android 12 does instead of finishing it; not yet built, no Android SDK here, v20 walk confirms) v31: Back button and rotation keep the run alive
-- [x] (11-01: already in KeyrateApp.kt onPreviewKeyEvent, shared by Android and desktop: Tab restarts, Enter restarts once a run is done) v32: Hardware keyboard: Tab restarts, Enter restarts after a result
 - [ ] v33: Play pre-launch report read and fixed
 - [ ] v34: First Play internal-testing build uploaded (Joshua signs in)
 - [ ] v35: Android 2.0.1 from what the report and testers show
 
 ### Desktop (Windows, Mac, Linux)
-- [x] (11-01: `./gradlew :composeApp:packageDmg -Pcompose.desktop.packaging.checkJdkVendor=false` with Homebrew's JDK 21 (Compose refuses Homebrew JDKs otherwise), Keyrate-2.0.0.dmg 70 MB; mounted and launched from the image, window up. Unsigned until v43) v36: Build the Dmg and open it on this Mac
 - [ ] v37: Build the Msi and the Deb on CI runners, not here
-- [x] (11-01: Bounds.kt with BoundsTest, saved from the real AWT window on open, move and resize; checked live: seeded 300,200 at 1100 by 800 and the window opened there) v38: Window remembers its size and position
-- [x] (11-01: Test menu, New Test on Cmd or Ctrl+N and the six modes on 1 to 6, through a small Remote in KeyrateApp; checked live, picking quote switched the test) v39: Menu bar: New test and the six modes
 - [ ] v40: Windows font check: system sans, never a serif fallback
 - [ ] v41: Linux check on Wayland and X11
-- [x] (11-01: from brand/icon-1024.png, the Icon Composer render: Keyrate.icns on Apple's 824 point grid, Keyrate.ico at 16 to 256, Keyrate.png 512, set per OS in nativeDistributions; the built Mac app's Info.plist names Keyrate.icns and it renders right) v42: App icon in every desktop format from Keyrate.icon
 - [ ] v43: Notarize the Mac Dmg (Joshua's account)
 - [ ] v44: Winget and Homebrew cask manifests, drafted not submitted
 - [ ] v45: Desktop 2.0.1 from what the three platforms show
 
 ### iPhone, iPad, Mac (SwiftUI)
 - [ ] (11-01: builds and launches on the iPhone 17 Pro simulator, focus lands; the typing walk needs Simulator.app or a UI test target, this Mac has neither, so it moves to the real phone walk in v59) v46: Run on an iPhone simulator and walk every mode with the keyboard up
-- [x] (11-01: no fix needed; on the iPhone 17 Pro simulator the field takes focus on launch, the words render at full ink, not the 35 percent unfocused dim) v47: Fix the hidden field focus on iOS if the keyboard does not rise on launch
-- [x] (11-01: iPad words go to 28 points in regular width so three lines fill the 832 point column, iPhone stays 22, Mac 26; the hardware shortcuts were already there, Cmd 1 to 6, Cmd R, Tab and Return. Seen on the iPad Pro 13 simulator in dark, keyboard up on launch; Mac build clean) v48: iPad layout: wider words column, hardware keyboard shortcuts
-- [x] (11-01: Cmd-R and Cmd-1 to Cmd-6 added beside Tab and Enter; builds, not walked by hand) v49: Mac: Tab, Enter and Cmd-R restart; Cmd-1 to Cmd-6 pick the modes
 - [ ] v50: VoiceOver pass on iPhone and Mac
-- [x] (11-01: @ScaledMetric on the word size, capped at 1.6 times; at the largest accessibility size the iPhone shows bigger words in the same three-line window. Chips and hint keep fixed sizes) v51: Dynamic Type: words scale with the system size without breaking the 3-line window
-- [x] (11-01: screenshots/appstore/6.9, typing and result in light and dark on the iPhone 17 Pro Max simulator, made by a DEBUG-only `-shot typing|result` that types a seeded 25 word run at about 85 wpm through the real setText, one typo fixed) v52: Light and dark App Store screenshots, no demo account
 - [ ] v53: asc: create the app record under the final name, probing Keyrate with Apple's name check first
-- [x] (11-01: com.nulljosh.keyrate, team QMM486NPYC and ITSAppUsesNonExemptEncryption NO were already in project.yml; added apple/ExportOptions-iOS.plist and -mac.plist, automatic signing until v53 makes the profiles) v54: Bundle id, team, encryption answers and export options set
 - [ ] v55: Archive and run asc validate before any upload
-- [x] (11-01: metadata/app-info and metadata/version/2.0.0 en-US, one paragraph from the whitepaper, subtitle "A typing test, nothing else"; privacy page live at keyrate.jaybulb.com/privacy, generated from PRIVACY.md) v56: App Store text from the whitepaper, one paragraph, no feature list
 - [ ] v57: Privacy label: nothing collected, matching PRIVACY.md word for word
 - [ ] v58: TestFlight build 1 to Joshua's phone
 - [ ] v59: Real iPhone walk: keyboard, autocorrect off, copy and paste, rotation
 - [ ] v60: Fix what the real phone shows, TestFlight build 2
-- [x] (11-01: config checked: Keyrate-mac.entitlements is app-sandbox only, no network client, ENABLE_HARDENED_RUNTIME YES; the signed build itself comes with v55) v61: Mac App Store build: sandbox on, hardened runtime, no network entitlement
 - [ ] v62: Submit iOS and Mac for review (Joshua's yes)
 
 ### Terminal
-- [x] (11-01: raw mode, a redraw on each key and every 100 ms, words coloured as typed, three-line window; a scripted run in a pty typed 25 words at 100 percent) v63: keyrate-tui plays a live test, not just a score card (raw mode, redraw loop)
-- [x] (11-01: Session.swift and Words.swift are symlinks to the Apple app's; `--check` runs all 30 vectors.json cases and a seeded words run) v64: TUI shares the word list and rules through the same vectors
-- [x] (11-01: key=value lines with the apps' keys, best:words:25 and runs; follows $HOME) v65: TUI keeps best per mode in ~/.keyrate
-- [x] (11-01: Tab and Enter restart, Esc and Ctrl-C quit, Left and Right change the mode; SwiftTUI dropped, plain ANSI) v66: TUI: Tab restarts, Esc quits, the same keys as the desktop app
 - [ ] (blocked: publishing a public GitHub release needs Joshua's ok, 2026-11-01. Ready: `swift build -c release --arch arm64 --arch x86_64` makes a universal binary; plan is release keyrate-tui-v2.0.0 on labs with keyrate-tui-2.0.0-macos.tar.gz, then Formula/keyrate-tui.rb in homebrew-tap installing that binary, test `keyrate-tui --check`. Labs is 250 MB, too big for a source formula) v67: Homebrew formula for keyrate-tui in the house tap
 
 ### Quality, docs, CI
-- [x] (11-01: a kotlin job runs :shared:jvmTest, VectorsTest against the same cases, on ubuntu-latest; node --test already covered the JS; run 41313404127 green) v68: keyrate-test.yml also runs the vectors check on Linux
-- [x] (11-01: `node smoke.mjs [url]` picks quote, types what is shown, expects a result at 100 percent; passes on the live app; Playwright from epiphany with the installed Chrome, kept out of node --test and the deployed assets) v69: Playwright smoke test for the web: type a quote, see a result
-- [x] (11-01: a Native apps section, the four ports, how vectors.json keeps them honest, where each keeps bests; header now v2.0.0, November 2026; paste rule was already there) v70: Whitepaper: the native apps, the shared vectors, the paste rule
-- [x] (11-01: score.js to vectors.json to web, Android, desktop, Apple and terminal, each with its vectors check and where it keeps bests; rendered and checked) v71: architecture.svg redrawn with the four ports and the vectors file
-- [x] (11-01: Platforms table, web live, the rest marked not yet released; swap in store links as each ships) v72: README: a platforms table with a store link per row as each ships
 - [ ] v73: Landing: swap each Coming soon for a real link as it ships
 - [ ] v74: Landing: a dark screenshot in each platform card
-- [x] (11-01: measured live: the lazy iframe still started at 122 ms, before first paint at 240; now its src is set on load, so it starts right after the hero paints and the page load event fell from 541 to 317 ms) v75: Landing speed pass: the embedded test loads after the hero
-- [x] (11-01: by axe-core, the engine Lighthouse scores with (Lighthouse itself could not be downloaded here): WCAG 2.1 AA plus best practice, zero violations on /, /app and /privacy in light and dark, live. Fixed: footer links and meta at 4.3:1 now darker, an aria-hidden rule that held the GitHub link, and the app's input outside any landmark) v76: Lighthouse accessibility 100 on / and /app
-- [x] (11-01: in code: web uses the shared --font-body stack, Apple .system, Compose its default sans, the terminal the terminal's own; no custom face anywhere. The on-screen Windows and Linux looks stay v40 and v41) v77: System font only, confirmed on every platform
 - [ ] (11-01: grep half done, no fetch, XMLHttpRequest, WebSocket, beacon, URLSession, HttpURLConnection or ktor in web, Swift or Kotlin, no INTERNET permission, no network entitlement; the firewall run is still to do) v78: Security pass: no network calls in any build, checked by grep and by a firewall run
-- [x] (11-01: a table per build, 2.0.x for the native ports, the deployed web, tip of main) v79: SECURITY.md lists the supported native versions
-- [x] (11-01: rewritten per build, bests and last 30 runs on the device only; dropped the Cloudflare Web Analytics line, the live pages load no beacon) v80: PRIVACY.md checked against what each build really stores
 - [ ] v81: Languages: Spanish, French, German and Portuguese word lists as opt-in modes, UI strings translated
 - [ ] (11-01: waits on v81; with only English words there is no right-to-left text to check yet) v82: Right-to-left check for the UI
-- [x] (11-01, on this Mac, 15 minutes idle sampled each minute: Mac SwiftUI app 105 to 102 MB, Compose desktop 283 to 286 MB after warmup, web JS heap 0.87 to 0.89 MB after forced GC; all flat. Android waits on the emulator, iPhone on the real phone walk) v83: A 15 minute idle test on each platform: memory stays flat
-- [x] (11-01: web stops its interval on visibilitychange and resumes on return; Apple swapped an always-on Timer.publish for a task that runs only during a run with scenePhase active (it had ticked 10 times a second forever on a background Mac); Compose waits on a frame each tick, which stops off screen. All clocks are wall or monotonic, so a timed run still ends on time. Checked: web smoke, Mac countdown live at 56, desktop compile) v84: No timer runs while an app is in the background
 - [ ] v85: A crash-free week on TestFlight and Play internal before any public submit
 - [ ] v86: Reply to the first ten real reviews, plain words
 - [ ] v87: Delete dead code: legacy notes, unused chips, stale files
