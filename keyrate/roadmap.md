@@ -82,9 +82,9 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v74: Landing: a dark screenshot in each platform card
 - [ ] v75: Landing speed pass: the embedded test loads after the hero
 - [ ] v76: Lighthouse accessibility 100 on / and /app
-- [ ] v77: System font only, confirmed on every platform
+- [x] (11-01: in code: web uses the shared --font-body stack, Apple .system, Compose its default sans, the terminal the terminal's own; no custom face anywhere. The on-screen Windows and Linux looks stay v40 and v41) v77: System font only, confirmed on every platform
 - [ ] (11-01: grep half done, no fetch, XMLHttpRequest, WebSocket, beacon, URLSession, HttpURLConnection or ktor in web, Swift or Kotlin, no INTERNET permission, no network entitlement; the firewall run is still to do) v78: Security pass: no network calls in any build, checked by grep and by a firewall run
-- [ ] v79: SECURITY.md lists the supported native versions
+- [x] (11-01: a table per build, 2.0.x for the native ports, the deployed web, tip of main) v79: SECURITY.md lists the supported native versions
 - [x] (11-01: rewritten per build, bests and last 30 runs on the device only; dropped the Cloudflare Web Analytics line, the live pages load no beacon) v80: PRIVACY.md checked against what each build really stores
 - [ ] v81: Languages: Spanish, French, German and Portuguese word lists as opt-in modes, UI strings translated
 - [ ] v82: Right-to-left check for the UI
