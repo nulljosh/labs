@@ -85,22 +85,30 @@ private val Light = Palette(Color(0xFFF5F0E4), Color(0xFF1F1B16), Color(0xA81F1B
 private val Dark = Palette(Color(0xFF1C1A17), Color(0xFFF3EDE0), Color(0xA8F3EDE0), Color(0x85F3EDE0), Color(0xFF26231F), Color(0xFFD9503F), Color(0x40E69A00))
 
 
+/** What a host menu can ask for (the desktop menu bar in Main.kt): a mode to switch to, or a new test. */
+class Remote {
+    var mode by mutableStateOf<Mode?>(null)
+    var restarts by mutableIntStateOf(0)
+}
+
 @Composable
-fun KeyrateApp(store: Store) {
+fun KeyrateApp(store: Store, remote: Remote = remember { Remote() }) {
     val p = if (isSystemInDarkTheme()) Dark else Light
     val scheme = if (isSystemInDarkTheme()) darkColorScheme(background = p.bg, surface = p.bg, onSurface = p.text)
     else lightColorScheme(background = p.bg, surface = p.bg, onSurface = p.text)
     MaterialTheme(colorScheme = scheme) {
-        Surface(color = p.bg, modifier = Modifier.fillMaxSize()) { TestScreen(store, p) }
+        Surface(color = p.bg, modifier = Modifier.fillMaxSize()) { TestScreen(store, p, remote) }
     }
 }
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun TestScreen(store: Store, p: Palette) {
+private fun TestScreen(store: Store, p: Palette, remote: Remote) {
     var mode by remember { mutableStateOf(MODES[2]) }
     var punct by remember { mutableStateOf(false) }
     var round by remember { mutableIntStateOf(0) }
+    LaunchedEffect(remote.mode) { remote.mode?.let { mode = it; remote.mode = null } }
+    LaunchedEffect(remote.restarts) { if (remote.restarts > 0) round++ }
     val lastQuote = remember { arrayOfNulls<String>(1) }
     val session = remember(mode, punct, round) {
         Session(mode, punct, avoid = lastQuote[0]).also { if (mode.kind == Kind.Quote) lastQuote[0] = it.target.joinToString(" ") }

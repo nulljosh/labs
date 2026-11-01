@@ -29,7 +29,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v29: keyrate-kmp.yml runs shared tests and assembleDebug, added only after a clean run on a fresh clone
 - [ ] v30: Keep the APK under 10 MB
 - [x] (11-01: configChanges keeps the activity through rotation, Back moves the task behind like Android 12 does instead of finishing it; not yet built, no Android SDK here, v20 walk confirms) v31: Back button and rotation keep the run alive
-- [ ] v32: Hardware keyboard: Tab restarts, Enter restarts after a result
+- [x] (11-01: already in KeyrateApp.kt onPreviewKeyEvent, shared by Android and desktop: Tab restarts, Enter restarts once a run is done) v32: Hardware keyboard: Tab restarts, Enter restarts after a result
 - [ ] v33: Play pre-launch report read and fixed
 - [ ] v34: First Play internal-testing build uploaded (Joshua signs in)
 - [ ] v35: Android 2.0.1 from what the report and testers show
@@ -38,7 +38,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v36: Build the Dmg and open it on this Mac
 - [ ] v37: Build the Msi and the Deb on CI runners, not here
 - [x] (11-01: Bounds.kt with BoundsTest, saved from the real AWT window on open, move and resize; checked live: seeded 300,200 at 1100 by 800 and the window opened there) v38: Window remembers its size and position
-- [ ] v39: Menu bar: New test and the six modes
+- [x] (11-01: Test menu, New Test on Cmd or Ctrl+N and the six modes on 1 to 6, through a small Remote in KeyrateApp; checked live, picking quote switched the test) v39: Menu bar: New test and the six modes
 - [ ] v40: Windows font check: system sans, never a serif fallback
 - [ ] v41: Linux check on Wayland and X11
 - [ ] v42: App icon in every desktop format from Keyrate.icon

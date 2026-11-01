@@ -4,6 +4,9 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.KeyShortcut
+import androidx.compose.ui.window.MenuBar
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.application
@@ -26,7 +29,18 @@ fun main() = application {
         position = saved?.let { WindowPosition(it.x.dp, it.y.dp) } ?: WindowPosition.PlatformDefault,
         size = saved?.let { DpSize(it.width.dp, it.height.dp) } ?: DpSize(980.dp, 720.dp),
     )
+    val remote = remember { Remote() }
+    val mac = System.getProperty("os.name").startsWith("Mac")
     Window(onCloseRequest = ::exitApplication, title = "Keyrate", state = state) {
+        MenuBar {
+            Menu("Test") {
+                Item("New Test", shortcut = KeyShortcut(Key.N, meta = mac, ctrl = !mac), onClick = { remote.restarts++ })
+                Separator()
+                MODES.forEachIndexed { i, m ->
+                    Item(if (m.kind == Kind.Time) "${m.n} seconds" else m.label, shortcut = KeyShortcut(Key(Key.One.keyCode + i), meta = mac, ctrl = !mac), onClick = { remote.mode = m })
+                }
+            }
+        }
         // Read off the real window: WindowState keeps a platform-default position until the window is dragged.
         DisposableEffect(window) {
             val w = window
@@ -39,6 +53,6 @@ fun main() = application {
             save.put()
             onDispose { w.removeComponentListener(save) }
         }
-        KeyrateApp(store)
+        KeyrateApp(store, remote)
     }
 }
