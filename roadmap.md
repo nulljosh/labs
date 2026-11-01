@@ -654,3 +654,6 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 
 ## Ingested 2026-10-30
 - [ ] notes, rag, brain, vault: do we need all of this? Fold into jaybulb-api? (Q: which ones to keep?)
+
+## Ingested 2026-10-31
+- [ ] Sidewise: delete the app record (6806028670) from App Store Connect. It was retired 2026-10-28, iOS 1.0 shows Rejected and was never approved (notes/attachments/2026-10-31/sidewise-1.png). Apple only lets a never-approved record be deleted, so try `asc` first.
