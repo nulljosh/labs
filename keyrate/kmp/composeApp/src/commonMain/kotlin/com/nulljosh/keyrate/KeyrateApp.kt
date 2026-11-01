@@ -35,6 +35,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.withFrameMillis
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -127,6 +128,9 @@ private fun TestScreen(store: Store, p: Palette, remote: Remote) {
         refocus()
         while (true) {
             delay(100)
+            // Waits for a frame, and Compose stops handing out frames while the app is off screen,
+            // so nothing ticks in the background. The clock is monotonic, so a run still ends on time.
+            withFrameMillis { }
             if (session.started && !session.done) { session.tick(nowMs()); rev++ }
         }
     }

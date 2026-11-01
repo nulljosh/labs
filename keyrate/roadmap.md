@@ -89,7 +89,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v81: Languages: Spanish, French, German and Portuguese word lists as opt-in modes, UI strings translated
 - [ ] v82: Right-to-left check for the UI
 - [ ] v83: A 15 minute idle test on each platform: memory stays flat
-- [ ] v84: No timer runs while an app is in the background
+- [x] (11-01: web stops its interval on visibilitychange and resumes on return; Apple swapped an always-on Timer.publish for a task that runs only during a run with scenePhase active (it had ticked 10 times a second forever on a background Mac); Compose waits on a frame each tick, which stops off screen. All clocks are wall or monotonic, so a timed run still ends on time. Checked: web smoke, Mac countdown live at 56, desktop compile) v84: No timer runs while an app is in the background
 - [ ] v85: A crash-free week on TestFlight and Play internal before any public submit
 - [ ] v86: Reply to the first ten real reviews, plain words
 - [ ] v87: Delete dead code: legacy notes, unused chips, stale files

@@ -185,6 +185,11 @@ sink.addEventListener('input', () => {
   if (kind !== 'time') counter()
   render()
 })
+// No timer while the tab is hidden. The clock is Date.now, so a timed run still ends on time when you come back.
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) { clearInterval(timer); timer = 0 }
+  else if (session.startMs && !session.done && !timer) { timer = setInterval(tick, 100); tick() }
+})
 // Tab and Enter restart only while typing, so Tab still walks the page from the mode buttons.
 document.addEventListener('keydown', e => {
   const typing = document.activeElement === sink || document.activeElement === document.body

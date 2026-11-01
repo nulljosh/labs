@@ -34,7 +34,9 @@ struct ContentView: View {
     @State private var clock = 0 // bumped on every tick so the countdown redraws
     @FocusState private var focus: Bool
     private let store = DefaultsStore()
-    private let ticker = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    @Environment(\.scenePhase) private var phase
+    /// The countdown ticks only during a run in a window on screen; nothing runs in the background.
+    private var ticking: Bool { session.started && !session.done && phase == .active }
 
     private var p: Palette { scheme == .dark ? .dark : .light }
     private var nowMs: Int64 { Int64(ProcessInfo.processInfo.systemUptime * 1000) + 1 } // never 0, Session reads 0 as "not started"
@@ -80,8 +82,11 @@ struct ContentView: View {
         }
         .background(p.bg.ignoresSafeArea())
         .task { try? await Task.sleep(for: .milliseconds(300)); focus = true } // the field is not focusable until the window is up
-        .onReceive(ticker) { _ in
-            if session.started && !session.done { session.tick(nowMs: nowMs); clock += 1 }
+        .task(id: ticking) {
+            while ticking, !Task.isCancelled {
+                try? await Task.sleep(for: .milliseconds(100))
+                session.tick(nowMs: nowMs); clock += 1
+            }
         }
         .onChange(of: session.done) { _, done in
             if done, let r = session.result { best = session.pasted ? Int(store.get(mode.key) ?? "") ?? 0 : recordRun(store, mode, r.wpm) }
