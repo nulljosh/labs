@@ -192,6 +192,7 @@ private fun TestScreen(store: Store, p: Palette) {
                 }
                 Row(horizontalArrangement = Arrangement.spacedBy(32.dp)) {
                     Stat("accuracy", "${result.accuracy}%", p)
+                    Stat("keys", "${session.keyAccuracy}%", p)
                     Stat("raw", result.raw.toString(), p)
                     Stat("chars", "${result.correct}/${result.wrong}", p)
                 }

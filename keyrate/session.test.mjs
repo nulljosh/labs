@@ -80,3 +80,17 @@ test('punctuation adds marks and numbers', () => {
   assert.ok(s.target.some(w => /[^a-z]/i.test(w)))
   assert.equal(s.target.length, 50)
 })
+
+test('keystroke accuracy counts a fixed typo, final accuracy forgives it', () => {
+  const s = make('words', 2, 3), [a, b] = s.target
+  const wrong = a[0] === 'x' ? 'y' : 'x'
+  s.setText(wrong, 1000)                 // a wrong first key
+  s.setText('', 1100)                    // backspaced
+  s.setText(a + ' ' + b + ' ', 1200)     // then typed right
+  assert.equal(s.done, true)
+  assert.equal(s.result.accuracy, 100)
+  const keys = 1 + a.length + 1 + b.length + 1
+  assert.equal(s.keys, keys); assert.equal(s.hits, keys - 1)
+  assert.equal(s.keyAccuracy, Math.round(((keys - 1) / keys) * 100))
+  assert.equal(make('time', 15, 4).keyAccuracy, 100) // nothing typed
+})

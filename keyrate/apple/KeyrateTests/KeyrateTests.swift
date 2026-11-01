@@ -31,6 +31,20 @@ final class SessionTests: XCTestCase {
         for (i, w) in ws.enumerated() { text += "\(w) "; s.setText(text, nowMs: t0 + Int64(i) * 100) }
     }
 
+    func testKeystrokeAccuracyCountsAFixedTypo() {
+        let s = Session(mode: Mode(kind: .words, n: 2), dice: .seeded(3))
+        let a = s.target[0], b = s.target[1]
+        s.setText(a.hasPrefix("x") ? "y" : "x", nowMs: 1_000)
+        s.setText("", nowMs: 1_100)
+        s.setText("\(a) \(b) ", nowMs: 1_200)
+        XCTAssertTrue(s.done)
+        XCTAssertEqual(s.result?.accuracy, 100)
+        let keys = 1 + a.count + 1 + b.count + 1
+        XCTAssertEqual(s.keys, keys)
+        XCTAssertEqual(s.hits, keys - 1)
+        XCTAssertEqual(Session(mode: Mode(kind: .time, n: 15)).keyAccuracy, 100)
+    }
+
     func testWordsModeFinishesAfterTheLastSpace() {
         let s = Session(mode: Mode(kind: .words, n: 25), dice: .seeded(1))
         let ws = s.target

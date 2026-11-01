@@ -147,6 +147,7 @@ struct ContentView: View {
             }
             HStack(spacing: 32) {
                 stat("accuracy", "\(r.accuracy)%")
+                stat("keys", "\(session.keyAccuracy)%")
                 stat("raw", "\(r.raw)")
                 stat("chars", "\(r.correct)/\(r.wrong)")
             }

@@ -84,7 +84,7 @@
   <p id="hint"></p>
   <div id="result">
     <div class="big"><span id="rWpm"></span><small>wpm</small></div>
-    <dl><div><dt>accuracy</dt><dd id="rAcc"></dd></div><div><dt>raw</dt><dd id="rRaw"></dd></div><div><dt>chars</dt><dd id="rChars"></dd></div></dl>
+    <dl><div><dt>accuracy</dt><dd id="rAcc"></dd></div><div><dt>keys</dt><dd id="rKeys"></dd></div><div><dt>raw</dt><dd id="rRaw"></dd></div><div><dt>chars</dt><dd id="rChars"></dd></div></dl>
     <div id="best"></div>
     <svg id="hist" width="240" height="40" role="img" aria-label="Recent runs" hidden></svg>
   </div>
@@ -156,7 +156,7 @@ function tick() {
 function showResult() {
   clearInterval(timer)
   const s = session.result
-  $('#rWpm').textContent = s.wpm; $('#rAcc').textContent = s.accuracy + '%'
+  $('#rWpm').textContent = s.wpm; $('#rAcc').textContent = s.accuracy + '%'; $('#rKeys').textContent = session.keyAccuracy + '%'
   $('#rRaw').textContent = s.raw; $('#rChars').textContent = `${s.correct}/${s.wrong}`
   const label = kind === 'time' ? n + 's' : kind === 'quote' ? 'quote' : n + ' words'
   const key = `best:${kind}:${kind === 'quote' ? 1 : n}`
@@ -172,7 +172,7 @@ function showResult() {
   } catch {}
   wordsEl.classList.add('blur'); result.classList.add('show'); live.innerHTML = '&nbsp;'
   hint.innerHTML = '<kbd>Enter</kbd> or <kbd>Tab</kbd> restarts.'
-  $('#srResult').textContent = `${s.wpm} words per minute, ${s.accuracy} percent accuracy, ${label}. Best ${best}.`
+  $('#srResult').textContent = `${s.wpm} words per minute, ${s.accuracy} percent accuracy, ${session.keyAccuracy} percent of keys right, ${label}. Best ${best}.`
 }
 
 // The input holds every word typed so far; a refused edit (a finished word changed) is put back.

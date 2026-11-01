@@ -36,6 +36,12 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
 
     private var startMs = 0L
 
+    /** Every character that arrived, judged when it arrived (keystroke accuracy). */
+    var keys = 0
+        private set
+    var hits = 0
+        private set
+
     /** Words to finish in word and quote mode, seconds in timed mode. */
     val total: Int get() = if (mode.kind == Kind.Quote) target.size else mode.n
     val started: Boolean get() = startMs != 0L
@@ -62,12 +68,37 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
         }
         if (!ok) return false
         if (!started && text.isNotEmpty()) startMs = nowMs
+        val before = this.text
         typed.clear()
         p.take(if (mode.kind == Kind.Time) p.size else total + 1).forEachIndexed { i, w -> typed.add(w.take((target.getOrNull(i)?.length ?: 0) + 8)) }
+        tally(before)
         if (mode.kind != Kind.Time && typed.size > total) finish(nowMs)
         else if (mode.kind == Kind.Time && typed.size > target.size - 30) target += pick(60)
         return true
     }
+
+    /**
+     * Keystroke accuracy: each character added since the last text counts once, right or wrong when it landed,
+     * so a typo you later fix still counts here (the final-text accuracy in stats() forgives it). session.js is the twin.
+     */
+    private fun tally(before: String) {
+        val after = text
+        var i = 0
+        while (i < before.length && i < after.length && before[i] == after[i]) i++
+        var start = 0
+        typed.forEachIndexed { wi, w ->
+            val t = target.getOrNull(wi) ?: ""
+            var c = maxOf(0, i - start)
+            while (c <= w.length && start + c < after.length) {
+                keys++
+                if (if (c < w.length) c < t.length && w[c] == t[c] else w == t) hits++
+                c++
+            }
+            start += w.length + 1
+        }
+    }
+
+    val keyAccuracy: Int get() = if (keys > 0) kotlin.math.round(hits * 100.0 / keys).toInt() else 100
 
     fun tick(nowMs: Long) {
         if (!done && started && mode.kind == Kind.Time && nowMs - startMs >= mode.n * 1000L) finish(nowMs)

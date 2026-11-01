@@ -51,6 +51,9 @@ final class Session {
     private(set) var done = false
     private(set) var result: Stats?
     private var startMs: Int64 = 0
+    /// Every character that arrived, judged when it arrived (keystroke accuracy).
+    private(set) var keys = 0
+    private(set) var hits = 0
 
     init(mode: Mode, punct: Bool = false, dice: Dice = .system, avoid: String? = nil) {
         self.mode = mode
@@ -95,8 +98,10 @@ final class Session {
             return false
         }
         if !started && !text.isEmpty { startMs = nowMs }
+        let before = self.text
         let limit = mode.kind == .time ? p.count : total + 1
         typed = p.prefix(limit).enumerated().map { i, w in String(w.prefix((i < target.count ? target[i].count : 0) + 8)) }
+        tally(before)
         if mode.kind != .time && typed.count > total {
             finish(nowMs: nowMs)
         } else if mode.kind == .time && typed.count > target.count - 30 {
@@ -104,6 +109,27 @@ final class Session {
         }
         return true
     }
+
+    /// Keystroke accuracy: each character added since the last text counts once, right or wrong when it landed,
+    /// so a typo you later fix still counts here (the final-text accuracy in stats() forgives it). session.js is the twin.
+    private func tally(_ before: String) {
+        let b = Array(before), a = Array(text)
+        var i = 0
+        while i < b.count && i < a.count && b[i] == a[i] { i += 1 }
+        var start = 0
+        for (wi, w) in typed.enumerated() {
+            let wc = Array(w), t = wi < target.count ? Array(target[wi]) : []
+            var c = max(0, i - start)
+            while c <= wc.count && start + c < a.count {
+                keys += 1
+                if c < wc.count ? (c < t.count && wc[c] == t[c]) : (w == (wi < target.count ? target[wi] : "")) { hits += 1 }
+                c += 1
+            }
+            start += wc.count + 1
+        }
+    }
+
+    var keyAccuracy: Int { keys > 0 ? Int((Double(hits) / Double(keys) * 100).rounded()) : 100 }
 
     func tick(nowMs: Int64) {
         if !done && started && mode.kind == .time && nowMs - startMs >= Int64(mode.n) * 1000 { finish(nowMs: nowMs) }

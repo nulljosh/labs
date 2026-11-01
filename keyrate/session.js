@@ -9,6 +9,8 @@ export class Session {
     this.done = false
     this.result = null
     this.startMs = 0
+    this.keys = 0 // every character that arrived, judged when it arrived (keystroke accuracy)
+    this.hits = 0
     if (kind === 'quote') {
       const pool = quotes.filter(q => q !== avoid)
       this.target = pool[this.int(pool.length)].split(' ')
@@ -40,12 +42,33 @@ export class Session {
     else if (ok) ok = false
     if (!ok) return false
     if (!this.startMs && text) this.startMs = nowMs
+    const before = this.text
     const limit = this.kind === 'time' ? p.length : this.total + 1
     this.typed = p.slice(0, limit).map((w, i) => w.slice(0, (this.target[i]?.length ?? 0) + 8))
+    this.tally(before)
     if (this.kind !== 'time' && this.typed.length > this.total) this.finish(nowMs)
     else if (this.kind === 'time' && this.typed.length > this.target.length - 30) this.target.push(...this.pick(60))
     return true
   }
+
+  // Keystroke accuracy: each character added since the last text counts once, right or wrong at the moment it
+  // landed, so a typo you later fix still counts here (the final-text accuracy in stats() forgives it).
+  tally(before) {
+    const after = this.text
+    let i = 0
+    while (i < before.length && i < after.length && before[i] === after[i]) i++
+    let start = 0
+    this.typed.forEach((w, wi) => {
+      const t = this.target[wi] ?? ''
+      for (let c = Math.max(0, i - start); c <= w.length && start + c < after.length; c++) {
+        this.keys++
+        if (c < w.length ? w[c] === t[c] : w === t) this.hits++
+      }
+      start += w.length + 1
+    })
+  }
+
+  get keyAccuracy() { return this.keys ? Math.round((this.hits / this.keys) * 100) : 100 }
 
   tick(nowMs) {
     if (!this.done && this.startMs && this.kind === 'time' && nowMs - this.startMs >= this.n * 1000) this.finish(nowMs)
