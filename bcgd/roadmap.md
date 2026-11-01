@@ -13,39 +13,9 @@ A plan, not promises. Each version is one thing Dad or his crew would notice. Sh
 - [ ] 2.3 iOS back in the store once the 4.3(a) appeal clears, same build as the Mac
 - [ ] 2.4 website leads land on the jobs board as Lead cards (bcgd_leads is already on jaybulb-api)
 
-### v3 to v10: the day's work
-- [ ] 5 quick quote: door size, spring type, labour, a price Dad sets once
-- [ ] 6 customer history: name, address, every job and part, searchable
-- [ ] 7 photos on a job (before and after), stored on jaybulb-api
-- [ ] 8 low stock push notification to the owner
-- [ ] 9 scan a part barcode to count it
-- [ ] 10 offline first: queue every change when there is no signal, sync on reconnect
+### v3 and on
 
-### v11 to v25: the money
-- [ ] invoice from a finished job: parts plus labour, PDF, email to the customer
-- [ ] mark paid with method (cash, e-transfer, card) and a monthly total
-- [ ] supplier reorder that fills itself from low stock and remembers the supplier
-- [ ] parts cost and price, margin per job
-- [ ] GST on invoices, a year-end export for the accountant
-- [ ] web dashboard parity with the apps on the same shop data
-
-### v26 to v50: the crew
-- [ ] roles beyond owner and crew: office, lead tech
-- [ ] van stock: each truck is its own shelf, transfers between van and shop
-- [ ] time on job, clock in and out, hours per week
-- [ ] calendar view of scheduled jobs, drag to reschedule
-- [ ] customer gets a text when the tech is on the way
-- [ ] missed-call follow-up: a text back with the booking link
-- [ ] Apple Watch: today's next job and a tap to mark it done
-
-### v51 to v100: other shops
-- [ ] Doorstock for any garage door shop: sign up, start a shop, no setup call
-- [ ] parts catalogue presets for common brands (LiftMaster, Chamberlain, Genie)
-- [ ] multiple shops per owner, a switcher
-- [ ] Android through the KMP module
-- [ ] pricing: free for one shop, a small monthly fee per extra seat (decide with Joshua first)
-- [ ] reviews request after a paid job, linked to the shop's Google profile
-- [ ] v100: a shop runs its whole week in Doorstock and never opens a spreadsheet
+The rest of the plan (v3 to v100) lives in the wiki page bcgd.md under Someday.
 
 ## Next: shop accounts so Dad and his crew share one stock list
 

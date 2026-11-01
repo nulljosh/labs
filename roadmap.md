@@ -136,18 +136,10 @@ It fires on new, thin app records submitted in bulk. Updating an app that is alr
 unlimited and zero risk. The rule is "do not submit a *batch* of thin ones"; one finished app
 at a time was always fine.
 
-- [ ] **Nimble: approved to ship**, 1,677 lines with real search, results and context-menu UI
-      over the Workers AI backend, substantive enough for Guideline 4.2. Ship after the current
-      resubmissions come back approved, so there is a clean streak behind it. Needs a full
-      session: ASC record (browser-only, see `asc-app-create-ui`), bundle ID, signing,
-      screenshots, metadata, App Privacy.
 - **Newsline: do NOT submit, settled 2026-08-25.** 398 lines, one list view, one detail view,
       a bias bar and one service: the exact thin-RSS-reader profile that killed Nullfolio. Rather
       than fatten it, its curated feed list was folded into Inkpress 1.0.5 (Phase 3 below), which
       is a shipping app. Newsline stays a Worker + MCP server, not an App Store submission.
-- [ ] **NYC Survive**, **already resubmitted**, contrary to the note this bullet used to carry.
-      Live state 2026-09-01: iOS 1.0.0 `REJECTED`, macOS 1.0.1 `REJECTED` (4.3(a) wave), macOS
-      1.0.0 live. Reply filed; do not resubmit. Quality pass only after a verdict.
 
 ## Codebase consolidation
 
@@ -237,33 +229,6 @@ the watchOS one (`SparkWatch`, `TalliWatch`), which fails against an iOS Simulat
 pick `Spark` / `Talli` from `ios/` explicitly. Healstack's iOS scheme is still called `Dose`,
 not `Healstack`.
 
-## Someday / explore
-
-- [ ] **Sparkjar rename**, name still undecided.
-- [ ] **Quotestreak quote bank**, replace the hardcoded ~25-quote `quotes.json` with a real
-      source. No well-known free movie-quote API exists; may need to curate, or pair TMDB
-      metadata with a quotes dataset.
-- [ ] **RBC account + ASC**, clarify what "hook up" means (payout routing? reconciliation?)
-      before starting. Probably the same underlying issue as the payout item above.
-- [ ] **Ontology**, connect projects with a shared entity index. Overlaps with Epiphany's
-      ontology / people index feature.
-- [ ] **Graph engineering**, research github.com/codejunkie99/graph-engineering; we already
-      ship SVG architectures in many READMEs.
-- [ ] **Xcodeless**, headless release audit across all apps (project.yml, Local.xcconfig,
-      notarytool profiles, scripts/release.sh, CLAUDE.md docs).
-- [ ] **/asc-update skill**, detect apps changed since last release → build → TestFlight upload
-      → release notes.
-- [ ] **Obsidian/notes consolidation**, evaluate merging the vault into the notes repo
-      (braingraph already merged 2026-07-11) for one source of truth.
-- [ ] **Claude Code plays Factorio**, Steam + Factorio already installed. Try
-      github.com/JackHopkins/claude-code-plays-factorio first, fallback
-      github.com/MarkMcCaskey/factorioctl. For fun, low priority.
-- [ ] **Terminal**, Abralo is installed to /Applications; trial vs cmux, then decide whether to
-      drop Warp/cmux. Verdict notes in `wiki/pages/terminal-tooling.md`.
-- [ ] **Unidentified CI failure**, "Prepare Build for App Store Connect failed" on commit
-      "Fix Mac app icon rebrand, close out stale roadmap items". Repo unknown; grep git log across
-      `~/Documents/Code/*` to locate, then pull the Xcode Cloud build log.
-
 ## Google sign-in (2026-08-27)
 Google OAuth client is READY. Reused the existing `epiphany` Web client in GCP project
 `epiphany-501805` rather than creating a new one.
@@ -319,7 +284,6 @@ today -- fix apple via the above, and strip the facebook one (Facebook skipped: 
 business verification + app review for the email permission).
 
 ## From Notes (imported 2026-08-27)
-- [ ] **App Store staleness sweep**, "some of our apps are stale, can we do a full sweep?" Run `asc` across every live app to find version/build drift between what is shipped and what is in the repo, and list what needs a bump.
 
 ### App Store staleness sweep, run 2026-08-27
 
@@ -337,19 +301,12 @@ Reported only; nothing bulk-submitted (a bulk wave is what triggered the 5.6 sus
 | Doorstock | 1.0 | **never shipped** | 1.0 REJECTED | 1.0 |
 
 **Corrections to notes that were wrong:**
-- [ ] **Epiphany iOS live is 2.5.4, not 2.6.x.** 2.5.5 is REJECTED and the repo is already at 2.5.6. Notes claiming "v2.6.1+ live on the App Store" are wrong, the store is three versions behind the repo.
-- [ ] **Healstack has nothing live on either platform.** Both iOS and macOS show no READY_FOR_SALE version; 2.3.5 is REJECTED on both (verified 2026-09-01). Notes saying 2.3.4 shipped are wrong.
-- [ ] **Sparkjar / NYC Survive / Doorstock have never shipped on iOS**, one iOS version record each, none ever READY_FOR_SALE. Only their macOS builds are live.
 
 **Genuine version drift (repo ahead of store, nothing in flight):**
-- [ ] Epiphany macOS live 2.5.2 vs repo 2.5.6, four versions behind, no Mac submission pending.
-- [ ] Talli macOS live 3.5.6 vs iOS 3.5.12, the Mac app is seven minor versions behind its own iOS twin.
-- [ ] Voxprint macOS live 1.3.6 vs iOS 1.3.7, one behind.
 
 **In flight (re-verified 2026-09-01):** nothing is in review except Sidewise 1.0 (both platforms WAITING_FOR_REVIEW). Lexly 1.1.5 (both), Wordroot macOS 1.0.1, NYC macOS 1.0.1 and Healstack 2.3.5 (both) all came back REJECTED in the 4.3(a) wave. Voxprint iOS 1.3.8 and Toroid 1.0 sit in PREPARE_FOR_SUBMISSION.
 
 **Re-verified again 2026-09-04, real movement since the above:**
-- [ ] **Sidewise macOS now REJECTED** (was WAITING_FOR_REVIEW) — iOS 1.0 still WAITING_FOR_REVIEW. Read the actual rejection reason via Resolution Center before doing anything; not investigated this pass.
 - Voxprint iOS 1.3.8 still sits in PREPARE_FOR_SUBMISSION, unsubmitted (macOS 1.3.6 and iOS 1.3.7 both live, one version behind).
 - Everything else (Bookrank, Curvely, Charwork, Litigate, Talli, Quotestreak, Doorstock, Sparkjar, Epiphany, Healstack, Wordroot, Lexly, NYC) unchanged from the 2026-09-01 read.
 
@@ -358,9 +315,6 @@ Reported only; nothing bulk-submitted (a bulk wave is what triggered the 5.6 sus
 **Never submitted:** Toroid 1.0 sits in PREPARE_FOR_SUBMISSION on both platforms, held for the 4.3(a) wave. (Sidewise was submitted 2026-08-28 and is WAITING_FOR_REVIEW.)
 
 **Orphan records still cluttering the account:**
-- [ ] `Headwire` (6783501927, com.nulljosh.lingo.mac), macOS 1.1.1 REJECTED, nothing ever live. This is the duplicate Lexly Mac record; Lexly's real record is 6783501611.
-- [ ] `Transcriptly` (6783015101), macOS 9.9.9 REJECTED, junk version number, nothing live.
-- [ ] `Nullfolio` (6788180394), iOS 1.0 REJECTED, project closed 2026-08-11.
 
 **Appeal-path correction (found 2026-08-27):** every one of the five repos' roadmaps points at
 `<repo>/notes/appeal-4-3-spam.md` for the appeal draft. **That file does not exist in any of them.**
@@ -381,8 +335,6 @@ LEC (nobody else clients that portal).
 
 **Eight compete with a free giant**, Bookrank/Goodreads, Wordroot/Etymonline, Curvely/Desmos,
 Sparkjar/Apple Notes, Inkpress/Substack, Lexly/Duolingo, Quotestreak/everything, Charwork/TextEdit.
-- [ ] Freeze all eight: no new versions, no metadata, no icons. They are ASO surface and review-queue
-      risk, nothing more. Every hour here is an hour off the four above.
 
 **Gap 1, nothing can charge.** Form 506 gates all iOS revenue portfolio-wide. Blocked on Joshua.
 See `wiki/pages/paid-apps-agreement.md`. Worth asking Apple whether it accepts a *not-registered*
@@ -407,14 +359,6 @@ purchase button that dies in review.
 Apple requires a working privacy policy URL. Four apps point at dead or 404 pages. Swept every
 app's `privacyPolicyUrl` and curled each one:
 
-- [ ] **Litigate**, `brief.heyitsmejosh.com/privacy.html` (dead host, stale from the Brief rename).
-      App is **LIVE** with a dead privacy policy. `litigate.heyitsmejosh.com/privacy.html` works.
-- [ ] **Bookrank**, `spine.heyitsmejosh.com/privacy.html` (dead host, stale from the Spine rename).
-      App is **LIVE**. `bookrank.heyitsmejosh.com/privacy.html` works.
-- [ ] **Lexly**, `heyitsmejosh.com/privacy` returns **404**, and it is the generic portfolio root.
-      Lexly iOS is REJECTED right now. `lexly.heyitsmejosh.com/privacy.html` works.
-- [ ] **Voxprint**, the LIVE app-info still has `echo.heyitsmejosh.com/privacy.html` (dead). The
-      staged 1.3.8 app-info is already correct, so shipping 1.3.8 fixes this automatically.
 
 **Why none of these could be fixed today:** an app-info record is only editable while a version is
 staged. Litigate and Bookrank have exactly one app-info each, READY_FOR_SALE, so `privacyPolicyUrl`
@@ -443,11 +387,6 @@ invisible in the browser while curl showed it fine.
 Generator fixed, and the worker patched in all 17 apps that had it, with each
 cache version bumped so existing clients drop what the old worker stored.
 
-- [ ] Still serving the old worker until their next deploy: fengshui,
-  quotestreak, bookrank, numen, curvely, dream, wordroot, nimble, charwork,
-  voxprint, bcgd. Each needs a build before deploy and none declares both a
-  Pages project name and an output dir, so they were left rather than guessed.
-  Their next normal deploy carries the fix anyway.
 
 ## WCAG contrast audit, 2026-08-31
 
@@ -474,11 +413,6 @@ so every repo mapped to the same project. bookrank was deployed over the
 `homeward` project before it was caught on the first log line. Homeward was
 rebuilt and redeployed immediately and verified on both hosts; nothing else ran.
 
-- [ ] If a bulk deploy is wanted, use `#!/opt/homebrew/bin/bash` (bash 5) or a
-  plain case statement, and echo the resolved project name per repo before
-  deploying anything.
-- [ ] The contrast fix is committed everywhere but only deployed to homeward.
-  Each app picks it up on its next normal deploy; there is no urgency.
 
 ## Native fleet rollout, real ports (2026-09-03)
 
