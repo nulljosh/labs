@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Verify iPad split-view (ChapterListView) visually on simulator -- 2026-09-02. Pushed
+- [x] (11-01: seen on the iPad Pro 13 simulator with `-readTab`, chapter sidebar beside "Select a Chapter", Assess list fills the width. The build had quietly needed iOS 27.2: the target-level deploymentTarget never reached the build settings, now set under options, iOS 17 and macOS 14) Verify iPad split-view (ChapterListView) visually on simulator -- 2026-09-02. Pushed
   the NavigationSplitView conversion without a simulator screenshot; this machine's Xcode
   only has the iOS 26.5 SDK but the iOS 26.2 runtime downloaded, so `xcodebuild` won't
   recognize any simulator destination even by explicit UDID. Needs the matching platform
