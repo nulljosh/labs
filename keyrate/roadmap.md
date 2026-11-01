@@ -41,7 +41,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [x] (11-01: Test menu, New Test on Cmd or Ctrl+N and the six modes on 1 to 6, through a small Remote in KeyrateApp; checked live, picking quote switched the test) v39: Menu bar: New test and the six modes
 - [ ] v40: Windows font check: system sans, never a serif fallback
 - [ ] v41: Linux check on Wayland and X11
-- [ ] v42: App icon in every desktop format from Keyrate.icon
+- [x] (11-01: from brand/icon-1024.png, the Icon Composer render: Keyrate.icns on Apple's 824 point grid, Keyrate.ico at 16 to 256, Keyrate.png 512, set per OS in nativeDistributions; the built Mac app's Info.plist names Keyrate.icns and it renders right) v42: App icon in every desktop format from Keyrate.icon
 - [ ] v43: Notarize the Mac Dmg (Joshua's account)
 - [ ] v44: Winget and Homebrew cask manifests, drafted not submitted
 - [ ] v45: Desktop 2.0.1 from what the three platforms show

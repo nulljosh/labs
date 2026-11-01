@@ -52,6 +52,10 @@ compose.desktop {
             packageName = "Keyrate"
             packageVersion = "2.0.0"
             description = "A typing test with nothing attached."
+            // Made from brand/icon-1024.png: a rounded tile on Apple's 824 point grid for the Mac, a fuller one elsewhere.
+            macOS { iconFile.set(project.file("icons/Keyrate.icns")) }
+            windows { iconFile.set(project.file("icons/Keyrate.ico")) }
+            linux { iconFile.set(project.file("icons/Keyrate.png")) }
         }
     }
 }
