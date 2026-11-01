@@ -35,12 +35,14 @@ struct ContentView: View {
     private var ticking: Bool { session.started && !session.done && phase == .active }
 
     private var p: Palette { scheme == .dark ? .dark : .light }
+    /// Follows Dynamic Type (and the Mac's text size), capped so three lines of words still fit the window.
+    @ScaledMetric(relativeTo: .title2) private var typeScale: CGFloat = 1
     #if os(iOS)
     @Environment(\.horizontalSizeClass) private var sizeClass
     /// iPad (regular width) fills the 832 point column with Mac sized words; iPhone keeps them smaller.
-    private var wordSize: CGFloat { sizeClass == .regular ? 28 : 22 }
+    private var wordSize: CGFloat { (sizeClass == .regular ? 28 : 22) * min(typeScale, 1.6) }
     #else
-    private let wordSize: CGFloat = 26
+    private var wordSize: CGFloat { 26 * min(typeScale, 1.6) }
     #endif
     private var nowMs: Int64 { Int64(ProcessInfo.processInfo.systemUptime * 1000) + 1 } // never 0, Session reads 0 as "not started"
 

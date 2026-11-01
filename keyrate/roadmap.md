@@ -52,7 +52,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [x] (11-01: iPad words go to 28 points in regular width so three lines fill the 832 point column, iPhone stays 22, Mac 26; the hardware shortcuts were already there, Cmd 1 to 6, Cmd R, Tab and Return. Seen on the iPad Pro 13 simulator in dark, keyboard up on launch; Mac build clean) v48: iPad layout: wider words column, hardware keyboard shortcuts
 - [x] (11-01: Cmd-R and Cmd-1 to Cmd-6 added beside Tab and Enter; builds, not walked by hand) v49: Mac: Tab, Enter and Cmd-R restart; Cmd-1 to Cmd-6 pick the modes
 - [ ] v50: VoiceOver pass on iPhone and Mac
-- [ ] v51: Dynamic Type: words scale with the system size without breaking the 3-line window
+- [x] (11-01: @ScaledMetric on the word size, capped at 1.6 times; at the largest accessibility size the iPhone shows bigger words in the same three-line window. Chips and hint keep fixed sizes) v51: Dynamic Type: words scale with the system size without breaking the 3-line window
 - [ ] v52: Light and dark App Store screenshots, no demo account
 - [ ] v53: asc: create the app record under the final name, probing Keyrate with Apple's name check first
 - [ ] v54: Bundle id, team, encryption answers and export options set
