@@ -160,10 +160,12 @@ final class Session {
 
     private func decorate(_ word: String) -> String {
         let r = dice.double()
-        if r < 0.08 { return String(dice.int(1000)) }
-        let w = r < 0.2 ? word.prefix(1).uppercased() + word.dropFirst() : word
+        if r < 0.04 { return String(dice.int(1000)) } // numbers stay rare
+        let w = r < 0.16 ? word.prefix(1).uppercased() + word.dropFirst() : word
         let e = dice.double()
-        return w + (e < 0.1 ? "." : e < 0.2 ? "," : e < 0.23 ? "?" : e < 0.25 ? "!" : "")
+        if e < 0.04 { return w + "'s" }
+        if e < 0.07 { return w + "-" + words[dice.int(words.count)] }
+        return w + (e < 0.17 ? "." : e < 0.27 ? "," : e < 0.30 ? "?" : e < 0.32 ? "!" : "")
     }
 }
 

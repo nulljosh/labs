@@ -96,11 +96,14 @@ export class Session {
     return Array.from({ length: k }, () => this.words[this.int(this.words.length)]).map(w => this.punct ? this.decorate(w) : w)
   }
 
+  // Punct mode: capitals and marks, an apostrophe or a hyphen now and then, and rare numbers (1 in 25).
   decorate(w) {
     const r = this.random()
-    if (r < .08) return String(this.int(1000))
-    if (r < .2) w = w[0].toUpperCase() + w.slice(1)
+    if (r < .04) return String(this.int(1000))
+    if (r < .16) w = w[0].toUpperCase() + w.slice(1)
     const e = this.random()
-    return w + (e < .1 ? '.' : e < .2 ? ',' : e < .23 ? '?' : e < .25 ? '!' : '')
+    if (e < .04) return w + "'s"
+    if (e < .07) return w + '-' + this.words[this.int(this.words.length)]
+    return w + (e < .17 ? '.' : e < .27 ? ',' : e < .30 ? '?' : e < .32 ? '!' : '')
   }
 }

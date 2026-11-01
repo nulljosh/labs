@@ -131,14 +131,16 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
 
     private fun decorate(word: String): String {
         val r = random.nextDouble()
-        if (r < .08) return random.nextInt(1000).toString()
-        val w = if (r < .2) word.replaceFirstChar { it.uppercase() } else word
+        if (r < .04) return random.nextInt(1000).toString() // numbers stay rare
+        val w = if (r < .16) word.replaceFirstChar { it.uppercase() } else word
         val e = random.nextDouble()
+        if (e < .04) return w + "'s"
+        if (e < .07) return w + "-" + WORDS[random.nextInt(WORDS.size)]
         return w + when {
-            e < .1 -> "."
-            e < .2 -> ","
-            e < .23 -> "?"
-            e < .25 -> "!"
+            e < .17 -> "."
+            e < .27 -> ","
+            e < .30 -> "?"
+            e < .32 -> "!"
             else -> ""
         }
     }

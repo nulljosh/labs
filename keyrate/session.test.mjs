@@ -75,10 +75,14 @@ test('trailing empty word is not scored', () => {
   assert.equal(s.result.correctWords, 3)
 })
 
-test('punctuation adds marks and numbers', () => {
+test('punctuation adds marks, apostrophes and hyphens, and numbers stay rare', () => {
   const s = make('words', 50, 7, { punct: true })
   assert.ok(s.target.some(w => /[^a-z]/i.test(w)))
   assert.equal(s.target.length, 50)
+  const many = Array.from({ length: 40 }, (_, i) => make('words', 50, 100 + i, { punct: true }).target).flat()
+  assert.ok(many.some(w => w.endsWith("'s")) && many.some(w => /^[a-z]+-[a-z]+/i.test(w)))
+  const numbers = many.filter(w => /^\d+$/.test(w)).length / many.length
+  assert.ok(numbers > 0 && numbers < 0.08, `numbers ${numbers}`)
 })
 
 test('keystroke accuracy counts a fixed typo, final accuracy forgives it', () => {
