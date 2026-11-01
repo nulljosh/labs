@@ -35,7 +35,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v35: Android 2.0.1 from what the report and testers show
 
 ### Desktop (Windows, Mac, Linux)
-- [ ] v36: Build the Dmg and open it on this Mac
+- [x] (11-01: `./gradlew :composeApp:packageDmg -Pcompose.desktop.packaging.checkJdkVendor=false` with Homebrew's JDK 21 (Compose refuses Homebrew JDKs otherwise), Keyrate-2.0.0.dmg 70 MB; mounted and launched from the image, window up. Unsigned until v43) v36: Build the Dmg and open it on this Mac
 - [ ] v37: Build the Msi and the Deb on CI runners, not here
 - [x] (11-01: Bounds.kt with BoundsTest, saved from the real AWT window on open, move and resize; checked live: seeded 300,200 at 1100 by 800 and the window opened there) v38: Window remembers its size and position
 - [x] (11-01: Test menu, New Test on Cmd or Ctrl+N and the six modes on 1 to 6, through a small Remote in KeyrateApp; checked live, picking quote switched the test) v39: Menu bar: New test and the six modes
