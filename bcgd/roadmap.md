@@ -78,14 +78,8 @@ matching every sibling app in the fleet, HTTPS-only traffic is exempt.
 
 Held for the four in-flight verdicts, not for any missing work.
 
-- [ ] **Blocked on Joshua (dashboard only), do before the first submit.** BCGD carries a stray empty
-  review submission `59cef0f7-188d-4ab8-bb6b-6c4c3f37239b` (IOS, READY_FOR_REVIEW, no submittedDate,
-  zero items). `asc review submissions-cancel --confirm` refuses it: "Resource is not in cancellable
-  state." Same defect Curvely has. Clear it in App Store Connect before submitting 1.0, or the real
-  submission may collide with it.
 
 ## OAuth rollout (2026-08-24)
-- [ ] **EXCLUDED, Supabase signInWithOAuth auto-creates users on first sign-in.** Dashboard has no signUp (accounts are hand-provisioned by admin only). Adding a GitHub auth button would let any GitHub account self-provision admin access, a security risk. Blocker: email allowlist gate needed in auth.js before any OAuth button ships.
 
 ## Submit attempt 2026-08-18, now BLOCKED on App Privacy only (both platforms)
 
@@ -99,12 +93,6 @@ under-reports. Trust the real submit call, not validate. As of 2026-08-18 the on
 remaining blocker is App Privacy, but that has not been proven by a submit call, because no
 third App Store submission should be queued until Curvely or Wiretext clears review.
 
-- [ ] **App Privacy data usages not published**, `You must have published answers to your app's
-      data usages`. Public API cannot do this. Needs `asc web privacy pull|plan|apply|publish --app 6791106082`,
-      which needs a live `asc web auth login` (interactive 2FA, **Joshua only**). Web fallback:
-      https://appstoreconnect.apple.com/apps/6791106082/appPrivacy
-      The app is a fully local SwiftUI inventory/jobs tracker, `Store` persists to UserDefaults,
-      no network calls, no accounts, no analytics, so the correct answer is **DATA_NOT_COLLECTED**.
 
 Notes for whoever picks this up:
 - iOS build `798bbe86-b5f5-46e4-bb3d-633a74307236` (build 1, uploaded 2026-07-15) is VALID,
@@ -164,8 +152,6 @@ Site/dashboard comparison against bcgaragedoors.ca, then the fixes:
       verified by build + headless render of the gate, not a full browser run.
       A CDP script was written at scratchpad `e2e.mjs` but not executed (usage
       cap). Re-run or click through once manually.
-- [ ] Shop login is `shop@bcgaragedoors.ca`; password was generated and shown
-      in chat 2026-07-27 -- change it via Settings > Security.
 - [ ] Parts/jobs still localStorage; only leads are server-side. Migrate when
       the iOS app needs the same stock.
 - [ ] Reorder is still per-part mailto; grouping by supplier with an
@@ -200,15 +186,6 @@ and Mac 1280×800 ×1 uploaded, `asc validate` 0 errors / 0 warnings / 1 info on
 
 Not submitted today, for two reasons:
 
-- [ ] **`MARKETING_VERSION`: source is FIXED, the attached build is NOT.** Re-checked 2026-08-24.
-      `src/ios/project.yml:16` now reads `MARKETING_VERSION: "1.0"` (commit `8b74c5d`, 2026-08-18
-      12:55:50 -0700, "read version from bundle instead of hardcoding"). But the attached build is
-      `202608181253`, cut at 12:53, **two minutes before that commit**, so the uploaded binary
-      still renders "Version 0.1.0" in the Settings tab. Do NOT close this item just because the yml
-      looks right. Remaining work is only: rebuild, re-upload (replaces the currently VALID build),
-      then submit. `src/macos/project.yml` was already correct.
-      Ordering: per `wiki/pages/ship-plan.md`, do not submit BCGD while the Healstack verdict is
-      outstanding, never a batch.
 - Queue discipline: `wiki/pages/ship-plan.md` § "Order of operations" step 5, one app at a time.
   Wordroot went in today, and Curvely + Wiretext are already in review. Adding BCGD makes four.
 
@@ -284,13 +261,6 @@ macOS 1.0 (`ef1421dd-...`) was APPROVED and is READY_FOR_SALE from the same code
 a reviewer-judgment call, not a hard rule.
 
 Pick one before resubmitting, this is a positioning decision, not a code fix:
-- [ ] **Reply and appeal** (cheapest). Argue in the ASC reply that the app is a generic garage-door
-      inventory/jobs tracker usable by any contractor, and cite the approved macOS build. Weak while
-      the app name and branding say otherwise.
-- [ ] **Rename + degeneralize.** Drop "BC" branding, ship as a generic garage-door/contractor job
-      tracker. Real work: name (use asc-name-creator), icon, screenshots, metadata.
-- [ ] **Move off public distribution.** Apple Business Manager custom app or TestFlight-only.
-      Right answer if this only ever serves Best Choice Garage Doors.
 
 ## 2026-08-27, de-branded to Doorstock, iOS resubmit in flight
 
@@ -332,12 +302,6 @@ Two gotchas hit on the way, both worth remembering:
   rejected submission's item resolved (`asc review items update --id <ITEM> --resolved true`),
   then `asc review submissions-submit --id f1e5b07b… --confirm` re-submits the original.
 
-- [ ] Stray empty submission `c26a1e13-bcc4-4a08-9f80-d2421e7c35ea` (IOS, READY_FOR_REVIEW, zero
-      items) left behind by the failed submit attempts. Not cancellable via CLI, same defect as the
-      old `59cef0f7` one. **Blocked on Joshua:** clear it in the dashboard.
-- [ ] **Align the macOS name on its next version bump.** Deliberately deferred: renaming macOS now
-      needs a new version and a fresh trip through review, risking an approved listing for cosmetics.
-- [ ] `whatsNew` cannot be set on a 1.0 initial release (ASC returns 409). Write it at 1.0.1.
 - [x] (11-01: superseded, Doorstock iOS 1.0 is live) iOS rejected 4.3(a) Spam 2026-08-26. Appeal draft: ~/Documents/Code/notes/appeal-4-3-spam.md (Resolution Center, web only).
 
 ## From Notes (imported 2026-08-27)
