@@ -15,7 +15,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v25: Tablet and foldable layout: the words column stays 832dp wide and centred
 - [ ] v26: TalkBack pass: words, timer, result
 - [ ] v27: Release build: R8 on, signing from a gitignored file, versionCode from the git count
-- [ ] v28: Play listing text and screenshots in a metadata folder, ready to paste
+- [ ] (11-01: text done in metadata/android, fastlane supply layout; screenshots wait on the device walk, v20) v28: Play listing text and screenshots in a metadata folder, ready to paste
 - [ ] v29: keyrate-kmp.yml runs shared tests and assembleDebug, added only after a clean run on a fresh clone
 - [ ] v30: Keep the APK under 10 MB
 - [ ] v33: Play pre-launch report read and fixed
@@ -27,7 +27,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v40: Windows font check: system sans, never a serif fallback
 - [ ] v41: Linux check on Wayland and X11
 - [ ] v43: Notarize the Mac Dmg (Joshua's account)
-- [ ] v44: Winget and Homebrew cask manifests, drafted not submitted
+- [x] (11-01: packaging/keyrate.cask.rb and packaging/nulljosh.Keyrate.winget.yaml, hashes fill in once the notarized Dmg (v43) and the CI Msi (v37) are released) v44: Winget and Homebrew cask manifests, drafted not submitted
 - [ ] v45: Desktop 2.0.1 from what the three platforms show
 
 ### iPhone, iPad, Mac (SwiftUI)
@@ -42,7 +42,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v62: Submit iOS and Mac for review (Joshua's yes)
 
 ### Terminal
-- [ ] (blocked: publishing a public GitHub release needs Joshua's ok, 2026-11-01. Ready: `swift build -c release --arch arm64 --arch x86_64` makes a universal binary; plan is release keyrate-tui-v2.0.0 on labs with keyrate-tui-2.0.0-macos.tar.gz, then Formula/keyrate-tui.rb in homebrew-tap installing that binary, test `keyrate-tui --check`. Labs is 250 MB, too big for a source formula) v67: Homebrew formula for keyrate-tui in the house tap
+- [x] (11-01: released keyrate-tui-v2.0.0 on labs, universal binary, `brew install nulljosh/tap/keyrate-tui` installs and its test passes) v67: Homebrew formula for keyrate-tui in the house tap
 
 ### Quality, docs, CI
 - [ ] v73: Landing: swap each Coming soon for a real link as it ships

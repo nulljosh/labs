@@ -1,0 +1,18 @@
+# Draft winget singleton manifest (roadmap v44). Not submitted: it waits on the Msi built on a Windows runner (v37),
+# published as a labs release; then fill InstallerSha256 and open a PR to microsoft/winget-pkgs.
+PackageIdentifier: nulljosh.Keyrate
+PackageVersion: 2.0.0
+PackageLocale: en-US
+Publisher: Joshua Trommel
+PackageName: Keyrate
+License: MIT
+LicenseUrl: https://github.com/nulljosh/labs/blob/main/keyrate/LICENSE
+ShortDescription: A typing test with nothing attached. One test, one number.
+PackageUrl: https://keyrate.jaybulb.com
+Installers:
+  - Architecture: x64
+    InstallerType: wix
+    InstallerUrl: https://github.com/nulljosh/labs/releases/download/keyrate-desktop-v2.0.0/Keyrate-2.0.0.msi
+    InstallerSha256: REPLACE_WITH_THE_MSI_SHA256
+ManifestType: singleton
+ManifestVersion: 1.6.0

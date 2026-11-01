@@ -1,0 +1,9 @@
+Keyrate is a typing test with nothing attached. Words appear, you type them, and when the clock runs out or the last word lands you get one number, worked out the way every serious typing site works it out, five characters to a word, so a score here means the same as a score anywhere else. Pick fifteen, thirty or sixty seconds, twenty five or fifty words, or a short quote; a typo you fix costs you time but not accuracy, a paste never counts, and your best for each mode stays on this device and nowhere else. No account, no ads, no network.
+
+What you get:
+- 15, 30 or 60 seconds, 25 or 50 words, or a short quote
+- Words per minute worked out the standard way, five characters to a word
+- Your best score for each mode, kept on this phone
+- Follows your light or dark setting
+
+Privacy: Keyrate collects nothing. No account, no analytics, no network. https://keyrate.jaybulb.com/privacy
