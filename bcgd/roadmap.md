@@ -368,15 +368,15 @@ Two gotchas hit on the way, both worth remembering:
 - [ ] **Align the macOS name on its next version bump.** Deliberately deferred: renaming macOS now
       needs a new version and a fresh trip through review, risking an approved listing for cosmetics.
 - [ ] `whatsNew` cannot be set on a 1.0 initial release (ASC returns 409). Write it at 1.0.1.
-- [ ] iOS rejected 4.3(a) Spam 2026-08-26. Appeal draft: ~/Documents/Code/notes/appeal-4-3-spam.md (Resolution Center, web only).
+- [x] (11-01: superseded, Doorstock iOS 1.0 is live) iOS rejected 4.3(a) Spam 2026-08-26. Appeal draft: ~/Documents/Code/notes/appeal-4-3-spam.md (Resolution Center, web only).
 
 ## From Notes (imported 2026-08-27)
-- [ ] App Review flagged **Doorstock 1.0 for iOS** (submitted Aug 27 2026 01:22 PM PDT, submission `f1e5b07b-e414-4fb4-b484-780d25a18f90`). Get the reason via `asc web review show`, fix, resubmit.
+- [x] (11-01: superseded, iOS 1.0 is live) App Review flagged **Doorstock 1.0 for iOS** (submitted Aug 27 2026 01:22 PM PDT, submission `f1e5b07b-e414-4fb4-b484-780d25a18f90`). Get the reason via `asc web review show`, fix, resubmit.
 
 ### 4.3(a) status, verified 2026-08-27
   - Doorstock iOS 1.0 REJECTED on **two separate violations**: Guideline 3.2 (Business, reviewed as an internal app for one garage-door company), then **Guideline 4.3(a) Design: Spam** on the same-day resubmit after the de-brand to "Doorstock". Two appeals, both unfiled.
   - **Doorstock has never shipped on iOS**; macOS 1.0 remains READY_FOR_SALE as BC Garage Doors and is unaffected (the de-brand was iOS-only, deliberately, to preserve the approved macOS listing).
-  - [ ] A stray submission `c26a1e13-bcc4-4a08-9f80-d2421e7c35ea` is sitting in READY_FOR_REVIEW with no submitted date, an API-started draft. Drafts are not cancellable via CLI; delete it in the ASC dashboard before any future submit.
+  - [ ] (11-01: c26a1e13 was submitted 2026-10-28 and shows WAITING_FOR_REVIEW on iOS; a new empty Mac draft efeabd73 sits in READY_FOR_REVIEW, same cleanup applies) A stray submission `c26a1e13-bcc4-4a08-9f80-d2421e7c35ea` is sitting in READY_FOR_REVIEW with no submitted date, an API-started draft. Drafts are not cancellable via CLI; delete it in the ASC dashboard before any future submit.
   - **This is not a per-app content problem, do not fix code and do not resubmit.** Apple's letter is byte-identical boilerplate across all five with no named comparison app. Resubmitting the same build will fail again and adds to the pattern.
   - **The appeal draft is at `~/Documents/Code/notes/appeal-4-3-spam.md` (repo root, 113 lines), NOT at `<repo>/~/Documents/Code/notes/appeal-4-3-spam.md`.** Several roadmap lines point at the per-repo path; that file does not exist in any of the five repos. Fix the pointer, do not write a second draft.
   - **Status: DRAFTED, NOT FILED.** Filing is Resolution Center, which is browser-only (`asc web review` is read-only). Blocked on Joshua. Reply order in the draft is Talli, Curvely, Doorstock; hold Sparkjar and NYC Survive.
