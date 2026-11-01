@@ -99,7 +99,7 @@ Standing: a 4.3(a) spam wave hit 7 apps on 2026-08-28 and again on 2026-10-05. R
 - **DNS**: curl with `CLOUDFLARE_DNS_TOKEN` from `~/.config/fish/secrets.fish`. Not named `CLOUDFLARE_API_TOKEN` on purpose, that name breaks wrangler's OAuth.
 - **Apple**: xcodegen `project.yml`, no checked-in xcodeproj. SwiftUI, iOS 17+/macOS 14+. `asc xcode archive`/`export`.
 - **Other platforms**: Kotlin Multiplatform under `<repo>/kmp/`. A PWA is a fallback and does not count as coverage.
-- **/api + /mcp**: house Cloudflare Functions pattern (coda, kernel, eponym, curvely, icelus).
+- **/api + /mcp**: house Cloudflare Functions pattern (coda, kernel, eponym, pan, icelus).
 - No emojis in any UI. No demo accounts for screenshots. Use the gitignored `.env`.
 
 ## Repo standard (nimble is the reference)
