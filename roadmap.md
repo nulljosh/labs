@@ -597,3 +597,10 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] Sidewise: delete the app record (6806028670) from App Store Connect. It was retired 2026-10-28, iOS 1.0 shows Rejected and was never approved (notes/attachments/2026-10-31/sidewise-1.png). Apple only lets a never-approved record be deleted, so try `asc` first.
 
 - Obsidian graph view "art" (2026-07-18): graph is force-directed. Export nodes/edges, render with d3 at fixed positions for a custom shape. Side project.
+
+## Landing audit 2026-11-01 (live sites, desktop and phone)
+- [ ] scrounger: live JS error "Onboarding is not defined" on the landing (desk and phone), and the H1 is the name, not the tagline
+- [ ] gastown and oohaah: H1 is the app name; make the tagline the H1 (oohaah waits on its new name)
+- [ ] coda and plaintxt: the page scrolls sideways on a 390 px phone; find the wide element
+- [ ] coda: signed-out visitors call /rpc/quotestreak_moderation and get a 403; skip the call when signed out
+- [ ] Echo, Talli, Airwell, Numen, Plank, Pan, Cyllene: fixed today (tagline H1, bold system type, no wrapping buttons)
