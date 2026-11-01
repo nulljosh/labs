@@ -16,7 +16,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [x] (11-01: word and quote mode end on the last character of a correct last word, a wrong one still needs the space; web, Swift, Kotlin; the TUI only scores a finished attempt) v19: Word mode finishes on the last character of the last word, in all four ports
 
 ### Android
-(blocked 11-01: this Mac has no JDK or Android SDK, so v20 to v31 cannot build or run here; install both or run on CI)
+(blocked 11-01: no Android SDK on this Mac, so the APK and emulator steps cannot run here. A JDK is now installed: `:shared:jvmTest` runs and all 18 shared tests pass, after fixing a missing paren in SessionTest.kt)
 - [ ] v20: Run the debug APK on an emulator and walk 15, 60, words and quote
 - [ ] v21: Fix whatever the soft keyboard does to the hidden input (autocorrect, spaces)
 - [ ] v22: Adaptive launcher icon with the glyph on the accent tile

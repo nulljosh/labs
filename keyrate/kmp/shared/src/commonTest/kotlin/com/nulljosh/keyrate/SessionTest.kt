@@ -15,7 +15,7 @@ class SessionTest {
     }
 
     @Test fun keystrokeAccuracyCountsAFixedTypo() {
-        val s = Session(Mode(Kind.Words, 2), random = Random(3)
+        val s = Session(Mode(Kind.Words, 2), random = Random(3))
         val a = s.target[0]
         val b = s.target[1]
         s.setText(if (a.startsWith("x")) "y" else "x", 1_000)
