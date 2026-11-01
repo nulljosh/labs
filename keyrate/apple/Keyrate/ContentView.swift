@@ -87,6 +87,9 @@ struct ContentView: View {
         }
         .background(p.bg.ignoresSafeArea())
         .task { try? await Task.sleep(for: .milliseconds(300)); focus = true } // the field is not focusable until the window is up
+        #if DEBUG
+        .onAppear(perform: shot)
+        #endif
         .task(id: ticking) {
             while ticking, !Task.isCancelled {
                 try? await Task.sleep(for: .milliseconds(100))
@@ -190,6 +193,29 @@ struct ContentView: View {
             .frame(width: 240, height: 40)
         }
     }
+
+    #if DEBUG
+    /// Store screenshots without a demo account or a hand on the keyboard: `-shot typing` stops seven words into a
+    /// 25 word run, `-shot result` finishes it. The run is typed one character at a time at about 85 wpm, with one
+    /// typo fixed, through the same setText the keyboard uses.
+    private func shot() {
+        guard let kind = UserDefaults.standard.string(forKey: "shot") else { return }
+        mode = modes[3]
+        session = Session(mode: mode, dice: .seeded(4))
+        var text = "", ms: Int64 = 1
+        func type(_ s: String) { for ch in s { text.append(ch); ms += 140; session.setText(text, nowMs: ms) } }
+        func erase() { text.removeLast(); ms += 140; session.setText(text, nowMs: ms) }
+        let count = kind == "result" ? session.target.count : 7
+        for (i, w) in session.target.prefix(count).enumerated() {
+            if i == 2 { type("x"); erase() }
+            type(w)
+            if i < count - 1 || kind != "result" { type(" ") }
+        }
+        input = session.text
+        // The result reads better without the keyboard over it; the launch task focuses the field at 300 ms.
+        if kind == "result" { Task { try? await Task.sleep(for: .milliseconds(800)); focus = false } }
+    }
+    #endif
 
     private func restart() {
         session = Session(mode: mode, punct: punct, avoid: lastQuote)
