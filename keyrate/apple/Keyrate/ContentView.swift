@@ -17,11 +17,7 @@ private struct DefaultsStore: Store {
     func put(_ key: String, _ value: String) { UserDefaults.standard.set(value, forKey: key) }
 }
 
-#if os(macOS)
-private let wordSize: CGFloat = 26
-#else
-private let wordSize: CGFloat = 22
-#endif
+
 
 struct ContentView: View {
     @Environment(\.colorScheme) private var scheme
@@ -39,6 +35,13 @@ struct ContentView: View {
     private var ticking: Bool { session.started && !session.done && phase == .active }
 
     private var p: Palette { scheme == .dark ? .dark : .light }
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) private var sizeClass
+    /// iPad (regular width) fills the 832 point column with Mac sized words; iPhone keeps them smaller.
+    private var wordSize: CGFloat { sizeClass == .regular ? 28 : 22 }
+    #else
+    private let wordSize: CGFloat = 26
+    #endif
     private var nowMs: Int64 { Int64(ProcessInfo.processInfo.systemUptime * 1000) + 1 } // never 0, Session reads 0 as "not started"
 
     var body: some View {
