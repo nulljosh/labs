@@ -8,3 +8,8 @@ node_modules
 wrangler.toml
 vectors.json
 vectors.mjs
+wordlist.mjs
+check.sh
+apple
+kmp
+tui

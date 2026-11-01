@@ -11,7 +11,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [x] (11-01: over 20 characters in one input is a paste; the run shows but sets no best; whitepaper and all three ports) v14: Decide the paste rule: a pasted burst should not set a best; write it down, then port it
 - [x] (11-01: the counter shows the scored time once a run is over, 15s or 23.4s, all three ports) v15: Timed mode shows the real elapsed second once the run is over
 - [x] (11-01: 's and hyphenated pairs, numbers 1 in 25, all three ports) v16: Punct mode adds apostrophes and hyphens, numbers stay rare
-- [ ] v17: Word list and quotes come from one source file; a script writes the Kotlin and Swift copies
+- [x] (11-01: words.js is the source, `node wordlist.mjs` writes Words.swift and Words.kt, a test fails if they drift) v17: Word list and quotes come from one source file; a script writes the Kotlin and Swift copies
 - [ ] v18: Quotes grow from 10 to 100 short lines, public domain only
 - [ ] v19: Word mode finishes on the last character of the last word, in all four ports
 
