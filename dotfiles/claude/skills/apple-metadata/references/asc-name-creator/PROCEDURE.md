@@ -21,7 +21,7 @@ App name availability is exact-match, per-account, and *not* reflected in search
 
 Probing is cheap now, so go wide.
 
-- **Single word by default.** Do not propose multi-word/compound names ("Briefkeeper", "Case File") unless the user says two words are fine.
+- **Single word by default.** Never propose multi-word or fused compound names ("Briefkeeper", "Case File", "Rootward"). One real word with one root.
 - **Vary roots, not suffixes** — don't submit Spark/Sparkly/Sparker; mix in unrelated roots so one rejection doesn't kill the batch.
 - If the user gives themes ("law-inspired", "something nautical"), root *every* candidate in them and don't drift to generic startup filler after rejections. Ask for themes up front if the app's domain doesn't make good candidates obvious.
 - **Keep the metaphor, drop the ugly word.** If the old name's underlying concept was right (a browser named after a dormer window), stay in that semantic family instead of jumping to something unrelated — a rename should read as "same idea, better word," not a random pivot. Confirmed 2026-09-14: Lucarne (French, dormer window, but ugly/unfamiliar to English speakers) → tried Fenster (German) → landed Janela (Portuguese, "window") for the same WebKit browser app, after the user vetoed Fenster live for sounding "too angry a language for a nice browser" — language/sound register matters as much as meaning. Softer Romance/Nordic/Japanese words (Janela, Ikkuna, Gluggi, Dirisha) read friendlier in English ears than Germanic ones for a "nice" consumer app; reserve harder-sounding languages for apps that want to sound serious/technical.
@@ -109,7 +109,7 @@ What a day of checking 200+ names taught (2026-09-20):
 
 - **Probe record.** The old throwaway (Lexly Mac 6783501927) is gone and `probe.sh` refuses any record with a live or in-review version, which is nearly every app. Use a record whose versions are all REJECTED: `ASC_PROBE_APP=6811141466 ./probe.sh ...` (Mailbag, listed as Hagaki). The trap restores the name; read it back after every batch (`asc apps view --id 6811141466`, expect Hagaki).
 - **Public search lies both ways.** `asc apps public search` showed Tidal and Hatch as free; Apple said taken. Skip it, probe directly.
-- **Plain words are a dead namespace.** About 2 of 80 plain one-word candidates were free (Patois, Kernel), and 0 of 45 Apple-style plain nouns (Vowel, Fireside, Unwind, Quiet, Lounge and so on). Free names are rare real words or fused two-word compounds like Thinkpond and Airwell. Budget for 150+ probes.
+- **Plain words are a dead namespace.** About 2 of 80 plain one-word candidates were free (Patois, Kernel), and 0 of 45 Apple-style plain nouns (Vowel, Fireside, Unwind, Quiet, Lounge and so on). Free names are rare real words. Never fused two-word compounds (Thinkpond, Airwell, Rootward): Joshua counts them as two words and rejects them. Budget for 150+ probes.
 - **Taste bar.** One word, two syllables at most, a real word that says what the app does, Apple-simple. No Japanese-sounding names for a non-Japanese product, no coinages, no generic startup roots.
 - **.com is not required.** Apps live at `<name>.jaybulb.com`, so skip the domain scan unless the user wants a bought domain (`domains.sh` found no free plain-word .com).
 - **Applying the rename.** An app with a live Mac and a rejected iOS has two app infos, so `asc apps rename` errors until you pass `--app-info <REJECTED id>` (list with `asc apps info list --app ID`). It renames the iOS listing now; the Mac listing keeps the old name until its next version.

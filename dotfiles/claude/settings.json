@@ -4,7 +4,17 @@
       "Bash(supabase *)",
       "Bash(asc web api-keys create *)",
       "Bash(rm \"/Users/joshua/Library/Mobile Documents/com~apple~CloudDocs/Documents/Misc/Books/*\")",
-      "Bash(rm -f \"/Users/joshua/Library/Mobile Documents/com~apple~CloudDocs/Documents/Misc/Books/*\")"
+      "Bash(rm -f \"/Users/joshua/Library/Mobile Documents/com~apple~CloudDocs/Documents/Misc/Books/*\")",
+      "Bash(env -u CLOUDFLARE_API_TOKEN npx wrangler deploy *)",
+      "Bash(env -u CLOUDFLARE_API_TOKEN npx wrangler deploy)",
+      "Bash(env -u CLOUDFLARE_API_TOKEN npx wrangler d1 execute *)",
+      "Bash(env -u CLOUDFLARE_API_TOKEN npx wrangler pages deploy *)",
+      "Bash(gh repo create nulljosh/*)",
+      "Bash(/Users/joshua/Documents/Code/vault/secretary/sms.sh *)",
+      "Bash(asc web review reply *)",
+      "Bash(asc review submit *)",
+      "Bash(asc review submissions-submit *)",
+      "Bash(asc publish appstore *)"
     ],
     "defaultMode": "auto"
   },

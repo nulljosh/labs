@@ -1,22 +1,6 @@
 #!/bin/bash
-# Drop a wiki inbox note after every commit.
-INBOX="/Users/joshua/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/Inbox"
+# Journal posts redeploy on commit. Wiki Inbox stub writer removed 2026-10-31 (recreated an impostor iCloud vault folder; nothing read the stubs).
 REPO=$(basename "$(git rev-parse --show-toplevel)")
-MSG=$(git log -1 --pretty="%s")
-DATE=$(date +%Y-%m-%d)
-FILE="$INBOX/${DATE}-${REPO}-commit.md"
-
-cat > "$FILE" <<EOF
-# Commit: $REPO — $MSG
-
-- repo: $REPO
-- date: $DATE
-- message: $MSG
-- diff summary: $(git diff HEAD~1 --stat 2>/dev/null | tail -1)
-
-## Changed files
-$(git diff HEAD~1 --name-status 2>/dev/null || git show --stat HEAD | tail -n +2)
-EOF
 
 if [ "$REPO" = "journal" ] && git show --name-only --pretty=format: HEAD | grep -q '^_posts/'; then
   TOPLEVEL=$(git rev-parse --show-toplevel)

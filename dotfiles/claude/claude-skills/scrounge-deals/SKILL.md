@@ -1,9 +1,9 @@
 ---
-name: curbfind-deals
-description: List the best Craigslist deals right now via Curbfind's AI-ranked search. Use when the user asks for good deals, what's cheap, or invokes /curbfind-deals, /deals, or "find me a deal".
+name: scrounge-deals
+description: List the best Craigslist deals right now via Scrounge's AI-ranked search. Use when the user asks for good deals, what's cheap, or invokes /scrounge-deals, /deals, or "find me a deal".
 ---
 
-Curbfind's own worker already does the ranking and AI reasoning — this skill
+Scrounge's own worker already does the ranking and AI reasoning — this skill
 just calls it and shows the top of the list. Never re-implement the deal
 scoring here.
 
