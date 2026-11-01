@@ -91,7 +91,7 @@ no-ops. See `cadence/functions/_adapter.js` for the globalThis workaround, or bu
 
 ## App Store hygiene
 
-- [ ] **Dead links on live listings (2026-11-01 scan).** heyitsmejosh.com lapsed 2026-10-13, and these live app infos still point their privacy policy at it, editable only on each app's next version: Echo/Notate (notate.), Gastown (nyc.), Scrounger (curbfind.), Plaintxt (plain.), Epiphany (epiphany.), Nimble (heyitsmejosh.com/nimble), Icelus (wiretext.), Toroid (conway.). Set each to its <name>.jaybulb.com/privacy page when the next version is opened. Done on drafts already: Echo 3.0.1 (privacy, marketing and support URLs), Melete 3.2, Eponym 2.0.1. No editable version has a heyitsmejosh marketing or support URL left.
+- [ ] **Dead links on live listings (2026-11-01 scan).** heyitsmejosh.com lapsed 2026-10-13, and these live app infos still point their privacy policy at it, editable only on each app's next version: Echo/Notate (notate.), Epiphany (epiphany.), Nimble (heyitsmejosh.com/nimble), Icelus (wiretext.), Toroid (conway.). Set each to its <name>.jaybulb.com/privacy page when the next version is opened. Fixed on the next version already (live once Apple approves): Gastown 2.0.0, Scrounger 1.0.0 and Plaintxt (set to scrounger. and plaintxt.jaybulb.com/privacy 11-01), Echo 3.0.1 draft (privacy, marketing and support), Melete 3.2, Eponym 2.0.1. No editable version has a heyitsmejosh marketing or support URL left.
 - [ ] **Developer website sweep**, set `marketingUrl` to https://heyitsmejosh.com.
       Done: Sparkjar, Lexly, Wordroot, NYC Survive, Epiphany. Skipped on purpose: BC Garage
       Doors (client app, keeps bcgaragedoors.ca).
