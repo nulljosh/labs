@@ -73,7 +73,9 @@
   </div>
 </header>
 <div class="lp-stage">
-  <iframe src="/app" title="Keyrate typing test" class="test-frame" loading="lazy"></iframe>
+  <iframe data-src="/app" title="Keyrate typing test" class="test-frame"></iframe>
+  <!-- The test loads after the page, so the hero paints first. Without scripts the Start typing button still opens it. -->
+  <script>addEventListener('load', () => { const f = document.querySelector('.test-frame'); f.src = f.dataset.src })</script>
 </div>
 <section id="test" class="lp-reveal">
   <div class="container">

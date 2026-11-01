@@ -80,7 +80,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [x] (11-01: Platforms table, web live, the rest marked not yet released; swap in store links as each ships) v72: README: a platforms table with a store link per row as each ships
 - [ ] v73: Landing: swap each Coming soon for a real link as it ships
 - [ ] v74: Landing: a dark screenshot in each platform card
-- [ ] v75: Landing speed pass: the embedded test loads after the hero
+- [x] (11-01: measured live: the lazy iframe still started at 122 ms, before first paint at 240; now its src is set on load, so it starts right after the hero paints and the page load event fell from 541 to 317 ms) v75: Landing speed pass: the embedded test loads after the hero
 - [ ] v76: Lighthouse accessibility 100 on / and /app
 - [x] (11-01: in code: web uses the shared --font-body stack, Apple .system, Compose its default sans, the terminal the terminal's own; no custom face anywhere. The on-screen Windows and Linux looks stay v40 and v41) v77: System font only, confirmed on every platform
 - [ ] (11-01: grep half done, no fetch, XMLHttpRequest, WebSocket, beacon, URLSession, HttpURLConnection or ktor in web, Swift or Kotlin, no INTERNET permission, no network entitlement; the firewall run is still to do) v78: Security pass: no network calls in any build, checked by grep and by a firewall run
