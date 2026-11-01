@@ -8,6 +8,8 @@
 <link rel="icon" href="../icon.svg">
 <link rel="stylesheet" href="https://jaybulb.com/tokens.css">
 <style>
+/* white paper, not the shared cream (Joshua 2026-11-01); dark mode keeps the shared tokens */
+@media (prefers-color-scheme: light) { :root { --color-bg: #fff; --color-bg2: #f5f5f7; --color-hairline: #e5e5ea; } }
   :root { --ok: var(--text, #111); --bad: #c0392b; --dim: #666; --word: #888; }
   /* upcoming words are large text (3:1 needed), labels and hints are small text (4.5:1 needed) */
   @supports (color: color-mix(in srgb, red 50%, blue)) {
