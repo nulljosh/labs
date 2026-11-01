@@ -46,9 +46,11 @@ struct ContentView: View {
                 Flow(hSpacing: 4, vSpacing: 4, centered: true) {
                     ForEach(modes.indices, id: \.self) { i in
                         chip(modes[i].label, on: modes[i] == mode) { mode = modes[i]; restart() }
+                            .keyboardShortcut(KeyEquivalent(Character("\(i + 1)")), modifiers: .command) // Cmd-1 to Cmd-6
                     }
                     chip("punct", on: punct) { punct.toggle(); restart() }
                     chip("restart", on: false) { restart() }
+                        .keyboardShortcut("r", modifiers: .command)
                 }
                 Text(counter).font(.system(size: 18)).foregroundStyle(p.dim).monospacedDigit()
                 wordsView

@@ -50,7 +50,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 - [ ] v46: Run on an iPhone simulator and walk every mode with the keyboard up
 - [ ] v47: Fix the hidden field focus on iOS if the keyboard does not rise on launch
 - [ ] v48: iPad layout: wider words column, hardware keyboard shortcuts
-- [ ] v49: Mac: Tab, Enter and Cmd-R restart; Cmd-1 to Cmd-6 pick the modes
+- [x] (11-01: Cmd-R and Cmd-1 to Cmd-6 added beside Tab and Enter; builds, not walked by hand) v49: Mac: Tab, Enter and Cmd-R restart; Cmd-1 to Cmd-6 pick the modes
 - [ ] v50: VoiceOver pass on iPhone and Mac
 - [ ] v51: Dynamic Type: words scale with the system size without breaking the 3-line window
 - [ ] v52: Light and dark App Store screenshots, no demo account
