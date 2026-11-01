@@ -7,7 +7,7 @@
 A plan, not promises. Each version is one thing Dad or his crew would notice. Ship in order, one in review at a time.
 
 ### v2: the shop (now)
-- [ ] 2.0 clears review (in review now: tiles, jobs board, status track, tab fix)
+- [x] (11-01: Mac 2.0 live; iOS is still 1.0, no 2.0 iOS version exists) 2.0 clears review (in review now: tiles, jobs board, status track, tab fix)
 - [ ] 2.1 shop accounts: start a shop, join code, shared stock and jobs (built, tested, waiting on 2.0)
 - [ ] 2.2 sign in with Apple next to email (server already verifies Apple id tokens)
 - [ ] 2.3 iOS back in the store once the 4.3(a) appeal clears, same build as the Mac
