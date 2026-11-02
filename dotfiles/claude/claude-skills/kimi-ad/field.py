@@ -33,12 +33,14 @@ NB = len(CHAPTER_W)
 SHOTS = [Image.open(s).convert("RGB") for s in SPEC.get("shots", [])]
 BX0, BFULL = (CX - 860 * SS, 760 * SS) if SHOTS else (CX - 520 * SS, 1040 * SS)   # the bars move left to make room
 
-def card(img, i, cx, cy, h, alpha=1.0):
-    """Screenshot i as a rounded card of height h, centred on (cx, cy), faded in by alpha."""
+def card(img, i, cx, cy, h, alpha=1.0, wmax=None):
+    """Screenshot i as a rounded card of height h (a landscape shot: width wmax), centred on (cx, cy), faded in by alpha."""
     if not SHOTS or alpha <= 0: return
-    s = SHOTS[i % len(SHOTS)]; h = int(h); w = int(s.width * h / s.height)
-    s = s.resize((w, h), Image.BILINEAR)
-    m = Image.new("L", (w, h), 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, w - 1, h - 1], radius=int(h * 0.045), fill=int(255 * min(1, alpha)))
+    s = SHOTS[i % len(SHOTS)]
+    if s.width > s.height and wmax: h = min(h, wmax * s.height / s.width)   # landscape (a desktop OS): fill the room beside it
+    h = int(h); w = int(s.width * h / s.height)
+    s = s.resize((w, h), Image.LANCZOS)
+    m = Image.new("L", (w, h), 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, w - 1, h - 1], radius=int(min(w, h) * 0.045), fill=int(255 * min(1, alpha)))
     img.paste(s, (int(cx - w / 2), int(cy - h / 2)), m)
 
 def field(d, t, k, color):
@@ -83,12 +85,12 @@ def frame(t):
     elif t < S[1][1]:                                         # the field opens around it
         k = ease((t - 3) / 3.2)
         field(d, t, k, LIGHT); seed(d, 36 * SS)
-        card(img, 0, CX, CY, 860 * SS * (0.9 + 0.1 * ease((t - 4.6) / 2)), ease((t - 4.6) / 1.2))   # the app, inside its field
+        card(img, 0, CX, CY, 860 * SS * (0.9 + 0.1 * ease((t - 4.6) / 2)), ease((t - 4.6) / 1.2), 1300 * SS)   # the app, inside its field
     elif t < S[2][1]:                                         # the field gives way to twenty chapters
         k = (t - 7) / 3.6
         if k < 0.25: field(d, t, 1 - k * 4, LIGHT)
         chapters(d, max(0, k - 0.05) * 1.05)
-        card(img, 1, CX + 470 * SS, CY + 40 * SS * (1 - ease((t - 7.6) / 1.4)), 900 * SS, ease((t - 7.6) / 1.0))   # the bars, as the app shows them
+        card(img, 1, CX + 470 * SS, CY + 40 * SS * (1 - ease((t - 7.6) / 1.4)), 900 * SS, ease((t - 7.6) / 1.0), 940 * SS)   # the bars, as the app shows them
     elif t < S[3][1]:                                         # the chapters swing into a burst of twenty rays
         k = ease((t - 11) / 2.4)
         for i, w in enumerate(CHAPTER_W):
@@ -103,11 +105,11 @@ def frame(t):
             for i in range(5):
                 r = (120 + 110 * i) * SS * ease((t - 13.6) / 1.2)
                 d.ellipse([CX - r, CY - r, CX + r, CY + r], outline=mix(INK, GOLD, 0.8), width=2 * SS)
-        card(img, 2, CX, CY, 780 * SS, ease((t - 11.4) / 1.0))                     # the app at the centre of the burst
-        if t > 13.2:                                                                # and two more screens slide in
+        if t > 13.2:                                                                # two more screens slide out from behind
             j = ease((t - 13.2) / 1.0)
-            card(img, 3, CX - (360 + 300 * j) * SS, CY, 640 * SS, j)
-            card(img, 4, CX + (360 + 300 * j) * SS, CY, 640 * SS, j)
+            card(img, 3, CX - (360 + 260 * j) * SS, CY, 640 * SS, j, 600 * SS)
+            card(img, 4, CX + (360 + 260 * j) * SS, CY, 640 * SS, j, 600 * SS)
+        card(img, 2, CX, CY, 780 * SS, ease((t - 11.4) / 1.0), 1080 * SS)          # the app at the centre of the burst
     elif t < S[4][1]:                                         # 20, outlined then filled
         k = (t - 15) / 2.5
         f = ImageFont.truetype(BOLD, int(620 * SS * min(1, 2.2 / max(2, len(NUMBER)))))
