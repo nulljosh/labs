@@ -79,3 +79,6 @@ Apple login and 2FA, Play sign-in, signing and notarizing, store submits, postin
 
 ## TUI pilot (2026-09-05)
 `keyrate-tui` is a SwiftPM target (SwiftTUI). `tui/Sources/Score.swift` is a line-for-line port of score.js and the apps reuse it. It renders one score card; v63 makes it live.
+
+## Ingested 2026-11-03
+- [ ] Build issues email (Nov 2): bump the build number and add UISupportedInterfaceOrientations to Info.plist
