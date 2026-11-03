@@ -46,10 +46,11 @@ struct ContentView: View {
     #endif
     private var nowMs: Int64 { Int64(ProcessInfo.processInfo.systemUptime * 1000) + 1 } // never 0, Session reads 0 as "not started"
 
+    @State private var splash = UserDefaults.standard.string(forKey: "shot") == nil // store shots skip it
+
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
-                Text("Keyrate").font(.system(size: 16, weight: .semibold)).foregroundStyle(p.text.opacity(0.6))
                 Text(counter).font(.system(size: 18)).foregroundStyle(p.dim).monospacedDigit()
                 wordsView
                 TextField("", text: $input)
@@ -76,8 +77,9 @@ struct ContentView: View {
             .padding(24)
             .frame(maxWidth: .infinity, minHeight: 600)
         }
-        .safeAreaInset(edge: .top) { modeBar.padding(6).glassBar().padding(.top, 8) } // functional layer: the only glass
+        .safeAreaInset(edge: .top) { modeBar.padding(6).glassBar().padding(.horizontal, 16).padding(.top, 8) } // functional layer: the only glass
         .background(p.bg.ignoresSafeArea())
+        .overlay { if splash { Splash(shown: $splash) } }
         .task { try? await Task.sleep(for: .milliseconds(300)); focus = true } // the field is not focusable until the window is up
         #if DEBUG
         .onAppear(perform: shot)
@@ -203,6 +205,9 @@ struct ContentView: View {
     /// typo fixed, through the same setText the keyboard uses.
     private func shot() {
         guard let kind = UserDefaults.standard.string(forKey: "shot") else { return }
+        #if os(macOS)
+        NSApp.windows.first?.setFrame(NSRect(x: 0, y: 0, width: 1440, height: 900), display: true) // 2880x1800 store size at 2x
+        #endif
         mode = modes[3]
         session = Session(mode: mode, dice: .seeded(4))
         var text = "", ms: Int64 = 1
@@ -232,6 +237,6 @@ struct ContentView: View {
 extension View {
     /// Liquid Glass on iOS and macOS 26, the regular material before that.
     @ViewBuilder func glassBar() -> some View {
-        if #available(iOS 26, macOS 26, *) { glassEffect(.regular, in: Capsule()) } else { background(.regularMaterial, in: Capsule()) }
+        if #available(iOS 26, macOS 26, *) { glassEffect(.regular, in: .rect(cornerRadius: 24)) } else { background(.regularMaterial, in: .rect(cornerRadius: 24)) }
     }
 }
