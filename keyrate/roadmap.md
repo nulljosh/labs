@@ -81,4 +81,4 @@ Apple login and 2FA, Play sign-in, signing and notarizing, store submits, postin
 `keyrate-tui` is a SwiftPM target (SwiftTUI). `tui/Sources/Score.swift` is a line-for-line port of score.js and the apps reuse it. It renders one score card; v63 makes it live.
 
 ## Ingested 2026-11-03
-- [ ] Build issues email (Nov 2): bump the build number and add UISupportedInterfaceOrientations to Info.plist
+- [x] Build issues email (Nov 2): orientations already in project.yml (b3ee817), build bumped to 5 for the next upload; 2.0.0 iOS+Mac stay WAITING_FOR_REVIEW on build 4
