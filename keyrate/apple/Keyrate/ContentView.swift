@@ -50,15 +50,6 @@ struct ContentView: View {
         ScrollView {
             VStack(spacing: 24) {
                 Text("Keyrate").font(.system(size: 16, weight: .semibold)).foregroundStyle(p.text.opacity(0.6))
-                Flow(hSpacing: 4, vSpacing: 4, centered: true) {
-                    ForEach(modes.indices, id: \.self) { i in
-                        chip(modes[i].label, on: modes[i] == mode) { mode = modes[i]; restart() }
-                            .keyboardShortcut(KeyEquivalent(Character("\(i + 1)")), modifiers: .command) // Cmd-1 to Cmd-6
-                    }
-                    chip("punct", on: punct) { punct.toggle(); restart() }
-                    chip("restart", on: false) { restart() }
-                        .keyboardShortcut("r", modifiers: .command)
-                }
                 Text(counter).font(.system(size: 18)).foregroundStyle(p.dim).monospacedDigit()
                 wordsView
                 TextField("", text: $input)
@@ -85,6 +76,7 @@ struct ContentView: View {
             .padding(24)
             .frame(maxWidth: .infinity, minHeight: 600)
         }
+        .safeAreaInset(edge: .top) { modeBar.padding(6).glassBar().padding(.top, 8) } // functional layer: the only glass
         .background(p.bg.ignoresSafeArea())
         .task { try? await Task.sleep(for: .milliseconds(300)); focus = true } // the field is not focusable until the window is up
         #if DEBUG
@@ -143,6 +135,17 @@ struct ContentView: View {
         }
         return out
     }
+
+    private var modeBar: some View {
+        Flow(hSpacing: 4, vSpacing: 4, centered: true) {
+            ForEach(modes.indices, id: \.self) { i in
+                chip(modes[i].label, on: modes[i] == mode) { mode = modes[i]; restart() }
+                    .keyboardShortcut(KeyEquivalent(Character("\(i + 1)")), modifiers: .command) // Cmd-1 to Cmd-6
+            }
+            chip("punct", on: punct) { punct.toggle(); restart() }
+            chip("restart", on: false) { restart() }
+                .keyboardShortcut("r", modifiers: .command)
+        }    }
 
     private func chip(_ label: String, on: Bool, _ action: @escaping () -> Void) -> some View {
         Button(action: action) {
@@ -223,5 +226,12 @@ struct ContentView: View {
         input = ""
         best = 0
         focus = true
+    }
+}
+
+extension View {
+    /// Liquid Glass on iOS and macOS 26, the regular material before that.
+    @ViewBuilder func glassBar() -> some View {
+        if #available(iOS 26, macOS 26, *) { glassEffect(.regular, in: Capsule()) } else { background(.regularMaterial, in: Capsule()) }
     }
 }

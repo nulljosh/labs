@@ -26,6 +26,14 @@
   }
   #stage { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; max-width: 100%; }
   h1 { font-size: 1rem; font-weight: 600; letter-spacing: .02em; margin: 0; color: var(--dim); }
+  nav {
+    position: sticky; top: .75rem; z-index: 2; padding: .3rem; border-radius: var(--radius-pill, 999px);
+    background: rgba(255,255,255,.26); backdrop-filter: blur(30px) saturate(190%) brightness(1.3); -webkit-backdrop-filter: blur(30px) saturate(190%) brightness(1.3);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 4px 16px rgba(0,0,0,.08);
+  }
+  @media (prefers-color-scheme: dark) { nav { background: rgba(28,28,30,.34); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 4px 16px rgba(0,0,0,.3); } }
+  @media (prefers-reduced-transparency: reduce) { nav { background: #f2f2f7; backdrop-filter: none; -webkit-backdrop-filter: none; } }
+  @media (prefers-reduced-transparency: reduce) and (prefers-color-scheme: dark) { nav { background: #1c1c1e; } }
   nav { display: flex; gap: .25rem; flex-wrap: wrap; justify-content: center; }
   nav button {
     all: unset; cursor: pointer; padding: .3rem .7rem; border-radius: var(--radius-pill, 999px);
@@ -58,6 +66,7 @@
   #result dl { display: flex; gap: 2rem; justify-content: center; margin: 1.5rem 0 0; }
   #result dt { color: var(--dim); font-size: .8rem; } #result dd { margin: 0; font-size: 1.3rem; }
   #best { color: var(--dim); font-size: .9rem; margin-top: 1rem; }
+  #curve { margin-top: 1rem; } #curve polyline { fill: none; stroke: var(--accent, #111); stroke-width: 2; }
   #hist { margin-top: .75rem; }
   #hist polyline { fill: none; stroke: var(--accent, #111); stroke-width: 1.5; }
   input#sink { position: absolute; opacity: 0; pointer-events: none; }
@@ -87,6 +96,7 @@
   <div id="result">
     <div class="big"><span id="rWpm"></span><small>wpm</small></div>
     <dl><div><dt>accuracy</dt><dd id="rAcc"></dd></div><div><dt>keys</dt><dd id="rKeys"></dd></div><div><dt>raw</dt><dd id="rRaw"></dd></div><div><dt>chars</dt><dd id="rChars"></dd></div></dl>
+    <svg id="curve" width="320" height="64" role="img" aria-label="Words per minute over the run" hidden></svg>
     <div id="best"></div>
     <svg id="hist" width="240" height="40" role="img" aria-label="Recent runs" hidden></svg>
   </div>
@@ -98,11 +108,13 @@
 
 <script type="module">
 import { Session } from '../session.js'
+import { stats } from '../score.js'
 import { WORDS, QUOTES } from '../words.js'
 
 const $ = s => document.querySelector(s)
 const wordsEl = $('#words'), caret = $('#caret'), live = $('#live'), sink = $('#sink'), result = $('#result'), hint = $('#hint')
 const HINT = 'Start typing. <kbd>Tab</kbd> restarts, <kbd>Esc</kbd> picks a mode.'
+let t0 = 0, curve = []
 let kind = 'time', n = 60, punct = false, session, timer = 0, lastQuote = null, shown = 0
 
 // the last mode and punct setting survive a reload
@@ -113,6 +125,7 @@ $('#punct').setAttribute('aria-pressed', punct)
 const savePrefs = () => { try { localStorage.setItem('prefs', JSON.stringify({ kind, n, punct })) } catch {} }
 
 function reset() {
+  t0 = 0; curve = []
   clearInterval(timer); timer = 0
   session = new Session({ kind, n, punct, words: WORDS, quotes: QUOTES, avoid: lastQuote })
   if (kind === 'quote') lastQuote = session.target.join(' ')
@@ -153,6 +166,8 @@ function render() {
 
 function tick() {
   session.tick(Date.now()); counter()
+  // ponytail: one wpm sample per second for the result curve
+  if (session.typed.join('').length) { t0 ||= Date.now(); const sec = Math.floor((Date.now() - t0) / 1000); if (sec > curve.length && sec) curve.push(stats(session.typed, session.target, sec).wpm) }
   if (session.done) showResult()
 }
 
@@ -161,6 +176,9 @@ function showResult() {
   const s = session.result
   $('#rWpm').textContent = s.wpm; $('#rAcc').textContent = s.accuracy + '%'; $('#rKeys').textContent = session.keyAccuracy + '%'
   $('#rRaw').textContent = s.raw; $('#rChars').textContent = `${s.correct}/${s.wrong}`
+  const cv = $('#curve'), cm = Math.max(...curve, 1), cl = Math.min(...curve) * .8, cr = Math.max(cm - cl, 1)
+  cv.hidden = curve.length < 3
+  if (curve.length > 2) cv.innerHTML = `<polyline points="${curve.map((v, i) => `${i / (curve.length - 1) * 316 + 2},${62 - (v - cl) / cr * 60}`).join(' ')}"/>`
   const label = kind === 'time' ? n + 's' : kind === 'quote' ? 'quote' : n + ' words'
   const key = `best:${kind}:${kind === 'quote' ? 1 : n}`
   let best = 0; try { best = +localStorage.getItem(key) || 0; if (!session.pasted && s.wpm > best) localStorage.setItem(key, best = s.wpm) } catch {}
