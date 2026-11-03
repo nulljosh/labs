@@ -4,7 +4,7 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 
 ## Gap matrix vs Monkeytype, 10fastfingers, Speed Typer, Keybr (2026-11-02)
 Own design wins, borrow ideas only. Each row is one minor on web plus all native ports, vectors updated first. Out of scope stays: accounts, themes, multiplayer, leaderboards, badges.
-- [ ] G1 (S, Monkeytype, Speed Typer): Result shows WPM-over-time line and raw WPM; verify what the web has first
+- [ ] G1 (S, Monkeytype, Speed Typer): Result shows WPM-over-time line and raw WPM. Web done 2026-11-02; native curve still open
 - [ ] G2 (S, Monkeytype): Consistency number on the result, new shared vectors
 - [ ] G3 (M, Speed Typer, Monkeytype): Last 20 tests on device, personal best per mode, no sync
 - [ ] G4 (S, 10fastfingers, Speed Typer): Word list sizes: top 200, 1000, 5000
@@ -43,13 +43,9 @@ Own design wins, borrow ideas only. Each row is one minor on web plus all native
 ### iPhone, iPad, Mac (SwiftUI)
 - [ ] (11-01: builds and launches on the iPhone 17 Pro simulator, focus lands; the typing walk needs Simulator.app or a UI test target, this Mac has neither, so it moves to the real phone walk in v59) v46: Run on an iPhone simulator and walk every mode with the keyboard up
 - [ ] v50: VoiceOver pass on iPhone and Mac
-- [ ] v53: asc: create the app record under the final name, probing Keyrate with Apple's name check first
-- [ ] v55: Archive and run asc validate before any upload
-- [ ] v57: Privacy label: nothing collected, matching PRIVACY.md word for word
 - [ ] v58: TestFlight build 1 to Joshua's phone
 - [ ] v59: Real iPhone walk: keyboard, autocorrect off, copy and paste, rotation
 - [ ] v60: Fix what the real phone shows, TestFlight build 2
-- [ ] v62: Submit iOS and Mac for review (Joshua's yes)
 
 ### Terminal
 
