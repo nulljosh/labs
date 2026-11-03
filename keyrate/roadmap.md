@@ -2,6 +2,17 @@
 
 Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Each step ends with its check green. Keyrate stays one number with nothing attached: no accounts, themes or multiplayer.
 
+## Gap matrix vs Monkeytype, 10fastfingers, Speed Typer, Keybr (2026-11-02)
+Own design wins, borrow ideas only. Each row is one minor on web plus all native ports, vectors updated first. Out of scope stays: accounts, themes, multiplayer, leaderboards, badges.
+- [ ] G1 (S, Monkeytype, Speed Typer): Result shows WPM-over-time line and raw WPM; verify what the web has first
+- [ ] G2 (S, Monkeytype): Consistency number on the result, new shared vectors
+- [ ] G3 (M, Speed Typer, Monkeytype): Last 20 tests on device, personal best per mode, no sync
+- [ ] G4 (S, 10fastfingers, Speed Typer): Word list sizes: top 200, 1000, 5000
+- [ ] G5 (M, Keybr): Result lists the five keys you miss most
+- [ ] G6 (M, Speed Typer): Custom text mode (pasted text, never sets a best, ties to v14)
+- [ ] G7 (L, all): v81 languages
+- [ ] G8: side by side screenshots vs Monkeytype in light and dark, fix whatever looks worse
+
 ## To v100
 
 ### Rules and scoring
