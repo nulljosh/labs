@@ -50,4 +50,4 @@ Keep it small: a project gets its own GitHub repo only once it has a store listi
 
 ## Shared skills (Claude and Codex)
 Read `~/.codex/skills/codex-sync/SKILL.md` for `/codex-sync` or syncing skills.
-For Apple Notes, read `~/.agents/skills/notes-maintenance/SKILL.md`: `ingest` files notes into roadmaps/wiki; `notes-cleanup` tidies Notes in place; `journal` updates the journal. Read only the requested procedure.
+For Apple Notes, read `~/.agents/skills/inbox-ingest/SKILL.md`: `ingest` files notes and Mail (ASC, GitHub, billing) into roadmaps/wiki; `notes-cleanup` tidies Notes in place; `journal` updates the journal. Read only the requested procedure.

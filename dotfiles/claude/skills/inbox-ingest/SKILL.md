@@ -1,9 +1,9 @@
 ---
-name: notes-maintenance
-description: Tidy or consolidate Apple Notes while preserving screenshots and links, file notes into project roadmaps, and maintain personal journal entries.
+name: inbox-ingest
+description: Ingest the inbox (Apple Notes plus macOS Mail across every account: App Store Connect, GitHub, Stripe, billing alerts) into project roadmaps and the wiki, then delete the source. Also tidies Notes in place and maintains journal entries. Use for /ingest, /inbox-ingest, "check notes", "ingest my notes and mail".
 ---
 
-# Notes Maintenance
+# Inbox Ingest
 
 Select only the mode requested by the user and read its procedure below. Former command names remain routing aliases, not separate skills. Resolve relative resources from the selected procedure directory. Read additional modes only if needed for the task.
 
