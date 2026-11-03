@@ -1,13 +1,14 @@
 import SwiftUI
 
-/// The brand mark (six keycaps and a space bar, from brand/mark.svg) on a 1024 grid.
+/// The brand mark on its 1024 grid.
 struct KeycapsMark: Shape {
     func path(in r: CGRect) -> Path {
         let s = min(r.width, r.height) / 1024, ox = r.midX - 512 * s, oy = r.midY - 512 * s
-        let keys: [(CGFloat, CGFloat, CGFloat, CGFloat)] = [232, 427, 622].flatMap { x in [300, 480].map { y in (x, y, 140, 140) } } + [(300, 680, 424, 84)]
+        // brand/mark.svg: four keys, three keys staggered under them, a space bar
+        let keys: [(CGFloat, CGFloat, CGFloat, CGFloat)] = [208, 368, 528, 688].map { ($0, 308, 128, 128) } + [288, 448, 608].map { ($0, 468, 128, 128) } + [(288, 628, 448, 88)]
         var p = Path()
         for (x, y, w, h) in keys {
-            p.addRoundedRect(in: CGRect(x: ox + x * s, y: oy + y * s, width: w * s, height: h * s), cornerSize: CGSize(width: 32 * s, height: 32 * s))
+            p.addRoundedRect(in: CGRect(x: ox + x * s, y: oy + y * s, width: w * s, height: h * s), cornerSize: CGSize(width: 30 * s, height: 30 * s))
         }
         return p
     }
@@ -16,6 +17,7 @@ struct KeycapsMark: Shape {
 /// Launch splash: the mark draws in, fills, then scales away. About 1.1 s, once per launch.
 struct Splash: View {
     @Binding var shown: Bool
+    let bg: Color
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var trim: CGFloat = 0
     @State private var fill = 0.0
@@ -24,7 +26,7 @@ struct Splash: View {
 
     var body: some View {
         ZStack {
-            Rectangle().fill(.background).ignoresSafeArea()
+            bg.ignoresSafeArea()
             ZStack {
                 KeycapsMark().fill(accent.opacity(fill))
                 KeycapsMark().trim(from: 0, to: trim).stroke(accent, style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
