@@ -57,6 +57,9 @@ final class Session {
     /// Every character that arrived, judged when it arrived (keystroke accuracy).
     private(set) var keys = 0
     private(set) var hits = 0
+    private var perSec: [Int: Int] = [:] // keys that arrived in each second of the run
+    /// How even the keys per second were, 0 to 100 (score.js consistency).
+    private(set) var consistency = 100
     /// A burst of more than pasteMax characters in one input: the run cannot set a best.
     private(set) var pasted = false
     /// What the finished run is scored on, shown in the counter once it is over.
@@ -109,7 +112,9 @@ final class Session {
         let before = self.text
         let limit = mode.kind == .time ? p.count : total + 1
         typed = p.prefix(limit).enumerated().map { i, w in String(w.prefix((i < target.count ? target[i].count : 0) + 8)) }
+        let k0 = keys
         tally(before)
+        if started { perSec[Int((nowMs - startMs) / 1000), default: 0] += keys - k0 }
         // Word and quote mode end on the last character of a correct last word; a wrong one still needs the space.
         let lastRight = typed.count == total && total > 0 && typed[total - 1] == target[total - 1]
         if mode.kind != .time && (typed.count > total || lastRight) {
@@ -153,6 +158,7 @@ final class Session {
         let seconds = mode.kind == .time ? min(secs, Double(mode.n)) : secs
         scoredSeconds = seconds
         let scored = typed.enumerated().filter { !$0.element.isEmpty || $0.offset < typed.count - 1 }.map(\.element)
+        consistency = consistencyScore((0..<Int(seconds)).map { perSec[$0] ?? 0 }) // whole seconds only
         result = stats(typed: scored, target: target, seconds: seconds)
     }
 

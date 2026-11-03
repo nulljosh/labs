@@ -1,7 +1,7 @@
 // Writes vectors.json from score.js, then the Kotlin and Swift tests that must agree with it.
 // Run `node vectors.mjs` after changing score.js or the cases; vectors.test.mjs fails if anything is stale.
 import { writeFileSync } from 'node:fs'
-import { stats } from './score.js'
+import { stats, consistency } from './score.js'
 
 const w = s => (s === '' ? [] : s.split(' '))
 // [typed, target, seconds]: perfect runs, typos, extra and missing letters, empty words, rounding edges
@@ -38,6 +38,9 @@ export const CASES = [
   ['a b c d e f g h i j', 'a b c d e f g h i j', 6],
 ]
 
+// keys per second -> score.js consistency; the native ports call it consistencyScore
+export const CONSISTENCY = [[], [5], [5, 5, 5], [0, 0], [4, 6, 5, 5], [1, 9, 1, 9], [10, 0, 10, 0, 10], [3, 4, 5, 6, 7, 8], [12, 11, 13, 12, 10, 14, 12]]
+
 const vectors = CASES.map(([typed, target, seconds]) => ({ typed: w(typed), target: w(target), seconds, expect: stats(w(typed), w(target), seconds) }))
 
 
@@ -53,6 +56,10 @@ import kotlin.test.assertEquals
 class VectorsTest {
     @Test fun agreesWithScoreJs() {
 ${vectors.map(({ typed, target, seconds, expect: e }) => `        assertEquals(Stats(${e.wpm}, ${e.raw}, ${e.accuracy}, ${e.correct}, ${e.wrong}, ${e.correctWords}), stats(${kl(typed)}, ${kl(target)}, ${num(seconds)}))`).join('\n')}
+    }
+
+    @Test fun consistencyAgreesWithScoreJs() {
+${CONSISTENCY.map(a => `        assertEquals(${consistency(a)}, consistencyScore(listOf<Int>(${a.join(', ')})))`).join('\n')}
     }
 }
 `
@@ -71,6 +78,10 @@ final class VectorsTests: XCTestCase {
 
     func testAgreesWithScoreJs() {
 ${vectors.map(({ typed, target, seconds, expect: e }) => `        check(${sl(typed)}, ${sl(target)}, ${num(seconds)}, [${e.wpm}, ${e.raw}, ${e.accuracy}, ${e.correct}, ${e.wrong}, ${e.correctWords}])`).join('\n')}
+    }
+
+    func testConsistencyAgreesWithScoreJs() {
+${CONSISTENCY.map(a => `        XCTAssertEqual(consistencyScore([Int]([${a.join(', ')}])), ${consistency(a)})`).join('\n')}
     }
 }
 `

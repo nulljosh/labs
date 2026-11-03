@@ -45,6 +45,11 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
     var hits = 0
         private set
 
+    private val perSec = mutableMapOf<Int, Int>() // keys that arrived in each second of the run
+    /** How even the keys per second were, 0 to 100 (score.js consistency). */
+    var consistency = 100
+        private set
+
     /** A burst of more than [PASTE_MAX] characters in one input: the run cannot set a best. */
     var pasted = false
         private set
@@ -83,7 +88,9 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
         val before = this.text
         typed.clear()
         p.take(if (mode.kind == Kind.Time) p.size else total + 1).forEachIndexed { i, w -> typed.add(w.take((target.getOrNull(i)?.length ?: 0) + 8)) }
+        val k0 = keys
         tally(before)
+        if (started) { val s = ((nowMs - startMs) / 1000).toInt(); perSec[s] = (perSec[s] ?: 0) + keys - k0 }
         // Word and quote mode end on the last character of a correct last word; a wrong one still needs the space.
         val lastRight = typed.size == total && total > 0 && typed[total - 1] == target[total - 1]
         if (mode.kind != Kind.Time && (typed.size > total || lastRight)) finish(nowMs)
@@ -125,6 +132,7 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
         val secs = (nowMs - startMs) / 1000.0
         val seconds = if (mode.kind == Kind.Time) minOf(secs, mode.n.toDouble()) else secs
         scoredSeconds = seconds
+        consistency = consistencyScore(List(seconds.toInt()) { perSec[it] ?: 0 }) // whole seconds only
         result = stats(typed.filterIndexed { i, w -> w.isNotEmpty() || i < typed.size - 1 }, target, seconds)
     }
 

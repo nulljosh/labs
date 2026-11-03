@@ -37,4 +37,16 @@ class VectorsTest {
         assertEquals(Stats(15, 21, 71, 5, 2, 0), stats(listOf("quickly"), listOf("quick"), 4.0))
         assertEquals(Stats(38, 38, 100, 19, 0, 10), stats(listOf("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"), listOf("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"), 6.0))
     }
+
+    @Test fun consistencyAgreesWithScoreJs() {
+        assertEquals(100, consistencyScore(listOf<Int>()))
+        assertEquals(100, consistencyScore(listOf<Int>(5)))
+        assertEquals(100, consistencyScore(listOf<Int>(5, 5, 5)))
+        assertEquals(0, consistencyScore(listOf<Int>(0, 0)))
+        assertEquals(86, consistencyScore(listOf<Int>(4, 6, 5, 5)))
+        assertEquals(22, consistencyScore(listOf<Int>(1, 9, 1, 9)))
+        assertEquals(21, consistencyScore(listOf<Int>(10, 0, 10, 0, 10)))
+        assertEquals(69, consistencyScore(listOf<Int>(3, 4, 5, 6, 7, 8)))
+        assertEquals(90, consistencyScore(listOf<Int>(12, 11, 13, 12, 10, 14, 12)))
+    }
 }

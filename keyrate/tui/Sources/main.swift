@@ -91,7 +91,7 @@ func draw() {
     out += modes.enumerated().map { i, m in i == modeIndex ? "\u{1B}[7m \(m.label) \u{1B}[0m" : "\u{1B}[2m \(m.label) \u{1B}[0m" }.joined()
     out += "\n\n"
     if let r = session.result {
-        out += "  \u{1B}[1m\(r.wpm) wpm\u{1B}[0m   \(r.raw) raw   \(session.keyAccuracy)% accuracy   \(session.elapsed)\n"
+        out += "  \u{1B}[1m\(r.wpm) wpm\u{1B}[0m   \(r.raw) raw   \(session.keyAccuracy)% accuracy   \(session.consistency)% consistency   \(session.elapsed)\n"
         out += "  best \(best) wpm\(session.pasted ? "   (pasted, not counted)" : "")\n\n"
         out += "  \u{1B}[2mEnter or Tab for another, Left and Right change the mode, Esc quits\u{1B}[0m\n"
     } else {

@@ -31,3 +31,12 @@ func stats(typed: [String], target: [String], seconds: Double) -> Stats {
         correct: correct, wrong: wrong, correctWords: correctWords
     )
 }
+
+/// score.js consistency: how even the keys per second were, 0 to 100.
+func consistencyScore(_ perSecond: [Int]) -> Int {
+    guard perSecond.count > 1 else { return 100 }
+    let n = Double(perSecond.count), mean = Double(perSecond.reduce(0, +)) / n
+    if mean == 0 { return 0 }
+    let cv = (perSecond.reduce(0.0) { $0 + pow(Double($1) - mean, 2) } / n).squareRoot() / mean
+    return Int((100 * (1 - tanh(cv + pow(cv, 3) / 3 + pow(cv, 5) / 5))).rounded())
+}

@@ -1,4 +1,4 @@
-import { stats } from './score.js'
+import { stats, consistency } from './score.js'
 
 // The paste rule: one input event that adds more than this many characters is a paste, not typing. An
 // autocorrect or a phone keyboard's suggestion stays well under it.
@@ -15,6 +15,8 @@ export class Session {
     this.startMs = 0
     this.keys = 0 // every character that arrived, judged when it arrived (keystroke accuracy)
     this.hits = 0
+    this.perSec = [] // keys that arrived in each second of the run, for consistency
+    this.consistency = 100
     this.pasted = false // a burst of more than PASTE_MAX characters in one input: the run cannot set a best
     if (kind === 'quote') {
       const pool = quotes.filter(q => q !== avoid)
@@ -50,7 +52,9 @@ export class Session {
     const before = this.text
     const limit = this.kind === 'time' ? p.length : this.total + 1
     this.typed = p.slice(0, limit).map((w, i) => w.slice(0, (this.target[i]?.length ?? 0) + 8))
+    const k0 = this.keys
     this.tally(before)
+    if (this.startMs) { const s = Math.floor((nowMs - this.startMs) / 1000); this.perSec[s] = (this.perSec[s] ?? 0) + this.keys - k0 }
     // Word and quote mode end on the last character of a correct last word; a wrong one still needs the space.
     const lastRight = this.typed.length === this.total && this.typed.at(-1) === this.target[this.total - 1]
     if (this.kind !== 'time' && (this.typed.length > this.total || lastRight)) this.finish(nowMs)
@@ -92,6 +96,8 @@ export class Session {
     const scored = this.typed.filter((w, i) => w || i < this.typed.length - 1)
     this.seconds = this.kind === 'time' ? Math.min(secs, this.n) : secs // what the run is scored on, shown once it is over
     this.result = stats(scored, this.target, this.seconds)
+    // whole seconds only: a partial last second would read as a slow one
+    this.consistency = consistency(Array.from({ length: Math.floor(this.seconds) }, (_, i) => this.perSec[i] ?? 0))
   }
 
   pick(k) {

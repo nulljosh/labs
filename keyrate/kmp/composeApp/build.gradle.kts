@@ -36,7 +36,7 @@ android {
         minSdk = 26
         targetSdk = 36
         versionCode = 1
-        versionName = "2.0.0"
+        versionName = "2.1.0"
     }
 }
 
@@ -50,7 +50,7 @@ compose.desktop {
                 org.jetbrains.compose.desktop.application.dsl.TargetFormat.Dmg,
             )
             packageName = "Keyrate"
-            packageVersion = "2.0.0"
+            packageVersion = "2.1.0"
             description = "A typing test with nothing attached."
             // Made from brand/icon-1024.png: a rounded tile on Apple's 824 point grid for the Mac, a fuller one elsewhere.
             macOS { iconFile.set(project.file("icons/Keyrate.icns")) }

@@ -1,7 +1,10 @@
 package com.nulljosh.keyrate
 
 import kotlin.math.max
+import kotlin.math.pow
 import kotlin.math.roundToInt
+import kotlin.math.sqrt
+import kotlin.math.tanh
 
 data class Stats(
     val wpm: Int,
@@ -34,4 +37,13 @@ fun stats(typed: List<String>, target: List<String>, seconds: Double): Stats {
         wrong = wrong,
         correctWords = correctWords,
     )
+}
+
+/** score.js consistency: how even the keys per second were, 0 to 100. */
+fun consistencyScore(perSecond: List<Int>): Int {
+    if (perSecond.size < 2) return 100
+    val mean = perSecond.sum().toDouble() / perSecond.size
+    if (mean == 0.0) return 0
+    val cv = sqrt(perSecond.sumOf { (it - mean).pow(2) } / perSecond.size) / mean
+    return (100 * (1 - tanh(cv + cv.pow(3) / 3 + cv.pow(5) / 5))).roundToInt()
 }

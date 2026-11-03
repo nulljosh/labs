@@ -39,4 +39,16 @@ final class VectorsTests: XCTestCase {
         check(["quickly"], ["quick"], 4.0, [15, 21, 71, 5, 2, 0])
         check(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"], ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"], 6.0, [38, 38, 100, 19, 0, 10])
     }
+
+    func testConsistencyAgreesWithScoreJs() {
+        XCTAssertEqual(consistencyScore([Int]([])), 100)
+        XCTAssertEqual(consistencyScore([Int]([5])), 100)
+        XCTAssertEqual(consistencyScore([Int]([5, 5, 5])), 100)
+        XCTAssertEqual(consistencyScore([Int]([0, 0])), 0)
+        XCTAssertEqual(consistencyScore([Int]([4, 6, 5, 5])), 86)
+        XCTAssertEqual(consistencyScore([Int]([1, 9, 1, 9])), 22)
+        XCTAssertEqual(consistencyScore([Int]([10, 0, 10, 0, 10])), 21)
+        XCTAssertEqual(consistencyScore([Int]([3, 4, 5, 6, 7, 8])), 69)
+        XCTAssertEqual(consistencyScore([Int]([12, 11, 13, 12, 10, 14, 12])), 90)
+    }
 }

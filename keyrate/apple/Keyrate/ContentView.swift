@@ -165,11 +165,12 @@ struct ContentView: View {
                 Text("\(r.wpm)").font(.system(size: 64, weight: .semibold)).foregroundStyle(p.text)
                 Text("wpm").font(.system(size: 16)).foregroundStyle(p.dim)
             }
-            HStack(spacing: 32) {
+            HStack(spacing: 24) {
                 stat("accuracy", "\(r.accuracy)%")
                 stat("keys", "\(session.keyAccuracy)%")
                 stat("raw", "\(r.raw)")
                 stat("chars", "\(r.correct)/\(r.wrong)")
+                stat("consistency", "\(session.consistency)%")
             }
             Text("best \(best) wpm · \(mode.kind == .time ? "\(mode.n)s" : mode.label)").font(.system(size: 14)).foregroundStyle(p.dim)
             sparkline(runs(store))

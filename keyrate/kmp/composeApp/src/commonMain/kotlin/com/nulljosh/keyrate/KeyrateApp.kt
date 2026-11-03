@@ -202,11 +202,12 @@ private fun TestScreen(store: Store, p: Palette, remote: Remote) {
                     Text(result.wpm.toString(), color = p.text, fontSize = 64.sp, fontWeight = FontWeight.SemiBold)
                     Text(" wpm", color = p.dim, fontSize = 16.sp, modifier = Modifier.padding(bottom = 12.dp))
                 }
-                Row(horizontalArrangement = Arrangement.spacedBy(32.dp)) {
+                Row(horizontalArrangement = Arrangement.spacedBy(20.dp)) {
                     Stat("accuracy", "${result.accuracy}%", p)
                     Stat("keys", "${session.keyAccuracy}%", p)
                     Stat("raw", result.raw.toString(), p)
                     Stat("chars", "${result.correct}/${result.wrong}", p)
+                    Stat("consistency", "${session.consistency}%", p)
                 }
                 Text("best $best wpm · ${if (mode.kind == Kind.Time) "${mode.n}s" else mode.label}", color = p.dim, fontSize = 14.sp)
                 Sparkline(runs(store), p)

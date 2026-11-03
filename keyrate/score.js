@@ -16,3 +16,13 @@ export function stats(typed, target, seconds) {
     correct, wrong, correctWords,
   }
 }
+
+// Consistency, Monkeytype's way: how even the keystrokes per second were, 0 to 100. cv is the spread over the
+// mean, and the tanh series bends it so 100 is perfectly even and a ragged run drops fast.
+export function consistency(perSecond) {
+  if (perSecond.length < 2) return 100
+  const mean = perSecond.reduce((a, b) => a + b, 0) / perSecond.length
+  if (!mean) return 0
+  const cv = Math.sqrt(perSecond.reduce((a, b) => a + (b - mean) ** 2, 0) / perSecond.length) / mean
+  return Math.round(100 * (1 - Math.tanh(cv + cv ** 3 / 3 + cv ** 5 / 5)))
+}
