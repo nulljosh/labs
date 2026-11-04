@@ -3,14 +3,15 @@
 Items without their own repo. Per-project work lives in each repo's `roadmap.md`.
 Header refreshed 2026-10-20; last pruned 2026-09-01 against live ASC + HTTP state, not against notes.
 
-## Priority order (2026-10-17)
-Work in this order, one project at a time. Each repo's roadmap carries its tier.
-1. Live blockers: rejected apps (Patois, Melete, Mailbag, Airwell), new names for Patois/Melete/Airwell, Atlin, Talli, Curbfind.
-2. Ship pushes: Nimble, Epiphany, Bookrank, Sidewise, Intake, Notate, Icelus Mac.
-3. Active features: Patois, Epiphany, Nimble, NYC, Inkpress, Icelus, Melete.
-4. Portfolio and meta: nulljosh.github.io demo, Doorstock.
-5. Exploratory: Joshua Tree, Turing, Vancouver Vice, Conveyer, Cruise, the rest.
-Joshua only: seller name to business, Melete Sign in with Apple on a phone, dashboard steps.
+## Ship queue (pulled from `asc` 2026-11-03)
+Work in this order, one project at a time. Nothing is submitted or sent to Apple without Joshua's yes.
+1. **Drafts, one build and a yes from shipping:** Pan, Coda, Temida, Echo, Melete, Bugle (Mac and iOS both sit in PREPARE_FOR_SUBMISSION, check the iOS version number first, it looks like a leftover).
+2. **Rejected, read the reason, draft the nine-answer reply:** Blackcomb iOS, Cartons iOS, Co-Stanza, Cyllene iOS, Elah, Horula, Keyrate, Oohaah, Plaintxt iOS, Sighting. Run `asc-login` first, Apple's web sign-in has been throttling. Sidewise iOS is retired, skip it.
+3. **Waiting on Apple, leave alone:** Airwell iOS, Mailbag, Patois iOS, Scrounger iOS. In review: Eponym Mac, Gastown Mac.
+4. **Never reached the store:** Icelus has no Mac version. bbgd needs its address, socials, email and DNS, then `wrangler pages deploy`.
+5. **After that:** active features (Epiphany, Nimble, Patois, Icelus), then portfolio, then Joshua Tree, Turing, Vancouver Vice, Duke.
+
+Joshua only: give the App Store Connect API key the Sales role (that turns the revenue number from unknown to real), seller name, the people-search key, naming picks.
 
 ## Blocked on Joshua (manual, dashboard or phone)
 
@@ -572,7 +573,7 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] Secretary: get a Twilio key. Research ElevenLabs Reception (https://elevenlabs.io/docs/reception-ai/overview) and integrate the receptionist (https://elevenlabs.io/docs/reception-ai/receptionist/overview) into the secretary project.
 - [ ] Inkpress + Sidewise: compare similarities and differences. Should we merge them? Which is more developed? Which can be merged into which?
 - [ ] Refresh all screenshots across all repositories.
-- [ ] Clean up the codebase. Keep codebase.svg updated, using the Joshua Tree architecture SVG as the reference.
+- [x] Clean up the codebase (2026-11-03): loose root files moved to `_attic/` and `runs/`, CLAUDE.md and README.md cover every folder. Open: the stale June `codebase.svg` is in `_attic/loose-2026-11-03/`, redraw it only if the journal wants one; `fleet.svg` is the live map.
 - [ ] Apple Developer: can we switch the developer name to Jaybulb, or is it stuck on Joshua Trommel? The developer account also needs its website updated for the domain change. (screenshots: notes/attachments/2026-10-16/app-store-administration-2.png, notes/attachments/2026-10-16/app-store-administration-3.png)
 - [ ] ASC emails flagged "probably spam" 2026-10-14 (no action unless a real rejection shows). Free App Store Account Audit link saved: https://activationpal.com/tools/app-store-account-audit
 - [ ] Jaybulb: who are we? Write the mission statement and the vision.
