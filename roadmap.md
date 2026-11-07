@@ -6,8 +6,8 @@ Header refreshed 2026-10-20; last pruned 2026-09-01 against live ASC + HTTP stat
 ## Ship queue (pulled from `asc` 2026-11-03)
 Work in this order, one project at a time. Nothing is submitted or sent to Apple without Joshua's yes.
 1. **Drafts, one build and a yes from shipping:** Pan, Coda, Temida, Echo, Melete, Bugle (Mac and iOS both sit in PREPARE_FOR_SUBMISSION, check the iOS version number first, it looks like a leftover).
-2. **Rejected, read the reason, draft the nine-answer reply:** Blackcomb iOS, Cartons iOS, Co-Stanza, Cyllene iOS, Elah, Horula, Keyrate, Oohaah, Plaintxt iOS, Sighting. Run `asc-login` first, Apple's web sign-in has been throttling. Sidewise iOS is retired, skip it.
-3. **Waiting on Apple, leave alone:** Airwell iOS, Mailbag, Patois iOS, Scrounger iOS. In review: Eponym Mac, Gastown Mac.
+2. **Rejected, read the reason, draft the nine-answer reply:** Blackcomb iOS, Cartons iOS, Co-Stanza, Cyllene iOS, Elah, Horula, Oohaah, Plaintxt iOS, Sighting. Run `asc-login` first, Apple's web sign-in has been throttling. Sidewise iOS is retired, skip it.
+3. **Waiting on Apple, leave alone:** Keyrate 2.2.0 iOS and Mac (resubmitted 2026-11-06 after the 4.3 fix), Airwell iOS, Mailbag, Patois iOS, Scrounger iOS. In review: Eponym Mac, Gastown Mac.
 4. **Never reached the store:** Icelus has no Mac version. bbgd needs its address, socials, email and DNS, then `wrangler pages deploy`.
 5. **After that:** active features (Epiphany, Nimble, Patois, Icelus), then portfolio, then Joshua Tree, Turing, Vancouver Vice, Duke.
 

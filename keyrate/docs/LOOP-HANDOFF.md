@@ -18,7 +18,7 @@ The loop never uses cron, launchd or a cloud routine. Nothing gets pushed until 
 
 ## Next, in order
 
-1. **Confirm both submissions.** Run `asc status --app 6830043245` and check that iOS and Mac reached WAITING_FOR_REVIEW. If a submission is stuck, report it to Joshua. Do not resubmit.
+1. **Watch the 2.2.0 resubmit.** iOS and Mac went back to Apple 2026-11-06 after the 4.3(a) fix. See the rejection note in `roadmap.md`. If it bounces, build G3 with missed keys across the last 20 tests. Do not resubmit unchanged.
 2. **G1 native.** The WPM-over-time curve on the iPhone, iPad, Mac, Android and desktop results, with the same numbers as the web.
 3. **G2, consistency score.** One number on the result, with new shared vectors so all four ports agree.
 4. **G3, last 20 tests and best per mode.** On-device history only, no sync.
