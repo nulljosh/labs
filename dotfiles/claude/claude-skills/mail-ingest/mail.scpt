@@ -9,7 +9,9 @@ on run argv
       if enabled of a then
         repeat with mb in mailboxes of a
           if name of mb is in {"INBOX", "All Mail"} then
-            repeat with m in (messages of mb whose date received > ((current date) - 4 * days))
+            -- snapshot first: walking the live query breaks once a delete shifts the indexes
+            set ms to (messages of mb whose date received > ((current date) - 4 * days))
+            repeat with m in ms
               set s to subject of m
               set hit to (cmd is "list")
               repeat with p in pats
