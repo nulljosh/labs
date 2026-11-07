@@ -37,5 +37,4 @@ cadence, sparkjar, lexly, talli, quotable, wordroot, newsline, nyc, notes,
 bookrank, homeward.
 
 ## Ingested 2026-11-06
-- [ ] Remove hero images, it is unnecessary.
 - [ ] Help sign up for KPU classes, Spring 2027. Details and deadlines are on the private `school.md` wiki page.
