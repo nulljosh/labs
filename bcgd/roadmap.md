@@ -319,3 +319,6 @@ Two gotchas hit on the way, both worth remembering:
 
 ## Ingested 2026-10-21
 - [ ] Doorstock: what is it? Loop the roadmap to version 100. (Q: is this the bcgd garage-door site that ships as Doorstock, and should the loop run in this repo?)
+
+## Ingested 2026-11-06
+- [ ] Create an automatic camera scanner to watch stock. Update automatically into the shop owner's Doorstock account.
