@@ -322,3 +322,6 @@ Two gotchas hit on the way, both worth remembering:
 
 ## Ingested 2026-11-06
 - [ ] Create an automatic camera scanner to watch stock. Update automatically into the shop owner's Doorstock account.
+
+## Stashed 2026-11-07
+- [ ] Next App Store version: the Doorstock iPhone 1.0 support and marketing URLs still point at doorstock.heyitsmejosh.com (heyitsmejosh.com lapsed, the link is dead; App Review can reject on it). Set both to https://doorstock.jaybulb.com in the new version's localizations. Live versions cannot be edited.
