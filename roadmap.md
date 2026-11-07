@@ -600,6 +600,5 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] Echo, Talli, Airwell, Numen, Plank, Pan, Cyllene: fixed today (tagline H1, bold system type, no wrapping buttons)
 
 ## Ingested 2026-11-06
-- [ ] Labs readme stale. Broken urls etc. Stale list in general. Like half of these projects have been moved to their own repos outside of labs lmfao.
-- [ ] Sketchy bar: uninstall? Question: duke has a SketchyBar item, so is that one going too?
+- [ ] Sketchy bar: uninstall? It is running now, and duke has a SketchyBar item. Question: is that one going too?
 - [ ] Cloudflare Workers AI deprecates older models on 2026-11-20. Repo grep hit only Kernel (filed there); recheck any Worker that lives outside this tree.
