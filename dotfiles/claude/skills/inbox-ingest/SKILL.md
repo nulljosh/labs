@@ -14,5 +14,6 @@ Journal updates belong in the current multi-month entry. Do not create weekly or
 | Mode / former command | Instructions |
 |---|---|
 | `ingest` | [Procedure](references/ingest/PROCEDURE.md) |
+| mail only | `mail-ingest` skill in `~/.claude/skills/mail-ingest/` |
 | `notes-cleanup` | [Procedure](references/notes-cleanup/PROCEDURE.md) |
 | `journal` | [Procedure](references/journal/PROCEDURE.md) |

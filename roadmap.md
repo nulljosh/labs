@@ -602,5 +602,4 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 ## Ingested 2026-11-06
 - [ ] Labs readme stale. Broken urls etc. Stale list in general. Like half of these projects have been moved to their own repos outside of labs lmfao.
 - [ ] Sketchy bar: uninstall? Question: duke has a SketchyBar item, so is that one going too?
-- [ ] Curbfind needs better name and brand kit, design system etc. Landing page etc. Needs better UI/UX etc. QA apps (macOS was approved). Question: is this Scrounger now?
 - [ ] Cloudflare Workers AI deprecates older models on 2026-11-20. Repo grep hit only Kernel (filed there); recheck any Worker that lives outside this tree.
