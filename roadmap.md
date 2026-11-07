@@ -602,3 +602,6 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 ## Ingested 2026-11-06
 - [ ] Sketchy bar: uninstall? It is running now, and duke has a SketchyBar item. Question: is that one going too?
 - [ ] Cloudflare Workers AI deprecates older models on 2026-11-20. Repo grep hit only Kernel (filed there); recheck any Worker that lives outside this tree.
+
+## Stashed 2026-11-07 (late)
+- [ ] Rejections left (ledger pulled 2026-11-07): Elah iOS 2.1.0 + Mac 1.3.0, Co-Stanza iOS+Mac 1.0, Sighting iOS+Mac 1.0, Oohaah iOS+Mac 1.0.0, Plaintxt iOS 1.0.0 (4.3 concept verdict, parked). Next: `asc web review show --app <id> --plain-text` each, real fix, then resubmit or reply. Never resubmit unchanged. In review now: Melete, Pan, Echo, Bugle, Coda, Cartons, Nimble, Icelus, Machaon, Cyllene, Blackcomb iOS, Scrounger iOS. Revoke key SJRG5NNJUU after Cyllene review.
