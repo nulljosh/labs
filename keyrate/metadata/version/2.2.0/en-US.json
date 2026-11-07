@@ -1,0 +1,7 @@
+{
+  "description": "Keyrate shows you where your typing goes wrong. Type for fifteen seconds or a full minute, and the result draws a keyboard with the five keys you miss most lit up. It blames the key you should have pressed, and it counts a slip even after you fix it, because a fixed slip still cost you time.\n\nUnder your speed you get a line of your words per minute, second by second, so you can see where you sped up and where you fell apart. You also get how even your rhythm was, your raw speed, and your accuracy measured two ways: what you ended up with, and what you hit the first time.\n\nThe words are Keyrate's own. They are the thousand most common words across twenty public domain novels, from Pride and Prejudice to Moby Dick, with lines from writers long out of copyright for quote mode. Tap punct when you want capitals and punctuation in the mix.\n\nPick 15, 30 or 60 seconds, 25 or 50 words, or a quote. A paste never counts toward your best, and your bests and recent runs stay on this device.",
+  "keywords": "wpm,speed,test,keyboard,words,minute,practice,accuracy,typist,touch,type,mistakes,rhythm",
+  "marketingUrl": "https://keyrate.jaybulb.com",
+  "promotionalText": "See the five keys you miss most, drawn on a keyboard, after every test.",
+  "supportUrl": "https://keyrate.jaybulb.com"
+}

@@ -50,6 +50,12 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
     var consistency = 100
         private set
 
+    /** Key to the times it should have been pressed and was not (score.js missedKey). */
+    val misses = mutableMapOf<String, Int>()
+
+    /** Wpm at the end of each whole second. */
+    val curve = mutableListOf<Int>()
+
     /** A burst of more than [PASTE_MAX] characters in one input: the run cannot set a best. */
     var pasted = false
         private set
@@ -85,6 +91,7 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
         }
         if (!ok) return false
         if (!started && text.isNotEmpty()) startMs = nowMs
+        sample(nowMs)
         val before = this.text
         typed.clear()
         p.take(if (mode.kind == Kind.Time) p.size else total + 1).forEachIndexed { i, w -> typed.add(w.take((target.getOrNull(i)?.length ?: 0) + 8)) }
@@ -114,6 +121,7 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
             while (c <= w.length && start + c < after.length) {
                 keys++
                 if (if (c < w.length) c < t.length && w[c] == t[c] else w == t) hits++
+                missedKey(w, t, c)?.let { misses[it] = (misses[it] ?: 0) + 1 }
                 c++
             }
             start += w.length + 1
@@ -122,11 +130,21 @@ class Session(val mode: Mode, private val punct: Boolean = false, private val ra
 
     val keyAccuracy: Int get() = if (keys > 0) kotlin.math.round(hits * 100.0 / keys).toInt() else 100
 
+    /** One wpm reading per whole second, taken before the keystroke that arrives after it. */
+    private fun sample(nowMs: Long) {
+        if (!started) return
+        val s = ((nowMs - startMs) / 1000).toInt()
+        val end = if (mode.kind == Kind.Time) min(s, mode.n) else s
+        while (curve.size < end) curve += stats(typed, target, curve.size + 1.0).wpm
+    }
+
     fun tick(nowMs: Long) {
+        sample(nowMs)
         if (!done && started && mode.kind == Kind.Time && nowMs - startMs >= mode.n * 1000L) finish(nowMs)
     }
 
     private fun finish(nowMs: Long) {
+        sample(nowMs)
         done = true
         // timed runs stop at n seconds; a late tick must not shave the wpm
         val secs = (nowMs - startMs) / 1000.0

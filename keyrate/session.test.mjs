@@ -124,3 +124,23 @@ test('once over, the counter shows the time the run is scored on', () => {
   assert.equal(t.elapsed, '15s') // a late tick never adds time
   assert.equal(make('time', 15, 8).elapsed, '')
 })
+
+test('misses blame the key that should have been pressed, even when the typo is fixed', () => {
+  const s = new Session({ kind: 'quote', quotes: ['cat dog'], words: [] })
+  s.setText('x', 1000); s.setText('', 1050) // wrong first key, fixed: still a miss on c
+  s.setText('cat', 1100)
+  s.setText('catz', 1150); s.setText('cat', 1200) // an extra letter should have been the space
+  s.setText('cat d', 1250)
+  s.setText('cat d ', 1300) // an early space should have been the o
+  assert.deepEqual(s.misses, { c: 1, ' ': 1, o: 1 })
+})
+
+test('the curve takes one reading per whole second, and stops at the end of a timed run', () => {
+  const s = make('time', 3, 4), w = s.target[0]
+  s.setText(w[0], 1000)
+  assert.deepEqual(s.curve, [])
+  s.tick(3200) // two seconds in, nothing typed since the first key
+  assert.deepEqual(s.curve, [stats(s.typed, s.target, 1).wpm, stats(s.typed, s.target, 2).wpm])
+  s.tick(9000)
+  assert.equal(s.done, true); assert.equal(s.curve.length, 3)
+})

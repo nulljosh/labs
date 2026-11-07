@@ -1,6 +1,8 @@
 # Keyrate
 
-Typing test. One page, no build. Live at keyrate.jaybulb.com.
+Typing test that finds the keys you keep missing. One page, no build. Live at keyrate.jaybulb.com.
+
+- Listing rule: never go back to "nothing else" or "one number" wording. That line drew a 4.3(a) and matched Plaintxt and Blackcomb. Words come only from `words.js`, counted from public domain novels; never copy another typing app's list
 
 - `index.html` is the landing page (it embeds `/app` in an iframe under the hero), `app/index.html` is the test, `session.js` holds the test rules, `score.js` is the math, `score.test.mjs`, `session.test.mjs` and `vectors.test.mjs` check them (`node --test`)
 - Native: `kmp/` is the Android and desktop app, `apple/` is the iPhone, iPad and Mac app (xcodegen), `tui/` is the terminal app. All of them must agree on `vectors.json`

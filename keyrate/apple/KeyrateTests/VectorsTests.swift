@@ -51,4 +51,22 @@ final class VectorsTests: XCTestCase {
         XCTAssertEqual(consistencyScore([Int]([3, 4, 5, 6, 7, 8])), 69)
         XCTAssertEqual(consistencyScore([Int]([12, 11, 13, 12, 10, 14, 12])), 90)
     }
+
+    func testMissedKeysAgreeWithScoreJs() {
+        XCTAssertEqual(missedKey(Array("the"), Array("the"), 1), nil)
+        XCTAssertEqual(missedKey(Array("teh"), Array("the"), 1), "h")
+        XCTAssertEqual(missedKey(Array("tHe"), Array("the"), 1), "h")
+        XCTAssertEqual(missedKey(Array("The"), Array("the"), 0), "t")
+        XCTAssertEqual(missedKey(Array("thee"), Array("the"), 3), " ")
+        XCTAssertEqual(missedKey(Array("th"), Array("the"), 2), "e")
+        XCTAssertEqual(missedKey(Array("the"), Array("the"), 3), nil)
+        XCTAssertEqual(missedKey(Array("teh"), Array("the"), 3), nil)
+        XCTAssertEqual(missedKey(Array("x"), Array(""), 0), " ")
+        XCTAssertEqual(missedKey(Array(""), Array(""), 0), nil)
+        XCTAssertEqual(missedLine(topMisses([:])), "no keys missed")
+        XCTAssertEqual(missedLine(topMisses(["a": 1])), "missed most: a 1")
+        XCTAssertEqual(missedLine(topMisses(["b": 2, "a": 2, "c": 1])), "missed most: a 2 · b 2 · c 1")
+        XCTAssertEqual(missedLine(topMisses([" ": 3, "e": 1])), "missed most: space 3 · e 1")
+        XCTAssertEqual(missedLine(topMisses(["z": 1, "y": 2, "x": 3, "w": 4, "v": 5, "u": 6, "t": 7])), "missed most: t 7 · u 6 · v 5 · w 4 · x 3")
+    }
 }

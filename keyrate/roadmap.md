@@ -4,14 +4,17 @@ Steps, not semver. vN is the Nth small shippable step and v100 is the finish. Ea
 
 ## Gap matrix vs Monkeytype, 10fastfingers, Speed Typer, Keybr (2026-11-02)
 Own design wins, borrow ideas only. Each row is one minor on web plus all native ports, vectors updated first. Out of scope stays: accounts, themes, multiplayer, leaderboards, badges.
-- [ ] G1 (S, Monkeytype, Speed Typer): Result shows WPM-over-time line and raw WPM. Web done 2026-11-02; native curve still open
+- [x] G1 (S, Monkeytype, Speed Typer): Result shows WPM-over-time line and raw WPM. Done 2026-11-06 on web, Mac/iPhone, Kotlin and TUI; the rule moved into session.js
 - [x] G2 (S, Monkeytype): Consistency number on the result, new shared vectors. Done 2026-11-03 on web, Mac/iPhone, Kotlin and TUI, 9 shared vectors
 - [ ] G3 (M, Speed Typer, Monkeytype): Last 20 tests on device, personal best per mode, no sync
 - [ ] G4 (S, 10fastfingers, Speed Typer): Word list sizes: top 200, 1000, 5000
-- [ ] G5 (M, Keybr): Result lists the five keys you miss most
+- [x] G5 (M, Keybr): Result draws a keyboard with the five keys you miss most. Done 2026-11-06 on all ports, with shared vectors
 - [ ] G6 (M, Speed Typer): Custom text mode (pasted text, never sets a best, ties to v14)
 - [ ] G7 (L, all): v81 languages
 - [ ] G8: side by side screenshots vs Monkeytype in light and dark, fix whatever looks worse
+
+## 4.3(a) rejection (2026-11-03, iOS and Mac 2.0.0)
+Reply sent on Mac 11-04, nothing back. What changed for the resubmit: own word list from public domain novels (the old one matched Monkeytype and 10fastfingers), G1 and G5 on every port, listing rewritten around the keys you miss. Next if it comes back again: G3, the missed keys across your last 20 tests, which is the real answer to "what is different".
 
 ## To v100
 

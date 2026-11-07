@@ -26,3 +26,23 @@ export function consistency(perSecond) {
   const cv = Math.sqrt(perSecond.reduce((a, b) => a + (b - mean) ** 2, 0) / perSecond.length) / mean
   return Math.round(100 * (1 - Math.tanh(cv + cv ** 3 / 3 + cv ** 5 / 5)))
 }
+
+// The key a keystroke should have been, or null if it was right. c is the position in the typed word w, and
+// c === w.length is the space after it: an extra letter should have been the space, an early space the next letter.
+export function missedKey(w, t, c) {
+  if (c < w.length) return w[c] === t[c] ? null : (t[c] ?? ' ').toLowerCase()
+  return c < t.length ? t[c].toLowerCase() : null
+}
+
+// The five keys a run missed most, worst first, ties in key order, as [key, misses] pairs.
+export function topMisses(misses) {
+  return Object.entries(misses).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).slice(0, 5)
+}
+
+// The line under the keyboard on the result.
+export function missedLine(top) {
+  return top.length ? 'missed most: ' + top.map(([k, n]) => `${k === ' ' ? 'space' : k} ${n}`).join(' · ') : 'no keys missed'
+}
+
+// The keyboard the result draws, a space bar under three letter rows.
+export const KEY_ROWS = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm', ' ']

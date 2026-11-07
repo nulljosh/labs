@@ -146,4 +146,26 @@ final class SessionTests: XCTestCase {
         for _ in 0..<40 { recordRun(store, m, 1) }
         XCTAssertEqual(runs(store).count, 30)
     }
+
+    func testMissesBlameTheKeyThatShouldHaveBeenPressed() {
+        let s = Session(mode: Mode(kind: .words, n: 2), dice: .seeded(3))
+        let a = s.target[0], first = String(a.first!).lowercased()
+        s.setText(first == "x" ? "y" : "x", nowMs: 1_000)
+        s.setText("", nowMs: 1_050)
+        XCTAssertEqual(s.misses, [first: 1]) // fixed, still a miss
+        s.setText(a, nowMs: 1_100)
+        s.setText(a + "z", nowMs: 1_150) // an extra letter should have been the space
+        XCTAssertEqual(s.misses[" "], 1)
+    }
+
+    func testCurveTakesOneReadingPerWholeSecondAndStopsWithATimedRun() {
+        let s = Session(mode: Mode(kind: .time, n: 3), dice: .seeded(4))
+        s.setText(String(s.target[0].first!), nowMs: 1_000)
+        XCTAssertEqual(s.curve, [])
+        s.tick(nowMs: 3_200)
+        XCTAssertEqual(s.curve, [1.0, 2.0].map { stats(typed: s.typed, target: s.target, seconds: $0).wpm })
+        s.tick(nowMs: 9_000)
+        XCTAssertTrue(s.done)
+        XCTAssertEqual(s.curve.count, 3)
+    }
 }

@@ -1,4 +1,4 @@
-import { stats, consistency } from './score.js'
+import { stats, consistency, missedKey } from './score.js'
 
 // The paste rule: one input event that adds more than this many characters is a paste, not typing. An
 // autocorrect or a phone keyboard's suggestion stays well under it.
@@ -17,6 +17,8 @@ export class Session {
     this.hits = 0
     this.perSec = [] // keys that arrived in each second of the run, for consistency
     this.consistency = 100
+    this.misses = {} // key -> times it should have been pressed and was not
+    this.curve = [] // wpm at the end of each whole second
     this.pasted = false // a burst of more than PASTE_MAX characters in one input: the run cannot set a best
     if (kind === 'quote') {
       const pool = quotes.filter(q => q !== avoid)
@@ -49,6 +51,7 @@ export class Session {
     else if (ok) ok = false
     if (!ok) return false
     if (!this.startMs && text) this.startMs = nowMs
+    this.sample(nowMs)
     const before = this.text
     const limit = this.kind === 'time' ? p.length : this.total + 1
     this.typed = p.slice(0, limit).map((w, i) => w.slice(0, (this.target[i]?.length ?? 0) + 8))
@@ -75,6 +78,8 @@ export class Session {
       for (let c = Math.max(0, i - start); c <= w.length && start + c < after.length; c++) {
         this.keys++
         if (c < w.length ? w[c] === t[c] : w === t) this.hits++
+        const m = missedKey(w, t, c)
+        if (m) this.misses[m] = (this.misses[m] ?? 0) + 1
       }
       start += w.length + 1
     })
@@ -85,11 +90,20 @@ export class Session {
 
   get keyAccuracy() { return this.keys ? Math.round((this.hits / this.keys) * 100) : 100 }
 
+  // One wpm reading per whole second, taken before the keystroke that arrives after it.
+  sample(nowMs) {
+    if (!this.startMs) return
+    const s = Math.floor((nowMs - this.startMs) / 1000), end = this.kind === 'time' ? Math.min(s, this.n) : s
+    while (this.curve.length < end) this.curve.push(stats(this.typed, this.target, this.curve.length + 1).wpm)
+  }
+
   tick(nowMs) {
+    this.sample(nowMs)
     if (!this.done && this.startMs && this.kind === 'time' && nowMs - this.startMs >= this.n * 1000) this.finish(nowMs)
   }
 
   finish(nowMs) {
+    this.sample(nowMs)
     this.done = true
     // timed runs stop at n seconds; a late tick must not shave the wpm
     const secs = (nowMs - this.startMs) / 1000

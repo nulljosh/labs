@@ -209,6 +209,8 @@ private fun TestScreen(store: Store, p: Palette, remote: Remote) {
                     Stat("chars", "${result.correct}/${result.wrong}", p)
                     Stat("consistency", "${session.consistency}%", p)
                 }
+                Sparkline(session.curve, p, 64, (session.curve.minOrNull() ?: 0) * 4 / 5)
+                MissedKeys(topMisses(session.misses), p)
                 Text("best $best wpm · ${if (mode.kind == Kind.Time) "${mode.n}s" else mode.label}", color = p.dim, fontSize = 14.sp)
                 Sparkline(runs(store), p)
                 Text("Enter restarts.", color = p.dim, fontSize = 13.sp)
@@ -236,12 +238,33 @@ private fun Stat(label: String, value: String, p: Palette) {
     }
 }
 
+/** The result keyboard: the five keys missed most lit, the count in words below it. A missed comma or digit only shows in the line. */
 @Composable
-private fun Sparkline(runs: List<Int>, p: Palette) {
+private fun MissedKeys(top: List<Pair<String, Int>>, p: Palette) {
+    val lit = top.map { it.first }.toSet()
+    Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(3.dp)) {
+        if (top.isNotEmpty()) KEY_ROWS.forEach { row ->
+            Row(horizontalArrangement = Arrangement.spacedBy(3.dp)) {
+                row.forEach { c ->
+                    val k = c.toString()
+                    Box(
+                        Modifier.size(if (k == " ") 160.dp else 30.dp, 30.dp).background(if (k in lit) p.bad else p.chip, RoundedCornerShape(6.dp)),
+                        contentAlignment = Alignment.Center,
+                    ) { Text(if (k == " ") "space" else k, color = if (k in lit) Color.White else p.dim, fontSize = 14.sp) }
+                }
+            }
+        }
+        Text(missedLine(top), color = p.dim, fontSize = 14.sp, modifier = Modifier.padding(top = 5.dp))
+    }
+}
+
+/** A line through the values. [floor] lifts the bottom of the scale off zero, so a run's small swings show. */
+@Composable
+private fun Sparkline(runs: List<Int>, p: Palette, height: Int = 40, floor: Int = 0) {
     if (runs.size < 2) return
-    val top = max(runs.max(), 1)
-    Canvas(Modifier.size(240.dp, 40.dp)) {
-        val pts = runs.mapIndexed { i, v -> Offset(2f + i.toFloat() / (runs.size - 1) * (size.width - 4f), size.height - 2f - v.toFloat() / top * (size.height - 4f)) }
+    val top = max(runs.max() - floor, 1)
+    Canvas(Modifier.size(240.dp, height.dp)) {
+        val pts = runs.mapIndexed { i, v -> Offset(2f + i.toFloat() / (runs.size - 1) * (size.width - 4f), size.height - 2f - (v - floor).toFloat() / top * (size.height - 4f)) }
         for (i in 1 until pts.size) drawLine(p.text, pts[i - 1], pts[i], strokeWidth = 3f, cap = StrokeCap.Round)
     }
 }

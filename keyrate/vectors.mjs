@@ -1,7 +1,7 @@
 // Writes vectors.json from score.js, then the Kotlin and Swift tests that must agree with it.
 // Run `node vectors.mjs` after changing score.js or the cases; vectors.test.mjs fails if anything is stale.
 import { writeFileSync } from 'node:fs'
-import { stats, consistency } from './score.js'
+import { stats, consistency, missedKey, topMisses, missedLine } from './score.js'
 
 const w = s => (s === '' ? [] : s.split(' '))
 // [typed, target, seconds]: perfect runs, typos, extra and missing letters, empty words, rounding edges
@@ -41,6 +41,11 @@ export const CASES = [
 // keys per second -> score.js consistency; the native ports call it consistencyScore
 export const CONSISTENCY = [[], [5], [5, 5, 5], [0, 0], [4, 6, 5, 5], [1, 9, 1, 9], [10, 0, 10, 0, 10], [3, 4, 5, 6, 7, 8], [12, 11, 13, 12, 10, 14, 12]]
 
+// [typed word, target word, position] -> score.js missedKey: right, wrong, capital, extra letter, early space, full word
+export const MISSED = [['the', 'the', 1], ['teh', 'the', 1], ['tHe', 'the', 1], ['The', 'the', 0], ['thee', 'the', 3], ['th', 'the', 2], ['the', 'the', 3], ['teh', 'the', 3], ['x', '', 0], ['', '', 0]]
+// key -> misses -> score.js topMisses and missedLine: none, one, ties in key order, a space, more than five keys
+export const TOP = [{}, { a: 1 }, { b: 2, a: 2, c: 1 }, { ' ': 3, e: 1 }, { z: 1, y: 2, x: 3, w: 4, v: 5, u: 6, t: 7 }]
+
 const vectors = CASES.map(([typed, target, seconds]) => ({ typed: w(typed), target: w(target), seconds, expect: stats(w(typed), w(target), seconds) }))
 
 
@@ -60,6 +65,11 @@ ${vectors.map(({ typed, target, seconds, expect: e }) => `        assertEquals(S
 
     @Test fun consistencyAgreesWithScoreJs() {
 ${CONSISTENCY.map(a => `        assertEquals(${consistency(a)}, consistencyScore(listOf<Int>(${a.join(', ')})))`).join('\n')}
+    }
+
+    @Test fun missedKeysAgreeWithScoreJs() {
+${MISSED.map(([w, t, c]) => `        assertEquals(${JSON.stringify(missedKey(w, t, c))}, missedKey(${JSON.stringify(w)}, ${JSON.stringify(t)}, ${c}))`).join('\n')}
+${TOP.map(m => `        assertEquals(${JSON.stringify(missedLine(topMisses(m)))}, missedLine(topMisses(mapOf<String, Int>(${Object.entries(m).map(([k, n]) => `${JSON.stringify(k)} to ${n}`).join(', ')}))))`).join('\n')}
     }
 }
 `
@@ -82,6 +92,11 @@ ${vectors.map(({ typed, target, seconds, expect: e }) => `        check(${sl(typ
 
     func testConsistencyAgreesWithScoreJs() {
 ${CONSISTENCY.map(a => `        XCTAssertEqual(consistencyScore([Int]([${a.join(', ')}])), ${consistency(a)})`).join('\n')}
+    }
+
+    func testMissedKeysAgreeWithScoreJs() {
+${MISSED.map(([w, t, c]) => `        XCTAssertEqual(missedKey(Array(${JSON.stringify(w)}), Array(${JSON.stringify(t)}), ${c}), ${missedKey(w, t, c) === null ? 'nil' : JSON.stringify(missedKey(w, t, c))})`).join('\n')}
+${TOP.map(m => `        XCTAssertEqual(missedLine(topMisses([${Object.entries(m).map(([k, n]) => `${JSON.stringify(k)}: ${n}`).join(', ') || ':'}])), ${JSON.stringify(missedLine(topMisses(m)))})`).join('\n')}
     }
 }
 `

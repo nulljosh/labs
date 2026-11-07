@@ -49,4 +49,22 @@ class VectorsTest {
         assertEquals(69, consistencyScore(listOf<Int>(3, 4, 5, 6, 7, 8)))
         assertEquals(90, consistencyScore(listOf<Int>(12, 11, 13, 12, 10, 14, 12)))
     }
+
+    @Test fun missedKeysAgreeWithScoreJs() {
+        assertEquals(null, missedKey("the", "the", 1))
+        assertEquals("h", missedKey("teh", "the", 1))
+        assertEquals("h", missedKey("tHe", "the", 1))
+        assertEquals("t", missedKey("The", "the", 0))
+        assertEquals(" ", missedKey("thee", "the", 3))
+        assertEquals("e", missedKey("th", "the", 2))
+        assertEquals(null, missedKey("the", "the", 3))
+        assertEquals(null, missedKey("teh", "the", 3))
+        assertEquals(" ", missedKey("x", "", 0))
+        assertEquals(null, missedKey("", "", 0))
+        assertEquals("no keys missed", missedLine(topMisses(mapOf<String, Int>())))
+        assertEquals("missed most: a 1", missedLine(topMisses(mapOf<String, Int>("a" to 1))))
+        assertEquals("missed most: a 2 · b 2 · c 1", missedLine(topMisses(mapOf<String, Int>("b" to 2, "a" to 2, "c" to 1))))
+        assertEquals("missed most: space 3 · e 1", missedLine(topMisses(mapOf<String, Int>(" " to 3, "e" to 1))))
+        assertEquals("missed most: t 7 · u 6 · v 5 · w 4 · x 3", missedLine(topMisses(mapOf<String, Int>("z" to 1, "y" to 2, "x" to 3, "w" to 4, "v" to 5, "u" to 6, "t" to 7))))
+    }
 }

@@ -139,4 +139,27 @@ class SessionTest {
         assertEquals(30, runs(store).size)
         assertNotNull(store.get(mode.key))
     }
+
+    @Test fun missesBlameTheKeyThatShouldHaveBeenPressed() {
+        val s = Session(Mode(Kind.Words, 2), random = Random(3))
+        val a = s.target[0]
+        val first = a[0].lowercase()
+        s.setText(if (first == "x") "y" else "x", 1_000)
+        s.setText("", 1_050)
+        assertEquals(mapOf(first to 1), s.misses.toMap()) // fixed, still a miss
+        s.setText(a, 1_100)
+        s.setText(a + "z", 1_150) // an extra letter should have been the space
+        assertEquals(1, s.misses[" "])
+    }
+
+    @Test fun curveTakesOneReadingPerWholeSecondAndStopsWithATimedRun() {
+        val s = Session(Mode(Kind.Time, 3), random = Random(4))
+        s.setText(s.target[0].take(1), 1_000)
+        assertEquals(emptyList(), s.curve.toList())
+        s.tick(3_200)
+        assertEquals(listOf(1.0, 2.0).map { stats(s.typed, s.target, it).wpm }, s.curve.toList())
+        s.tick(9_000)
+        assertTrue(s.done)
+        assertEquals(3, s.curve.size)
+    }
 }

@@ -4,7 +4,7 @@
 
 Most typing sites bury the test under themes, accounts, and a leaderboard,
 when the only thing anyone actually opens the page for is the number.
-Keyrate is a typing test in one file. Words appear, you type them, the page tells you how fast. It borrows the idea from Monkeytype and 10fastfingers and drops everything that is not the test, because every one of those extras is a reason to distrust whether the number you get is the same number a stranger's site would give you. Live at [keyrate.jaybulb.com](https://keyrate.jaybulb.com); the test itself is at [/app](https://keyrate.jaybulb.com/app).
+Keyrate is a typing test in one file. Words appear, you type them, the page tells you how fast. After the number it shows you why: a keyboard with the five keys you miss most, and your speed second by second. The words are its own, counted from twenty public domain novels. Live at [keyrate.jaybulb.com](https://keyrate.jaybulb.com); the test itself is at [/app](https://keyrate.jaybulb.com/app).
 
 ## Core Mechanic: Words Per Minute
 

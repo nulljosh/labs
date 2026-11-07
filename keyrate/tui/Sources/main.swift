@@ -86,13 +86,22 @@ func wordLines() -> [String] {
     return lines[start..<min(lines.count, start + 3)].map { $0.joined(separator: " ") }
 }
 
+/// The wpm curve as one line of block characters, scaled to the run.
+func curveLine(_ c: [Int]) -> String {
+    let lo = c.min()!, span = max(c.max()! - lo, 1), bars = Array("▁▂▃▄▅▆▇█")
+    return String(c.map { bars[($0 - lo) * 7 / span] })
+}
+
 func draw() {
     var out = "\u{1B}[H\u{1B}[2J\n  \u{1B}[1mkeyrate\u{1B}[0m   "
     out += modes.enumerated().map { i, m in i == modeIndex ? "\u{1B}[7m \(m.label) \u{1B}[0m" : "\u{1B}[2m \(m.label) \u{1B}[0m" }.joined()
     out += "\n\n"
     if let r = session.result {
         out += "  \u{1B}[1m\(r.wpm) wpm\u{1B}[0m   \(r.raw) raw   \(session.keyAccuracy)% accuracy   \(session.consistency)% consistency   \(session.elapsed)\n"
-        out += "  best \(best) wpm\(session.pasted ? "   (pasted, not counted)" : "")\n\n"
+        out += "  best \(best) wpm\(session.pasted ? "   (pasted, not counted)" : "")\n"
+        out += "  \(missedLine(topMisses(session.misses)))\n"
+        if session.curve.count > 2 { out += "  \(curveLine(session.curve))\n" }
+        out += "\n"
         out += "  \u{1B}[2mEnter or Tab for another, Left and Right change the mode, Esc quits\u{1B}[0m\n"
     } else {
         let counter = session.mode.kind == .time ? "\(session.remaining(nowMs: nowMs()))" : "\(max(0, session.typed.count - 1))/\(session.total)"

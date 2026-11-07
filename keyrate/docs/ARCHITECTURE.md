@@ -1,6 +1,6 @@
 # Architecture
 
-Typing test. Type the words, the clock runs out, you get one number. No account, no settings, no theme picker. Static pages, no build.
+Typing test that finds the keys you keep missing. Type the words, and the result draws a keyboard with your five worst keys and a line of your speed. No account, no settings, no theme picker. Static pages, no build.
 
 ## How it runs
 
@@ -12,7 +12,7 @@ Typing test. Type the words, the clock runs out, you get one number. No account,
 | `app/index.html` | The test: modes (15/30/60s, 25/50 words, quote), punct toggle, caret, result, best, sparkline. |
 | `session.js` | One test's rules: the typed words, backspace into a wrong word, the timed clamp, the word stream. No DOM. `kmp/` and `apple/` port it. |
 | `session.test.mjs` | Ten cases for `Session`. |
-| `words.js` | The 460 words and the quotes. |
+| `words.js` | The thousand words and the quotes. |
 | `score.js` | Pure scoring: wpm, raw, accuracy, correct words. Shared by the page and the tests. |
 | `score.test.mjs` | Three cases for `stats()`. `node --test`. |
 | `tui/` | Terminal companion. SwiftPM + SwiftTUI. `Score.swift` is a line-for-line port of `score.js`, `Checks.swift` mirrors the tests. Scores one attempt, not a live test. |

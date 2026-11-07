@@ -1,9 +1,15 @@
-Keyrate is a typing test with nothing attached. Words appear, you type them, and when the clock runs out or the last word lands you get one number, worked out the way every serious typing site works it out, five characters to a word, so a score here means the same as a score anywhere else. Pick fifteen, thirty or sixty seconds, twenty five or fifty words, or a short quote; a typo you fix costs you time but not accuracy, a paste never counts, and your best for each mode stays on this device and nowhere else. No account, no ads, no network.
+Keyrate shows you where your typing goes wrong. Type for fifteen seconds or a full minute, and the result draws a keyboard with the five keys you miss most lit up. It blames the key you should have pressed, and it counts a slip even after you fix it, because a fixed slip still cost you time.
+
+Under your speed you get a line of your words per minute, second by second, so you can see where you sped up and where you fell apart. You also get how even your rhythm was, your raw speed, and your accuracy measured two ways: what you ended up with, and what you hit the first time.
+
+The words are Keyrate's own. They are the thousand most common words across twenty public domain novels, from Pride and Prejudice to Moby Dick, with lines from writers long out of copyright for quote mode. Tap punct when you want capitals and punctuation in the mix.
+
+Pick 15, 30 or 60 seconds, 25 or 50 words, or a quote. A paste never counts toward your best, and your bests and recent runs stay on this device.
 
 What you get:
-- 15, 30 or 60 seconds, 25 or 50 words, or a short quote
-- Words per minute worked out the standard way, five characters to a word
+- A keyboard with your five most missed keys lit, after every test
+- Your words per minute, second by second
+- Rhythm, raw speed, and accuracy measured two ways
 - Your best score for each mode, kept on this phone
-- Follows your light or dark setting
 
-Privacy: Keyrate collects nothing. No account, no analytics, no network. https://keyrate.jaybulb.com/privacy
+Privacy: https://keyrate.jaybulb.com/privacy

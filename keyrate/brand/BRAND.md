@@ -1,6 +1,6 @@
 # Keyrate brand kit and design system
 
-A typing test with one number. The mark is a keyboard, keys staggered like the real thing.
+A typing test that finds the keys you keep missing. The mark is a keyboard, keys staggered like the real thing.
 
 ## The mark
 One bold flat white glyph on an accent gradient tile. No text, no outline, no emblem.

@@ -172,6 +172,8 @@ struct ContentView: View {
                 stat("chars", "\(r.correct)/\(r.wrong)")
                 stat("consistency", "\(session.consistency)%")
             }
+            sparkline(session.curve, height: 64, floor: Int(Double(session.curve.min() ?? 0) * 0.8)).accessibilityLabel("Words per minute over the run")
+            keyboard(topMisses(session.misses))
             Text("best \(best) wpm · \(mode.kind == .time ? "\(mode.n)s" : mode.label)").font(.system(size: 14)).foregroundStyle(p.dim)
             sparkline(runs(store))
             Text("Enter restarts.").font(.system(size: 13)).foregroundStyle(p.dim)
@@ -186,24 +188,50 @@ struct ContentView: View {
         }
     }
 
-    @ViewBuilder private func sparkline(_ r: [Int]) -> some View {
+    /// The result keyboard: the five keys missed most lit, the count in words below it. Letters and the space bar are
+    /// drawn; a missed comma or digit only shows in the line.
+    private func keyboard(_ top: [(key: String, count: Int)]) -> some View {
+        let lit = Set(top.map(\.key))
+        return VStack(spacing: 8) {
+            if !top.isEmpty {
+                VStack(spacing: 3) {
+                    ForEach(keyRows, id: \.self) { row in
+                        HStack(spacing: 3) {
+                            ForEach(row.map(String.init), id: \.self) { k in
+                                Text(k == " " ? "space" : k)
+                                    .font(.system(size: 14, weight: lit.contains(k) ? .semibold : .regular))
+                                    .foregroundStyle(lit.contains(k) ? .white : p.dim)
+                                    .frame(width: k == " " ? 160 : 30, height: 30)
+                                    .background(lit.contains(k) ? p.bad : p.chip, in: .rect(cornerRadius: 6))
+                            }
+                        }
+                    }
+                }
+                .accessibilityHidden(true)
+            }
+            Text(missedLine(top)).font(.system(size: 14)).foregroundStyle(p.dim)
+        }
+    }
+
+    /// A line through the values. `floor` lifts the bottom of the scale off zero, so a run's small swings show.
+    @ViewBuilder private func sparkline(_ r: [Int], height: CGFloat = 40, floor: Int = 0) -> some View {
         if r.count >= 2 {
-            let top = CGFloat(max(r.max() ?? 1, 1))
+            let top = CGFloat(max((r.max() ?? 1) - floor, 1))
             Path { path in
                 for (i, v) in r.enumerated() {
-                    let pt = CGPoint(x: 2 + CGFloat(i) / CGFloat(r.count - 1) * 236, y: 38 - CGFloat(v) / top * 36)
+                    let pt = CGPoint(x: 2 + CGFloat(i) / CGFloat(r.count - 1) * 236, y: height - 2 - CGFloat(v - floor) / top * (height - 4))
                     i == 0 ? path.move(to: pt) : path.addLine(to: pt)
                 }
             }
             .stroke(p.text, style: StrokeStyle(lineWidth: 1.5, lineCap: .round, lineJoin: .round))
-            .frame(width: 240, height: 40)
+            .frame(width: 240, height: height)
         }
     }
 
     #if DEBUG
     /// Store screenshots without a demo account or a hand on the keyboard: `-shot typing` stops seven words into a
-    /// 25 word run, `-shot result` finishes it. The run is typed one character at a time at about 85 wpm, with one
-    /// typo fixed, through the same setText the keyboard uses.
+    /// 25 word run, `-shot result` finishes it. The run is typed one character at a time at about 85 wpm, with a few
+    /// typos fixed, through the same setText the keyboard uses.
     private func shot() {
         guard let kind = UserDefaults.standard.string(forKey: "shot") else { return }
         #if os(macOS)
@@ -216,7 +244,7 @@ struct ContentView: View {
         func erase() { text.removeLast(); ms += 140; session.setText(text, nowMs: ms) }
         let count = kind == "result" ? session.target.count : 7
         for (i, w) in session.target.prefix(count).enumerated() {
-            if i == 2 { type("x"); erase() }
+            if i % 4 == 2, let first = w.first { type(first == "e" ? "r" : "e"); erase() } // a slip, fixed: the keyboard lights the key
             type(w)
             if i < count - 1 || kind != "result" { type(" ") }
         }

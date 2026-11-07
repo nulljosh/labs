@@ -4,5 +4,5 @@
   "contactLastName": "Trommel",
   "contactPhone": "+1 778 201 4533",
   "demoAccountRequired": false,
-  "notes": "No account and no network. Pick a mode at the top (15, 30, 60 seconds, 25 or 50 words, or a quote) and start typing; the result shows words per minute and accuracy. Tab restarts. Nothing leaves the device."
+  "notes": "Keyrate finds the keys you keep missing. To see it: tap 15 at the top, type the words with a few mistakes, and let the clock run out. The result draws a keyboard with your five most missed keys lit, and a line of your speed over the run. The word list is our own, counted from twenty public domain novels. No sign-in is needed and the app makes no network calls. Tab restarts on a hardware keyboard."
 }

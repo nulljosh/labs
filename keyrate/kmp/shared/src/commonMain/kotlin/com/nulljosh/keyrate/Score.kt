@@ -47,3 +47,20 @@ fun consistencyScore(perSecond: List<Int>): Int {
     val cv = sqrt(perSecond.sumOf { (it - mean).pow(2) } / perSecond.size) / mean
     return (100 * (1 - tanh(cv + cv.pow(3) / 3 + cv.pow(5) / 5))).roundToInt()
 }
+
+/** score.js missedKey: the key a keystroke should have been, null if it was right. c == w.length is the space after the word. */
+fun missedKey(w: String, t: String, c: Int): String? {
+    if (c < w.length) return if (c >= t.length) " " else if (w[c] == t[c]) null else t[c].lowercase()
+    return if (c < t.length) t[c].lowercase() else null
+}
+
+/** score.js topMisses: the five keys missed most, worst first, ties in key order. */
+fun topMisses(misses: Map<String, Int>): List<Pair<String, Int>> =
+    misses.entries.sortedWith(compareBy({ -it.value }, { it.key })).take(5).map { it.key to it.value }
+
+/** score.js missedLine: the line under the keyboard on the result. */
+fun missedLine(top: List<Pair<String, Int>>): String =
+    if (top.isEmpty()) "no keys missed" else "missed most: " + top.joinToString(" · ") { (k, n) -> "${if (k == " ") "space" else k} $n" }
+
+/** score.js KEY_ROWS: the keyboard the result draws. */
+val KEY_ROWS = listOf("qwertyuiop", "asdfghjkl", "zxcvbnm", " ")

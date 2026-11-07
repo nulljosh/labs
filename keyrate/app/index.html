@@ -66,13 +66,20 @@
   #result dl { display: flex; gap: 2rem; justify-content: center; margin: 1.5rem 0 0; }
   #result dt { color: var(--dim); font-size: .8rem; } #result dd { margin: 0; font-size: 1.3rem; }
   #best { color: var(--dim); font-size: .9rem; margin-top: 1rem; }
+  #keyboard { margin-top: 1rem; display: grid; gap: 3px; justify-content: center; }
+  #keyboard[hidden] { display: none; }
+  #keyboard div { display: flex; gap: 3px; justify-content: center; }
+  #keyboard span { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 6px; font-size: .85rem; background: color-mix(in srgb, var(--text, #111) 8%, transparent); color: var(--dim); }
+  #keyboard .space { width: 160px; }
+  #keyboard .lit { background: var(--bad); color: #fff; font-weight: 600; }
+  #missed { margin-top: .5rem; color: var(--dim); font-size: .9rem; }
   #curve { margin-top: 1rem; } #curve polyline { fill: none; stroke: var(--accent, #111); stroke-width: 2; }
   #hist { margin-top: .75rem; }
   #hist polyline { fill: none; stroke: var(--accent, #111); stroke-width: 1.5; }
   input#sink { position: absolute; opacity: 0; pointer-events: none; }
   .sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
   @media (prefers-reduced-motion: reduce) { #caret { animation: none; transition: none; } #words { transition: none; } }
-  @media (max-width: 600px) { #words { font-size: 1.3rem; } #result .big { font-size: 3rem; } }
+  @media (max-width: 600px) { #words { font-size: 1.3rem; } #result .big { font-size: 3rem; } #result dl { gap: 1rem; } }
 </style>
 </head>
 <body>
@@ -97,6 +104,8 @@
     <div class="big"><span id="rWpm"></span><small>wpm</small></div>
     <dl><div><dt>accuracy</dt><dd id="rAcc"></dd></div><div><dt>keys</dt><dd id="rKeys"></dd></div><div><dt>raw</dt><dd id="rRaw"></dd></div><div><dt>chars</dt><dd id="rChars"></dd></div><div><dt>consistency</dt><dd id="rCons"></dd></div></dl>
     <svg id="curve" width="320" height="64" role="img" aria-label="Words per minute over the run" hidden></svg>
+    <div id="keyboard" aria-hidden="true" hidden></div>
+    <div id="missed"></div>
     <div id="best"></div>
     <svg id="hist" width="240" height="40" role="img" aria-label="Recent runs" hidden></svg>
   </div>
@@ -108,13 +117,12 @@
 
 <script type="module">
 import { Session } from '../session.js'
-import { stats } from '../score.js'
+import { topMisses, missedLine, KEY_ROWS } from '../score.js'
 import { WORDS, QUOTES } from '../words.js'
 
 const $ = s => document.querySelector(s)
 const wordsEl = $('#words'), caret = $('#caret'), live = $('#live'), sink = $('#sink'), result = $('#result'), hint = $('#hint')
 const HINT = 'Start typing. <kbd>Tab</kbd> restarts, <kbd>Esc</kbd> picks a mode.'
-let t0 = 0, curve = []
 let kind = 'time', n = 60, punct = false, session, timer = 0, lastQuote = null, shown = 0
 
 // the last mode and punct setting survive a reload
@@ -125,7 +133,6 @@ $('#punct').setAttribute('aria-pressed', punct)
 const savePrefs = () => { try { localStorage.setItem('prefs', JSON.stringify({ kind, n, punct })) } catch {} }
 
 function reset() {
-  t0 = 0; curve = []
   clearInterval(timer); timer = 0
   session = new Session({ kind, n, punct, words: WORDS, quotes: QUOTES, avoid: lastQuote })
   if (kind === 'quote') lastQuote = session.target.join(' ')
@@ -166,8 +173,6 @@ function render() {
 
 function tick() {
   session.tick(Date.now()); counter()
-  // ponytail: one wpm sample per second for the result curve
-  if (session.typed.join('').length) { t0 ||= Date.now(); const sec = Math.floor((Date.now() - t0) / 1000); if (sec > curve.length && sec) curve.push(stats(session.typed, session.target, sec).wpm) }
   if (session.done) showResult()
 }
 
@@ -176,9 +181,22 @@ function showResult() {
   const s = session.result
   $('#rWpm').textContent = s.wpm; $('#rAcc').textContent = s.accuracy + '%'; $('#rKeys').textContent = session.keyAccuracy + '%'
   $('#rRaw').textContent = s.raw; $('#rChars').textContent = `${s.correct}/${s.wrong}`; $('#rCons').textContent = session.consistency + '%'
-  const cv = $('#curve'), cm = Math.max(...curve, 1), cl = Math.min(...curve) * .8, cr = Math.max(cm - cl, 1)
+  const curve = session.curve, cv = $('#curve'), cm = Math.max(...curve, 1), cl = Math.min(...curve) * .8, cr = Math.max(cm - cl, 1)
   cv.hidden = curve.length < 3
   if (curve.length > 2) cv.innerHTML = `<polyline points="${curve.map((v, i) => `${i / (curve.length - 1) * 316 + 2},${62 - (v - cl) / cr * 60}`).join(' ')}"/>`
+  const top = topMisses(session.misses), lit = new Set(top.map(([k]) => k)), board = $('#keyboard')
+  board.hidden = !top.length
+  board.replaceChildren(...KEY_ROWS.map(row => {
+    const r = document.createElement('div')
+    for (const k of row) {
+      const key = document.createElement('span')
+      key.textContent = k === ' ' ? 'space' : k
+      key.className = (k === ' ' ? 'space ' : '') + (lit.has(k) ? 'lit' : '')
+      r.append(key)
+    }
+    return r
+  }))
+  $('#missed').textContent = missedLine(top)
   const label = kind === 'time' ? n + 's' : kind === 'quote' ? 'quote' : n + ' words'
   const key = `best:${kind}:${kind === 'quote' ? 1 : n}`
   let best = 0; try { best = +localStorage.getItem(key) || 0; if (!session.pasted && s.wpm > best) localStorage.setItem(key, best = s.wpm) } catch {}
@@ -193,7 +211,7 @@ function showResult() {
   } catch {}
   wordsEl.classList.add('blur'); result.classList.add('show'); live.textContent = session.elapsed
   hint.innerHTML = '<kbd>Enter</kbd> or <kbd>Tab</kbd> restarts.'
-  $('#srResult').textContent = `${s.wpm} words per minute, ${s.accuracy} percent accuracy, ${session.keyAccuracy} percent of keys right, ${label}. Best ${best}.`
+  $('#srResult').textContent = `${s.wpm} words per minute, ${s.accuracy} percent accuracy, ${session.keyAccuracy} percent of keys right, ${label}. Best ${best}. ${missedLine(top).replaceAll(' · ', ', ')}.`
 }
 
 // The input holds every word typed so far; a refused edit (a finished word changed) is put back.

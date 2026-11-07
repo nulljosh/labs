@@ -60,6 +60,10 @@ final class Session {
     private var perSec: [Int: Int] = [:] // keys that arrived in each second of the run
     /// How even the keys per second were, 0 to 100 (score.js consistency).
     private(set) var consistency = 100
+    /// Key to the times it should have been pressed and was not (score.js missedKey).
+    private(set) var misses: [String: Int] = [:]
+    /// Wpm at the end of each whole second.
+    private(set) var curve: [Int] = []
     /// A burst of more than pasteMax characters in one input: the run cannot set a best.
     private(set) var pasted = false
     /// What the finished run is scored on, shown in the counter once it is over.
@@ -109,6 +113,7 @@ final class Session {
             return false
         }
         if !started && !text.isEmpty { startMs = nowMs }
+        sample(nowMs: nowMs)
         let before = self.text
         let limit = mode.kind == .time ? p.count : total + 1
         typed = p.prefix(limit).enumerated().map { i, w in String(w.prefix((i < target.count ? target[i].count : 0) + 8)) }
@@ -139,6 +144,7 @@ final class Session {
             while c <= wc.count && start + c < a.count {
                 keys += 1
                 if c < wc.count ? (c < t.count && wc[c] == t[c]) : (w == (wi < target.count ? target[wi] : "")) { hits += 1 }
+                if let m = missedKey(wc, t, c) { misses[m, default: 0] += 1 }
                 c += 1
             }
             start += wc.count + 1
@@ -147,11 +153,20 @@ final class Session {
 
     var keyAccuracy: Int { keys > 0 ? Int((Double(hits) / Double(keys) * 100).rounded()) : 100 }
 
+    /// One wpm reading per whole second, taken before the keystroke that arrives after it.
+    private func sample(nowMs: Int64) {
+        guard started else { return }
+        let s = Int((nowMs - startMs) / 1000), end = mode.kind == .time ? min(s, mode.n) : s
+        while curve.count < end { curve.append(stats(typed: typed, target: target, seconds: Double(curve.count + 1)).wpm) }
+    }
+
     func tick(nowMs: Int64) {
+        sample(nowMs: nowMs)
         if !done && started && mode.kind == .time && nowMs - startMs >= Int64(mode.n) * 1000 { finish(nowMs: nowMs) }
     }
 
     private func finish(nowMs: Int64) {
+        sample(nowMs: nowMs)
         done = true
         // timed runs stop at n seconds; a late tick must not shave the wpm
         let secs = Double(nowMs - startMs) / 1000
