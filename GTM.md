@@ -42,7 +42,6 @@ Every app is free or a dollar. Paid upfront unlocks everything, nobody pays twic
 | Cyllene | 6829353117 | free | free | catalogue | none yet |
 | Atlin | 6824157219 | free | free | catalogue | none yet |
 | Horula | 6826916379 | free | free | catalogue | none yet |
-| Oohaah | 6825014407 | free | free | catalogue | none yet |
 | Sighting | 6829546358 | free | free | free on purpose, lost pets | none yet |
 | Co-Stanza | 6829546496 | free | free | catalogue | none yet |
 | Duke | none | never sold | free | Duolingo's terms forbid automation | `duke/MONEY.md` |

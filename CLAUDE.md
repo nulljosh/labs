@@ -43,12 +43,12 @@ Old names live on in bundle ids, Pages projects and hosts after a rename. Check 
 | **temida** | Litigation tool (Pages `themis`) · 6787857503 |
 | **sighting** | Lost/found pets (bundle `homeward`) · 6829546358 |
 | **costanza** | Poetry network · 6829546496 |
-| **oohaah** | Random 1:1 video chat · 6825014407 |
 | **cartons** | UPS tracker · 6825115360 |
 | **horula** | iOS Clock on the web, going native · 6826916379 |
 | **keyrate** | Typing test, many ports · 6830043245 |
 | **homeqi**, **homeroom**, **dream**, **cadence**, **numen**, **weather**, **fieldbook**, **hormuz** | Small web apps |
 | **noema** | STEM lab, a lane per field, `./deploy.sh` |
+| **hackrange** | Pentesting dojo for the Mac, public, `RULES.md` binds every agent there (Pages `hackrange`) |
 
 ### Big projects
 **joshuatree** (from-scratch i386 and Pi 4 OS), **turing** (small on-device models), **plank** (one-file language), **vancouvervice** (Unreal 5), **duke** (plays games while you sleep, runner must stay up), **joshemon** (GBA game in C), **mirage** (desert platformer that runs inside Joshua Tree).
@@ -58,7 +58,7 @@ Old names live on in bundle ids, Pages projects and hosts after a rename. Check 
 ### Sites and infra
 **nulljosh.github.io** (portfolio, jaybulb.com), **journal** (Jekyll), **notes** (Obsidian source), **brain** (RAG), **jaybulb-api** (Worker on D1/KV: sign-in, data, mail), **authmail** (Resend mail Worker), **tripwire** (CI fixer), **homebrew-tap** (`brew install nulljosh/tap/...`), **dotfiles** (shell, skills).
 
-Gone, don't mention: sidewise, seamark, conveyer, gato, systems, beep, missing-pets, abraham, code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay.
+Gone, don't mention: sidewise, seamark, conveyer, gato, systems, beep, missing-pets, abraham, code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay, oohaah.
 
 ## Ship status
 A 4.3(a) spam wave hit 7 apps twice. Reply with the nine answers, never resubmit unchanged, send nothing without Joshua's yes. Book apps get a vague 2.1 unless you drop CHN. The ledger is `wiki/pages/asc-status.md` in the vault: regenerate it, don't trust it. The live queue (what is rejected, drafted, waiting) is the top of `roadmap.md`, pulled from `asc` on 2026-11-03.

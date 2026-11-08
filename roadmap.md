@@ -6,7 +6,7 @@ Header refreshed 2026-10-20; last pruned 2026-09-01 against live ASC + HTTP stat
 ## Ship queue (pulled from `asc` 2026-11-03)
 Work in this order, one project at a time. Nothing is submitted or sent to Apple without Joshua's yes.
 1. **Drafts, one build and a yes from shipping:** Pan, Coda, Temida, Echo, Melete, Bugle (Mac and iOS both sit in PREPARE_FOR_SUBMISSION, check the iOS version number first, it looks like a leftover).
-2. **Rejected, read the reason, draft the nine-answer reply:** Blackcomb iOS, Cartons iOS, Co-Stanza, Cyllene iOS, Elah, Horula, Oohaah, Plaintxt iOS, Sighting. Run `asc-login` first, Apple's web sign-in has been throttling. Sidewise iOS is retired, skip it.
+2. **Rejected, read the reason, draft the nine-answer reply:** Blackcomb iOS, Cartons iOS, Co-Stanza, Cyllene iOS, Elah, Horula, Plaintxt iOS, Sighting. Run `asc-login` first, Apple's web sign-in has been throttling. Sidewise iOS is retired, skip it.
 3. **Waiting on Apple, leave alone:** Keyrate 2.2.0 iOS and Mac (resubmitted 2026-11-06 after the 4.3 fix), Airwell iOS, Mailbag, Patois iOS, Scrounger iOS. In review: Eponym Mac, Gastown Mac.
 4. **Never reached the store:** Icelus has no Mac version. bbgd needs its address, socials, email and DNS, then `wrangler pages deploy`.
 5. **After that:** active features (Epiphany, Nimble, Patois, Icelus), then portfolio, then Joshua Tree, Turing, Vancouver Vice, Duke.
@@ -596,7 +596,6 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - Obsidian graph view "art" (2026-07-18): graph is force-directed. Export nodes/edges, render with d3 at fixed positions for a custom shape. Side project.
 
 ## Landing audit 2026-11-01 (live sites, desktop and phone)
-- [ ] oohaah: H1 is the app name; make the tagline the H1 (blocked: waits on Joshua's name pick, 2026-11-01)
 - [ ] Echo, Talli, Airwell, Numen, Plank, Pan, Cyllene: fixed today (tagline H1, bold system type, no wrapping buttons)
 
 ## Ingested 2026-11-06
@@ -604,4 +603,4 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] Cloudflare Workers AI deprecates older models on 2026-11-20. Repo grep hit only Kernel (filed there); recheck any Worker that lives outside this tree.
 
 ## Stashed 2026-11-07 (late)
-- [ ] 2026-11-07 late: new feature-specific replies sent and verified on all 6 threads of Elah, Co-Stanza, Sighting (one platform per app had never been answered; Horula and Atlin cleared 4.3 by reply alone). Oohaah to be removed (Chatroulette-style, guideline 1.2). Rejections left (ledger pulled 2026-11-07): Elah iOS 2.1.0 + Mac 1.3.0, Co-Stanza iOS+Mac 1.0, Sighting iOS+Mac 1.0, Oohaah iOS+Mac 1.0.0, Plaintxt iOS 1.0.0 (4.3 concept verdict, parked). Next: `asc web review show --app <id> --plain-text` each, real fix, then resubmit or reply. Never resubmit unchanged. In review now: Melete, Pan, Echo, Bugle, Coda, Cartons, Nimble, Icelus, Machaon, Cyllene, Blackcomb iOS, Scrounger iOS. Revoke key SJRG5NNJUU after Cyllene review.
+- [ ] 2026-11-07 late: new feature-specific replies sent and verified on all 6 threads of Elah, Co-Stanza, Sighting (one platform per app had never been answered; Horula and Atlin cleared 4.3 by reply alone). Oohaah was removed (Chatroulette-style, guideline 1.2). Rejections left (ledger pulled 2026-11-07): Elah iOS 2.1.0 + Mac 1.3.0, Co-Stanza iOS+Mac 1.0, Sighting iOS+Mac 1.0, Plaintxt iOS 1.0.0 (4.3 concept verdict, parked). Next: `asc web review show --app <id> --plain-text` each, real fix, then resubmit or reply. Never resubmit unchanged. In review now: Melete, Pan, Echo, Bugle, Coda, Cartons, Nimble, Icelus, Machaon, Cyllene, Blackcomb iOS, Scrounger iOS. Revoke key SJRG5NNJUU after Cyllene review.
