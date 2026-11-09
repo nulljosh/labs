@@ -604,3 +604,6 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 
 ## Stashed 2026-11-07 (late)
 - [ ] 2026-11-07 late: new feature-specific replies sent and verified on all 6 threads of Elah, Co-Stanza, Sighting (one platform per app had never been answered; Horula and Atlin cleared 4.3 by reply alone). Oohaah was removed (Chatroulette-style, guideline 1.2). Rejections left (ledger pulled 2026-11-07): Elah iOS 2.1.0 + Mac 1.3.0, Co-Stanza iOS+Mac 1.0, Sighting iOS+Mac 1.0, Plaintxt iOS 1.0.0 (4.3 concept verdict, parked). Next: `asc web review show --app <id> --plain-text` each, real fix, then resubmit or reply. Never resubmit unchanged. In review now: Melete, Pan, Echo, Bugle, Coda, Cartons, Nimble, Icelus, Machaon, Cyllene, Blackcomb iOS, Scrounger iOS. Revoke key SJRG5NNJUU after Cyllene review.
+
+## Ingested 2026-11-08
+- [ ] dream: Cloudflare retires `@cf/qwen/qwen3-30b-a3b-fp8` (dream/interpret.js:5) on Workers AI on 2026-11-20. Move to `@cf/google/gemma-4-26b-a4b-it` or `@cf/qwen/qwen3.8-27b` before then, or /api/interpret returns 500.
