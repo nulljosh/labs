@@ -44,7 +44,7 @@ Old names live on in bundle ids, Pages projects and hosts after a rename. Check 
 | **sighting** | Lost/found pets (bundle `homeward`) · 6829546358 |
 | **costanza** | Poetry network · 6829546496 |
 | **cartons** | UPS tracker · 6825115360 |
-| **clearclock** | iOS Clock on web, iPhone and Mac (ex-Horula, Worker `clock`) · 6826916379 |
+| **tocks** | iOS Clock on web, iPhone and Mac (ex-Horula, Worker `clock`) · 6826916379 |
 | **keyrate** | Typing test, many ports · 6830043245 |
 | **homeqi**, **homeroom**, **dream**, **cadence**, **numen**, **weather**, **fieldbook**, **hormuz** | Small web apps |
 | **noema** | STEM lab, a lane per field, `./deploy.sh` |
