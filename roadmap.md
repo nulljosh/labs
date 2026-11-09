@@ -3,13 +3,14 @@
 Items without their own repo. Per-project work lives in each repo's `roadmap.md`.
 Header refreshed 2026-10-20; last pruned 2026-09-01 against live ASC + HTTP state, not against notes.
 
-## Ship queue (pulled from `asc` 2026-11-03)
+## Ship queue (pulled from `asc` 2026-11-08)
 Work in this order, one project at a time. Nothing is submitted or sent to Apple without Joshua's yes.
-1. **Drafts, one build and a yes from shipping:** Pan, Coda, Temida, Echo, Melete, Bugle (Mac and iOS both sit in PREPARE_FOR_SUBMISSION, check the iOS version number first, it looks like a leftover).
-2. **Rejected, read the reason, draft the nine-answer reply:** Blackcomb iOS, Cartons iOS, Co-Stanza, Cyllene iOS, Elah, Tocks, Plaintxt iOS, Sighting. Run `asc-login` first, Apple's web sign-in has been throttling. Sidewise iOS is retired, skip it.
-3. **Waiting on Apple, leave alone:** Keyrate 2.2.0 iOS and Mac (resubmitted 2026-11-06 after the 4.3 fix), Airwell iOS, Mailbag, Patois iOS, Scrounger iOS. In review: Eponym Mac, Gastown Mac.
-4. **Never reached the store:** Icelus has no Mac version. bbgd needs its address, socials, email and DNS, then `wrangler pages deploy`.
-5. **After that:** active features (Epiphany, Nimble, Patois, Icelus), then portfolio, then Joshua Tree, Turing, Vancouver Vice, Duke.
+1. **Waiting on Apple, leave alone:** Airwell iOS, Blackcomb iOS and Mac, Bugle iOS, Cartons iOS, Coda iOS, Cyllene iOS, Icelus Mac, Keyrate iOS and Mac, Mailbag iOS and Mac, Melete iOS, Pan iOS, Patois iOS, Plaintxt iOS, Scrounger iOS, Tocks iOS and Mac.
+2. **Rejected and answered, waiting on Apple's reply, send nothing more:** Co-Stanza, Elah, Sighting. All 4.3(a), with a 2.1 on the Co-Stanza and Sighting iPhone versions. Every thread got its reply on 2026-11-07. Reply again only to something Apple sends.
+3. **Plaintxt iOS is on its last try:** Apple asked for significant changes, and 1.1.0 (code keys, encoding and line endings, Shortcuts, new listing and screenshots) went in on 2026-11-08. If it bounces, drop iOS and stay Mac only, because repeat submissions slow every review on the account.
+4. **Store names still stale, locked until the version in review clears:** Pan (store Curvely), Coda (Quotestreak), Melete (Thinkpond), Echo (Notate), Bugle (Bugles). Rename on each app's next editable app info.
+5. **Never reached the store:** bbgd needs its address, socials, email and DNS, then `wrangler pages deploy`.
+6. **After that:** active features (Epiphany, Nimble, Patois, Icelus), then portfolio, then Joshua Tree, Turing, Vancouver Vice, Duke.
 
 Joshua only: give the App Store Connect API key the Sales role (that turns the revenue number from unknown to real), seller name, the people-search key, naming picks.
 
