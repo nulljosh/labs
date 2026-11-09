@@ -2,7 +2,7 @@
 // Runs on Cloudflare Workers AI, so there is no API key and nothing to bill.
 // ponytail: never log a request body here, not even in a catch. Dream text is the
 // most personal content in this codebase and a log line is a leak.
-const MODEL = "@cf/qwen/qwen3-30b-a3b-fp8";
+const MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
 const MAX_TEXT = 8000;
 const MAX_HISTORY_CHARS = 120000;
 
@@ -79,7 +79,7 @@ export async function onRequest({ request, env }) {
     out = await env.AI.run(MODEL, {
       messages: [
         { role: "system", content: SYSTEM },
-        { role: "user", content: `${user} /no_think` },
+        { role: "user", content: user },
       ],
       temperature: 0.4,
       max_tokens: 700,

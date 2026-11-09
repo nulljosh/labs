@@ -17,7 +17,7 @@ extra steps and there is no reason to use this app over Claude directly.
   hands every other path to the static assets in `web/`. **Pages was the obvious host and
   does not work here**, Pages config rejects the `unsafe` rate-limit binding, and an
   unthrottled public endpoint that bills Workers AI is worse than a slightly odd layout.
-- Model: `@cf/qwen/qwen3-30b-a3b-fp8` on Workers AI. **No API key, no paid provider**, the
+- Model: `@cf/meta/llama-3.3-70b-instruct-fp8-fast` on Workers AI. **No API key, no paid provider**, the
   user's standing call is that users don't get billed-for AI yet. Swapping to Anthropic later
   is one function body.
 - Storage: `localStorage` only. No accounts, no Supabase, nothing server-side. Supabase +
