@@ -171,6 +171,7 @@ final class Account {
             again = false
             do {
                 try await sendCounts()
+                await pullLeads()
                 try await pushChanges()
                 try await pull()
                 syncError = nil
@@ -180,6 +181,23 @@ final class Account {
                 return
             }
         } while again
+    }
+
+    /// Website leads become Lead cards, each one once, so deleting a card keeps it gone. Only the
+    /// shop owner's account may read leads; anyone else gets a 403 and skips this.
+    private func pullLeads() async {
+        guard let response = try? await request("GET", "/rest/bcgd_leads?select=*&order=created_at.desc&limit=100", nil),
+              let rows = response as? [[String: Any]] else { return }
+        var imported = Set(UserDefaults.standard.stringArray(forKey: "sync.leads") ?? [])
+        var jobs = store.jobs
+        let cutoff = Date().addingTimeInterval(-30 * 86400)   // a first sync should not bring in years of old enquiries
+        for row in rows.reversed() {
+            guard let id = row["id"] as? String, !imported.contains(id), let job = Job(lead: row), job.created > cutoff else { continue }
+            imported.insert(id)
+            jobs.insert(job, at: 0)
+        }
+        UserDefaults.standard.set(Array(imported), forKey: "sync.leads")
+        if jobs.count != store.jobs.count { store.jobs = jobs }
     }
 
     private func sendCounts() async throws {

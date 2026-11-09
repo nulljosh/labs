@@ -11,7 +11,7 @@ A plan, not promises. Each version is one thing Dad or his crew would notice. Sh
 - [ ] 2.1 shop accounts: start a shop, join code, shared stock and jobs (built, tested, waiting on 2.0)
 - [ ] 2.2 sign in with Apple next to email (server already verifies Apple id tokens)
 - [ ] 2.3 iOS back in the store once the 4.3(a) appeal clears, same build as the Mac
-- [ ] 2.4 website leads land on the jobs board as Lead cards (bcgd_leads is already on jaybulb-api)
+- [x] 2.4 website leads land on the jobs board as Lead cards, built 2026-11-08 and compiled for iPhone and Mac. Reaches the owner with the next build. Needs one real lead through the site to confirm.
 
 ### v3 and on
 

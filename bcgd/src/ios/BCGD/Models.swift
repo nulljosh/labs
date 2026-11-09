@@ -49,6 +49,21 @@ struct JobPart: Identifiable, Codable, Hashable {
     var quantity: Int
 }
 
+extension Job {
+    /// A row from the website's bcgd_leads table, or nil without a name and phone.
+    init?(lead row: [String: Any]) {
+        guard let name = row["name"] as? String, !name.isEmpty, let phone = row["phone"] as? String, !phone.isEmpty else { return nil }
+        self.init(customer: name)
+        if let id = (row["id"] as? String).flatMap(UUID.init(uuidString:)) { self.id = id }
+        let stamps = ISO8601DateFormatter()
+        stamps.formatOptions = [.withInternetDateTime, .withFractionalSeconds]   // what the API writes
+        if let stamp = row["created_at"] as? String, let date = stamps.date(from: stamp) { created = date }
+        detail = [phone, row["service"] as? String, row["message"] as? String]
+            .compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: "\n")
+        status = .lead
+    }
+}
+
 struct Job: Identifiable, Codable {
     var id = UUID()
     var customer: String
