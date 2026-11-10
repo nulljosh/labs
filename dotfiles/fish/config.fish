@@ -74,3 +74,10 @@ if test -f ~/.config/fish/secrets.fish
     source ~/.config/fish/secrets.fish
 end
 set -gx PATH /opt/homebrew/sbin $PATH
+
+# Caches go to the LaCie only while it is plugged in. As always-on universal
+# variables they broke npm and brew whenever the drive was unplugged.
+if test -d /Volumes/LaCie/Caches
+    set -gx npm_config_cache /Volumes/LaCie/Caches/npm
+    set -gx HOMEBREW_CACHE /Volumes/LaCie/Caches/Homebrew
+end
