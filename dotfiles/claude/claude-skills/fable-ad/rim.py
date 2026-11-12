@@ -15,7 +15,7 @@ SPEC (paths relative to the spec file):
   home     {image | fill, sky [top, horizon], focus, zoom, secs, walker true}   the bookend
   shots    [{image | video | fill | lines, sky [top, horizon], focus, zoom, full, secs, start}]
            full: true shows the picture edge to edge (it has its own curve, so no mask)
-           lines: [numbers]: one arc per number under the rim, labelled at the right (real repo numbers only)
+           lines: [numbers or "570 commits, Oct"]: one arc each under the rim, labelled at the right (real repo numbers only)
   beats    [secs, ...]                       default shot lengths, cycled (the measured ones if left out)
   name     {text, secs, colour}              the small name on the rim
   end      {mark, name, secs}                the mark beside the name, same spot, then the fade
@@ -52,7 +52,8 @@ def cover(img, focus, zoom, full):             # fill the frame; the focus point
     img = img.convert("RGB"); s = max(W / img.width, H / img.height) * zoom * 1.06
     img = img.resize((int(img.width * s) + 1, int(img.height * s) + 1), Image.LANCZOS)
     cy = H / 2 if full else (RIM + H) / 2; fx, fy = focus
-    return img, (min(max(0, int(fx * img.width - W / 2)), img.width - W), min(max(0, int(fy * img.height - cy)), img.height - H))
+    lo = 0 if full else -RIM                   # under the rim the picture may start lower than the frame top, so a screen's top can sit on the rim
+    return img, (min(max(0, int(fx * img.width - W / 2)), img.width - W), min(max(lo, int(fy * img.height - cy)), img.height - H))
 
 def clip(path, start, m, focus, zoom):         # m frames of a video from `start`, filling W x H around focus
     fx, fy = focus; z = max(1.0, zoom)
@@ -108,10 +109,13 @@ def emit(img):                                 # streamed, so length costs no me
     global count; enc.stdin.write(grain(img).tobytes()); count += 1
 def frames_until(t): return max(0, int(round(t * FPS)) - count)
 
+def glyph(mk, h):                              # a transparent mark becomes a silhouette in the name colour; an opaque icon stays as it is
+    mk = mk.convert("RGBA").resize((h, h), Image.LANCZOS)
+    if mk.getchannel("A").getextrema()[0] == 255: return mk
+    g = Image.new("RGBA", mk.size, INK + (0,)); g.putalpha(mk.getchannel("A")); return g
 walker = None
 if home.get("walker", True):                   # the traveller: the mark as a small silhouette in the name colour
-    wm = Image.open(P(e["mark"])).convert("RGBA"); wh = int(H * 0.045); wm = wm.resize((wh, wh), Image.LANCZOS)
-    walker = Image.new("RGBA", wm.size, INK + (0,)); walker.putalpha(wm.getchannel("A"))
+    walker = glyph(Image.open(P(e["mark"])), int(H * 0.045))
 def walk(f, x, t):
     if walker is None: return
     bob = abs(np.sin(t * 2 * np.pi * 1.6)) * H * 0.004
@@ -122,8 +126,7 @@ def label(f, text, mark, a):                   # the name, small, centred just a
     l, t, r, b = d.textbbox((0, 0), text, font=FONT); mh = int((b - t) * 1.35) if mark else 0; gap = int(mh * 0.35) if mark else 0
     x = (W - (mh + gap + r - l)) // 2; base_y = RIM - int(H * 0.045)
     if mark:
-        mk = Image.open(P(e["mark"])).convert("RGBA").resize((mh, mh), Image.LANCZOS)
-        tint = Image.new("RGBA", mk.size, INK + (0,)); tint.putalpha(mk.getchannel("A"))
+        tint = glyph(Image.open(P(e["mark"])), mh)
         layer.paste(tint, (x, base_y - mh + int(mh * 0.12)), tint)
     d.text((x + mh + gap - l, base_y - (b - t) - t), text, font=FONT, fill=INK)
     layer.putalpha(layer.getchannel("A").point(lambda v: int(v * a)))

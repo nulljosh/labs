@@ -21,9 +21,9 @@ Borrow the grammar, never the brand. Use the app's own palette, typeface and mar
 
 ## 2. Pick the shots (9, plus home)
 The Fable signature is that the curve belongs to the picture. Mix three kinds so it doesn't read as opus-ad slowed down:
-- Screens under the rim (`image`, with `sky` set to two palette colours). Set `focus` so the readable part of the screen lands below the rim. These go first, because the early shots are the longest.
+- Screens under the rim (`image`, with `sky` set to two palette colours). Set `focus` so the readable part of the screen lands below the rim; a low focus y (about 0.2) puts the top of the screen right on the rim. These go first, because the early shots are the longest.
 - Pictures with their own curve (`full: true`): a device edge, a close-up from Wikimedia Commons on the app's subject (public domain or CC-BY, credit it in the README), or the mark's own curve.
-- One chart shot (`lines`: one arc per real number, labelled), plus a flat palette colour or two near the end.
+- One chart shot (`lines`: one arc per real number, each a label like "570 commits, Oct" so it reads), plus a flat palette colour or two near the end.
 Home is the calmest frame you have, often a flat accent colour under a gradient sky. The traveller is the mark as a small silhouette.
 
 ## 3. Write the spec and render
