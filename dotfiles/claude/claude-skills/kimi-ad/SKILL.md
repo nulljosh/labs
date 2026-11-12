@@ -8,6 +8,7 @@ description: Make a 20-second wordless launch teaser in the grammar of the Kimi 
 Reports on the Kimi K3 teaser (Moonshot, July 2026) describe the grammar: wordless, built around the number of the
 release, a glossy montage of diagrams, geometric shapes and magnetic field lines, ending on the name. Borrow the
 grammar, never the brand: the app's own colours, typeface and mark. The first one made was Kernel 20 (spec kernel/ad/kernel-20-field.json).
+Sibling styles: `/opus-ad` (the rim and accelerating cuts) and `/fable-ad` (calm: one horizon, steady cuts, a bookend).
 
 ## Show the app (Joshua, 2026-10-30)
 Lines alone are not a commercial. Every film shows the app's real screens: five screenshots in `shots`, current UI

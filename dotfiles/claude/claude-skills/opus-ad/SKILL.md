@@ -5,7 +5,7 @@ description: Make a short launch film in the grammar of Anthropic's Opus 5.5 ad,
 
 # /opus-ad
 
-Two house styles: this one (the rim and fast cuts) and `/kimi-ad` (wordless: field lines, bars, one number, the app's screens in the geometry). Joshua picked the kimi cut for Kernel 20. Either way the film shows the real app: no shot is only shapes or flat colour for long, and the best screenshots go first.
+Three house styles: this one (the rim and fast cuts), `/kimi-ad` (wordless: field lines, bars, one number, the app's screens in the geometry) and `/fable-ad` (calm: steady cuts under one horizon, a bookend, a small name). Joshua picked the kimi cut for Kernel 20. Either way the film shows the real app: no shot is only shapes or flat colour for long, and the best screenshots go first.
 
 The reference is Anthropic's Opus 5.5 film (x.com/claudeai/status/2102435511222890900, 20 s), measured: 37 cuts, a D sub-bass under a D major 9 bell motif. Its grammar:
 - One shape, matched across every cut: a curved horizon at the same height, with a different world under it each time.
