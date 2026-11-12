@@ -64,11 +64,11 @@ def clip(path, start, m, focus, zoom):         # m frames of a video from `start
     return fr + [fr[-1]] * (m - len(fr))
 
 def lines(nums, fg, bg):                       # the chart shot: one arc per real number, stacked under the rim, labelled
-    f = Image.new("RGB", (W, H), rgb(bg)); d = ImageDraw.Draw(f); small = FONT.font_variant(size=int(H * 0.022))
+    f = Image.new("RGB", (W, H), rgb(bg)); d = ImageDraw.Draw(f); small = FONT.font_variant(size=int(H * 0.04))
     gap = (H - RIM) / (len(nums) + 1)
     for i, v in enumerate(nums):
         top = RIM + gap * (i + 0.6)
-        d.ellipse([W / 2 - R, top, W / 2 + R, top + 2 * R], outline=rgb(fg), width=3)
+        d.ellipse([W / 2 - R, top, W / 2 + R, top + 2 * R], outline=rgb(fg), width=5)
         lab = f"{v:,}" if isinstance(v, (int, float)) else str(v)
         x = W * 0.86; d.text((x, rim_y(x) - RIM + top - H * 0.035), lab, font=small, fill=rgb(fg))
     return f
