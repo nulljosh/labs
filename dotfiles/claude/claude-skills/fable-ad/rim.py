@@ -71,7 +71,7 @@ def lines(nums, fg, bg):                       # the chart shot: one arc per rea
         top = RIM + gap * (i + 0.6)
         d.ellipse([W / 2 - R, top, W / 2 + R, top + 2 * R], outline=rgb(fg), width=5)
         lab = f"{v:,}" if isinstance(v, (int, float)) else str(v)
-        x = W * 0.86; d.text((x, rim_y(x) - RIM + top - H * 0.035), lab, font=small, fill=rgb(fg))
+        x = W * 0.96 - d.textlength(lab, font=small); d.text((x, rim_y(x) - RIM + top - H * 0.035), lab, font=small, fill=rgb(fg))
     return f
 
 GRAIN = float(S.get("grain", 0.2)); _rng = np.random.default_rng(1)
