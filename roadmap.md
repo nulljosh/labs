@@ -606,3 +606,10 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] 2026-11-07 late: new feature-specific replies sent and verified on all 6 threads of Elah, Co-Stanza, Sighting (one platform per app had never been answered; Horula and Atlin cleared 4.3 by reply alone). Oohaah was removed (Chatroulette-style, guideline 1.2). Rejections left (ledger pulled 2026-11-07): Elah iOS 2.1.0 + Mac 1.3.0, Co-Stanza iOS+Mac 1.0, Sighting iOS+Mac 1.0, Plaintxt iOS 1.0.0 (4.3 concept verdict, parked). Next: `asc web review show --app <id> --plain-text` each, real fix, then resubmit or reply. Never resubmit unchanged. In review now: Melete, Pan, Echo, Bugle, Coda, Cartons, Nimble, Icelus, Machaon, Cyllene, Blackcomb iOS, Scrounger iOS. Revoke key SJRG5NNJUU after Cyllene review.
 
 ## Ingested 2026-11-08
+
+## Ingested 2026-11-13
+- [ ] "Why is oohaah on asc" and "Sidewise: why is it still on App Store Connect". Both projects are gone but their records remain. Same fix as the orphan records below: remove from sale, turn off new territories in the dashboard, then `asc web apps delete`.
+- [ ] GitHub / portfolio cleanup: keeps approaching 50 repos and probably 20 listed projects. Make a shortcut or skill for this if one doesn't exist, and get it down to 20 to 30 max.
+- [ ] Confirm we have a skill for refreshing a GitHub repo's description and URL, and one for cleaning messy repos (loose files, extra markdowns). `/tidy` covers the second. Nothing covers the first yet.
+- [ ] GitHub starred: create a skill that scans the repos we have starred on GitHub and ingests them into the wiki, then how we could integrate them.
+- [ ] sync: create a skill for syncing our repos. "Like how can our apps connect better." Question for Joshua: shared sign-in and data across apps, or keeping repo files in step?
