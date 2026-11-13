@@ -23,3 +23,6 @@ bookrank, homeward.
 assessment, so there is real state an agent could read and write
 (`get_assessment` / `answer_question`). Worth a second look, not urgent.
 - [ ] native (kmp) port — sibling apps have one, this doesn't (project-sync 2026-09-05)
+
+## Ingested 2026-11-13
+- [ ] Needs to be an app, not a list or a questionnaire.
