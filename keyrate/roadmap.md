@@ -82,3 +82,6 @@ Apple login and 2FA, Play sign-in, signing and notarizing, store submits, postin
 
 ## Ingested 2026-11-03
 - [x] Build issues email (Nov 2): orientations already in project.yml (b3ee817), build bumped to 5 for the next upload; 2.0.0 iOS+Mac stay WAITING_FOR_REVIEW on build 4
+
+## Ingested 2026-11-13
+- [ ] Note was the title only ("Keyrate"), written in a run of App Review status checks. Report its review status. Last known (root roadmap, 2026-11-08): waiting on Apple. Could not re-pull today: the asc API is blocked by an unaccepted Apple agreement (see vault blocked-on-joshua.md).
