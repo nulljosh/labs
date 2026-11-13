@@ -24,7 +24,7 @@ Old names live on in bundle ids, Pages projects and hosts after a rename. Check 
 | **melete** | Idea feed (Pages `sparkjar`) · 6785162492 |
 | **mailbag** | Inbox zero in one button · 6811141466 |
 | **kernel** | Chapter summaries (bundle `com.heyitsmejosh.spine`) · 6792376485 |
-| **pan** | Desmos-style grapher (store Curvely) · 6794988370 |
+| **pan** | Desmos-style grapher (store Conics since 2026-11-13, repo still Pan) · 6794988370 |
 | **icelus** | Describe a screen, it takes shape (Pages `wiretext`) · 6794988951 |
 | **elah** | Nine public domain Bibles offline · 6829146794 |
 | **cyllene** | Mac and iPhone App Store Connect app · 6829353117 |
