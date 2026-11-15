@@ -43,3 +43,6 @@ Free plan, Avatar IV from `video/brian-start.jpg`, stock voice Hale. Joshua's gr
 ## Parked
 - Pricing and the monthly offer, until Dad has seen the samples.
 - Carousel as a video.
+
+## Ingested 2026-11-14
+- [ ] (Note "Bcgd socials") Our posts are too mono style, they all just have the logo and content. Change it up more. Joshua asks: what do you suggest? Instagram grid: ~/Documents/Code/notes/attachments/2026-11-14/bcgd-socials-1.png

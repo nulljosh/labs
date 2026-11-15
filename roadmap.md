@@ -613,3 +613,12 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] Confirm we have a skill for refreshing a GitHub repo's description and URL, and one for cleaning messy repos (loose files, extra markdowns). `/tidy` covers the second. Nothing covers the first yet.
 - [ ] GitHub starred: create a skill that scans the repos we have starred on GitHub and ingests them into the wiki, then how we could integrate them.
 - [ ] sync: create a skill for syncing our repos. "Like how can our apps connect better." Question for Joshua: shared sign-in and data across apps, or keeping repo files in step?
+
+## Ingested 2026-11-14
+- [ ] (Note "Pull request") Check GitHub for pull requests and handle them all, probably stale. Make a skill for it too. As of 2026-11-14: 3 open, all joshuatree (loop handoff 13.3.1, 13.4.0 to 13.5.0, 13.3.0).
+- [ ] (Note "Tech crunch") Make mockup TechCrunch-style articles for each shipped product, then a skill for it. Keep them in our own styling, no TechCrunch branding if they are ever published.
+- [ ] (Note "Producthunt") Update the Product Hunt posts (the `launch` skill), post any that are missing, update screenshots etc.
+- [ ] (Note "Twitter") Posts about products are stale and some products are missing. Needs an update and a skill (`launch` covers X posts; extend it).
+- [ ] (Note "Skills") Clean up skills, merge what we can, and organize them somehow.
+- [ ] (Note "Mobbin") A skill like `mobbin` that researches landing pages of projects similar to this one and then integrates them. Confirm the skill name, then run it.
+- [ ] (Note "Sidewise") Sidewise is still on App Store Connect, super stale, should be deleted (it became Bugle). Same with oohaah. Steps from the orphan block above: remove from sale, turn off "Available in new territories" in the dashboard, then `asc web apps delete`.
