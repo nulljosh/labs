@@ -1,29 +1,30 @@
-# Doorstock loop handoff (2026-10-21, 23:13 PDT)
+# Doorstock loop handoff (2026-11-15, 18:38)
 
 ## What the loop is
 
-The QA and submit loop for Doorstock, the stock and jobs app for Best Choice Garage Doors (ASC app 6791106082). It walks every screen and function of the iPhone app (src/ios, run on the simulator) and the Mac app (src/macos), keeps screenshots, and fixes what it finds until the UI reads as A+. Each tick it also checks whether Mac 2.0 has cleared App Review, and submits 4.0 once the slot is free. Joshua gives the yes on any Apple submission; the loop never answers Apple on its own. Usage-conscious: no subagents, small steps.
+The QA and submit loop for Doorstock, the stock and jobs app for Best Choice Garage Doors (ASC app 6791106082). It walks every screen and function of the iPhone app (src/ios, run on the simulator) and the Mac app (src/macos), keeps screenshots, and fixes what it finds until the UI reads as A+. It submits a build only on Joshua's yes. The loop never answers Apple on its own. Usage-conscious: no subagents, small steps.
 
 ## Where things stand
 
-- Mac 2.0 (build 202610211815, Jony Ive pass: tiles, jobs board, status track; no accounts) is WAITING_FOR_REVIEW. Apple takes one pending Mac version at a time, so nothing else goes to Mac review until it clears.
-- Doorstock 3.0 Today tab is built and pushed on Mac and iPhone: each tech's jobs in time order, a Route in Maps button on each job, parts to load with shortages in red.
-- Doorstock 4.0 is built and pushed on Mac and iPhone, not submitted: the owner assigns a job to a crew member, and it sorts first on that person's Today tab.
-- Shop accounts are live on jaybulb-api (src/doorstock.js, tested by test/doorstock.mjs). Local QA runs `wrangler dev --local` and launches the apps with `-apiBase http://127.0.0.1:8799` (plus `-skipLock YES` on iOS).
+- Mac 2.0 is live on the Mac App Store (cleared review 2026-11-01).
+- Mac 4.0 is built and pushed on Mac and iPhone, not submitted. It has the Today tab (3.0), the crew assign (4.0), and this session's spec gaps: torsion spring fields (wire size, inside diameter, length, left or right wind) with a cost on every part; "Scan a label", which reads a part box with the camera and opens the part it names or fills in a new one; and Settings > For the accountant, a monthly CSV of parts used on completed jobs with cost. Two part-editor bugs are fixed too: a crewmate's stock change no longer gets undone on save, and typed numbers are no longer lost.
+- The label scanner has never run on a phone. The simulator has no camera, so its patterns are untested on real spring boxes.
 - iPhone is still held under the 4.3(a) appeal. Do not resubmit the rejected build.
-- QA so far: every iPhone screen was walked on the simulator, screenshots are in docs/SCREENS.md, and storyboard.svg was redrawn with the Today tab. Not yet tested: the assign picker (needs a signed-in shop) and the Mac window.
-- Dashboard (src/dashboard) looks sparse now that Today has moved out of it.
+- Garage Cam is a prototype in the labs repo at bcgd/prototypes/garage-cam. It is not in the app yet.
+- Older-build risk: the server swaps a part's whole record on edit, so an old build editing a part wipes its spring specs and cost. Keep old builds out of shops until this is fixed (see bcgd/roadmap.md).
 
 ## Next, in order
 
-1. When Mac 2.0 clears review, submit Mac 4.0 (Joshua's yes first), then tag it.
-2. QA the assign picker against a local Worker (`-apiBase http://127.0.0.1:8799`): assign a job, confirm it sorts first on the crew member's Today tab.
-3. Mac screenshots and a walk of the Mac window, same bar as the iPhone pass.
-4. Fill the Dashboard so it is not sparse since Today moved out.
-5. Keep the iPhone screens at A+ as they are touched; nothing goes to the store while the 4.3(a) appeal is open.
+1. Joshua scans a real spring box label with an iPhone. Tune the patterns in Scan.swift to the labels the shop actually gets.
+2. Fix the older-build field-wipe risk: merge fields in doorstock.js, or require 4.0 for shops.
+3. On Joshua's yes, submit Mac 4.0 and tag it.
+4. Once the Garage Cam has footage, wire it into the app so it can add or open parts. Joshua brings resources for it tomorrow.
+5. QA the assign picker against a local Worker (`-apiBase http://127.0.0.1:8799`): assign a job, confirm it sorts first on the crew member's Today tab. Then walk the Mac window at the same bar as the iPhone pass.
+6. Fill the Dashboard, which looks sparse since Today moved out of it.
+7. Keep the iPhone screens at A+ as they are touched. Nothing goes to the store while the 4.3(a) appeal is open.
 
 ## Restart prompt
 
 ```
-/loop QA every screen and function of bcgd Doorstock (src/ios on iPhone sim, src/macos) with screenshots; fix issues until the UI is A+ (feedback_a_plus_bar, apple skill rules); also each tick check if Mac 2.0 cleared review (asc app 6791106082) and submit 4.0 when free. Usage-conscious, no subagents, small steps.
+/loop QA every screen and function of bcgd Doorstock (src/ios on iPhone sim, src/macos) with screenshots; fix issues until the UI is A+ (feedback_a_plus_bar, apple skill rules). Check the open items in bcgd/roadmap.md first, starting with the label scan test and the older-build wipe risk. Submit Mac 4.0 only on Joshua's yes (asc app 6791106082). Usage-conscious, no subagents, small steps.
 ```

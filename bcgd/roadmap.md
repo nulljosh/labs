@@ -7,13 +7,10 @@
 A plan, not promises. Each version is one thing Dad or his crew would notice. Ship in order, one in review at a time.
 
 ### v2: the shop (now)
-- [x] (11-01: Mac 2.0 live; iOS is still 1.0, no 2.0 iOS version exists) 2.0 clears review (in review now: tiles, jobs board, status track, tab fix)
 - [ ] 2.1 shop accounts: start a shop, join code, shared stock and jobs (built, tested, waiting on 2.0)
 - [ ] 2.2 sign in with Apple next to email (server already verifies Apple id tokens)
 - [ ] 2.3 iOS back in the store once the 4.3(a) appeal clears, same build as the Mac
-- [x] 2.4 website leads land on the jobs board as Lead cards, built 2026-11-08 and compiled for iPhone and Mac. Reaches the owner with the next build. Needs one real lead through the site to confirm.
 
-- [x] 2026-11-15 MVP spec gaps closed, joins the unsubmitted 4.0 on iPhone and Mac: spring fields (wire, inside diameter, length, left/right wind) plus a cost on every part; "Scan a label" reads a box or tag with the camera, opens the part it names or a new one filled in; Settings > For the accountant exports one month of parts used on completed jobs with cost (CSV, ISO dates, plain numbers). Check: `src/ios/checks/main.swift`.
 - [ ] Try "Scan a label" on a real spring box on a phone; the simulator has no camera. Tune the patterns in `Scan.swift` to the labels the shop actually gets.
 - [ ] Before older builds join a shop: the server swaps a part's whole JSON on edit, so an old build editing a part wipes its spring specs and cost. Either merge fields in `doorstock.js` or require 4.0 for shops.
 - [ ] Web dashboard (`src/dashboard`) still has none of the three, it keeps its own local copy and is not on shop sync.
@@ -307,10 +304,8 @@ Two gotchas hit on the way, both worth remembering:
   rejected submission's item resolved (`asc review items update --id <ITEM> --resolved true`),
   then `asc review submissions-submit --id f1e5b07b… --confirm` re-submits the original.
 
-- [x] (11-01: superseded, Doorstock iOS 1.0 is live) iOS rejected 4.3(a) Spam 2026-08-26. Appeal draft: ~/Documents/Code/notes/appeal-4-3-spam.md (Resolution Center, web only).
 
 ## From Notes (imported 2026-08-27)
-- [x] (11-01: superseded, iOS 1.0 is live) App Review flagged **Doorstock 1.0 for iOS** (submitted Aug 27 2026 01:22 PM PDT, submission `f1e5b07b-e414-4fb4-b484-780d25a18f90`). Get the reason via `asc web review show`, fix, resubmit.
 
 ### 4.3(a) status, verified 2026-08-27
   - Doorstock iOS 1.0 REJECTED on **two separate violations**: Guideline 3.2 (Business, reviewed as an internal app for one garage-door company), then **Guideline 4.3(a) Design: Spam** on the same-day resubmit after the de-brand to "Doorstock". Two appeals, both unfiled.
