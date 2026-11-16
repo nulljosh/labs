@@ -554,7 +554,7 @@ Recipe per page, one repo at a time, verify before deploy:
 
 Done: plank, keyrate.
 Queue (real marketing landings with a cf deploy): bookrank, breathe (windgate), cadence, conveyer, costanza, dream, fieldbook, homeroom, hormuz, inkpress, madobe, nimble (docs/), notate (docs/), nyc, plain, pwnlingo, quotestreak, seamark, sidewise, siftbox, sparkjar, swing, tripwire, weather, wordroot, homeqi, lexly, conway, curbfind (hero is the blurred app, adapt gently).
-Skip: joshuatree and turing (already the pattern's parents), joshuatree-* worktrees, tiny index.html app roots (blockframe, curvely, epiphany, healstack, numen, talli, roost, monocode), journal, notes, plan, canlii-app, logans-frenchies, nulljosh.github.io, vancouvervice, gato, litigate.
+Skip: joshuatree and turing (already the pattern's parents), joshuatree-* worktrees, tiny index.html app roots (blockframe, curvely, epiphany, healstack, numen, talli, roost, monocode), journal, notes, plan, logans-frenchies, nulljosh.github.io, vancouvervice, gato, litigate.
 Budget note: each conversion is roughly 3 to 5 percent of a session window when done in the main session. Route batches of five to one Sonnet subagent at a time, 15 minute cap, never a fan-out.
 
 ## Ingested 2026-10-01

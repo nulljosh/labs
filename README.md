@@ -8,7 +8,7 @@
 
 **Tools:** [hormuz](./hormuz), [keyrate](./keyrate), [weather](./weather), [authmail](./authmail), [dotfiles](./dotfiles), [scripts](./scripts)
 
-**Experiments:** [bank](./bank), [credis](./credis), [canlii-app](./canlii-app), [agent-101](./agent-101), [video-speed-ext](./video-speed-ext)
+**Experiments:** [bank](./bank), [credis](./credis), [agent-101](./agent-101), [video-speed-ext](./video-speed-ext)
 
 **Notes to self:** [plan](./plan), [launch](./launch) (post drafts), [runs](./runs) (one folder per session worth keeping)
 

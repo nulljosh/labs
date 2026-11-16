@@ -6,7 +6,7 @@
 Mac Mini M4, Python 3.14, Node 24, xcodegen. Use the `asc` CLI, never the App Store Connect dashboard.
 
 ## Repos
-`~/Documents/Code` is the `labs` repo. Plain folders in it, no repo of their own: bcgd, bbgd (second garage-door site, not deployed), homeqi, dream, cadence, fieldbook, hormuz, keyrate, weather, authmail, dotfiles, scripts, plan, runs, launch (post drafts), and the experiments bank, credis, canlii-app, agent-101, video-speed-ext. Everything else is its own repo in a same-named folder, gitignored here. Labs CI is `.github/workflows/<name>-*.yml`. Private side projects live in `vault/`. `_attic/` and `_external/` are never pushed.
+`~/Documents/Code` is the `labs` repo. Plain folders in it, no repo of their own: bcgd, bbgd (second garage-door site, not deployed), homeqi, dream, cadence, fieldbook, hormuz, keyrate, weather, authmail, dotfiles, scripts, plan, runs, launch (post drafts), and the experiments bank, credis, agent-101, video-speed-ext. Everything else is its own repo in a same-named folder, gitignored here. Labs CI is `.github/workflows/<name>-*.yml`. Private side projects live in `vault/`. `_attic/` and `_external/` are never pushed.
 
 Root stays small: this file, `README.md`, `roadmap.md`, `GTM.md`, `REVENUE.md`, `SHIPPING.md`, `README-TEMPLATE.md`, the two svgs and `LICENSE`. Session handoffs go in `runs/<date>-<name>/`, dead prompts and logs in `_attic/`. Nothing else lives loose at the root.
 
@@ -58,7 +58,7 @@ Old names live on in bundle ids, Pages projects and hosts after a rename. Check 
 ### Sites and infra
 **nulljosh.github.io** (portfolio, jaybulb.com), **journal** (Jekyll), **notes** (Obsidian source), **brain** (RAG), **jaybulb-api** (Worker on D1/KV: sign-in, data, mail), **authmail** (Resend mail Worker), **tripwire** (CI fixer), **homebrew-tap** (`brew install nulljosh/tap/...`), **dotfiles** (shell, skills).
 
-Gone, don't mention: sidewise, seamark, conveyer, gato, systems, beep, missing-pets, abraham, code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay, oohaah.
+Gone, don't mention: sidewise, seamark, conveyer, gato, systems, beep, missing-pets, abraham, canlii-app (lives in temida), code-meta, charters, nimble-web, uprighty, life, school/lingo/parlay, oohaah.
 
 ## Ship status
 A 4.3(a) spam wave hit 7 apps twice. Reply with the nine answers, never resubmit unchanged, send nothing without Joshua's yes. Book apps get a vague 2.1 unless you drop CHN. The ledger is `wiki/pages/asc-status.md` in the vault: regenerate it, don't trust it. The live queue (what is rejected, drafted, waiting) is the top of `roadmap.md`, pulled from `asc` on 2026-11-03.
