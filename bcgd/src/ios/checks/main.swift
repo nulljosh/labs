@@ -42,6 +42,9 @@ import Foundation
         let old = #"{"parts":[{"id":"\#(UUID())","name":"Roller","category":"Rollers","quantity":4,"lowStockThreshold":2}],"jobs":[{"id":"\#(UUID())","customer":"Old","stockDeducted":true}]}"#
         let saved = Saved.decode(Data(old.utf8))
         assert(saved?.parts.first?.wire == nil && saved?.jobs.first?.completed == nil)
+        // Typed numbers
+        assert(decimal("12,99") == 12.99 && decimal("$12.50") == 12.5 && decimal(".225") == 0.225 && decimal(" 24\" ") == 24)
+        assert(decimal("") == nil && decimal("abc") == nil && decimal("-3") == nil)
         print("doorstock checks passed")
     }
 }

@@ -51,7 +51,7 @@ struct SettingsView: View {
                             .buttonBorderShape(.capsule)
                         }
                         .cardBackground()
-                        Text("Parts used on completed jobs that month, with cost. Opens in QuickBooks or any spreadsheet.")
+                        Text("Parts used on completed jobs that month, with cost. Opens in any spreadsheet, ready for your accountant.")
                             .font(.footnote).foregroundStyle(.secondary)
                     }
                     Shelf("Data", symbol: "externaldrive") {

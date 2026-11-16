@@ -147,7 +147,22 @@ struct PartTile: View {
 struct PartEditor: View {
     @Environment(Store.self) private var store
     @Environment(\.dismiss) private var dismiss
-    @State var part: Part
+    @State private var part: Part
+    // Number fields edit as text: a value-format TextField only commits on Return, which a decimal pad lacks.
+    @State private var cost: String
+    @State private var wire: String
+    @State private var diameter: String
+    @State private var length: String
+    private let opened: Int   // the count when the editor opened, so a crewmate's change meanwhile isn't undone
+
+    init(part: Part) {
+        _part = State(initialValue: part)
+        _cost = State(initialValue: part.costCents.map(money) ?? "")
+        _wire = State(initialValue: part.wire.map(Part.wireText) ?? "")
+        _diameter = State(initialValue: part.insideDiameter.map { String(format: "%g", $0) } ?? "")
+        _length = State(initialValue: part.length.map { String(format: "%g", $0) } ?? "")
+        opened = part.quantity
+    }
 
     private var isNew: Bool { store.part(part.id) == nil }
 
@@ -159,17 +174,13 @@ struct PartEditor: View {
                     TextField("Category", text: $part.category)
                     Stepper("On the shelf: \(part.quantity)", value: $part.quantity, in: 0...999)
                     Stepper("Low stock at: \(part.lowStockThreshold)", value: $part.lowStockThreshold, in: 0...99)
-                    TextField("Cost each", value: Binding(
-                        get: { part.costCents.map { Double($0) / 100 } },
-                        set: { part.costCents = $0.map { max(0, Int(($0 * 100).rounded())) } }
-                    ), format: .currency(code: Locale.current.currency?.identifier ?? "CAD"))
-                    .decimalKeyboard()
+                    numberField("Cost each", $cost, hint: "0.00")
                 }
                 if part.isSpring {
                     Section("Spring") {
-                        inchField("Wire size", $part.wire, places: 3)
-                        inchField("Inside diameter", $part.insideDiameter, places: 3)
-                        inchField("Length", $part.length, places: 2)
+                        numberField("Wire size", $wire, hint: "inches")
+                        numberField("Inside diameter", $diameter, hint: "inches")
+                        numberField("Length", $length, hint: "inches")
                         Picker("Wind", selection: $part.wind) {
                             Text("Not set").tag(Wind?.none)
                             Text("Left").tag(Wind?.some(.left))
@@ -191,9 +202,9 @@ struct PartEditor: View {
         }
     }
 
-    private func inchField(_ title: String, _ value: Binding<Double?>, places: Int) -> some View {
+    private func numberField(_ title: String, _ text: Binding<String>, hint: String) -> some View {
         LabeledContent(title) {
-            TextField("inches", value: value, format: .number.precision(.fractionLength(0...places)))
+            TextField(hint, text: text)
                 .multilineTextAlignment(.trailing)
                 .decimalKeyboard()
         }
@@ -201,9 +212,14 @@ struct PartEditor: View {
 
     private func save() {
         if part.category.isEmpty { part.category = "Other" }
+        part.costCents = decimal(cost).map { max(0, Int(($0 * 100).rounded())) }
+        // Fields stay hidden but kept if the category changes away from springs.
+        part.wire = decimal(wire)
+        part.insideDiameter = decimal(diameter)
+        part.length = decimal(length)
         if let i = store.parts.firstIndex(where: { $0.id == part.id }) {
             // The count moves through adjust so history and the shop's shared count both see it.
-            let delta = part.quantity - store.parts[i].quantity
+            let delta = part.quantity - opened
             var edited = part
             edited.quantity = store.parts[i].quantity
             store.parts[i] = edited

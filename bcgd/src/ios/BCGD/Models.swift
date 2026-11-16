@@ -56,6 +56,12 @@ enum Wind: String, Codable, CaseIterable {
 /// Cents as `12.50`, never localized, so a CSV stays a CSV on a French-Canadian phone.
 func money(_ cents: Int) -> String { String(format: "%d.%02d", cents / 100, cents % 100) }
 
+/// What someone typed in a number field: "$12.50", "12,99", ".225". Empty or junk is nil.
+func decimal(_ typed: String) -> Double? {
+    let s = typed.trimmingCharacters(in: .whitespaces.union(CharacterSet(charactersIn: "$\""))).replacingOccurrences(of: ",", with: ".")
+    return Double(s).flatMap { $0.isFinite && $0 >= 0 ? $0 : nil }
+}
+
 enum JobStatus: String, Codable, CaseIterable {
     case lead = "Lead"
     case quote = "Quote"
