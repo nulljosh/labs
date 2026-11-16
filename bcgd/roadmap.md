@@ -13,7 +13,12 @@ A plan, not promises. Each version is one thing Dad or his crew would notice. Sh
 - [ ] 2.3 iOS back in the store once the 4.3(a) appeal clears, same build as the Mac
 - [x] 2.4 website leads land on the jobs board as Lead cards, built 2026-11-08 and compiled for iPhone and Mac. Reaches the owner with the next build. Needs one real lead through the site to confirm.
 
-### v3 and on
+- [x] 2026-11-15 MVP spec gaps closed, joins the unsubmitted 4.0 on iPhone and Mac: spring fields (wire, inside diameter, length, left/right wind) plus a cost on every part; "Scan a label" reads a box or tag with the camera, opens the part it names or a new one filled in; Settings > For the accountant exports one month of parts used on completed jobs with cost (CSV, ISO dates, plain numbers). Check: `src/ios/checks/main.swift`.
+- [ ] Try "Scan a label" on a real spring box on a phone; the simulator has no camera. Tune the patterns in `Scan.swift` to the labels the shop actually gets.
+- [ ] Before older builds join a shop: the server swaps a part's whole JSON on edit, so an old build editing a part wipes its spring specs and cost. Either merge fields in `doorstock.js` or require 4.0 for shops.
+- [ ] Web dashboard (`src/dashboard`) still has none of the three, it keeps its own local copy and is not on shop sync.
+
+
 
 The rest of the plan (v3 to v100) lives in the wiki page bcgd.md under Someday.
 

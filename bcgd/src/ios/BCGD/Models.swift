@@ -25,9 +25,36 @@ struct Part: Identifiable, Codable {
     var category: String
     var quantity: Int
     var lowStockThreshold: Int = 2
+    // Everything below is optional: a non-optional key would fail to decode older saves and synced rows,
+    // and a part that fails to decode on pull is dropped from the shelf.
+    var costCents: Int? = nil
+    var wire: Double? = nil            // torsion spring specs, inches
+    var insideDiameter: Double? = nil
+    var length: Double? = nil
+    var wind: Wind? = nil
 
     var isLowStock: Bool { quantity <= lowStockThreshold }
+    var isSpring: Bool { category.localizedCaseInsensitiveContains("spring") }
+
+    /// `.225 × 2" ID × 24" LH`, or nil when no spring specs are set.
+    var specs: String? {
+        let bits = [wire.map(Part.wireText), insideDiameter.map { Part.inches($0) + " ID" }, length.map(Part.inches), wind?.rawValue].compactMap { $0 }
+        return bits.isEmpty ? nil : bits.joined(separator: " × ")
+    }
+
+    static func wireText(_ w: Double) -> String {
+        let s = String(format: "%.3f", w)
+        return s.hasPrefix("0") ? String(s.dropFirst()) : s
+    }
+    static func inches(_ v: Double) -> String { String(format: "%g", v) + "\"" }
 }
+
+enum Wind: String, Codable, CaseIterable {
+    case left = "LH", right = "RH"
+}
+
+/// Cents as `12.50`, never localized, so a CSV stays a CSV on a French-Canadian phone.
+func money(_ cents: Int) -> String { String(format: "%d.%02d", cents / 100, cents % 100) }
 
 enum JobStatus: String, Codable, CaseIterable {
     case lead = "Lead"
@@ -47,6 +74,7 @@ struct JobPart: Identifiable, Codable, Hashable {
     var id: UUID { partID }
     var partID: UUID
     var quantity: Int
+    var unitCostCents: Int? = nil   // the part's cost when the job was completed
 }
 
 extension Job {
@@ -75,6 +103,7 @@ struct Job: Identifiable, Codable {
     var assignee: String? = nil   // shop member id; nil = anyone
     var parts: [JobPart] = []
     var stockDeducted = false
+    var completed: Date? = nil
 
     init(customer: String) { self.customer = customer }
 
@@ -92,6 +121,7 @@ struct Job: Identifiable, Codable {
         assignee = try c.decodeIfPresent(String.self, forKey: .assignee)
         parts = try c.decodeIfPresent([JobPart].self, forKey: .parts) ?? []
         stockDeducted = try c.decodeIfPresent(Bool.self, forKey: .stockDeducted) ?? false
+        completed = try c.decodeIfPresent(Date.self, forKey: .completed)
     }
 
     var isToday: Bool { scheduled.map(Calendar.current.isDateInToday) ?? false }
@@ -217,8 +247,14 @@ final class Store {
     func advance(_ jobID: UUID) {
         guard let i = jobs.firstIndex(where: { $0.id == jobID }), let next = jobs[i].status.next else { return }
         if next == .complete && !jobs[i].stockDeducted {
-            for p in jobs[i].parts { adjust(p.partID, by: -p.quantity, reason: "Job: \(jobs[i].customer)") }
-            jobs[i].stockDeducted = true
+            var job = jobs[i]
+            for k in job.parts.indices {
+                job.parts[k].unitCostCents = part(job.parts[k].partID)?.costCents
+                adjust(job.parts[k].partID, by: -job.parts[k].quantity, reason: "Job: \(job.customer)")
+            }
+            job.stockDeducted = true
+            job.completed = Date()
+            jobs[i] = job
         }
         jobs[i].status = next
     }
@@ -232,9 +268,36 @@ final class Store {
 
     var csv: String {
         let esc = { (s: String) in "\"" + s.replacingOccurrences(of: "\"", with: "\"\"") + "\"" }
-        return (["Name,Category,Quantity,Low stock at"] + parts.map {
-            "\(esc($0.name)),\(esc($0.category)),\($0.quantity),\($0.lowStockThreshold)"
+        return (["Name,Category,Quantity,Low stock at,Cost each"] + parts.map {
+            "\(esc($0.name)),\(esc($0.category)),\($0.quantity),\($0.lowStockThreshold),\($0.costCents.map(money) ?? "")"
         }).joined(separator: "\n")
+    }
+
+    /// Parts used on jobs completed in `month`, one row per part per job, oldest first.
+    /// Plain numbers, ISO dates and no totals row, so QuickBooks or a spreadsheet imports it as is.
+    static func accountantCSV(jobs: [Job], parts: [Part], month: Date, calendar: Calendar = .current) -> String {
+        let esc = { (s: String) in "\"" + s.replacingOccurrences(of: "\"", with: "\"\"") + "\"" }
+        let day = DateFormatter()
+        day.locale = Locale(identifier: "en_US_POSIX"); day.calendar = calendar; day.timeZone = calendar.timeZone
+        day.dateFormat = "yyyy-MM-dd"
+        guard let range = calendar.dateInterval(of: .month, for: month) else { return "" }
+        let done = jobs.compactMap { job -> (Date, Job)? in
+            // Jobs completed before completion dates were kept fall back to their schedule.
+            let when = job.completed ?? job.scheduled ?? job.created
+            return job.stockDeducted && range.contains(when) ? (when, job) : nil
+        }.sorted { $0.0 < $1.0 }
+        var rows = ["Date,Job,Customer,Item,Category,Qty,Unit Cost,Amount"]
+        for (when, job) in done {
+            for jp in job.parts {
+                let part = parts.first { $0.id == jp.partID }
+                // ponytail: no cost saved on the job means the part's cost today; blank if it has none
+                let cost = jp.unitCostCents ?? part?.costCents
+                rows.append([day.string(from: when), String(job.id.uuidString.prefix(8)), esc(job.customer),
+                             esc(part?.name ?? "Removed part"), esc(part?.category ?? ""), "\(jp.quantity)",
+                             cost.map(money) ?? "", cost.map { money($0 * jp.quantity) } ?? ""].joined(separator: ","))
+            }
+        }
+        return rows.joined(separator: "\n")
     }
 
     var backup: Data { (try? JSONEncoder().encode(Saved(parts: parts, jobs: jobs, history: history))) ?? Data() }

@@ -51,6 +51,7 @@ extension Part {
         case "Cables": "cable.connector"
         case "Hardware": "wrench.and.screwdriver"
         case "Openers": "door.garage.open"
+        case "Panels": "rectangle.split.1x2"
         case "Rollers": "circle.circle"
         case "Seals": "drop"
         case "Springs": "arrow.up.and.down"
@@ -68,7 +69,8 @@ struct InventoryView: View {
     private var filtered: [Part] {
         search.isEmpty ? store.parts : store.parts.filter {
             $0.name.localizedCaseInsensitiveContains(search) ||
-            $0.category.localizedCaseInsensitiveContains(search)
+            $0.category.localizedCaseInsensitiveContains(search) ||
+            ($0.specs?.localizedCaseInsensitiveContains(search) ?? false)
         }
     }
 
@@ -98,6 +100,7 @@ struct InventoryView: View {
             .searchable(text: $search)
             .navigationTitle("Inventory")
             .toolbar {
+                ScanButton { editing = $0 }
                 Button { editing = Part(name: "", category: "", quantity: 0) } label: { Label("Add part", systemImage: "plus") }
             }
             .sheet(item: $editing) { PartEditor(part: $0) }
@@ -121,6 +124,7 @@ struct PartTile: View {
                 if low { Text("Low").font(.caption.weight(.semibold)).foregroundStyle(.red) }
             }
             Text(part.name).font(.subheadline.weight(.medium)).lineLimit(2, reservesSpace: true)
+            if let specs = part.specs { Text(specs).font(.caption).foregroundStyle(.secondary).lineLimit(1) }
             HStack(spacing: 8) {
                 Text("\(part.quantity)")
                     .font(.system(size: 28, weight: .bold, design: .rounded))
@@ -150,10 +154,30 @@ struct PartEditor: View {
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Name", text: $part.name)
-                TextField("Category", text: $part.category)
-                if isNew { Stepper("Quantity: \(part.quantity)", value: $part.quantity, in: 0...999) }
-                Stepper("Low stock at: \(part.lowStockThreshold)", value: $part.lowStockThreshold, in: 0...99)
+                Section {
+                    TextField("Name", text: $part.name)
+                    TextField("Category", text: $part.category)
+                    Stepper("On the shelf: \(part.quantity)", value: $part.quantity, in: 0...999)
+                    Stepper("Low stock at: \(part.lowStockThreshold)", value: $part.lowStockThreshold, in: 0...99)
+                    TextField("Cost each", value: Binding(
+                        get: { part.costCents.map { Double($0) / 100 } },
+                        set: { part.costCents = $0.map { max(0, Int(($0 * 100).rounded())) } }
+                    ), format: .currency(code: Locale.current.currency?.identifier ?? "CAD"))
+                    .decimalKeyboard()
+                }
+                if part.isSpring {
+                    Section("Spring") {
+                        inchField("Wire size", $part.wire, places: 3)
+                        inchField("Inside diameter", $part.insideDiameter, places: 3)
+                        inchField("Length", $part.length, places: 2)
+                        Picker("Wind", selection: $part.wind) {
+                            Text("Not set").tag(Wind?.none)
+                            Text("Left").tag(Wind?.some(.left))
+                            Text("Right").tag(Wind?.some(.right))
+                        }
+                        .pickerStyle(.segmented)
+                    }
+                }
             }
             .formStyle(.grouped)
             .navigationTitle(isNew ? "New Part" : "Edit Part")
@@ -167,12 +191,23 @@ struct PartEditor: View {
         }
     }
 
+    private func inchField(_ title: String, _ value: Binding<Double?>, places: Int) -> some View {
+        LabeledContent(title) {
+            TextField("inches", value: value, format: .number.precision(.fractionLength(0...places)))
+                .multilineTextAlignment(.trailing)
+                .decimalKeyboard()
+        }
+    }
+
     private func save() {
         if part.category.isEmpty { part.category = "Other" }
         if let i = store.parts.firstIndex(where: { $0.id == part.id }) {
-            store.parts[i].name = part.name
-            store.parts[i].category = part.category
-            store.parts[i].lowStockThreshold = part.lowStockThreshold
+            // The count moves through adjust so history and the shop's shared count both see it.
+            let delta = part.quantity - store.parts[i].quantity
+            var edited = part
+            edited.quantity = store.parts[i].quantity
+            store.parts[i] = edited
+            store.adjust(part.id, by: delta, reason: "Count")
         } else {
             store.parts.append(part)
             store.history.insert(StockChange(partName: part.name, delta: part.quantity, reason: "Added"), at: 0)
@@ -298,6 +333,14 @@ struct StatusPill: View {
 }
 
 extension View {
+    @ViewBuilder func decimalKeyboard() -> some View {
+        #if os(iOS)
+        keyboardType(.decimalPad)
+        #else
+        self
+        #endif
+    }
+
     @ViewBuilder func insetList() -> some View {
         #if os(macOS)
         listStyle(.inset(alternatesRowBackgrounds: false))

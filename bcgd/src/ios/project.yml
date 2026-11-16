@@ -17,7 +17,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         CODE_SIGN_ENTITLEMENTS: BCGD.entitlements
         MARKETING_VERSION: "4.0"
-        CURRENT_PROJECT_VERSION: 202610212256
+        CURRENT_PROJECT_VERSION: 202611151822
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_CFBundleDisplayName: Doorstock
         ASSETCATALOG_COMPILER_APPICON_NAME: Doorstock
@@ -25,3 +25,4 @@ targets:
         INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
         TARGETED_DEVICE_FAMILY: 1
         INFOPLIST_KEY_NSFaceIDUsageDescription: Unlock Doorstock with Face ID
+        INFOPLIST_KEY_NSCameraUsageDescription: Snap a part label to add or update it

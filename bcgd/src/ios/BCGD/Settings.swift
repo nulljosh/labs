@@ -10,6 +10,21 @@ struct SettingsView: View {
     @State private var importing = false
     @State private var importResult: String?
     @State private var resetting = false
+    @State private var month = SettingsView.recentMonths[0]
+
+    /// The start of this month and the eleven before it.
+    static var recentMonths: [Date] {
+        let cal = Calendar.current
+        let now = cal.dateInterval(of: .month, for: .now)!.start
+        return (0..<12).compactMap { cal.date(byAdding: .month, value: -$0, to: now) }
+    }
+
+    static let fileMonth: DateFormatter = {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "en_US_POSIX")
+        f.dateFormat = "yyyy-MM"
+        return f
+    }()
 
     var body: some View {
         NavigationStack {
@@ -20,6 +35,24 @@ struct SettingsView: View {
                         TextField("Supplier email", text: $reorderEmail)
                             .textFieldStyle(.plain)
                             .cardBackground()
+                    }
+                    Shelf("For the accountant", symbol: "doc.text") {
+                        HStack {
+                            Picker("Month", selection: $month) {
+                                ForEach(Self.recentMonths, id: \.self) { Text($0.formatted(.dateTime.month(.wide).year())).tag($0) }
+                            }
+                            .labelsHidden()
+                            Spacer()
+                            ShareLink(item: store.exportFile("doorstock-\(Self.fileMonth.string(from: month)).csv",
+                                                             Data(Store.accountantCSV(jobs: store.jobs, parts: store.parts, month: month).utf8))) {
+                                Label("Export", systemImage: "square.and.arrow.up")
+                            }
+                            .buttonStyle(.bordered)
+                            .buttonBorderShape(.capsule)
+                        }
+                        .cardBackground()
+                        Text("Parts used on completed jobs that month, with cost. Opens in QuickBooks or any spreadsheet.")
+                            .font(.footnote).foregroundStyle(.secondary)
                     }
                     Shelf("Data", symbol: "externaldrive") {
                         LazyVGrid(columns: Grid.tiles, spacing: 12) {
