@@ -1,45 +1,39 @@
 #!/bin/bash
-# Lists every note in Apple Notes (default "Notes" folder, or $1) as one plaintext
-# file per note in a tmp dir: line 1 = note name, rest = note plaintext.
-# ponytail: reads `plaintext of note` directly — no HTML/PDF/Chrome hop.
+# Lists every active note (all accounts, all folders except Recently Deleted, or only
+# folder $1) as <OUTDIR>/<pk>.txt (line 1 = name, rest = plaintext) plus <pk>.html
+# (body HTML: plaintext drops link hrefs). Prints "<txt path>\t<noteId>" per note.
+# pk = the trailing p<N> of the note id = NoteStore Z_PK, same key notes-attachments.sh uses.
 set -euo pipefail
+FOLDER="${1:-}"
+OUTDIR="${2:-$(mktemp -d /tmp/notes_ingest_XXXX)}"; mkdir -p "$OUTDIR"
+OSA=/usr/bin/osascript
 
-FOLDER="${1:-Notes}"
-OUTDIR="${2:-$(mktemp -d /tmp/notes_ingest_XXXX)}"
-mkdir -p "$OUTDIR"
-
-/usr/bin/osascript <<APPLESCRIPT > /tmp/notes_ingest_manifest.tsv
-tell application "Notes"
+ids=$("$OSA" - "$FOLDER" <<'APPLESCRIPT'
+on run argv
+  set want to item 1 of argv
   set out to ""
-  repeat with n in notes of folder "$FOLDER"
-    set out to out & (id of n) & linefeed
-  end repeat
+  tell application "Notes"
+    repeat with f in folders
+      set fn to name of f
+      if fn is not "Recently Deleted" and (want is "" or fn is want) then
+        repeat with n in notes of f
+          set out to out & (id of n) & linefeed
+        end repeat
+      end if
+    end repeat
+  end tell
   return out
-end tell
+end run
 APPLESCRIPT
+)
 
 while IFS= read -r noteId; do
   [[ -z "$noteId" ]] && continue
-  safeId=$(echo "$noteId" | tr -c 'A-Za-z0-9' '_')
-  # ponytail: one bad note (locked, attachment-only) must not kill the run
-  name=$(/usr/bin/osascript -e "tell application \"Notes\" to get name of note id \"$noteId\"" 2>/dev/null) || {
-    echo "skip (unreadable name): $noteId" >&2; continue
-  }
-  body=$(/usr/bin/osascript -e "tell application \"Notes\" to get plaintext of note id \"$noteId\"" 2>/dev/null) || {
-    echo "skip (unreadable body): $name" >&2; continue
-  }
-  { echo "$name"; echo "$body"; } > "$OUTDIR/$safeId.txt"
-  # ponytail: image-only notes export as blank text and look like "nothing to file".
-  # Save attachments next to the .txt so the caller can actually read them.
-  if [[ $(echo "$body" | tr -d '[:space:]\357\277\274' | wc -c) -lt 40 ]]; then
-    i=0
-    while read -r att; do
-      [[ -z "$att" ]] && continue
-      i=$((i+1))
-      ext="${att##*.}"; [[ "$ext" == "$att" ]] && ext=png
-      /usr/bin/osascript -e "tell application \"Notes\" to save attachment $i of note id \"$noteId\" in POSIX file \"$OUTDIR/$safeId.att$i.$ext\"" 2>/dev/null \
-        && echo "  attachment: $OUTDIR/$safeId.att$i.$ext" >&2
-    done < <(/usr/bin/osascript -e "tell application \"Notes\" to get name of attachments of note id \"$noteId\"" 2>/dev/null | tr ',' '\n')
-  fi
-  echo "$OUTDIR/$safeId.txt	$noteId"
-done < /tmp/notes_ingest_manifest.tsv
+  pk="${noteId##*/p}"
+  # ponytail: one bad note (locked) must not kill the run
+  name=$("$OSA" -e "tell application \"Notes\" to get name of note id \"$noteId\"" 2>/dev/null) || { echo "skip (unreadable): $noteId" >&2; continue; }
+  body=$("$OSA" -e "tell application \"Notes\" to get plaintext of note id \"$noteId\"" 2>/dev/null) || { echo "skip (locked?): $name" >&2; continue; }
+  "$OSA" -e "tell application \"Notes\" to get body of note id \"$noteId\"" > "$OUTDIR/$pk.html" 2>/dev/null || true
+  { echo "$name"; echo "$body"; } > "$OUTDIR/$pk.txt"
+  echo "$OUTDIR/$pk.txt	$noteId"
+done <<< "$ids"
