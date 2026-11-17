@@ -14,8 +14,8 @@
 <link rel="stylesheet" href="https://jaybulb.com/tokens.css">
 <link rel="stylesheet" href="https://jaybulb.com/landing.css">
 <script defer src="https://jaybulb.com/landing.js" data-shape="bars"></script>
-<link rel="stylesheet" href="hero.css?v=2">
-<script type="module" src="hero.js?v=1"></script>
+<link rel="stylesheet" href="hero.css?v=3">
+<script type="module" src="hero.js?v=2"></script>
 <style>
 /* white paper, not the shared cream (Joshua 2026-11-01); dark mode keeps the shared tokens */
 @media (prefers-color-scheme: light) { :root { --color-bg: #fff; --color-bg2: #f5f5f7; --color-hairline: #e5e5ea; } }
@@ -42,36 +42,34 @@
   .soon { display: inline-block; margin-top: .6rem; font-size: .8rem; color: var(--text3); }
   kbd { font: inherit; font-size: .85em; border: 1px solid var(--border); border-radius: 4px; padding: 0 .35em; }
 
-  /* Footer directory: tagline rule, four columns, two-by-two on phones. */
-  footer { padding: 0 0 3rem; text-align: center; font-size: .8125rem; color: var(--text2); }
-  footer .foot-rule { display: flex; align-items: center; gap: 16px; max-width: 880px; margin: 0 auto; padding: 8px 1.5rem 24px; color: var(--text); font-size: .6875rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; }
-  footer .foot-rule::before { content: ""; order: 1; flex: 1; height: 1px; background: var(--border); }
-  footer .foot-rule > :first-child { order: 0; }
-  footer .foot-rule > :last-child { order: 2; }
-  .foot-dir { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 24px; max-width: 880px; margin: 0 auto; padding: 0 1.5rem 28px; text-align: left; }
-  .foot-col h3 { margin: 0 0 8px; font-size: .75rem; font-weight: 600; color: var(--text); letter-spacing: .02em; }
-  .foot-col ul { list-style: none; margin: 0; padding: 0; }
-  .foot-col a { position: relative; display: inline-block; padding: 5px 0; color: color-mix(in srgb, var(--text2) 80%, var(--text)); /* text2 alone is 4.3:1 on the footer paper */ text-decoration: none; font-size: .8125rem; line-height: 1.35; }
-  .foot-col a::after { content: ""; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; height: 44px; min-width: 44px; }
-  .foot-col a:hover { color: var(--text); text-decoration: underline; }
-  .foot-bar { max-width: 880px; margin: 0 auto; padding: 18px 1.5rem 0; border-top: 1px solid var(--border); }
-  .foot-meta { margin: 0; color: color-mix(in srgb, var(--text2) 80%, var(--text)); font-size: .78rem; line-height: 1.9; }
-  .foot-meta a { color: inherit; }
-  @media (max-width: 700px) { .foot-dir { grid-template-columns: repeat(2, 1fr); } footer .foot-rule { font-size: .5625rem; letter-spacing: .14em; gap: 10px; } }
+  /* Footer, as on the other Jaybulb landings: brand and link columns, the animated glyph band, one fine line */
+  .foot { padding: 4rem 1.5rem 1.5rem; border-top: 1px solid var(--border); overflow: hidden; }
+  .foot-top { max-width: 960px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2.5rem; }
+  .foot-brand { display: grid; gap: .5rem; align-content: start; }
+  .foot-brand img { border-radius: 10px; }
+  .foot-brand b { font-size: 2.5rem; line-height: 1; letter-spacing: -.02em; }
+  .foot-brand p, .foot .label { color: var(--text2); font-size: .9375rem; }
+  .foot-cols { display: flex; flex-wrap: wrap; gap: 3rem; }
+  .foot-cols div { display: grid; gap: .5rem; align-content: start; }
+  .foot .label { font-weight: 700; font-size: .875rem; margin-bottom: .25rem; }
+  .foot-cols a { font-size: .9375rem; }
+  .foot-cols a:hover { color: var(--miss, #d70015); }
+  .legal { margin-top: 1.5rem; font-size: .8125rem; color: var(--text2); text-align: center; }
+  .legal a:hover { text-decoration: underline; }
+  @media (max-width: 560px) { .foot-cols { gap: 2rem; } }
   :focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
 </style>
-<style>/* footer glyph band (footer-band.js) */ .word-band{color:var(--text);position:relative;width:100%;margin:32px 0 0;height:clamp(120px,16vw,220px)} .word-canvas{position:absolute;inset:0;width:100%;height:100%;display:none} .word-band.live .word-canvas{display:block}</style>
+<style>/* footer glyph band (footer-band.js) */ .word-band{color:var(--text);position:relative;width:100vw;margin:40px 0 0 calc(50% - 50vw);height:clamp(120px,16vw,220px)} .word-canvas{position:absolute;inset:0;width:100%;height:100%;display:none} .word-band.live .word-canvas{display:block}</style>
 </head>
-<body>
+<body id="top">
 <main>
-<div class="lp-rule"><span>Keyrate</span><span><a href="https://github.com/nulljosh/labs/tree/main/keyrate">GitHub</a></span></div>
 <header class="lp-hero">
-  <div class="hero-bg" aria-hidden="true" inert><div class="kwall" id="kwall"></div></div>
+  <div class="backdrop" aria-hidden="true" inert><div class="ground" id="kboard"></div></div>
+  <div class="sky" id="ksky" aria-hidden="true" inert></div>
   <div class="hero-copy">
   <span class="lp-mark"><img src="icon.svg" alt="" width="56" height="56"></span>
-  <p class="lp-eyebrow">Keyrate, a typing test that shows its work</p>
-  <h1>Find the keys you keep missing.</h1>
-  <p class="lp-lede">Type for a minute. See your five worst keys on a keyboard, and your speed second by second.</p>
+  <h1>Find your weak keys.</h1>
+  <p class="lp-lede">Type for a minute. See which keys slow you down.</p>
   <div class="lp-cta">
     <a href="/app" class="lp-btn lp-solid">Start typing</a>
     <a href="https://github.com/nulljosh/labs/tree/main/keyrate" class="lp-btn">Source</a>
@@ -105,57 +103,25 @@
   </div>
 </section>
 </main>
-<footer>
-  <div class="foot-rule" aria-hidden="true"><span>Keyrate</span><span>Find the keys you keep missing.</span></div>
-  <nav class="foot-dir" aria-label="Footer">
-    <div class="foot-col">
-      <h3>Keyrate</h3>
-      <ul>
-        <li><a href="/app">Take the test</a></li>
-        <li><a href="#test">The test</a></li>
-        <li><a href="#platforms">Every platform</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h3>Explore</h3>
-      <ul>
-        <li><a href="https://github.com/nulljosh/labs/blob/main/keyrate/score.js" target="_blank" rel="noopener">How it scores</a></li>
-        <li><a href="https://github.com/nulljosh/labs/blob/main/keyrate/roadmap.md" target="_blank" rel="noopener">Roadmap</a></li>
-        <li><a href="https://github.com/nulljosh/labs/tree/main/keyrate/screenshots" target="_blank" rel="noopener">Screenshots</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h3>Developers</h3>
-      <ul>
-        <li><a href="https://github.com/nulljosh/labs/tree/main/keyrate" target="_blank" rel="noopener">Source</a></li>
-        <li><a href="https://github.com/nulljosh/labs/blob/main/keyrate/docs/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a></li>
-        <li><a href="https://github.com/nulljosh/labs/blob/main/keyrate/WHITEPAPER.md" target="_blank" rel="noopener">Whitepaper</a></li>
-        <li><a href="https://github.com/nulljosh/labs/issues" target="_blank" rel="noopener">Report a bug</a></li>
-        <li><a href="https://jaybulb.com/docs.html#keyrate">Docs</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h3>Project</h3>
-      <ul>
-        <li><a href="https://github.com/nulljosh/labs/blob/main/keyrate/PRIVACY.md" target="_blank" rel="noopener">Privacy</a></li>
-        <li><a href="https://github.com/nulljosh/labs/blob/main/keyrate/LICENSE" target="_blank" rel="noopener">License (MIT)</a></li>
-        <li><a href="https://jaybulb.com">Portfolio</a></li>
-        <li><a href="#">Back to top</a></li>
-      </ul>
-    </div>
-  </nav>
-  <div class="word-band" aria-hidden="true"><canvas class="word-canvas"></canvas></div>
-  <div class="foot-bar">
-    <p class="foot-meta">Keyrate &middot; MIT License &middot; &copy; 2026 Joshua Trommel &middot; Made with <span class="heart">&hearts;</span> in Vancouver, BC</p>
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>Keyrate</b><p>Find your weak keys.</p></div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div><p class="label">Keyrate</p><a href="/app">Take the test</a><a href="#test">What it shows</a><a href="#platforms">Platforms</a></div>
+      <div><p class="label">Source</p><a href="https://github.com/nulljosh/labs/tree/main/keyrate">GitHub</a><a href="https://github.com/nulljosh/labs/blob/main/keyrate/score.js">How it scores</a><a href="/brand/">Brand kit</a></div>
+      <div><p class="label">More</p><a href="mailto:info@jaybulb.com?subject=Keyrate">Feedback</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
+    </nav>
   </div>
+  <div class="word-band" aria-hidden="true"><canvas class="word-canvas"></canvas></div>
+  <p class="legal">&copy; 2026 Joshua Trommel &middot; MIT License &middot; <a href="privacy.html">Privacy</a></p>
 </footer>
 <script>
 // the embedded test reports its height so the result never scrolls inside the frame
 addEventListener("message", e => {
   if (e.origin !== location.origin || e.data?.keyrate !== "height") return
-  document.querySelector(".test-frame").style.height = Math.max(440, e.data.h) + "px"
+  const f = document.querySelector(".test-frame"); if (f) f.style.height = Math.max(440, e.data.h) + "px"
 })
 </script>
-<script src="footer-band.js" defer></script>
+<script src="footer-band.js?v=2" defer></script>
 </body>
 </html>

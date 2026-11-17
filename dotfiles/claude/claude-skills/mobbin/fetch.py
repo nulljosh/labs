@@ -6,7 +6,7 @@
 Uses Apple's public iTunes Search API (country us, iPhone shots, 8 per app at 300 px wide) and ImageMagick to
 join each app's shots into OUT_DIR/sheet-<slug>.jpg. Prints name, shot count, rating and rating count per app.
 """
-import json, os, re, subprocess, sys, urllib.parse, urllib.request
+import json, os, re, shutil, subprocess, sys, urllib.parse, urllib.request
 
 out, apps = sys.argv[1], sys.argv[2:]
 os.makedirs(out, exist_ok=True)
@@ -25,6 +25,18 @@ for a in apps:
             files.append(f)
         except Exception as e:
             print(f"{a} shot {i}: {e}")
-    if files:
-        subprocess.run(["magick", *files, "-resize", "x520", "+append", os.path.join(out, f"sheet-{slug}.jpg")], check=False)
+    sheet = os.path.join(out, f"sheet-{slug}.jpg")
+    if files and shutil.which("magick"):
+        subprocess.run(["magick", *files, "-resize", "x520", "+append", sheet], check=False)
+    elif files:  # no ImageMagick: join with Pillow if present, else keep the single shots
+        try:
+            from PIL import Image
+            ims = [Image.open(f).convert("RGB") for f in files]
+            ims = [i.resize((round(i.width * 520 / i.height), 520)) for i in ims]
+            canvas = Image.new("RGB", (sum(i.width for i in ims), 520), "white")
+            x = 0
+            for i in ims: canvas.paste(i, (x, 0)); x += i.width
+            canvas.save(sheet, quality=85)
+        except ImportError:
+            pass
     print(f"{a} | {r['trackName']} | {len(files)} shots | {round(r.get('averageUserRating', 0), 1)} ({r.get('userRatingCount')})")

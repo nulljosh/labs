@@ -168,7 +168,8 @@ function render() {
   const row = Math.round((cur.offsetTop) / lineH)
   wordsEl.scrollTop = Math.max(0, row - 1) * lineH
   caret.style.left = (ci >= chars.length ? r.right : r.left) - box.left + 'px'
-  caret.style.top = cur.offsetTop - wordsEl.scrollTop + (lineH - r.height * 1.3) / 2 + 'px'
+  // the caret lives inside the scrolled box, so it scrolls with the words: no scrollTop here (it sat a line high)
+  caret.style.top = cur.offsetTop + (lineH - r.height * 1.3) / 2 + 'px'
 }
 
 function tick() {
