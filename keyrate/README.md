@@ -1,4 +1,4 @@
-<img src="icon.svg" width="80" style="border-radius:18px">
+<img src="web/icon.svg" width="80" style="border-radius:18px">
 
 ![version](https://img.shields.io/badge/version-v2.2.0-blue) [![tests](https://github.com/nulljosh/labs/actions/workflows/keyrate-test.yml/badge.svg)](https://github.com/nulljosh/labs/actions/workflows/keyrate-test.yml) ![license](https://img.shields.io/badge/license-MIT-green)
 
