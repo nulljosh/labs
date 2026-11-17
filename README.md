@@ -6,7 +6,7 @@
 
 **Apps and sites:** [bcgd](./bcgd), [bbgd](./bbgd), [homeqi](./homeqi), [dream](./dream), [cadence](./cadence), [fieldbook](./fieldbook)
 
-**Tools:** [hormuz](./hormuz), [keyrate](./keyrate), [weather](./weather), [authmail](./authmail), [dotfiles](./dotfiles), [scripts](./scripts)
+**Tools:** [hormuz](./hormuz), [weather](./weather), [authmail](./authmail), [dotfiles](./dotfiles), [scripts](./scripts)
 
 **Experiments:** [bank](./bank), [credis](./credis), [agent-101](./agent-101), [video-speed-ext](./video-speed-ext)
 
