@@ -6,6 +6,6 @@ let package = Package(
     name: "keyrate-tui",
     platforms: [.macOS(.v14)],
     targets: [
-        .executableTarget(name: "keyrate-tui", path: "tui/Sources")
+        .executableTarget(name: "keyrate-tui", path: "Sources")
     ]
 )

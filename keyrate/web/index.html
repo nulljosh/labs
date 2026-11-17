@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>/* appearance: auto, light or dark, shared by the landing and the test */try{const t=localStorage.getItem("keyrate.theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Keyrate — find the keys you keep missing</title>
 <meta name="description" content="A typing test that draws a keyboard with the five keys you miss most, and your speed second by second.">
@@ -14,11 +16,12 @@
 <link rel="stylesheet" href="https://jaybulb.com/tokens.css">
 <link rel="stylesheet" href="https://jaybulb.com/landing.css">
 <script defer src="https://jaybulb.com/landing.js" data-shape="bars"></script>
-<link rel="stylesheet" href="hero.css?v=3">
-<script type="module" src="hero.js?v=2"></script>
+<link rel="stylesheet" href="hero.css?v=4">
+<script type="module" src="hero.js?v=3"></script>
 <style>
 /* white paper, not the shared cream (Joshua 2026-11-01); dark mode keeps the shared tokens */
-@media (prefers-color-scheme: light) { :root { --color-bg: #fff; --color-bg2: #f5f5f7; --color-hairline: #e5e5ea; } }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --color-bg: #fff; --color-bg2: #f5f5f7; --color-hairline: #e5e5ea; } }
+:root[data-theme="light"] { --color-bg: #fff; --color-bg2: #f5f5f7; --color-hairline: #e5e5ea; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background: var(--bg); color: var(--text);
@@ -30,16 +33,27 @@
 
 
 
-  section { padding: 4rem 0; }
-  h2 { font-size: clamp(1.5rem, 3.6vw, 2rem); font-weight: 700; letter-spacing: -.02em; text-align: center; margin-bottom: .6rem; }
-  .lead { text-align: center; color: var(--text2); max-width: 34rem; margin: 0 auto 2.25rem; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
-  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem; }
-  .card h3 { font-size: 1rem; font-weight: 650; margin-bottom: .4rem; }
-  .card p { font-size: .93rem; color: var(--text2); }
-  .card a { display: inline-block; margin-top: .6rem; font-size: .875rem; font-weight: 500; }
-  .card a:hover { text-decoration: underline; }
-  .soon { display: inline-block; margin-top: .6rem; font-size: .8rem; color: var(--text3); }
+  section { padding: 2rem 1.5rem 7rem; }
+  /* the result, shown rather than described */
+  .shot { max-width: 520px; margin: 0 auto; padding: 2rem 2rem 1.75rem; border-radius: 28px; background: var(--bg2); border: 1px solid var(--border); text-align: center; }
+  .shot-num { font-size: 4.5rem; font-weight: 700; line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+  .shot-num small { font-size: 1rem; font-weight: 500; letter-spacing: 0; color: var(--text2); margin-left: .35rem; }
+  .shot-num span { font-size: 1.25rem; font-weight: 600; letter-spacing: -.01em; color: var(--text2); margin-left: 1rem; }
+  .shot-line { display: block; width: 100%; height: 56px; margin: 1.25rem 0; }
+  .shot-line polyline { fill: none; stroke: var(--text); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+  .shot-kb { display: grid; gap: 5px; justify-content: center; }
+  .shot-kb div { display: flex; gap: 5px; justify-content: center; }
+  .shot-kb span { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 8px; font-size: .9rem; color: var(--text3); background: color-mix(in srgb, var(--text) 7%, transparent); }
+  .shot-kb .lit { background: #d70015; color: #fff; font-weight: 600; }
+  .shot-kb .space { width: 170px; }
+  .says { list-style: none; max-width: 820px; margin: 3.5rem auto 0; line-height: 1.5; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; color: var(--text2); font-size: .975rem; }
+  .says b { display: block; color: var(--text); font-weight: 650; margin-bottom: .2rem; }
+  .where { text-align: center; margin-top: 4rem; color: var(--text2); }
+  .where a { color: var(--text); font-weight: 600; margin-left: .4rem; }
+  .where a:hover { text-decoration: underline; }
+  @media (max-width: 700px) { .says { grid-template-columns: 1fr; gap: 1.25rem; text-align: center; } .shot { padding: 1.5rem 1rem; } .shot-kb span { width: 28px; height: 28px; } .shot-kb .space { width: 140px; } .shot-num { font-size: 3.5rem; } }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .shot-kb .lit { background: #ff453a; } }
+  :root[data-theme="dark"] .shot-kb .lit { background: #ff453a; }
   kbd { font: inherit; font-size: .85em; border: 1px solid var(--border); border-radius: 4px; padding: 0 .35em; }
 
   /* Footer, as on the other Jaybulb landings: brand and link columns, the animated glyph band, one fine line */
@@ -76,38 +90,25 @@
   </div>
   </div>
 </header>
-<section id="test" class="lp-reveal">
-  <div class="container">
-    <h2>What the result shows you</h2>
-    <div class="grid">
-      <div class="card"><h3>The keys you miss</h3><p>A keyboard with your five worst keys lit. A slip you fixed still counts, because it still cost you time.</p></div>
-      <div class="card"><h3>Your speed over time</h3><p>A line of your words per minute, second by second, with your rhythm and raw speed beside it.</p></div>
-      <div class="card"><h3>Words of its own</h3><p>The thousand most common words across twenty public domain novels.</p></div>
-      <div class="card"><h3>Five modes</h3><p>15, 30 or 60 seconds. 25 or 50 words. Or a quote. Punctuation and numbers optional.</p></div>
-            <div class="card"><h3>Nothing leaves your device</h3><p>Your best score per mode stays in the browser. No account, no tracking, no server.</p></div>
-    </div>
+<section id="test" class="show lp-reveal">
+  <div class="shot" aria-label="A sample result: 92 words per minute, 97 percent accuracy, the keys e, t, a, h and n missed most">
+    <p class="shot-num">92<small>wpm</small><span>97%</span></p>
+    <svg class="shot-line" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,44 20,30 40,34 60,22 80,26 100,18 120,28 140,20 160,14 180,24 200,16 220,12 240,20 260,10 280,14 300,8"/></svg>
+    <div class="shot-kb" aria-hidden="true"><div><span>q</span><span>w</span><span class="lit">e</span><span>r</span><span class="lit">t</span><span>y</span><span>u</span><span>i</span><span>o</span><span>p</span></div><div><span class="lit">a</span><span>s</span><span>d</span><span>f</span><span>g</span><span class="lit">h</span><span>j</span><span>k</span><span>l</span></div><div><span>z</span><span>x</span><span>c</span><span>v</span><span>b</span><span class="lit">n</span><span>m</span></div><div><span class="space"></span></div></div>
   </div>
-</section>
-
-<section id="platforms" class="lp-reveal">
-  <div class="container">
-    <h2>Every platform</h2>
-    <p class="lead">The web version is live today. Native apps are on the way, and they will be real binaries, not wrapped web pages.</p>
-    <div class="grid">
-      <div class="card"><h3>Web</h3><p>Nothing to install. Any modern browser.</p><a href="/app">Open the test &rarr;</a></div>
-      <div class="card"><h3>iPhone &amp; iPad</h3><p>Native app on the App Store.</p><span class="soon">Coming soon</span></div>
-      <div class="card"><h3>Mac</h3><p>Native app, Apple silicon and Intel.</p><span class="soon">Coming soon</span></div>
-      <div class="card"><h3>Windows</h3><p>Native desktop app.</p><span class="soon">Coming soon</span></div>
-      <div class="card"><h3>Android</h3><p>Native app on Google Play.</p><span class="soon">Coming soon</span></div>
-    </div>
-  </div>
+  <ul class="says">
+    <li><b>Your five worst keys, lit.</b> A slip you fixed still counts.</li>
+    <li><b>Speed, second by second.</b> See where you slow down.</li>
+    <li><b>Words from old novels.</b> Not copied from another app.</li>
+  </ul>
+  <p class="where" id="platforms">Free on the web. iPhone, iPad and Mac next. <a href="/app">Start typing &rarr;</a></p>
 </section>
 </main>
 <footer class="foot">
   <div class="foot-top">
     <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>Keyrate</b><p>Find your weak keys.</p></div>
     <nav class="foot-cols" aria-label="Footer">
-      <div><p class="label">Keyrate</p><a href="/app">Take the test</a><a href="#test">What it shows</a><a href="#platforms">Platforms</a></div>
+      <div><p class="label">Keyrate</p><a href="/app">Take the test</a><a href="#test">What it shows</a></div>
       <div><p class="label">Source</p><a href="https://github.com/nulljosh/labs/tree/main/keyrate">GitHub</a><a href="https://github.com/nulljosh/labs/blob/main/keyrate/score.js">How it scores</a><a href="/brand/">Brand kit</a></div>
       <div><p class="label">More</p><a href="mailto:info@jaybulb.com?subject=Keyrate">Feedback</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
     </nav>
@@ -122,6 +123,6 @@ addEventListener("message", e => {
   const f = document.querySelector(".test-frame"); if (f) f.style.height = Math.max(440, e.data.h) + "px"
 })
 </script>
-<script src="footer-band.js?v=2" defer></script>
+<script src="footer-band.js?v=3" defer></script>
 </body>
 </html>

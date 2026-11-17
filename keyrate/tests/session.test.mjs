@@ -1,8 +1,8 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { Session, PASTE_MAX } from './session.js'
-import { stats } from './score.js'
-import { WORDS, QUOTES } from './words.js'
+import { Session, PASTE_MAX } from '../web/session.js'
+import { stats } from '../web/score.js'
+import { WORDS, QUOTES } from '../web/words.js'
 
 // Same cases as kmp/ SessionTest and apple/ SessionTests. A case that fails here but passes there is a bug here.
 const seeded = seed => () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 2 ** 32)

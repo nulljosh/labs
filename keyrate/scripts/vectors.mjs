@@ -1,7 +1,7 @@
 // Writes vectors.json from score.js, then the Kotlin and Swift tests that must agree with it.
 // Run `node vectors.mjs` after changing score.js or the cases; vectors.test.mjs fails if anything is stale.
 import { writeFileSync } from 'node:fs'
-import { stats, consistency, missedKey, topMisses, missedLine } from './score.js'
+import { stats, consistency, missedKey, topMisses, missedLine } from '../web/score.js'
 
 const w = s => (s === '' ? [] : s.split(' '))
 // [typed, target, seconds]: perfect runs, typos, extra and missing letters, empty words, rounding edges
@@ -103,8 +103,8 @@ ${TOP.map(m => `        XCTAssertEqual(missedLine(topMisses([${Object.entries(m)
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  writeFileSync(new URL('./vectors.json', import.meta.url), JSON.stringify(vectors, null, 1) + '\n')
-  writeFileSync(new URL('./kmp/shared/src/commonTest/kotlin/com/nulljosh/keyrate/VectorsTest.kt', import.meta.url), kotlin())
-  writeFileSync(new URL('./apple/KeyrateTests/VectorsTests.swift', import.meta.url), swift())
+  writeFileSync(new URL('../tests/vectors.json', import.meta.url), JSON.stringify(vectors, null, 1) + '\n')
+  writeFileSync(new URL('../kmp/shared/src/commonTest/kotlin/com/nulljosh/keyrate/VectorsTest.kt', import.meta.url), kotlin())
+  writeFileSync(new URL('../apple/KeyrateTests/VectorsTests.swift', import.meta.url), swift())
   console.log(`${vectors.length} vectors written`)
 }

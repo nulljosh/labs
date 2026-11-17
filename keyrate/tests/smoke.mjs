@@ -2,7 +2,7 @@
 // Not part of `node --test` (it needs a browser). Run: node smoke.mjs [url], default the live app.
 // Playwright comes from epiphany's node_modules with the installed Chrome; nothing is downloaded (see CLAUDE.md).
 import { createRequire } from 'node:module'
-const require = createRequire(new URL('../epiphany/package.json', import.meta.url))
+const require = createRequire(new URL('../../../epiphany/package.json', import.meta.url))
 const { chromium } = require('playwright')
 
 const url = process.argv[2] || 'https://keyrate.jaybulb.com/app/'

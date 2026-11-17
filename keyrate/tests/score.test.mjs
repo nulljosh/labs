@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { stats } from './score.js'
+import { stats } from '../web/score.js'
 
 test('perfect 60s run', () => {
   const words = 'the quick brown fox jumps'.split(' ')

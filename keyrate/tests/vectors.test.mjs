@@ -1,8 +1,8 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
-import { stats } from './score.js'
-import { kotlin, swift } from './vectors.mjs'
+import { stats } from '../web/score.js'
+import { kotlin, swift } from '../scripts/vectors.mjs'
 
 const read = p => readFileSync(new URL(p, import.meta.url), 'utf8')
 
@@ -11,6 +11,6 @@ test('vectors.json matches score.js', () => {
 })
 
 test('generated Kotlin and Swift tests are current (run node vectors.mjs)', () => {
-  assert.equal(read('./kmp/shared/src/commonTest/kotlin/com/nulljosh/keyrate/VectorsTest.kt'), kotlin())
-  assert.equal(read('./apple/KeyrateTests/VectorsTests.swift'), swift())
+  assert.equal(read('../kmp/shared/src/commonTest/kotlin/com/nulljosh/keyrate/VectorsTest.kt'), kotlin())
+  assert.equal(read('../apple/KeyrateTests/VectorsTests.swift'), swift())
 })

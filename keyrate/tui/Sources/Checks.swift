@@ -22,7 +22,7 @@ func runChecks() {
         _ = stats(typed: [], target: [], seconds: 0) // must not divide by zero / crash
     }
     // The shared vectors every port must agree on (vectors.json at the repo root, run from there).
-    if let d = FileManager.default.contents(atPath: "vectors.json"),
+    if let d = FileManager.default.contents(atPath: "tests/vectors.json"),
        let cases = try? JSONSerialization.jsonObject(with: d) as? [[String: Any]] {
         for c in cases {
             let s = stats(typed: c["typed"] as! [String], target: c["target"] as! [String], seconds: (c["seconds"] as! NSNumber).doubleValue)

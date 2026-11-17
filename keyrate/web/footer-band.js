@@ -90,7 +90,7 @@
       var beamLift = beam < 0 ? 0 : Math.max(0, 1 - Math.abs(y + step / 2 - beam) / (H * 0.22)) * 6;
       for (var x = 0; x < W; x += step) {
         var wave = Math.sin((x + ox) / (W * 0.18) - sec * 1.3) * 0.5 + Math.sin((y / H) * 3 + sec * 0.7) * 0.25;
-        var L = Math.max(3, Math.min(16, Math.round(10 + wave * 6 + beamLift)));
+        var L = Math.max(2, Math.min(16, Math.round(7 + wave * 7 + beamLift))); // mostly mid-tones, so the dots read
         wc.fillStyle = levels[L];
         wc.fillRect(x, y, step, step);
       }

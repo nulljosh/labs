@@ -21,6 +21,7 @@ private struct DefaultsStore: Store {
 
 struct ContentView: View {
     @Environment(\.colorScheme) private var scheme
+    @AppStorage("appearance") private var appearance = Appearance.system
     @State private var mode = modes[2]
     @State private var punct = false
     @State private var session = Session(mode: modes[2])
@@ -147,7 +148,18 @@ struct ContentView: View {
             chip("punct", on: punct) { punct.toggle(); restart() }
             chip("restart", on: false) { restart() }
                 .keyboardShortcut("r", modifiers: .command)
-        }    }
+            Menu {
+                Picker("Appearance", selection: $appearance) {
+                    ForEach(Appearance.allCases) { Text($0.label).tag($0) }
+                }
+            } label: {
+                Image(systemName: "circle.lefthalf.filled").font(.system(size: 14)).foregroundStyle(p.dim)
+                    .padding(.horizontal, 12).padding(.vertical, 8).contentShape(Capsule())
+            }
+            .menuStyle(.button).buttonStyle(.plain).menuIndicator(.hidden).fixedSize()
+            .accessibilityLabel("Appearance")
+        }
+    }
 
     private func chip(_ label: String, on: Bool, _ action: @escaping () -> Void) -> some View {
         Button(action: action) {

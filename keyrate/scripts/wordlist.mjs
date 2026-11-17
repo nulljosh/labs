@@ -1,7 +1,7 @@
 // Writes the Swift and Kotlin copies of the word list and quotes from words.js, the one source.
 // Run `node wordlist.mjs` after editing words.js; wordlist.test.mjs fails if a copy is stale.
 import { writeFileSync } from 'node:fs'
-import { WORDS, QUOTES } from './words.js'
+import { WORDS, QUOTES } from '../web/words.js'
 
 const wrap = (ws, width = 100) => ws.reduce((lines, w) => {
   const last = lines.at(-1)
@@ -38,8 +38,8 @@ ${QUOTES.map(s => `    ${q(s)},`).join('\n')}
 `
 }
 
-export const SWIFT = new URL('./apple/Keyrate/Words.swift', import.meta.url)
-export const KOTLIN = new URL('./kmp/shared/src/commonMain/kotlin/com/nulljosh/keyrate/Words.kt', import.meta.url)
+export const SWIFT = new URL('../apple/Keyrate/Words.swift', import.meta.url)
+export const KOTLIN = new URL('../kmp/shared/src/commonMain/kotlin/com/nulljosh/keyrate/Words.kt', import.meta.url)
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   writeFileSync(SWIFT, swift())

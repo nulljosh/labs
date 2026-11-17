@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>/* appearance: auto, light or dark, shared by the landing and the test */try{const t=localStorage.getItem("keyrate.theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Keyrate</title>
 <meta name="description" content="A typing test. Type the words, see your speed.">
@@ -9,7 +11,8 @@
 <link rel="stylesheet" href="https://jaybulb.com/tokens.css">
 <style>
 /* white paper, not the shared cream (Joshua 2026-11-01); dark mode keeps the shared tokens */
-@media (prefers-color-scheme: light) { :root { --color-bg: #fff; --color-bg2: #f5f5f7; --color-hairline: #e5e5ea; } }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --color-bg: #fff; --color-bg2: #f5f5f7; --color-hairline: #e5e5ea; } }
+:root[data-theme="light"] { --color-bg: #fff; --color-bg2: #f5f5f7; --color-hairline: #e5e5ea; }
   :root { --ok: var(--text, #111); --bad: #c0392b; --dim: #666; --word: #888; }
   /* upcoming words are large text (3:1 needed), labels and hints are small text (4.5:1 needed) */
   @supports (color: color-mix(in srgb, red 50%, blue)) {
@@ -31,9 +34,11 @@
     background: rgba(255,255,255,.26); backdrop-filter: blur(30px) saturate(190%) brightness(1.3); -webkit-backdrop-filter: blur(30px) saturate(190%) brightness(1.3);
     box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 4px 16px rgba(0,0,0,.08);
   }
-  @media (prefers-color-scheme: dark) { nav { background: rgba(28,28,30,.34); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 4px 16px rgba(0,0,0,.3); } }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) nav { background: rgba(28,28,30,.34); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 4px 16px rgba(0,0,0,.3); } }
+  :root[data-theme="dark"] nav { background: rgba(28,28,30,.34); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 4px 16px rgba(0,0,0,.3); }
   @media (prefers-reduced-transparency: reduce) { nav { background: #f2f2f7; backdrop-filter: none; -webkit-backdrop-filter: none; } }
-  @media (prefers-reduced-transparency: reduce) and (prefers-color-scheme: dark) { nav { background: #1c1c1e; } }
+  @media (prefers-reduced-transparency: reduce) and (prefers-color-scheme: dark) { :root:not([data-theme="light"]) nav { background: #1c1c1e; } }
+  @media (prefers-reduced-transparency: reduce) { :root[data-theme="dark"] nav { background: #1c1c1e; } }
   nav { display: flex; gap: .25rem; flex-wrap: wrap; justify-content: center; }
   nav button {
     all: unset; cursor: pointer; padding: .3rem .7rem; border-radius: var(--radius-pill, 999px);
@@ -96,6 +101,7 @@
     <span aria-hidden="true">|</span>
     <button id="punct" aria-pressed="false" title="Punctuation and numbers">punct</button>
     <button id="restart">restart</button>
+    <button id="theme" title="Appearance: auto, light or dark" aria-label="Appearance">auto</button>
   </nav>
   <div id="live" aria-hidden="true">&nbsp;</div>
   <div id="words" aria-hidden="true"><span id="caret"></span></div>
@@ -243,6 +249,20 @@ $('#punct').addEventListener('click', e => {
   punct = !punct; e.currentTarget.setAttribute('aria-pressed', punct); savePrefs(); reset()
 })
 $('#restart').addEventListener('click', reset)
+// Appearance: auto follows the system; light and dark stick, for this page and the landing
+{
+  const order = ['auto', 'light', 'dark'], btn = $('#theme')
+  let cur = document.documentElement.dataset.theme || 'auto'
+  const show = () => { btn.textContent = cur; btn.setAttribute('aria-pressed', cur === 'auto' ? 'false' : 'true') }
+  show()
+  btn.addEventListener('click', () => {
+    cur = order[(order.indexOf(cur) + 1) % order.length]
+    if (cur === 'auto') delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = cur
+    try { cur === 'auto' ? localStorage.removeItem('keyrate.theme') : localStorage.setItem('keyrate.theme', cur) } catch {}
+    try { parent !== window && parent.document.documentElement && (cur === 'auto' ? delete parent.document.documentElement.dataset.theme : parent.document.documentElement.dataset.theme = cur) } catch {}
+    show(); sink.focus({ preventScroll: true })
+  })
+}
 $('#modes').addEventListener('click', e => {
   const b = e.target.closest('button[data-mode]'); if (!b) return
   document.querySelectorAll('#modes button').forEach(x => x.removeAttribute('aria-pressed'))

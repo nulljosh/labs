@@ -2,7 +2,7 @@ name = "keyrate"
 compatibility_date = "2025-01-01"
 
 [assets]
-directory = "."
+directory = "./web"
 
 [[routes]]
 pattern = "keyrate.jaybulb.com"

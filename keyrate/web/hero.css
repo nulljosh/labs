@@ -1,10 +1,11 @@
 /* Hero, after Cartons: one scene in Keyrate's own objects. A keyboard lies under the title and types real quotes from the
    test, a wrong key flashing red now and then; the five keys it misses most keep a red ring, like the result screen.
    Loose keycaps drift around it at three depths. hero.js moves every layer at its own scroll speed. */
-.lp-hero { isolation: isolate; overflow: hidden; min-height: min(100svh, 1000px); justify-content: center;
-           padding-top: 48px; padding-bottom: calc(var(--k) * 5.6);
+.lp-hero { isolation: isolate; overflow: hidden; justify-content: flex-start;
+           padding-top: clamp(96px, 16vh, 168px); padding-bottom: calc(var(--k) * 5.4);
            --miss: #d70015; --k: clamp(28px, 6.2vw, 82px); --gap: calc(var(--k) * .14); }
-@media (prefers-color-scheme: dark) { .lp-hero { --miss: #ff453a; } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lp-hero { --miss: #ff453a; } }
+:root[data-theme="dark"] .lp-hero { --miss: #ff453a; }
 .lp-hero .hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
 
 /* the ground: the keyboard, tilted onto the desk, feathered at the edges */
@@ -45,3 +46,9 @@
 @media (max-width: 560px) { .lp-hero { --k: 11.5vw; } .kb { transform: perspective(900px) rotateX(28deg); } } /* wider than the phone: the edges feather off */
 @media (prefers-reduced-motion: reduce) { .cap { animation: none; } }
 #lp-bg { display: none; } /* the shared bars field; the keyboard scene replaces it */
+
+/* type rhythm: one scale step between each line, tracking eased off the shared -.035em so the headline breathes */
+.lp-hero h1 { font-size: clamp(2.75rem, 7.2vw, 5.25rem); letter-spacing: -.028em; line-height: 1.04; margin-top: 28px; }
+.lp-hero .lp-lede { font-size: clamp(1.0625rem, 1.6vw, 1.25rem); margin-top: 20px; letter-spacing: -.005em; }
+.lp-hero .lp-cta { margin-top: 32px; }
+.lp-hero .lp-btn { padding: 12px 22px; font-size: 1rem; }

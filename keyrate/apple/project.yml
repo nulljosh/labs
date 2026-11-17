@@ -16,7 +16,7 @@ targets:
       - Keyrate
       # one Swift port of score.js, shared with the terminal app
       - path: ../tui/Sources/Score.swift
-      - path: ../Keyrate.icon
+      - path: Keyrate.icon
         buildPhase: resources
     settings:
       base:
