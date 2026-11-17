@@ -47,6 +47,11 @@ The model on its own runs at about 28 tokens a second. Raw tool calls through Ol
 
 `qwen3.5:4b` (3.3 GB) is the default. `qwen3.5:9b` (6.6 GB) is smarter and still fits in 16 GB, at about half the speed. `gpt-oss:20b` and `qwen3-coder:30b` are too big for this Mac.
 
+## Limits
+
+- Auto mode never works on a local model. Its safety classifier runs on Anthropic's servers, and Ollama never forwards to them. Actions fall back to permission prompts. Shift+Tab to another mode.
+- The 4B model is too small for reasoning work like debugging config. It is fine for small scripts. Moving to `qwen3.5:9b` needs about 15 GB of free disk first. 9B plus swap on the 16 GB Mac risks a zero-disk crash.
+
 ## Aider
 
 `aider-qwen` and `aider-hermes` still exist, but they want `qwen3:8b` and `hermes3`, which are not installed. Pull those first, or use `AIDER_QWEN=qwen3.5:4b aider-qwen`. `benchmarks/hermes-vs-qwen.md` is the old October comparison.
