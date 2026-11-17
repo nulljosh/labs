@@ -38,5 +38,7 @@ link "$DOTFILES/claude/settings.json"  "$HOME/.claude/settings.json"
 link "$DOTFILES/claude/hooks"          "$HOME/.claude/hooks"
 link "$DOTFILES/claude/scripts"        "$HOME/.claude/scripts"
 link "$DOTFILES/claude/HOME-CLAUDE.md" "$HOME/CLAUDE.md"
+link "$DOTFILES/bin/icat"              "$HOME/.local/bin/icat"
+link "$DOTFILES/bin/peek"              "$HOME/.local/bin/peek"
 
 echo "done. secrets files are NOT managed by this repo."
