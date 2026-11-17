@@ -24,3 +24,6 @@ assuming it compiles.
 
 ## TUI pilot (2026-09-05)
 - `cadence-tui` SwiftPM target (SwiftTUI). `swift build && ./.build/debug/cadence-tui` prints a stats card from the live API. Needs a real TTY.
+
+## Ingested 2026-11-16
+- [ ] (Note "Cadence") Stale UI, and does it even work? Build it into the portfolio instead of its own page: at the bottom of jaybulb.com as GitHub-style green activity blocks.

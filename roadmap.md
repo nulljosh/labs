@@ -621,4 +621,16 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] (Note "Twitter") Posts about products are stale and some products are missing. Needs an update and a skill (`launch` covers X posts; extend it).
 - [ ] (Note "Skills") Clean up skills, merge what we can, and organize them somehow.
 - [ ] (Note "Mobbin") A skill like `mobbin` that researches landing pages of projects similar to this one and then integrates them. Confirm the skill name, then run it.
-- [ ] (Note "Sidewise") Sidewise is still on App Store Connect, super stale, should be deleted (it became Bugle). Same with oohaah. Steps from the orphan block above: remove from sale, turn off "Available in new territories" in the dashboard, then `asc web apps delete`.
+- [ ] (Notes "Sidewise", "OohAah", asked again 2026-11-16) (Note "Sidewise") Sidewise is still on App Store Connect, super stale, should be deleted (it became Bugle). Same with oohaah. Steps from the orphan block above: remove from sale, turn off "Available in new territories" in the dashboard, then `asc web apps delete`.
+
+## Ingested 2026-11-16
+- [ ] (Note "Keychain") Organize the keychain, and make a skill for it.
+- [ ] (Note "Twitter") Make a skill that gets us X Premium. Is it really $20/month? If so we need to actually use it, for SEO etc.
+- [ ] (Note "YouTube") We have a YouTube cleanup skill, right? Run it: move all Watch Later into 3-5 folders, grab transcripts and summarize, then remove the videos from Watch Later and delete the playlists. Same idea with the Twitter skill.
+- [ ] (Note "Money") A money skill: check App Store Connect analytics for purchase history across our apps, suggest monetization improvements across the suite, and suggest posting skills (Product Hunt, Twitter) to post everything.
+- [ ] (Note "Cleanup") Slim GitHub repos down to 5-10, maybe 15-20, not 50. Combine similar projects. Do the same on the portfolio and the App Store.
+- [ ] (Note "Cleanup", screenshot) macOS says a Software Update is available but needs more storage space (notes/attachments/2026-11-16/22180-1.png). Run /cleanup, then install the update.
+- [ ] (Note "Dotfiles") Its hero background animation is awesome, use it as a model (vault design-system.md). How can we bump this project?
+- [ ] (Note "No Starch") Scan nostarch.com, especially AI + machine learning, computer science, general programming, hacking & computer security, hardware/DIY, programming, system administration. List every book in those lists (all pages), then rank them by relevance to our codebase.
+- [ ] (Note "Research") Licenses: which are best for our repos? And privacy policies.
+- [ ] (Note "Jaybulb") info@jaybulb.com is configured in iCloud; can we make it hello@ instead? And check the cold emails we sent out.

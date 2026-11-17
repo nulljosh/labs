@@ -26,3 +26,6 @@ assessment, so there is real state an agent could read and write
 
 ## Ingested 2026-11-13
 - [ ] Needs to be an app, not a list or a questionnaire.
+
+## Ingested 2026-11-16
+- [ ] (Note "HomeQi") Super stale: delete, archive, or fix it. Landing page is stale, the app needs building, the name sucks.

@@ -37,3 +37,6 @@ Lucid-dreaming trainers. Sleep tracking (that is a hardware product).
   Start with everything, it is simpler and fits for years.
 - Does interpretation happen on save (magic, costs money on every entry) or on demand
   (cheap, one extra tap)? Start on demand.
+
+## Ingested 2026-11-16
+- [ ] (Note "Dream") "What is this project?" Delete or archive.
