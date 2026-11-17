@@ -1,30 +1,52 @@
-Local models for coding and for Samantha, all on this Mac through Ollama. Qwen is the default. Hermes 3 is the opt-in second choice.
+Claude Code running on a small model on this Mac, through Ollama. Free, offline, nothing leaves the machine. Good for small scripts and one-file fixes, not real app work.
 
-## Install
-
-```
-brew services start ollama
-ollama pull qwen3:8b
-ollama pull hermes3
-```
-
-Ollama keeps its models on the LaCie (`~/.ollama/models` points there), so plug it in first. Aider is not installed. It runs through `uvx` the first time you call it, so nothing lands in `~/.local/bin`.
-
-Skip `hermes3:70b`. It needs about 40 GB of memory and this Mac has 16.
-
-## Switching models
+## Use it
 
 ```
-aider-qwen      # the default, qwen3:8b
-aider-hermes    # Nous Hermes 3 8B
+localclaude
 ```
 
-Both live in `dotfiles/fish/functions`. `AIDER_QWEN=qwen3:1.7b aider-qwen` picks another Qwen tag.
+Type it in any folder. It starts Ollama if it is not running and builds the model if it is missing. No Anthropic key: the `ollama` token in the function is a placeholder Ollama ignores. `LOCALCLAUDE_MODEL=<tag> localclaude` tries another model.
 
-For Samantha (Turing), say "ask hermes ..." or "ask qwen ...". She finds the model by name. To make Hermes her default fallback instead of Qwen, set `SAMANTHA_OLLAMA_MODEL=hermes3`.
+The function lives in `dotfiles/fish/functions/localclaude.fish`.
 
-## When to use which
+## Install from scratch
 
-Qwen for code. In the benchmark all of its asserts passed, and Hermes wrote one assert that fails and blamed the median bug on the wrong line. Hermes is about 15 percent faster (21 against 19 tokens a second) and wordier, so use it for talk: explanations, writing and role-play. Neither got the bash one-liner fully right, so check shell answers from either one. Run only one at a time. Two 8B models at once will push 16 GB into swap.
+```
+brew install ollama
+ollama pull qwen3.5:4b
+localclaude
+```
 
-`benchmarks/hermes-vs-qwen.md` has the same three coding prompts through both. Rerun it with `python3 benchmarks/run.py`.
+The first run builds `qwen3.5-4b-32k` from the `Modelfile` here. It reuses the same download, so it costs no disk.
+
+## Why it is set up this way
+
+Three things had to change before the model would do anything but print code as text.
+
+1. **32k context.** Ollama's default context is too small for Claude Code's tool instructions. They get cut off, and the model never calls a tool. The `Modelfile` raises it to 32768.
+2. **`--bare`.** Hooks, memory, CLAUDE.md and the skill list bury a 4B model. With them it copied the style rules and wrote no files. Bare mode drops all of it.
+3. **No calling home.** `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1` keeps it offline.
+
+Two tweaks made it worse and are left out. `CLAUDE_CODE_MAX_CONTEXT_TOKENS=32768` makes autocompact thrash (205s for the bug fix). `CLAUDE_CODE_DISABLE_THINKING=1` stalled past 6 minutes.
+
+## Tests
+
+Three tasks, each run with `claude --bare -p`, then checked by running the output by hand. All passed on 2026-11-17.
+
+| Task | Time |
+|---|---|
+| Write FizzBuzz and run it | 145s |
+| Fix the bug in a file whose assert fails | 114s |
+| Write a function and its test, run the test, fix failures | 62s |
+| Same bug fix through `localclaude` itself | 53s |
+
+The model on its own runs at about 28 tokens a second. Raw tool calls through Ollama's API work fine. The slowness is Claude Code's long prompt, not the model.
+
+## Models
+
+`qwen3.5:4b` (3.3 GB) is the default. `qwen3.5:9b` (6.6 GB) is smarter and still fits in 16 GB, at about half the speed. `gpt-oss:20b` and `qwen3-coder:30b` are too big for this Mac.
+
+## Aider
+
+`aider-qwen` and `aider-hermes` still exist, but they want `qwen3:8b` and `hermes3`, which are not installed. Pull those first, or use `AIDER_QWEN=qwen3.5:4b aider-qwen`. `benchmarks/hermes-vs-qwen.md` is the old October comparison.
