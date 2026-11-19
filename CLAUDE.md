@@ -53,7 +53,7 @@ Old names live on in bundle ids, Pages projects and hosts after a rename. Check 
 ### Big projects
 **joshuatree** (from-scratch i386 and Pi 4 OS), **turing** (small on-device models), **plank** (one-file language), **vancouvervice** (Unreal 5), **duke** (plays games while you sleep, runner must stay up), **joshemon** (GBA game in C), **mirage** (desert platformer that runs inside Joshua Tree).
 
-`jt-brand`, `jt-gpu`, `jt-install`, `jt-spot` are git worktrees of joshuatree, one per live session. Not projects. Don't move, delete or `git worktree prune` them while a session is on that branch; ask Joshua first.
+`jt-*` folders are git worktrees of joshuatree, one per session. Not projects. Don't move, delete or `git worktree prune` them while a session is on that branch; ask Joshua first.
 
 ### Sites and infra
 **nulljosh.github.io** (portfolio, jaybulb.com), **journal** (Jekyll), **notes** (Obsidian source), **brain** (RAG), **jaybulb-api** (Worker on D1/KV: sign-in, data, mail), **authmail** (Resend mail Worker), **tripwire** (CI fixer), **homebrew-tap** (`brew install nulljosh/tap/...`), **dotfiles** (shell, skills).
