@@ -1,16 +1,43 @@
 ---
 name: summarize-books
-description: Summarize a library book from Joshua's phone photos in iCloud Books into per-chapter summary.md files. Use for "/summarize-books <Book>", "summarize the book", or any book folder under iCloud Documents/Misc/Books.
+description: Turn a PDF of a book Joshua owns into chapter summaries in his Kernel account. Use for "/summarize-books <Book>", "import the book", "summarize the book", or any book folder under iCloud Documents/Misc/Books.
 ---
 
-# Summarize a book
+# Import a book from its PDF
 
-Books live in `~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Misc/Books/<Book>/`, one subfolder per chapter (sometimes nested by part, e.g. `Part 1/3/`). Each chapter folder holds phone photos (HEIC/JPEG) and sometimes an image-only `chapter.pdf` (no text layer, so `pdftotext` gives nothing).
+No more page photos (Joshua, 2026-11-15: "We're gonna stop scanning books and instead just get the PDFs"). Books live in `~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Misc/Books/<Book>/` as one PDF each.
 
-1. List the chapter folders in reading order. Skip any that already have `summary.md` unless asked to redo.
-2. One chapter at a time (keeps context small): convert photos with `sips -s format jpeg -Z 1600 IN --out $SCRATCH/book/<chapter>/` and Read each image in page order (sort by filename).
-3. Write `summary.md` in that chapter folder: title, 3 to 6 key ideas as short headed sections, a "Takeaways" list, all in your own words, plain English, no em dashes, no long verbatim quotes.
-4. After the last chapter: write `<Book>/<book-slug>-summary.md` merging all chapters, and add the book with a chapter/topic table to the Books `AGENTS.md`.
-5. Delete a chapter's raw photos (HEIC/JPEG) only after its summary.md is saved AND every photo in it was actually read (no unread pages). Keep chapter.pdf. Any chapter with unread photos keeps them. (Joshua, 2026-10-12: "Delete once we're done!")
+Two routes, same result:
+- **In the app.** Kernel's Add a book (iPhone, iPad, Mac, web) imports a PDF or EPUB and summarizes each chapter through `/api/summarize` by default. Scanned PDFs are read on the device in the apps. This is the route for every user, and the easy one for Joshua too.
+- **From here** (long books, or when the app route fails): the steps below.
 
-Rules: if a folder is empty or not downloaded from iCloud, note it and move on. Headless only. Report in one line: chapters done, chapters missing.
+## Output is always a summary
+
+Every book gets a summary in Claude's own words. No word-for-word transcription. `#` per chapter, 3 to 6 short headed key ideas, then a "Takeaways" list. Plain English, no em dashes, no quotes over 10 words, no copied code listings. Figures become one bracketed line, e.g. `[Figure 4.2: request flow through the cache]`.
+
+## Steps
+
+1. **No PDF yet?** Check legit free sources and tell Joshua if one exists: Open Library / Internet Archive borrow, Project Gutenberg and Standard Ebooks, the author's or publisher's site (No Starch, O'Reilly, Manning sell DRM-free PDFs; OpenStax and arXiv are free). Never search for, fetch or link pirate copies or shadow libraries. Joshua supplies the PDF; where it came from is his call.
+2. **Text layer?** `pdffonts book.pdf | sed -n 3p` prints a font row only if there is text. An image-only PDF: import it in the iPhone or Mac app (on-device OCR), or OCR pages here with `ocr.sh` after `pdftoppm -r 150 -jpeg`.
+3. **Split by chapter, locally.** Read the contents (`pdftotext -f 5 -l 12 book.pdf -`), find where chapter 1 starts for the offset, then `pdftotext -f <start> -l <end> book.pdf <scratch>/chN.txt` per chapter. Zero tokens so far.
+4. **Summarize one chapter file at a time** into `~/Documents/Code/kernel/summaries/<book-slug>.md`, appending after each so nothing piles up in context. Long books go to one Haiku subagent with this exact brief.
+5. **Import** from `~/Documents/Code/kernel`: `python3 scripts/import-summaries.py --service <book-slug>` and check the uploaded byte count. That writes Joshua's private rows only. Never run `sync-summaries.sh` on a PDF-sourced book.
+6. Add or refresh the book's line in the Books `CLAUDE.md`. Keep the PDF in iCloud Books; never copy it into a repo or upload it anywhere else.
+
+## Photos are never ingested
+
+PDF first, always. Photos are only a fallback for a book Joshua could not find as a PDF (Joshua, 2026-11-16). If a folder has a PDF, delete its photos unread. If it has only photos, OCR them with `ocr.sh`, summarize just the missing chapters, then delete the photos. Remove empty folders after.
+
+## Find the work
+
+Walk every folder with a PDF. A book is done when `~/Documents/Code/kernel/summaries/<book-slug>.md` exists (or the folder has a `summary.md` / `<book-slug>-summary.md`). Image-only `chapter.pdf` files from the old flow already have their `summary.md`; skip them. Everything else with a text layer is work.
+
+```sh
+find . -iname '*.pdf' | while read -r f; do echo "$(pdffonts "$f" | sed -n 3p | wc -l) $f"; done
+```
+
+Split by outline with qpdf when the PDF has one (`qpdf --json --json-key=outlines`, the chapter is the level under each "Part"), else by the contents page.
+
+## Report
+
+Headless. One line: chapters done, chapters missing, import result.

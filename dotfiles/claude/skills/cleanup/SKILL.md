@@ -1,6 +1,6 @@
 ---
 name: cleanup
-description: Free disk space hard — mole deep clean + Xcode/dev cache purge. Use when disk is low, the user asks for a quick cleanup, or invokes /cleanup.
+description: Disk space only, not code or repos. Free disk space hard: mole deep clean + Xcode/dev cache purge. Use when disk is low, the user asks to free space, or invokes /cleanup.
 ---
 
 # /cleanup — reclaim disk space
@@ -22,11 +22,17 @@ Wins by size on this machine: DerivedData (6 GB), brew cache + prune (2.4 GB + 2
 
 Run it with `run_in_background` and a 300 s timeout so `brew cleanup` doesn't stall the turn.
 
+## Disk at zero (ENOSPC)
+
+When the disk is 100% full, Bash itself fails with `ENOSPC ... mkdir /private/tmp/claude-501/...` because the sandbox can't create its scratch dir. Run the first `rm -rf` of DerivedData and caches with `dangerouslyDisableSandbox: true`; once a few GB are back, everything works normally again.
+
+Why it happens (2026-09-21): free space sat around 10 GB and swap lives in the same APFS container, so one heavy local LLM or training job balloons swap and takes the disk to zero. Prevention is headroom, not a daemon: keep 20+ GB free. The LaCie is gone (2026-11-11, now his dad's); there is no external drive until he buys a new one, so never suggest moving data off the internal disk. Steam and Epic in Application Support are dangling symlinks to it. Second tier safe caches (never `uv cache clean`, other sessions run live envs from it): `~/Library/Caches/org.swift.swiftpm`, `~/.gradle/caches`, `~/.cache/mole`. Simulator runtimes are hidden disk images (`xcrun simctl runtime list`), watchOS alone is 9 GB.
+
 ## Full mode (only when quick mode isn't enough)
 
-1. **Mole deep clean** (brew, repo at ~/Documents/Code/_external/mole): `mole clean --dry-run` to preview. NO `--yes` flag, NO headless mode — it blocks on a TTY prompt. Tell the user to run it in a terminal themselves.
+1. **Mole deep clean** (brew, `mole` or `mo` on PATH): `mole clean --dry-run` to preview. NO `--yes` flag, NO headless mode — it blocks on a TTY prompt. Tell the user to run it in a terminal themselves.
 2. **Simulators**: `du` on ~/Library/Developer/CoreSimulator/Devices reports 40+ GB but that's APFS clones; erasing every simulator reclaims ~1 GB. Not worth it.
-3. **Package caches**: `uv cache clean`; `pod cache clean --all` if present.
+3. **Package caches**: `pod cache clean --all` if present. Never `uv cache clean`.
 4. **Logs**: `rm -rf ~/Library/Logs/*`.
 5. **Ollama**: `ollama list` — flag models unused >30 days, don't auto-delete.
 6. **Report**: top 5 remaining hogs via `du -xh -d2 ~ 2>/dev/null | sort -hr | head`.
@@ -34,4 +40,4 @@ Run it with `run_in_background` and a 300 s timeout so `brew cleanup` doesn't st
 8. **Local LLM models** (~/.ollama/models, ~/models, anything feeding a local server like oMLX): these are active tooling, not cache — never auto-delete, only flag size.
 
 ## Never delete
-User documents, ~/Documents/Code, iCloud data. `~/Library/Developer/Xcode/Archives` holds shipped app archives — ask first (it was wiped without asking on 2026-09-06; don't repeat that). Same for `~/Library/Application Support/Codex/vm_bundles` (Codex Desktop sandbox VM images, not cache) and any per-app Application Support directory (Steam, etc.) — real data, ask first.
+User documents, ~/Documents/Code, iCloud data. `~/Library/Developer/Xcode/Archives` holds shipped app archives — ask first (it was wiped without asking on 2026-09-06; don't repeat that). Same for `~/Library/Application Support/Claude/vm_bundles` (Claude Desktop sandbox VM images, not cache) and any per-app Application Support directory (Steam, etc.) — real data, ask first.

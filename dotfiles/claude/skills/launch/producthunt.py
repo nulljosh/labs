@@ -122,7 +122,22 @@ def main():
                 match = re.match(r"^(Name|Tagline(?: \(\d+\))?|Description(?: \(\d+\))?|Topics|Pricing|Web|App Store|GitHub|Post):\s*(.*)$", line)
                 if match:
                     fields[re.sub(r" \(\d+\)$", "", match.group(1))] = match.group(2)
-            fields["First comment"] = text.split("## First comment", 1)[1].split("\nPost:", 1)[0].strip() if "## First comment" in text else ""
+            for key in ("Name", "Tagline", "Description", "Topics", "Pricing line"):
+                if key in fields:
+                    continue
+                match = re.search(r"^## " + re.escape(key) + r"(?: \([^\n]*\))?\s*\n(.*?)(?=\n## |\Z)", text, re.M | re.S | re.I)
+                if match:
+                    fields[key] = match.group(1).strip()
+            if "Topics" in fields:
+                fields["Topics"] = ", ".join(line.removeprefix("- ").strip() for line in fields["Topics"].splitlines())
+            for key in ("Web", "App Store", "GitHub"):
+                if key not in fields:
+                    match = re.search(r"^- " + re.escape(key) + r":\s*(.*)$", text, re.M)
+                    if match:
+                        fields[key] = match.group(1)
+            fields["First comment"] = re.search(r"^## First comment[^\n]*\n(.*?)(?=\n## |\nPost:|\Z)", text, re.M | re.S | re.I).group(1).strip() if "## First comment" in text else ""
+            if "Pricing line" in fields and "Pricing" not in fields:
+                fields["Pricing"] = fields.pop("Pricing line")
             fields["Gallery"] = [str(path) for path in sorted((kit.parent / "gallery").glob("*")) if path.is_file()]
             subprocess.run(["open", "-a", "Google Chrome", "https://www.producthunt.com/posts/new"], check=False)
             result = {"app": args.url, "kit": str(kit), "form": fields,
