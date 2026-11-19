@@ -634,3 +634,9 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] (Note "No Starch") Scan nostarch.com, especially AI + machine learning, computer science, general programming, hacking & computer security, hardware/DIY, programming, system administration. List every book in those lists (all pages), then rank them by relevance to our codebase.
 - [ ] (Note "Research") Licenses: which are best for our repos? And privacy policies.
 - [ ] (Note "Jaybulb") info@jaybulb.com is configured in iCloud; can we make it hello@ instead? And check the cold emails we sent out.
+
+## Ingested 2026-11-18
+- [ ] Skills: what's installed, which came preinstalled, can we clean up, can we sync into the dotfiles repo? Need a verify skill to confirm something, whatever the parameters are. Also check GitHub stars on that skills repo.
+- [ ] Security: sweep our codebase repos with a security code review.
+- [ ] New skill: GitHub cleanup of issues and PRs, better labels, organization.
+- [ ] New skill: Photos cleanup that opens macOS Photos and organizes it, e.g. a folder for book screenshots.
