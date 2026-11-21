@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Settings shelf for sharing: sign in, start or join a shop, see the crew.
-struct TeamShelf: View {
+@MainActor struct TeamShelf: View {
     @Environment(Account.self) private var account
     @State private var signingIn = false
     @State private var prompt: Prompt?
@@ -93,7 +93,7 @@ struct TeamShelf: View {
     }
 }
 
-struct SignInSheet: View {
+@MainActor struct SignInSheet: View {
     @Environment(Account.self) private var account
     @Environment(\.dismiss) private var dismiss
     @State private var email = ""

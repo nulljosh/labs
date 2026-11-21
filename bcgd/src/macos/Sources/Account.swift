@@ -269,7 +269,10 @@ final class Account {
     private func savePending() { UserDefaults.standard.set(try? JSONEncoder().encode(pending), forKey: "sync.pending") }
 
     private func item<T: Encodable>(_ kind: String, _ id: UUID, _ value: T) -> [String: Any] {
-        ["kind": kind, "id": id.uuidString, "data": (try? JSONSerialization.jsonObject(with: Self.encode(value))) ?? [:]]
+        // "v": 4 tells the server this build owns every part field (spring specs, cost), so it replaces rather than merges.
+        var data = (try? JSONSerialization.jsonObject(with: Self.encode(value))) as? [String: Any] ?? [:]
+        data["v"] = 4
+        return ["kind": kind, "id": id.uuidString, "data": data]
     }
 
     private static func encode<T: Encodable>(_ value: T) -> Data {
