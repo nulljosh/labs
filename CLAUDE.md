@@ -6,7 +6,7 @@
 Mac Mini M4, Python 3.14, Node 24, xcodegen. Use the `asc` CLI, never the App Store Connect dashboard.
 
 ## Repos
-`~/Documents/Code` is the `labs` repo. Plain folders in it, no repo of their own: bcgd, bbgd (second garage-door site, not deployed), homeqi, dream, cadence, fieldbook, hormuz, weather, authmail, dotfiles, scripts, plan, runs, launch (post drafts), and the experiments bank, credis, agent-101, video-speed-ext. Everything else is its own repo in a same-named folder, gitignored here. Labs CI is `.github/workflows/<name>-*.yml`. Private side projects live in `vault/`. `_attic/` and `_external/` are never pushed.
+`~/Documents/Code` is the `labs` repo. Plain folders in it, no repo of their own: bcgd, bbgd (second garage-door site, not deployed), homeqi, dream, cadence, fieldbook, hormuz, weather, authmail, scripts, runs, launch (post drafts), and the experiments bank, credis, agent-101, video-speed-ext. Everything else is its own repo in a same-named folder next to labs, never copied into it (dotfiles, plan and keyrate included). Labs CI is `.github/workflows/<name>-*.yml`. Private side projects live in `vault/`. `_attic/` and `_external/` are never pushed.
 
 Root stays small: this file, `README.md`, `roadmap.md`, `GTM.md`, `REVENUE.md`, `SHIPPING.md`, `README-TEMPLATE.md`, the two svgs and `LICENSE`. Session handoffs go in `runs/<date>-<name>/`, dead prompts and logs in `_attic/`. Nothing else lives loose at the root.
 
