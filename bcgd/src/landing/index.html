@@ -1,202 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doorstock — inventory and jobs for garage-door pros</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doorstock: stock and jobs for garage door shops</title>
+<meta name="description" content="Know what's on the shelf. Torsion springs by spec, jobs that take their own parts, low stock first, and one list for the whole crew.">
 <meta name="apple-itunes-app" content="app-id=6791106082">
-<meta name="description" content="Track parts on the truck and jobs on the books. Offline, no account, no cloud. Native on macOS, plus a browser dashboard.">
-<meta name="theme-color" content="#B4661C">
-<meta property="og:title" content="Doorstock — inventory and jobs for garage-door pros">
-<meta property="og:description" content="Track parts on the truck and jobs on the books. Offline, no account, no cloud.">
+<meta property="og:title" content="Doorstock: stock and jobs for garage door shops">
+<meta property="og:description" content="Springs by spec, jobs that take their own parts, and one list for the whole crew.">
 <meta property="og:type" content="website">
-<link rel="icon" href="icon.svg">
+<meta property="og:url" content="https://doorstock.jaybulb.com/">
+<meta property="og:site_name" content="Doorstock">
+<meta property="og:image" content="https://doorstock.jaybulb.com/trailer/poster-wide.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://doorstock.jaybulb.com/">
+<link rel="icon" href="icon.svg?v=2">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
+<link rel="stylesheet" href="https://jaybulb.com/tokens.css">
+<link rel="stylesheet" href="palette.css?v=1">
+<link rel="stylesheet" href="https://jaybulb.com/landing.css">
+<script defer src="https://jaybulb.com/landing.js"></script>
+<link rel="stylesheet" href="hero.css?v=1">
+<script type="module" src="hero.js?v=1"></script>
 <style>
-:root {
-  --accent: #B4661C;
-  --link: #a05b19;
-  --accent-soft: #f8f0e7;
-  --bg: #ffffff;
-  --bg2: #f7f7f8;
-  --text: #1c1d22;
-  --text2: #5c5f6a;
-  --border: #e6e7ea;
-  --font-body: -apple-system, BlinkMacSystemFont, system-ui, 'Helvetica Neue', sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #111111;
-    --link: #bc7533; --bg2: #1a1a1a; --text: #e8e8f0;
-    --text2: rgba(232,232,240,0.60); --border: rgba(232,232,240,0.10);
-    --accent-soft: #241a12;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+
+  section { padding: 2rem 1.5rem 7rem; }
+  /* the trailer, the real app on the real screens */
+  .trailer { max-width: 1040px; margin: 0 auto; border-radius: 28px; overflow: hidden; background: var(--bg2); border: 1px solid var(--border); }
+  .trailer video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .trailer-cap { margin-top: 1.1rem; text-align: center; font-size: .875rem; color: var(--text2); }
+  .trailer-cap button { font: inherit; color: var(--text); font-weight: 600; background: none; border: 0; cursor: pointer; margin-left: .4rem; }
+  .trailer-cap button:hover { text-decoration: underline; }
+  @media (max-width: 700px) {
+    section { padding: 1rem 1rem 5rem; }
+    .trailer { max-width: 420px; border-radius: 24px; }
+    .trailer video { aspect-ratio: 886 / 1920; }
   }
-}
-:root[data-theme="dark"] {
-  --bg: #111111; --bg2: #1a1a1a; --text: #e8e8f0;
-  --text2: rgba(232,232,240,0.60); --border: rgba(232,232,240,0.10);
-  --accent-soft: #241a12;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-.container { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
-.hero {
-  position: relative; isolation: isolate; overflow: hidden;
-  background: var(--accent-soft); padding: 5.5rem 0 4.5rem; text-align: center;
-}
-.hero .container { position: relative; z-index: 2; }
-/* ponytail: the backdrop is a garage door -- slats in CSS, no images, no JS */
-.hero::before {
-  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: repeating-linear-gradient(
-    to bottom,
-    color-mix(in srgb, var(--text) 6%, transparent) 0 2px,
-    transparent 2px 46px,
-    color-mix(in srgb, var(--text) 3%, transparent) 46px 48px);
-}
-.hero::after {
-  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: radial-gradient(ellipse 40% 46% at 50% 45%, color-mix(in srgb, var(--accent-soft) 88%, transparent) 0%, transparent 100%);
-}
-.hero-icon { width: 88px; height: 88px; border-radius: 20px; }
-h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); margin: 1.25rem 0 0.75rem; letter-spacing: -0.02em; }
-.hero p { font-size: 1.15rem; color: var(--text2); max-width: 34rem; margin: 0 auto; }
-.buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-.btn { display: inline-block; padding: 0.7rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.98rem; border: 1px solid transparent; }
-.btn-primary { background: var(--accent); color: #fff; }
-.btn-outline { border-color: var(--border); color: var(--text); background: var(--bg); }
-.features { padding: 4rem 0; }
-h2 { font-size: 1.75rem; text-align: center; margin: 0 0 2.5rem; letter-spacing: -0.01em; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }
-.feature { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
-.feature h3 { margin: 0 0 0.5rem; font-size: 1.05rem; }
-.feature p { margin: 0; color: var(--text2); font-size: 0.95rem; }
-.closing { padding: 4rem 0 4.5rem; text-align: center; background: var(--bg2); border-top: 1px solid var(--border); }
-.closing p { color: var(--text2); max-width: 32rem; margin: 0 auto; }
-.closing h2 { margin-bottom: 1rem; }
-footer { padding: 2.5rem 0 3.5rem; text-align: center; font-size: 0.9rem; color: var(--text2); }
-footer a { color: var(--text2); }
+
+  .says { list-style: none; max-width: 900px; margin: 4.5rem auto 0; line-height: 1.5; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.25rem 2rem; color: var(--text2); font-size: .975rem; }
+  .says b { display: block; color: var(--text); font-weight: 650; margin-bottom: .2rem; }
+  .says svg { width: 28px; height: 28px; color: var(--blue); margin-bottom: .6rem; display: block; }
+  .where { text-align: center; margin-top: 4.5rem; color: var(--text2); }
+  .where a { color: var(--text); font-weight: 600; margin-left: .4rem; }
+  .where a:hover { text-decoration: underline; }
+  @media (max-width: 700px) { .says { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; } .says svg { margin: 0 auto .5rem; } }
+
+  /* Footer, as on the other Jaybulb landings: brand and link columns, the animated glyph band, one fine line */
+  .foot { padding: 4rem 1.5rem 1.5rem; border-top: 1px solid var(--border); overflow: hidden; }
+  .foot-top { max-width: 960px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2.5rem; }
+  .foot-brand { display: grid; gap: .5rem; align-content: start; }
+  .foot-brand img { border-radius: 10px; }
+  .foot-brand b { font-size: 2.5rem; line-height: 1; letter-spacing: -.02em; }
+  .foot-brand p, .foot .label { color: var(--text2); font-size: .9375rem; }
+  .foot-cols { display: flex; flex-wrap: wrap; gap: 3rem; }
+  .foot-cols div { display: grid; gap: .5rem; align-content: start; }
+  .foot .label { font-weight: 700; font-size: .875rem; margin-bottom: .25rem; }
+  .foot-cols a { font-size: .9375rem; }
+  .foot-cols a:hover { color: var(--blue-ink); }
+  .legal { margin-top: 1.5rem; font-size: .8125rem; color: var(--text2); text-align: center; }
+  .legal a:hover { text-decoration: underline; }
+  @media (max-width: 560px) { .foot-cols { gap: 2rem; } }
+  :focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
 </style>
+<style>/* footer glyph band (footer-band.js) */ .word-band{color:var(--text);position:relative;width:100vw;margin:40px 0 0 calc(50% - 50vw);height:clamp(120px,16vw,220px)} .word-canvas{position:absolute;inset:0;width:100%;height:100%;display:none} .word-band.live .word-canvas{display:block}</style>
 </head>
-<body>
-<section class="hero">
-  <div class="container">
-    <img class="hero-icon" src="icon.svg" alt="Doorstock icon" width="88" height="88">
-    <h1>Doorstock</h1>
-    <p>Inventory and jobs for garage-door pros. Know what is on the truck and what is booked this week, without running a whole field-service platform to find out.</p>
-    <div class="buttons">
-      <a href="https://apps.apple.com/app/id6791106082" class="btn btn-primary">Mac App Store</a>
-      <a href="https://bcgd-dashboard.jaybulb.com" class="btn btn-outline">Open the dashboard</a>
+<body id="top">
+<nav class="topbar" aria-label="Site">
+  <a href="/" class="tb-brand" aria-label="Doorstock home"><img src="icon.svg?v=2" alt="" width="30" height="30"><span>Doorstock</span></a>
+  <a href="https://apps.apple.com/app/id6791106082" class="tb-btn">Get it for Mac</a>
+</nav>
+<main>
+<header class="lp-hero">
+  <div class="backdrop" aria-hidden="true" inert><div class="ground" id="door"></div></div>
+  <div class="sky" id="sky" aria-hidden="true" inert></div>
+  <div class="hero-copy">
+    <h1>Know what's on the shelf.</h1>
+    <p class="lp-lede">Stock and jobs for garage door shops. Finish a job and its parts come off the shelf.</p>
+    <div class="lp-cta">
+      <a href="https://apps.apple.com/app/id6791106082" class="lp-btn lp-solid">Mac App Store</a>
+      <a href="#trailer" class="lp-btn">Watch the trailer</a>
     </div>
+    <p class="demo" aria-hidden="true"><span class="demo-count"><b id="dCount">128</b> on the shelf</span><span class="demo-line" id="dLine"></span></p>
   </div>
-</section>
-<section class="features">
-  <div class="container">
-    <h2>Built for a truck, not a boardroom</h2>
-    <div class="grid">
-      <div class="feature"><h3>Springs by the spec</h3><p>Wire size, inside diameter, length and left or right wind on every torsion spring, plus cables, rollers, openers and panels.</p></div>
-      <div class="feature"><h3>Snap a label</h3><p>Point the camera at a box. Doorstock reads it and opens that part, or fills in a new one for you.</p></div>
-      <div class="feature"><h3>Jobs take their own parts</h3><p>Lead, Quote, Scheduled, Complete, Paid. Mark a job complete and its parts come off the shelf.</p></div>
-      <div class="feature"><h3>Low stock, one tap reorder</h3><p>Set a floor per part. Everything under it lands in one reorder email to your supplier.</p></div>
-      <div class="feature"><h3>A month for the accountant</h3><p>One CSV of parts used on finished jobs, with cost, ready for QuickBooks or any spreadsheet.</p></div>
-      <div class="feature"><h3>Also in the browser</h3><p>The same inventory and pipeline run at the web dashboard when you are back at the desk.</p></div>
-    </div>
+</header>
+<section id="trailer" class="lp-reveal">
+  <div class="trailer">
+    <video id="tv" muted loop playsinline preload="metadata" poster="trailer/poster-wide.jpg" aria-label="Doorstock trailer: inventory, jobs and the low stock list">
+      <source src="trailer/doorstock-1920x1080.mp4" type="video/mp4">
+    </video>
   </div>
-</section>
-<section class="closing">
-  <div class="container">
-    <h2>From a real shop</h2>
-    <p>Doorstock started as the back office for a garage-door business. That side of it is still running at <a href="https://bcgd.jaybulb.com">bcgd.jaybulb.com</a> — the booking, pricing and service pages the app keeps stocked.</p>
-    <div class="buttons"><a href="https://apps.apple.com/app/id6791106082" class="btn btn-primary">Get Doorstock</a></div>
-  </div>
-</section>
+  <p class="trailer-cap">Twenty seconds, no sound. <button type="button" id="tvToggle">Pause</button></p>
 
-<style>
-#install-anywhere{padding:5rem 0;border-top:1px solid color-mix(in srgb, currentColor 14%, transparent);}
-#install-anywhere .xp-wrap{max-width:960px;margin:0 auto;padding:0 1.5rem;}
-#install-anywhere h2{font-size:clamp(1.6rem,3.4vw,2.4rem);margin:0 0 .6rem;letter-spacing:-.02em;}
-#install-anywhere .xp-lead{max-width:46ch;margin:0 0 2.5rem;opacity:.7;line-height:1.55;}
-#install-anywhere .xp-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-#install-anywhere .xp-card{background:color-mix(in srgb, currentColor 4%, transparent);border:1px solid color-mix(in srgb, currentColor 14%, transparent);border-radius:12px;padding:1.25rem;display:flex;flex-direction:column;gap:.5rem;}
-#install-anywhere .xp-card h3{margin:0;font-size:1rem;letter-spacing:-.01em;}
-#install-anywhere .xp-card p{margin:0;font-size:.9rem;line-height:1.5;opacity:.7;flex:1;}
-#install-anywhere .xp-card a{margin-top:.5rem;font-size:.875rem;font-weight:500;color:var(--accent,currentColor);text-decoration:none;}
-#install-anywhere .xp-card a:hover{text-decoration:underline;}
-</style>
-
-<section id="install-anywhere">
-  <div class="xp-wrap">
-    <h2>Install it anywhere.</h2>
-    <p class="xp-lead">Doorstock runs on every platform. On Windows, Linux and Android it installs straight from the browser &mdash; no store, no download, no runtime. It gets a real window, its own icon, and keeps working offline.</p>
-    <div class="xp-grid">
-    <div class="xp-card">
-      <h3>iPhone &amp; iPad</h3>
-      <p>A native app, not a wrapped web page.</p>
-      <a href="https://apps.apple.com/app/id6791106082">App Store &rarr;</a>
-    </div>
-    <div class="xp-card">
-      <h3>Mac</h3>
-      <p>Native, universal binary. Runs on Apple silicon and Intel.</p>
-      <a href="https://apps.apple.com/app/id6791106082">App Store &rarr;</a>
-    </div>
-    <div class="xp-card">
-      <h3>Windows</h3>
-      <p>Open the web app in Edge or Chrome, then <strong>Install Doorstock</strong> from the address bar. It lands in the Start Menu like any other app.</p>
-      <a href="https://bcgd.jaybulb.com">Open &amp; install &rarr;</a>
-    </div>
-    <div class="xp-card">
-      <h3>Android</h3>
-      <p>Open the web app in Chrome, then <strong>Add to Home screen</strong>. Full screen, no browser chrome, works offline.</p>
-      <a href="https://bcgd.jaybulb.com">Open &amp; install &rarr;</a>
-    </div>
-    <div class="xp-card">
-      <h3>Linux</h3>
-      <p>Same as Windows &mdash; install the web app from Chrome or Chromium and it runs in its own window.</p>
-      <a href="https://bcgd.jaybulb.com">Open &amp; install &rarr;</a>
-    </div>
-    <div class="xp-card">
-      <h3>Web</h3>
-      <p>Nothing to install. The same app, in any modern browser.</p>
-      <a href="https://bcgd.jaybulb.com">Open the web app &rarr;</a>
-    </div>
-    </div>
-  </div>
+  <ul class="says">
+    <li><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" aria-hidden="true"><path d="M6 50h10M84 50h10"/><path d="M20 24c7 0 7 52 0 52M30 24c7 0 7 52 0 52M40 24c7 0 7 52 0 52M50 24c7 0 7 52 0 52M60 24c7 0 7 52 0 52M70 24c7 0 7 52 0 52"/></svg><b>Springs by the spec.</b> Wire size, inside diameter, length and wind, each with a cost.</li>
+    <li><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="14" width="72" height="72" rx="10"/><path d="M30 52l13 13 27-30" stroke-linecap="round"/></svg><b>Jobs take their own parts.</b> Mark one complete and its parts come off the shelf.</li>
+    <li><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" aria-hidden="true"><path d="M20 80V56M40 80V40M60 80V60M80 80V24"/><circle cx="80" cy="24" r="6" fill="currentColor"/></svg><b>Low stock comes first.</b> One tap writes the reorder email to your supplier.</li>
+    <li><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round" aria-hidden="true"><path d="M14 34V22a8 8 0 0 1 8-8h12M66 14h12a8 8 0 0 1 8 8v12M86 66v12a8 8 0 0 1-8 8H66M34 86H22a8 8 0 0 1-8-8V66"/><path d="M30 50h40" stroke-linecap="round"/></svg><b>Snap a label.</b> Point the camera at a box and it opens that part, or starts a new one.</li>
+    <li><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" aria-hidden="true"><circle cx="36" cy="36" r="14"/><circle cx="70" cy="42" r="10"/><path d="M12 82c2-14 12-22 24-22s22 8 24 22M58 82c2-10 8-16 14-16s14 6 16 16"/></svg><b>One list for the crew.</b> Share a join code. Everyone sees the same stock and jobs.</li>
+    <li><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round" aria-hidden="true"><path d="M26 12h34l18 18v58H26z"/><path d="M58 12v20h20M38 52h28M38 66h28" stroke-linecap="round"/></svg><b>A month for the accountant.</b> One CSV of parts used on finished jobs, with cost.</li>
+  </ul>
+  <p class="where">On the Mac App Store now. iPhone is on its way. <a href="https://apps.apple.com/app/id6791106082">Get it for Mac &rarr;</a></p>
 </section>
-
-<footer><div class="container"><p>Built by Joshua. <a href="mailto:trommatic@icloud.com">Support</a> · <a href="https://bcgd.jaybulb.com/privacy">Privacy</a></p></div></footer>
-<style>
-html.js .reveal{opacity:0;transform:translateY(20px)}
-html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
-@media (prefers-reduced-motion: reduce){html.js .reveal{opacity:1!important;transform:none!important;transition:none!important}}
-html.js .hero::before{transform:translateY(var(--py,0px))}
-</style>
+</main>
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand"><img src="icon.svg?v=2" alt="" width="40" height="40"><b>Doorstock</b><p>Know what's on the shelf.</p></div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div><p class="label">Doorstock</p><a href="https://apps.apple.com/app/id6791106082">Mac App Store</a><a href="#trailer">Trailer</a><a href="https://bcgd.jaybulb.com/privacy.html">Privacy</a></div>
+      <div><p class="label">The shop</p><a href="https://bcgd.jaybulb.com">Best Choice Garage Doors</a><a href="https://github.com/nulljosh/labs/tree/main/bcgd">Source</a></div>
+      <div><p class="label">More</p><a href="mailto:info@jaybulb.com?subject=Doorstock">Feedback</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
+    </nav>
+  </div>
+  <div class="word-band" aria-hidden="true"><canvas class="word-canvas"></canvas></div>
+  <p class="legal">&copy; 2026 Joshua Trommel &middot; MIT &middot; <a href="https://bcgd.jaybulb.com/privacy.html">Privacy</a></p>
+</footer>
 <script>
-document.documentElement.classList.add('js');
-(function(){
-  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduced && 'IntersectionObserver' in window) {
-    var targets = document.querySelectorAll('section.features .feature, .xp-card, section.closing');
-    targets.forEach(function(el){ el.classList.add('reveal'); });
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
-    }, {threshold: 0.15});
-    targets.forEach(function(el){ io.observe(el); });
-  }
-  if (!reduced) {
-    var hero = document.querySelector('.hero');
-    if (hero) {
-      var ticking = false;
-      window.addEventListener('scroll', function(){
-        if (!ticking) {
-          requestAnimationFrame(function(){
-            hero.style.setProperty('--py', ((window.scrollY || 0) * 0.35) + 'px');
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }, {passive: true});
-    }
-  }
+// the trailer: the tall cut on phones, plays only while on screen, honours reduced motion
+(function () {
+  var v = document.getElementById("tv"), btn = document.getElementById("tvToggle");
+  if (!v) return;
+  if (matchMedia("(max-width: 700px)").matches) { v.poster = "trailer/poster-tall.jpg"; v.querySelector("source").src = "trailer/doorstock-886x1920.mp4"; v.load(); }
+  var still = matchMedia("(prefers-reduced-motion: reduce)").matches, wanted = !still;
+  function label() { btn.textContent = v.paused ? "Play" : "Pause"; }
+  btn.addEventListener("click", function () { wanted = v.paused; wanted ? v.play() : v.pause(); });
+  v.addEventListener("play", label); v.addEventListener("pause", label); label();
+  new IntersectionObserver(function (e) { if (e[0].isIntersecting && wanted) v.play().catch(function () {}); else v.pause(); }, { threshold: 0.35 }).observe(v);
 })();
 </script>
+<script src="footer-band.js?v=1" defer></script>
 </body>
 </html>

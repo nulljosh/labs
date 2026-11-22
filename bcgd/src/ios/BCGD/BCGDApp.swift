@@ -6,6 +6,7 @@ struct BCGDApp: App {
     @State private var store: Store
     @State private var account: Account
     @State private var unlocked = false
+    @State private var tab = 0
 
     init() {
         let store = Store()
@@ -17,17 +18,17 @@ struct BCGDApp: App {
         WindowGroup {
             Group {
                 if unlocked {
-                    TabView {
+                    TabView(selection: $tab) {
                         TodayView()
-                            .tabItem { Label("Today", systemImage: "sun.max") }
+                            .tabItem { Label("Today", systemImage: "sun.max") }.tag(0)
                         DashboardView()
-                            .tabItem { Label("Dashboard", systemImage: "square.grid.2x2") }
+                            .tabItem { Label("Dashboard", systemImage: "square.grid.2x2") }.tag(1)
                         InventoryView()
-                            .tabItem { Label("Inventory", systemImage: "shippingbox") }
+                            .tabItem { Label("Inventory", systemImage: "shippingbox") }.tag(2)
                         JobsView()
-                            .tabItem { Label("Jobs", systemImage: "list.clipboard") }
+                            .tabItem { Label("Jobs", systemImage: "list.clipboard") }.tag(3)
                         SettingsView()
-                            .tabItem { Label("Settings", systemImage: "gearshape") }
+                            .tabItem { Label("Settings", systemImage: "gearshape") }.tag(4)
                     }
                     .tint(.doorstock)
                     .environment(store)
@@ -50,6 +51,7 @@ struct BCGDApp: App {
     private func authenticate() {
         #if DEBUG
         if UserDefaults.standard.bool(forKey: "skipLock") { unlocked = true; return } // QA on a simulator with someone else's passcode
+        tab = UserDefaults.standard.integer(forKey: "qaTab") // screenshots: launch with -qaTab 2 to open Inventory
         #endif
         let context = LAContext()
         var error: NSError?
