@@ -1,7 +1,7 @@
 # Hormuz
 v1.0.0
 
-Strait of Hormuz status, oil price, and a long/short momentum read, `hormuz.heyitsmejosh.com`. One static page + one Worker, no build step.
+Strait of Hormuz status, oil price, and a long/short momentum read, `hormuz.jaybulb.com`. One static page + one Worker, no build step.
 
 ## Structure
 - `web/index.html`: landing + app, single file. Live Google Maps embed, WTI chart drawn on canvas (no chart lib), scroll-density explainer.

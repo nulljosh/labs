@@ -16,10 +16,11 @@ const BASELINE = 85; // avg daily transits before 2026-02-28
 const CLOSED_RATIO = 0.3;
 const PORTWATCH =
   "https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query" +
-  "?where=portid%3D%27chokepoint6%27&outFields=date,n_total,n_tanker&orderByFields=date%20DESC&resultRecordCount=7&f=json";
+  "?where=portid%3D%27chokepoint6%27&outFields=date,n_total,n_tanker&orderByFields=date%20DESC&resultRecordCount=300&f=json";
 
 export function readStatus(days) {
-  const avg = days.reduce((a, d) => a + d.n_total, 0) / days.length;
+  const week = days.slice(0, 7); // newest first
+  const avg = week.reduce((a, d) => a + d.n_total, 0) / week.length;
   const open = avg >= BASELINE * CLOSED_RATIO;
   return {
     strait: "hormuz",
@@ -32,11 +33,12 @@ export function readStatus(days) {
       ? "Traffic is flowing. Iran shut the strait on 2026-02-28, the first real closure in modern history."
       : `Effectively closed. About ${Math.round(avg)} ships a day against ${BASELINE} normal. Shut since 2026-02-28, with a brief reopening in June.`,
     source: "IMF PortWatch",
+    history: days.map((d) => [d.date, d.n_total]).reverse(), // oldest first, for the ships chart
   };
 }
 
 async function status(env) {
-  const key = "status";
+  const key = "status:v2"; // v2 carries history
   const cached = await env.KV.get(key, "json");
   if (cached && Date.now() - cached.fetchedAt < 60 * 60 * 1000) return json(cached.body);
 

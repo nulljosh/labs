@@ -6,7 +6,7 @@ Oil markets move on one headline: the Strait of Hormuz is about to close.
 For forty years it never did. On February 28, 2026 it did. Hormuz puts the
 map, the price, and the real ship count on one page, so you can check the
 headline in five seconds instead of believing it.
-Live at [hormuz.heyitsmejosh.com](https://hormuz.heyitsmejosh.com).
+Live at [hormuz.jaybulb.com](https://hormuz.jaybulb.com).
 
 ## The mechanic
 

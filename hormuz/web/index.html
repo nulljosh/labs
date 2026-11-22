@@ -6,314 +6,238 @@
 <meta name="theme-color" content="#c93a0a">
 <title>Is the Strait of Hormuz Closed?</title>
 <meta name="description" content="Is the Strait of Hormuz closed? A live answer from real ship counts, plus WTI crude and a long/short read.">
-<style>
-  :root {
-    --bg: #0b0d10; --fg: #eef1f4; --sub: #9aa4ad; --line: #23282e;
-    --open: #2fbf71; --closed: #e6483f; --accent: #eef1f4;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0; background: var(--bg); color: var(--fg);
-    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-  /* map fills the whole viewport as a fixed backdrop; everything else floats on glass above it */
-  #map {
-    position: fixed; inset: 0; width: 100vw; height: 100vh; border: 0; z-index: 0;
-    filter: invert(0.92) hue-rotate(180deg) saturate(0.6) brightness(0.9); /* dark-mode the light Google embed */
-  }
-  /* z-index 0 not -1: Chrome paints a filtered iframe black behind backdrop-filter glass at negative z */
-  header, section, #explainer, footer { position: relative; z-index: 1; }
-  #map-scrim { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(5,7,9,0.15), rgba(5,7,9,0.45) 50%, rgba(5,7,9,0.8)); }
-
-  .glass {
-    background: color-mix(in srgb, var(--bg) 55%, transparent);
-    backdrop-filter: blur(20px) saturate(1.4);
-    -webkit-backdrop-filter: blur(20px) saturate(1.4);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-  }
-
-  header.glass { max-width: 760px; margin: 40px auto 0; padding: 28px 28px 22px; text-align: center; }
-  .call { color: var(--sub); font-size: clamp(14px, 2vw, 17px); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
-  h1 {
-    font-size: clamp(40px, 9vw, 84px); font-weight: 800; margin: 0 0 10px;
-    letter-spacing: -0.03em; line-height: 1.0; text-shadow: 0 2px 20px rgba(0,0,0,0.4);
-  }
-  h1.long { color: var(--open); } h1.short { color: var(--closed); }
-  .sub { color: var(--sub); font-size: clamp(15px, 2vw, 18px); font-weight: 500; }
-
-  .status-pill {
-    display: inline-block; margin-top: 14px;
-    padding: 10px 20px; border-radius: 999px; font-weight: 800; font-size: 15px;
-    letter-spacing: 0.03em; text-transform: uppercase; backdrop-filter: blur(6px);
-    background: color-mix(in srgb, var(--open) 20%, black 70%);
-    color: var(--open); border: 1px solid color-mix(in srgb, var(--open) 50%, transparent);
-  }
-  .status-pill.closed {
-    background: color-mix(in srgb, var(--closed) 20%, black 70%);
-    color: var(--closed); border-color: color-mix(in srgb, var(--closed) 50%, transparent);
-  }
-
-  section.panel { max-width: 760px; margin: 20px auto 28px; padding: 0 16px; }
-  .card.glass { padding: 22px 24px; }
-  .tabs { display: flex; gap: 8px; margin-bottom: 12px; }
-  .tabs button {
-    background: transparent; border: 1px solid var(--line); color: var(--sub);
-    padding: 6px 14px; border-radius: 999px; font-size: 13px; cursor: pointer;
-  }
-  .tabs button.active { color: var(--fg); border-color: var(--fg); }
-  canvas#chart { width: 100%; height: 280px; }
-  .price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
-  .price-row .px { font-size: 44px; font-weight: 800; letter-spacing: -0.02em; }
-  .price-row .delta { font-size: 15px; font-weight: 700; }
-  .delta.up { color: var(--open); } .delta.down { color: var(--closed); }
-
-  .signal { display: flex; align-items: center; gap: 14px; margin-top: 16px; }
-  .signal .badge {
-    font-weight: 800; font-size: 22px; letter-spacing: -0.01em; padding: 10px 22px; border-radius: 8px;
-  }
-  .signal .badge.long { background: color-mix(in srgb, var(--open) 18%, black); color: var(--open); }
-  .signal .badge.short { background: color-mix(in srgb, var(--closed) 18%, black); color: var(--closed); }
-  .signal p { margin: 0; color: var(--sub); font-size: 13px; max-width: 60ch; }
-
-  /* scroll-density explainer, optometrist-chart style, star-wars-crawl motion */
-  #explainer { max-width: 700px; margin: 60px auto 120px; padding: 0 20px; perspective: 500px; }
-  #explainer .row {
-    padding: 40px 0; text-align: center; will-change: transform, opacity;
-    transition: opacity 0.15s linear, transform 0.15s linear;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    #explainer { perspective: none; }
-    #explainer .row { transform: none !important; }
-  }
-  #explainer .row p { margin: 0; letter-spacing: 0.01em; }
-  #explainer .row:nth-child(1) p { font-size: clamp(38px, 6vw, 52px); font-weight: 800; letter-spacing: -0.02em; }
-  #explainer .row:nth-child(2) p { font-size: 26px; font-weight: 600; line-height: 1.4; }
-  #explainer .row:nth-child(3) p { font-size: 20px; font-weight: 500; line-height: 1.5; text-align: left; }
-  #explainer .row:nth-child(4) p { font-size: 16px; font-weight: 400; line-height: 1.6; text-align: left; color: var(--fg); }
-  #explainer .row:nth-child(5) p { font-size: 13px; font-weight: 400; line-height: 1.7; text-align: left; color: var(--sub); }
-  #explainer .row:nth-child(6) p { font-size: 11px; font-weight: 400; line-height: 1.8; text-align: left; color: #6b747c; letter-spacing: -0.005em; }
-
-  footer { text-align: center; color: var(--sub); font-size: 12px; padding: 30px 16px 50px; }
-  a { color: inherit; }
-  .sr-only {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    #explainer .row { transition: none; opacity: 1 !important; }
-  }
-</style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="https://jaybulb.com/tokens.css">
+<link rel="stylesheet" href="https://jaybulb.com/landing.css">
+<style>
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --color-bg: #fff; --color-bg2: #f5f5f7; --color-hairline: #e5e5ea; } }
+:root { --accent: #c93a0a; --open: #248a3d; --closed: #d70015; --map-filter: saturate(.7); --scrim: rgba(255,255,255,.72); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --accent: #ff7a45; --open: #30d158; --closed: #ff453a; --map-filter: invert(.92) hue-rotate(180deg) saturate(.6) brightness(.85); --scrim: rgba(0,0,0,.6); } }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 4px solid color-mix(in srgb, var(--accent) 30%, transparent); outline-offset: 2px; }
+
+/* the live map is the product behind the hero */
+.lp-hero { position: relative; min-height: 88vh; display: grid; place-items: center; overflow: hidden; text-align: center; padding: 6rem 1.25rem 4rem; }
+.lp-hero iframe { position: absolute; inset: -40px; width: calc(100% + 80px); height: calc(100% + 80px); border: 0; filter: var(--map-filter); pointer-events: none; }
+.lp-hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, var(--scrim) 0%, var(--scrim) 35%, transparent 75%), linear-gradient(180deg, transparent 60%, var(--bg)); }
+.hero-copy { position: relative; z-index: 1; max-width: 680px; }
+.lp-mark img { border-radius: 22%; }
+h1 { font-size: clamp(3.25rem, 11vw, 6rem); font-weight: 800; letter-spacing: -.045em; line-height: 1; margin: 1rem 0 .75rem; }
+h1.closed { color: var(--closed); } h1.open { color: var(--open); }
+.lp-lede { font-size: clamp(1.1rem, 2.4vw, 1.35rem); color: var(--text2); }
+.lp-cta { margin-top: 2rem; }
+
+section { padding: 2rem 1.25rem 5rem; }
+.shot { max-width: 620px; margin: 0 auto; padding: 2rem 2rem 1.5rem; border-radius: 28px; background: var(--bg2); border: 1px solid var(--border); }
+.shot-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1rem; }
+.shot-label { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text2); }
+.shot-num { font-size: 4rem; font-weight: 700; line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; margin-top: .4rem; }
+.shot-num small { font-size: 1rem; font-weight: 500; letter-spacing: 0; color: var(--text2); margin-left: .35rem; }
+.shot-num span { font-size: 1.15rem; font-weight: 600; letter-spacing: -.01em; margin-left: .75rem; }
+.up { color: var(--open); } .down { color: var(--closed); }
+canvas { display: block; width: 100%; height: 200px; margin: 1.25rem 0 .5rem; touch-action: pan-y; cursor: crosshair; }
+.readout { font-size: .85rem; color: var(--text2); font-variant-numeric: tabular-nums; min-height: 1.4em; }
+.seg { display: inline-flex; padding: 3px; border-radius: 999px; background: color-mix(in srgb, var(--text) 7%, transparent); }
+.seg button { font: inherit; font-size: .85rem; font-weight: 600; border: 0; background: none; color: var(--text2); padding: .35rem .9rem; border-radius: 999px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--bg); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.signal { display: flex; gap: .9rem; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.badge { font-weight: 800; font-size: .95rem; letter-spacing: .04em; padding: .4rem .9rem; border-radius: 999px; background: color-mix(in srgb, currentColor 14%, transparent); }
+.signal p { font-size: .9rem; color: var(--text2); line-height: 1.45; }
+
+.says { list-style: none; max-width: 860px; margin: 1rem auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; color: var(--text2); font-size: .975rem; line-height: 1.5; }
+.says b { display: block; color: var(--text); font-weight: 650; margin-bottom: .25rem; }
+
+.foot { padding: 3.5rem 1.5rem 1.5rem; border-top: 1px solid var(--border); }
+.foot-top { max-width: 960px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2.5rem; }
+.foot-brand { display: grid; gap: .5rem; align-content: start; }
+.foot-brand img { border-radius: 10px; }
+.foot-brand b { font-size: 2rem; line-height: 1; letter-spacing: -.03em; }
+.foot-brand p, .legal { color: var(--text2); font-size: .9rem; }
+.foot-cols { display: flex; gap: 3rem; flex-wrap: wrap; }
+.foot-cols div { display: grid; gap: .45rem; align-content: start; }
+.foot-cols .label { font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text3); }
+.foot-cols a { font-size: .95rem; } .foot-cols a:hover { color: var(--accent); }
+.legal { max-width: 960px; margin: 3rem auto 0; font-size: .8rem; }
+.legal a { text-decoration: underline; }
+
+@media (max-width: 700px) { .says { grid-template-columns: 1fr; gap: 1.25rem; text-align: center; } .shot { padding: 1.5rem 1.1rem 1.1rem; } .shot-num { font-size: 3.1rem; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
 </head>
-<body>
-
-<iframe id="map" title="Live map of the Strait of Hormuz"
-  src="https://www.google.com/maps?q=26.5667,56.25&z=8&output=embed"
-  referrerpolicy="no-referrer-when-downgrade"></iframe>
-<div id="map-scrim"></div>
-
-<header class="glass">
-  <div class="call" id="call">Is the Strait of Hormuz closed?</div>
-  <h1 id="call-answer">Loading…</h1>
-  <div class="sub" id="call-sub">Counting ships, not headlines.</div>
-  <div class="status-pill" id="status-pill">checking…</div>
+<body id="top">
+<main>
+<header class="lp-hero">
+  <iframe title="Live map of the Strait of Hormuz" tabindex="-1" aria-hidden="true"
+    src="https://www.google.com/maps?q=26.5667,56.25&z=8&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div class="hero-copy">
+    <span class="lp-mark"><img src="/icon.svg" alt="" width="56" height="56"></span>
+    <p class="shot-label" style="margin-top:1rem">Is the Strait of Hormuz closed?</p>
+    <h1 id="answer">Checking.</h1>
+    <p class="lp-lede" id="lede">Counting ships, not headlines.</p>
+    <div class="lp-cta">
+      <a href="#ships" class="lp-btn lp-solid">See the ships</a>
+      <a href="#oil" class="lp-btn">Oil price</a>
+    </div>
+  </div>
 </header>
 
-<section class="panel">
-  <div class="card glass">
-    <div class="price-row">
-      <span class="sub">WTI Crude</span>
-      <span class="px" id="px">...</span>
-      <span class="delta" id="delta">...</span>
-    </div>
-    <div class="tabs" role="group" aria-label="Chart range">
-      <button data-range="5d" class="active" aria-pressed="true">Daily</button>
-      <button data-range="1mo" aria-pressed="false">Monthly</button>
-      <button data-range="1y" aria-pressed="false">Yearly</button>
-    </div>
-    <canvas id="chart" role="img" aria-label="WTI crude price chart"></canvas>
-    <p id="chart-alt" class="sr-only"></p>
-
-    <div class="signal">
-      <span class="badge" id="signal-badge">...</span>
-      <p id="signal-text">Loading trend…</p>
-    </div>
+<section id="ships">
+  <div class="shot">
+    <div class="shot-head"><p class="shot-label">Ships through the strait</p><p class="readout" id="ships-asof"></p></div>
+    <p class="shot-num"><b id="ships-now">...</b><small>a day</small><span id="ships-vs"></span></p>
+    <canvas id="ships-chart" role="img" aria-label="Daily ship transits since January"></canvas>
+    <p class="readout" id="ships-read">7-day average. Hover or drag the line.</p>
   </div>
 </section>
 
-<div id="explainer">
-  <div class="row"><p id="explainer-lede">Checking.</p></div>
-  <div class="row"><p>For forty years the answer was always the same. Iran threatened to close the strait in nearly every flare-up since the 1980s Tanker War, and never did. Oil spiked on the headline, then gave it back within days.</p></div>
-  <div class="row"><p>The logic looked airtight. A fifth of the world's oil and a huge share of its LNG squeezes through a 21-mile channel. Closing it cuts off Iran's own exports and invites the U.S. Fifth Fleet, parked in Bahrain for exactly this. The threat was worth more unused.</p></div>
-  <div class="row"><p>Then it happened. On February 28, 2026, after U.S. and Israeli airstrikes, Iran shut the strait to commercial traffic. A ceasefire in April and a memorandum in June reopened it, toll-free, for a few weeks. That deal collapsed in July after attacks on ships. Traffic fell from about 85 transits a day to single digits.</p></div>
-  <div class="row"><p>Nobody needs a blockade line to close a strait. War-risk insurance does it. Premiums ran to roughly forty times normal, carriers suspended the route, and hundreds of ships sat waiting in the Gulf. The Saudi East-West pipeline, the main way around, was knocked out by drones in September.</p></div>
-  <div class="row"><p>So the old trade, short the fear premium because no tanker ever actually stops, is dead while this lasts. The base rate of a real closure is no longer zero. Watch the transit count above. When ships move again, the premium comes out. Until then, the chart is the only honest signal here.</p></div>
-</div>
+<section id="oil">
+  <div class="shot">
+    <div class="shot-head">
+      <p class="shot-label">WTI crude</p>
+      <div class="seg" role="group" aria-label="Chart range">
+        <button data-range="5d" aria-pressed="true">Week</button><button data-range="1mo" aria-pressed="false">Month</button><button data-range="1y" aria-pressed="false">Year</button>
+      </div>
+    </div>
+    <p class="shot-num"><b id="px">...</b><span id="delta"></span></p>
+    <canvas id="oil-chart" role="img" aria-label="WTI crude price chart"></canvas>
+    <p class="readout" id="oil-read">Hover or drag the line.</p>
+    <div class="signal"><span class="badge" id="badge">...</span><p id="signal">Reading the trend.</p></div>
+  </div>
+</section>
 
-<footer>
-  Data: Yahoo Finance (WTI CL=F), delayed. Strait status: IMF PortWatch transit counts, about a week behind. Not financial advice. This is a joke site with a real chart.
-  <br><a href="https://jaybulb.com">jaybulb.com</a> &middot; <a href="https://jaybulb.com/docs.html#hormuz">Docs</a>
+<section>
+  <ul class="says">
+    <li><b>It always stayed open.</b> For forty years Iran threatened to close it and never did. Oil spiked on the headline and gave it back within days.</li>
+    <li><b>Then it shut.</b> On February 28, 2026, after U.S. and Israeli airstrikes, traffic fell from about 85 ships a day to a handful. A June deal reopened it for a few weeks, then it collapsed.</li>
+    <li><b>Insurance did the closing.</b> War-risk premiums ran to about forty times normal and carriers left. When ships move again, the fear premium comes out of oil.</li>
+  </ul>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand"><img src="/icon.svg" alt="" width="40" height="40"><b>Hormuz</b><p>Counting ships, not headlines.</p></div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div><p class="label">Hormuz</p><a href="#ships">Ship count</a><a href="#oil">Oil price</a></div>
+      <div><p class="label">Data</p><a href="https://portwatch.imf.org">IMF PortWatch</a><a href="https://finance.yahoo.com/quote/CL=F">WTI on Yahoo</a><a href="/api/status">Raw status</a></div>
+      <div><p class="label">More</p><a href="mailto:info@jaybulb.com?subject=Hormuz">Feedback</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
+    </nav>
+  </div>
+  <p class="legal">&copy; 2026 Joshua Trommel &middot; MIT &middot; Ship counts run about a week behind. Oil is delayed. Not financial advice.</p>
 </footer>
 
 <script>
 const $ = (s) => document.querySelector(s);
+const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fmtDay = (d) => d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+let isOpen = null;
+const charts = {}; // id -> {xs, ys, color, fmt}, kept so resize redraws without refetching
 
-let isOpen = null; // null until /api/status answers
+// one line chart for both cards; hover or drag shows the value under the finger
+function draw(id, hover = -1) {
+  const c = charts[id]; if (!c) return;
+  const el = document.getElementById(id), ctx = el.getContext("2d");
+  const dpr = devicePixelRatio || 1, w = el.clientWidth, h = el.clientHeight, pad = 6;
+  el.width = w * dpr; el.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const min = Math.min(...c.ys, c.floor ?? Infinity), max = Math.max(...c.ys);
+  const x = (i) => pad + (i / (c.ys.length - 1)) * (w - pad * 2);
+  const y = (v) => h - pad - ((v - min) / (max - min || 1)) * (h - pad * 2);
+  ctx.beginPath(); c.ys.forEach((v, i) => (i ? ctx.lineTo(x(i), y(v)) : ctx.moveTo(x(i), y(v))));
+  ctx.strokeStyle = c.color; ctx.lineWidth = 2; ctx.lineJoin = "round"; ctx.stroke();
+  ctx.lineTo(x(c.ys.length - 1), h); ctx.lineTo(x(0), h); ctx.closePath();
+  const g = ctx.createLinearGradient(0, 0, 0, h);
+  g.addColorStop(0, c.color + "33"); g.addColorStop(1, c.color + "00"); ctx.fillStyle = g; ctx.fill();
+  if (c.ref != null) { // dashed "normal" line on the ships chart
+    ctx.setLineDash([4, 4]); ctx.strokeStyle = css("--text3") || "#888"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(pad, y(c.ref)); ctx.lineTo(w - pad, y(c.ref)); ctx.stroke(); ctx.setLineDash([]);
+  }
+  if (hover >= 0) {
+    ctx.strokeStyle = css("--text2") || "#888"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(x(hover), 0); ctx.lineTo(x(hover), h); ctx.stroke();
+    ctx.fillStyle = c.color; ctx.beginPath(); ctx.arc(x(hover), y(c.ys[hover]), 4, 0, 7); ctx.fill();
+    document.getElementById(c.readout).textContent = c.fmt(c.xs[hover], c.ys[hover]);
+  }
+}
+function track(id) {
+  const el = document.getElementById(id);
+  const at = (e) => { const r = el.getBoundingClientRect(), n = charts[id]?.ys.length || 1;
+    return Math.max(0, Math.min(n - 1, Math.round(((e.clientX - r.left) / r.width) * (n - 1)))); };
+  el.addEventListener("pointermove", (e) => draw(id, at(e)));
+  el.addEventListener("pointerdown", (e) => draw(id, at(e)));
+  el.addEventListener("pointerleave", () => { draw(id); document.getElementById(charts[id].readout).textContent = charts[id].idle; });
+}
+
 async function loadStatus() {
-  const pill = $("#status-pill");
   try {
     const st = await (await fetch("/api/status")).json();
     isOpen = st.open;
-    pill.textContent = `${isOpen ? "Open" : "Closed"} · ${st.transits_per_day} ships/day vs ${st.baseline_per_day} normal`;
-    pill.title = `${st.source}, as of ${st.as_of}`;
-    pill.classList.toggle("closed", !isOpen);
-    $("#explainer-lede").textContent = isOpen ? "It's open. For now." : "It's closed.";
     const day = Math.floor((Date.now() - new Date(st.last_closure)) / 864e5);
-    const answer = $("#call-answer");
-    answer.textContent = isOpen ? "No." : `Yes. Day ${day}.`;
-    answer.className = isOpen ? "long" : "short"; // reuses the green/red h1 colors
-    $("#call-sub").textContent = "This site started as a joke that it never closes. Then it closed.";
+    const a = $("#answer");
+    a.textContent = isOpen ? "No." : `Yes. Day ${day}.`;
+    a.className = isOpen ? "open" : "closed";
+    $("#lede").textContent = isOpen
+      ? `Ships are moving again, about ${st.transits_per_day} a day. It shut on February 28, 2026.`
+      : `About ${st.transits_per_day} ships a day get through. Before February 28 it was ${st.baseline_per_day}.`;
+    $("#ships-now").textContent = st.transits_per_day;
+    $("#ships-vs").textContent = `of ${st.baseline_per_day} normal`;
+    $("#ships-vs").className = isOpen ? "up" : "down";
+    $("#ships-asof").textContent = `IMF PortWatch, ${fmtDay(new Date(st.as_of))}`;
+    const hist = st.history || [];
+    // ponytail: 7-day rolling mean, daily counts are too spiky to read
+    const ys = hist.map((_, i) => { const w = hist.slice(Math.max(0, i - 6), i + 1); return w.reduce((s, d) => s + d[1], 0) / w.length; });
+    if (ys.length > 1) {
+      const idle = `7-day average since ${fmtDay(new Date(hist[0][0]))}. Dashed line is normal.`;
+      charts["ships-chart"] = { xs: hist.map((d) => new Date(d[0])), ys, ref: st.baseline_per_day, floor: 0,
+        color: isOpen ? css("--open") : css("--closed"), readout: "ships-read", idle,
+        fmt: (d, v) => `${fmtDay(d)}: ${v.toFixed(1)} ships a day` };
+      $("#ships-read").textContent = idle;
+      $("#ships-chart").setAttribute("aria-label", `Ship transits per day, 7-day average, from ${ys[0].toFixed(0)} to ${ys.at(-1).toFixed(1)}. Normal is ${st.baseline_per_day}.`);
+      draw("ships-chart");
+    }
   } catch {
-    pill.textContent = "Status unavailable";
-    $("#call-answer").textContent = "Unknown.";
-    $("#explainer-lede").textContent = "Status unavailable.";
+    $("#answer").textContent = "Unknown.";
+    $("#lede").textContent = "The ship count is unavailable right now.";
   }
 }
 
-let chart;
-async function loadRange(range) {
-  const res = await fetch(`/api/oil?range=${range}`);
-  const data = await res.json();
-  const closes = data.closes.filter((v) => v != null);
-  const labels = data.timestamps
-    .filter((_, i) => data.closes[i] != null)
-    .map((t) => new Date(t * 1000));
-
-  $("#px").textContent = "$" + data.price.toFixed(2);
-  const chg = data.price - data.prevClose;
-  const pct = (chg / data.prevClose) * 100;
-  const d = $("#delta");
-  d.textContent = `${chg >= 0 ? "+" : ""}${chg.toFixed(2)} (${pct.toFixed(2)}%)`;
-  d.className = "delta " + (chg >= 0 ? "up" : "down");
-  $("#chart-alt").textContent =
-    `WTI crude $${data.price.toFixed(2)}, ${chg >= 0 ? "up" : "down"} ${Math.abs(pct).toFixed(2)}% over the selected range, from $${closes[0].toFixed(2)} to $${closes[closes.length - 1].toFixed(2)}.`;
-
-  drawChart(labels, closes);
-  drawSignal(closes);
-}
-
-function drawChart(labels, closes) {
-  const c = $("#chart");
-  const ctx = c.getContext("2d");
-  const dpr = window.devicePixelRatio || 1;
-  const w = c.clientWidth, h = 280;
-  c.width = w * dpr; c.height = h * dpr;
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  ctx.clearRect(0, 0, w, h);
-
-  const min = Math.min(...closes), max = Math.max(...closes);
-  const pad = 20;
-  const x = (i) => pad + (i / (closes.length - 1)) * (w - pad * 2);
-  const y = (v) => h - pad - ((v - min) / (max - min || 1)) * (h - pad * 2);
-
-  ctx.beginPath();
-  closes.forEach((v, i) => (i === 0 ? ctx.moveTo(x(i), y(v)) : ctx.lineTo(x(i), y(v))));
-  ctx.strokeStyle = closes[closes.length - 1] >= closes[0] ? "#2fbf71" : "#e6483f";
-  ctx.lineWidth = 2;
-  ctx.stroke();
-
-  ctx.lineTo(x(closes.length - 1), h - pad);
-  ctx.lineTo(x(0), h - pad);
-  ctx.closePath();
-  const grad = ctx.createLinearGradient(0, 0, 0, h);
-  const col = closes[closes.length - 1] >= closes[0] ? "47,191,113" : "230,72,63";
-  grad.addColorStop(0, `rgba(${col},0.18)`);
-  grad.addColorStop(1, `rgba(${col},0)`);
-  ctx.fillStyle = grad;
-  ctx.fill();
-}
-
-function drawSignal(closes) {
-  const first = closes[0], last = closes[closes.length - 1];
-  const pct = ((last - first) / first) * 100;
-  const badge = $("#signal-badge"), text = $("#signal-text");
-  if (pct >= 0) {
-    badge.textContent = "LONG";
-    badge.className = "badge long";
-    text.textContent = `Up ${pct.toFixed(1)}% over this window. Momentum favors long. ${isOpen === false ? "The strait is closed, so the supply risk is real, not just a headline." : "This is trend-following, not a Hormuz call."}`;
-  } else {
-    badge.textContent = "SHORT";
-    badge.className = "badge short";
-    text.textContent = `Down ${Math.abs(pct).toFixed(1)}% over this window. Momentum favors short. ${isOpen === false ? "The strait is closed, so shorting here is a bet on a reopening." : "Any Hormuz headline pop without an actual tanker stoppage tends to fade."}`;
+async function loadOil(range) {
+  try {
+    const data = await (await fetch(`/api/oil?range=${range}`)).json();
+    const keep = data.closes.map((v, i) => v != null ? i : -1).filter((i) => i >= 0);
+    const ys = keep.map((i) => data.closes[i]), xs = keep.map((i) => new Date(data.timestamps[i] * 1000));
+    const chg = data.price - data.prevClose, pct = (chg / data.prevClose) * 100, up = chg >= 0;
+    $("#px").textContent = "$" + data.price.toFixed(2);
+    $("#delta").textContent = `${up ? "+" : ""}${chg.toFixed(2)} (${pct.toFixed(2)}%)`;
+    $("#delta").className = up ? "up" : "down";
+    const idle = `${fmtDay(xs[0])} to ${fmtDay(xs.at(-1))}. Hover or drag the line.`;
+    charts["oil-chart"] = { xs, ys, color: ys.at(-1) >= ys[0] ? css("--open") : css("--closed"), readout: "oil-read", idle,
+      fmt: (d, v) => `${range === "5d" ? d.toLocaleString(undefined, { weekday: "short", hour: "numeric", minute: "2-digit" }) : fmtDay(d)}: $${v.toFixed(2)}` };
+    $("#oil-read").textContent = idle;
+    $("#oil-chart").setAttribute("aria-label", `WTI crude from $${ys[0].toFixed(2)} to $${ys.at(-1).toFixed(2)} over the selected range.`);
+    draw("oil-chart");
+    const move = ((ys.at(-1) - ys[0]) / ys[0]) * 100, long = move >= 0, b = $("#badge");
+    b.textContent = long ? "LONG" : "SHORT"; b.className = "badge " + (long ? "up" : "down");
+    $("#signal").textContent = `${long ? "Up" : "Down"} ${Math.abs(move).toFixed(1)}% over this window, so momentum says ${long ? "long" : "short"}. ` +
+      (isOpen === false ? (long ? "The strait is closed, so the supply risk is real." : "Shorting here is a bet on a reopening.") : "Trend following, not a Hormuz call.");
+  } catch {
+    $("#px").textContent = "Unavailable";
   }
 }
 
-document.querySelectorAll(".tabs button").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".tabs button").forEach((b) => {
-      b.classList.remove("active");
-      b.setAttribute("aria-pressed", "false");
-    });
-    btn.classList.add("active");
-    btn.setAttribute("aria-pressed", "true");
-    loadRange(btn.dataset.range);
-  });
-});
-
-loadStatus().finally(() => loadRange("5d"));
-window.addEventListener("resize", () => {
-  const active = document.querySelector(".tabs button.active").dataset.range;
-  loadRange(active);
-});
-
-// ponytail: dumb 60s poll, no websocket, the KV cache upstream already throttles Yahoo to 15min
-setInterval(() => {
-  loadStatus();
-  const active = document.querySelector(".tabs button.active").dataset.range;
-  loadRange(active);
-}, 60000);
-
-// star wars crawl: rows tilt back and fade as they leave the viewport center,
-// level out and brighten as they approach it. Continuous, not a threshold flip.
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const rows = document.querySelectorAll("#explainer .row");
-let ticking = false;
-
-function updateCrawl() {
-  ticking = false;
-  if (reduceMotion) return;
-  const centerY = window.innerHeight / 2;
-  rows.forEach((r) => {
-    const rect = r.getBoundingClientRect();
-    const rowCenter = rect.top + rect.height / 2;
-    const dist = (rowCenter - centerY) / centerY; // -1 (above) .. 0 (centered) .. 1+ (below)
-    const clamped = Math.max(-1.3, Math.min(1.3, dist));
-    const opacity = Math.max(0.12, 1 - Math.abs(clamped) * 0.8);
-    const tilt = clamped * -22; // rotates away above and below center, like the crawl vanishing point
-    const scale = 1 - Math.abs(clamped) * 0.08;
-    r.style.opacity = opacity.toFixed(2);
-    r.style.transform = `rotateX(${tilt.toFixed(1)}deg) scale(${scale.toFixed(3)})`;
-  });
-}
-
-function onScroll() {
-  if (!ticking) {
-    requestAnimationFrame(updateCrawl);
-    ticking = true;
-  }
-}
-
-if (reduceMotion) {
-  rows.forEach((r) => (r.style.opacity = "1"));
-} else {
-  window.addEventListener("scroll", onScroll, { passive: true });
-  updateCrawl();
-}
+const range = () => document.querySelector('.seg button[aria-pressed="true"]').dataset.range;
+document.querySelectorAll(".seg button").forEach((btn) => btn.addEventListener("click", () => {
+  document.querySelectorAll(".seg button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+  loadOil(btn.dataset.range);
+}));
+track("ships-chart"); track("oil-chart");
+addEventListener("resize", () => { draw("ships-chart"); draw("oil-chart"); });
+loadStatus().finally(() => loadOil("5d"));
+// ponytail: dumb 5 min poll, the worker's KV cache already throttles upstream
+setInterval(() => { loadStatus(); loadOil(range()); }, 300000);
 </script>
 </body>
 </html>
