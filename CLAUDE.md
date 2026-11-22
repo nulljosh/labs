@@ -50,7 +50,7 @@ Old names live on in bundle ids, Pages projects and hosts after a rename. Check 
 | **keyrate** | Typing test, many ports · 6830043245 |
 | **homeqi**, **homeroom**, **dream**, **cadence**, **numen**, **weather**, **fieldbook**, **hormuz** | Small web apps |
 | **noema** | STEM lab, a lane per field, `./deploy.sh` |
-| **hackrange** | Pentesting dojo for the Mac, public, `RULES.md` binds every agent there (Pages `hackrange`) |
+| **f4lc0n** (ex-hackrange) | Pentesting dojo for the Mac, public, `RULES.md` binds every agent there (Pages `hackrange`) |
 
 ### Big projects
 **joshuatree** (from-scratch i386 and Pi 4 OS), **turing** (small on-device models), **plank** (one-file language), **vancouvervice** (Unreal 5), **duke** (plays games while you sleep, runner must stay up), **joshemon** (GBA game in C), **mirage** (desert platformer that runs inside Joshua Tree).
