@@ -10,7 +10,6 @@
 !fieldbook/
 !dream/
 !homeqi/
-!bcgd/
 !scripts/
 scripts/*
 !scripts/progress-svg.py

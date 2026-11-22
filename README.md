@@ -4,7 +4,7 @@
 
 ## In labs
 
-**Apps and sites:** [bcgd](./bcgd), [bbgd](./bbgd), [homeqi](./homeqi), [dream](./dream), [cadence](./cadence), [fieldbook](./fieldbook)
+**Apps and sites:** [bcgd](https://github.com/nulljosh/bcgd), [doorstock](https://github.com/nulljosh/doorstock), [bbgd](./bbgd), [homeqi](./homeqi), [dream](./dream), [cadence](./cadence), [fieldbook](./fieldbook)
 
 **Tools:** [hormuz](./hormuz), [weather](./weather), [authmail](./authmail), [dotfiles](./dotfiles), [scripts](./scripts)
 
