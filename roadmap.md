@@ -640,3 +640,14 @@ Budget note: each conversion is roughly 3 to 5 percent of a session window when 
 - [ ] Security: sweep our codebase repos with a security code review.
 - [ ] New skill: GitHub cleanup of issues and PRs, better labels, organization.
 - [ ] New skill: Photos cleanup that opens macOS Photos and organizes it, e.g. a folder for book screenshots.
+
+## Ingested 2026-11-23
+
+- [ ] **Labs**: Clean up GitHub repo
+  - And fix the fucking tests
+  - I’ve got too many emails
+- [ ] **Sidewise**: Why is it still on asc
+  - Can we not delete it??
+- [ ] **Monetization**: How to setup stripe with all apps
+  - And publish them etcetera
+  - Distribution??? Marketing?
