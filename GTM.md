@@ -1,10 +1,10 @@
 # GTM, the money ledger
 
-*Current state only, verified 2026-11-02 (`asc pricing current --app <id>` for every app). The plan for the company is `REVENUE.md`. Each app's own plan is its `MONEY.md`. History is in git.*
+*Current state only, numbers verified 2026-11-24, prices 2026-11-02 (`asc pricing current --app <id>` for every app). The plan for the company is `REVENUE.md`. Each app's own plan is its `MONEY.md`. History is in git.*
 
 ## The numbers
 
-Revenue: **no verified number.** The App Store Connect API key lacks the Sales role, so `asc analytics sales` is refused; Stripe showed zero charges ever when last checked on 2026-09-06. Traffic: about 37 visits a day across every site (Cloudflare Web Analytics, last read 2026-08-30). Give the key the Sales role and this section becomes a weekly number.
+Revenue (App Store, all time to 2026-11-23, `/sales`): **about $15 USD in sales from ~15 paid units (~$12.60 proceeds), 413 first downloads.** First sale 2026-10-09. Top sellers: Eponym, Notate, Nimble. Stripe unverified (zero charges as of 2026-09-06). Traffic: about 37 visits a day across every site (Cloudflare Web Analytics, last read 2026-08-30).
 
 ## Rules
 
