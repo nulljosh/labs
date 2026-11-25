@@ -17,15 +17,15 @@ Every app is free or a dollar. Paid upfront unlocks everything, nobody pays twic
 | Epiphany | 6779522175 | $1.00 | Stripe $1 (Premium) | hero candidate | `epiphany/MONEY.md` |
 | Echo (store: Notate) | 6782604262 | $0.99 | free | hero candidate | `echo/docs/MONEY.md` |
 | Kernel | 6792376485 | $0.99 (the voices) | free | hero candidate | `kernel/MONEY.md` |
-| Pan (store: Curvely) | 6794988370 | $0.99 | free | catalogue | `pan/MONEY.md` |
-| Icelus | 6794988951 | $0.99 | free | catalogue | `icelus/MONEY.md` |
-| Eponym | 6794988021 | $0.99 | free | catalogue | `eponym/docs/MONEY.md` |
-| Bugle (store: Bugles) | 6787759999 | $0.99 | free | catalogue | `bugle/MONEY.md` |
-| Nimble (store: Nimble Answers) | 6807858746 | $0.99 | free, Apache 2.0 | catalogue | `nimble/MONEY.md` |
-| Airwell | 6810806058 | $0.99 | free | catalogue | `airwell/MONEY.md` |
-| Toroid | 6806324937 | $0.99 | free | catalogue | `toroid/MONEY.md` |
-| Gastown | 6782618198 | $0.99 | free | catalogue | `gastown/docs/MONEY.md` |
-| Cartons | 6825115360 | $0.99 | free | catalogue | `cartons/MONEY.md` |
+| Pan (store: Curvely) | 6794988370 | free | free | catalogue | `pan/MONEY.md` |
+| Icelus | 6794988951 | free | free | catalogue | `icelus/MONEY.md` |
+| Eponym | 6794988021 | free | free | catalogue | `eponym/docs/MONEY.md` |
+| Bugle (store: Bugles) | 6787759999 | free | free | catalogue | `bugle/MONEY.md` |
+| Nimble (store: Nimble Answers) | 6807858746 | free | free, Apache 2.0 | catalogue | `nimble/MONEY.md` |
+| Airwell | 6810806058 | free | free | catalogue | `airwell/MONEY.md` |
+| Toroid | 6806324937 | free | free | catalogue | `toroid/MONEY.md` |
+| Gastown | 6782618198 | free | free | catalogue | `gastown/docs/MONEY.md` |
+| Cartons | 6825115360 | free | free | catalogue | `cartons/MONEY.md` |
 | Talli | 6782366555 | free | Stripe $1 | free on purpose, a disability tool | `talli/docs/MONEY.md` |
 | Machaon | 6785764864 | free | Stripe $1 | catalogue | `machaon/docs/MONEY.md` |
 | Melete (store: Thinkpond) | 6785162492 | free | Stripe $1 | catalogue | `melete/MONEY.md` |
@@ -49,6 +49,10 @@ Every app is free or a dollar. Paid upfront unlocks everything, nobody pays twic
 | Joshua Tree | none | the OS is free | waitlist | **the hardware, stage one's center** | `REVENUE.md` |
 
 Sidewise was retired 2026-10-28 and removed from sale (6806028670).
+
+## Free experiment (2026-11-25)
+
+Pan, Icelus, Eponym, Bugle, Nimble, Airwell, Toroid, Gastown and Cartons went free (no IAP, no paywall) after earning $10 combined. Baseline: about 23 downloads a month for the whole fleet. Read it on 2026-12-23: 10+ downloads per app a month means price was a barrier (add an IAP unlock to the top two, in builds already going out); under 3 means discovery is the problem. Revert one: `asc pricing schedule create --app <id> --price-point <0.99 id> --base-territory US`. Echo, Kernel and Epiphany unchanged.
 
 ## Hard-won rules
 
