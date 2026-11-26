@@ -10,6 +10,7 @@ Work in this order, one project at a time. Nothing is submitted or sent to Apple
 3. **Plaintxt iOS is on its last try:** Apple asked for significant changes, and 1.1.0 (code keys, encoding and line endings, Shortcuts, new listing and screenshots) went in on 2026-11-08. If it bounces, drop iOS and stay Mac only, because repeat submissions slow every review on the account.
 4. **Store names still stale, locked until the version in review clears:** Pan (store Curvely), Coda (Quotestreak), Melete (Thinkpond), Echo (Notate), Bugle (Bugles). Rename on each app's next editable app info.
 5. **Never reached the store:** bbgd needs its address, socials, email and DNS, then `wrangler pages deploy`.
+6. **Free plus paid premium (decided 2026-11-26):** Epiphany, Echo, Kernel are the only paid apps ($0.99). None of the three has StoreKit yet. Per app: add one non-consumable IAP "Premium" at $0.99, gate the premium features, then flip the app to Free in ASC only once the build with the IAP is approved. Stripe can't unlock features under review. Never flip the price first.
 6. **After that:** active features (Epiphany, Nimble, Patois, Icelus), then portfolio, then Joshua Tree, Turing, Vancouver Vice, Duke.
 
 Joshua only: give the App Store Connect API key the Sales role (that turns the revenue number from unknown to real), seller name, the people-search key, naming picks.
